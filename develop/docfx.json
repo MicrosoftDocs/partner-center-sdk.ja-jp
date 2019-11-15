@@ -1,0 +1,57 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**",
+          "README.md",
+          "LICENSE",
+          "LICENSE-CODE",
+          "ThirdPartyNotices"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "**/*.png",
+          "**/*.jpg"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**"
+        ]
+      }
+    ],
+    "overwrite": [],
+    "externalReference": [],
+    "globalMetadata": {
+      "uhfHeaderId": "MSDocsHeader-Partner-Center",
+      "titleSuffix": "Partner Center app developer",
+      "breadcrumb_path": "/partner-center/develop/breadcrumb/toc.json",
+      "extendBreadcrumb": true,
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/partner-center-sdk",
+      "author": "lauradolan",
+      "ms.author": "ladolan",
+      "ms.topic": "article",
+      "ms.prod": "partner-center",
+      "ms.technology": "partner-center-sdk",
+      "_op_documentIdPathDepotMapping": {
+        "./": {
+          "depot_name": "MSDN.partner-center-sdk", 
+          "folder_relative_path_in_docset": "./"
+        }
+      }
+    },
+    "fileMetadata": {},
+    "template": [],
+    "dest": "partner-center-sdk",
+    "markdownEngineName": "markdig"
+  }
+}
