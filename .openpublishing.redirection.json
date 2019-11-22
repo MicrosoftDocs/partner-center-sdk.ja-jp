@@ -1,180 +1,179 @@
 {
-    "redirections": 
-    [
-        {
-            "source_path": "develop/agreement.md",
-            "redirect_url": "agreement-resources",
-            "redirect_document_id": true
-        },
-		{
-			"source_path": "develop/analytics.md",
-			"redirect_url": "analytics-resources",
-			"redirect_document_id": true
-		},
-        {
-            "source_path": "develop/agreement-metadata.md",
-            "redirect_url": "agreement-metadata-resources",
-            "redirect_document_id": true
-        },
-		{
-			"source_path": "develop/auditing.md",
-			"redirect_url": "auditing-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/azure-rate-card.md",
-			"redirect_url": "azure-rate-card-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/azure-utilization-record.md",
-			"redirect_url": "azure-utilization-record-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/cart.md",
-			"redirect_url": "cart-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/conversions.md",
-			"redirect_url": "conversions-resources",
-			"redirect_document_id": true
-		},
-        {
-            "source_path": "develop/countryinformation.md",
-            "redirect_url": "country-information-resources",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "develop/customers.md",
-            "redirect_url": "customer-resources",
-            "redirect_document_id": true
-        },
-		{
-			"source_path": "develop/customer-usage.md",
-			"redirect_url": "customer-usage-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/devicedeployment.md",
-			"redirect_url": "device-deployment-resources",
-			"redirect_document_id": true
-		},
-        {
-            "source_path": "develop/enable-multi-factor-authentication.md",
-            "redirect_url": "enable-secure-app-model",
-            "redirect_document_id": true
-        },
-		{
-			"source_path": "develop/entitlement.md",
-			"redirect_url": "entitlement-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/invoice.md",
-			"redirect_url": "invoice-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/licenses.md",
-			"redirect_url": "license-resources",
-			"redirect_document_id": true
-		},
-        {
-            "source_path": "develop/manage-invoices.md",
-            "redirect_url": "manage-billing",
-            "redirect_document_id": true
-        },
-		{
-			"source_path": "develop/managedservice.md",
-			"redirect_url": "managed-service-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/offer.md",
-			"redirect_url": "offer-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/orders.md",
-			"redirect_url": "order-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/place-orders.md",
-			"redirect_url": "manage-orders",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/profiles.md",
-			"redirect_url": "profile-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/products.md",
-			"redirect_url": "product-resources",
-			"redirect_document_id": true
-		},
-       {
-            "source_path": "develop/purchase-azure-reserved-vm-instances.md",
-            "redirect_url": "purchase-azure-reservations",
-            "redirect_document_id": true
-        },
- 		{
-			"source_path": "develop/referral.md",
-			"redirect_url": "referral-resources",
-			"redirect_document_id": true
-		},
- 		{
-			"source_path": "develop/relationships.md",
-			"redirect_url": "relationships-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/servicecosts.md",
-			"redirect_url": "service-costs-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/servicerequest.md",
-			"redirect_url": "service-request-resources",
-			"redirect_document_id": true
-		},
- 		{
-			"source_path": "develop/subscriptions.md",
-			"redirect_url": "subscription-resources",
-			"redirect_document_id": true
-		},
- 		{
-			"source_path": "develop/subscriptionusage.md",
-			"redirect_url": "subscription-usage-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/upgrade.md",
-			"redirect_url": "upgrade-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/user.md",
-			"redirect_url": "user-resources",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/partner-center-managed-api.md",
-			"redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/?view=partnercenter-dotnet-latest",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/get-a-customers-rated-usage-information.md",
-			"redirect_url": "develop/get-a-customer-usage-summary.md",
-			"redirect_document_id": true
-		},
-		{
-			"source_path": "develop/get-a-subscriptions-resource-usage-information.md",
-			"redirect_url": "develop/get-all-monthly-usage-records-for-a-subscription.md",
-			"redirect_document_id": true
-		}
- ]
+  "redirections": [
+    {
+      "source_path": "develop/agreement.md",
+      "redirect_url": "agreement-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/analytics.md",
+      "redirect_url": "analytics-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/agreement-metadata.md",
+      "redirect_url": "agreement-metadata-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/auditing.md",
+      "redirect_url": "auditing-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/azure-rate-card.md",
+      "redirect_url": "azure-rate-card-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/azure-utilization-record.md",
+      "redirect_url": "azure-utilization-record-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/cart.md",
+      "redirect_url": "cart-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/conversions.md",
+      "redirect_url": "conversions-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/countryinformation.md",
+      "redirect_url": "country-information-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/customers.md",
+      "redirect_url": "customer-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/customer-usage.md",
+      "redirect_url": "customer-usage-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/devicedeployment.md",
+      "redirect_url": "device-deployment-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/enable-multi-factor-authentication.md",
+      "redirect_url": "enable-secure-app-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/entitlement.md",
+      "redirect_url": "entitlement-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/invoice.md",
+      "redirect_url": "invoice-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/licenses.md",
+      "redirect_url": "license-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/manage-invoices.md",
+      "redirect_url": "manage-billing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/managedservice.md",
+      "redirect_url": "managed-service-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/offer.md",
+      "redirect_url": "offer-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/orders.md",
+      "redirect_url": "order-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/place-orders.md",
+      "redirect_url": "manage-orders",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/profiles.md",
+      "redirect_url": "profile-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/products.md",
+      "redirect_url": "product-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/purchase-azure-reserved-vm-instances.md",
+      "redirect_url": "purchase-azure-reservations",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/referral.md",
+      "redirect_url": "referral-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/relationships.md",
+      "redirect_url": "relationships-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/servicecosts.md",
+      "redirect_url": "service-costs-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/servicerequest.md",
+      "redirect_url": "service-request-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/subscriptions.md",
+      "redirect_url": "subscription-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/subscriptionusage.md",
+      "redirect_url": "subscription-usage-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/upgrade.md",
+      "redirect_url": "upgrade-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/user.md",
+      "redirect_url": "user-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/partner-center-managed-api.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/?view=partnercenter-dotnet-latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "develop/get-a-customers-rated-usage-information.md",
+      "redirect_url": "develop/get-a-customer-usage-summary.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "develop/get-a-subscriptions-resource-usage-information.md",
+      "redirect_url": "develop/get-all-monthly-usage-records-for-a-subscription.md",
+      "redirect_document_id": true
+    }
+  ]
 }
