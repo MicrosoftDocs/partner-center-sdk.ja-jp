@@ -1,6 +1,6 @@
 ---
 title: 顧客のユーザー ロールを設定する
-description: Within a customer account, there's a set of directory roles. You can assign user accounts to those roles.
+description: 顧客アカウント内には、一連のディレクトリロールがあります。 これらのロールにユーザーアカウントを割り当てることができます。
 ms.assetid: B7FA3599-9AE9-4494-90B4-F7C9A2EF2338
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -16,22 +16,22 @@ ms.locfileid: "74488032"
 # <a name="set-user-roles-for-a-customer"></a>顧客のユーザー ロールを設定する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-Within a customer account, there's a set of directory roles. You can assign user accounts to those roles.
+顧客アカウント内には、一連のディレクトリロールがあります。 これらのロールにユーザーアカウントを割り当てることができます。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To assign a directory role to a customer user, create a new [**UserMember**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) with the relevant user details. Then, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the specified customer ID to identify the customer. From there, use the [**DirectoryRoles.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) method with the directory role ID to specify the role. Then, access the **UserMembers** collection, and use the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) method to add the new user member to the collection of user members assigned to that role.
+顧客ユーザーにディレクトリロールを割り当てるには、関連するユーザーの詳細を使用して新しい[**Usermember**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.roles.usermember)を作成します。 次に、指定した顧客 ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。 そこから、ディレクトリロール ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid)メソッドを使用してロールを指定します。 次に、 **Usermembers**コレクションにアクセスし、 [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create)メソッドを使用して、そのロールに割り当てられたユーザーメンバーのコレクションに新しいユーザーメンバーを追加します。
 
 ``` csharp
 // UserMember createdUser;
@@ -51,48 +51,48 @@ UserMember userMemberToAdd = new UserMember()
 var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).DirectoryRoles.ById(selectedRole.Id).UserMembers.Create(userMemberToAdd);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: AddUserMemberToDirectoryRole.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: AddUserMemberToDirectoryRole.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド   | 要求 URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following URI parameters to identify the correct customer and role. To identify the user to whom to assign the role, supply the identifying information in the request body.
+次の URI パラメーターを使用して、適切な顧客とロールを識別します。 ロールを割り当てるユーザーを識別するには、要求本文に識別情報を指定します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **role-id**            | **guid** | Y        | The value is a GUID formatted **role-id** that identifies the role to assign to the user.                                                              |
+| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **ロール id**            | **guid** | Y        | 値は、ユーザーに割り当てるロールを識別する GUID 形式の**ロール id**です。                                                              |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
-This table describes the required properties in the request body.
+次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                  | タスクバーの検索ボックスに       | 必須かどうか | 説明                            |
+| 名前                  | 種類       | 必須 | 説明                            |
 |-----------------------|------------|----------|----------------------------------------|
-| **Id**                | **string** | Y        | The Id of the user to add to the role. |
-| **DisplayName**       | **string** | Y        | The friendly display name of the user. |
-| **UserPrincipalName** | **string** | Y        | The name of the user principal.        |
-| **Attributes**        | **object** | Y        | Contains "ObjectType":"UserMember"     |
+| **番号**                | **文字列** | Y        | ロールに追加するユーザーの Id。 |
+| **DisplayName**       | **文字列** | Y        | ユーザーの表示名。 |
+| **UserPrincipalName** | **文字列** | Y        | ユーザープリンシパルの名前。        |
+| **アトリビュート**        | **素材** | Y        | "ObjectType": "UserMember" が含まれています。     |
 
  
 
-**Request example**
+**要求の例**
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/directoryroles/f023fd81-a637-4b56-95fd-791ac0226033/usermembers HTTP/1.1
@@ -116,16 +116,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
 
 
-This method returns the user account with the role id attached when the user is successfully assigned the role.
+このメソッドは、ユーザーにロールが割り当てられたときに、ロール id が割り当てられたユーザーアカウントを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 201 Created

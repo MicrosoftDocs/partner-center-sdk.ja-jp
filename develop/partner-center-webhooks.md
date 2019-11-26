@@ -1,6 +1,6 @@
 ---
-title: Partner Center webhooks
-description: Webhooks allow partners to register for resource change events.
+title: パートナーセンターの webhook
+description: Webhook を使用すると、パートナーはリソース変更イベントに登録できます。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,10 +12,10 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488242"
 ---
-# <a name="partner-center-webhooks"></a>Partner Center webhooks
+# <a name="partner-center-webhooks"></a>パートナーセンターの webhook
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター   
 - 21Vianet が運営するパートナー センター
@@ -23,54 +23,54 @@ ms.locfileid: "74488242"
 - 米国政府機関向け Microsoft Cloud のパートナー センター   
 
 
-The Partner Center Webhook APIs allow partners to register for resource change events. These events are delivered in the form of HTTP POSTs to the partner's registered URL. To receive an event from Partner Center, partners will host a callback where Partner Center can POST the resource change event. The event will be digitally signed so that the partner can verify that it was sent from Partner Center. 
+パートナーセンターの Webhook Api を使用すると、パートナーはリソース変更イベントに登録できます。 これらのイベントは、パートナーの登録済み URL に HTTP 投稿の形式で配信されます。 パートナーセンターからイベントを受信するために、パートナーはパートナーセンターがリソース変更イベントを投稿できるコールバックをホストします。 イベントはデジタル署名されるので、パートナーはパートナーセンターから送信されたことを確認できます。 
 
-Partners can select from Webhook events, like the following, that are supported by Partner Center.  
+パートナーは、パートナーセンターでサポートされている次のような Webhook イベントから選択できます。  
 
-- **Test Event ("test-created")**
+- **テストイベント ("テスト作成済み")**
 
-    This event allows you to self-onboard and test your registration by requesting a test event and then tracking its progress. You will be able to see the failure messages that are being received from Microsoft while trying to deliver the event. This will only apply to "test-created" events and data older than 7 days will be purged.
+    このイベントを使用すると、テストイベントを要求し、その進行状況を追跡することによって、登録を自己オンボードしてテストできます。 イベントの配信を試みている間に、Microsoft から受信されているエラーメッセージを確認することができます。 これは "テスト作成済み" イベントにのみ適用され、7日を経過したデータは消去されます。
 
-- **Subscription Updated Event ("subscription-updated")**
+- **サブスクリプション更新イベント ("サブスクリプション-更新済み")**
 
     このイベントは、サブスクリプションが変化したときに発生します。 これらのイベントは、パートナー センター API を通じて変更が行われた場合に加えて、内部変更が行われた場合にも生成されます。 
     
     >[!NOTE]
-    >There is a delay of up to 48 hours between the time a subscription changes and when the Subscription Updated event is triggered. 
+    >サブスクリプションが変更されてからサブスクリプションの更新イベントがトリガーされるまでに、最大48時間の遅延が発生します。 
 
-- **Threshold Exceeded Event ("usagerecords-thresholdExceeded")**
+- **しきい値を超えたイベント ("usagerecords-thresholdExceeded")**
 
-    いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 For more information, see  [Set an Azure spending budget for your customers](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
+    いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 詳細については、「[顧客の Azure 支出予算を設定する](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers)」を参照してください。
 
-- **Referral Created Event ("referral-created")**
+- **紹介作成イベント ("紹介-作成済み")**
 
-    This event is raised when the referral is created. 
+    このイベントは、参照が作成されるときに発生します。 
 
-- **Referral Updated Event ("referral-updated")**
+- **紹介更新イベント ("紹介-更新")**
 
-    This event is raised when the referral is updated. 
+    このイベントは、参照が更新されたときに発生します。 
 
-- **Invoice Ready Event ("invoice-ready")**
+- **請求書の準備完了イベント ("請求書の準備完了")**
 
-    This event is raised when the new invoice is ready.
+    このイベントは、新しい請求書の準備が整ったときに発生します。
 
 
-Future Webhook events will be added for resources that change in the system that the partner is not in control of, and further updates will be made to get those events as close to "real time" as possible. Feedback from Partners on which events add value to their business will be extremely useful in determing which new events to add. 
+将来の Webhook イベントは、パートナーが制御していないシステムで変更されるリソースに対して追加されます。また、これらのイベントを可能な限り "リアルタイム" の近くに取得するために更新が行われます。 イベントがビジネスに付加されるパートナーからのフィードバックは、どの新しいイベントを追加するかを決定するうえで非常に役立ちます。 
 
-For a complete list of Webhook events supported by Partner Center, see [Partner Center webhook events](partner-center-webhook-events.md).
+パートナーセンターでサポートされている Webhook イベントの完全な一覧については、「[パートナーセンターの webhook イベント](partner-center-webhook-events.md)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.   
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。   
 
 
 
-## <a name="receiving-events-from-partner-center"></a>Receiving events from Partner Center
+## <a name="receiving-events-from-partner-center"></a>パートナーセンターからのイベントの受信
 
-To receive events from Partner Center, you must expose a publicly accessible endpoint; and because this endpoint is exposed, you must validate that the communication is from Partner Center. All Webhook events that you receive are digitally signed with a certificate that chains to the Microsoft Root. A link to the certificate used to sign the event will also be provided. This will allow the certificate to be renewed without you having to re-deploy or re-configure your service. Partner Center will make 10 attempts to deliver the event. If the event is still not delivered after 10 attempts, it will me moved into an offline queue and no further attempts will be made at delivery. 
+パートナーセンターからイベントを受信するには、パブリックにアクセス可能なエンドポイントを公開する必要があります。また、このエンドポイントは公開されているため、通信がパートナーセンターからのものであることを検証する必要があります。 受信したすべての Webhook イベントは、Microsoft ルートにチェーンされている証明書を使用してデジタル署名されます。 イベントの署名に使用される証明書へのリンクも提供されます。 これにより、サービスを再デプロイまたは再構成することなく、証明書を更新できます。 パートナーセンターでは、イベントの配信が10回試行されます。 10回試行してもイベントが配信されない場合は、オフラインキューに移動され、配信時にそれ以上の試行は行われません。 
 
-The following sample shows an event posted from Partner Center.
+次のサンプルは、パートナーセンターから投稿されたイベントを示しています。
 
 ```http
 POST /webhooks/callback
@@ -92,44 +92,44 @@ Content-Length: 195
 ```
 
 >[!NOTE] 
->The Authorization header has a scheme of "Signature". This is a base64 encoded signature of the content.
+>Authorization ヘッダーには "Signature" のスキームがあります。 これは、コンテンツの base64 でエンコードされた署名です。
 
-## <a name="how-to-authenticate-the-callback"></a>How to authenticate the callback
+## <a name="how-to-authenticate-the-callback"></a>コールバックを認証する方法
 
 
-To authenticate the callback event received from Partner Center, do the following:
+パートナーセンターから受信したコールバックイベントを認証するには、次の手順を実行します。
 
-1.  Verify the required headers are present (Authorization, x-ms-certificate-url, x-ms-signature-algorithm).
-2.  Download the certificate used to sign the content (x-ms-certificate-url).
-3.  Verify the Certificate Chain.
-4.  Verify the "Organization" of the certificate.
-5.  Read the content with UTF8 encoding into a buffer.
-6.  Create an RSA Crypto Provider.
-7.  Verify the data matches what was signed with the specified hash algorithm (e.g. SHA256).
-8.  If the verification succeeds, process the message.
+1.  必要なヘッダーが存在することを確認します (承認、x.509-ms-証明書 url、x.509 アルゴリズム)。
+2.  コンテンツの署名に使用された証明書をダウンロードします (--certificate-url)。
+3.  証明書チェーンを確認します。
+4.  証明書の "組織" を確認します。
+5.  バッファーに UTF8 エンコードを使用してコンテンツを読み取ります。
+6.  RSA 暗号化プロバイダーを作成します。
+7.  データが、指定されたハッシュアルゴリズム (SHA256 など) で署名されたものと一致していることを確認します。
+8.  検証が成功した場合は、メッセージを処理します。
 
 > [!NOTE]
-> By default, the signature token will be sent in an Authorization header. If you set **SignatureTokenToMsSignatureHeader** to true in your registration, the signature token will be sent in the x-ms-signature header instead.
+> 既定では、署名トークンは Authorization ヘッダーで送信されます。 登録で**Signaturetokentomssignatureheader**を true に設定すると、代わりに、署名トークンが x.509 署名ヘッダーで送信されます。
 
-## <a name="event-model"></a>Event model
+## <a name="event-model"></a>イベントモデル
 
 
-The following table describes the properties of a Partner Center event.
+次の表では、パートナーセンターイベントのプロパティについて説明します。
 
 **[プロパティ]**
 
 | 名前                      | 説明                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
-| **EventName**             | The name of the event. In the form {resource}-{action}. For example, "test-created".  |
-| **ResourceUri**           | The URI of the resource that changed.                                                 |
-| **ResourceName**          | The name of the resource that changed.                                                |
-| **AuditUrl**              | (省略可能)。 The URI of the Audit record.                                                |
-| **ResourceChangeUtcDate** | The date and time, in UTC format, when the resource change occurred.                  |
+| **EventName**             | イベントの名前です。 {Resource}-{action} の形式で。 たとえば、"テスト作成" などです。  |
+| **ResourceUri**           | 変更されたリソースの URI。                                                 |
+| **ResourceName**          | 変更されたリソースの名前。                                                |
+| **AuditUrl**              | (省略可能)。 監査レコードの URI。                                                |
+| **ResourceChangeUtcDate** | リソースの変更が発生した日時 (UTC 形式)。                  |
 
 
-**Sample**
+**サンプル**
 
-The following sample shows the structure of a Partner Center event.
+次のサンプルは、パートナーセンターイベントの構造を示しています。
 
 ```http
 {
@@ -142,23 +142,23 @@ The following sample shows the structure of a Partner Center event.
 ```
 
 
-## <a name="webhook-apis"></a>Webhook APIs   
+## <a name="webhook-apis"></a>Webhook Api   
 
 
 **[認証]**   
 
-All calls to the Webhook APIs are authenticated using the Bearer token in the Authorization Header. You must acquire an access token to access https://api.partnercenter.microsoft.com. This is the same token that is used to access the rest of the Partner Center APIs.
+Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 https://api.partnercenter.microsoft.comにアクセスするには、アクセストークンを取得する必要があります。 これは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
 
 
  
-### <a name="get-a-list-of-events"></a>Get a list of events
+### <a name="get-a-list-of-events"></a>イベントの一覧を取得する
 
-Returns a list of the events that are currently supported by the Webhook APIs.
+Webhook Api で現在サポートされているイベントの一覧を返します。
 
-**Resource URL**   
+**リソース URL**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration/events
 
-**Request example**   
+**要求の例**   
 
 ```http
 GET /webhooks/v1/registration/events
@@ -168,7 +168,7 @@ accept: */*
 host: api.partnercenter.microsoft.com
 ```
 
-**Response example**   
+**応答の例**   
 
 ```http
 HTTP/1.1 200
@@ -186,15 +186,15 @@ X-Locale: en-US
 
 
 
-### <a name="register-to-receive-events"></a>Register to receive events      
+### <a name="register-to-receive-events"></a>登録してイベントを受信する      
 
-Registers a tenant to receive the specified events.
+指定されたイベントを受信するようにテナントを登録します。
 
-**Resource URL**   
+**リソース URL**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration
 
 
-**Request example**   
+**要求の例**   
 
 ```http
 POST /webhooks/v1/registration
@@ -211,7 +211,7 @@ Content-Length: 219
 }
 ```
 
-**Response example**   
+**応答の例**   
 
 ```http
 HTTP/1.1 200
@@ -232,15 +232,15 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 
 
 
-### <a name="view-a-registration"></a>View a registration        
+### <a name="view-a-registration"></a>登録の表示        
 
-Returns the Webhooks event registration for a tenant.
+テナントの Webhook イベント登録を返します。
 
-**Resource URL**   
+**リソース URL**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration
 
 
-**Request example**   
+**要求の例**   
 
 ```http
 GET /webhooks/v1/registration
@@ -251,7 +251,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-**Response example**   
+**応答の例**   
 
 ```http
 HTTP/1.1 200
@@ -272,15 +272,15 @@ X-Locale: en-US
 
 
 
-### <a name="update-an-event-registration"></a>Update an event registration      
+### <a name="update-an-event-registration"></a>イベント登録を更新する      
 
-Updates an existing event registration. 
+既存のイベント登録を更新します。 
 
-**Resource URL**   
+**リソース URL**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration
 
 
-**Request example**   
+**要求の例**   
 
 ```http
 PUT /webhooks/v1/registration
@@ -297,7 +297,7 @@ Content-Length: 258
 }
 ```
 
-**Response example**   
+**応答の例**   
 
 ```http
 HTTP/1.1 200
@@ -317,17 +317,17 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 ```
 
 
-### <a name="send-a-test-event-to-validate-your-registration"></a>Send a test event to validate your registration   
+### <a name="send-a-test-event-to-validate-your-registration"></a>テストイベントを送信して登録を検証する   
 
-Generates a test event to validate the Webhooks registration. This test is intended to validate that you can receive events from Partner Center. Data for these events will be deleted 7 days after the initial event is created. You must be registered for the "test-created" event, using the registration API, before sending a validation event. 
+Webhook 登録を検証するテストイベントを生成します。 このテストは、パートナーセンターからイベントを受信できることを検証することを目的としています。 これらのイベントのデータは、最初のイベントが作成されてから7日後に削除されます。 検証イベントを送信する前に、登録 API を使用して "テスト作成" イベントに登録する必要があります。 
 
 >[!NOTE]
->There is a throttle limit of 2 requests per minute when posting a validation event. 
+>検証イベントを投稿する場合、1分あたり2要求のスロットル制限があります。 
 
-**Resource URL**   
+**リソース URL**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents
 
-**Request example**   
+**要求の例**   
 
 ```http
 POST /webhooks/v1/registration/validationEvents
@@ -339,7 +339,7 @@ Accept-Encoding: gzip, deflate
 Content-Length:
 ```
 
-**Response example**   
+**応答の例**   
 
 ```http
 HTTP/1.1 200
@@ -357,14 +357,14 @@ X-Locale: en-US
 
 
 
-### <a name="verify-that-the-event-was-delivered"></a>Verify that the event was delivered   
+### <a name="verify-that-the-event-was-delivered"></a>イベントが配信されたことを確認する   
 
-Returns the current state of the validation event. This can be helpful for trouble shooting event delivery issues. The Response contains a result for each attempt that is made to deliver the event.
+検証イベントの現在の状態を返します。 これは、イベント配信の問題のトラブルシューティングに役立ちます。 応答には、イベントを配信するために行われた各試行の結果が含まれます。
 
-**Resource URL**   
+**リソース URL**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents/{correlationId}
 
-**Request example**   
+**要求の例**   
 
 ```http
 GET /webhooks/v1/registration/validationEvents/04af2aea-d413-42db-824e-f328001484d1
@@ -375,7 +375,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-**Response example**     
+**応答の例**     
 
 ```http
 HTTP/1.1 200
@@ -403,10 +403,10 @@ X-Locale: en-US
 ```
 
 
-## <a name="example-for-signature-validation"></a>Example for Signature Validation
+## <a name="example-for-signature-validation"></a>署名の検証の例
 
 
-**Sample Callback Controller signature (ASP.NET)**     
+**コールバックコントローラー署名のサンプル (ASP.NET)**     
 
 ``` csharp
 [AuthorizeSignature]
@@ -414,8 +414,8 @@ X-Locale: en-US
 public IHttpActionResult Post(PartnerResourceChangeCallBack callback)
 ```
 
-**Signature Validation**      
-The following example shows how to add an Authorization Attribute to the controller that is receiving callbacks from Webhook events.
+**署名の検証**      
+次の例では、Webhook イベントからコールバックを受信しているコントローラーに Authorization 属性を追加する方法を示します。
 
 ``` csharp
 namespace Webhooks.Security

@@ -1,6 +1,6 @@
 ---
-title: Partner Center authentication
-description: Partner Center uses Azure AD for authentication, and to use the Partner Center APIs you must configure your authentication settings correctly.
+title: パートナーセンターの認証
+description: パートナーセンターは認証に Azure AD を使用し、パートナーセンター Api を使用するには、認証設定を正しく構成する必要があります。
 ms.assetid: 2307F2A8-7BD4-4442-BEF7-F065F16DA0B2
 ms.date: 11/13/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486982"
 ---
-# <a name="partner-center-authentication"></a>Partner Center authentication
+# <a name="partner-center-authentication"></a>パートナーセンターの認証
 
 適用対象:
 
@@ -22,24 +22,24 @@ ms.locfileid: "74486982"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Partner Center utilizes Azure Active Directory for authentication. When interacting with the Partner Center API, SDK, or PowerShell module you must correctly configure an Azure AD application and then request an access token. Access tokens obtained using app only or app + user authentication can be used with the Partner Center. However, there are two important items that need to be considered
+パートナーセンターでは、認証に Azure Active Directory を利用します。 パートナーセンターの API、SDK、または PowerShell モジュールと対話する場合は、Azure AD アプリケーションを正しく構成してから、アクセストークンを要求する必要があります。 パートナーセンターでは、app only または app + user 認証を使用して取得したアクセストークンを使用できます。 ただし、考慮する必要がある重要な項目が2つあります。
 
-- You must utilize multi-factor authentication when accessing the Partner Center API using app + user authentication. To find more information regarding this change, see [Enable secure application model](enable-secure-app-model.md)
-- Not all of the operations the Partner Center API support app only authentication. This means there certain scenarios where you will be required to use app + user authentication. Under the *Prerequisites* heading on each [Scenario](https://docs.microsoft.com/partner-center/develop/scenarios) article, you will find documentation that states whether app only authentication, app + user authentication, or both are supported.
+- アプリ + ユーザー認証を使用してパートナーセンター API にアクセスするときは、multi-factor authentication を使用する必要があります。 この変更に関する詳細については、「[セキュリティで保護されたアプリケーションモデルの有効化](enable-secure-app-model.md)」を参照してください。
+- 一部の操作では、パートナーセンター API はアプリ専用認証をサポートしています。 これは、アプリとユーザー認証を使用する必要がある特定のシナリオがあることを意味します。 各[シナリオ](https://docs.microsoft.com/partner-center/develop/scenarios)の記事の*前提条件*の見出しの下に、アプリ専用認証、アプリ + ユーザー認証、またはその両方がサポートされているかどうかを示すドキュメントがあります。
 
-## <a name="initial-setup"></a>Initial setup
+## <a name="initial-setup"></a>初期セットアップ
 
-1. To begin, you need to make sure that you have both a primary Partner Center account, and an integration sandbox Partner Center account. 詳しくは、「[パートナー センターのアカウントで API アクセスを設定する](set-up-api-access-in-partner-center.md)」をご覧ください。 Make note of the Azure AAD App registration ID and Secret (client secret is required for App only identification) for both your primary account and your integration sandbox account.
+1. まず、プライマリパートナーセンターアカウントと統合サンドボックスパートナーセンターアカウントの両方があることを確認する必要があります。 詳しくは、「[パートナー センターのアカウントで API アクセスを設定する](set-up-api-access-in-partner-center.md)」をご覧ください。 プライマリアカウントと統合サンドボックスアカウントの両方について、Azure AAD アプリの登録 ID とシークレット (アプリ専用の id にはクライアントシークレットが必要) をメモしておきます。
 
-2. Sign in to Azure AD from the Azure management portal. In **permissions to other applications**, set permissions for **Windows Azure Active Directory** to **Delegated Permissions**, and select both **Access the directory as the signed-in user** and **Sign in and read user profile**.
+2. Azure 管理ポータルから Azure AD にサインインします。 **[他のアプリケーションに対するアクセス]** 許可 で、 **Windows Azure Active Directory**のアクセス許可を 委任された **[アクセス許可]** に設定し、サインイン **[ユーザーとしてディレクトリにアクセス]** する と **[サインインとユーザープロファイルの読み取り]** の両方を選択します。
 
-3. In the Azure management portal, **Add application**. Search for "Microsoft Partner Center", which is the Microsoft Partner Center application. Set the **Delegated Permissions** to **Access Partner Center API**. If you are using Partner Center for Microsoft Cloud Germany or Partner Center for Microsoft Cloud for US Government, this step is mandatory. If you are using Partner Center global instance, this step is optional. CSP Partners can use the App Management feature in the Partner Center portal to bypass this step for Partner Center global instance.
+3. Azure 管理ポータルで、**アプリケーションを追加**します。 Microsoft パートナーセンターアプリケーションである "Microsoft パートナーセンター" を検索します。 **パートナーセンター API にアクセス**するための委任された**アクセス許可**を設定します。 米国政府機関向けの Microsoft Cloud にパートナーセンター Microsoft Cloud ドイツまたはパートナーセンターを使用している場合、この手順は必須です。 パートナーセンターのグローバルインスタンスを使用している場合、この手順は省略可能です。 CSP パートナーは、パートナーセンターポータルのアプリ管理機能を使用して、パートナーセンターのグローバルインスタンスに対してこの手順を省略できます。
 
-## <a name="app-only-authentication"></a>App-only authentication
+## <a name="app-only-authentication"></a>アプリのみの認証
 
-If you would like to use app-only authentication to access the Partner Center REST API, .NET API, Java API, or PowerShell module then you can do so by leveraging the following instructions.
+パートナーセンター REST API、.NET API、Java API、または PowerShell モジュールにアクセスするためにアプリ専用認証を使用する場合は、次の手順を利用して実行できます。
 
-### <a name="net-app-only-authentication"></a>.NET (app-only authentication)
+### <a name="net-app-only-authentication"></a>.NET (アプリ専用認証)
 
 ```csharp
 public static IAggregatePartner GetPartnerCenterTokenUsingAppCredentials()
@@ -55,7 +55,7 @@ public static IAggregatePartner GetPartnerCenterTokenUsingAppCredentials()
 }
 ```
 
-### <a name="java-app-only-authentication"></a>Java (app-only authentication)
+### <a name="java-app-only-authentication"></a>Java (アプリ専用認証)
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -72,9 +72,9 @@ public IAggregatePartner getAppPartnerOperations()
 }
 ```
 
-### <a name="rest-app-only-authentication"></a>REST (app-only authentication)
+### <a name="rest-app-only-authentication"></a>REST (アプリ専用認証)
 
-#### <a name="rest-request"></a>REST request
+#### <a name="rest-request"></a>REST 要求
 
 ```http
 POST https://login.microsoftonline.com/{tenantId}/oauth2/token HTTP/1.1
@@ -88,7 +88,7 @@ Expect: 100-continue
 resource=https%3A%2F%2Fgraph.windows.net&client_id={client-id-here}&client_secret={client-secret-here}&grant_type=client_credentials
 ```
 
-#### <a name="rest-response"></a>REST response
+#### <a name="rest-response"></a>REST 応答
 
 ```http
 HTTP/1.1 200 OK
@@ -101,26 +101,26 @@ Content-Length: 1406
 {"token_type":"Bearer","expires_in":"3600","ext_expires_in":"3600","expires_on":"1546469802","not_before":"1546465902","resource":"https://graph.windows.net","access_token":"value-has-been-removed"}
 ```
 
-## <a name="app--user-authentication"></a>App + User authentication
+## <a name="app--user-authentication"></a>アプリ + ユーザー認証
 
-Historically the [resource owner password credentials grant](https://tools.ietf.org/html/rfc6749#section-4.3) has been used to request an access token for use with the Partner Center REST API, .NET API, Java API, or PowerShell module. This is where you request an access token from Azure Active Directory using a client identifier and user credentials. This approach will no longer work because Partner Center requires multi-factor authentication, when using app + user authentication. To comply with this requirement Microsoft has introduced a secure, scalable framework for authenticating Cloud Solution Provider (CSP) partners and control panel vendors (CPV) using multi-factor authentication. This framework is known as the Secure Application Model, and it is comprised of a consent process and a request for an access token using a refresh token.
+これまで、[リソース所有者のパスワード資格情報付与](https://tools.ietf.org/html/rfc6749#section-4.3)は、パートナーセンター REST API、.net Api、Java api、または PowerShell モジュールで使用するためのアクセストークンを要求するために使用されています。 ここでは、クライアント識別子とユーザー資格情報を使用して Azure Active Directory からアクセストークンを要求します。 パートナーセンターでは、アプリ + ユーザー認証を使用する場合に multi-factor authentication が必要になるため、このアプローチは機能しなくなります。 この要件に準拠するために、Microsoft では、multi-factor authentication を使用して、クラウドソリューションプロバイダー (CSP) パートナーとコントロールパネルベンダー (CPV) を認証するための、セキュリティで保護されたスケーラブルなフレームワークを導入しました。 このフレームワークは、セキュリティで保護されたアプリケーションモデルと呼ばれ、同意プロセスと、更新トークンを使用したアクセストークンの要求で構成されます。
 
-### <a name="partner-consent"></a>Partner consent
+### <a name="partner-consent"></a>パートナーの同意
 
-The partner consent process is an interactive process where the partner authenticates using multi-factor authentication, consents to the application, and a refresh token is stored in a secure repository such as Azure Key Vault. We recommend that a dedicated account for integration purposes be used for this process.
+パートナーの同意プロセスは、パートナーが multi-factor authentication を使用して認証を行い、アプリケーションに同意する対話型プロセスです。更新トークンは、Azure Key Vault などのセキュリティで保護されたリポジトリに格納されます。 このプロセスには、統合のために専用のアカウントを使用することをお勧めします。
 
 > [!IMPORTANT]  
-> The appropriate multi-factor authentication solution should be enabled for the service account used in the partner consent process. If it is not then the resulting refresh token will not be compliant with security requirements.
+> パートナーの同意プロセスで使用されるサービスアカウントに対して、適切な multi-factor authentication ソリューションを有効にする必要があります。 そうでない場合、結果の更新トークンはセキュリティ要件に準拠しません。
 
-### <a name="samples-for-app--user-authentication"></a>Samples for App + User authentication
+### <a name="samples-for-app--user-authentication"></a>アプリ + ユーザー認証のサンプル
 
-The partner consent process can be performed in a number of ways. To help partners understand how to perform each required operation, we have developed the following samples. Please note that these are samples only. When you implement the appropriate solution in your environment, it is important that you develop a solution that is complaint with your coding standards and security policies.
+パートナーの同意プロセスは、さまざまな方法で実行できます。 パートナーが必要な各操作の実行方法を理解できるように、次のサンプルを開発しました。 これらはサンプルのみであることに注意してください。 環境に適切なソリューションを実装する場合は、コーディング標準とセキュリティポリシーに準拠するソリューションを開発することが重要です。
 
-### <a name="net-appuser-authentication"></a>.NET (app+user authentication)
+### <a name="net-appuser-authentication"></a>.NET (アプリ + ユーザー認証)
 
-The [partner consent](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault) sample project demonstrates how to utilize a website developed using ASP.NET to capture consent, request a refresh token, and securely store it in Azure Key Vault. Perform the following steps to create the required prerequisites for this sample.
+[パートナーの同意](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault)サンプルプロジェクトでは、ASP.NET を使用して開発された web サイトを利用して同意を取得し、更新トークンを要求して、Azure Key Vault に安全に保存する方法を示します。 このサンプルに必要な前提条件を作成するには、次の手順を実行します。
 
-1. Create an instance of Azure Key Vault using the Azure management portal or the following PowerShell commands. Before executing the command be sure to modify the parameter values accordingly. The vault name must be unique.
+1. Azure 管理ポータルまたは次の PowerShell コマンドを使用して、Azure Key Vault のインスタンスを作成します。 コマンドを実行する前に、パラメーター値が適宜変更されていることを確認してください。 コンテナー名は一意である必要があります。
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -131,9 +131,9 @@ The [partner consent](https://github.com/Microsoft/Partner-Center-DotNet-Samples
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    If you need help creating the instance of Azure Key Vault see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal) or [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell) for step by step directions on how to create an instance of Azure Key Vault, then set and retrieve a secret.
+    のインスタンスの作成に関するヘルプが必要な場合は Azure Key Vault 「クイックスタート: Azure portal またはクイック Azure Key Vault スタート[を使用した Azure Key Vault からのシークレットの設定と取得](https://docs.microsoft.com/azure/key-vault/quick-create-portal)」を参照してください。 Azure Key Vault のインスタンスを作成し、シークレットを設定および取得する手順については、「 [PowerShell を使用](https://docs.microsoft.com/azure/key-vault/quick-create-powershell)したシークレットの設定と取得」を参照してください。
 
-2. Create an Azure AD Application and a key using the Azure management portal or the following commands.
+2. Azure 管理ポータルまたは次のコマンドを使用して、Azure AD アプリケーションとキーを作成します。
 
     ```azurepowershell-interactive
     Connect-AzureAD
@@ -147,9 +147,9 @@ The [partner consent](https://github.com/Microsoft/Partner-Center-DotNet-Samples
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    Be sure to make note of the application identifier and secret values because they will be used in the steps below.
+    アプリケーション識別子とシークレット値は、次の手順で使用されるため、メモしておいてください。
 
-3. Grant the newly create Azure AD application the read secrets permissions using the Azure management portal or the following commands.
+3. Microsoft Azure 管理ポータルまたは次のコマンドを使用して、新しく作成した Azure AD アプリケーションにシークレットの読み取りアクセス許可を付与します。
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -157,21 +157,21 @@ The [partner consent](https://github.com/Microsoft/Partner-Center-DotNet-Samples
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. Create an Azure AD application that is configured for Partner Center. Perform the following actions to complete this step.
+4. パートナーセンター用に構成された Azure AD アプリケーションを作成します。 この手順を完了するには、次の操作を実行します。
 
-    - Browse to the [App management](https://partner.microsoft.com/pcv/apiintegration/appmanagement) feature of the Partner Center Dashboard
-    - Click *Add new web app* to create a new Azure AD application.
+    - パートナーセンターのダッシュボードの[アプリ管理](https://partner.microsoft.com/pcv/apiintegration/appmanagement)機能を参照します。
+    - 新しい Azure AD アプリケーションを作成するには、[*新しい web アプリの追加*] をクリックします。
 
-    Be sure to document the *App ID*, *Account ID**, and *Key* values because they will be used in the steps below.
+    *アプリ id*、* アカウント id * *、*キー*値は、次の手順で使用されるため、必ず文書化してください。
 
-5. Clone the [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) repository using Visual Studio or the following command.
+5. Visual Studio または次のコマンドを使用して、 [DotNet](https://github.com/Microsoft/Partner-Center-DotNet-Samples)リポジトリを複製します。
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-6. Open the *PartnerConsent* project found in the `Partner-Center-DotNet-Samples\secure-app-model\keyvault` directory.
-7. Populate the application settings found in the [web.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config)
+6. `Partner-Center-DotNet-Samples\secure-app-model\keyvault` ディレクトリにある*Partnerconsent*プロジェクトを開きます。
+7. Web.config で検出されたアプリケーション設定を設定し[ます。](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config)
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -200,15 +200,15 @@ The [partner consent](https://github.com/Microsoft/Partner-Center-DotNet-Samples
     ```
 
     > [!IMPORTANT]  
-    > Sensitive information such as application secrets should not be stored in configuration files. It was done here because this is a sample application. With your production application we strongly recommend that you use certificate-based authentication. See [Certificate credentials for application authentication](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials) for more information.
+    > アプリケーションシークレットなどの機密情報は、構成ファイルに格納しないでください。 これはサンプルアプリケーションであるため、ここで実行しました。 実稼働アプリケーションでは、証明書ベースの認証を使用することを強くお勧めします。 詳細については、「[アプリケーション認証用の証明書の資格情報](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)」を参照してください。
 
-8. When you run this sample project it will prompt you for authentication. After successfully authenticating, an access token is requested from Azure AD. The information returned from Azure AD includes a refresh token which is stored in the configured instance of Azure Key Vault.  
+8. このサンプルプロジェクトを実行すると、認証を求めるメッセージが表示されます。 が正常に認証されると、Azure AD からアクセストークンが要求されます。 Azure AD から返される情報には、Azure Key Vault の構成済みインスタンスに格納される更新トークンが含まれています。  
 
-### <a name="java-appuser-authentication"></a>Java (app+user authentication)
+### <a name="java-appuser-authentication"></a>Java (アプリ + ユーザー認証)
 
-The [partner consent](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault) sample project demonstrates how to utilize a website developed using JSP to capture consent, request a refresh token, and secure store in Azure Key Vault. Perform the following to create the required prerequisites for this sample.
+[パートナーの同意](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault)サンプルプロジェクトでは、JSP を使用して開発された web サイトを利用して、同意の取得、更新トークンの要求、および Azure Key Vault での secure store を行う方法を示します。 次の手順を実行して、このサンプルに必要な前提条件を作成します。
 
-1. Create an instance of Azure Key Vault using the Azure management portal or the following PowerShell commands. Before executing the command be sure to modify the parameter values accordingly. The vault name must be unique.
+1. Azure 管理ポータルまたは次の PowerShell コマンドを使用して、Azure Key Vault のインスタンスを作成します。 コマンドを実行する前に、パラメーター値が適宜変更されていることを確認してください。 コンテナー名は一意である必要があります。
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -219,9 +219,9 @@ The [partner consent](https://github.com/Microsoft/Partner-Center-Java-Samples/t
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    If you need help creating the instance of Azure Key Vault see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal) or [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell) for step by step direction on how to create an instance of Azure Key Vault and set and retrieve a secret.
+    のインスタンスの作成に関するヘルプが必要な場合は Azure Key Vault 「[クイックスタート: Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal)またはクイックスタートを使用した Azure Key Vault シークレットの設定と取得」を参照してください。 Azure Key Vault のインスタンスを作成し、シークレットを設定して取得する方法に関するステップバイステップの指示については、PowerShell を使用した[Azure Key Vault から](https://docs.microsoft.com/azure/key-vault/quick-create-powershell)のシークレットの設定と取得
 
-2. Create an Azure AD Application and a key using the Azure management portal or the following commands.
+2. Azure 管理ポータルまたは次のコマンドを使用して、Azure AD アプリケーションとキーを作成します。
 
     ```azurepowershell-interactive
     Connect-AzureAD
@@ -235,9 +235,9 @@ The [partner consent](https://github.com/Microsoft/Partner-Center-Java-Samples/t
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    Be sure to document the application identifier and secret values because they will be used in the steps below.
+    アプリケーション識別子とシークレット値は、次の手順で使用されるため、必ずドキュメントに記載してください。
 
-3. Grant the newly created Azure AD application the read secrets permissions using the Azure management portal or the following commands.
+3. Microsoft Azure 管理ポータルまたは次のコマンドを使用して、新しく作成した Azure AD アプリケーションにシークレットの読み取りアクセス許可を付与します。
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -245,21 +245,21 @@ The [partner consent](https://github.com/Microsoft/Partner-Center-Java-Samples/t
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. Create an Azure AD application that is configured for Partner Center. Preform the following to complete this step.
+4. パートナーセンター用に構成された Azure AD アプリケーションを作成します。 この手順を完了するには、次の手順を検査します。
 
-    - Browse to the [App management](https://partner.microsoft.com/pcv/apiintegration/appmanagement) feature of the Partner Center Dashboard
-    - Click *Add new web app* to create a new Azure AD application.
+    - パートナーセンターのダッシュボードの[アプリ管理](https://partner.microsoft.com/pcv/apiintegration/appmanagement)機能を参照します。
+    - 新しい Azure AD アプリケーションを作成するには、[*新しい web アプリの追加*] をクリックします。
 
-    Be sure to document the *App ID*, *Account ID**, and *Key* values because they will be used in the steps below.
+    *アプリ id*、* アカウント id * *、*キー*値は、次の手順で使用されるため、必ず文書化してください。
 
-5. Clone the [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) repository using the following command
+5. 次のコマンドを使用して、[パートナーセンターのサンプル](https://github.com/Microsoft/Partner-Center-Java-Samples)リポジトリを複製します。
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-6. Open the *PartnerConsent* project found in the `Partner-Center-Java-Samples\secure-app-model\keyvault` directory.
-7. Populate the application settings found in the [web.xml](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml) file
+6. `Partner-Center-Java-Samples\secure-app-model\keyvault` ディレクトリにある*Partnerconsent*プロジェクトを開きます。
+7. Web .xml ファイルで検出されたアプリケーション設定を設定し[ます。](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml)
 
     ```xml
     <filter>
@@ -293,29 +293,29 @@ The [partner consent](https://github.com/Microsoft/Partner-Center-Java-Samples/t
     ```
 
     > [!IMPORTANT]  
-    > Sensitive information such as application secrets should not be stored in configurations files. It was done here because this is a sample application. With your production application, we strongly recommend that you use certificate based authenticate. See [Key Vault Certificate authentication](https://github.com/Azure-Samples/key-vault-java-certificate-authentication) for more information.
+    > アプリケーションシークレットなどの機密情報は、構成ファイルに格納しないでください。 これはサンプルアプリケーションであるため、ここで実行しました。 実稼働アプリケーションでは、証明書ベースの認証を使用することを強くお勧めします。 詳細については、「 [Key Vault 証明書認証](https://github.com/Azure-Samples/key-vault-java-certificate-authentication)」を参照してください。
 
-8. When you run this sample project it will prompt you for authentication. After successfully authenticating, an access token is requested from Azure AD. The information returned from Azure AD includes a refresh token which is stored in the configured instance of Azure Key Vault.  
+8. このサンプルプロジェクトを実行すると、認証を求めるメッセージが表示されます。 が正常に認証されると、Azure AD からアクセストークンが要求されます。 Azure AD から返される情報には、Azure Key Vault の構成済みインスタンスに格納される更新トークンが含まれています。  
 
-## <a name="cloud-solution-provider-authentication"></a>Cloud Solution Provider authentication
+## <a name="cloud-solution-provider-authentication"></a>クラウドソリューションプロバイダーの認証
 
-Cloud Solution Provider partners can use the refresh token obtained through the [partner consent](#partner-consent) process.
+クラウドソリューションプロバイダーパートナーは、[パートナーの同意](#partner-consent)プロセスを通じて取得した更新トークンを使用できます。
 
-### <a name="samples-for-cloud-solution-provider-authentication"></a>Samples for Cloud Solution Provider authentication
+### <a name="samples-for-cloud-solution-provider-authentication"></a>クラウドソリューションプロバイダー認証のサンプル
 
-To help partners understand how to perform each required operation, we have developed the following samples. Please note that these are samples only. When you implement the appropriate solution in your environment, it is important that you develop a solution that is complaint with your coding standards and security policies.
+パートナーが必要な各操作の実行方法を理解できるように、次のサンプルを開発しました。 これらはサンプルのみであることに注意してください。 環境に適切なソリューションを実装する場合は、コーディング標準とセキュリティポリシーに準拠するソリューションを開発することが重要です。
 
-### <a name="net-csp-authentication"></a>.NET (CSP authentication)
+### <a name="net-csp-authentication"></a>.NET (CSP 認証)
 
-1. If you have not already done so, perform the [partner consent process](#partner-consent).
-2. Clone the [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) repository using Visual Studio or the following command
+1. まだ行っていない場合は、パートナーの[同意プロセス](#partner-consent)を実行します。
+2. Visual Studio または次のコマンドを使用して、 [DotNet](https://github.com/Microsoft/Partner-Center-DotNet-Samples)リポジトリを複製します。
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-3. Open the `CSPApplication` project found in the `Partner-Center-DotNet-Samples\secure-app-model\keyvault` directory.
-4. Update the application settings found in the [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/App.config) file.
+3. `Partner-Center-DotNet-Samples\secure-app-model\keyvault` ディレクトリにある `CSPApplication` プロジェクトを開きます。
+4. [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/App.config)ファイルで検出されたアプリケーション設定を更新します。
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -339,7 +339,7 @@ To help partners understand how to perform each required operation, we have deve
     <add key="ida:KeyVaultClientSecret" value="" />
     ```
 
-5. Set the appropriate values for the **PartnerId** and **CustomerId** variables found in the [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/Program.cs) file.
+5. [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/Program.cs)ファイルで見つかった**Partnerid**変数と**CustomerId**変数に適切な値を設定します。
 
     ```csharp
     // The following properties indicate which partner and customer context the calls are going to be made.
@@ -347,19 +347,19 @@ To help partners understand how to perform each required operation, we have deve
     string CustomerId = "<Customer tenant id>";
     ```
 
-6. When you run this sample project it obtains the refresh token obtained during the partner consent process. Then, it requests an access token to interact with the Partner Center SDK on the partner's behalf. Finally, it requests an access token to interact with Microsoft Graph on behalf of the specified customer.
+6. このサンプルプロジェクトを実行すると、パートナーの同意プロセスで取得した更新トークンが取得されます。 次に、パートナーの代理としてパートナーセンター SDK と対話するアクセストークンを要求します。 最後に、指定された顧客に代わって Microsoft Graph と対話するアクセストークンを要求します。
 
-### <a name="java-csp-authentication"></a>Java (CSP authentication)
+### <a name="java-csp-authentication"></a>Java (CSP 認証)
 
-1. If you have not done so already, perform the [partner consent process](#partner-consent).
-2. Clone the [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) repository using Visual Studio or the following command
+1. まだ行っていない場合は、パートナーの[同意プロセス](#partner-consent)を実行します。
+2. Visual Studio または次のコマンドを使用して、[パートナーセンターの Java サンプル](https://github.com/Microsoft/Partner-Center-Java-Samples)リポジトリを複製します。
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-3. Open the `cspsample` project found in the `Partner-Center-Java-Samples\secure-app-model\keyvault` directory.
-4. Update the application settings found in the [application.properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cspsample/src/main/resources/application.properties) file.
+3. `Partner-Center-Java-Samples\secure-app-model\keyvault` ディレクトリにある `cspsample` プロジェクトを開きます。
+4. [アプリケーションのプロパティ](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cspsample/src/main/resources/application.properties)ファイルで検出されたアプリケーション設定を更新します。
 
      ```java
     azuread.authority=https://login.microsoftonline.com
@@ -371,32 +371,32 @@ To help partners understand how to perform each required operation, we have deve
     partnercenter.clientSecret=
     ```
 
-5. When you run this sample project, it obtains the refresh token obtained during the partner consent process. Then, it requests an access token to interact with the Partner Center SDK on the partner's behalf.
-6. Optional - un-comment the *RunAzureTask* and *RunGraphTask* function calls if you want to see how to interact with with Azure Resource Manager and Microsoft Graph on behalf of the customer.
+5. このサンプルプロジェクトを実行すると、パートナーの同意プロセスで取得した更新トークンが取得されます。 次に、パートナーの代理としてパートナーセンター SDK と対話するアクセストークンを要求します。
+6. 省略可能- *RunAzureTask*および*rungraphtask*関数の呼び出しは、顧客に代わって Azure Resource Manager および Microsoft Graph と対話する方法を確認する場合に使用します。
 
-## <a name="control-panel-provider-authentication"></a>Control Panel Provider authentication
+## <a name="control-panel-provider-authentication"></a>コントロールパネルプロバイダーの認証
 
-Control panel vendors need to have each partner they support perform the [partner consent](#partner-consent) process. Once that is completed the refresh token obtained through that process is used to access the Partner Center REST API and .NET API.
+コントロールパネルのベンダーは、[パートナーの同意](#partner-consent)プロセスの実行をサポートする各パートナーを持っている必要があります。 この処理が完了したら、そのプロセスを通じて取得された更新トークンを使用して、パートナーセンター REST API と .NET API にアクセスします。
 
-### <a name="samples-for-cloud-panel-provider-authentication"></a>Samples for Cloud Panel Provider authentication
+### <a name="samples-for-cloud-panel-provider-authentication"></a>Cloud Panel プロバイダー認証のサンプル
 
-To help control panel vendors understand how to perform each required operation, we have developed the following samples. Please note that these are samples only. When you implement the appropriate solution in your environment, it is important that you develop a solution that is complaint with your coding standards and security policies.
+コントロールパネルのベンダーが必要な各操作を実行する方法を理解するために、次のサンプルを開発しました。 これらはサンプルのみであることに注意してください。 環境に適切なソリューションを実装する場合は、コーディング標準とセキュリティポリシーに準拠するソリューションを開発することが重要です。
 
-### <a name="net-cpv-authentication"></a>.NET (CPV authentication)
+### <a name="net-cpv-authentication"></a>.NET (CPV 認証)
 
-1. Develop and deploy a process for Cloud Solution Provider partners to provide the appropriate consent. See the [partner consent](#partner-consent) for additional details and an example.
+1. 適切な同意を得るために、クラウドソリューションプロバイダーパートナー向けのプロセスを開発してデプロイします。 詳細と例については、[パートナーの同意](#partner-consent)を参照してください。
 
     > [!IMPORTANT]  
-    > User credentials from a Cloud Solution Provider partner should not be stored. The refresh token obtained through the partner consent process should be stored and used to request access tokens for interacting with any Microsoft API.
+    > クラウドソリューションプロバイダーパートナーからのユーザー資格情報を格納することはできません。 パートナーの同意プロセスを通じて取得した更新トークンは、Microsoft API と対話するためのアクセストークンを要求するために保存して使用する必要があります。
 
-2. Clone the [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) repository using Visual Studio or the following command
+2. Visual Studio または次のコマンドを使用して、 [DotNet](https://github.com/Microsoft/Partner-Center-DotNet-Samples)リポジトリを複製します。
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-3. Open the `CPVApplication` project found in the `Partner-Center-DotNet-Samples\secure-app-model\keyvault` directory.
-4. Update the application settings found in the [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/App.config) file.
+3. `Partner-Center-DotNet-Samples\secure-app-model\keyvault` ディレクトリにある `CPVApplication` プロジェクトを開きます。
+4. [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/App.config)ファイルで検出されたアプリケーション設定を更新します。
 
     ```xml
     <!-- AppID that represents Control panel vendor application -->
@@ -421,7 +421,7 @@ To help control panel vendors understand how to perform each required operation,
     <add key="ida:KeyVaultClientSecret" value="" />
     ```
 
-5. Set the appropriate values for the **PartnerId** and **CustomerId** variables found in the [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/Program.cs) file.
+5. [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/Program.cs)ファイルで見つかった**Partnerid**変数と**CustomerId**変数に適切な値を設定します。
 
     ```csharp
     // The following properties indicate which partner and customer context the calls are going to be made.
@@ -429,7 +429,7 @@ To help control panel vendors understand how to perform each required operation,
     string CustomerId = "<Customer tenant id>";
     ```
 
-6. When you run this sample project it obtains the refresh token for the specified partner. Then, it requests an access token to access Partner Center and Azure AD Graph on behalf of the partner. The next task it performs is the deletion and creation of permission grants into the customer tenant. Since there is no relationship between the control panel vendor and the customer these permissions need to be added using the Partner Center API. The following example shows how this is accomplished.
+6. このサンプルプロジェクトを実行すると、指定したパートナーの更新トークンが取得されます。 次に、パートナーの代理としてパートナーセンターと Azure AD グラフにアクセスするためのアクセストークンを要求します。 次に実行されるタスクは、顧客テナントへのアクセス許可付与の削除と作成です。 コントロールパネルのベンダーと顧客の間にリレーションシップがないため、これらのアクセス許可は、パートナーセンター API を使用して追加する必要があります。 この方法を次の例に示します。
 
     ```csharp
     JObject contents = new JObject
@@ -463,23 +463,23 @@ To help control panel vendors understand how to perform each required operation,
         contents.ToString());
     ```
 
-After these permissions have been established, the sample performs operations using Azure AD Graph on behalf of the customer.
+これらのアクセス許可が確立されると、サンプルは顧客の代わりに Azure AD グラフを使用して操作を実行します。
 
-### <a name="java-cpv-authentication"></a>Java (CPV authentication)
+### <a name="java-cpv-authentication"></a>Java (CPV 認証)
 
-1. Develop and deploy a process for Cloud Solution Provider partners to provide the appropriate consent. See the [partner consent](#partner-consent) for additional details and an example.
+1. 適切な同意を得るために、クラウドソリューションプロバイダーパートナー向けのプロセスを開発してデプロイします。 詳細と例については、[パートナーの同意](#partner-consent)を参照してください。
 
     > [!IMPORTANT]  
-    > User credentials from a Cloud Solution Provider partner should not be stored. The refresh token obtained through the partner consent process should be stored and used to request access tokens for interacting with any Microsoft API.
+    > クラウドソリューションプロバイダーパートナーからのユーザー資格情報を格納することはできません。 パートナーの同意プロセスを通じて取得した更新トークンは、Microsoft API と対話するためのアクセストークンを要求するために保存して使用する必要があります。
 
-2. Clone the [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) repository using the following command
+2. 次のコマンドを使用して、[パートナーセンターのサンプル](https://github.com/Microsoft/Partner-Center-Java-Samples)リポジトリを複製します。
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-3. Open the `cpvsample` project found in the `Partner-Center-Java-Samples\secure-app-model\keyvault` directory.
-4. Update the application settings found in the [application.properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/resources/application.properties) file.
+3. `Partner-Center-Java-Samples\secure-app-model\keyvault` ディレクトリにある `cpvsample` プロジェクトを開きます。
+4. [アプリケーションのプロパティ](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/resources/application.properties)ファイルで検出されたアプリケーション設定を更新します。
 
     ```java
     azuread.authority=https://login.microsoftonline.com
@@ -492,16 +492,16 @@ After these permissions have been established, the sample performs operations us
     partnercenter.displayName=
     ```
 
-    The value for the `partnercenter.displayName` should be the display name of your marketplace application.
+    `partnercenter.displayName` の値は、marketplace アプリケーションの表示名にする必要があります。
 
-5. Set the appropriate values for the **partnerId** and **customerId** variables found in the [Program.java](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/java/com/microsoft/store/samples/secureappmodel/cpvsample/Program.java) file.
+5. [プログラムの java](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/java/com/microsoft/store/samples/secureappmodel/cpvsample/Program.java)ファイルで見つかった**Partnerid**変数と**customerId**変数に適切な値を設定します。
 
     ```java
     partnerId = "SPECIFY-THE-PARTNER-TENANT-ID-HERE";
     customerId = "SPECIFY-THE-CUSTOMER-TENANT-ID-HERE";
     ```
 
-6. When you run this sample project it obtains the refresh token for the specified partner. Then, it requests an access token to access Partner Center on behalf of the partner. The next task it performs is the deletion and creation of permission grants into the customer tenant. Since there is no relationship between the control panel vendor and the customer these permissions need to be added using the Partner Center API. The following example shows how this is accomplished.
+6. このサンプルプロジェクトを実行すると、指定したパートナーの更新トークンが取得されます。 次に、パートナーの代理としてパートナーセンターにアクセスするためのアクセストークンを要求します。 次に実行されるタスクは、顧客テナントへのアクセス許可付与の削除と作成です。 コントロールパネルのベンダーと顧客の間にリレーションシップがないため、これらのアクセス許可は、パートナーセンター API を使用して追加する必要があります。 この方法を次の例に示します。
 
     ```java
     ApplicationGrant azureAppGrant = new ApplicationGrant();
@@ -539,4 +539,4 @@ After these permissions have been established, the sample performs operations us
         consent);
     ```
 
-Un-comment the *RunAzureTask* and *RunGraphTask* function calls if you want to see how to interact with with Azure Resource Manager and Microsoft Graph on behalf of the customer.
+*RunAzureTask*および*rungraphtask*関数の呼び出しのコメントを解除して、顧客の代理として Azure Resource Manager および Microsoft Graph と対話する方法を確認します。

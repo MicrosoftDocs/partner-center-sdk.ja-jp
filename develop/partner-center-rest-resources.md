@@ -1,6 +1,6 @@
 ---
-title: Partner Center REST resources
-description: This section provides definitions for the JSON elements needed to create requests and parse responses using the Partner Center REST API.
+title: パートナーセンターの REST リソース
+description: このセクションでは、パートナーセンター REST API を使用して要求を作成し、応答を解析するために必要な JSON 要素の定義について説明します。
 ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
@@ -13,19 +13,19 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486822"
 ---
-# <a name="partner-center-rest-resources"></a>Partner Center REST resources
+# <a name="partner-center-rest-resources"></a>パートナーセンターの REST リソース
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-This section provides definitions for the JSON elements needed to create requests and parse responses using the Partner Center REST API. For more information about how to use these elements, including sample code, see the [Scenarios](scenarios.md) section and the [Partner Center samples](partner-center-samples.md) section.
+このセクションでは、パートナーセンター REST API を使用して要求を作成し、応答を解析するために必要な JSON 要素の定義について説明します。 サンプルコードなど、これらの要素の使用方法の詳細については、「[シナリオ](scenarios.md)」と「[パートナーセンターのサンプル](partner-center-samples.md)」を参照してください。
 
-## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a><span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>In this section
+## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a>このセクションの <span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>
 
 
 <table>
@@ -44,13 +44,13 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="auditing-resources.md">Auditing</a></td>
+<td><a href="auditing-resources.md">監査</a></td>
 <td><ul>
 <li>AuditRecord</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="azure-rate-card-resources.md">Azure Rate Card</a></td>
+<td><a href="azure-rate-card-resources.md">Azure 料金カード</a></td>
 <td><ul>
 <li>AzureRateCard</li>
 <li>AzureMeter</li>
@@ -58,17 +58,17 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="azure-utilization-record-resources.md">Azure Utilization Record</a></td>
+<td><a href="azure-utilization-record-resources.md">Azure 使用率レコード</a></td>
 <td><ul>
 <li>AzureUtilizationRecord</li>
-<li>AzureResource</li>
+<li>Remove-azureresource</li>
 <li>AzureInstanceData</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="cart-resources.md">Cart</a></td>
+<td><a href="cart-resources.md">カート</a></td>
 <td><ul>
-<li>Cart</li>
+<li>カート</li>
 <li>CartLineItem</li>
 <li>CartError</li>
 </ul></td>
@@ -89,16 +89,16 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="customer-resources.md">Customer</a></td>
+<td><a href="customer-resources.md">お</a></td>
 <td><ul>
 <li>お客様</li>
-<li>CustomerCompanyProfile</li>
-<li>CustomerBillingProfile</li>
-<li>CustomerRelationshipRequest</li>
+<li>顧客企業プロファイル</li>
+<li>顧客のプロファイル</li>
+<li>顧客の Relationshiprequest</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="customer-usage-resources.md">Customer Usage Budgeting</a></td>
+<td><a href="customer-usage-resources.md">顧客の使用量の予算</a></td>
 <td><ul>
 <li>CustomerMonthlyUsageRecord</li>
 <li>CustomerUsageSummary</li>
@@ -107,11 +107,11 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="entitlement-resources.md">Entitlement</a></td>
+<td><a href="entitlement-resources.md">受ける</a></td>
 <td><ul>
-<li>Entitlement</li>
-<li>ReferenceOrder</li>
-<li>EntitlementType</li>
+<li>受ける</li>
+<li>referenceOrder</li>
+<li>entitlementType</li>
 <li>成果物</li>
 <li>ArtifactType</li>
 <li>VirtualMachineReservedInstanceArtifact</li>
@@ -120,21 +120,21 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="invoice-resources.md">Invoice</a></td>
+<td><a href="invoice-resources.md">請求書</a></td>
 <td><ul>
-<li>Invoice</li>
+<li>請求書</li>
 <li>InvoiceDetail</li>
 <li>InvoiceLineItem</li>
 <li>InvoiceSummary</li>
 <li>InvoiceSummaryDetail</li>
 <li>InvoiceSummaries</li>
-<li>LicenseBasedLineItem</li>
-<li>UsageBasedLineItem</li>
+<li>Licenseベースの Lineitem</li>
+<li>その他の方法</li>
 <li>InvoiceStatement</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="license-resources.md">License</a></td>
+<td><a href="license-resources.md">使用</a></td>
 <td><ul>
 <li>ライセンス</li>
 <li>LicenseUpdate</li>
@@ -174,10 +174,10 @@ This section provides definitions for the JSON elements needed to create request
 <tr class="even">
 <td><a href="profile-resources.md">Profile</a></td>
 <td><ul>
-<li>BillingProfile</li>
+<li>billingProfile</li>
 <li>LegalBusinessProfile</li>
 <li>MpnProfile</li>
-<li>OrganizationProfile</li>
+<li>組織のプロファイル</li>
 <li>SupportProfile</li>
 </ul></td>
 </tr>
@@ -187,7 +187,7 @@ This section provides definitions for the JSON elements needed to create request
 <li>製品</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
-<li>Sku</li>
+<li>番</li>
 <li>対象</li>
 <li>InventoryCheckRequest</li>
 <li>InventoryItem</li>
@@ -196,7 +196,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="relationships-resources.md">Relationships</a></td>
+<td><a href="relationships-resources.md">リレーションシップ</a></td>
 <td><ul>
 <li>PartnerRelationship</li>
 <li>RelationshipRequest</li>
@@ -221,18 +221,18 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="subscription-resources.md">Subscription</a></td>
+<td><a href="subscription-resources.md">Web</a></td>
 <td><ul>
 <li>サブスクリプション</li>
 <li>SubscriptionLinks</li>
-<li>SubscriptionProvisioningStatus</li>
+<li>Subscriptionのプロビジョニングステータス</li>
 <li>SubscriptionRegistrationStatus</li>
-<li>SupportContact</li>
+<li>サポート連絡先</li>
 <li>RegisterSubscription</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="subscription-usage-resources.md">Subscription Usage</a></td>
+<td><a href="subscription-usage-resources.md">サブスクリプションの使用状況</a></td>
 <td><ul>
 <li>SubscriptionDailyUsageRecord <em>(Obsolete)</em></li>
 <li>SubscriptionMonthlyUsageRecord</li>
@@ -242,29 +242,29 @@ This section provides definitions for the JSON elements needed to create request
 <tr class="odd">
 <td><a href="upgrade-resources.md">Upgrade</a></td>
 <td><ul>
-<li>アップグレード パッケージ、アップグレード</li>
+<li>アップグレード</li>
 <li>UpgradeError</li>
 <li>UpgradeResult</li>
 <li>UserLicenseError</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="user-resources.md">&lt;ユーザー&gt;</a></td>
+<td><a href="user-resources.md">User</a></td>
 <td><ul>
 <li>ユーザー</li>
 <li>CustomerUser</li>
-<li>UserCredentials</li>
+<li>ユーザー</li>
 <li>UserMember</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="utility-resources.md">Utility Resources</a></td>
+<td><a href="utility-resources.md">ユーティリティのリソース</a></td>
 <td><ul>
 <li>Address</li>
 <li>Contact</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>
-<li>[リンク]</li>
+<li>リンク</li>
 <li>PasswordProfile</li>
 <li>ResourceLinks</li>
 <li>ResourceAttributes</li>

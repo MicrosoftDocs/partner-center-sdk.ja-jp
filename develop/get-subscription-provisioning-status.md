@@ -1,6 +1,6 @@
 ---
-title: Get subscription provisioning status
-description: How to get the subscription provisioning status for a customer subscription.
+title: サブスクリプションのプロビジョニング状態の取得
+description: 顧客サブスクリプションのサブスクリプションのプロビジョニング状態を取得する方法。
 ms.assetid: CC3A13FE-D6D3-4A65-981F-0235A4A8382E
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487152"
 ---
-# <a name="get-subscription-provisioning-status"></a>Get subscription provisioning status
+# <a name="get-subscription-provisioning-status"></a>サブスクリプションのプロビジョニング状態の取得
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to get the subscription provisioning status for a customer subscription.
+顧客サブスクリプションのサブスクリプションのプロビジョニング状態を取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A subscription identifier.
-- Delegated admin permissions on the subscription are required to perform this operation.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客識別子。
+- サブスクリプション識別子。
+- この操作を実行するには、サブスクリプションに対する委任された管理者権限が必要です。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get the provisioning status of a subscription, begin by using the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then, get an interface to subscription operations by calling the [**Subscriptions.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the subscription ID. Next, use the [**ProvisioningStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus) property to obtain an interface to the current subscription's provisioning status operations, and then call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync) method to retrieve the [**SubscriptionProvisioningStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus) object.
+サブスクリプションのプロビジョニング状態を取得するには、まず、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、サブスクリプション ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、provisioning [**status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus)プロパティを使用して、現在のサブスクリプションのプロビジョニング状態操作へのインターフェイスを取得してから、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync)メソッドを呼び出して[**subscriptionprovisioning status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus)オブジェクトを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -46,37 +46,37 @@ To get the provisioning status of a subscription, begin by using the [**IAggrega
 var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionID).ProvisioningStatus.Get();
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                        |
 |---------|------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/provisioningstatus HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/provisioningstatus HTTP/1.1 |
 
  
 
-**URI parameters**
+**URI パラメーター**
 
-Use the following path parameters to identify the customer and subscription.
+次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| 名前            | タスクバーの検索ボックスに   | 必須かどうか | 説明                                               |
+| 名前            | 種類   | 必須 | 説明                                               |
 |-----------------|--------|----------|-----------------------------------------------------------|
-| customer-id     | string | [はい]      | A GUID formatted string that identifies the customer.     |
-| subscription-id | string | [はい]      | A GUID formatted string that identifies the subscription. |
+| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。     |
+| サブスクリプション id | string | 〇      | サブスクリプションを識別する GUID 形式の文字列。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/0c39d6d5-c70d-4c55-bc02-f620844f3fd1/subscriptions/34828C05-C16C-4D6F-9CFC-4D2650EF19A1/provisioningstatus HTTP/1.1
@@ -88,16 +88,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, the response body contains a [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) resource.
+成功した場合、応答本文には[Subscriptionプロビジョニング状態](subscription-resources.md#subscriptionprovisioningstatus)リソースが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK
@@ -120,7 +120,7 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 }
 ```
 
-## <a name="span-idremarksspan-idremarksspan-idremarksremarks"></a><span id="Remarks"/><span id="remarks"/><span id="REMARKS"/>Remarks
+## <a name="span-idremarksspan-idremarksspan-idremarksremarks"></a><span id="Remarks"/><span id="remarks"/><span id="REMARKS"/>解説
 
-- During a seat change assignment, the status field in [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) is set to "pending".
-- The status field is updated every fifteen minutes.
+- 接続クライアントの割り当ての変更時に、 [subscriptionの](subscription-resources.md#subscriptionprovisioningstatus)状態フィールドが "pending" に設定されます。
+- [状態] フィールドは、15分ごとに更新されます。

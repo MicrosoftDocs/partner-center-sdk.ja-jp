@@ -1,6 +1,6 @@
 ---
-title: Get usage records for all customers
-description: You can use the CustomerMonthlyUsageRecord resource collection to get usage records for all customers who purchased a specific Azure service or resource (including Microsoft Azure MS-AZR-0145P subscriptions and Azure plans).
+title: すべての顧客の使用状況レコードを取得する
+description: CustomerMonthlyUsageRecord リソースコレクションを使用すると、特定の Azure サービスまたはリソースを購入したすべての顧客の使用状況レコードを取得できます (Microsoft Azure 0145P サブスクリプションと Azure プランを含む)。
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490172"
 ---
-# <a name="get-usage-records-for-all-customers"></a>Get usage records for all customers
+# <a name="get-usage-records-for-all-customers"></a>すべての顧客の使用状況レコードを取得する
 
 適用対象:
 
@@ -21,44 +21,44 @@ ms.locfileid: "74490172"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Partners can use the **CustomerMonthlyUsageRecord** resource collection to get usage records for all their customers. This resource represents usage records for all customers, including those with a Microsoft Azure (MS-AZR-0145P) subscription or an Azure plan.
+パートナーは、 **CustomerMonthlyUsageRecord**リソースコレクションを使用して、すべての顧客の使用状況レコードを取得できます。 このリソースは、Microsoft Azure (MS AZR-0145P) サブスクリプションまたは Azure プランを含むすべての顧客の使用状況レコードを表します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier (**customer-tenant-id**). If you do not have a customer's identifier, you can look up the identifier in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their **Microsoft ID**.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客識別子 (**顧客-テナント id**)。 顧客の識別子がない場合は、顧客 リストから顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで識別子を検索できます。
 
 ## <a name="c"></a>C\#
 
-To get all the usage records for all customers who purchased a specific Azure service or resource during the current billing period:
+現在の請求期間中に特定の Azure サービスまたはリソースを購入したすべてのお客様のすべての使用状況レコードを取得するには、次のようにします。
 
-1. Use your **IAggregatePartner.Customers** collection to call the **ById()** method.
-2. Call **UsageRecords** property, then call the **Get()** or **GetAsync()** method.
+1. **Iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。
+2. **UsageRecords**プロパティを呼び出し、 **Get ()** または**GetAsync ()** メソッドを呼び出します。
 
     ``` csharp
     // IAggregatePartner partnerOperations;
     var usageRecords = partnerOperations.Customers.UsageRecords.Get();
     ```
 
-For an example, see the following:
+例については、以下を参照してください。
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSamples**
-- Class: **GetCustomerUsageRecords.cs**
+- サンプル:[コンソールテストアプリ](console-test-app.md)
+- プロジェクト: **Partnersdk. FeatureSamples**
+- クラス: **GetCustomerUsageRecords.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/usagerecords HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/usagerecords HTTP/1.1 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Headers](headers.md).
+詳細については、「[ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -74,17 +74,17 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, this method returns a **CustomerMonthlyUsageRecord** resource in the response body.
+成功した場合、このメソッドは応答本文で**CustomerMonthlyUsageRecord**リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, the error type, and additional parameters. For a full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、および追加のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 
-You can use the **isUpgraded** property to identify customers who have an Azure plan. If the value for **isUpgraded** is **true**, this means the customers have an Azure plans.
+**Isupgraded**プロパティを使用して、Azure プランを持つ顧客を識別できます。 **Isupgraded**の値が**true**の場合は、顧客が Azure のプランを持っていることを意味します。
 
 ```http
 HTTP/1.1 200 OK

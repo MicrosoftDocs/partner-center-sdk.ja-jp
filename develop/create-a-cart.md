@@ -1,6 +1,6 @@
 ---
-title: Create a cart
-description: How to add an order for a customer in a cart.
+title: カートを作成する
+description: 買い物かごに顧客の注文を追加する方法。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488782"
 ---
-# <a name="create-a-cart"></a>Create a cart
+# <a name="create-a-cart"></a>カートを作成する
 
 適用対象:
 
@@ -21,23 +21,23 @@ ms.locfileid: "74488782"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-You can add an order for a customer in a cart. For more information about what is currently available to sell, see [Partner offers in the Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-offers).
+買い物かごに顧客の注文を追加することができます。 現在販売可能なものの詳細については、 [Cloud Solution Provider プログラムのパートナープランに](https://docs.microsoft.com/partner-center/csp-offers)関する情報を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="c"></a>C\#
 
-To create an order for a customer:
+顧客の注文を作成するには、次のようにします。
 
-1. Instantiate a Cart object.
-2. Create a list of **CartLineItem** objects, and assign the list to the cart's LineItems property. Each cart line item contains the purchase information for one product. You must have at least one cart line item.
-3. Obtain an interface to cart operations by calling the **IAggregatePartner.Customers.ById** method with the customer ID to identify the customer, and then retrieving the interface from the **Cart** property.
-4. Call the **Create** or **CreateAsync** method to create the cart.
+1. カートオブジェクトをインスタンス化します。
+2. **CartLineItem**オブジェクトの一覧を作成し、そのリストをカートの LineItems プロパティに割り当てます。 各カートの品目には、1つの製品の購入情報が含まれています。 少なくとも1つのカート品目が必要です。
+3. 顧客 ID を指定して**ById**メソッドを呼び出して顧客を識別し、**カート**プロパティからインターフェイスを取得することによって、カート操作へのインターフェイスを取得します。
+4. カートを作成するには、 **create**または**createasync**メソッドを呼び出します。
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>C\# の例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -125,14 +125,14 @@ cart = partnerOperations.Customers.ById(customerId).Carts.Create(cart);
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To create an order for a customer:
+顧客の注文を作成するには、次のようにします。
 
-1. Instantiate a Cart object.
-2. Create a list of **CartLineItem** objects, and assign the list to the cart's line items. Each cart line item contains the purchase information for one product. You must have at least one cart line item.
-3. Obtain an interface to cart operations by calling the **IAggregatePartner.getCustomers().byId** function with the customer ID to identify the customer, and then retrieving the interface from the **getCart** function.
-4. Call the **create** function to create the cart.
+1. カートオブジェクトをインスタンス化します。
+2. **CartLineItem**オブジェクトの一覧を作成し、そのリストをカートの品目に割り当てます。 各カートの品目には、1つの製品の購入情報が含まれています。 少なくとも1つのカート品目が必要です。
+3. 顧客 ID を指定して**iaggregatepartner.customers () byId**関数を呼び出して顧客を識別し、 **getcustomers**関数からインターフェイスを取得することによって、カート操作へのインターフェイスを取得します。
+4. カートを作成するには、 **create**関数を呼び出します。
 
-### <a name="java-example"></a>Java example
+### <a name="java-example"></a>Java の例
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -168,11 +168,11 @@ Cart cartCreated = partnerOperations.getCustomers().byId(customerId).getCarts().
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To create an order for a customer:
+顧客の注文を作成するには、次のようにします。
 
-1. Instantiate a Cart object.
-2. Create a list of **CartLineItem** objects, and assign the list to the cart's line items. Each cart line item contains the purchase information for one product. You must have at least one cart line item.
-3. Execute the [**New-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomerCart.md) command to create the cart.
+1. カートオブジェクトをインスタンス化します。
+2. **CartLineItem**オブジェクトの一覧を作成し、そのリストをカートの品目に割り当てます。 各カートの品目には、1つの製品の購入情報が含まれています。 少なくとも1つのカート品目が必要です。
+3. [**新しい-Partner顧客カート**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomerCart.md)コマンドを実行して、カートを作成します。
 
 ### <a name="powershell-example"></a>PowerShell の例
 
@@ -194,60 +194,60 @@ $lineItem.Quantity = 10
 New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following path parameter to identify the customer.
+顧客を識別するには、次のパスパラメーターを使用します。
 
-| 名前            | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                            |
+| 名前            | 種類     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | string   | [はい]      | A GUID formatted customer-id that identifies the customer.             |
+| **顧客 id** | string   | 〇      | 顧客を識別する GUID 形式の顧客 id。             |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-This table describes the [Cart](cart-resources.md) properties in the request body.
+次の表では、要求本文に含まれる[カート](cart-resources.md)のプロパティについて説明します。
 
-| プロパティ              | タスクバーの検索ボックスに             | 必須かどうか        | 説明 |
+| プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | string           | 必須ではない              | A cart identifier that is supplied upon successful creation of the cart.                                  |
-| creationTimeStamp     | DateTime         | 必須ではない              | The date the cart was created, in date-time format. Applied upon successful creation of the cart.         |
-| lastModifiedTimeStamp | DateTime         | 必須ではない              | The date the cart was last updated, in date-time format. Applied upon successful creation of the cart.    |
-| expirationTimeStamp   | DateTime         | 必須ではない              | The date the cart will expire, in date-time format.  Applied upon successful creation of cart.            |
-| lastModifiedUser      | string           | 必須ではない              | The user who last updated the cart. Applied upon successful creation of cart.                             |
-| lineItems             | Array of objects | [はい]             | An Array of [CartLineItem](cart-resources.md#cartlineitem) resources.                                     |
+| id                    | string           | X              | カートが正常に作成されたときに提供されるカート識別子。                                  |
+| 前のタイムスタンプ     | DateTime         | X              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。         |
+| lastModifiedTimeStamp | DateTime         | X              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
+| expirationTimeStamp   | DateTime         | X              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
+| lastModifiedUser      | string           | X              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
+| lineItems             | オブジェクトの配列 | 〇             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                     |
 
-This table describes the [CartLineItem](cart-resources.md#cartlineitem) properties in the request body.
+次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
 
-|      プロパティ       |            タスクバーの検索ボックスに             | 必須かどうか |                                                                                         説明                                                                                         |
+|      プロパティ       |            種類             | 必須 |                                                                                         説明                                                                                         |
 |---------------------|-----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         id          |           string            |    必須ではない    |                                                     A Unique identifier for a cart line item. Applied upon successful creation of cart.                                                     |
-|      catalogId      |           string            |   [はい]    |                                                                                The catalog item identifier.                                                                                 |
-|    friendlyName     |           string            |    必須ではない    |                                                    (省略可能)。 The friendly name for the item defined by the partner to help disambiguate.                                                    |
-|      quantity       |             整数             |   [はい]    |                                                                            The number of licenses or instances.                                                                             |
-|    currencyCode     |           string            |    必須ではない    |                                                                                     The currency code.                                                                                      |
-|    billingCycle     |           オブジェクト            |   [はい]    |                                                                    The type of billing cycle set for the current period.                                                                    |
-|    参加者     | List of Object String pairs |    必須ではない    |                                                                A collection of PartnerId on Record (MPNID) on the purchase.                                                                 |
-| provisioningContext | Dictionary<string, string>  |    必須ではない    | Information required for provisioning for some items in the catalog. The provisioningVariables property in a SKU indicates which properties are required for specific items in the catalog. |
-|     orderGroup      |           string            |    必須ではない    |                                                                   A group to indicate which items can be placed together.                                                                   |
-|        エラーを修正する        |           オブジェクト            |    必須ではない    |                                                                     Applied after cart is created in case of an error.                                                                      |
-|     renewsTo        | Array of objects            |    必須ではない    |                                                    An array of [RenewsTo](cart-resources.md#renewsto) resources.                                                                            |
+|         id          |           string            |    X    |                                                     カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                     |
+|      catalogId      |           string            |   〇    |                                                                                カタログ項目の識別子。                                                                                 |
+|    friendlyName     |           string            |    X    |                                                    (省略可能)。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                    |
+|      quantity       |             int             |   〇    |                                                                            ライセンスまたはインスタンスの数。                                                                             |
+|    currencyCode     |           string            |    X    |                                                                                     通貨コード。                                                                                      |
+|    周期サイクル     |           オブジェクト            |   〇    |                                                                    現在の期間に設定されている請求サイクルの種類。                                                                    |
+|    参加者     | オブジェクトの文字列ペアの一覧 |    X    |                                                                購入時のレコードの PartnerId (MPNID) のコレクション。                                                                 |
+| provisioningContext | Dictionary < string、string >  |    X    | カタログ内の一部の項目のプロビジョニングに必要な情報。 SKU の "プロビジョニング変数" プロパティは、カタログ内の特定のアイテムに必要なプロパティを示します。 |
+|     orderGroup      |           string            |    X    |                                                                   一緒に配置できる項目を示すグループ。                                                                   |
+|        error (エラー)        |           オブジェクト            |    X    |                                                                     エラーが発生した場合にカートが作成された後に適用されます。                                                                      |
+|     RenewsTo        | オブジェクトの配列            |    X    |                                                    [Renewsto](cart-resources.md#renewsto)の配列。                                                                            |
 
-This table describes the [RenewsTo](cart-resources.md#renewsto) properties in the request body.
+次の表では、要求本文の[renewsto](cart-resources.md#renewsto)について説明します。
 
-| プロパティ              | タスクバーの検索ボックスに             | 必須かどうか        | 説明 |
+| プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | 必須ではない              | An ISO 8601 representation of the renewal term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year). |
+| termDuration          | string           | X              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 
 ### <a name="request-example"></a>要求の例
 
@@ -328,13 +328,13 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns the populated [Cart](cart-resources.md) resource in the response body.
+成功した場合、このメソッドは、応答本文で設定された[カート](cart-resources.md)リソースを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

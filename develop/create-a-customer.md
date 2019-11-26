@@ -1,6 +1,6 @@
 ---
 title: 顧客の作成
-description: How to create a new customer.
+description: 新しい顧客を作成する方法。
 ms.assetid: 7EA3E23F-0EA8-49CB-B98A-C4B74F559873
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -21,34 +21,34 @@ ms.locfileid: "74489332"
 - 21Vianet が運営するパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-This topic explains how to create a new customer.
+このトピックでは、新しい顧客を作成する方法について説明します。
 
 > [!IMPORTANT]
-> If you are an indirect provider and you want to create a customer for an indirect reseller, please see [Create a customer for an indirect reseller](create-a-customer-for-an-indirect-reseller.md).
+> 間接的なプロバイダーの場合、間接リセラーの顧客を作成するには、「[間接リセラーの顧客を作成](create-a-customer-for-an-indirect-reseller.md)する」を参照してください。
 
-As a cloud solution provider (CSP) partner, when you create a customer you can place orders on behalf of the customer. When you create a customer, you also create:
+クラウドソリューションプロバイダー (CSP) パートナーは、顧客を作成するときに、顧客に代わって注文を行うことができます。 顧客を作成するときに、次のものも作成します。
 
-- An Azure Active Directory (AD) tenant object for the customer.
-- A relationship between the reseller and customer, used for delegated admin privileges.
-- A user name and password to sign in as an admin for the customer.
+- 顧客の Azure Active Directory (AD) テナントオブジェクト。
+- 代理管理者特権に使用される、リセラーと顧客の間の関係。
+- 顧客の管理者としてサインインするためのユーザー名とパスワード。
 
-Once the customer is created, be sure to save the customer ID and Azure AD details for future use with the Partner Center SDK (for example, account management).
+顧客が作成されたら、パートナーセンター SDK (たとえば、アカウント管理) で今後使用するために、顧客 ID と Azure AD の詳細を保存してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 > [!IMPORTANT]
-> To create a customer tenant you must provide a valid physical address during the creation process. An address can be validated by following the steps outlined in the [Validate an address](validate-an-address.md) scenario. If you create a customer using an invalid address in the sandbox environment, you will not be able to delete that customer tenant.
+> 顧客テナントを作成するには、作成プロセス中に有効な物理アドレスを指定する必要があります。 アドレスを検証するには、「[アドレスの検証](validate-an-address.md)」の手順に従ってください。 サンドボックス環境で無効なアドレスを使用して顧客を作成した場合、その顧客のテナントを削除することはできません。
 
 ## <a name="c"></a>C\#
 
-To add a customer:
+顧客を追加するには:
 
-1. Instantiate a new [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object. Be sure to fill in the [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) and [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile).
-2. Add the new customer to your [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection by calling [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync).
+1. 新しい[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)オブジェクトをインスタンス化します。 この[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)と会社の[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)を必ず入力してください。
+2. [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)を呼び出して、新しい顧客を[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションに追加します。
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>C\# の例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -87,18 +87,18 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateCustomer.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateCustomer.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To create a new customer:
+新しい顧客を作成するには:
 
-1. Create a new instance of the **CustomerBillingProfile** and the **CustomerCompanyProfile** objects. Be sure to populate the required fields.
-2. Create the customer by calling the **IAggregatePartner.getCustomers().create** function.
+1. **顧客**企業**プロファイル**オブジェクトの新しいインスタンスを作成します。 必ず必須フィールドに入力してください。
+2. **Iaggregatepartner.customers (). create**関数を呼び出して顧客を作成します。
 
-### <a name="java-example"></a>Java example
+### <a name="java-example"></a>Java の例
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -138,56 +138,56 @@ Customer newCustomer = partnerOperations.getCustomers().create( customerToCreate
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To create a customer execute the [**New-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md) command.
+顧客を作成するには、[**新しい-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md)コマンドを実行します。
 
-### <a name="powershell-example"></a>Powershell example
+### <a name="powershell-example"></a>Powershell の例
 
 ```powershell
 New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity 'Redmond' -BillingAddressCountry 'US' -BillingAddressPostalCode '98052' -BillingAddressState 'WA' -ContactEmail 'jdoe@customer.com' -ContactFirstName 'Jane' -ContactLastName 'Doe' -Culture 'en-US' -Domain 'newcustomer.onmicrosoft.com' -Language 'en' -Name 'New Customer'
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-- This API is idempotent (it will not yield a different result if you call it multiple times).
-- A request ID and correlation ID are required.
-- See [Partner Center REST headers](headers.md) for more information.
+- この API はべき等です (複数回呼び出すと、異なる結果が生成されることはありません)。
+- 要求 ID と相関 ID が必要です。
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-This table describes the required properties in the request body.
+次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                              | タスクバーの検索ボックスに   | 説明                                 |
+| 名前                              | 種類   | 説明                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | オブジェクト | The customer's billing profile information. |
-| [CompanyProfile](#company-profile) | オブジェクト | The customer's company profile information. |
+| [BillingProfile](#billing-profile) | オブジェクト | 顧客の請求プロファイル情報。 |
+| [会社のプロファイル](#company-profile) | オブジェクト | 顧客の会社のプロファイル情報。 |
 
-#### <a name="billing-profile"></a>Billing profile
+#### <a name="billing-profile"></a>課金プロファイル
 
-This table describes the minimum required fields from the [CustomerBillingProfile](customer-resources.md#customerbillingprofile) resource needed to create a new customer.
+次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | タスクバーの検索ボックスに                                     | 説明                                                                                                                                                                                                     |
+| 名前             | 種類                                     | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| メール            | string                                   | The customer's email address.                                                                                                                                                                                   |
-| culture          | string                                   | Their preferred culture for communication and currency, such as "en-US". See [Partner Center supported languages and locales](partner-center-supported-languages-and-locales.md) for the supported cultures. |
-| 言語         | string                                   | The default language. Two character language codes (e.g., en, fr) are supported.                                                                                                                                |
-| company\_name    | string                                   | The registered company/organization name.                                                                                                                                                                       |
-| default\_address | [Address](utility-resources.md#address) | The registered address of the customer's company/organization. See the [Address](utility-resources.md#address) resource for information on any length limitations.                                             |
+| 電子メール            | string                                   | 顧客の電子メールアドレス。                                                                                                                                                                                   |
+| カルチャ          | string                                   | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
+| 言語         | string                                   | 既定の言語です。 2文字の言語コード (en、fr など) がサポートされています。                                                                                                                                |
+| 会社の\_名    | string                                   | 登録されている会社名または組織名。                                                                                                                                                                       |
+| 既定の\_アドレス | [先](utility-resources.md#address) | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
 
-#### <a name="company-profile"></a>Company profile
+#### <a name="company-profile"></a>会社のプロファイル
 
-This table describes the minimum required fields from the [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) resource needed to create a new customer.
+次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | タスクバーの検索ボックスに   | 説明                                                  |
+| 名前   | 種類   | 説明                                                  |
 |--------|--------|--------------------------------------------------------------|
-| domain | string | The customer's domain name, such as contoso.onmicrosoft.com. |
+| domain | string | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 
 ### <a name="request-example"></a>要求の例
 
@@ -226,13 +226,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this API returns a [Customer](customer-resources.md#customer) resource for the new customer. Save the customer ID and Azure AD details for future use with the Partner Center SDK. You will need them for use with account management, for example.
+成功した場合、この API は新しい顧客の[顧客](customer-resources.md#customer)リソースを返します。 パートナーセンター SDK で今後使用するために、顧客 ID と Azure AD の詳細を保存します。 たとえば、アカウント管理で使用するために必要になります。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

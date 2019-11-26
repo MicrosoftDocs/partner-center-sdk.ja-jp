@@ -1,6 +1,6 @@
 ---
-title: Get a SKU by ID
-description: Gets a SKU for the specified product using the specified SKU ID.
+title: ID で SKU を取得する
+description: 指定された SKU ID を使用して、指定された製品の SKU を取得します。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486132"
 ---
-# <a name="get-a-sku-by-id"></a>Get a SKU by ID
+# <a name="get-a-sku-by-id"></a>ID で SKU を取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-Gets a SKU for the specified product using the specified SKU ID.
+指定された SKU ID を使用して、指定された製品の SKU を取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product ID. 
-- A SKU ID. 
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 製品 ID。 
+- SKU ID。 
 
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get the details of a specific SKU, start by following the steps in [Get a product by ID](get-a-product-by-id.md) to get the interface for a specific product's operations. From the resulting interface, select the **Skus** property to obtain an interface with the available operations for SKUs. Pass the SKU ID to the **ById()** method, and call **Get()** or **GetAsync()** to retrieve the SKU details.
+特定の SKU の詳細を取得するには、まず「 [ID で製品を取得](get-a-product-by-id.md)する」の手順に従って、特定の製品の操作のインターフェイスを取得します。 生成されたインターフェイスから**sku**プロパティを選択して、sku で使用可能な操作を含むインターフェイスを取得します。 SKU ID を**ById ()** メソッドに渡し、 **Get ()** または**GetAsync ()** を呼び出して sku の詳細を取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -45,38 +45,38 @@ string skuId;
 var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}?country={country-code} HTTP/1.1   |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}? country = {country-CODE} HTTP/1.1   |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following path and query parameters to get a SKU for the specified product using the specified SKU ID.
+指定された SKU ID を使用して、指定された製品の SKU を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                     |
+| 名前                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | string   | [はい]      | A string that identifies the product.                           |
-| sku-id                 | string   | [はい]      | A string that identifies the SKU.                               |
-| country-code           | string   | [はい]      | A country/region ID.                                            |
+| 製品 id             | string   | 〇      | 製品を識別する文字列。                           |
+| sku-id                 | string   | 〇      | SKU を識別する文字列。                               |
+| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3V/skus/00G1?country=US HTTP/1.1
@@ -90,24 +90,24 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, the response body contains a [SKU](product-resources.md#sku) resource.
+成功した場合、応答本文には[SKU](product-resources.md#sku)リソースが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード     | エラー コード   | 説明                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 404                  | 400013       | Product was not found.                                                                                    |
-| 404                  | 400018       | Sku was not found.                                                                                        |
+| 404                  | 400013       | 製品が見つかりませんでした。                                                                                    |
+| 404                  | 400018       | Sku が見つかりませんでした。                                                                                        |
 
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

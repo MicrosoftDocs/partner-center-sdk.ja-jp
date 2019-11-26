@@ -1,6 +1,6 @@
 ---
 title: テストとデバッグ
-description: To test your code, you should use your integration sandbox account in Partner Center (and the corresponding tokens) so that you don't accidentally incur new charges that your company is responsible for paying.
+description: コードをテストするには、パートナーセンター (および対応するトークン) で統合サンドボックスアカウントを使用する必要があります。これにより、会社が支払いを行う新しい料金が誤って発生することはありません。
 ms.assetid: 0A84F92F-CE66-42DF-B686-4D9E6FFECB16
 ms.date: 09/11/2018
 ms.service: partner-dashboard
@@ -16,89 +16,89 @@ ms.locfileid: "74487982"
 # <a name="test-and-debug"></a>テストとデバッグ
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-To test your code, you should use your integration sandbox account in Partner Center (and the corresponding tokens) so that you don't accidentally incur new charges that your company is responsible for paying. For more information about this test-in-production (TiP) environment, see [Set up API access in Partner Center](set-up-api-access-in-partner-center.md).
+コードをテストするには、パートナーセンター (および対応するトークン) で統合サンドボックスアカウントを使用する必要があります。これにより、会社が支払いを行う新しい料金が誤って発生することはありません。 この運用環境 (TiP) 環境の詳細については、「[パートナーセンターでの API アクセスの設定](set-up-api-access-in-partner-center.md)」を参照してください。
 
-## <a name="span-idintegration_sandbox_constraintsspan-idintegration_sandbox_constraintsspan-idintegration_sandbox_constraintsintegration-sandbox-constraints"></a><span id="Integration_sandbox_constraints"/><span id="integration_sandbox_constraints"/><span id="INTEGRATION_SANDBOX_CONSTRAINTS"/>Integration sandbox constraints
+## <a name="span-idintegration_sandbox_constraintsspan-idintegration_sandbox_constraintsspan-idintegration_sandbox_constraintsintegration-sandbox-constraints"></a><span id="Integration_sandbox_constraints"/><span id="integration_sandbox_constraints"/><span id="INTEGRATION_SANDBOX_CONSTRAINTS"/>統合サンドボックスの制約
 
-If you run automated build verification tests, conduct testing in production, or perform manual testing in the integration sandbox, you may reach the maximum limits for the integration sandbox. These limits are 75 customers, 5 subscriptions per customer, and 25 seats per subscription. 
+自動ビルド検証テストを実行する場合、運用環境でテストを実施する場合、または統合サンドボックスで手動テストを実行する場合は、統合サンドボックスの上限に近づいている可能性があります。 これらの制限は、75のお客様、1人の顧客につき5つのサブスクリプション、サブスクリプションあたり25座席です。 
 
-This means you cannot acquire an offer in the sandbox that has a minimum seat requirement that exceeds 25 seats. This includes trials. 
+これは、少なくとも25台のシートを超える接続クライアント要件がある、サンドボックス内のプランを取得できないことを意味します。 これには、試用版も含まれます。 
 
-### <a name="azure-plan"></a>Azure plan
-By default, partners cannot provision Azure plans using their sandbox accounts. Partners who need to do so with their sandbox account must apply for access. To apply for access, reach out to your reach out to your Microsoft account manager or business contact. Partners who have previously applied for access to provision Microsoft Azure (MS-AZR-0145P) subscriptions in their sandbox accounts do not need to apply for access again. They will be granted access to provision Azure plans automatically.
+### <a name="azure-plan"></a>Azure プラン
+既定では、パートナーは、サンドボックスアカウントを使用して Azure プランをプロビジョニングすることはできません。 サンドボックスアカウントを使用してこれを行う必要があるパートナーは、アクセスするために適用する必要があります。 アクセスを申請するには、Microsoft アカウント manager またはビジネス連絡先に連絡してください。 サンドボックスアカウント内のプロビジョニング Microsoft Azure (0145P) サブスクリプションへのアクセスが既に適用されているパートナーは、再度アクセスするために適用する必要はありません。 Azure プランを自動的にプロビジョニングするためのアクセス権が付与されます。
 
-For partners whose sandbox accounts have been approved to provision Azure plans, the following limits apply:
+Azure プランをプロビジョニングするためにサンドボックスアカウントが承認されているパートナーには、次の制限が適用されます。
 
-- Each sandbox partner account can have up to 10 Azure plans across all customer tenants (no matter how the plans are distributed among the customers).
-- A direct bill partner can create up to 1 Azure plan per customer tenant.
-- An indirect provider can create up to 3 Azure plans per customer tenant (for different indirect resellers specified as the Partner-of-Record).
-- Each Azure plan can have up to 3 Azure subscriptions.
-- Each CSP Azure subscription under your sandbox account is limited to 4 virtual machine (VM) cores per data center. Therefore, you cannot provision VM SKUs that require more than 4 VM cores. Certain specialized VM SKUs such as GPU cores are also excluded.
-- Each sandbox partner account has a spending limit of $2000 (USD) per billing cycle across all Azure plans. Once a partner reaches the spend limit, all Azure plans will be temporarily disabled until the next billing cycle.
+- 各サンドボックスパートナーアカウントは、すべての顧客テナントに対して最大10個の Azure プランを持つことができます (プランが顧客間でどのように分散されているかは関係ありません)。
+- ダイレクト請求パートナーは、顧客テナントごとに最大1つの Azure プランを作成できます。
+- 間接プロバイダーは、顧客テナントごとに最大3つの Azure プランを作成できます (異なる間接リセラーがレコードのパートナーとして指定されている場合)。
+- 各 Azure プランには、最大3つの Azure サブスクリプションを含めることができます。
+- サンドボックスアカウントの各 CSP Azure サブスクリプションは、データセンターごとに4つの仮想マシン (VM) コアに制限されています。 そのため、4個を超える VM コアを必要とする VM Sku をプロビジョニングすることはできません。 GPU コアなどの特定の特殊化された VM Sku も除外されます。
+- 各サンドボックスパートナーアカウントには、すべての Azure プランの請求サイクルあたり $2000 (USD) の使用制限があります。 パートナーが使用制限に達すると、次の請求サイクルまで、すべての Azure プランが一時的に無効になります。
 
-### <a name="cloud-solution-provider-csp-azure-subscription-offers"></a>Cloud Solution Provider (CSP) Azure subscription offers 
-CSP Azure subscription offers are no longer available by default to sandbox accounts. These include MS-AZR-0146P, MS-AZR-DE-0146P and MS-AZR-USGOV-0146P for CSP Azure subscriptions in Microsoft Public Cloud, German Cloud and Government Cloud respectively. サンドボックス アカウントでこれらのプランにアクセスする必要があるパートナーは、アクセスを申請する必要があります。 To apply for access, reach out to your Microsoft account manager or business contact. 
+### <a name="cloud-solution-provider-csp-azure-subscription-offers"></a>クラウドソリューションプロバイダー (CSP) の Azure サブスクリプションプラン 
+CSP の Azure サブスクリプションプランは、既定ではサンドボックスアカウントには使用できなくなりました。 これには、Microsoft パブリッククラウド、ドイツのクラウドおよび政府クラウドの CSP の Azure サブスクリプションについて、0146P、0146P、米国政府-0146P がそれぞれ含まれます。 サンドボックス アカウントでこれらのプランにアクセスする必要があるパートナーは、アクセスを申請する必要があります。 アクセスを申請するには、Microsoft アカウント manager またはビジネス連絡先に連絡してください。 
 
-For partners whose sandbox accounts have been approved for CSP Azure subscription offers, the following limits apply:  
+CSP アカウントが Azure サブスクリプションのプランに対して承認されているパートナーの場合、次の制限が適用されます。  
 
- - You can have up to a maximum of 375 active subscriptions (75 customers x 5 subscriptions per customer). However, only 10 of which can be CSP Azure subscriptions.  
- - When a CSP Azure subscription reaches $200 of Azure usage, its resources are temporarily disabled until its next billing cycle. It is still considered an active subscription and is counted towards the 10 active Azure subscriptions limit.  
- - Each CSP Azure subscription under your sandbox account is limited to 4 virtual machine (VM) cores per data center. Therefore, you cannot provision VM SKUs that require more than 4 VM cores. Certain specialized VM SKUs such as GPU cores are also excluded.  
+ - 最大で375のアクティブなサブスクリプション (顧客ごとに75の顧客 x 5 サブスクリプション) を使用できます。 ただし、CSP Azure サブスクリプションとして使用できるのは10個のみです。  
+ - CSP Azure サブスクリプションが Azure の使用量の $200 に達すると、そのリソースは次の請求サイクルまで一時的に無効になります。 まだアクティブなサブスクリプションと見なされ、10個のアクティブな Azure サブスクリプションの制限に対してカウントされます。  
+ - サンドボックスアカウントの各 CSP Azure サブスクリプションは、データセンターごとに4つの仮想マシン (VM) コアに制限されています。 そのため、4個を超える VM コアを必要とする VM Sku をプロビジョニングすることはできません。 GPU コアなどの特定の特殊化された VM Sku も除外されます。  
 
 > [!Important]  
-> All existing CSP Azure subscriptions provisioned with sandbox accounts prior to August 1, 2018 are no longer supported and will be deprovisioned by Microsoft between October 16 - October 31, 2018. サブスクリプションがプロビジョン解除されると、再度有効化することはできず、関連付けられたデータにもアクセスできなくなります。 これらのサブスクリプションで重要なデータを格納しているパートナーは、2018 年 10 月 16日までにデータをバックアップしておいてください。
+> 2018年8月1日より前にサンドボックスアカウントを使用してプロビジョニングされた既存の CSP Azure サブスクリプションはすべてサポートされなくなり、10月16日から2018年10月31日の間にマイクロソフトによってプロビジョニング解除されます。 サブスクリプションがプロビジョン解除されると、再度有効化することはできず、関連付けられたデータにもアクセスできなくなります。 これらのサブスクリプションで重要なデータを格納しているパートナーは、2018 年 10 月 16日までにデータをバックアップしておいてください。
 
-### <a name="azure-reserved-vm-instance"></a>Azure Reserved VM instance  
+### <a name="azure-reserved-vm-instance"></a>Azure 予約 VM インスタンス  
 
-If you are [purchasing an Azure Reserved VM instance](purchase-azure-reservations.md) with your sandbox account, you are limited to 2 VM instances per customer. You are also limited to selecting only from the following Azure Reserved VM instance product SKUs: 
+サンドボックスアカウントを使用して[Azure 予約 VM インスタンスを購入](purchase-azure-reservations.md)している場合、お客様ごとに VM インスタンスは2つに制限されます。 また、次の Azure 予約 VM インスタンスの製品 Sku からのみ選択できます。 
 
-| Product Title  | ［有効日］  | Sku Title                                               | Region [ArmRegionName] | Instance Key [ArmSkuName] | 期間 | Consumption Meter Id       |
+| 製品タイトル  | ［有効日］  | Sku のタイトル                                               | 領域 [ArmRegionName] | インスタンスキー [ArmSkuName] | Duration | 従量課金メーター Id       |
 |----------------|-----------------|---------------------------------------------------------|------------------------|--------------|----------|----------------------------|
-| B Series       | 12/1/2017 0:00  | Reserved VM instance, Standard_B1s, KR South, 1 year    | KoreaSouth             | Standard_B1s | 1Year    | 3f913071-0dd7-4258-8ec4-6fad05bd976d |
-| B Series       | 12/1/2017 0:00  | Reserved VM instance, Standard_B1s, US East, 1 year     | eastus                 | Standard_B1s | 1Year    | f4d7a5a5-1b67-45ea-b1a0-282fbdd34b05 |
-| B Series       | 12/1/2017 0:00  | Reserved VM instance, Standard_B1s, US West 2, 1 year   | westus2                | Standard_B1s | 1Year    | 222e39f5-e99f-4fa3-a323-f46402977888 |
-| B Series       | 12/1/2017 0:00  | Reserved VM instance, Standard_B1s, US North Central, 1 year    | northcentralus | Standard_B1s | 1Year    | 4e1716fc-4842-43f1-aa96-7c1b1b1395a7 |
-| B Series       | 12/1/2017 0:00  | Reserved VM instance, Standard_B1s, CA East, 1 year     | CanadaEast             | Standard_B1s | 1Year    | ab8a5993-5db7-47c8-b3b1-2e1365b353fb |
+| B シリーズ       | 12/1/2017 0:00  | 予約 VM インスタンス、Standard_B1s、韓国南部、1年    | KoreaSouth             | Standard_B1s | 1年    | 3f913071-0dd7-4258-8ec4-6fad05bd976d |
+| B シリーズ       | 12/1/2017 0:00  | 予約 VM インスタンス、Standard_B1s、米国東部、1年     | eastus                 | Standard_B1s | 1年    | f4d7a5a5-1b67-45ea-b1a0-282fbdd34b05 |
+| B シリーズ       | 12/1/2017 0:00  | 予約 VM インスタンス、Standard_B1s、米国西部2、1年   | westus2                | Standard_B1s | 1年    | 222e39f5-e99f47 fa3-a323-f4640297788 8 |
+| B シリーズ       | 12/1/2017 0:00  | 予約 VM インスタンス、Standard_B1s、米国中北部、1年    | northcentralus | Standard_B1s | 1年    | 4e1716fc-4842-43f1-aa96-7c1b1b1395a7 |
+| B シリーズ       | 12/1/2017 0:00  | 予約 VM インスタンス、Standard_B1s、CA 東部、1年間     | CanadaEast             | Standard_B1s | 1年    | ab8a5993-5db7-47c8-b3b1-2e1365b353fb |
      
-### <a name="subscriptions-for-commercial-marketplace-products"></a>Subscriptions for commercial marketplace products
+### <a name="subscriptions-for-commercial-marketplace-products"></a>商用 marketplace 製品のサブスクリプション
 
-In production, after you have [created a subscription to commercial marketplace SaaS products](create-subscription-azure-marketplace-products.md), you need to retrieve a personalized activation link from Partner Center and visit the publisher's site to complete the setup process. Subscription billing will begin only after setup is complete.
+運用環境では、[商用 Marketplace SaaS 製品へのサブスクリプションを作成](create-subscription-azure-marketplace-products.md)した後で、パートナーセンターからパーソナライズされたアクティベーションリンクを取得し、発行者のサイトにアクセスしてセットアッププロセスを完了する必要があります。 サブスクリプションの課金は、セットアップの完了後にのみ開始されます。
 
-In the CSP sandbox environment, there is no integration with ISVs. If you try to retrieve an activation link from Partner Center, a dummy link will be returned. You cannot use this dummy link to complete the setup process at the publisher's site. To use the integration sandbox account to test billing for subscriptions to commercial marketplace SaaS products, see [Activate a sandbox subscription for commercial marketplace products](activate-sandbox-subscription-azure-marketplace-products.md) instead. Subscription billing will begin after successful activation.
-
-
-To clean up at the end of your test run so there's space for the next round of testing, see the following topics:
-
-- [Delete a customer account from the integration sandbox](delete-a-customer-account-from-the-integration-sandbox.md)
-
-- [Decrease the quantity of a subscription](change-the-quantity-of-a-subscription.md)
-
-- [Suspend a subscription](suspend-a-subscription.md) so that you can remove it.
-
-## <a name="span-idbest_practices_for_rest_developmentspan-idbest_practices_for_rest_developmentspan-idbest_practices_for_rest_developmentbest-practices-for-rest-development"></a><span id="Best_practices_for_REST_development"/><span id="best_practices_for_rest_development"/><span id="BEST_PRACTICES_FOR_REST_DEVELOPMENT"/>Best practices for REST development
+CSP サンドボックス環境では、Isv との統合はありません。 パートナーセンターからライセンス認証リンクを取得しようとすると、ダミーリンクが返されます。 このダミーリンクを使用して、発行元のサイトでセットアッププロセスを完了することはできません。 統合サンドボックスアカウントを使用して、商用 marketplace SaaS 製品へのサブスクリプションの課金をテストするには、「[商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化](activate-sandbox-subscription-azure-marketplace-products.md)する」を参照してください。 アクティブ化が成功すると、サブスクリプションの課金が開始されます。
 
 
-- Use a network trace tool so that you can see your request, the response, and if there were any errors in the HTTP status code in the response. For more information about error handling, see [Partner Center REST error codes](error-codes.md).
+テストの実行の終了時にクリーンアップを行うには、次のテストのラウンドのための領域があります。次のトピックを参照してください。
 
-- Use a new Correlation ID for each call made to the Partner Center REST API. This ensures better logging and will help during debugging. For more information, see [Partner Center REST headers](headers.md).
+- [統合サンドボックスから顧客アカウントを削除する](delete-a-customer-account-from-the-integration-sandbox.md)
 
-## <a name="span-idtroubleshooting_tips_for_common_rest_problemsspan-idtroubleshooting_tips_for_common_rest_problemsspan-idtroubleshooting_tips_for_common_rest_problemstroubleshooting-tips-for-common-rest-problems"></a><span id="Troubleshooting_tips_for_common_REST_problems"/><span id="troubleshooting_tips_for_common_rest_problems"/><span id="TROUBLESHOOTING_TIPS_FOR_COMMON_REST_PROBLEMS"/>Troubleshooting tips for common REST problems
+- [サブスクリプションの数量を減らす](change-the-quantity-of-a-subscription.md)
+
+- [サブスクリプションを中断](suspend-a-subscription.md)して、削除できるようにします。
+
+## <a name="span-idbest_practices_for_rest_developmentspan-idbest_practices_for_rest_developmentspan-idbest_practices_for_rest_developmentbest-practices-for-rest-development"></a><span id="Best_practices_for_REST_development"/><span id="best_practices_for_rest_development"/><span id="BEST_PRACTICES_FOR_REST_DEVELOPMENT"/>REST 開発のベストプラクティス
 
 
-- Review all header properties, including the URL and API version.
+- ネットワークトレースツールを使用すると、要求、応答、および応答の HTTP 状態コードにエラーがあったかどうかを確認できます。 エラー処理の詳細については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-- Ensure properties are included if required, and correctly formatted.
+- パートナーセンター REST API に対する呼び出しごとに新しい関連付け ID を使用します。 これにより、ログ記録が向上し、デバッグ中に役立ちます。 詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
-- Incorrect array formatting is a common error.
+## <a name="span-idtroubleshooting_tips_for_common_rest_problemsspan-idtroubleshooting_tips_for_common_rest_problemsspan-idtroubleshooting_tips_for_common_rest_problemstroubleshooting-tips-for-common-rest-problems"></a>一般的な REST の問題に関するトラブルシューティングのヒントを <span id="Troubleshooting_tips_for_common_REST_problems"/><span id="troubleshooting_tips_for_common_rest_problems"/><span id="TROUBLESHOOTING_TIPS_FOR_COMMON_REST_PROBLEMS"/>
 
-- **ETags** are temporary and therefore should not be stored. When a function call requires an **ETags**, use the latest **ETags** value by getting the resource again. **ETags** values should be included in double quotation marks, like a string:
+
+- URL と API バージョンを含む、すべてのヘッダープロパティを確認します。
+
+- 必要に応じて、適切に書式設定されたプロパティが含まれていることを確認します。
+
+- 配列の書式設定が正しくないことが一般的なエラーです。
+
+- **Etag**は一時的なものであるため、保存しないでください。 関数呼び出しで**etag**が必要な場合は、リソースをもう一度取得して最新の**etag**値を使用します。 **Etag**の値は、文字列のように二重引用符で囲む必要があります。
 
     ```
     If-Match : "eyJpZCI6IjUwMWE4NjBjLTE2OTgtNDQyYi04MDhjLTRiNjEyY2NmMzVmMiIsInZlcnNpb24iOjF9"

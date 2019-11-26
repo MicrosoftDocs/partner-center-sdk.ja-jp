@@ -1,6 +1,6 @@
 ---
-title: Add a verified domain for a customer
-description: Add a verified domain to the list of approved domains for a customer in Partner Center.
+title: 顧客の確認済みドメインを追加する
+description: パートナーセンターで、お客様の承認済みドメインの一覧に検証済みドメインを追加します。
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486222"
 ---
-# <a name="add-a-verified-domain-for-a-customer"></a>Add a verified domain for a customer
+# <a name="add-a-verified-domain-for-a-customer"></a>顧客の確認済みドメインを追加する
 
 適用対象:
 
@@ -21,23 +21,23 @@ ms.locfileid: "74486222"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to add a verified domain to the list of approved domains for an existing customer.
+検証済みドメインを既存の顧客の承認済みドメインの一覧に追加する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- You must be a Partner who is a domain registrar.
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**CustomerTenantId**). If you don't have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their Microsoft ID.
+- ドメインレジストラーであるパートナーである必要があります。
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客**tenantid**)。 顧客の ID を持っていない場合、パートナーセンターで ID を検索するには、顧客 の一覧から顧客を選択し、**アカウント** を選択して、Microsoft id を保存します。
 
-## <a name="adding-a-verified-domain"></a>Adding a verified domain
+## <a name="adding-a-verified-domain"></a>検証済みドメインの追加
 
-If you are a Partner who is a domain registrar, you can use the verifieddomain API to POST a new [Domain](#domain) resource to the list of domains for an existing customer. To do this, identify the customer using their CustomerTenantId, specify a value for the VerifiedDomainName property, and pass a [Domain](#domain) resource in the Request with the required Name, Capability, AuthenticationType, Status, and VerificationMethod properties included. To specify that the new [Domain](#domain) is a federated domain, set the AuthenticationType property in the [Domain](#domain) resource to "Federated", and include a [DomainFederationSettings](#domain-federation-settings) resource in the Request. If the method is successful, the Response will include a [Domain](#domain) resource for the new verified domain.
+ドメインレジストラーのパートナーである場合は、verifieddomain API を使用して、既存の顧客のドメインの一覧に新しい[ドメイン](#domain)リソースを投稿できます。 これを行うには、顧客の Tenantid を使用して顧客を特定し、VerifiedDomainName プロパティの値を指定します。次に、要求の中で、必要な Name、機能、AuthenticationType、Status、および VerificationMethod プロパティを使用して[ドメイン](#domain)リソースを渡します。 新しい[ドメイン](#domain)がフェデレーションドメインであることを指定するには、[ドメイン](#domain)リソースの AuthenticationType プロパティを "フェデレーション" に設定し、要求に[microsoft.online.administration.domainfederationsettings](#domain-federation-settings)リソースを含めます。 メソッドが成功した場合、応答には新しい検証済みドメインの[ドメイン](#domain)リソースが含まれます。
 
-### <a name="custom-verified-domains"></a>Custom verified domains
+### <a name="custom-verified-domains"></a>カスタム検証済みドメイン
 
-When adding a custom verified domain, a domain that is not registered on **onmicrosoft.com**, you must set the [CustomerUser.immutableId](user-resources.md#customeruser) property to a unique ID value for the customer you are adding the domain for. This unique identifier is required during the validation process when the domain is being verified. For more information about customer user accounts, see [create user accounts for a customer](create-user-accounts-for-a-customer.md).
+**Onmicrosoft.com**に登録されていないドメインであるカスタム確認済みドメインを追加する場合は、ドメインを追加する顧客の一意の ID 値に、[ユーザーの immutableid](user-resources.md#customeruser)プロパティを設定する必要があります。 この一意識別子は、検証プロセス中にドメインを検証するときに必要です。 顧客のユーザーアカウントの詳細については、「[顧客のユーザーアカウントを作成](create-user-accounts-for-a-customer.md)する」を参照してください。
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
@@ -47,61 +47,61 @@ When adding a custom verified domain, a domain that is not registered on **onmic
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following query parameter to specify the customer you are adding a verified domain for.
+次のクエリパラメーターを使用して、確認済みドメインを追加する顧客を指定します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CustomerTenantId | guid | Y        | The value is a GUID formatted **CustomerTenantId** that allows you to specify a customer. |
+| 顧客 Tenantid | guid | Y        | 値は、顧客を指定できるようにする GUID 形式の顧客**tenantid**です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Partner Center REST headers](headers.md).
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-This table describes the required properties in the request body.
+次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                                                  | タスクバーの検索ボックスに   | 必須かどうか                                      | 説明                                                |
+| 名前                                                  | 種類   | 必須                                      | 説明                                                |
 |-------------------------------------------------------|--------|-----------------------------------------------|--------------------------------------------------------|
-| VerifiedDomainName                                    | string | [はい]                                           | The verified domain name. |
-| [Domain](#domain)                                     | オブジェクト | [はい]                                           | Contains the domain information. |
-| [DomainFederationSettings](#domain-federation-settings) | オブジェクト | Yes (If AuthenticationType = "Federated")     | The domain federation settings to be used if the domain is a "Federated" domain and not a "Managed" domain. |
+| VerifiedDomainName                                    | string | 〇                                           | 検証済みのドメイン名。 |
+| [Domain](#domain)                                     | オブジェクト | 〇                                           | ドメイン情報が含まれています。 |
+| [Microsoft.online.administration.domainfederationsettings](#domain-federation-settings) | オブジェクト | はい (AuthenticationType が "フェデレーション" の場合)     | ドメインが "フェデレーション" ドメインで、"管理された" ドメインではない場合に使用されるドメインフェデレーション設定。 |
 
 #### <a name="domain"></a>ドメイン
 
-This table describes the required and optional **Domain** properties in the request body.
+次の表では、要求本文の必須のドメインプロパティと省略可能な**ドメイン**プロパティについて説明します。
 
-| 名前               | タスクバーの検索ボックスに                                     | 必須かどうか | 説明                                                                                                                                                                                                     |
+| 名前               | 種類                                     | 必須 | 説明                                                                                                                                                                                                     |
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AuthenticationType                                    | string           | [はい]      | Defines whether the domain is a "Managed" domain or a "Federated" domain. Supported values: Managed, Federated.|
-| 機能                                            | string           | [はい]      | Specifies the domain capability. For example, "Email".                  |
-| IsDefault                                             | nullable boolean | 必須ではない       | Indicates whether the domain is the default domain for the tenant. Supported values: True, False, Null.        |
-| IsInitial                                             | nullable boolean | 必須ではない       | Indicates whether the domain is an initial domain. Supported values: True, False, Null.                       |
-| 名前                                                  | string           | [はい]      | The domain name.                                                          |
-| RootDomain                                            | string           | 必須ではない       | The name of the root domain.                                              |
-| 状況                                                | string           | [はい]      | The domain status. For example, "Verified". Supported values:  Unverified, Verified, PendingDeletion.                               |
-| VerificationMethod                                    | string           | [はい]      | The domain verification method type. Supported values: None, DnsRecord, Email.                                    |
+| AuthenticationType                                    | string           | 〇      | ドメインが "管理されている" ドメインであるか "フェデレーション" ドメインであるかを定義します。 サポートされる値: 管理、フェデレーション。|
+| 機能                                            | string           | 〇      | ドメインの機能を指定します。 たとえば、"Email" のようにします。                  |
+| IsDefault                                             | null 許容のブール値 | X       | ドメインがテナントの既定のドメインかどうかを示します。 サポートされる値: True、False、Null。        |
+| IsInitial                                             | null 許容のブール値 | X       | ドメインが初期ドメインであるかどうかを示します。 サポートされる値: True、False、Null。                       |
+| 名前                                                  | string           | 〇      | ドメイン名。                                                          |
+| RootDomain                                            | string           | X       | ルートドメインの名前。                                              |
+| 状況                                                | string           | 〇      | ドメインの状態。 たとえば、"確認済み" などです。 サポートされている値: 未確認、検証済み、PendingDeletion。                               |
+| VerificationMethod                                    | string           | 〇      | ドメインの確認方法の種類。 サポートされている値: なし、DnsRecord、Email。                                    |
 
-##### <a name="domain-federation-settings"></a>Domain federation settings
+##### <a name="domain-federation-settings"></a>ドメインのフェデレーション設定
 
-This table describes the required and optional **DomainFederationSettings** properties in the request body.
+次の表では、要求本文の必須プロパティとオプションの**microsoft.online.administration.domainfederationsettings**プロパティについて説明します。
 
-| 名前   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                  |
+| 名前   | 種類   | 必須 | 説明                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| ActiveLogOnUri                         | string           | 必須ではない      | The logon URI used by rich clients. This is the partner's STS Auth URL. |
-| DefaultInteractiveAuthenticationMethod | string           | 必須ではない      | Indicates the default authentication method that should be used when an application requires the user to have interactive login. |
-| FederationBrandName                    | string           | 必須ではない      | The federation brand name.        |
-| IssuerUri                              | string           | [はい]     | The name of the issuer of the certificates.                        |
-| LogOffUri                              | string           | [はい]     | The logoff URI. This describes the federated domain sign-out URI.        |
-| MetadataExchangeUri                    | string           | 必須ではない      | The URL that specifies the metadata exchange endpoint used for authentication from rich client applications. |
-| NextSigningCertificate                 | string           | 必須ではない      | The certificate used for the coming future by the ADFS V2 STS to sign claims. This is a base64 encoded representation of the certificate. |
-| OpenIdConnectDiscoveryEndpoint         | string           | 必須ではない      | The OpenID Connect Discovery Endpoint of the federated IDP STS. |
-| PassiveLogOnUri                        | string           | [はい]     | The logon URI used by older passive Clients. This is the address to send federated sign-in requests. |
-| PreferredAuthenticationProtocol        | string           | [はい]     | The format for the authentication token. For example, "WsFed". Supported values: WsFed, Samlp |
-| PromptLoginBehavior                    | string           | [はい]     | The prompt login behavior type.  For example, "TranslateToFreshPasswordAuth". Supported values: TranslateToFreshPasswordAuth, NativeSupport, Disabled |
-| SigningCertificate                     | string           | [はい]     | The certificate currently used by the ADFS V2 STS to sign claims. This is a base64 encoded representation of the certificate. |
-| SigningCertificateUpdateStatus         | string           | 必須ではない      | Indicates the update status of the Signing certificate. |
-| SigningCertificateUpdateStatus         | nullable boolean | 必須ではない      | Indicates whether the IDP STS supports MFA. Supported values: True, False, Null.|
+| ActiveLogOnUri                         | string           | X      | リッチクライアントによって使用されるログオン URI。 これは、パートナーの STS 認証 URL です。 |
+| DefaultInteractiveAuthenticationMethod | string           | X      | アプリケーションがユーザーに対話型ログインを要求するときに使用する、既定の認証方法を示します。 |
+| FederationBrandName                    | string           | X      | フェデレーションブランド名。        |
+| IssuerUri                              | string           | 〇     | 証明書の発行者の名前。                        |
+| LogOffUri                              | string           | 〇     | ログオフ URI。 フェデレーションドメインのサインアウト URI について説明します。        |
+| MetadataExchangeUri                    | string           | X      | リッチクライアントアプリケーションからの認証に使用されるメタデータ交換エンドポイントを指定する URL。 |
+| NextSigningCertificate                 | string           | X      | ADFS V2 STS によって要求に署名するために将来使用される証明書。 これは、証明書の base64 でエンコードされた表現です。 |
+| OpenIdConnectDiscoveryEndpoint         | string           | X      | フェデレーション IDP STS の OpenID Connect 検出エンドポイント。 |
+| "いいえ Velogonuri"                        | string           | 〇     | 古いパッシブクライアントによって使用されるログオン URI。 これは、フェデレーションサインイン要求を送信するためのアドレスです。 |
+| PreferredAuthenticationProtocol        | string           | 〇     | 認証トークンの形式。 たとえば、"WsFed" などです。 サポートされる値: WsFed、Samlp |
+| PromptLoginBehavior                    | string           | 〇     | プロンプトのログイン動作の種類です。  たとえば、"TranslateToFreshPasswordAuth" のようになります。 サポートされる値: TranslateToFreshPasswordAuth、NativeSupport、Disabled |
+| SigningCertificate                     | string           | 〇     | ADFS V2 STS が要求に署名するために現在使用している証明書。 これは、証明書の base64 でエンコードされた表現です。 |
+| SigningCertificateUpdateStatus         | string           | X      | 署名証明書の更新状態を示します。 |
+| SigningCertificateUpdateStatus         | null 許容のブール値 | X      | IDP STS が MFA をサポートするかどうかを示します。 サポートされる値: True、False、Null。|
 
 ### <a name="request-example"></a>要求の例
 
@@ -145,13 +145,13 @@ X-Locale: "en-US"
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this API returns a [Domain](#domain) resource for the new verified domain.
+成功した場合、この API は新しい検証済みドメインの[ドメイン](#domain)リソースを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

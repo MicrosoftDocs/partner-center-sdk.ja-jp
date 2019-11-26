@@ -1,6 +1,6 @@
 ---
-title: Validate an address
-description: How to validate an address using the address validation API.
+title: アドレスを検証する
+description: アドレス検証 API を使用してアドレスを検証する方法。
 ms.assetid: 38A136CD-5E42-46D2-85A4-ED08E30444B8
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487752"
 ---
-# <a name="validate-an-address"></a>Validate an address
+# <a name="validate-an-address"></a>アドレスを検証する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to validate an address using the address validation API.
+アドレス検証 API を使用してアドレスを検証する方法。
 
-The address validation API should only be used for pre-validation of customer profile updates. Use it with the understanding that if the country is the United States, Canada, China, or Mexico, the state field is validated against a list of valid states for the respective country. In all other countries, this test does not occur, and the API only checks that the state is a valid string.
+Address validation API は、顧客プロファイルの更新の事前検証にのみ使用してください。 国が米国、カナダ、中国、またはメキシコの場合、州フィールドはそれぞれの国の有効な州の一覧に対して検証されることを理解するために使用します。 他のすべての国では、このテストは行われず、API は状態が有効な文字列であることだけをチェックします。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C#
 
-To validate an address, first instantiate a new **Address** object and populate it with the address to validate. Then, retrieve an interface to **Validations** operations from the **IAggregatePartner.Validations** property, and call the **IsAddressValid** method with the address object.
+アドレスを検証するには、まず新しい**アドレス**オブジェクトをインスタンス化し、検証するアドレスをそのオブジェクトに設定します。 次に、 **iaggregatepartner.customers**プロパティから**検証**操作のためのインターフェイスを取得し、address オブジェクトを使用して**isaddressvalid**メソッドを呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -83,7 +83,7 @@ catch (PartnerException exception)
 
 ### <a name="java"></a>Java
 
-To validate an address, first instantiate a new **Address** object and populate it with the address to validate. Then, retrieve an interface to **Validations** operations from the **IAggregatePartner.getValidations** function, and call the **isAddressValid** method with the address object.
+アドレスを検証するには、まず新しい**アドレス**オブジェクトをインスタンス化し、検証するアドレスをそのオブジェクトに設定します。 次に、 **iaggregatepartner.customers**関数から**検証**操作のためのインターフェイスを取得し、address オブジェクトを使用して**isaddressvalid**メソッドを呼び出します。
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -121,38 +121,38 @@ catch (Exception exception)
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To validate an address, execute the [**Test-PartnerAddress**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) with the address parameters populated.
+アドレスを検証するには、アドレスパラメーターが設定された[**テストパートナーアドレス**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md)を実行します。
 
 ```powershell
 Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Country 'US' -PostalCode '98004' -State 'WA'
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド   | 要求 URI                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
-This table describes the required properties in the request body.
+次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前         | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                |
+| 名前         | 種類   | 必須 | 説明                                                |
 |--------------|--------|----------|------------------------------------------------------------|
-| addressline1 | string | Y        | The first line of the address.                             |
-| addressline2 | string | N        | The second line of the address. このプロパティは省略可能です。 |
-| city         | string | Y        | The city.                                                  |
-| state        | string | Y        | The state.                                                 |
-| postalcode   | string | Y        | The postal code.                                           |
-| country      | string | Y        | The two-character ISO alpha-2 country code.                |
+| addressline1 | string | Y        | 住所の1行目。                             |
+| addressline2 | string | N        | アドレスの2番目の行。 このプロパティは省略可能です。 |
+| city         | string | Y        | 市区町村。                                                  |
+| state        | string | Y        | 状態。                                                 |
+| postalcode   | string | Y        | 郵便番号。                                           |
+| country      | string | Y        | 2文字の ISO alpha 2 国コード。                |
 
-**Request example**
+**要求の例**
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/validations/address HTTP/1.1
@@ -174,17 +174,17 @@ Content-Length: 129
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, the method returns a status code 200 as demonstrated in the Response - validation succeeded example shown below.
+成功した場合、メソッドは、次に示す応答検証成功の例に示すように、状態コード200を返します。
 
-If the request fails, the method returns a status code 400 as demonstrated in the Response - validation failed example shown below. The response body contains a JSON payload with additional information about the error.
+要求が失敗した場合、メソッドは、次に示す応答検証失敗の例に示すように状態コード400を返します。 応答本文には、エラーに関する追加情報を含む JSON ペイロードが含まれています。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response - validation succeeded example**
+**応答-検証成功の例**
 
 ```http
 HTTP/1.1 200 OK
@@ -196,7 +196,7 @@ MS-ServerId: 030011719
 Date: Mon, 13 Mar 2017 23:56:12 GMT
 ```
 
-**Response - validation failed example**
+**応答-検証に失敗した例**
 
 ```http
 HTTP/1.1 400 Bad Request

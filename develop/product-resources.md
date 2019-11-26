@@ -1,6 +1,6 @@
 ---
-title: Products resources
-description: Resources that represent purchasable goods or services. Includes resources for describing the product type and shape (SKU), and for checking the availability of the product in an inventory.
+title: 製品リソース
+description: 購入可能な商品またはサービスを表すリソース。 製品の種類と形状 (SKU) を説明し、在庫内の製品の可用性を確認するためのリソースが含まれています。
 ms.assetid: 80C1F9B5-35FB-4DD8-B501-03467E1D75AD
 ms.date: 04/01/2019
 ms.service: partner-dashboard
@@ -13,157 +13,157 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488252"
 ---
-# <a name="products-resources"></a>Products resources
+# <a name="products-resources"></a>製品リソース
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-Resources that represent purchasable goods or services. Includes resources for describing the product type and shape (SKU), and for checking the availability of the product in an inventory.   
+購入可能な商品またはサービスを表すリソース。 製品の種類と形状 (SKU) を説明し、在庫内の製品の可用性を確認するためのリソースが含まれています。   
 
 
 ## <a name="product"></a>製品
 
 
-Represents a purchasable good or service. A product by itself is not a purchasable item.
+購入可能な good または service を表します。 製品自体は購入可能なの項目ではありません。
 
-| プロパティ           | タスクバーの検索ボックスに                          | 説明                                                              |
+| プロパティ           | 種類                          | 説明                                                              |
 |--------------------|-------------------------------|--------------------------------------------------------------------------|
-| id                 | string                        | The ID for this product.                                                 |
-| title              | string                        | The product title.                                                       |
-| 説明        | string                        | The product description.                                                 |
-| productType        | [ItemType](#itemtype)         | An object that describes the type categorization(s) of this product.     |
-| isMicrosoftProduct | bool                          | Indicates whether this is a Microswoft product.                          |
-| publisherName      | string                        | The name of the product's publisher if available.                          |
-| links              | [ProductLinks](#productlinks) | The resource links contained within the product.                         |
+| id                 | string                        | この製品の ID。                                                 |
+| title              | string                        | 製品タイトル。                                                       |
+| 説明        | string                        | 製品の説明。                                                 |
+| productType        | [ItemType](#itemtype)         | この製品の種類の分類を記述するオブジェクト。     |
+| Ismicrosoft 製品 | bool                          | これがマイクロ Swoft 製品であるかどうかを示します。                          |
+| publisherName      | string                        | 使用可能な場合は、製品の発行元の名前。                          |
+| links              | [ProductLinks](#productlinks) | 製品内に含まれるリソースリンク。                         |
 
 
 
 ## <a name="itemtype"></a>ItemType
 
 
-Represents the type of a product.
+製品の種類を表します。
 
-| プロパティ        | タスクバーの検索ボックスに                          | 説明                                                                          |
+| プロパティ        | 種類                          | 説明                                                                          |
 |-----------------|-------------------------------|--------------------------------------------------------------------------------------|
-| id              | string                        | The type identifier.                                                                 |
-| displayName     | string                        | The display name for this type.                                                      |
-| subType         | [ItemType](#itemtype)         | (省略可能)。 An object that describes a sub-type categorization for this item type.     |
+| id              | string                        | 型識別子。                                                                 |
+| displayName     | string                        | この型の表示名。                                                      |
+| 内部         | [ItemType](#itemtype)         | (省略可能)。 この項目の種類のサブ型の分類を記述するオブジェクト。     |
 
  
 
 ## <a name="productlinks"></a>ProductLinks
 
 
-Contains a list of links for a [Product](#product).
+[製品](#product)のリンクの一覧が含まれています。
 
-| プロパティ        | タスクバーの検索ボックスに                                                          | 説明                                          |
+| プロパティ        | 種類                                                          | 説明                                          |
 |-----------------|---------------------------------------------------------------|------------------------------------------------------|
-| skus            | [Link](utility-resources.md#link)                             | The link for accessing the underlying SKUs.          |
-| links           | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links contained within this resource.   |
+| sku            | [Link](utility-resources.md#link)                             | 基になる Sku にアクセスするためのリンク。          |
+| links           | [ResourceLinks](utility-resources.md#resourcelinks)           | このリソース内に含まれるリソースリンク。   |
 
 
 
-## <a name="sku"></a>Sku
+## <a name="sku"></a>番
 
 
-Represents a purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product. 
+製品の購入可能な在庫維持単位 (SKU) を表します。 これらは、製品のさまざまな形状を表します。 
 
-| プロパティ               | タスクバーの検索ボックスに             | 説明                                                                           |
+| プロパティ               | 種類             | 説明                                                                           |
 |------------------------|------------------|---------------------------------------------------------------------------------------|
-| id                     | string           | The ID for this SKU. This ID is unique only within the context of its parent product. |
-| title                  | string           | The title of the SKU.                                                                 |
-| 説明            | string           | The description of the SKU.                                                           |
-| productId              | string           | The ID of the parent [Product](#product) that contains this SKU.                      |
-| minimumQuantity        | 整数              | The minimum quantity allowed for purchase.                                            |
-| maximumQuantity        | 整数              | The maximum quantity allowed for purchase.                                            |
-| isTrial                | bool             | Indicates whether this SKU is a trial item.                                           |
-| supportedBillingCycles | 文字列の配列 | The list of supported billing cycles for this SKU. Supported values are the member names found in [BillingCycleType](#billingcycletype). |
-| purchasePrerequisites  | 文字列の配列 | The list of prerequisite steps or actions that are needed prior to purchasing this item. The supported values are:<br/>  "InventoryCheck" - Indicates that the item's inventory should be evaluated before attempting to purchase this item.<br/> "AzureSubscriptionRegistration" - Indicates that an Azure subscription is needed and must be registered before attempting to purchase this item.  |
-| inventoryVariables     | 文字列の配列 | The list of variables needed to execute an inventory check on this item. The supported values are:<br/> "CustomerId" - The ID of the customer that the purchase would be for.<br/> "AzureSubscriptionId" - The ID of the Azure subscription that would be used for an Azure reservation purchase.</br> "ArmRegionName" - The region for which to verify inventory. This value must match the "ArmRegionName" from the SKU's DynamicAttributes. |
-| provisioningVariables  | 文字列の配列 | The list of variables that must be provided into the provisioning context of a [cart line item](cart-resources.md#cartlineitem) when purchasing this item. The supported values are:<br/> Scope - The scope for an Azure reservation purchase: "Single", "Shared".<br/> "SubscriptionId" - The ID of the Azure subscription that would be used for an Azure reservation purchase.<br/> "Duration" - The duration of the Azure reservation: "1Year", "3Year".  |
-| dynamicAttributes      | key/value pairs  | The dictionary of dynamic properties that apply to this item. Please note that the properties in this dictionary are dynamic and can change without notice. You should not create strong dependencies on particular keys existing in the value of this property.    |
-| links                  | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the SKU.                   |
+| id                     | string           | この SKU の ID。 この ID は、その親製品のコンテキスト内でのみ一意です。 |
+| title                  | string           | SKU のタイトル。                                                                 |
+| 説明            | string           | SKU の説明。                                                           |
+| productId              | string           | この SKU を含む親[製品](#product)の ID。                      |
+| minimumQuantity        | int              | 購入に許容される最小数量。                                            |
+| maximumQuantity        | int              | 購入に許可される最大数量。                                            |
+| isTrial                | bool             | この SKU が試用版の項目であるかどうかを示します。                                           |
+| supportedBillingCycles | 文字列の配列 | この SKU でサポートされている請求サイクルの一覧。 サポートされている値は、 [BillingCycleType](#billingcycletype)で見つかったメンバー名です。 |
+| purchasePrerequisites  | 文字列の配列 | この項目を購入する前に必要な前提条件の手順またはアクションの一覧です。 サポートされている値は次のとおりです。<br/>  "InventoryCheck"-この項目の購入を試行する前に、項目の在庫を評価する必要があることを示します。<br/> "AzureSubscriptionRegistration"-Azure サブスクリプションが必要であり、この項目の購入を試行する前に登録する必要があることを示します。  |
+| inventoryVariables     | 文字列の配列 | この項目の在庫チェックを実行するために必要な変数の一覧。 サポートされている値は次のとおりです。<br/> "CustomerId"-購入の対象となる顧客の ID。<br/> "AzureSubscriptionId"-Azure 予約購入に使用される Azure サブスクリプションの ID。</br> "ArmRegionName"-インベントリを確認するリージョン。 この値は、SKU の DynamicAttributes の "ArmRegionName" と一致している必要があります。 |
+| プロビジョニング変数  | 文字列の配列 | この項目を購入するときに[カート](cart-resources.md#cartlineitem)の品目のプロビジョニングコンテキストに提供する必要がある変数の一覧。 サポートされている値は次のとおりです。<br/> スコープ-Azure 予約購入のスコープ。 "Single"、"Shared"。<br/> "SubscriptionId"-Azure 予約購入に使用される Azure サブスクリプションの ID。<br/> "Duration"-Azure 予約の期間 ("1Year"、"3Year")。  |
+| dynamicAttributes      | キーと値のペア  | この項目に適用される動的プロパティのディクショナリ。 このディクショナリのプロパティは動的であり、予告なしに変更される可能性があることに注意してください。 このプロパティの値に存在する特定のキーに対しては、厳密な依存関係を作成しないでください。    |
+| links                  | [ResourceLinks](utility-resources.md#resourcelinks) | SKU 内に含まれるリソースリンク。                   |
 
 
 
 ## <a name="availability"></a>対象
 
-Represents a configuration in which a SKU is available for purchase (such as country, currency, and industry segment). 
+SKU を購入できる構成 (国、通貨、業界セグメントなど) を表します。 
 
-| プロパティ        | タスクバーの検索ボックスに                                                | 説明                                                                         |
+| プロパティ        | 種類                                                | 説明                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------------------------------|
-| id              | string                                              | The ID for this availability. This ID is unique only within the context of its parent [product](#product) and [SKU](#sku). **Note** This ID can change over time. You should only rely on this value within a short time span after retrieving it.  |
-| productId       | string                                              | The ID of the [product](#product) that contains this availability.           |
-| skuId           | string                                              | The ID of the [SKU](#sku) that contains this availability.                   |
-| catalogItemId   | string                                              | The unique identifier for this item in the catalog. This is the ID that must be populated into the [OrderLineItem.OfferId](order-resources.md#orderlineitem) or [CartLineItem.CatalogItemId](cart-resources.md#cartlineitem) properties when purchasing the parent [SKU](#sku). **Note** This ID can change over time. You should only rely on this value within a short time after retrieving it. It should only be accessed and used at the time of purchase.  |
-| defaultCurrency | string                                              | The default currency supported for this availability.                               |
-| segment         | string                                              | The industry segment for this availability. Supported values are: Commercial, Education, Government, NonProfit. |
-| country         | string                                              | The country or region (in ISO country code format) where this availability applies. |
-| isPurchasable   | bool                                                | Indicates whether this availability is purchasable. |
-| isRenewable     | bool                                                | Indicates whether this availability is renewable. |
-| product         | [製品](#product)               | The product this availability corresponds to. |
-| sku             | [Sku](#sku)                     | The SKU this availability corresponds to. |
-| terms           | array of [Term](#term) resources  | The collection of terms that are applicable to this availability. |
-| links           | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the availability. |
+| id              | string                                              | この可用性の ID。 この ID は、その親[製品](#product)および[SKU](#sku)のコンテキスト内でのみ一意です。 **メモ**この ID は、時間の経過と共に変化することがあります。 この値は、取得後の短い期間内でのみ使用してください。  |
+| productId       | string                                              | この可用性を含む[製品](#product)の ID。           |
+| skuId           | string                                              | この可用性を含む[SKU](#sku)の ID。                   |
+| catalogItemId   | string                                              | カタログ内のこのアイテムの一意の識別子です。 これは、親[SKU](#sku)を購入するときに、 [Orderlineitem. offerid](order-resources.md#orderlineitem)プロパティまたは[CartLineItem](cart-resources.md#cartlineitem)プロパティに値を設定する必要がある ID です。 **メモ**この ID は、時間の経過と共に変化することがあります。 この値は、取得後の短時間でのみ使用してください。 このファイルには、購入時にのみアクセスして使用する必要があります。  |
+| defaultCurrency | string                                              | この可用性に対してサポートされている既定の通貨です。                               |
+| 市場         | string                                              | この可用性の業界セグメント。 サポートされている値は、商用、教育、政府、非営利です。 |
+| country         | string                                              | この可用性が適用される国または地域 (ISO 国コード形式)。 |
+| isPurchasable   | bool                                                | この可用性が購入可能なかどうかを示します。 |
+| isRenewable 可能     | bool                                                | この可用性が更新可能かどうかを示します。 |
+| 梱包         | [製品](#product)               | この可用性が対応する製品。 |
+| sku             | [番](#sku)                     | この可用性が対応する SKU。 |
+| 条項           | [用語](#term)リソースの配列  | この可用性に適用される用語のコレクション。 |
+| links           | [ResourceLinks](utility-resources.md#resourcelinks) | 可用性に含まれるリソースリンク。 |
 
 
 ## <a name="term"></a>用語
 
-Represents a term for which the availability can be purchased. 
+可用性を購入できる用語を表します。 
 
-| プロパティ              | タスクバーの検索ボックスに                                                                              | 説明                                                                         |
+| プロパティ              | 種類                                                                              | 説明                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| duration              | string                                                                            | An ISO 8601 representation of the term's duration. The current supported values are P1M (1 month), P1Y (1 year) and P3Y (3 years). |
-| 説明           | string                                                                            | The description of the term.           |
+| 全              | string                                                                            | 用語の期間の ISO 8601 表現。 現在サポートされている値は、P1M (1 か月)、P1Y (1 年)、および P3Y (3 年) です。 |
+| 説明           | string                                                                            | 用語の説明。           |
 
 ## <a name="inventorycheckrequest"></a>InventoryCheckRequest
 
-Represents a request to check inventory against certain catalog items. 
+特定のカタログアイテムに対して在庫を確認する要求を表します。 
 
-| プロパティ         | タスクバーの検索ボックスに                                                | 説明                                                                                 |
+| プロパティ         | 種類                                                | 説明                                                                                 |
 |------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------|
-| targetItems      | array of [InventoryItem](#inventoryitem)            | The list of catalog items that the inventory check will evaluate.                           |
-| inventoryContext | key/value pairs                                     | The dictionary of context values that are needed to carry out the inventory check(s). Each [SKU](#sku) of the products will define which values (if any) are needed to carry out this operation.  |
-| links            | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the inventory check request.                            |
+| targetItems      | [InventoryItem](#inventoryitem)の配列            | インベントリチェックで評価されるカタログアイテムの一覧です。                           |
+| inventoryContext | キーと値のペア                                     | 在庫チェックを実行するために必要なコンテキスト値のディクショナリ。 製品の各[SKU](#sku)は、この操作を実行するために必要な値 (存在する場合) を定義します。  |
+| links            | [ResourceLinks](utility-resources.md#resourcelinks) | インベントリチェック要求内に含まれるリソースリンク。                            |
 
 
 
 ## <a name="inventoryitem"></a>InventoryItem
 
-Represents a single item in an inventory check operation. This resource is used for specifying the target items in an input request and is also used to represent the output results of the inventory check operation.  
+在庫確認操作の1つの項目を表します。 このリソースは、入力要求でターゲット項目を指定するために使用され、在庫確認操作の出力結果を表すためにも使用されます。  
 
-| プロパティ         | タスクバーの検索ボックスに                                                              | 説明                                                                      |
+| プロパティ         | 種類                                                              | 説明                                                                      |
 |------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| productId        | string                                                            | (Required) The ID of the [product](#product).                            |
-| skuId            | string                                                            | The ID of the [SKU](#sku). When using this resource as input to an inventory request, this value is optional. If this value is not provided, then all SKUs under the product will be considered as target items of the inventory check operation.      |
-| isRestricted     | bool                                                              | Indicates whether this item was found to have a restricted inventory.            |
-| restrictions     | array of [InventoryRestriction](#inventoryrestriction)            | The details of any restrictions that are found for this item. This property will only be populated if **isRestricted** = "true". |
+| productId        | string                                                            | 必要[製品](#product)の ID。                            |
+| skuId            | string                                                            | [SKU](#sku)の ID。 このリソースを在庫要求への入力として使用する場合、この値は省略可能です。 この値が指定されていない場合、製品のすべての Sku が在庫確認操作のターゲット項目と見なされます。      |
+| isRestricted     | bool                                                              | この項目が制限付きの在庫を持っていることが検出されたかどうかを示します。            |
+| おける     | [InventoryRestriction](#inventoryrestriction)の配列            | この項目に対して検出された制限の詳細。 このプロパティは、 **Isrestricted** = "true" の場合にのみ設定されます。 |
 
 
 
 ## <a name="inventoryrestriction"></a>InventoryRestriction
 
-Represents the details of an inventory restriction. This is only applicable for inventory check output results, not for input requests.
+在庫制限の詳細を表します。 これは、入力要求ではなく、在庫チェックの出力結果にのみ適用されます。
 
-| プロパティ         | タスクバーの検索ボックスに                  | 説明                                                                                 |
+| プロパティ         | 種類                  | 説明                                                                                 |
 |------------------|-----------------------|---------------------------------------------------------------------------------------------|
-| reasonCode       | string                | The code that identifies the reason for the restriction.                                    |
-| 説明      | string                | The description of the inventory restriction.                                               |
-| プロパティ       | key/value pairs       | The dictionary of properties that may provide further details on the restriction.           |
+| 理由コード       | string                | 制限の理由を示すコード。                                    |
+| 説明      | string                | 在庫制限の説明。                                               |
+| プロパティ       | キーと値のペア       | 制限の詳細を提供する可能性のあるプロパティのディクショナリ。           |
 
 
 
 ## <a name="billingcycletype"></a>BillingCycleType
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate a type of billing cycle.
+請求サイクルの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)型。
 
 | Value              | 位置     | 説明                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
-| 不明            | 0            | Enum initializer.                                                                          |
-| 毎月            | 1            | Indicates that the partner will be charged monthly.                                        |
-| Annual             | 2            | Indicates that the partner will be charged annually.                                       |
-| なし               | 3            | Indicates that the partner will not be charged. This value may be used for trial items.    |
-| OneTime            | ホーム フォルダーが置かれているコンピューターにアクセスできない            | Indicates that the partner will be charged one time.                                       |
+| Unknown            | 0            | 列挙型の初期化子です。                                                                          |
+| 毎月            | 1            | パートナーが月単位で課金されることを示します。                                        |
+| 定例             | 2            | パートナーが毎年課金されることを示します。                                       |
+| なし               | 3            | パートナーが課金されないことを示します。 この値は、試用版の項目に使用できます。    |
+| OneTime            | 4            | パートナーに1回だけ課金されることを示します。                                       |
 

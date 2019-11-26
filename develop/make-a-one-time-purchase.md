@@ -1,6 +1,6 @@
 ---
-title: Make a one-time purchase
-description: How to make a one-time purchase of software and reservation products such as software subscriptions, perpetual software, and Azure Reserved Virtual Machine (VM) Instances, using the Partner Center API.
+title: 1回限りの購入を行う
+description: パートナーセンター API を使用して、ソフトウェアサブスクリプション、永続ソフトウェア、Azure 予約仮想マシン (VM) インスタンスなどのソフトウェアおよび予約製品を1回限り購入する方法について説明します。
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,19 +12,19 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488372"
 ---
-# <a name="make-a-one-time-purchase"></a>Make a one-time purchase
+# <a name="make-a-one-time-purchase"></a>1回限りの購入を行う
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to make a one-time purchase of software and reservation products such as software subscriptions, perpetual software, and Azure Reserved Virtual Machine (VM) Instances, using the Partner Center API.
+パートナーセンター API を使用して、ソフトウェアサブスクリプション、永続ソフトウェア、Azure 予約仮想マシン (VM) インスタンスなどのソフトウェアおよび予約製品を1回限り購入する方法について説明します。
 
 > [!NOTE]  
-> Software subscriptions are not available in the following markets:  
+> ソフトウェアサブスクリプションは、次の市場ではご利用いただけません。  
 >  
-> | Unavailable Markets            | &nbsp;                            | &nbsp;                                   |
+> | 利用できないマーケット            | &nbsp;                            | &nbsp;                                   |
 > |--------------------------------|-----------------------------------|------------------------------------------|
 > | オーランド諸島                  | グリーンランド                         | パプアニューギニア                         |
 > | 米領サモア                 | グレナダ                           | ピトケアン島                         |
@@ -66,98 +66,98 @@ How to make a one-time purchase of software and reservation products such as sof
 >  
 &nbsp;
 > [!NOTE]
-> To purchase perpetual software, you must have been previously qualified. Contact support for more information.
+> 永続的なソフトウェアを購入するには、事前に認定を取得しておく必要があります。 詳細については、サポートにお問い合わせください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
-## <a name="making-a-one-time-purchase"></a>Making a one-time purchase
+## <a name="making-a-one-time-purchase"></a>1回限りの購入を行う
 
-To make a one-time purchase, use the following steps:
+1回限りの購入を行うには、次の手順を実行します。
 
-1. [Enablement](#enablement) - (Azure Reserved VM Instance only) Register an active CSP Azure subscription to enable it for purchasing any reservation product.
-2. [Discovery](#discovery) - Find and select the products and SKUs you want to purchase and check their availability.
-3. [Order submission](#order-submission) - Create a shopping cart with the items in your order and submit it.
-4. [Get order details](#get-order-details) - Review the details of an order, all the orders for a customer, or view orders by billing cycle type.
+1. [有効化](#enablement)-(AZURE 予約 VM インスタンスのみ) アクティブな CSP Azure サブスクリプションを登録して、予約製品を購入できるようにします。
+2. [[検出](#discovery)]-購入する製品と sku を検索して選択し、その可用性を確認します。
+3. [注文の送信](#order-submission)-注文の品目を含むショッピングカートを作成して送信します。
+4. [注文の詳細を取得](#get-order-details)する-注文の詳細、顧客のすべての注文、または請求サイクルの種類別の注文を表示します。
 
-After you have made your one-time purchase, the following scenarios show you how to manage the lifecycle of your products by getting information about your entitlements, and how to retrieve balance statements, invoices, and invoice summaries.
+1回限りの購入を行った後、次のシナリオでは、権利に関する情報を取得して製品のライフサイクルを管理する方法、および残高明細書、請求書、および請求書の概要を取得する方法について説明します。
 
-- [Lifecycle management](#lifecycle-management)
-- [Invoice and reconciliation](#invoice-and-reconciliation)
+- [ライフサイクル管理](#lifecycle-management)
+- [請求書と調整](#invoice-and-reconciliation)
 
 ## <a name="enablement"></a>有効化
 
-Once you have identified the active subscription that you want to add the Azure Reserved VM Instance to, you must register the subscription so that it is enabled. To register an existing [Subscription](subscription-resources.md) resource so that it is enabled, see [Register a subscription](register-a-subscription.md).
+Azure 予約 VM インスタンスを追加するアクティブなサブスクリプションを特定したら、有効にするためにサブスクリプションを登録する必要があります。 既存の[サブスクリプション](subscription-resources.md)リソースが有効になるように登録するには、「[サブスクリプションを登録](register-a-subscription.md)する」を参照してください。
 
-After registering your subscription, you should confirm that the registration process is completed by checking the registration status. To do this, see [Get subscription registration status](get-subscription-registration-status.md).
+サブスクリプションを登録した後、登録の状態を確認して、登録プロセスが完了したことを確認する必要があります。 これを行うには、「[サブスクリプションの登録状態を取得](get-subscription-registration-status.md)する」を参照してください。
 
 ## <a name="discovery"></a>情報表示
 
-Once the subscription is enabled, you're ready to select products and SKUs and check their availability using the following Partner Center API models:
+サブスクリプションが有効になったら、次のパートナーセンター API モデルを使用して、製品と Sku を選択し、可用性を確認する準備ができました。
 
-- [Product](product-resources.md#product) - A grouping construct for purchasable goods or services. A product by itself is not a purchasable item.
-- [SKU](product-resources.md#sku) - A purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product.
-- [Availability](product-resources.md#availability) - A configuration in which a SKU is available for purchase (such as country, currency and industry segment).
+- [Product](product-resources.md#product) -購入可能な商品またはサービスのグループ化構成体。 製品自体は購入可能なの項目ではありません。
+- [Sku](product-resources.md#sku) -製品の購入可能な在庫保持ユニット (sku)。 これらは、製品のさまざまな形状を表します。
+- [可用性](product-resources.md#availability)-SKU を購入できるようにする構成 (国、通貨、業界セグメントなど)。
 
-Before making a one-time purchase, complete the following steps:
+1回限りの購入を行う前に、次の手順を実行します。
 
-1. Identify and retrieve the Product and SKU that you want to purchase. You can do this by listing the products and SKUs first, or If you already know the IDs of the product and SKU, selecting them.
+1. 購入する製品と SKU を特定して取得します。 これを行うには、まず製品と Sku を一覧表示します。または、製品と SKU の Id が既にわかっている場合は、それらを選択します。
 
-    - [Get a list of products](get-a-list-of-products.md)
-    - [Get a product using the product ID](get-a-product-by-id.md)
-    - [Get a list of SKUs for a product](get-a-list-of-skus-for-a-product.md)
-    - [Get a SKU using the SKU ID](get-a-sku-by-id.md)
+    - [製品の一覧を取得する](get-a-list-of-products.md)
+    - [製品 ID を使用して製品を取得する](get-a-product-by-id.md)
+    - [製品の Sku の一覧を取得する](get-a-list-of-skus-for-a-product.md)
+    - [SKU ID を使用して SKU を取得する](get-a-sku-by-id.md)
 
-2. Check the inventory for a SKU. This step is only needed for SKUs that are tagged with an **InventoryCheck** prerequisite.
+2. SKU のインベントリを確認します。 この手順は、 **InventoryCheck**の前提条件でタグ付けされている sku にのみ必要です。
 
-    - [Check Inventory](check-inventory.md)
+    - [インベントリの確認](check-inventory.md)
 
-3. Retrieve the [availability](product-resources.md#availability) for the [SKU](product-resources.md#sku). You will need the **CatalogItemId** of the availability when placing the order. To get this value, use one of the following APIs:
+3. [SKU](product-resources.md#sku)の[可用性](product-resources.md#availability)を取得します。 注文を配置するときに、可用性の**Catalogitemid**が必要になります。 この値を取得するには、次の Api のいずれかを使用します。
 
-    - [Get a list of availabilities for a SKU](get-a-list-of-availabilities-for-a-sku.md)
-    - [Get an availability using the availability ID](get-an-availability-by-id.md)  
+    - [SKU に使用できる機能の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
+    - [可用性 ID を使用して可用性を取得する](get-an-availability-by-id.md)  
 
-## <a name="order-submission"></a>Order submission
+## <a name="order-submission"></a>注文の送信
 
-To submit your order, do the following:
+注文を送信するには、次の手順を実行します。
 
-1. Create a cart to hold the collection of catalog items that you intend to buy. When you create a [Cart](cart-resources.md), the [cart line items](cart-resources.md#cartlineitem) are automatically grouped based on what can be purchased together in the same [Order](order-resources.md).
+1. 購入するカタログアイテムのコレクションを保持するカートを作成します。 [カート](cart-resources.md)を作成すると、同じ[順序](order-resources.md)で一緒に購入できるものに基づいて[カートの品目](cart-resources.md#cartlineitem)が自動的にグループ化されます。
 
-    - [Create a shopping cart](create-a-cart.md)
-    - [Update a shopping cart](update-a-cart.md)
+    - [ショッピングカートを作成する](create-a-cart.md)
+    - [ショッピングカートを更新する](update-a-cart.md)
 
-2. Check out the cart. Checking out a cart results in the creation of an [Order](order-resources.md).
+2. カートをチェックアウトします。 カートをチェックアウトすると、[注文](order-resources.md)が作成されます。
 
-    - [Checkout the cart](checkout-a-cart.md)
+    - [カートをチェックアウトする](checkout-a-cart.md)
 
-## <a name="get-order-details"></a>Get order details
+## <a name="get-order-details"></a>注文の詳細を取得する
 
-Once you have created your order, you can retrieve the details of an individual order using the order ID, or get a list of orders for a customer. Note that there is a delay of up to 15 minutes between the time an order is submitted and when it will appear in a list of a customer's orders.
+注文を作成したら、注文 ID を使用して個々の注文の詳細を取得したり、顧客の注文の一覧を取得したりできます。 注文が送信されてから顧客の注文の一覧に表示されるまでに、最大15分の遅延が発生することに注意してください。
 
-- To get the details of an individual order using the order ID. See, [Get an order by ID](get-an-order-by-id.md).
+- 注文 ID を使用して個々の注文の詳細を取得します。 「 [ID で注文を取得する](get-an-order-by-id.md)」を参照してください。
 
-- To get a list of orders for a customer using the customer ID. See, [Get all of a customer's orders](get-all-of-a-customer-s-orders.md).
+- 顧客 ID を使用して顧客の注文の一覧を取得します。 「[顧客の注文をすべて取得する](get-all-of-a-customer-s-orders.md)」を参照してください。
 
-- To get a list of orders for a customer by [billing cycle type](product-resources.md#billingcycletype) allowing you to list orders (one-time charges) and annual or monthly billed orders separately. See, [Get a list of orders by customer and billing cycle type](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
+- [請求サイクルの種類](product-resources.md#billingcycletype)によって顧客の注文の一覧を取得するには、注文 (1 回限りの料金) と年払いまたは月単位の請求書を個別に一覧表示します。 「[顧客と請求サイクルの種類別の注文の一覧を取得する](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)」を参照してください。
 
 ## <a name="lifecycle-management"></a>ライフサイクルの管理
 
-As part of managing the lifecycle of your one-time purchases in Partner Center, you can retrieve information about your [Entitlements](entitlement-resources.md), and get reservation details using the reservation order ID. For examples of how to do this, see [Get entitlements](get-a-collection-of-entitlements.md).
+パートナーセンターでの1回限りの購入のライフサイクルの管理の一環として、[権利](entitlement-resources.md)に関する情報を取得し、予約注文 ID を使用して予約の詳細を取得することができます。 これを行う方法の例については、「[権利の取得](get-a-collection-of-entitlements.md)」を参照してください。
 
-## <a name="invoice-and-reconciliation"></a>Invoice and reconciliation
+## <a name="invoice-and-reconciliation"></a>請求書と調整
 
-The following scenarios show you how to programmatically view your customer's [invoices](invoice-resources.md), and get your account balances and summaries that include one-time charges.  
+次のシナリオでは、顧客の[請求書](invoice-resources.md)をプログラムで表示し、1回限りの課金を含むアカウントの残高と概要を取得する方法について説明します。  
 
-**Balance and payment** To get current account balance in your default currency type that is a balance of both recurring and one-time charges, see [Get your current account balance](get-the-reseller-s-current-account-balance.md)
+**残高と支払い**定期的な料金と1回限りの課金のバランスを取る既定の通貨の種類で現在のアカウント残高を取得する方法については、「[現在のアカウント残高を取得](get-the-reseller-s-current-account-balance.md)する」を参照してください。
 
-**Multi-currency balance and payment** To get your current account balance and a collection of invoice summaries containing an invoice summary with both recurring and one-time charges for each of your customer's currency types, see [Get invoice summaries](get-invoice-summaries.md).
+**複数通貨の残高と支払い**現在のアカウント残高と、顧客の通貨の種類ごとに1回だけ課金される請求書の概要を含む請求書の概要を取得するには、「[請求書の概要を取得](get-invoice-summaries.md)する」を参照してください。
 
-**Invoices** To get a collection of invoices that show both recurring and one time charges, see [Get a collection of invoices](get-a-collection-of-invoices.md).
+**請求書**定期的な料金と1回の課金の両方を示す請求書のコレクションを取得するには、「[請求書のコレクションを取得](get-a-collection-of-invoices.md)する」を参照してください。
 
-**Single Invoice** To retrieve a specific invoice using the invoice ID, see [Get an invoice by ID](get-invoice-by-id.md).  
+**1 つの請求書**請求書 ID を使用して特定の請求書を取得するには、「 [ID で請求書を取得](get-invoice-by-id.md)する」を参照してください。  
 
-**Reconciliation** To get a collection of invoice line item details (Reconciliation line items) for a specific invoice ID, see [Get invoice line items](get-invoiceline-items.md).  
+**調整**特定の請求書 ID の請求書明細項目の詳細 (調整行項目) のコレクションを取得するには、「[請求書明細項目を取得](get-invoiceline-items.md)する」を参照してください。  
 
-**Download an invoice as a PDF** To retrieve an invoice statement in PDF form using an invoice ID, see [Get an invoice statement](get-invoice-statement.md).
+**PDF として請求書をダウンロード**する請求書 ID を使用して PDF 形式で請求書明細書を取得するには、「 [invoice ステートメントを取得](get-invoice-statement.md)する」を参照してください。

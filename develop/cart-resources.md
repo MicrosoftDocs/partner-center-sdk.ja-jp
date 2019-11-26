@@ -1,6 +1,6 @@
 ---
-title: Cart resources
-description: A partner places an order when a customer wants to buy a subscription from a list of offers.
+title: カートのリソース
+description: パートナーは、顧客がプランの一覧からサブスクリプションを購入することを希望する場合に注文を行います。
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489082"
 ---
-# <a name="cart-resources"></a>Cart resources
+# <a name="cart-resources"></a>カートのリソース
 
 適用対象:
 
@@ -21,139 +21,139 @@ ms.locfileid: "74489082"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-A partner places an order when a customer wants to buy a subscription from a list of offers.
+パートナーは、顧客がプランの一覧からサブスクリプションを購入することを希望する場合に注文を行います。
 
-## <a name="cart"></a>Cart
+## <a name="cart"></a>カート
 
-Describes a cart.
+カートについて説明します。
 
-| プロパティ              | タスクバーの検索ボックスに             | 説明                                                                                            |
+| プロパティ              | 種類             | 説明                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| id                    | string           | A cart identifier that is supplied upon successful creation of the cart.                               |
-| creationTimeStamp     | DateTime         | The date the cart was created, in date-time format. Applied upon successful creation of the cart.      |
-| lastModifiedTimeStamp | DateTime         | The date the cart was last updated, in date-time format. Applied upon successful creation of the cart. |
-| expirationTimeStamp   | DateTime         | The date the cart will expire, in date-time format. Applied upon successful creation of cart.          |
-| lastModifiedUser      | string           | The user who last updated the cart. Applied upon successful creation of cart.                          |
-| lineItems             | Array of objects | An Array of [CartLineItem](#cartlineitem) resources.                                                   |
-| status                | string           | The status of the cart. Possible values are "Active" (can be updated/submitted) and "Ordered" (has already been submitted). |
+| id                    | string           | カートが正常に作成されたときに提供されるカート識別子。                               |
+| 前のタイムスタンプ     | DateTime         | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。      |
+| lastModifiedTimeStamp | DateTime         | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。 |
+| expirationTimeStamp   | DateTime         | カートの有効期限が切れる日付 (日付と時刻の形式)。 カートの作成が成功したときに適用されます。          |
+| lastModifiedUser      | string           | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                          |
+| lineItems             | オブジェクトの配列 | [CartLineItem](#cartlineitem)リソースの配列。                                                   |
+| status                | string           | カートの状態。 有効な値は、"Active" (更新/送信可能) と "Ordered" (既に送信済み) です。 |
 
 ## <a name="cartlineitem"></a>CartLineItem
 
-Represents one item contained in a cart.
+カートに含まれる1つのアイテムを表します。
 
-| プロパティ             | タスクバーの検索ボックスに                             | 説明                                                                                                                                           |
+| プロパティ             | 種類                             | 説明                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | string                           | A unique identifier for a cart line item. Applied upon successful creation of cart.                                                                   |
-| catalogItemId        | string                           | The catalog item identifier.                                                                                                                          |
-| friendlyName         | string                           | (省略可能)。 The friendly name for the item defined by the partner to help disambiguate.                                                                 |
-| quantity             | 整数                              | The number of licenses or instances.                                                                                                                  |
-| currencyCode         | string                           | The currency code.                                                                                                                                    |
-| billingCycle         | オブジェクト                           | The type of billing cycle set for the current period.                                                                                                 |
-| termDuration         | string                           | An ISO 8601 representation of the term's duration. The current supported values are P1M (1 month), P1Y (1 year) and P3Y (3 years).                                |
-| 参加者         | List of Object String pairs      | A collection of PartnerId on Record (MPNID) on the purchase.                                                                                          |
-| provisioningContext  | Dictionary<string, string>       | Additional context used when provisioning the purchased item. To determine which values are needed for a particular item please refer to the SKU's provisioningVariables property. |
-| orderGroup           | string                           | A group to indicate which items can be submitted together in the same order.                                                                          |
-| addonItems           | List of **CartLineItem** objects | A collection of cart line items for addons that will be purchased towards the base subscription that results from the root cart line item's purchase. |
-| エラーを修正する                | オブジェクト                           | Applied after cart is created in case of an error.                                                                                                    |
-| renewsTo             | Array of objects                 | An array of [RenewsTo](#renewsto) resources.                                                                            |
+| id                   | string                           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                                   |
+| catalogItemId        | string                           | カタログ項目の識別子。                                                                                                                          |
+| friendlyName         | string                           | (省略可能)。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
+| quantity             | int                              | ライセンスまたはインスタンスの数。                                                                                                                  |
+| currencyCode         | string                           | 通貨コード。                                                                                                                                    |
+| 周期サイクル         | オブジェクト                           | 現在の期間に設定されている請求サイクルの種類。                                                                                                 |
+| termDuration         | string                           | 用語の期間の ISO 8601 表現。 現在サポートされている値は、P1M (1 か月)、P1Y (1 年)、および P3Y (3 年) です。                                |
+| 参加者         | オブジェクトの文字列ペアの一覧      | 購入時のレコードの PartnerId (MPNID) のコレクション。                                                                                          |
+| provisioningContext  | Dictionary < string、string >       | 購入した項目をプロビジョニングするときに使用される追加のコンテキスト。 特定の項目に必要な値を判断するには、SKU の "プロビジョニング変数" プロパティを参照してください。 |
+| orderGroup           | string                           | 同じ順序で一緒に送信できる項目を示すグループ。                                                                          |
+| addonItems           | **CartLineItem**オブジェクトの一覧 | ルートカートの品目の購入から得られる基本サブスクリプションに対して購入されるアドオンのカート品目のコレクション。 |
+| error (エラー)                | オブジェクト                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
+| renewsTo             | オブジェクトの配列                 | [Renewsto](#renewsto)の配列。                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
 
-Represents one item contained in a cart line item.
+カートの品目に含まれる1つのアイテムを表します。
 
-| プロパティ              | タスクバーの検索ボックスに             | 必須かどうか        | 説明 |
+| プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | 必須ではない              | An ISO 8601 representation of the renewal term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year). |
+| termDuration          | string           | X              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 
 ## <a name="carterror"></a>CartError
 
-Represents an error that occurs after a cart is created.
+カートが作成された後に発生するエラーを表します。
 
-| プロパティ         | タスクバーの検索ボックスに                                   | 説明                                                                                   |
+| プロパティ         | 種類                                   | 説明                                                                                   |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|
-| errorCode        | [CartErrorCode](#carterrorcode) | The type of cart error.                                                                       |
-| errorDescription | string                                 | The error description, including any notes about supported values, default values, or limits. |
+| errorCode        | [CartErrorCode](#carterrorcode) | カートエラーの種類。                                                                       |
+| errorDescription | string                                 | エラーの説明。サポートされる値、既定値、または制限に関する注意事項が含まれます。 |
 
 ## <a name="carterrorcode"></a>CartErrorCode
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate a type of cart error.
+カートエラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
 | Value                                | 位置 | 説明                                             |
 |--------------------------------------|----------|---------------------------------------------------------|
-| 不明                              | 0        | 既定値です。                                          |
-| CurrencyIsNotSupported               | 10000    | The currency is not supported for the specified market. |
-| CatalogItemIdIsNotValid              | 10001    | The catalog item ID is not valid.                       |
-| QuotaNotAvailable                    | 10002    | There is not enough quota available.                    |
-| InventoryNotAvailable                | 10003    | The inventory is not available for the selected offer.  |
-| ParticipantsIsNotSupportedForPartner | 10004    | Setting participants is not supported for this partner. |
-| UnableToProcessCartLineItem          | 10006    | Unable to process the cart line item.                   |
-| SubscriptionIsNotValid               | 10007    | The subscription is not valid.                          |
-| SubscriptionIsNotEnabledForRI        | 10008    | The subscription is not enabled for Azure reservations. |
-| SandboxLimitExceeded                 | 10009    | The sandbox limit has been exceeded.                    |
+| Unknown                              | 0        | 既定値です。                                          |
+| CurrencyIsNotSupported               | 10000    | 指定された市場では、通貨はサポートされていません。 |
+| CatalogItemIdIsNotValid              | 10001    | カタログ項目 ID が無効です。                       |
+| QuotaNotAvailable                    | 10002    | 使用可能なクォータが不足しています。                    |
+| InventoryNotAvailable                | 10003    | 選択されたプランでは、インベントリを利用できません。  |
+| ParticipantsIsNotSupportedForPartner | 10004    | 参加者の設定は、このパートナーではサポートされていません。 |
+| UnableToProcessCartLineItem          | 10006    | カートの品目を処理できません。                   |
+| SubscriptionIsNotValid               | 10007    | サブスクリプションが無効です。                          |
+| SubscriptionIsNotEnabledForRI        | 10008    | サブスクリプションで Azure 予約が有効になっていません。 |
+| SandboxLimitExceeded                 | 10009    | サンドボックスの制限を超えました。                    |
 
 ## <a name="cartcheckoutresult"></a>CartCheckoutResult
 
-Represents the result of a cart checkout.
+カートのチェックアウトの結果を表します。
 
-| プロパティ    | タスクバーの検索ボックスに                                              | 説明                     |
+| プロパティ    | 種類                                              | 説明                     |
 |-------------|---------------------------------------------------|---------------------------------|
-| orders      | List of [Order](order-resources.md#order) objects.         | The collection of orders.       |
-| orderErrors | List of [OrderError](#ordererror) objects. | The collection of order errors. |
+| 注文      | [Order](order-resources.md#order)オブジェクトのリスト。         | 注文のコレクションです。       |
+| orderErrors | [Ordererror](#ordererror)オブジェクトの一覧。 | 注文エラーのコレクションです。 |
 
 ## <a name="ordererror"></a>OrderError
 
-Represents an error that occurs during a cart checkout when an order is created.
+注文が作成されたときにカートのチェックアウト中に発生するエラーを表します。
 
-| プロパティ     | タスクバーの検索ボックスに   | 説明                                     |
+| プロパティ     | 種類   | 説明                                     |
 |--------------|--------|-------------------------------------------------|
-| orderGroupId | string | The order group ID of the order with the error. |
-| コード         | 整数    | The error code.                                 |
-| 説明  | string | The description of the error.                   |
+| orderGroupId | string | 注文の注文グループ ID をエラーと共に使用します。 |
+| code         | int    | エラーコード。                                 |
+| 説明  | string | エラーの説明。                   |
 
 ## <a name="ordererrorcode"></a>OrderErrorCode
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate a type of order error.
+注文エラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
 | Value | 位置 | 説明 |
 | --- | --- | --- |
-| PartnerTokenMissing | 800001 | Partner Token missing in request context. |
-| InvalidInput | 800002 | Invalid request input. |
-| ServiceException | 800003 | Unexpected service error. |
-| InvalidOfferId | 800004 | Invalid offer ID. |
-| CreateOrderError | 800005 | Create order is not successful. |
-| ProvisioningStatusNotFound | 800007 | Unable to retrieve provisioning information. |
-| CartIdNotFound | 800008 | Unable to retrieve cart ID. |
-| CartItemErrorInCreateOrder | 800009 | Error in Cart item(s). |
-| InventoryNotAvailable | 800010 | Inventory is not available for this catalog item. |
-| AzureSubscriptionNotValid | 800011 | This subscription is not a valid Azure subscription. |
-| SubscriptionIsNotActive | 800012 | This subscription is not an active subscription. |
-| SubscriptionIsNotEnabledForRI | 800013 | This subscription is not enabled for RI purchase. |
-| PendingAdjustment | 800014 | There is a pending adjustment requested for this order. |
-| MpnIdNotFound | 800015 | MPN Id is not found. |
-| NotValidIndirectResellerMpnId | 800016 | MPN Id is not a valid Indirect Reseller. |
-| InvalidQuantity | 800017 | The quantity is not available for this catalog item. |
-| SandboxLimitExceeded | 800018 | The sandbox limit has been met. |
-| SandboxTenantOnly | 800019 | This operation is only enabled for sandbox tenants. |
-| CatalogItemNotEligibleForPurchase | 800020 | The catalog item is not eligible for purchase. |
-| SubscriptionIsNotValid | 800021 | This subscription is not a valid subscription. |
-| ManualReviewRequired | 800022 | You may be eligible for this transaction. Please contact Support for help.|
-| InsufficientFunds | 800023 | You are not eligible for this transaction because your Credit Line is not reaching minimum threshold for this purchase.Please update your order(or) contact Support for help. |
-| ReviewCancelled | 800024 | You are not eligible for this transaction. |
-| LineOfCreditNotDefined | 800025 | You are not eligible for this transaction because your Credit Line is not reaching minimum threshold for this purchase. Please update your order (or) contact Support for help. |
-| RiskError | 800026 | You are not eligible for this transaction. |
-| SubscriptionNotRegistered | 800030 | This subscription is not registered. |
-| PurchaseSystemNotSupported | 800031 | Purchase system not supported. |
-| ConditionFailed | 800036 | Pre-condition failed. |
-| AssetIdNotFound | 800037 | Asset ID not found. |
-| AssetFutureBillingInfoNotFound | 800038 | Asset FutureBillingInfo not found. |
-| ResellerProgramStatusNotActive | 800039 | Reseller program status is not active. |
-| AssetStatusChangeNotValid | 800040 | Asset status cannot be changed to **{0}** from **{1}** . |
-| ItemAlreadyActivated | 800041 | This item has already been activated. |
+| PartnerTokenMissing | 800001 | 要求コンテキストにパートナートークンがありません。 |
+| InvalidInput | 800002 | 要求の入力が無効です。 |
+| ServiceException | 800003 | 予期しないサービスエラーです。 |
+| InvalidOfferId | 800004 | オファー ID が無効です。 |
+| CreateOrderError | 800005 | 注文の作成に失敗しました。 |
+| ProvisioningStatusNotFound | 800007 | プロビジョニング情報を取得できません。 |
+| CartIdNotFound | 800008 | カート ID を取得できません。 |
+| CartItemErrorInCreateOrder | 800009 | カート項目でエラーが発生しました。 |
+| InventoryNotAvailable | 800010 | このカタログ項目では、インベントリを利用できません。 |
+| AzureSubscriptionNotValid | 800011 | このサブスクリプションは有効な Azure サブスクリプションではありません。 |
+| SubscriptionIsNotActive | 800012 | このサブスクリプションはアクティブなサブスクリプションではありません。 |
+| SubscriptionIsNotEnabledForRI | 800013 | このサブスクリプションでは、RI の購入が有効になっていません。 |
+| PendingAdjustment | 800014 | この注文に対して保留中の調整が要求されています。 |
+| MpnIdNotFound | 800015 | MPN Id が見つかりません。 |
+| NotValidIndirectResellerMpnId | 800016 | MPN Id は、有効な間接リセラーではありません。 |
+| InvalidQuantity | 800017 | このカタログ項目の数量は使用できません。 |
+| SandboxLimitExceeded | 800018 | サンドボックスの制限に達しました。 |
+| SandboxTenantOnly | 800019 | この操作は、サンドボックステナントに対してのみ有効です。 |
+| CatalogItemNotEligibleForPurchase | 800020 | カタログ項目は購入に適合していません。 |
+| SubscriptionIsNotValid | 800021 | このサブスクリプションは有効なサブスクリプションではありません。 |
+| ManualReviewRequired | 800022 | このトランザクションの対象となる可能性があります。 サポートにお問い合わせください。|
+| InsufficientFunds | 800023 | クレジットラインがこの購入の最小しきい値に達していないため、このトランザクションの対象になりません。注文を更新してください (または、サポートに連絡してください)。 |
+| ReviewCancelled | 800024 | このトランザクションの対象ではありません。 |
+| LineOfCreditNotDefined | 800025 | クレジットラインがこの購入の最小しきい値に達していないため、このトランザクションの対象になりません。 注文を更新してください (または、サポートに連絡してください)。 |
+| RiskError | 800026 | このトランザクションの対象ではありません。 |
+| SubscriptionNotRegistered 済み | 800030 | このサブスクリプションは登録されていません。 |
+| PurchaseSystemNotSupported | 800031 | 購入システムはサポートされていません。 |
+| ConditionFailed | 800036 | 事前条件が失敗しました。 |
+| AssetIdNotFound | 800037 | 資産 ID が見つかりません。 |
+| AssetFutureBillingInfoNotFound | 800038 | Asset FutureBillingInfo が見つかりません。 |
+| ResellerProgramStatusNotActive | 800039 | リセラープログラムの状態がアクティブではありません。 |
+| AssetStatusChangeNotValid | 800040 | 資産の状態を **{1}** から **{0}** に変更することはできません。 |
+| 項目がアクティブになりました | 800041 | この項目は既にアクティブ化されています。 |
 | NotSupported | 800042 | サポートされません。 |
-| PricingAccessForbidden | 800043 | Access to pricing information is not granted. |
-| OrderInProgress | 800060 | Your order is in progress. Please check your order history for recent orders in few minutes. |
-| OrderCannotBeCancelled | 800061 | Order cannot be cancelled. |
-| ReviewRejected | 800062 | You are not eligible for this transaction. |
-| CancelLegacyOrder | 800063 | This order **{0}** cannot be cancelled. Use `PATCH /customers/{1}/subscriptions/<subscriptionId>` to suspend subscriptions. |
-| CartProcessedByAnotherRequest | 800064 | Cart **{0}** is being processed by another request. |
-| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | Cannot checkout an already submitted cart **{0}** . |
+| PricingAccessForbidden | 800043 | 価格情報へのアクセス権は付与されません。 |
+| OrderInProgress | 800060 | 注文が進行中です。 数分で最近の注文の注文履歴を確認してください。 |
+| OrderCannotBeCancelled | 800061 | 注文を取り消すことはできません。 |
+| ReviewRejected | 800062 | このトランザクションの対象ではありません。 |
+| CancelLegacyOrder | 800063 | この注文 **{0}** を取り消すことはできません。 `PATCH /customers/{1}/subscriptions/<subscriptionId>` を使用して、サブスクリプションを中断します。 |
+| CartProcessedByAnotherRequest | 800064 | カート **{0}** が別の要求によって処理されています。 |
+| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | 既に送信されているカート **{0}** をチェックアウトすることはできません。 |

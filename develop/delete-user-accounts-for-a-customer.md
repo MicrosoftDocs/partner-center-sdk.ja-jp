@@ -1,6 +1,6 @@
 ---
-title: Delete a user account for a customer
-description: How to delete an existing user account for a customer.
+title: 顧客のユーザーアカウントを削除する
+description: 顧客の既存のユーザーアカウントを削除する方法。
 ms.assetid: 12097809-A62D-4929-9F1D-08676784BA39
 ms.date: 06/20/2019
 ms.service: partner-dashboard
@@ -13,33 +13,33 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486122"
 ---
-# <a name="delete-a-user-account-for-a-customer"></a>Delete a user account for a customer
+# <a name="delete-a-user-account-for-a-customer"></a>顧客のユーザーアカウントを削除する
 
 適用対象:
 
 - パートナー センター
 
-This topic explains how to delete an existing user account for a customer.
+このトピックでは、顧客の既存のユーザーアカウントを削除する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (**customer-tenant-id**). If you do not have a customer's ID, look up the ID in Partner Center. Choose the customer from the customers list, select **Account**, then save their Microsoft ID.
-- A user ID. If you do not have the user ID, see [Get a list of all user accounts for a customer](get-a-list-of-all-user-accounts-for-a-customer.md).
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客 ID (**顧客-テナント id**)。 お客様の ID をお持ちでない場合は、パートナーセンターで ID を参照してください。 顧客 の一覧から顧客を選択し、**アカウント** を選択して、Microsoft ID を保存します。
+- ユーザー ID。 ユーザー ID を持っていない場合は、「[顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)する」を参照してください。
 
 ## <a name="deleting-a-user-account"></a>ユーザー アカウントを削除する
 
-When you delete a user account, the user state is set to **inactive** for thirty days. After thirty days, the user account and its associated data are purged and made unrecoverable.
+ユーザーアカウントを削除すると、ユーザー状態は30日間**非アクティブ**に設定されます。 30日後に、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。
 
-You can [restore a deleted user account for a customer](restore-a-user-for-a-customer.md) if the inactive account is within the thirty day window. However, when you restore an account that was deleted and marked as inactive, the account is no longer returned as a member of the user collection (for example, when you [get a list of all user accounts for a customer](get-a-list-of-all-user-accounts-for-a-customer.md)).
+非アクティブなアカウントが30日の期間内にある場合は、[削除されたユーザーアカウントを顧客に対して復元](restore-a-user-for-a-customer.md)できます。 ただし、削除され、非アクティブとマークされているアカウントを復元すると、そのアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、[顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)した場合)。
 
 ## <a name="c"></a>C\#
 
-To delete an existing customer user account:
+既存の顧客のユーザーアカウントを削除するには:
 
-1. Use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer.
-2. Call the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method to identify the user.
-3. Call the [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) method to delete the user and set the user state to inactive.
+1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用し、顧客を識別します。
+2. ユーザーを識別するには、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出します。
+3. [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete)メソッドを呼び出してユーザーを削除し、ユーザー状態を非アクティブに設定します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,9 +49,9 @@ To delete an existing customer user account:
 partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdToDelete).Delete();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: DeleteCustomerUser.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: DeleteCustomerUser.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
@@ -61,16 +61,16 @@ partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdTo
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following query parameters to identify the customer and user.
+次のクエリパラメーターを使用して、顧客とユーザーを識別します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                               |
+| 名前                   | 種類     | 必須 | 説明                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
-| customer-tenant-id     | GUID     | Y        | The value is a GUID-formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer. |
-| user-id                | GUID     | Y        | The value is a GUID-formatted **user-id** that belongs to a single user account.                                          |
+| 顧客-テナント id     | GUID     | Y        | 値は GUID 形式の**顧客テナント id**で、リセラーは特定の顧客の結果をフィルター処理できます。 |
+| ユーザー id                | GUID     | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                          |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST Headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -89,13 +89,13 @@ Host: api.partnercenter.microsoft.com
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns a **204 No Content** status code.
+成功した場合、このメソッドは、コンテンツステータスコード " **204 なし**" を返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

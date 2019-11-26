@@ -1,6 +1,6 @@
 ---
-title: Get all indirect resellers analytics information
-description: How to get all the indirect resellers analytics information.
+title: すべての間接リセラー分析情報を取得する
+description: すべての間接リセラーの分析情報を取得する方法。
 ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,9 +13,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485982"
 ---
-# <a name="get-all-indirect-resellers-analytics-information"></a>Get all indirect resellers analytics information
+# <a name="get-all-indirect-resellers-analytics-information"></a>すべての間接リセラー分析情報を取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
@@ -23,118 +23,118 @@ ms.locfileid: "74485982"
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 
-How to get all the indirect resellers analytics information for your customers. 
+顧客向けの間接リセラー分析に関するすべての情報を取得する方法。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only. 
-
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-**Request syntax**
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。 
+
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+
+
+**要求の構文**
 
 | メソッド  | 要求 URI |
 |---------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/indirectresellers HTTP/1.1 |
+| **取得** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/indirectresellers HTTP/1.1 |
 
  
 
-**URI parameters**
+**URI パラメーター**
 
 <table>
 <thead>
     <th>パラメーター</th>
-    <th>タスクバーの検索ボックスに</th>
+    <th>種類</th>
     <th>説明</th>
 </thead>
 <tbody>
     <tr>
         <td>partnerTenantId</td>
         <td>string</td>
-        <td>The Tenant ID of the partner for which you want to retrieve indirect resellers data. </td>
+        <td>間接リセラーデータを取得するパートナーのテナント ID。 </td>
     </tr>
     <tr>
         <td>id</td>
         <td>string</td>
-        <td>Indirect reseller ID</td>
+        <td>間接リセラー ID</td>
     </tr>
     <tr>
-        <td>名前</td>
+        <td>name</td>
         <td>string</td>
-        <td>The Name of the partner for which you want to retrieve indirect resellers data.</td>
+        <td>間接リセラーデータを取得するパートナーの名前。</td>
     </tr>
     <tr>
         <td>market</td>
         <td>string</td>
-        <td>The Market of the partner for which you want to retrieve indirect resellers data.</td>
+        <td>間接リセラーデータを取得するパートナーの市場。</td>
     </tr>
     <tr>
         <td>firstSubscriptionCreationDate</td>
-        <td>string in UTC date time format</td>
-        <td>The creation date of the first subscription based on which you want to retrieve indirect resellers data.</td>
+        <td>UTC 日時形式の文字列</td>
+        <td>間接リセラーデータを取得する最初のサブスクリプションの作成日。</td>
     </tr>
     <tr>
         <td>latestSubscriptionCreationDate</td>
-        <td>string in UTC date time format</td>
-        <td>The creation date of the latest subscription.</td>
+        <td>UTC 日時形式の文字列</td>
+        <td>最新のサブスクリプションの作成日。</td>
     </tr>
     <tr>
         <td>firstSubscriptionEndDate</td>
-        <td>string in UTC date time format</td>
-        <td>First time any subscription was ended.</td>
+        <td>UTC 日時形式の文字列</td>
+        <td>サブスクリプションが初めて終了したとき。</td>
     </tr>
     <tr>
         <td>latestSubscriptionEndDate</td>
-        <td>string in UTC date time format</td>
-        <td>Latest date when any subscription was ended. </td>
+        <td>UTC 日時形式の文字列</td>
+        <td>任意のサブスクリプションが終了した最後の日付。 </td>
     </tr>
     <tr>
         <td>firstSubscriptionSuspendedDate</td>
-        <td>string in UTC date time format</td>
-        <td>First time any subscription was suspended.</td>
+        <td>UTC 日時形式の文字列</td>
+        <td>サブスクリプションが初めて中断されたとき。</td>
     </tr>
     <tr>
         <td>latestSubscriptionSuspendedDate</td>
-        <td>string in UTC date time format</td>
-        <td>Latest date when any subscription was suspended.</td>
+        <td>UTC 日時形式の文字列</td>
+        <td>サブスクリプションが中断された最後の日付。</td>
     </tr>
     <tr>
         <td>firstSubscriptionDeprovisionedDate</td>
-        <td>string in UTC date time format</td>
-        <td>First time any subscription was deprovisioned.</td>
+        <td>UTC 日時形式の文字列</td>
+        <td>サブスクリプションが初めてプロビジョニング解除されたとき。</td>
     </tr>
     <tr>
         <td>latestSubscriptionDeprovisionedDate</td>
-        <td>string in UTC date time format</td>
-        <td>Latest date when any subscription was deprovisioned.</td>
+        <td>UTC 日時形式の文字列</td>
+        <td>サブスクリプションがプロビジョニング解除された最後の日付。</td>
     </tr>
     <tr>
         <td>subscriptionCount</td>
         <td>double</td>
-        <td>Subscription count for all value added resellers</td>
+        <td>すべての付加価値再販業者のサブスクリプション数</td>
     </tr>
     <tr>
         <td>licenseCount</td>
         <td>double</td>
-        <td>License count for all value added resellers</td>
+        <td>すべての付加価値再販業者のライセンス数</td>
     </tr>
     <tr>
         <td>indirectResellerCount</td>
         <td>double</td>
-        <td>Indirect resellers count</td>
+        <td>間接リセラー数</td>
     </tr>
     <tr>
         <td>top</td>
         <td>string</td>
-        <td>要求で返すデータの行数です。 指定されない場合の既定値は、最大値でもある 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。</td>
+        <td>要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。</td>
     </tr>
     <tr>
         <td>skip</td>
-        <td>整数</td>
+        <td>int</td>
         <td>
-          <p>クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 For example, <code>top=10000 and skip=0</code> retrieves the first 10000 rows of data, <code>top=10000 and skip=10000</code> retrieves the next 10000 rows of data, and so on.</p>
+          <p>クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、<code>top=10000 and skip=0</code> は最初の1万行のデータを取得し、次の1万行のデータを取得 <code>top=10000 and skip=10000</code> ます。</p>
         </td>
     </tr>
     <tr>
@@ -144,7 +144,7 @@ How to get all the indirect resellers analytics information for your customers.
             <p>要求の <em>filter</em> パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各ステートメントには <strong>eq</strong> 演算子または <strong>ne</strong> 演算子と関連付けられるフィールドと値が含まれ、<strong>and</strong> または <strong>or</strong> を使ってステートメントを組み合わせることができます。 次のフィールドを指定できます。</p>
             <ul>
                 <li><em>partnerTenantId</em></li>
-                <li><em>id</em></li>
+                <li><em>番号</em></li>
                 <li><em>名前</em></li>
                 <li><em>market</em></li>
                 <li><em>firstSubscriptionCreationDate</em></li>
@@ -166,15 +166,15 @@ How to get all the indirect resellers analytics information for your customers.
     <tr>
         <td>aggregationLevel</td>
         <td>string</td>
-        <td><p>集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。&quot;day&quot;、&quot;week&quot;、または &quot;month&quot;。 指定されていない場合、既定値は &quot;day&quot; です。</p>
-        <p><em>aggregationLevel</em> is not supported without a <strong>groupby</strong>. <em>aggregationLevel</em> applies to all <strong>datefields</strong> present in the <strong>groupby</strong></p>
+        <td><p>集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。&quot;day&quot;、&quot;week&quot;、または &quot;month&quot;。 指定しない場合、既定値は &quot;day&quot; です。</p>
+        <p><em>aggregationLevel</em>は<strong>groupby</strong>なしではサポートされていません。 <em>aggregationLevel</em>は、 <strong>groupby</strong>に存在するすべての<strong>datefields</strong>に適用されます。</p>
         </td>
     </tr>
     <tr>
         <td>orderby</td>
         <td>string</td>
         <td>
-            <p>各インストールの結果データ値の順序を指定するステートメントです。 The syntax is <code>...&orderby=field[order],field [order],...</code> The field parameter can be one of the following strings:</p>
+            <p>各インストールの結果データ値の順序を指定するステートメントです。 構文は、フィールドパラメーターには、次のいずれかの文字列を <code>...&orderby=field[order],field [order],...</code> ます。</p>
             <ul>
                 <li>&quot;partnerTenantId&quot;</li> 
                 <li>&quot;id&quot;</li> 
@@ -204,7 +204,7 @@ How to get all the indirect resellers analytics information for your customers.
             <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p>
             <ul>
                 <li><em>partnerTenantId</em></li>
-                <li><em>id</em></li>
+                <li><em>番号</em></li>
                 <li><em>名前</em></li>
                 <li><em>market</em></li>
                 <li><em>firstSubscriptionCreationDate</em></li>
@@ -232,15 +232,15 @@ How to get all the indirect resellers analytics information for your customers.
 </table>
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/indirectresellers HTTP 1.1
@@ -250,16 +250,16 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, the response body contains a collection of [indirect resellers](partner-center-analytics-resources.md#indirect_resellers) resources.
+成功した場合、応答本文に[間接リセラー](partner-center-analytics-resources.md#indirect_resellers)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 { 
@@ -281,5 +281,5 @@ Each response comes with an HTTP status code that indicates success or failure a
 ```
 
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>関連項目
+ - [パートナーセンター分析-リソース](partner-center-analytics-resources.md)

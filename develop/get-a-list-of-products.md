@@ -1,6 +1,6 @@
 ---
-title: Get a list of products (by country)
-description: You can use the Product resource to get a collection of products by customer country.
+title: 製品の一覧を取得する (国別)
+description: 製品リソースを使用して、顧客の国別に製品のコレクションを取得することができます。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487322"
 ---
-# <a name="get-a-list-of-products-by-country"></a>Get a list of products (by country)
+# <a name="get-a-list-of-products-by-country"></a>製品の一覧を取得する (国別)
 
 適用対象:
 
@@ -22,22 +22,22 @@ ms.locfileid: "74487322"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-You can use the following methods to get a collection of products available in a particular country.
+次の方法を使用して、特定の国で利用可能な製品のコレクションを取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A country.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 国。
 
 ## <a name="c"></a>C\#
 
-To get a list of products:
+製品の一覧を取得するには:
 
-1. Use your **IAggregatePartner.Products** collection to select the country by using the **ByCountry()** method.
-2. Select the catalog view using the **ByTargetView()** method.
-3. (Optional) Select the reservation scope using the **ByReservationScope()** method.
-3. (Optional) Select the target segment using the **ByTargetSegment()** method.
-4. Call the **Get()** or **GetAsync()** method to return the collection.
+1. **Iaggregatepartner.customers**コレクションを使用して、 **bycountry ()** メソッドを使用して国を選択します。
+2. **Bytargetview ()** メソッドを使用してカタログビューを選択します。
+3. Optional**ByReservationScope ()** メソッドを使用して予約スコープを選択します。
+3. Optional**Bytargetsegment ()** メソッドを使用してターゲットセグメントを選択します。
+4. **Get ()** または**GetAsync ()** メソッドを呼び出して、コレクションを返します。
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -60,12 +60,12 @@ ResourceCollection<Product> products = partnerOperations.Products.ByCountry("US"
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a list of products:
+製品の一覧を取得するには:
 
-1. Use your **IAggregatePartner.getProducts** function to select the country by using the **byCountry()** function.
-2. Select the catalog view using the **byTargetView()** function.
-3. (Optional) Select the target segment using the **byTargetSegment()** function.
-4. Call the **get()** function to return the collection.
+1. **Bycountry ()** 関数を使用して国を選択するには、 **iaggregatepartner.customers**関数を使用します。
+2. **Bytargetview ()** 関数を使用してカタログビューを選択します。
+3. Optional**Bytargetsegment ()** 関数を使用してターゲットセグメントを選択します。
+4. コレクションを返すには、 **get ()** 関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -81,40 +81,40 @@ ResourceCollection<Products> products = partnerOperations.getProducts().byCountr
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a list of products:
+製品の一覧を取得するには:
 
-1. Execute the [**Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) command.
-2. Select the catalog by specifying the **Catalog** parameter.
-3. (Optional) Select the target segment by specifying the **Segment** parameter.
+1. [**Get PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md)コマンドを実行します。
+2. **カタログパラメーターを**指定してカタログを選択します。
+3. Optional**セグメント**パラメーターを指定して、ターゲットセグメントを選択します。
 
 ```powershell
 Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>Rest request
+### <a name="rest-request"></a>Rest 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                                                                    |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products?country={country}&targetView={targetView}&targetSegment={targetSegment} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products? country = {country} & targetview = {targetview} & targetview = {TARGETVIEW} HTTP/1.1 |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path and query parameters to get a list of products.
+製品の一覧を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                             |
+| 名前                   | 種類     | 必須 | 説明                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| country                | string   | [はい]      | The country/region ID.                                                  |
-| targetView             | string   | [はい]      | Identifies the target view of the catalog. The supported values are: <ul><li>**Azure**, which includes all Azure items</li><li>**AzureReservations**, which includes all Azure reservation items</li><li>**AzureReservationsVM**, which includes all virtual machine (VM) reservation items</li><li>**AzureReservationsSQL**, which includes all SQL reservation items</li><li>**AzureReservationsCosmosDb**, which includes all Cosmos database reservation items</li><li>**MicrosoftAzure**, which includes items for Microsoft Azure subscriptions (**MS-AZR-0145P**) and Azure plans</li><li>**OnlineServices**, which includes all online service items (including commercial marketplace products)</li><li>**Software**, which includes all software items</li><li>**SoftwareSUSELinux**, which includes all software SUSE Linux items</li><li>**SoftwarePerpetual**, which includes all perpetual software items</li><li>**SoftwareSubscriptions**, which includes all software subscription items</li></ul> |
-| targetSegment          | string   | 必須ではない       | Identifies the target segment. The view for different target audiences. The supported values are: <ul><li>**commercial**</li><li>**education**</li><li>**government**</li><li>**nonprofit**</li></ul> |
-| reservationScope | string   | 必須ではない | When querying for a list of products for Azure Reservations, specify `reservationScope=AzurePlan` to get a list of products that are applicable to Azure plans. Exclude this parameter to get a list of products for Azure reservations, which are applicable to Microsoft Azure (**MS-AZR-0145P**) subscriptions.  |
+| country                | string   | 〇      | 国/地域 ID。                                                  |
+| targetView             | string   | 〇      | カタログのターゲットビューを識別します。 サポートされている値は次のとおりです。 <ul><li>**Azure (すべて**の azure 項目を含む)</li><li>**AzureReservations**(すべての Azure 予約項目を含む)</li><li>**AzureReservationsVM**(すべての仮想マシン (VM) 予約項目を含む)</li><li>**AzureReservationsSQL**(すべての SQL 予約項目を含む)</li><li>**AzureReservationsCosmosDb**。すべての Cosmos データベース予約項目が含まれます。</li><li>**Microsoftazure.mobileengagement**: Microsoft Azure サブスクリプション (**0145p**) と Azure プランの項目が含まれています</li><li>すべてのオンラインサービス項目 (商用 marketplace 製品を含む) を含む**Onlineservices**</li><li>**ソフトウェア**。すべてのソフトウェア項目が含まれます。</li><li>**SoftwareSUSELinux**(すべてのソフトウェア SUSE Linux 項目を含む)</li><li>すべての永続ソフトウェア項目を含む、**永続的**なソフトウェア</li><li>すべて**のソフトウェアサブスクリプション項目**を含む software subscription</li></ul> |
+| targetSegment          | string   | X       | ターゲットセグメントを識別します。 さまざまな対象ユーザーのビュー。 サポートされている値は次のとおりです。 <ul><li>**迷惑**</li><li>**知識**</li><li>**官公庁**</li><li>**非営利**</li></ul> |
+| reservationScope | string   | X | Azure Reservations の製品の一覧を照会する場合は、`reservationScope=AzurePlan` を指定して、Azure プランに適用可能な製品の一覧を取得します。 このパラメーターを除外すると、Microsoft Azure (**0145P**) サブスクリプションに適用される Azure 予約の製品の一覧を取得できます。  |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Headers](headers.md).
+詳細については、「[ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -122,9 +122,9 @@ For more information, see [Headers](headers.md).
 
 #### <a name="request-examples"></a>要求の例
 
-##### <a name="products-by-country"></a>Products by country
+##### <a name="products-by-country"></a>国別の製品
 
-Follow this example to get a list of products by country for Microsoft Azure (MS-AZR-0145P) subscriptions and Azure plans.
+次の例に従って、Microsoft Azure (MS AZR-0145P) サブスクリプションと Azure プランの国別製品の一覧を取得します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=MicrosoftAzure HTTP/1.1
@@ -134,9 +134,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-##### <a name="azure-vm-reservations-azure-plan"></a>Azure VM reservations (Azure plan)
+##### <a name="azure-vm-reservations-azure-plan"></a>Azure VM の予約 (Azure プラン)
 
-Follow this example to get a list of products by country for Azure VM reservations that are applicable to Azure plans.
+次の例に従って、azure プランに適用可能な Azure VM 予約の国別製品の一覧を取得します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureAzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -146,9 +146,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-##### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Azure VM reservations for Microsoft Azure (MS-AZR-0145P) subscriptions
+##### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS-AZR-0145P) サブスクリプションの Azure VM 予約
 
-Follow this example to get a list of products by country for Azure VM reservations that are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.
+次の例に従って、Microsoft Azure (0145P) サブスクリプションに適用される Azure VM 予約の国別製品の一覧を取得します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureReservationsVM HTTP/1.1
@@ -158,20 +158,20 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains a collection of [**Product**](product-resources.md#product) resources.
+成功した場合、応答本文には[**製品**](product-resources.md#product)リソースのコレクションが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード     | エラー コード   | 説明                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Access to the requested targetSegment is not allowed.                                                     |
-| 403                  | 400036       | Access to the requested targetView is not allowed.                                                        |
+| 403                  | 400030       | 要求された targetSegment へのアクセスは許可されていません。                                                     |
+| 403                  | 400036       | 要求された targetView へのアクセスは許可されていません。                                                        |
 
 #### <a name="response-example"></a>応答の例
 

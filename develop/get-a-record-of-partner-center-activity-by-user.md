@@ -1,6 +1,6 @@
 ---
-title: Get a record of Partner Center activity
-description: How to get a record of operations performed by a partner user or application over a period of time.
+title: パートナーセンターアクティビティのレコードを取得する
+description: パートナーのユーザーまたはアプリケーションが一定期間に実行した操作の記録を取得する方法。
 ms.assetid: C24054DA-3E31-4BCD-BEB5-085564C20C58
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,34 +13,34 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490252"
 ---
-# <a name="get-a-record-of-partner-center-activity"></a>Get a record of Partner Center activity
+# <a name="get-a-record-of-partner-center-activity"></a>パートナーセンターアクティビティのレコードを取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to get a record of operations performed by a partner user or application over a period of time.
+パートナーのユーザーまたはアプリケーションが一定期間に実行した操作の記録を取得する方法。
 
-Use this API to retrieve audit records for the previous 30 days from the current date, or for a date range specified by including the start date and/or the end date. Note, however, that for performance reasons activity log data availability is limited to the previous 90 days. Requests with a start date greater than 90 days prior to the current date will receive a bad request exception (error code: 400) and an appropriate message.
+この API を使用して、現在の日付から過去30日間の監査レコードを取得します。または、開始日または終了日を含めることによって指定された日付範囲を取得します。 ただし、パフォーマンス上の理由から、アクティビティログデータの可用性は過去90日間に制限されていることに注意してください。 現在の日付より前の開始日が90日を超える要求は、無効な要求例外 (エラーコード: 400) と適切なメッセージを受け取ります。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve a record of Partner Center operations, first establish the date range for the records you want to retrieve. The code example that follows employs only a start date, but you can also include an end date. See the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) method for more information. Next, create the variables you need for the type of filter you want to apply, and assign the appropriate values. For example, to filter by company name substring, create a variable to hold the substring. To filter by customer ID, create a variable to hold the ID.
+パートナーセンターの操作のレコードを取得するには、まず取得するレコードの日付範囲を設定します。 次のコード例では、開始日のみを使用しますが、終了日を含めることもできます。 詳細については、[**クエリ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query)メソッドを参照してください。 次に、適用するフィルターの種類に必要な変数を作成し、適切な値を割り当てます。 たとえば、会社名の部分文字列でフィルター処理を行うには、部分文字列を保持する変数を作成します。 顧客 ID でフィルター処理するには、ID を保持する変数を作成します。
 
-In the following example, sample code is provided to filter by a company name substring, customer ID, or resource type. Choose one and comment out the others. In each case you first instantiate a [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) object using its default [**constructor**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor) to create the filter. You'll need to pass a string that contains the field to search, and the appropriate operator to apply, as shown. You also must provide the string to filter by.
+次の例では、会社名の部分文字列、顧客 ID、またはリソースの種類でフィルター処理するサンプルコードが提供されています。 1つを選択し、他のコメントをコメントアウトします。 各ケースでは、最初に既定の[**コンストラクター**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor)を使用して[**simplefieldfilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)オブジェクトをインスタンス化し、フィルターを作成します。 次に示すように、検索するフィールドを含む文字列と、適用する適切な演算子を渡す必要があります。 また、によってフィルター処理する文字列も指定する必要があります。
 
-Next, use the [**AuditRecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords) property to get an interface to audit record operations, and call the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) or [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync) method to execute the filter and get the collection of [**AuditRecord's**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord) that represent the first page of the result. You must pass the method the start date, an optional end date not used in the example here, and an [**IQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) object that represents a query on an entity. The IQuery object is created by passing the filter created above to the [**QueryFactory's**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) method.
+次に、 [**Auditrecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords)プロパティを使用してレコード操作を監査するインターフェイスを取得し、 [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query)または[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync)メソッドを呼び出してフィルターを実行し、結果の最初のページを表す[**auditrecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord)のコレクションを取得します。 メソッドには、開始日、この例で使用されていない省略可能な終了日、およびエンティティに対するクエリを表す[**iquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)オブジェクトを渡す必要があります。 IQuery オブジェクトは、上記で作成したフィルターを[**Queryfactory の**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) [**buildsimplequery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)メソッドに渡すことによって作成されます。
 
-Once you have the initial page of items, use the [**Enumerators.AuditRecords.Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) method to create an enumerator that you can use to iterate through the remaining pages.
+項目の最初のページが表示されたら、[**列挙子**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)を使用して、残りのページを反復処理するために使用できる列挙子を作成します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -82,44 +82,44 @@ while (auditRecordEnumerator.HasValue)
 }
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Folder**: Auditing
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**フォルダー**: 監査
 
-## <a name="span-idrequestspan-idrequestspan-idrequest-rest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/> REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequest-rest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                                                                                    |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate} HTTP/1.1                                                                                                     |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate} HTTP/1.1                                                                                   |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"CompanyName","Value":"{searchSubstring}","Operator":"substring"} HTTP/1.1 |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"CustomerId","Value":"{customerId}","Operator":"equals"} HTTP/1.1          |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"ResourceType","Value":"{resourceType}","Operator":"equals"} HTTP/1.1      |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {STARTDATE} HTTP/1.1                                                                                                     |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startDate} & endDate = {ENDDATE} HTTP/1.1                                                                                   |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "CompanyName", "Value": "{searchsubstring}", "Operator": "substring"} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "CustomerId", "Value": "{customerid}", "Operator": "equals"} HTTP/1.1          |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "ResourceType", "Value": "{resourcetype}", "Operator": "equals"} HTTP/1.1      |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameters when creating the request.
+要求の作成時には、次のクエリパラメーターを使用します。
 
-| 名前      | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                                                                                                                                                                |
+| 名前      | 種類   | 必須 | 説明                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate | date   | 必須ではない       | The start date in yyyy-mm-dd format. If none is provided, the result set will default to 30 days prior to the request date. This parameter is optional when a filter is supplied.                                          |
-| endDate   | date   | 必須ではない       | The end date in yyyy-mm-dd format. This parameter is optional when a filter is supplied. When the end date is omitted or set to null, the request returns the max window or uses today as the end date, whichever is less. |
-| filter    | string | 必須ではない       | The filter to apply. This must be an encoded string. This parameter is optional when the start date or end date are supplied.                                                                                              |
+| startDate | date   | X       | Yyyy-mm-dd 形式の開始日。 何も指定しない場合、結果セットの既定値は、要求日の30日前になります。 フィルターが指定されている場合、このパラメーターは省略可能です。                                          |
+| endDate   | date   | X       | Yyyy-mm-dd 形式の終了日。 フィルターが指定されている場合、このパラメーターは省略可能です。 終了日を省略した場合、または null に設定した場合、要求は max ウィンドウを返します。または、今日を終了日として使用します。 |
+| filter    | string | X       | 適用するフィルター。 これは、エンコードされた文字列である必要があります。 開始日または終了日が指定されている場合、このパラメーターは省略可能です。                                                                                              |
 
  
 
-**Filter Syntax** You must compose the filter parameter as a series of comma separated, key-value pairs. Each key and value must be individually quoted and separated by a colon. The entire filter must be encoded.
+**フィルター構文**フィルターパラメーターは、コンマ区切りの一連のキーと値のペアとして構成する必要があります。 各キーと値は、個別に引用符で囲み、コロンで区切る必要があります。 フィルター全体をエンコードする必要があります。
 
-An unencoded example looks like this:
+エンコード前の例は次のようになります。
 
 ```
 ?filter{"Field":"CompanyName","Value":"bri","Operator":"substring"}
 ```
 
-The following table describes the required key-value pairs:
+次の表では、必要なキーと値のペアについて説明します。
 
 <table>
 <colgroup>
@@ -135,38 +135,38 @@ The following table describes the required key-value pairs:
 <tbody>
 <tr class="odd">
 <td>フィールド</td>
-<td>The field to filter. The supported values can be found in <a href="#request">Request syntax</a>.</td>
+<td>フィルター処理するフィールド。 サポートされている値については、「<a href="#request">要求の構文</a>」を参照してください。</td>
 </tr>
 <tr class="even">
 <td>Value</td>
-<td>The value to filter by. The case of the value is ignored. The following value parameters are supported as shown in <a href="#request">Request syntax</a>:
+<td>フィルター処理の対象となる値。 値の大文字と小文字の区別は無視されます。 次の値パラメーターは、<a href="#request">要求構文</a>に示すようにサポートされています。
 <ul>
-<li><p>searchSubstring - Replace with the name of the company. You can enter a substring to match part of the company name (e.g. &quot;bri&quot; will match &quot;Fabrikam, Inc.&quot;).</p>
-<p>Example: &quot;Value&quot;:&quot;bri&quot;</p></li>
-<li><p>customerId - Replace with a GUID formatted string that represents the customer identifier.</p>
-<p>Example: &quot;Value&quot;:&quot;0c39d6d5-c70d-4c55-bc02-f620844f3fd1&quot;</p></li>
-<li><p>resourceType - Replace with the type of resource for which to retrieve audit records (e.g. Subscription). The available resource types are defined in <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>.</p>
-<p>Example: &quot;Value&quot;:&quot;Subscription&quot;</p></li>
+<li><p>searchSubstring-会社名で置き換えます。 会社名の一部と一致する部分文字列を入力することができます (たとえば、&quot;の bri&quot; は Fabrikam, Inc.&quot;) と &quot;一致します。</p>
+<p>例: &quot;値&quot;:&quot;bri&quot;</p></li>
+<li><p>customerId-顧客識別子を表す GUID 形式の文字列で置き換えます。</p>
+<p>例: &quot;値&quot;:&quot;0c39d6d5-c70d47 c55-bc02-f62084 4f3fd1&quot;</p></li>
+<li><p>resourceType-監査レコードを取得するリソースの種類 (サブスクリプションなど) に置き換えます。 使用可能なリソースの種類は、 <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>で定義されています。</p>
+<p>例: &quot;値&quot;:&quot;サブスクリプション&quot;</p></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>演算子</td>
-<td>The operator to apply. The supported operators can be found in <a href="#request">Request syntax</a>.</td>
+<td>適用する演算子。 サポートされている演算子については、「<a href="#request">要求の構文</a>」を参照してください。</td>
 </tr>
 </tbody>
 </table>
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Parter Center REST headers](headers.md) for more information.
+- 詳細については、「 [Parter CENTER REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/auditrecords?startDate=6/1/2017%2012:00:00%20AM&filter=%7B%22Field%22:%22CustomerId%22,%22Value%22:%220c39d6d5-c70d-4c55-bc02-f620844f3fd1%22,%22Operator%22:%22equals%22%7D HTTP/1.1
@@ -179,16 +179,16 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 応答
 
 
-If successful, this method returns a set of activities that meet the filters.
+成功した場合、このメソッドはフィルターに一致する一連のアクティビティを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

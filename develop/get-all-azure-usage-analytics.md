@@ -1,6 +1,6 @@
 ---
-title: Get all Azure usage analytics information
-description: How to get all the Azure usage analytics information.
+title: Azure usage analytics のすべての情報を取得する
+description: Azure usage analytics のすべての情報を取得する方法について説明します。
 ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,9 +13,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486002"
 ---
-# <a name="get-all-azure-usage-analytics-information"></a>Get all Azure usage analytics information
+# <a name="get-all-azure-usage-analytics-information"></a>Azure usage analytics のすべての情報を取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
@@ -23,25 +23,25 @@ ms.locfileid: "74486002"
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 
-How to get all the Azure usage analytics information for your customers. 
+お客様の Azure 使用状況分析に関するすべての情報を取得する方法。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only. 
-
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-**Request syntax**
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。 
+
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+
+
+**要求の構文**
 
 | メソッド  | 要求 URI |
 |---------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1.1 |
+| **取得** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1.1 |
 
  
 
-**URI parameters**
+**URI パラメーター**
 
 <table>
   <thead>
@@ -49,7 +49,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>パラメーター</p>
       </th>
       <th>
-        <p>タスクバーの検索ボックスに</p>
+        <p>種類</p>
       </th>
       <th>
         <p>説明</p>
@@ -64,7 +64,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>string</p>
       </td>
       <td>
-        <p>要求で返すデータの行数です。 指定されない場合の既定値は、最大値でもある 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。</p>
+        <p>要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。</p>
       </td>
     </tr>
     <tr>
@@ -72,10 +72,10 @@ How to get all the Azure usage analytics information for your customers.
         <p>skip</p>
       </td>
       <td>
-        <p>整数</p>
+        <p>int</p>
       </td>
       <td>
-        <p>クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 For example, <code>top=10000 and skip=0</code> retrieves the first 10000 rows of data, <code>top=10000 and skip=10000</code> retrieves the next 10000 rows of data, and so on.</p>
+        <p>クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、<code>top=10000 and skip=0</code> は最初の1万行のデータを取得し、次の1万行のデータを取得 <code>top=10000 and skip=10000</code> ます。</p>
       </td>
     </tr>
     <tr>
@@ -88,19 +88,19 @@ How to get all the Azure usage analytics information for your customers.
       <td>
         <p>要求の <em>filter</em> パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各ステートメントには <strong>eq</strong> 演算子または <strong>ne</strong> 演算子と関連付けられるフィールドと値が含まれ、<strong>and</strong> または <strong>or</strong> を使ってステートメントを組み合わせることができます。 次のフィールドを指定できます。</p>
         <ul>
-          <li><em>customerTenantId</em></li>
-          <li><em>customerName</em></li>
-          <li><em>subscriptionId</em></li>
+          <li><em>顧客 Tenantid</em></li>
+          <li><em>おける</em></li>
+          <li><em>サブスクリプション</em></li>
           <li><em>subscriptionName</em></li>
-          <li><em>usageDate</em></li>
+          <li><em>日付</em></li>
           <li><em>resourceLocation</em></li>
           <li><em>meterCategory</em></li>
-          <li><em>meterSubcategory</em></li>
+          <li><em>meterSubcategory カテゴリ</em></li>
           <li><em>meterUnit</em></li>
           <li><em>reservationOrderId</em></li>
           <li><em>reservationId</em></li>
           <li><em>consumptionMeterId</em></li>
-          <li><em>serviceType</em></li>
+          <li><em>与え</em></li>
         </ul>
         <p><strong>例:</strong></br>
           <code>.../usage/azure?filter=meterCategory eq &#39;Data Management&#39;</code>
@@ -118,8 +118,8 @@ How to get all the Azure usage analytics information for your customers.
         <p>string</p>
       </td>
       <td>
-        <p>集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。&quot;day&quot;、&quot;week&quot;、または &quot;month&quot;。 指定されていない場合、既定値は &quot;day&quot; です。</p>
-      <p>The <em>aggregationLevel</em> parameter is not supported without a <em>groupby</em>. The <em>aggregationLevel</em> parameter applies to all date fields present in the <em>groupby</em>.</p>
+        <p>集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。&quot;day&quot;、&quot;week&quot;、または &quot;month&quot;。 指定しない場合、既定値は &quot;day&quot; です。</p>
+      <p><em>AggregationLevel</em>パラメーターは、 <em>groupby</em>なしではサポートされていません。 <em>AggregationLevel</em>パラメーターは、 <em>groupby</em>に存在するすべての日付フィールドに適用されます。</p>
       </td>
     </tr>
     <tr>
@@ -130,23 +130,23 @@ How to get all the Azure usage analytics information for your customers.
         <p>string</p>
       </td>
       <td>
-        <p>各インストールの結果データ値の順序を指定するステートメントです。 The syntax is <code>...&orderby=field [order],field [order],...</code> The <em>field</em> parameter can be one of the following strings:</p>
+        <p>各インストールの結果データ値の順序を指定するステートメントです。 構文は、<em>フィールド</em>パラメーターには、次のいずれかの文字列を <code>...&orderby=field [order],field [order],...</code> ます。</p>
         <ul>
-          <li>&quot;customerTenantId&quot;</li>
-          <li>&quot;customerName&quot;</li>
-          <li>&quot;subscriptionId&quot;</li>
+          <li>&quot;の顧客 Tenantid&quot;</li>
+          <li>&quot;様&quot;</li>
+          <li>subscriptionId&quot; の &quot;</li>
           <li>&quot;subscriptionName&quot;</li>
-          <li>&quot;usageDate&quot;</li>
+          <li>&quot;の&quot; 日付</li>
           <li>&quot;resourceLocation&quot;</li>
           <li>&quot;meterCategory&quot;</li>
-          <li>&quot;meterSubcategory&quot;</li>
+          <li>&quot;meterSubcategory カテゴリ&quot;</li>
           <li>&quot;meterUnit&quot;</li>
           <li>&quot;reservationOrderId&quot;</li>
           <li>&quot;reservationId&quot;</li>
           <li>&quot;consumptionMeterId&quot;</li>
           <li>&quot;serviceType&quot;</li>
         </ul>
-        <p>The <em>order</em> parameter is optional and can be &quot;asc&quot; or &quot;desc&quot; to specify ascending or descending order for each field, respectively. 既定値は &quot;asc&quot; です。</p>
+        <p><em>Order</em>パラメーターは省略可能であり、&quot;asc&quot; または &quot;desc&quot; を使用して、各フィールドの昇順または降順を指定できます。 既定値は &quot;asc&quot; です。</p>
         <p><strong>例:</strong><br/> 
           <code>...&orderby=meterCategory,meterUnit</code>
         </p>
@@ -162,21 +162,21 @@ How to get all the Azure usage analytics information for your customers.
       <td>
         <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p>
         <ul>
-          <li><em>customerTenantId</em></li>
-          <li><em>customerName</em></li>
-          <li><em>subscriptionId</em></li>
+          <li><em>顧客 Tenantid</em></li>
+          <li><em>おける</em></li>
+          <li><em>サブスクリプション</em></li>
           <li><em>subscriptionName</em></li>
-          <li><em>usageDate</em></li>
+          <li><em>日付</em></li>
           <li><em>resourceLocation</em></li>
           <li><em>meterCategory</em></li>
-          <li><em>meterSubcategory</em></li>
+          <li><em>meterSubcategory カテゴリ</em></li>
           <li><em>meterUnit</em></li>
           <li><em>reservationOrderId</em></li>
           <li><em>reservationId</em></li>
           <li><em>consumptionMeterId</em></li>
-          <li><em>serviceType</em></li>
+          <li><em>与え</em></li>
         </ul>
-        <p>The returned data rows will contain the fields specified in the <em>groupby</em> parameter as well as the <em>Quantity</em>.</p>
+        <p>返されるデータ行には、 <em>groupby</em>パラメーターで指定されたフィールドと<em>数量</em>が含まれます。</p>
         <p><em>groupby</em> パラメーターは、<em>aggregationLevel</em> パラメーターと同時に使用できます。</p>
         <p><strong>例:</strong></br>
           <code>...&groupby=meterCategory,meterUnit</code>
@@ -187,15 +187,15 @@ How to get all the Azure usage analytics information for your customers.
 </table>
 
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/usage/azure HTTP/1.1
@@ -205,16 +205,16 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, the response body contains a collection of [Azure usage](partner-center-analytics-resources.md#azure_usage) resources.
+成功した場合、応答本文には[Azure の使用](partner-center-analytics-resources.md#azure_usage)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 {
@@ -236,6 +236,6 @@ Each response comes with an HTTP status code that indicates success or failure a
 ```
 
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
-  - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>関連項目
+  - [パートナーセンター分析-リソース](partner-center-analytics-resources.md)
 

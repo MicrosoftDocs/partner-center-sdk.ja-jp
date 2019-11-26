@@ -1,6 +1,6 @@
 ---
-title: Get partner licenses usage information
-description: How to get partner licenses usage information aggregated to include all customers.
+title: パートナーライセンスの使用状況情報の取得
+description: パートナーライセンスの使用状況情報を収集して、すべての顧客を含める方法。
 ms.assetid: 87BCC8FC-5C29-4245-8607-BB62ABC03EDE
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488502"
 ---
-# <a name="get-partner-licenses-usage-information"></a>Get partner licenses usage information
+# <a name="get-partner-licenses-usage-information"></a>パートナーライセンスの使用状況情報の取得
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-How to get partner licenses usage information aggregated to include all customers.
+パートナーライセンスの使用状況情報を収集して、すべての顧客を含める方法。
 
 > [!NOTE]
-> This scenario is superceded by [Get licenses usage information](get-licenses-usage-information.md).
+> このシナリオは、[ライセンスの取得の使用状況に関する情報](get-licenses-usage-information.md)に置き換えられます。
 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials.
+「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve aggregated data on licenses deployment, first get an interface to partner level analytics collection operations from the [**IAggregatePartner.Analytics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) property. Then retrieve an interface to the partner level licenses analytics collection from the [**Licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) property. Finally, call the [**Usage.Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) method to get the aggregated data on licenses usage. If the method succeeds you'll get a collection of [**PartnerLicensesUsageInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) objects.
+ライセンスの展開の集計データを取得するには、まず、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.analytics)プロパティからパートナーレベルの分析コレクション操作へのインターフェイスを取得します。 次に、[[**ライセンス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses)] プロパティから、パートナーレベルのライセンス分析コレクションへのインターフェイスを取得します。 最後に、 [**usage. get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)メソッドを呼び出して、ライセンスの使用状況に関する集計データを取得します。 メソッドが成功した場合は、 [**PartnerLicensesUsageInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights)オブジェクトのコレクションが取得されます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,26 +41,26 @@ To retrieve aggregated data on licenses deployment, first get an interface to pa
 var partnerLicensesUsageAnalytics = partnerOperations.Analytics.Licenses.Usage.Get();
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                      |
 |---------|----------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/analytics/licenses/usage HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/analytics/licenses/usage HTTP/1.1 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/analytics/licenses/usage HTTP/1.1
@@ -72,15 +72,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, the response body contains a collection of [PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) resources that provide information about the licenses used.
+成功した場合、応答本文には、使用されたライセンスに関する情報を提供する[PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

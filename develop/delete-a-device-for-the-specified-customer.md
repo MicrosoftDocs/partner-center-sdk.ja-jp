@@ -1,6 +1,6 @@
 ---
-title: Delete a device for the specified customer
-description: How to delete a device that belongs to a specified customer.
+title: 指定された顧客のデバイスを削除します
+description: 指定された顧客に属するデバイスを削除する方法。
 ms.assetid: 44F06D4B-E9DE-470F-BAE2-15205CC7C699
 ms.date: 06/20/2019
 ms.service: partner-dashboard
@@ -13,30 +13,30 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489902"
 ---
-# <a name="delete-a-device-for-the-specified-customer"></a>Delete a device for the specified customer
+# <a name="delete-a-device-for-the-specified-customer"></a>指定された顧客のデバイスを削除します
 
 適用対象:
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-This topic explains how to delete a device that belongs to a specified customer.
+このトピックでは、指定された顧客に属するデバイスを削除する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
-- The device batch identifier.
-- The device identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
+- デバイスのバッチ識別子。
+- デバイス識別子。
 
 ## <a name="c"></a>C\#
 
-To delete a device for the specified customer:
+指定された顧客のデバイスを削除するには:
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to retrieve an interface to operations on the customer.
-2. Call the [**DeviceBatches.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) method with the device batch identifier to get an interface to operations for the specified batch.
-3. Call the [**Devices.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid) method to get an interface to operation on the specified device.
-4. Call the [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) or [**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) method to delete the device from the batch.
+1. 顧客識別子を使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客の操作に対するインターフェイスを取得します。
+2. デバイスバッチ識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid)メソッドを呼び出し、指定されたバッチの操作へのインターフェイスを取得します。
+3. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid)メソッドを呼び出して、指定されたデバイスで操作するインターフェイスを取得します。
+4. Batch からデバイスを削除するには、 [**delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete)または[**deleteasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync)メソッドを呼び出します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -47,9 +47,9 @@ string selectedDeviceId;
 partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.ById(selectedDeviceId).Delete();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: DeleteDevice.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: DeleteDevice.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
@@ -59,17 +59,17 @@ partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selected
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path parameters when creating the request.
+要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前           | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                        |
+| 名前           | 種類   | 必須 | 説明                                                        |
 |----------------|--------|----------|--------------------------------------------------------------------|
-| customer-id    | string | [はい]      | A GUID-formatted string that identifies the customer.              |
-| devicebatch-id | string | [はい]      | The device batch identifier of the batch that contains the device. |
-| device-id      | string | [はい]      | The device identifier.                                             |
+| 顧客 id    | string | 〇      | 顧客を識別する GUID 形式の文字列。              |
+| devicebatch-id | string | 〇      | デバイスを含むバッチのデバイスバッチ識別子。 |
+| デバイス id      | string | 〇      | デバイス識別子。                                             |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -88,13 +88,13 @@ Content-Type: application/json
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response returns a **204 No Content** status code.
+成功した場合、応答は**204 コンテンツ**ステータスコードを返しません。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

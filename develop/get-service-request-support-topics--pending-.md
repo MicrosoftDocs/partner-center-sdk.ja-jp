@@ -1,6 +1,6 @@
 ---
-title: Get service request support topics
-description: Gets a collection of items representing valid topics for service requests.
+title: サービスリクエストのサポートに関するトピックを取得する
+description: サービス要求に関する有効なトピックを表す項目のコレクションを取得します。
 ms.assetid: 50A61342-70C4-49F5-BEA2-2754338CF5A1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,25 +13,25 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487272"
 ---
-# <a name="get-service-request-support-topics"></a>Get service request support topics
+# <a name="get-service-request-support-topics"></a>サービスリクエストのサポートに関するトピックを取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets a collection of items representing valid topics for service requests.
+サービス要求に関する有効なトピックを表す項目のコレクションを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a collection of service request topics, use your [**IPartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) collection to retrieve the [**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.servicerequests) property of the resulting object, followed by the [**SupportTopics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection) property and the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection.getasync) methods.
+サービス要求トピックのコレクションを取得するには、 [**Ipartneroperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)コレクションを使用して、結果として得られるオブジェクトの[**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.servicerequests)プロパティを取得します。次に、 [**supporttopics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection)プロパティと[**get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection.get)メソッドまたは[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.isupporttopicscollection.getasync)メソッドを使用します。
 
 ``` csharp
 // IPartner partnerOperations;
@@ -39,26 +39,26 @@ To get a collection of service request topics, use your [**IPartnerOperations**]
 ResourceCollection<SupportTopic> supportTopicsCollection = partnerOperations.ServiceRequests.SupportTopics.Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                           |
 |---------|---------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/supporttopics HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/supporttopics HTTP/1.1 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/servicerequests/supporttopics HTTP/1.1
@@ -69,16 +69,16 @@ MS-CorrelationId: f447b215-f9bc-48da-a05a-3b5322d86a9c
 X-Locale: en-US
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, this method returns a collection of the valid topics for a support request.
+成功した場合、このメソッドはサポート要求に関する有効なトピックのコレクションを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

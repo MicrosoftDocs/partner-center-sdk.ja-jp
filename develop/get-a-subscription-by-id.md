@@ -1,6 +1,6 @@
 ---
-title: Get a subscription by ID
-description: Gets a Subscription resource that matches the customer ID and the subscription ID.
+title: ID でサブスクリプションを取得する
+description: 顧客 ID とサブスクリプション ID に一致するサブスクリプションリソースを取得します。
 ms.assetid: 0A91755F-C5AB-4CB1-9E61-6C927F6AA5C5
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486112"
 ---
-# <a name="get-a-subscription-by-id"></a>Get a subscription by ID
+# <a name="get-a-subscription-by-id"></a>ID でサブスクリプションを取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets a [Subscription](subscription-resources.md) resource that matches the customer ID and the subscription ID.
+顧客 ID とサブスクリプション ID に一致する[サブスクリプション](subscription-resources.md)リソースを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- サブスクリプション ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a subscription by ID, begin by obtaining an interface to the subscription operations by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and the [**Subscriptions.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method to identify the subscription. Use that [**interface**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) to retrieve the subscription details by calling [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get).
+ID でサブスクリプションを取得するには、まずサブスクリプション操作へのインターフェイスを取得します。そのためには、顧客 ID を指定して ById メソッドを呼び出し、サブスクリプションを識別する[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)します。 この[**インターフェイス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription)を使用して、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get)を呼び出してサブスクリプションの詳細を取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,39 +45,39 @@ To get a subscription by ID, begin by obtaining an interface to the subscription
 var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(subscriptionID).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetSubscription.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetSubscription.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-This table lists the required query parameters to get the subscription.
+次の表に、サブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| 名前                    | タスクバーの検索ボックスに     | 必須かどうか | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。     |
+| **id-サブスクリプション** | **guid** | Y        | サブスクリプションに対応する GUID。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/subscriptions/A356AC8C-E310-44F4-BF85-C7F29044AF99 HTTP/1.1
@@ -89,16 +89,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, this method returns a [Subscription](subscription-resources.md) resource in the response body.
+成功した場合、このメソッドは応答本文で[サブスクリプション](subscription-resources.md)リソースを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example for a standard subscription**
+**標準サブスクリプションの応答の例**
 
 ```http
 HTTP/1.1 200 OK
@@ -145,9 +145,9 @@ Date: Fri, 27 Jan 2017 21:51:40 GMT
 }
 ```
 
-**Response example for an add-on subscription**
+**アドオンサブスクリプションの応答の例**
 
-The response for an add-on subscription includes the parent subscription ID in the body and in the links.
+アドオンサブスクリプションの応答には、本文とリンクに親サブスクリプション ID が含まれます。
 
 ```http
 HTTP/1.1 200 OK

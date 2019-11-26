@@ -1,6 +1,6 @@
 ---
-title: Retrieve a list of indirect resellers
-description: How to retrieve a list of the signed-in partner's indirect resellers.
+title: 間接リセラーの一覧を取得する
+description: サインインしているパートナーの間接リセラーの一覧を取得する方法。
 ms.assetid: 1767BD6C-651A-4C14-930B-35D7EFD46C19
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,24 +13,24 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486532"
 ---
-# <a name="retrieve-a-list-of-indirect-resellers"></a>Retrieve a list of indirect resellers
+# <a name="retrieve-a-list-of-indirect-resellers"></a>間接リセラーの一覧を取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-How to retrieve a list of the signed-in partner's indirect resellers.
+サインインしているパートナーの間接リセラーの一覧を取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve a list of indirect resellers with whom the signed-in partner has a relationship, first get an interface to relationship collection operations from the [**partnerOperations.Relationships**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) property. Then call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get) or [**Get\_Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync) method, passing a member of the [**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype) enumeration to identify the relationship type. To retrieve indirect resellers, you must use IsIndirectCloudSolutionProviderOf.
+サインインしているパートナーが関係を持つ間接リセラーの一覧を取得するには、まず、 [**partneroperations.** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) relationship プロパティからリレーションシップコレクション操作へのインターフェイスを取得します。 次に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)または[**get\_Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)メソッドを呼び出し、 [**partnerrelationshiptype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列挙体のメンバーを渡してリレーションシップ型を識別します。 間接リセラーを取得するには、IsIndirectCloudSolutionProviderOf を使用する必要があります。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,22 +38,22 @@ To retrieve a list of indirect resellers with whom the signed-in partner has a r
 var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipType.IsIndirectCloudSolutionProviderOf);
 ```
 
-**Sample**: [Console test app](console-test-app.md)**Project**: Partner Center SDK Samples **Class**: GetIndirectResellers.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)**プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetIndirectResellers.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships?relationship\_type=IsIndirectCloudSolutionProviderOf HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships? リレーションシップ\_Type = IsIndirectCloudSolutionProviderOf HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameter to identify the relationship type.
+リレーションシップの種類を識別するには、次のクエリパラメーターを使用します。
 
 <table>
 <colgroup>
@@ -65,8 +65,8 @@ Use the following query parameter to identify the relationship type.
 <thead>
 <tr class="header">
 <th>名前</th>
-<th>タスクバーの検索ボックスに</th>
-<th>必須かどうか</th>
+<th>種類</th>
+<th>必須</th>
 <th>説明</th>
 </tr>
 </thead>
@@ -74,25 +74,25 @@ Use the following query parameter to identify the relationship type.
 <tr class="odd">
 <td>relationship_type</td>
 <td>string</td>
-<td>[はい]</td>
-<td>The value is the string representation of one of the member names found in <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>.
-<p>If the partner is signed in as a provider and you want to get a list of the indirect resellers with whom they have established a relationship, use IsIndirectCloudSolutionProviderOf.</p>
-<p>If the partner is signed in as a reseller and you want to get a list of the indirect providers with whom they have established a relationship, use IsIndirectResellerOf.</p></td>
+<td>〇</td>
+<td>値は、 <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>Partnerrelationshiptype</strong></a>で見つかったいずれかのメンバー名の文字列表現です。
+<p>パートナーがプロバイダーとしてサインインしている場合に、関係を確立した間接リセラーの一覧を取得するには、IsIndirectCloudSolutionProviderOf を使用します。</p>
+<p>パートナーが再販業者としてサインインしている場合に、関係を確立した間接プロバイダーの一覧を取得するには、IsIndirectResellerOf を使用します。</p></td>
 </tr>
 </tbody>
 </table>
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/relationships?relationship_type=IsIndirectCloudSolutionProviderOf HTTP/1.1
@@ -104,16 +104,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, the response body contains a collection of [PartnerRelationship](relationships-resources.md) resources to identify the resellers.
+成功した場合、応答本文には、再販業者を識別するための[Partnerrelationship](relationships-resources.md)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

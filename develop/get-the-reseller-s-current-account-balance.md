@@ -1,6 +1,6 @@
 ---
-title: Get the partner's current account balance
-description: Retrieves the partner's current account balance. A summary of the balance and total charges of an invoice for both recurring and one-time charges.
+title: パートナーの現在のアカウント残高を取得する
+description: パートナーの現在のアカウント残高を取得します。 定期的な料金と1回限りの課金の両方について、請求書の残高と合計料金の概要。
 ms.assetid: 130C8230-6284-4B1F-8741-CA92E1ECA30F
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488412"
 ---
-# <a name="get-the-partners-current-account-balance"></a>Get the partner's current account balance
+# <a name="get-the-partners-current-account-balance"></a>パートナーの現在のアカウント残高を取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Retrieves the partner's current account balance. A summary of the balance and total charges of an invoice for both recurring and one-time charges.
+パートナーの現在のアカウント残高を取得します。 定期的な料金と1回限りの課金の両方について、請求書の残高と合計料金の概要。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve your account balance, use your **IAggregatePartner.Invoices** collection, and then call the **Summary** property. Then call the **Get** function, and finally call the **BalanceAmount** property.
+アカウントの残高を取得するには、 **iaggregatepartner.customers**コレクションを使用して、 **Summary**プロパティを呼び出します。 次に、 **Get**関数を呼び出し、最後に **""** というプロパティを呼び出します。
 
 ``` csharp
 // IAggregatePartner scopedPartnerOperations;
@@ -43,28 +43,28 @@ var invoiceSummary = scopedPartnerOperations.Invoices.Summary.Get();
 Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummary.BalanceAmount);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetInvoiceSummary.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: GetInvoiceSummary.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                              |
 |---------|--------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/summary HTTP/1.1  |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/summary HTTP/1.1  |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/summary HTTP/1.1
@@ -75,16 +75,16 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 応答
 
 
-If successful, this method returns an [InvoiceSummary](invoice-resources.md#invoicesummary) resource in the response.
+成功した場合、このメソッドは応答で[InvoiceSummary](invoice-resources.md#invoicesummary)リソースを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

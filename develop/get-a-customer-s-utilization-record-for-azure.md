@@ -1,6 +1,6 @@
 ---
-title: Get a customer's utilization records for Azure
-description: You can use the Azure utilization API to get the utilization records of a customer's Azure subscription for a specified time period.
+title: Azure の顧客の使用状況レコードを取得する
+description: Azure 使用率 API を使用して、指定した期間における顧客の Azure サブスクリプションの使用率レコードを取得できます。
 ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489592"
 ---
-# <a name="get-a-customers-utilization-records-for-azure"></a>Get a customer's utilization records for Azure
+# <a name="get-a-customers-utilization-records-for-azure"></a>Azure の顧客の使用状況レコードを取得する
 
 適用対象:
 
@@ -21,35 +21,35 @@ ms.locfileid: "74489592"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-You can get the utilization records of a customer's Azure subscription for a specified time period using the Azure utilization API.
+Azure 使用率 API を使用して、指定した期間の顧客の Azure サブスクリプションの使用率レコードを取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone app and App+User credentials.
-- A customer identifier.
-- A subscription identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
+- サブスクリプション識別子。
 
-This API returns daily and hourly unrated consumption for an arbitrary time span. However, *this API is not supported for Azure plans*. If you have an Azure plan, see the articles [Get invoice unbilled consumption line items](get-invoice-unbilled-consumption-lineitems.md) and [Get invoice billed consumption line items](get-invoice-billed-consumption-lineitems.md) instead. These articles describe how to get rated consumption at daily level per meter per resource. This is equivalent to the daily grain data provided by the Azure utilization API. You will need to use the invoice identifier to retrieve billed usage data. Or, you can use current and previous periods to get unbilled usage estimates. *Hourly grain data and arbitrary date range filters aren't currently supported for Azure plan subscription resources*.
+この API は、任意の期間の日単位および時間単位の超過使用量を返します。 ただし、*この API は Azure プランではサポートされていません*。 Azure プランをお持ちの場合は、「 [invoice 未請求従量課金明細](get-invoice-unbilled-consumption-lineitems.md)書を取得する」と「[請求書の課金対象の明細項目を取得](get-invoice-billed-consumption-lineitems.md)する」を参照してください。 これらの記事では、リソースあたりのメーターあたりの使用率を1日に1度に評価する方法について説明します。 これは、Azure 使用率 API によって提供される日々の粒度データに相当します。 請求書の識別子を使用して、課金対象の使用状況データを取得する必要があります。 または、現在と以前の期間を使用して、未請求の使用量の推定値を取得することもできます。 *Azure プランサブスクリプションリソースでは、1時間ごとの粒度データと任意の日付範囲フィルターは現在サポートされていません*。
 
 ## <a name="azure-utilization-api"></a>Azure Utilization API
 
-This Azure utilization API provides access to utilization records for a time period that represents when the utilization was reported in the billing system. It provides access to the same utilization data that is used to create and calculate the reconciliation file. However, it does not have knowledge of billing system reconciliation file logic. You should not expect reconciliation file summary results to match the result retrieved from this API exactly for the same time period.
+この Azure 使用率 API は、課金システムで使用率がレポートされた日時を表す期間の使用状況レコードへのアクセスを提供します。 調整ファイルの作成と計算に使用されるのと同じ使用率データへのアクセスを提供します。 ただし、課金システムの調整ファイルのロジックはありません。 同じ期間、この API から取得した結果に対して、調整ファイルの概要結果が一致するとは限りません。
 
-For example, the billing system takes the same utilization data and applies lateness rules to determine what is accounted for in a reconciliation file. When a billing period closes, all usage until the end of the day that the billing period ends is included in the reconciliation file. Any late usage within the billing period that is reported within 24 hours after the billing period ends is accounted for in the next reconciliation file. For the lateness rules of how the partner is billed, see [Get consumption data for an Azure subscription](https://docs.microsoft.com/previous-versions/azure/reference/mt219001(v=azure.100)).
+たとえば、課金システムは同じ使用率データを取得し、遅延ルールを適用して、調整ファイルの内容を決定します。 請求期間が終了すると、請求期間の終了日までのすべての使用量が調整ファイルに含まれます。 請求期間内の遅延使用は、請求期間の終了後24時間以内に報告され、次の調整ファイルで考慮されます。 パートナーの請求方法に関する遅延の規則については、「 [Azure サブスクリプションの消費データを取得](https://docs.microsoft.com/previous-versions/azure/reference/mt219001(v=azure.100))する」を参照してください。
 
-This REST API is paged. If the response payload is larger than a single page, you must follow the next link to get the next page of utilization records.
+この REST API はページングされています。 応答ペイロードが1ページより大きい場合は、次のリンクに従って、使用率レコードの次のページを取得する必要があります。
 
 ## <a name="c"></a>C\#
 
-To obtain the Azure Utilization Records:
+Azure 使用率レコードを取得するには、次のようにします。
 
-1. Get the customer ID and subscription ID. 
-2. Call the [**IAzureUtilizationCollection.Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query) method to return a [**ResourceCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) that contains the utilization records. 
-3. Obtain an Azure utilization record enumerator to traverse the utilization pages. You must do this because the resource collection is paged.
+1. 顧客 ID とサブスクリプション ID を取得します。 
+2. 使用率レコードを含む[**Resourcecollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1)を返すには、 [**IAzureUtilizationCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query)メソッドを呼び出します。 
+3. 使用率ページを走査するための Azure 使用率レコード列挙子を取得します。 リソースコレクションがページングされているため、この操作を行う必要があります。
 
-- **Sample**: [Console test app](console-test-app.md)
-- **Project**: Partner Center SDK Samples
-- **Class**: GetAzureSubscriptionUtilization.cs
+- **サンプル**:[コンソールテストアプリ](console-test-app.md)
+- **プロジェクト**: パートナーセンター SDK のサンプル
+- **クラス**: GetAzureSubscriptionUtilization.cs
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -82,7 +82,7 @@ while (utilizationRecordEnumerator.HasValue)
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To obtain the Azure Utilization Records, you first need a customer identifier and a subscription identifier. You then call the **IAzureUtilizationCollection.query** function to return a **ResourceCollection** that contains the utilization records. Because the resource collection is paged, you must then obtain an Azure utilization record enumerator to traverse the utilization pages.
+Azure 使用率レコードを取得するには、まず顧客 id とサブスクリプション識別子が必要です。 次に、 **IAzureUtilizationCollection**関数を呼び出して、使用率レコードを含む**resourcecollection**を返します。 リソースコレクションがページングされているため、使用率ページを走査するには、Azure 使用率レコード列挙子を取得する必要があります。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -117,7 +117,7 @@ while (utilizationRecordEnumerator.hasValue())
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To obtain the Azure Utilization Records, you first need a customer identifier and a subscription identifier. You then call the [**Get-PartnerCustomerSubscriptionUtilization**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md). This command will return all records available for the specified period of time.
+Azure 使用率レコードを取得するには、まず顧客 id とサブスクリプション識別子が必要です。 次に、[**取得パートナーの Subscription使用率**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md)を呼び出します。 このコマンドは、指定された期間に利用可能なすべてのレコードを返します。
 
 ```powershell
 # $customerId
@@ -126,33 +126,33 @@ To obtain the Azure Utilization Records, you first need a customer identifier an
 Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -SubscriptionId $subscriptionId -StartDate (Get-Date).AddDays(-2).ToUniversalTime() -Granularity Hourly -ShowDetails
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド | 要求 URI |
 |------- | ----------- |
-| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure?start\_time={start-time}&end\_time={end-time}&granularity={granularity}&show\_details={True} |
+| **取得** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure? 開始\_時刻 = {開始時刻} & 終了\_時間 = {終了時刻} & 粒度 = {粒度} & 詳細を表示\_詳細 = {True} |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path and query parameters to get the utilization records.
+使用率レコードを取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前 | タスクバーの検索ボックスに | 必須かどうか | 説明 |
+| 名前 | 種類 | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
-| customer-tenant-id | string | [はい] | A GUID-formatted string that identifies the customer. |
-| subscription-id | string | [はい] | A GUID-formatted string that identifies the subscription. |
-| start_time | string in UTC date-time offset format | [はい] | The start of the time range that represents when the utilization was reported in the billing system. |
-| end_time | string in UTC date-time offset format | [はい] | The end of the time range that represents when the utilization was reported in the billing system. |
-| granularity | string | 必須ではない | Defines the granularity of usage aggregations. Available options are: `daily` (default) and `hourly`.
-| show_details | boolean | 必須ではない | Specifies whether to get the instance-level usage details. 既定値は `true` です。 |
-| size | number | 必須ではない | Specifies the number of aggregations returned by a single API call. The default is 1000. The max is 1000. |
+| 顧客-テナント id | string | 〇 | 顧客を識別する GUID 形式の文字列。 |
+| サブスクリプション id | string | 〇 | サブスクリプションを識別する GUID 形式の文字列。 |
+| start_time | UTC 日時オフセット形式の文字列 | 〇 | 課金システムで使用率がレポートされた日時を表す時間範囲の開始。 |
+| end_time | UTC 日時オフセット形式の文字列 | 〇 | 課金システムで使用率がレポートされた日時を表す時間範囲の最後。 |
+| 粒度 (granularity) | string | X | 使用状況集計の粒度を定義します。 使用可能なオプションは、`daily` (既定) と `hourly`です。
+| show_details | boolean | X | インスタンスレベルの使用状況の詳細を取得するかどうかを指定します。 既定値は `true` です。 |
+| size | number | X | 1つの API 呼び出しによって返される集計の数を指定します。 既定値は 1000 です。 最大値は1000です。 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -160,9 +160,9 @@ See [Partner Center REST headers](headers.md) for more information.
 
 #### <a name="request-example"></a>要求の例
 
-The following example request produces results similar to what the reconciliation file will show for the period 7/2 - 8/1. These results may not match exactly (see the section [Azure utilization API](#azure-utilization-api) for details).
+次の要求例では、調整ファイルが期間 7/2-8/1 に対してどのように表示されるかに似た結果が生成されます。 これらの結果は正確に一致しない場合があります (詳細については、「 [Azure 使用状況 API](#azure-utilization-api) 」セクションを参照してください)。
 
-This example request returns utilization data reported in the billing system between 7/2 at 12 AM (UTC) and 8/2 at 12 AM (UTC).
+この要求例では、請求7/2 システムで報告された使用率 (午前12時 (UTC)) と 8/2 (午前12時 (UTC))) を返します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/E499C962-9218-4DBA-8B83-8ADC94F47B9F/subscriptions/FC8F8908-F918-4406-AF13-D5BC0FE41865/utilizations/azure?start_time=2017-07-02T00:00:00-08:00&end_time=2017-08-02T00:00:00-08:00 HTTP/1.1
@@ -174,13 +174,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, this method returns a collection of [Azure Utilization Record](azure-utilization-record-resources.md) resources in the response body. If the Azure utilization data is not yet ready in a dependent system, this method returns an HTTP Status Code 204 with a Retry-After header.
+成功した場合、このメソッドは、応答本文で[Azure 使用率レコード](azure-utilization-record-resources.md)リソースのコレクションを返します。 Azure 使用率データが依存システムでまだ準備されていない場合、このメソッドは、再試行ヘッダーを含む HTTP 状態コード204を返します。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read the HTTP status code, [error code type](error-codes.md), and additional parameters.
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、HTTP 状態コード、[エラーコードの種類](error-codes.md)、およびその他のパラメーターを読み取ります。
 
 #### <a name="response-example"></a>応答の例
 

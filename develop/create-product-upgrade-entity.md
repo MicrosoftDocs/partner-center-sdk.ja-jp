@@ -1,6 +1,6 @@
 ---
-title: Create a product upgrade entity for a customer
-description: You can use the ProductUpgradeRequest resource to create a product upgrade entity to upgrade a customer to a given product family.
+title: 顧客の製品アップグレードエンティティを作成する
+description: Productupgrade によるリソースを使用して、製品のアップグレードエンティティを作成し、特定の製品ファミリに顧客をアップグレードすることができます。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,28 +12,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489582"
 ---
-# <a name="create-a-product-upgrade-entity-for-a-customer"></a>Create a product upgrade entity for a customer
+# <a name="create-a-product-upgrade-entity-for-a-customer"></a>顧客の製品アップグレードエンティティを作成する
 
 適用対象:
 
 - パートナー センター
 
-You can create a product upgrade entity to upgrade a customer to a given product family (for example, Azure plan) using the **ProductUpgradeRequest** resource.
+製品アップグレードエンティティを作成して、 **productupgrade**のリソースを使用して、顧客を特定の製品ファミリ (たとえば、Azure プラン) にアップグレードすることができます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials. Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.
-- The customer identifier.
-- The product family to which you want to upgrade the customer.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、[セキュリティで保護されたアプリモデル](enable-secure-app-model.md)に従います。
+- 顧客識別子。
+- 顧客のアップグレード先となる製品ファミリ。
 
 ## <a name="c"></a>C\#
 
-To upgrade a customer to Azure plan:
+顧客を Azure プランにアップグレードするには:
 
-1. Create a **ProductUpgradesRequest** object and specify the customer identifier and "Azure" as the product family.
-2. Use the **IAggregatePartner.ProductUpgrades** collection.
-3. Call the **Create** method and pass in the **ProductUpgradesRequest** object, which will return a **location header** string.
-4. Extract the **upgrade-id** from the location header string which can be used to [query the upgrade status](get-product-upgrade-status.md).
+1. **Product・アップグレード Esrequest**オブジェクトを作成し、製品ファミリとして顧客識別子と "Azure" を指定します。
+2. **Iaggregatepartner.customers**コレクションを使用します。
+3. **Create**メソッドを呼び出し、 **productの要求**オブジェクトを渡します。これにより、**場所ヘッダー**文字列が返されます。
+4. [アップグレードの状態を照会](get-product-upgrade-status.md)するために使用できる場所ヘッダー文字列から**アップグレード id**を抽出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -54,23 +54,23 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Partner Center REST headers](headers.md).
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
-The request body must contain a [ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest) resource.
+要求本文には、 [Productアップグレード](product-upgrade-resources.md#productupgraderequest)のためのリソースが含まれている必要があります。
 
 #### <a name="request-example"></a>要求の例
 
@@ -93,13 +93,13 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, the response contains a **Location** header that has a URI that can be used to retrieve product upgrade status. Save this URI for use with other related REST APIs.
+成功した場合、応答には、製品のアップグレード状態を取得するために使用できる URI を含む**Location**ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

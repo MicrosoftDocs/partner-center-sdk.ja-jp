@@ -1,6 +1,6 @@
 ---
-title: Get Microsoft Partner Network profile
-description: Gets an object representing the partner's MPN profile.
+title: プロファイルの取得 Microsoft Partner Network
+description: パートナーの MPN プロファイルを表すオブジェクトを取得します。
 ms.assetid: 6DC85E2F-0AC8-4166-883B-CCFD19044FC1
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490312"
 ---
-# <a name="get-microsoft-partner-network-profile"></a>Get Microsoft Partner Network profile
+# <a name="get-microsoft-partner-network-profile"></a>プロファイルの取得 Microsoft Partner Network
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets an object representing the partner's MPN profile.
+パートナーの MPN プロファイルを表すオブジェクトを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C#
 
-To get a partner network profile, use your **IAggregatePartner.Profiles** collection and call the **MpnProfile** property. Finally, call the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) methods.
+パートナーネットワークプロファイルを取得するには、 **iaggregatepartner.customers**コレクションを使用して**mpnprofile**プロパティを呼び出します。 最後に、 [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get)メソッドまたは[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync)メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -40,13 +40,13 @@ To get a partner network profile, use your **IAggregatePartner.Profiles** collec
 var mpnProfile = partnerOperations.Profiles.MpnProfile.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**:PartnerCenterSDK.FeaturesSamples **Class**: GetMPNProfile.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**:P artによって、GetMPNProfile.cs サンプル**クラス**:
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a partner network profile, use your **IAggregatePartner.getProfiles** function and call the **getMpnProfile** function. Finally, call the **get()** function.
+パートナーネットワークプロファイルを取得するには、 **iaggregatepartner.customers**関数を使用し、 **Getmpnprofile**関数を呼び出します。 最後に、 **get ()** 関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -58,30 +58,30 @@ MpnProfile mpnProfile = partnerOperations.getProfiles().getMpnProfile().get();
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a partner network profile, execute the [**Get-PartnerMpnProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerMpnProfile.md) command.
+パートナーネットワークプロファイルを取得するには、 [**Get PartnerMpnProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerMpnProfile.md)コマンドを実行します。
 
 ```powershell
 Get-PartnerMpnProfile
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                          |
 |---------|----------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/mpn HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/mpn HTTP/1.1 |
 
  
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/profiles/mpn HTTP/1.1
@@ -92,15 +92,15 @@ MS-CorrelationId: cb9f3209-d020-4bf9-871c-e1f1c75348f8
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, this method returns a **MPNProfile** object in the response body.
+成功した場合、このメソッドは応答本文で**Mpnprofile**オブジェクトを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

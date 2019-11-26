@@ -1,6 +1,6 @@
 ---
-title: Get an order by ID
-description: Gets a Order resource that matches the customer and order ID.
+title: ID で注文を取得する
+description: 顧客と注文 ID に一致する注文リソースを取得します。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485722"
 ---
-# <a name="get-an-order-by-id"></a>Get an order by ID
+# <a name="get-an-order-by-id"></a>ID で注文を取得する
 
 適用対象:
 
@@ -22,21 +22,21 @@ ms.locfileid: "74485722"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets an [Order](order-resources.md) resource that matches the customer and order ID.
+顧客と注文 ID に一致する[注文](order-resources.md)リソースを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- An order ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- 注文 ID。
 
 ## <a name="c"></a>C\#
 
-To get a customer's order by ID:
+顧客の注文を ID で取得するには、次のようにします。
 
-1. Use your **IAggregatePartner.Customers** collection and call the **ById()** method.
-2. Call the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property, followed by the [**ByID()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) method once more.
-3. Call [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync).
+1. **Iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。
+2. [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティを呼び出し、それに続けて[**ByID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)メソッドを呼び出します。
+3. [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get)または[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync)を呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -46,17 +46,17 @@ To get a customer's order by ID:
 var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(selectedOrderId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetOrder.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: GetOrder.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a customer's order by ID:
+顧客の注文を ID で取得するには、次のようにします。
 
-1. Use your **IAggregatePartner.getCustomers** function and call the **byId()** function.
-2. Call the **getOrders** function, followed by the **byID()** function once more.
-3. Call the **get()** function.
+1. **Iaggregatepartner.customers**関数を使用し、 **byId ()** 関数を呼び出します。
+2. **Getorders**関数を呼び出し、その後に**byID ()** 関数を呼び出します。
+3. **Get ()** 関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -70,7 +70,7 @@ Order order = partnerOperations.getCustomers().byId(selectedCustomerId).getOrder
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a customer's order by ID, execute the [**Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) command, and specify the **CustomerId** and **OrderId** paramaeters.
+顧客の注文を ID で取得するには、 [**Get partnercustomer order**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md)コマンドを実行し、 **CustomerId**および**OrderId** paramaeters を指定します。
 
 ```powershell
 # $selectedCustomerId
@@ -79,26 +79,26 @@ To get a customer's order by ID, execute the [**Get-PartnerCustomerOrder**](http
 Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrderId
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                                  |
 |---------|--------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1.1  |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1.1  |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-This table lists the required query parameters to get an order by ID.
+次の表は、ID で注文を取得するために必要なクエリパラメーターを示しています。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                            |
+| 名前                   | 種類     | 必須 | 説明                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
-| customer-tenant-id     | string   | [はい]      | A GUID formatted string corresponding to the customer. |
-| id-for-order           | string   | [はい]      | A string corresponding to the order ID.                |
+| 顧客-テナント id     | string   | 〇      | 顧客に対応する GUID 形式の文字列。 |
+| id (順序)           | string   | 〇      | 注文 ID に対応する文字列。                |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Headers](headers.md) for more information.
+詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -115,13 +115,13 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns an [Order](order-resources.md) resource in the response body.
+成功した場合、このメソッドは応答本文で[注文](order-resources.md)リソースを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

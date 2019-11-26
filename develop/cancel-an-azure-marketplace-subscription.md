@@ -1,6 +1,6 @@
 ---
-title: Cancel a commercial marketplace subscription
-description: Cancel a commercial marketplace Subscription resource that matches a customer and subscription ID.
+title: 商用 marketplace サブスクリプションをキャンセルする
+description: 顧客とサブスクリプション ID に一致する商用 marketplace サブスクリプションリソースをキャンセルします。
 ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -13,37 +13,37 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489312"
 ---
-# <a name="cancel-a-commercial-marketplace-subscription"></a>Cancel a commercial marketplace subscription
+# <a name="cancel-a-commercial-marketplace-subscription"></a>商用 marketplace サブスクリプションをキャンセルする
 
 適用対象:
 
 - パートナー センター
 
-You can cancel a commercial marketplace [subscription](subscription-resources.md) resource that matches the customer and subscription ID.
+顧客とサブスクリプション ID に一致する商用 marketplace[サブスクリプション](subscription-resources.md)リソースを取り消すことができます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**customer-tenant-id**). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (**顧客-テナント id**)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- サブスクリプション ID。
 
-## <a name="partner-center-dashboard-method"></a>Partner Center dashboard method
+## <a name="partner-center-dashboard-method"></a>パートナーセンターのダッシュボードの方法
 
-To cancel a commercial marketplace subscription in the Partner Center dashboard:
+パートナーセンターのダッシュボードで商用 marketplace のサブスクリプションを取り消すには、次のようにします。
 
-1. [Select a customer](get-a-customer-by-name.md).
-2. Select the subscription that you wish to cancel.
-3. Choose the **Cancel subscription** option, then select **Submit**.
+1. [顧客を選択](get-a-customer-by-name.md)します。
+2. 取り消したいサブスクリプションを選択します。
+3. **[サブスクリプションの取り消し]** オプションを選択し、 **[送信]** を選択します。
 
 ## <a name="c"></a>C#
 
-To cancel a customer's subscription:
+顧客のサブスクリプションを取り消すには、次のようにします。
 
-1. [Get the subscription by ID](get-a-subscription-by-id.md).
-2. Change the subscription's [**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) property. For information on **Status** codes, see [SubscriptionStatus enumeration](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).
-3. After the change is made, use your **IAggregatePartner.Customers** collection and call the **ById()** method.
-4. Call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method.
-5. Call the **Patch()** method.
+1. [ID でサブスクリプションを取得](get-a-subscription-by-id.md)します。
+2. サブスクリプションの[**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)プロパティを変更します。 **状態**コードの詳細については、「 [subscriptionstatus 列挙型](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)」を参照してください。
+3. 変更が行われた後、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。
+4. [**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)のプロパティを呼び出し、その後に[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。
+5. **Patch ()** メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,34 +54,34 @@ selectedSubscription.Status = SubscriptionStatus.Deleted;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-### <a name="sample-console-test-app"></a>Sample console test app
+### <a name="sample-console-test-app"></a>サンプルコンソールテストアプリ
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: UpdateSubscription.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: UpdateSubscription.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-This table lists the required query parameter to suspend the subscription.
+次の表に、サブスクリプションを中断するために必要なクエリパラメーターを示します。
 
-| 名前                    | タスクバーの検索ボックスに     | 必須かどうか | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。     |
+| **id-サブスクリプション** | **guid** | Y        | サブスクリプションに対応する GUID。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-A full **Subscription** resource is required in the request body. Ensure that the **Status** property has been updated.
+要求本文には、完全な**サブスクリプション**リソースが必要です。 **Status**プロパティが更新されていることを確認します。
 
 ### <a name="request-example"></a>要求の例
 
@@ -127,13 +127,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST Response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns deleted [Subscription](subscription-resources.md) resource properties in the response body.
+成功した場合、このメソッドは応答本文で削除された[サブスクリプション](subscription-resources.md)リソースプロパティを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

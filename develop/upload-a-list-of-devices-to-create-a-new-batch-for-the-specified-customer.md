@@ -1,6 +1,6 @@
 ---
-title: Upload a list of devices to create a new batch for the specified customer
-description: How to upload a list of information about devices to create a new batch for the specified customer. This creates a device batch for enrollment in zero-touch deployment, and associates the devices and the device batch with the specified customer.
+title: 指定された顧客の新しいバッチを作成するために、デバイスの一覧をアップロードします
+description: 指定された顧客の新しいバッチを作成するために、デバイスに関する情報の一覧をアップロードする方法。 これにより、ゼロタッチ展開で登録するためのデバイスバッチが作成され、デバイスとデバイスバッチが指定の顧客に関連付けられます。
 ms.assetid: 94DB98F2-2188-46BB-97BA-100B8C94F120
 ms.date: 08/08/2019
 ms.service: partner-dashboard
@@ -13,39 +13,39 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486312"
 ---
-# <a name="upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer"></a>Upload a list of devices to create a new batch for the specified customer
+# <a name="upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer"></a>指定された顧客の新しいバッチを作成するために、デバイスの一覧をアップロードします
 
 適用対象:
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-How to upload a list of information about devices to create a new batch for the specified customer. This creates a device batch for enrollment in zero-touch deployment, and associates the devices and the device batch with the specified customer.
+指定された顧客の新しいバッチを作成するために、デバイスに関する情報の一覧をアップロードする方法。 これにより、ゼロタッチ展開で登録するためのデバイスバッチが作成され、デバイスとデバイスバッチが指定の顧客に関連付けられます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials. Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.
-- The customer identifier.
-- The list of device resources that provide the information about the individual devices.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、[セキュリティで保護されたアプリモデル](enable-secure-app-model.md)に従います。
+- 顧客識別子。
+- 個々のデバイスに関する情報を提供するデバイスリソースの一覧。
 
 ## <a name="c"></a>C\#
 
-To upload a list of devices to create a new device batch:
+新しいデバイスバッチを作成するためにデバイスの一覧をアップロードするには、次のようにします。
 
-1. Instantiate a new [List](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) of type [**Device**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) and populate the list with the devices. The following combinations of populated properties are required at a minimum for identifying each device:
+1. [**デバイス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device)の種類の新しい[リスト](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)をインスタンス化し、リストに追加します。 各デバイスを識別するには、少なくとも次の設定されたプロパティの組み合わせが必要です。
 
-    - [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey).
-    - [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber).
-    - [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) + [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber).
-    - [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) only.
-    - [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) only.
-    - [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) + [**OemManufacturerName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername) + [**ModelName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname).
+    - [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)。
+    - [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)。
+    - [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) + [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)になります。
+    - [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)のみ。
+    - [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)のみです。
+    - [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) + [**OemManufacturerName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername) + [**ModelName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname)。
 
-2. Instantiate a [**DeviceBatchCreationRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest) object and set the [**BatchId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.batchid) property to a unique name of your choosing, and the [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) property to the list of devices to upload.
+2. [**Devicebatchの request**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest)オブジェクトをインスタンス化し、 [**batchid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.batchid)プロパティを任意の一意の名前に設定し、 [**devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices)プロパティをアップロードするデバイスの一覧に設定します。
 
-3. Process the device batch creation request by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to retrieve an interface to operations on the specified customer.
+3. 顧客 id を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作へのインターフェイスを取得することによって、デバイスのバッチ作成要求を処理します。
 
-4. Call the [**DeviceBatches.Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection) method with the device batch creation request to create the batch.
+4. [**Devicebatches**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection)を呼び出します。バッチを作成するには、デバイスのバッチ作成要求を使用して、create または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection)メソッドを呼び出します。
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -72,31 +72,31 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.Create(newDeviceBatch);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateDeviceBatch.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateDeviceBatch.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following path parameters when creating the request.
+要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | string | [はい]      | A GUID-formatted string that identifies the customer. |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-The request body must contain a [DeviceBatchCreationRequest](device-deployment-resources.md#devicebatchcreationrequest) resource.
+要求本文には、 [Devicebatchの要求](device-deployment-resources.md#devicebatchcreationrequest)リソースが含まれている必要があります。
 
 ### <a name="request-example"></a>要求の例
 
@@ -135,13 +135,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response contains a **Location** header that has a URI that can be used to retrieve device upload status. Save this URI for use with other related REST APIs.
+成功した場合、応答には、デバイスのアップロードステータスを取得するために使用できる URI を含む**場所**ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

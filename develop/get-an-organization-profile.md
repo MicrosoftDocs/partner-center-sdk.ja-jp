@@ -1,6 +1,6 @@
 ---
-title: Get an organization profile
-description: Gets an object representing the partner's organization profile.
+title: 組織のプロファイルを取得する
+description: パートナーの組織プロファイルを表すオブジェクトを取得します。
 ms.assetid: 2AA159F1-CC84-4367-A2AF-DFA4C8B0E673
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485732"
 ---
-# <a name="get-an-organization-profile"></a>Get an organization profile
+# <a name="get-an-organization-profile"></a>組織のプロファイルを取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets an object representing the partner's organization profile.
+パートナーの組織プロファイルを表すオブジェクトを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C#
 
-To get your organization profile, use your **IAggregatePartner.Profiles** collection and call the **OrganizationProfile** property. Finally, call the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync) methods.
+組織のプロファイルを取得するには、 **iaggregatepartner.customers**コレクションを使用して、[組織の**プロファイル**] プロパティを呼び出します。 最後に、 [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get)メソッドまたは[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync)メソッドを呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -40,13 +40,13 @@ To get your organization profile, use your **IAggregatePartner.Profiles** collec
 OrganizationProfile organizationProfile = partnerOperations.Profiles.OrganizationProfile.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerCenterSDK.FeaturesSamples **Class**: GetOrganizationProfile.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル**クラス**: GetOrganizationProfile.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get your organization profile, use your **IAggregatePartner.getProfiles** function and call the **getOrganizationProfile** function. Finally, call the **get()** function.
+組織のプロファイルを取得するには、 **iaggregatepartner.customers**関数を使用し、 **getprofiles profile**関数を呼び出します。 最後に、 **get ()** 関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -58,29 +58,29 @@ OrganizationProfile organizationProfile = partnerOperations.getProfiles().getOrg
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get your organiztion profile, execute the [**Get-PartnerOrganizationProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md) command. 
+組織のプロファイルを取得するには、 [**Get Partnerのプロファイル**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md)コマンドを実行します。 
 
 ```powershell
 Get-PartnerOrganizationProfile
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/organization HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/organization HTTP/1.1 |
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/profiles/organization HTTP/1.1
@@ -90,15 +90,15 @@ MS-RequestId: b85cb7ab-cc2e-4966-93f0-cf0d8377a93f
 MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, this method returns an **OrganizationProfile** object in the response body.
+成功した場合、このメソッドは、応答本文に**組織のプロファイル**オブジェクトを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

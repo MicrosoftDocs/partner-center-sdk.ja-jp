@@ -1,6 +1,6 @@
 ---
-title: Get a customer's service costs line items
-description: Gets a customer's service cost line items for the specified billing period.
+title: 顧客のサービスコストの明細項目を取得する
+description: 指定された請求期間の顧客のサービスコスト明細項目を取得します。
 ms.assetid: 1D6364A2-51FE-44E4-96A0-444EDB3BB56A
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490152"
 ---
-# <a name="get-a-customers-service-costs-line-items"></a>Get a customer's service costs line items
+# <a name="get-a-customers-service-costs-line-items"></a>顧客のサービスコストの明細項目を取得する
 
 適用対象:
 
 - パートナー センター
 
-Gets a customer's service cost line items for the specified billing period.
+指定された請求期間の顧客のサービスコスト明細項目を取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials.
-- A customer identifier.
-- A billing period indicator (**mostrecent**).
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。
+- 顧客識別子。
+- 請求期間インジケーター (**最新**)。
 
 ## <a name="c"></a>C\#
 
-To retrieve a service costs summary for the specified customer:
+指定された顧客のサービスコストの概要を取得するには:
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer.
-2. Use the [**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts) property to get an interface to customer service costs collection operations.
-3. Call the [**ByBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod) method with a member of the [**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod) enumeration to return an [**IServiceCostsCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection).
-4. Use the [**IServiceCostsCollection.LineItems.Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.getasync) method to get the customer's service costs line items.
+1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。
+2. [**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts)プロパティを使用して、顧客サービスコストの収集操作へのインターフェイスを取得します。
+3. [**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod)列挙体のメンバーを使用して[**By の期間**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod)メソッドを呼び出し、 [**IServiceCostsCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection)を返します。
+4. 顧客のサービスコストの明細項目を取得するには、 [**IServiceCostsCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.getasync)メソッドを使用します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,26 +43,26 @@ To retrieve a service costs summary for the specified customer:
 var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).ServiceCosts.ByBillingPeriod(ServiceCostsBillingPeriod.MostRecent).LineItems.Get();
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                                             |
 |---------|-------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period}/lineitems HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period}/lineitems HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path parameters to identify the customer and the billing period.
+次のパスパラメーターを使用して、顧客と請求期間を識別します。
 
-| 名前           | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                                                                      |
+| 名前           | 種類   | 必須 | 説明                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| customer-id    | guid   | [はい]      | A GUID formatted customer ID that identifies the customer.                                                                       |
-| billing-period | string | [はい]      | An indicator that represents the billing period. The only supported value is MostRecent. The case of the string does not matter. |
+| 顧客 id    | guid   | 〇      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
+| 請求-期間 | string | 〇      | 請求期間を表すインジケーター。 唯一サポートされている値は、最新です。 文字列の大文字と小文字の区別は関係ありません。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -80,16 +80,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains a [ServiceCostLineItem](service-costs-resources.md) resource that provides information about the service costs.
+成功した場合、応答本文には、サービスのコストに関する情報を提供する[ServiceCostLineItem](service-costs-resources.md)リソースが含まれます。
 
 > [!IMPORTANT]
-> The following properties *only apply to* service cost line items where the product is a *one-time purchase*: **productId**, **productName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, **publisherName**, **termAndBillingCycle**, **discountDetails**. These properties *don't apply to* service line items where the product is a *recurring purchase*. For example, these properties *don't apply* to subscription-based Office 365 and Azure.
+> 次のプロパティは、製品が1回だけ*購入*されるサービスコスト明細項目 ( **productId**、 **productName**、 **skuId**、 **skuname**、 **availabilityId**、 **publisherId**、 **publishername**、 **termandbil**、 **discountdetails**)*にのみ適用*されます。 これらのプロパティは、製品が*定期的に購入*されるサービスライン項目には適用され*ません*。 たとえば、これらのプロパティは、サブスクリプションベースの Office 365 および Azure には適用され*ません*。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

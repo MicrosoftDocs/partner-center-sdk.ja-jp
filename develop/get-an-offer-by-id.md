@@ -1,6 +1,6 @@
 ---
-title: Get an offer by ID
-description: Gets a Offer resource that matches the offer ID.
+title: ID でプランを取得する
+description: オファー ID と一致するオファーリソースを取得します。
 ms.assetid: F5165C5A-7C93-4F8E-A733-641511BC8FB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485742"
 ---
-# <a name="get-an-offer-by-id"></a>Get an offer by ID
+# <a name="get-an-offer-by-id"></a>ID でプランを取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets an **Offer** resource that matches the offer ID.
+オファー ID と一致する**オファー**リソースを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An offer ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- プラン ID。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C#
 
-To find a specific offer by ID, use your **IAggregatePartner.Offers** collection, establish the country with a call to **ByCountry()** , and then call the [**ByID()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) method. Then, call the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get) or [**Get Async()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) method.
+ID で特定のプランを検索するには、 **iaggregatepartner.customers**コレクションを使用し、 **bycountry ()** の呼び出しで国を確立してから、 [**ByID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)メソッドを呼び出します。 次に、 [**get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get)メソッドまたは[**get Async ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync)メソッドを呼び出します。
 
 ```csharp
 // IAggretagePartner partnerOperations;
@@ -44,13 +44,13 @@ To find a specific offer by ID, use your **IAggregatePartner.Offers** collection
 var offer = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetOffer.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: GetOffer.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To find a specific offer by ID, use your **IAggregatePartner.getOffers** function, establish the country with a call to the **byCountry()** function, and then call the **byID()** function. Then call the **get()** function.
+ID で特定のプランを検索するには、 **iaggregatepartner.customers**関数を使用し、 **bycountry ()** 関数の呼び出しで国を確立してから、 **byID ()** 関数を呼び出します。 次に、 **get ()** 関数を呼び出します。
 
 ```java
 // IAggretagePartner partnerOperations;
@@ -65,7 +65,7 @@ Offer offer = partnerOperations.getOffers().byCountry(countryCode).byId(offerId)
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To find a specific offer by ID, execute the [**Get-PartnerOffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md) command, and specify the **CountryCode** and **OfferId** parameters.
+特定のプランを ID で検索するには、 **CountryCode**パラメーターと**offerid**パラメーターを指定して、 [**Get partneroffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md)コマンドを実行します。
 
 ```powershell
 # $countryCode
@@ -74,31 +74,31 @@ To find a specific offer by ID, execute the [**Get-PartnerOffer**](https://githu
 Get-PartnerOffer -Country $countryCode -OfferId $offerId
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}?country={country-id} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}? country = {country-ID} HTTP/1.1 |
 
-**URI parameter**
+**URI パラメーター**
 
-| 名前           | タスクバーの検索ボックスに       | 必須かどうか | 説明                           |
+| 名前           | 種類       | 必須 | 説明                           |
 |----------------|------------|----------|---------------------------------------|
-| **offer-id**   | **guid**   | Y        | A GUID that corresponds to the offer. |
-| **country-id** | **string** | Y        | The country/region ID.                |
+| **プラン id**   | **guid**   | Y        | オファーに対応する GUID。 |
+| **国-id** | **文字列** | Y        | 国/地域 ID。                |
 
-**Request headers**
+**要求ヘッダー**
 
-- A **locale-id** formatted as a string is required.
-- See [Headers](headers.md) for more information.
+- 文字列として書式設定された**ロケール id**が必要です。
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/<offer-id>?country=<country-id> HTTP/1.1
@@ -110,15 +110,15 @@ X-Locale: <locale-id>
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, this method returns an **Offer** resource in the response body.
+成功した場合、このメソッドは応答本文で**オファー**リソースを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

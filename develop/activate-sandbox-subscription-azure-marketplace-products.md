@@ -1,6 +1,6 @@
 ---
-title: Activate a sandbox subscription for commercial marketplace products
-description: Activate a sandbox subscription for commercial marketplace products.
+title: 商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化する
+description: 商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化します。
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,28 +12,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488752"
 ---
-# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>Activate a sandbox subscription for commercial marketplace products
+# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化する
 
 適用対象:
 
 - パートナー センター
 
-How to activate subscription for commercial marketplace Software as a Service (SaaS) products from integration sandbox accounts to enable billing.
+統合サンドボックスアカウントから、商用 marketplace のサービスとしてのソフトウェア (SaaS) 製品のサブスクリプションをアクティブ化して課金を有効にする方法について説明します。
 
 >[!NOTE]
->It's only possible to activate a subscription for commercial marketplace SaaS products from integration sandbox accounts. If you have a production subscription, you must visit the publisher's site to complete the setup process. Subscription billing will begin only after setup is complete.
+>統合サンドボックスアカウントから、商用 marketplace の SaaS 製品のサブスクリプションをアクティブ化することのみが可能です。 運用環境のサブスクリプションがある場合は、発行元のサイトにアクセスしてセットアッププロセスを完了する必要があります。 サブスクリプションの課金は、セットアップの完了後にのみ開始されます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An integration sandbox partner account with a customer having an active subscription for commercial marketplace SaaS products.
-- For partners using Partner Center .NET SDK, you must use SDK version 1.14.0 or higher to access this capability.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 統合サンドボックスパートナーアカウント。お客様は、商用 marketplace SaaS 製品のアクティブなサブスクリプションを持っています。
+- パートナーセンター .NET SDK を使用しているパートナーの場合、この機能にアクセスするには、SDK バージョン1.14.0 以上を使用する必要があります。
 
 ## <a name="c"></a>C#
 
-Use the following steps to activate a subscription for commercial marketplace SaaS products:
+次の手順を使用して、商用 marketplace SaaS 製品のサブスクリプションをアクティブ化します。
 
-1. Make an interface to the subscription operations available. You must identify the customer and specify the subscription identifier of the trial subscription.
+1. 使用可能なサブスクリプション操作へのインターフェイスを作成します。 顧客を特定し、試用版サブスクリプションのサブスクリプション識別子を指定する必要があります。
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
@@ -76,13 +76,13 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-This method returns the **subscription-id** and **status** properties.
+このメソッドは、**サブスクリプション id**と**ステータス**プロパティを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

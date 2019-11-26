@@ -1,6 +1,6 @@
 ---
 title: ユーティリティ
-description: This section describes the ways that partners can use the Partner Center to programmatically manage utility functions.
+description: このセクションでは、パートナーがパートナーセンターを使用して、ユーティリティの機能をプログラムで管理する方法について説明します。
 ms.assetid: 646301CF-83E5-4BC3-987D-948E984D17F3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -16,18 +16,18 @@ ms.locfileid: "74487722"
 # <a name="utilities"></a>ユーティリティ
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-This section describes the ways that partners can use Partner Center to programmatically manage utility functions.
+このセクションでは、パートナーがパートナーセンターを使用して、ユーティリティの機能をプログラムで管理する方法について説明します。
 
-- [Validate an address](validate-an-address.md)
-- [Get address formatting rules by market](get-market-specific-validation-data.md)
-- [Verify domain availability](verify-domain-availability.md)
-- [Delete a customer account from the integration sandbox](delete-a-customer-account-from-the-integration-sandbox.md)
+- [アドレスを検証する](validate-an-address.md)
+- [市場別の住所書式規則の取得](get-market-specific-validation-data.md)
+- [ドメインの可用性を確認する](verify-domain-availability.md)
+- [統合サンドボックスから顧客アカウントを削除する](delete-a-customer-account-from-the-integration-sandbox.md)
 
-For more information, see [Scenarios](scenarios.md), specifically the [Background](scenarios.md#background) section.
+詳細については、「[シナリオ](scenarios.md)、特に[背景](scenarios.md#background)セクション」を参照してください。

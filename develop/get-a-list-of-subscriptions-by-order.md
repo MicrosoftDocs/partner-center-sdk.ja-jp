@@ -1,6 +1,6 @@
 ---
-title: Get a list of subscriptions by order
-description: Gets a collection of Subscription resources that correspond to a given order.
+title: 注文別のサブスクリプションの一覧を取得する
+description: 指定された順序に対応するサブスクリプションリソースのコレクションを取得します。
 ms.assetid: C6DCE351-8C02-42CD-9A80-8156BC6BF1B8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488492"
 ---
-# <a name="get-a-list-of-subscriptions-by-order"></a>Get a list of subscriptions by order
+# <a name="get-a-list-of-subscriptions-by-order"></a>注文別のサブスクリプションの一覧を取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets a collection of [Subscription](subscription-resources.md) resources that correspond to a given order.
+指定された順序に対応する[サブスクリプション](subscription-resources.md)リソースのコレクションを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- An order ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- 注文 ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a list of subscriptions by order, use your **IAggregatePartner.Customers** collection and call the **ById()** method. Then call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the **ByOrder()** method. Finish by calling [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync).
+順序に従ってサブスクリプションの一覧を取得するには、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、[[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] プロパティを呼び出し、続いて**byorder ()** メソッドを呼び出します。 [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)または[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)を呼び出して終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,39 +45,39 @@ To get a list of subscriptions by order, use your **IAggregatePartner.Customers*
 ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ByOrder(orderID).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: SubscriptionsByOrder.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: SubscriptionsByOrder.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                   |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions?order\_id={id-for-order} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions? order\_id = {id-順序} HTTP/1.1 |
 
 
 
-**URI parameter**
+**URI パラメーター**
 
-This table lists the required query parameter to get all the subscriptions.
+次の表に、すべてのサブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                           |
+| 名前                   | 種類     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | A GUID corresponding to the customer. |
-| **id-for-order**       | **guid** | Y        | A GUID corresponding to the order.    |
+| **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。 |
+| **id (順序)**       | **guid** | Y        | 注文に対応する GUID。    |
 
 
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions?order_id={id-for-order} HTTP/1.1
@@ -88,16 +88,16 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, this method returns a collection of [Subscription](subscription-resources.md) resources in the response body.
+成功した場合、このメソッドは応答本文で[サブスクリプション](subscription-resources.md)リソースのコレクションを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

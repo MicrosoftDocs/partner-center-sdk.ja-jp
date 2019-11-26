@@ -1,6 +1,6 @@
 ---
-title: Subscription usage resources
-description: Subscription usage resources describe subscriptions with usage-based billing. These subscriptions have daily and monthly usage records, along with a usage summary for each pay period.
+title: サブスクリプションの利用状況に関するリソース
+description: サブスクリプションの使用状況に関するリソースでは、使用量ベースの課金によるサブスクリプションについて説明します。 これらのサブスクリプションには、日単位および月単位の使用状況レコードと、各支払い期間の使用状況の概要が含まれています。
 ms.assetid: 61B98AB8-D802-4EC1-91FB-B7A2B95DE20C
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488022"
 ---
-# <a name="subscription-usage-resources"></a>Subscription usage resources
+# <a name="subscription-usage-resources"></a>サブスクリプションの利用状況に関するリソース
 
 適用対象:
 
@@ -21,56 +21,56 @@ ms.locfileid: "74488022"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-You can use the following subscription usage resources to get usage information for a specific subscription with usage-based billing. These subscriptions have daily and monthly usage records, along with a usage summary for each pay period.
+次のサブスクリプション使用状況リソースを使用して、使用量ベースの課金で特定のサブスクリプションの使用状況に関する情報を取得できます。 これらのサブスクリプションには、日単位および月単位の使用状況レコードと、各支払い期間の使用状況の概要が含まれています。
 
 ## <a name="subscriptiondailyusagerecord"></a>SubscriptionDailyUsageRecord
 
-*The **SubscriptionDailyUsageRecord** resource is obsolete and may produce inaccurate results. We recommend that you update your applications to use the APIs described in [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md) and [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md) instead.*
+***SubscriptionDailyUsageRecord**リソースは互換性のために残されており、不正確な結果が生成される可能性があります。「 [Azure の顧客の使用状況レコードを取得](get-a-customer-s-utilization-record-for-azure.md)する」で説明されている api を使用するようにアプリケーションを更新し、代わりに[Microsoft Azure の価格を取得](get-prices-for-microsoft-azure.md)することをお勧めします。*
 
-The **SubscriptionDailyUsageRecord** resource describes how much a subscription is used in a single day.
+**SubscriptionDailyUsageRecord**リソースは、1日に使用されるサブスクリプションの量を示します。
 
-| プロパティ         | タスクバーの検索ボックスに               | 説明                                                                                   |
+| プロパティ         | 種類               | 説明                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| DateUsed         | string             | The day, in date-time format, that the subscription was used.                                 |
-| ResourceId       | string             | GUID. The unique ID of the resource.                                                          |
-| ResourceName     | string             | The name of the resource.                                                                     |
-| TotalCost        | 10 進数             | The estimated total cost of using the resources in the subscription on the specified day.     |
-| CurrencyLocale   | string             | The locale in which the subscription was used, determines the currency to use on the invoice. |
-| LastModifiedDate | string             | The day, in date-time format, that this record was last modified.                             |
-| 属性       | ResourceAttributes | The metadata attributes corresponding to the resource.                                        |
+| 使用された日付         | string             | サブスクリプションが使用された日 (日付/時刻形式)。                                 |
+| ResourceId       | string             | GUID. リソースの一意の ID。                                                          |
+| ResourceName     | string             | リソースの名前。                                                                     |
+| TotalCost        | decimal             | 指定した日にサブスクリプション内のリソースを使用した場合の推定総コスト。     |
+| CurrencyLocale   | string             | サブスクリプションが使用されたロケールによって、請求書で使用する通貨が決まります。 |
+| LastModifiedDate | string             | このレコードが最後に変更された日 (日付/時刻形式)。                             |
+| 属性       | ResourceAttributes | リソースに対応するメタデータ属性。                                        |
 
 ## <a name="subscriptionmonthlyusagerecord"></a>SubscriptionMonthlyUsageRecord
 
-The **SubscriptionMonthlyUsageRecord** resource describes how much a subscription is used in a single month.
+**SubscriptionMonthlyUsageRecord**リソースは、1か月に使用されるサブスクリプションの量を示します。
 
-| プロパティ         | タスクバーの検索ボックスに               | 説明                                                                                   |
+| プロパティ         | 種類               | 説明                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| 状況           | string             | The status of the subscription: "none", "active", "suspended", or "deleted".                  |
-| PartnerOnRecord  | string             | "The MPN ID of the partner on record."                                                        |
-| OfferId          | string             | GUID. The id of the offer related to this subscription.                                       |
-| Id               | string             | GUID. The id of the subscription or resource.                                                 |
-| 名前             | string             | The name of the subscription or resource.                                                     |
-| TotalCost        | 10 進数             | The estimated total cost of using the resources in the subscription in the specified month.   |
-| CurrencyLocale   | string             | The locale in which the subscription was used, determines the currency to use on the invoice. Available for Microsoft Azure (MS-AZR-0145P) subscriptions. |
-| CurrencyCode     | string             | Gets or sets the currency code. Available for Azure plan subscription resources.                                         |
-| USDTotalCost     | 10 進数             | Gets or sets the estimated total cost in USD. Available for Azure plans.                                         |
-| LastModifiedDate | string             | The day, in date-time format, that this record was last modified.                             |
-| 属性       | ResourceAttributes | The metadata attributes corresponding to the resource.                                        |
+| 状況           | string             | サブスクリプションの状態: "none"、"active"、"中断"、または "deleted"。                  |
+| PartnerOnRecord  | string             | "レコード上のパートナーの MPN ID"                                                        |
+| OfferId          | string             | GUID. このサブスクリプションに関連付けられているオファーの id。                                       |
+| ID               | string             | GUID. サブスクリプションまたはリソースの id。                                                 |
+| 名前             | string             | サブスクリプションまたはリソースの名前。                                                     |
+| TotalCost        | decimal             | 指定した月にサブスクリプション内のリソースを使用した場合の推定総コスト。   |
+| CurrencyLocale   | string             | サブスクリプションが使用されたロケールによって、請求書で使用する通貨が決まります。 Microsoft Azure (0145P) サブスクリプションで使用できます。 |
+| CurrencyCode     | string             | 通貨コードを取得または設定します。 Azure プランサブスクリプションリソースで使用できます。                                         |
+| USDTotalCost     | decimal             | 推定合計コストを USD で取得または設定します。 Azure プランで使用できます。                                         |
+| LastModifiedDate | string             | このレコードが最後に変更された日 (日付/時刻形式)。                             |
+| 属性       | ResourceAttributes | リソースに対応するメタデータ属性。                                        |
 
 ## <a name="subscriptionusagesummary"></a>SubscriptionUsageSummary
 
-The **SubscriptionUsageSummary** resource describes how much a specific subscription was used in the current billing period.
+**SubscriptionUsageSummary**リソースは、現在の請求期間内に特定のサブスクリプションが使用された量を示します。
 
-| プロパティ         | タスクバーの検索ボックスに               | 説明                                                                                                            |
+| プロパティ         | 種類               | 説明                                                                                                            |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------------|
-| ResourceId       | string             | GUID. The id of the subscription or resource. In the context of CustomerMonthlyUsageRecord this id is the customer id. |
-| ResourceName     | string             | The name of the subscription or resource. In the context of CustomerMonthlyUsageRecord this name is the customer name. |
-| BillingStartDate | date               | The start date of the current billing period, in date-time format.                                                     |
-| BillingEndDate   | date               | The end date of the current billing period, in date-time format.                                                       |
-| TotalCost        | double             | The estimated total cost of using the resources in the subscription during the specified billing period.               |
-| CurrencyLocale   | string             | The locale in which the subscription was used, determines the currency to use on the invoice. Available for Microsoft Azure (MS-AZR-0145P) subscriptions. |
-| CurrencyCode   | string             | Gets or sets the currency code. Available for Azure plans.                                         |
-| USDTotalCost   | 10 進数             | Gets or sets the estimated total cost in USD. Available for Azure plan subscription resources.                                         |
-| LastModifiedDate | string             | The day, in date-time format, that this record was last modified.                                                      |
-| Links            | ResourceLinks      | The resource links corresponding to the SubscriptionUsageSummary.                                                      |
-| 属性       | ResourceAttributes | The metadata attributes corresponding to the SubscriptionUsageSummary.                                                 |
+| ResourceId       | string             | GUID. サブスクリプションまたはリソースの id。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
+| ResourceName     | string             | サブスクリプションまたはリソースの名前。 CustomerMonthlyUsageRecord のコンテキストでは、この名前は顧客名です。 |
+| /日 | date               | 現在の請求期間の開始日 (日付と時刻の形式)。                                                     |
+| すべての日付   | date               | 現在の請求期間の終了日 (日付/時刻形式)。                                                       |
+| TotalCost        | double             | 指定した請求期間中にサブスクリプション内のリソースを使用した場合の推定総コスト。               |
+| CurrencyLocale   | string             | サブスクリプションが使用されたロケールによって、請求書で使用する通貨が決まります。 Microsoft Azure (0145P) サブスクリプションで使用できます。 |
+| CurrencyCode   | string             | 通貨コードを取得または設定します。 Azure プランで使用できます。                                         |
+| USDTotalCost   | decimal             | 推定合計コストを USD で取得または設定します。 Azure プランサブスクリプションリソースで使用できます。                                         |
+| LastModifiedDate | string             | このレコードが最後に変更された日 (日付/時刻形式)。                                                      |
+| Links            | ResourceLinks      | SubscriptionUsageSummary に対応するリソースリンク。                                                      |
+| 属性       | ResourceAttributes | SubscriptionUsageSummary に対応するメタデータ属性。                                                 |

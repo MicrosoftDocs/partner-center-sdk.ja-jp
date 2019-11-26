@@ -1,6 +1,6 @@
 ---
-title: Get activation link by order line item
-description: Gets a subscription activation link by order line item.
+title: 注文明細項目によるアクティブ化リンクの取得
+description: 注文明細項目によってサブスクリプションのアクティブ化リンクを取得します。
 ms.assetid: ff1c1b59-f6c2-4f17-b0d6-00109761a1fd
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486072"
 ---
-# <a name="get-activation-link-by-order-line-item"></a>Get activation link by order line item
+# <a name="get-activation-link-by-order-line-item"></a>注文明細項目によるアクティブ化リンクの取得
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets a commercial marketplace subscription activation link by the order line item number.
+注文明細項目番号によって、コマーシャル marketplace のサブスクリプションアクティブ化リンクを取得します。
 
-In the Partner Center dashboard, this operation can be performed by selecting either a **Specific Subcription** under **Subscription** on the main page, or selecting the **Go to Publisher's site** link next to the subscription to activate on the **Subscriptions** page.
+パートナーセンターのダッシュボードでは、メインページで [サブスクリプション] の下にある**特定**の**サブスクリプション**を選択するか、 **[サブスクリプション] ページで**アクティブにするサブスクリプションの横にある **[パブリッシャーのサイトへのジャンプ]** リンクを選択することで、この操作を実行できます。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- Completed order with product that needs activation.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- アクティブ化が必要な製品の完了した注文。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C#
 
-To get a line item's activation link, use your [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection and call the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the selected customer ID. Then call the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property and the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) method with your specified  [**OrderId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.id). Then, call the [**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) with **ById()** method with the line item number identifier.  Finally, call the **ActivationLinks()** method.
+行項目のアクティベーションリンクを取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用し、選択した顧客 ID を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティと、指定した[**OrderId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.id)を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)メソッドを呼び出します。 次に、行項目番号の識別子を指定して、 [**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) with **ById ()** メソッドを呼び出します。  最後に、 **ActivationLinks ()** メソッドを呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -47,23 +47,23 @@ To get a line item's activation link, use your [**IAggregatePartner.Customers**]
 var partnerOperations.Customers.ById(customerId).Orders.ById(orderId).OrderLineItems.ById(lineItemNumber).ActivationLinks();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                               |
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks HTTP/1.1 |
 
-**Request headers**
+**要求ヘッダー**
 
-See [Headers](headers.md) for more information.
+詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/8c5b65fd-c725-4f50-8d9c-97ec9169fdd0/orders/03fb46b3-bf8c-49aa-b908-ca2e93bcc04a/lineitems/0/activationlinks HTTP/1.1
@@ -73,15 +73,15 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
 
-If successful, this method returns a collection of [Customer](customer-resources.md#customer) resources in the response body.
+成功した場合、このメソッドは応答本文で[顧客](customer-resources.md#customer)リソースのコレクションを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK
