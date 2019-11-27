@@ -1,6 +1,6 @@
 ---
-title: Service request resources
-description: Partners can file service requests on behalf of their partners to report disruptions services provided by Microsoft or to request other technical support that they are incapable of providing.
+title: サービスリクエストリソース
+description: パートナーは、パートナーに代わってサービス要求を送信して、Microsoft が提供する中断サービスを報告したり、提供できない他のテクニカルサポートを要求したりすることができます。
 ms.assetid: E9FBF7D8-A7E8-4DC6-B370-8339B9EE16B7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,100 +13,100 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488052"
 ---
-# <a name="service-request-resources"></a>Service request resources
+# <a name="service-request-resources"></a>サービスリクエストリソース
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Partners can file service requests on behalf of their partners to report disruptions services provided by Microsoft or to request other technical support that they are incapable of providing.
+パートナーは、パートナーに代わってサービス要求を送信して、Microsoft が提供する中断サービスを報告したり、提供できない他のテクニカルサポートを要求したりすることができます。
 
 ## <a name="span-idservicerequestspan-idservicerequestspan-idservicerequestservicerequest"></a><span id="ServiceRequest"/><span id="servicerequest"/><span id="SERVICEREQUEST"/>ServiceRequest
 
 
-Describes a service request filed by a partner, including how that request is progressing.
+パートナーによって提出されたサービス要求を示します。これには、要求の進行状況も含まれます。
 
-| プロパティ         | タスクバーの検索ボックスに                                                          | 説明                                                                          |
+| プロパティ         | 種類                                                          | 説明                                                                          |
 |------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Title (タイトル)            | string                                                        | The service request title.                                                           |
-| 説明      | string                                                        | The description.                                                                     |
-| 重大度         | string                                                        | The severity: "unknown", "critical", "moderate", or "minimal".                       |
-| SupportTopicId   | string                                                        | The id of the support topic.                                                         |
-| SupportTopicName | string                                                        | The name of the support topic.                                                       |
-| Id               | string                                                        | The id of the service request.                                                       |
-| 状況           | string                                                        | The status of the service request: "none", "open", "closed", or "attention\_needed". |
-| 組織     | [ServiceRequestOrganization](#servicerequestorganization)     | Organization for which the service request is created.                               |
-| PrimaryContact   | [ServiceRequestContact](#servicerequestcontact)               | Primary Contact on the service request.                                              |
-| LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | "Last Updated By" contact for changes to the service request.                        |
-| ProductName      | string                                                        | The name of the product that corresponds to the service request.                     |
-| ProductId        | string                                                        | The id of the product.                                                               |
-| CreatedDate      | date                                                          | The date of the service request's creation.                                          |
-| LastModifiedDate | date                                                          | The date that the service request was last modified.                                 |
-| LastClosedDate   | date                                                          | The date that the service request was last closed.                                   |
-| FileLinks        | array of [FileInfo](utility-resources.md#fileinfo) resources | The collection of File Links that pertain to the service request.                    |
-| NewNote          | [ServiceRequestNote](#servicerequestnote)                     | A note can be added to an existing service request.                                  |
-| 注意            | array of [ServiceRequestNotes](#servicerequestnote)           | A collection of notes added to the service request.                                  |
-| CountryCode      | string                                                        | The country corresponding to the service request.                                    |
-| 属性       | ResourceAttributes                                            | The metadata attributes corresponding to the service request.                        |
+| タイトル            | string                                                        | サービス要求のタイトル。                                                           |
+| 説明      | string                                                        | 説明。                                                                     |
+| 重大度         | string                                                        | 重大度: "unknown"、"critical"、"中"、または "最小"。                       |
+| サポートトピック Id   | string                                                        | サポートトピックの id。                                                         |
+| サポートトピック名 | string                                                        | サポートトピックの名前。                                                       |
+| ID               | string                                                        | サービス要求の id。                                                       |
+| 状況           | string                                                        | サービス要求の状態: "none"、"open"、"closed"、または "attention\_が必要"。 |
+| 組織     | [ServiceRequestOrganization](#servicerequestorganization)     | サービス要求が作成される組織。                               |
+| primaryContact   | [ServiceRequestContact](#servicerequestcontact)               | サービスリクエストに関する主要連絡先。                                              |
+| LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | サービスリクエストの変更については、"最終更新者" に問い合わせます。                        |
+| ProductName      | string                                                        | サービス要求に対応する製品の名前。                     |
+| ProductId        | string                                                        | 製品の id。                                                               |
+| CreatedDate      | date                                                          | サービス要求の作成日。                                          |
+| LastModifiedDate | date                                                          | サービス要求が最後に変更された日付。                                 |
+| LastClosedDate   | date                                                          | サービス要求が最後に閉じられた日付。                                   |
+| FileLinks        | [FileInfo](utility-resources.md#fileinfo)リソースの配列 | サービス要求に関連するファイルリンクのコレクション。                    |
+| NewNote          | [ServiceRequestNote](#servicerequestnote)                     | 既存のサービス要求にメモを追加できます。                                  |
+| 説明            | [ServiceRequestNotes](#servicerequestnote)の配列           | サービス要求に追加されるメモのコレクション。                                  |
+| CountryCode      | string                                                        | サービス要求に対応する国。                                    |
+| 属性       | ResourceAttributes                                            | サービス要求に対応するメタデータ属性。                        |
 
  
 
 ## <a name="span-idservicerequestcontactspan-idservicerequestcontactspan-idservicerequestcontactservicerequestcontact"></a><span id="ServiceRequestContact"/><span id="servicerequestcontact"/><span id="SERVICEREQUESTCONTACT"/>ServiceRequestContact
 
 
-Describes a contact that creates or modifies a service request.
+サービスリクエストを作成または変更する連絡先を表します。
 
-| プロパティ     | タスクバーの検索ボックスに                                                      | 説明                                            |
+| プロパティ     | 種類                                                      | 説明                                            |
 |--------------|-----------------------------------------------------------|--------------------------------------------------------|
-| 組織 | [ServiceRequestOrganization](#servicerequestorganization) | Organization for which the service request is created. |
-| ContactId    | string                                                    | The contact's unique id.                               |
-| LastName     | string                                                    | The last name of the contact.                          |
-| FirstName    | string                                                    | The first name of the contact.                         |
-| [メール]        | string                                                    | The email of the contact.                              |
-| PhoneNumber  | string                                                    | The phone number of the contact.                       |
+| 組織 | [ServiceRequestOrganization](#servicerequestorganization) | サービス要求が作成される組織。 |
+| ContactId    | string                                                    | 連絡先の一意の id。                               |
+| LastName     | string                                                    | 連絡先の姓。                          |
+| FirstName    | string                                                    | 連絡先の名。                         |
+| Email        | string                                                    | 連絡先の電子メール。                              |
+| PhoneNumber  | string                                                    | 連絡先の電話番号。                       |
 
  
 
 ## <a name="span-idservicerequestnotespan-idservicerequestnotespan-idservicerequestnoteservicerequestnote"></a><span id="ServiceRequestNote"/><span id="servicerequestnote"/><span id="SERVICEREQUESTNOTE"/>ServiceRequestNote
 
 
-Describes a note attached to a service request.
+サービス要求に添付されているメモを記述します。
 
-| プロパティ      | タスクバーの検索ボックスに   | 説明                                  |
+| プロパティ      | 種類   | 説明                                  |
 |---------------|--------|----------------------------------------------|
-| CreatedByName | string | The name of the creator of the note.         |
-| CreatedDate   | date   | The date and time when the note was created. |
-| テキスト          | string | The text of the note.                        |
+| CreatedByName | string | メモの作成者の名前。         |
+| CreatedDate   | date   | メモが作成された日付と時刻。 |
+| Text          | string | メモのテキスト。                        |
 
  
 
 ## <a name="span-idservicerequestorganizationspan-idservicerequestorganizationspan-idservicerequestorganizationservicerequestorganization"></a><span id="ServiceRequestOrganization"/><span id="servicerequestorganization"/><span id="SERVICEREQUESTORGANIZATION"/>ServiceRequestOrganization
 
 
-Describes the organization for which the service request is created.
+サービス要求が作成される組織について説明します。
 
-| プロパティ    | タスクバーの検索ボックスに   | 説明                           |
+| プロパティ    | 種類   | 説明                           |
 |-------------|--------|---------------------------------------|
-| Id          | string | The unique id of the organization.    |
-| 名前        | string | The name of the organization.         |
-| PhoneNumber | string | The phone number of the organization. |
+| ID          | string | 組織の一意の id。    |
+| 名前        | string | 組織の名前。         |
+| PhoneNumber | string | 組織の電話番号。 |
 
  
 
 ## <a name="span-idsupporttopicspan-idsupporttopicspan-idsupporttopicsupporttopic"></a><span id="SupportTopic"/><span id="supporttopic"/><span id="SUPPORTTOPIC"/>SupportTopic
 
 
-Describes a support topic. Service requests specify a support topic to ensure that they are processed quickly and effectively.
+サポートトピックについて説明します。 サービスリクエストは、迅速かつ効率的に処理されるように、サポートトピックを指定します。
 
-| プロパティ    | タスクバーの検索ボックスに               | 説明                                                   |
+| プロパティ    | 種類               | 説明                                                   |
 |-------------|--------------------|---------------------------------------------------------------|
-| 名前        | string             | The name of the support topic.                                |
-| 説明 | string             | The description of the support topic.                         |
-| Id          | string             | The unique id of the support topic.                           |
-| 属性  | ResourceAttributes | The metadata attributes corresponding to the service request. |
+| 名前        | string             | サポートトピックの名前。                                |
+| 説明 | string             | サポートトピックの説明。                         |
+| ID          | string             | サポートトピックの一意の id。                           |
+| 属性  | ResourceAttributes | サービス要求に対応するメタデータ属性。 |
 
  
 

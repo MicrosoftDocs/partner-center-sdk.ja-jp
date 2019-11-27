@@ -1,6 +1,6 @@
 ---
-title: Update a customer's billing profile
-description: Updates a customer's billing profile, including the address associated with the profile.
+title: 顧客の請求プロファイルを更新する
+description: プロファイルに関連付けられているアドレスを含めて、顧客の請求プロファイルを更新します。
 ms.assetid: 77B8E08D-01C8-4BF7-A281-C8AEF0340DDC
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487922"
 ---
-# <a name="update-a-customers-billing-profile"></a>Update a customer's billing profile
+# <a name="update-a-customers-billing-profile"></a>顧客の請求プロファイルを更新する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Updates a customer's billing profile, including the address associated with the profile.
+プロファイルに関連付けられているアドレスを含めて、顧客の請求プロファイルを更新します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id).
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客 ID (顧客-テナント id)。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update a customer's billing profile, retrieve the billing profile and update the properties as necessary. Then, retrieve your [**IPartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection, and then call the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method. Then call the [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) property, followed by the [**Billing**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.billing) property. Then, finish by calling the [**Update()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.update) or [**UpdateAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.updateasync) methods.
+顧客の請求プロファイルを更新するには、請求プロファイルを取得し、必要に応じてプロパティを更新します。 次に、 [**Ipartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを取得し、 [**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles)プロパティを呼び出し、その後に[**Billing**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.billing)プロパティを呼び出します。 次に、 [**Update ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.update)メソッドまたは[**UpdateAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.updateasync)メソッドを呼び出して、を終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,39 +47,39 @@ var billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profil
 billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profiles.Billing.Update(billingProfile);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: UpdateCustomerBillingProfile.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: UpdateCustomerBillingProfile.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/profiles/billing HTTP/1.1 |
+| **投入** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/profiles/billing HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameter to update the billing profile.
+次のクエリパラメーターを使用して、課金プロファイルを更新します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
+| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- **If-Match**: "&lt;ETag&gt;" is required for concurrency detection.
-- See [Headers](headers.md) for more information.
+- **If-match**: 同時実行検出には、"&lt;ETag&gt;" が必要です。
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
-The full resource.
+完全なリソース。
 
-**Request example**
+**要求の例**
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/profiles/billing HTTP/1.1
@@ -125,16 +125,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 応答
 
 
-If successful, this method returns updated [Profile](profile-resources.md) resource properties in the response body. This call requires an ETag for concurrency detection.
+成功した場合、このメソッドは、応答本文で更新された[プロファイル](profile-resources.md)リソースプロパティを返します。 この呼び出しでは、同時実行の検出に ETag が必要です。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

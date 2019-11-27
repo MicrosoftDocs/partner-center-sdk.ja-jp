@@ -1,3 +1,3 @@
-*Except for bug fixes, this API is no longer being updated.* You should update your applications to call the **onetime** API instead of **marketplace**. The **onetime** API provides additional functionality, and will continue to be updated.
+*バグの修正を除き、この API は更新されなくなりました。* **Marketplace**ではなく**onetime** API を呼び出すようにアプリケーションを更新する必要があります。 **Onetime** API には追加機能が用意されており、引き続き更新されます。
 
-You should use **onetime** to query all commercial consumption line items instead of **marketplace**. Or, you can follow the links in the estimate links call.
+**Onetime**を使用して、 **marketplace**ではなく、すべての商用消費明細項目に対してクエリを実行する必要があります。 または、[推定リンク] の呼び出しのリンクを使用することもできます。

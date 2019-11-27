@@ -1,6 +1,6 @@
 ---
-title: Delete a configuration policy for the specified customer
-description: How to delete a configuration policy for a specified customer and policy identifier.
+title: 指定された顧客の構成ポリシーを削除します
+description: 指定された顧客とポリシー識別子の構成ポリシーを削除する方法。
 ms.assetid: DEFEC12E-3EA0-401B-B612-ACD1D71DB415
 ms.date: 06/11/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489852"
 ---
-# <a name="delete-a-configuration-policy-for-the-specified-customer"></a>Delete a configuration policy for the specified customer
+# <a name="delete-a-configuration-policy-for-the-specified-customer"></a>指定された顧客の構成ポリシーを削除します
 
 適用対象:
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-How to delete a configuration policy for a specified customer and policy identifier.
+指定された顧客とポリシー識別子の構成ポリシーを削除する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
-- The policy identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
+- ポリシー識別子。
 
 ## <a name="c"></a>C\#
 
-To delete a configuration policy for a specified customer:
+指定された顧客の構成ポリシーを削除するには:
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.
-2. Call the [**ConfigurationPolicies.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) method with the policy ID to retrieve an interface to configuration policy operations for the specified policy.
-3. Call the [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete) or [**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync) method to delete the configuration policy.
+1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+2. ポリシー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)メソッドを呼び出し、指定したポリシーの構成ポリシー操作へのインターフェイスを取得します。
+3. [**削除**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete)または[**deleteasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync)メソッドを呼び出して、構成ポリシーを削除します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -44,28 +44,28 @@ string selectedPolicyId;
 partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedPolicyId).Delete();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: DeleteConfigurationPolicy.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: DeleteConfigurationPolicy.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド     | 要求 URI                                                                                          |
 |------------|------------------------------------------------------------------------------------------------------|
-| **DELETE** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
+| **デリート** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path parameters when creating the request.
+要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                   |
+| 名前        | 種類   | 必須 | 説明                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| customer-id | string | [はい]      | A GUID-formatted string that identifies the customer.         |
-| policy-id   | string | [はい]      | A GUID-formatted string that identifies the policy to delete. |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。         |
+| ポリシー-id   | string | 〇      | 削除するポリシーを識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -84,13 +84,13 @@ Content-Type: application/json
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response returns a 204 No Content status code.
+成功した場合、応答は204コンテンツステータスコードを返しません。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

@@ -1,6 +1,6 @@
 ---
-title: Set up API access in Partner Center
-description: Set up accounts for developing against the Partner Center SDK and test in the integration sandbox.
+title: パートナーセンターでの API アクセスの設定
+description: パートナーセンター SDK に対して開発するためのアカウントを設定し、統合サンドボックスでテストします。
 ms.assetid: 182A6831-6F00-4762-9A86-327BF87EA6AC
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488062"
 ---
-# <a name="set-up-api-access-in-partner-center"></a>Set up API access in Partner Center
+# <a name="set-up-api-access-in-partner-center"></a>パートナーセンターでの API アクセスの設定
 
 適用対象:
 
@@ -22,19 +22,19 @@ ms.locfileid: "74488062"
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-This topic describes the accounts you need to develop against the Partner Center SDK. This topic also explains how to create an [integration sandbox account](#integration-sandbox-account) and test in the integration sandbox.
+このトピックでは、パートナーセンター SDK に対して開発する必要があるアカウントについて説明します。 このトピックでは、統合[サンドボックスアカウント](#integration-sandbox-account)を作成し、統合サンドボックスでテストする方法についても説明します。
 
-## <a name="account-definitions"></a>Account definitions
+## <a name="account-definitions"></a>アカウント定義
 
 API の統合とテストに役立つように、パートナー センターは次の 2 種類のアカウントをサポートします。
 
-### <a name="primary-partner-account"></a>Primary Partner account
+### <a name="primary-partner-account"></a>プライマリパートナーアカウント
 
-This account is where you create real orders for real customers. If you make any changes or transactions when you are signed in to the primary account, by using either the Partner Center SDK or the Partner Dashboard UI, they will be treated as official orders for real customers. これらは請求書に反映され、貴社はその料金を支払うものとします。
+このアカウントでは、実際の顧客向けに実際の注文を作成します。 パートナーセンター SDK またはパートナーダッシュボード UI のいずれかを使用して、プライマリアカウントにサインインしたときに変更またはトランザクションを行った場合は、実際の顧客に対する公式の注文として扱われます。 これらは請求書に反映され、貴社はその料金を支払うものとします。
 
 ### <a name="integration-sandbox-account"></a>統合サンドボックス アカウント
 
-This account is for testing your code and its integration with the Partner Center APIs before you deploy it broadly. 統合サンドボックス アカウントにサインイン中に行う変更とトランザクションは、請求書には表示されません。
+このアカウントは、コードとパートナーセンター Api との統合を広範囲にデプロイする前にテストするためのものです。 統合サンドボックス アカウントにサインイン中に行う変更とトランザクションは、請求書には表示されません。
 
 統合サンドボックス アカウントとプライマリ アカウントは独立して機能し、管理者アカウント、ユーザー アカウント、顧客、注文、サブスクリプションなどのデータは共有されません。
 
@@ -42,53 +42,53 @@ This account is for testing your code and its integration with the Partner Cente
 
 ポリシーでは、統合サンドボックス アカウントは統合テストのみを目的としています。
 
-By default, there is no integration sandbox account. You must create one yourself if you plan to use the Partner Center SDK.
+既定では、統合サンドボックスアカウントはありません。 パートナーセンター SDK を使用する予定がある場合は、自分で作成する必要があります。
 
-## <a name="set-up-your-accounts"></a>Set up your accounts
+## <a name="set-up-your-accounts"></a>アカウントを設定する
 
-This section describes how to set up a primary Partner account and an integration sandbox account for the Partner Center SDK.
+このセクションでは、パートナーセンター SDK のプライマリパートナーアカウントと統合サンドボックスアカウントを設定する方法について説明します。
 
 ### <a name="create-an-integration-sandbox"></a>統合サンドボックスを作成する
 
-1. Sign in to Partner Dashboard with a global admin account (your primary Partner account.)
-2. From the **Settings** menu (gear icon), choose **Partner settings**.
-3. On the **Account settings** page, choose **Integration sandbox**.
+1. グローバル管理者アカウント (プライマリパートナーアカウント) を使用してパートナーダッシュボードにサインインします。
+2. **[設定]** メニュー (歯車アイコン) から、 **[パートナーの設定]** を選択します。
+3. **[アカウント設定]** ページで、 **[統合サンドボックス]** を選択します。
 
     >[!NOTE]
-    >If you don't see an Integration sandbox option, you might not have a global admin account. You also might be using an integration sandbox account and an integration sandbox has already been set up.
+    >統合サンドボックスオプションが表示されない場合は、グローバル管理者アカウントを持っていない可能性があります。 統合サンドボックスアカウントを使用していて、統合サンドボックスが既に設定されている場合もあります。
 
-4. Enter the contact information for the integration sandbox admin account. Then, choose **Create account**. Wait a few minutes for a confirmation message that the account has been created.
-5. After you see the confirmation message, sign out of Partner Dashboard.
-6. Sign back in with your new integration sandbox admin account. Be sure to use the format **username@domain** for your credentials along with the password that you just specified.
-7. Choose **Set Up Account** above **Current Tasks** to complete the sandbox account setup.
+4. 統合サンドボックスの管理者アカウントの連絡先情報を入力します。 次に、 **[アカウントの作成]** を選択します。 アカウントが作成されたことを示す確認メッセージが表示されるまで、数分待ちます。
+5. 確認メッセージが表示されたら、パートナーダッシュボードからサインアウトします。
+6. 新しい統合サンドボックス管理者アカウントでもう一度サインインします。 資格情報には、指定したパスワードと共に **username@domain** 形式を使用するようにしてください。
+7. [**現在のタスク**の上に**アカウントを設定**する] を選択して、サンドボックスアカウントの設定を完了します。
 
 ### <a name="enable-api-access"></a>API アクセスを有効にする
 
-After your account is set up, you must enable API access before you can use the Partner Center SDK with the integration sandbox. You need to enable access to the API separately for both your primary Partner account and your integration sandbox account.
+アカウントがセットアップされたら、統合サンドボックスでパートナーセンター SDK を使用する前に、API アクセスを有効にする必要があります。 プライマリパートナーアカウントと統合サンドボックスアカウントの両方に対して、API へのアクセスを個別に有効にする必要があります。
 
-1. Sign into Partner Dashboard using a global admin account.
-2. From the **Settings** menu (gear icon), select **Partner settings**.
-3. On the **Account settings** page, choose **App management**.
-4. If you do not already have an existing app, add a new web app. If you have an existing web app, choose the **Add key** button.
-5. Copy the app registration information, especially the **Key** if you're creating a web app, and store it in a safe place.
-6. Sign out of Partner Dashboard.
-7. Sign back in with your integration sandbox account. Repeat steps 2-5 to enable API access in the integration sandbox.
+1. グローバル管理者アカウントを使用してパートナーダッシュボードにサインインします。
+2. **[設定]** メニュー (歯車アイコン) から、 **[パートナーの設定]** を選択します。
+3. **[アカウント設定]** ページで、 **[アプリ管理]** を選択します。
+4. 既存のアプリがまだない場合は、新しい web アプリを追加します。 既存の web アプリがある場合は、 **[キーの追加]** ボタンをクリックします。
+5. アプリの登録情報 (特に web アプリを作成する場合は**キー** ) をコピーし、安全な場所に保存します。
+6. パートナーダッシュボードからサインアウトします。
+7. 統合サンドボックスアカウントを使用してもう一度サインインします。 手順2-5 を繰り返して、統合サンドボックスで API アクセスを有効にします。
 
-## <a name="write-and-test-code"></a>Write and test code
+## <a name="write-and-test-code"></a>コードの記述とテスト
 
-You can write code and test code in the integration sandbox. You'll need the following information to [set up Partner Center authentication](partner-center-authentication.md) with Azure AD.
+統合サンドボックスでコードを記述し、コードをテストできます。 Azure AD で[パートナーセンターの認証を設定](partner-center-authentication.md)するには、次の情報が必要です。
 
-| Item name | Item location |
+| 項目名 | 項目の場所 |
 | --------- | ------------- |
-| アプリ ID /クライアント ID | From the **Settings** menu (gear icon), select **Partner settings**. On the **Account settings** page, select **App Management**. The App ID/Client ID is listed as the **Registered application App ID**. |
-| Key | If you created a web app in the section [Enable API access](#enable-api-access), this is the key that you saved in step 5. |
-| ドメイン | The domain for the integration sandbox. |
+| アプリ ID /クライアント ID | **[設定]** メニュー (歯車アイコン) から、 **[パートナーの設定]** を選択します。 **[アカウント設定]** ページで、 **[アプリ管理]** を選択します。 アプリ ID/クライアント ID が**登録済みアプリケーションアプリ id**として一覧表示されます。 |
+| Key | 「 [API アクセスを有効に](#enable-api-access)する」セクションで web アプリを作成した場合、これは手順 5. で保存したキーです。 |
+| ドメイン | 統合サンドボックスのドメイン。 |
 
-## <a name="run-tested-code"></a>Run tested code
+## <a name="run-tested-code"></a>テストされたコードの実行
 
-To use your solution with real customer data, you must change from your integration sandbox credentials to your primary Partner account credentials.
+実際の顧客データでソリューションを使用するには、統合サンドボックスの資格情報から、プライマリパートナーアカウントの資格情報に変更する必要があります。
 
-When you're ready to use your tested code in your primary Partner account, you must get an Azure AD security token. This security token is based on your Partner Center app, key and domain (instead of your integration sandbox app, key and domain).
+テスト済みのコードをプライマリパートナーアカウントで使用する準備ができたら、Azure AD セキュリティトークンを取得する必要があります。 このセキュリティトークンは、(統合サンドボックスアプリ、キー、ドメインではなく) パートナーセンターのアプリ、キー、およびドメインに基づいています。
 
-1. Follow the steps in [Partner Center authentication](partner-center-authentication.md) to get an Azure AD security token using your primary Partner Center credentials. (You previously followed these steps to get an Azure AD security token for your integration sandbox.)
-2. Replace the integration security token in your code with the new security token for your primary Partner account.
+1. [パートナーセンターの認証](partner-center-authentication.md)の手順に従って、プライマリパートナーセンターの資格情報を使用して Azure AD セキュリティトークンを取得します。 (前述の手順に従って、統合サンドボックスの Azure AD セキュリティトークンを取得しています)。
+2. コード内の統合セキュリティトークンを、プライマリパートナーアカウントの新しいセキュリティトークンに置き換えます。

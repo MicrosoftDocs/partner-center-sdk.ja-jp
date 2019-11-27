@@ -1,6 +1,6 @@
 ---
-title: Get the managed services for a customer by ID
-description: Gets the managed services for a customer. In other words, get links to all of the customer's subscriptions for which you have delegated admin privileges. You can use these links to provide support and file service requests with Microsoft.
+title: ID で顧客の管理されたサービスを取得する
+description: 顧客の管理されたサービスを取得します。 つまり、管理者特権を委任された顧客のすべてのサブスクリプションへのリンクを取得します。 これらのリンクを使用して、Microsoft とのサポートおよびファイルサービス要求を提供できます。
 ms.assetid: 32554787-4232-4574-9FC9-5E9F26411233
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487132"
 ---
-# <a name="get-the-managed-services-for-a-customer-by-id"></a>Get the managed services for a customer by ID
+# <a name="get-the-managed-services-for-a-customer-by-id"></a>ID で顧客の管理されたサービスを取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets the managed services for a customer. In other words, get links to all of the customer's subscriptions for which you have delegated admin privileges. You can use these links to provide support and file service requests with Microsoft.
+顧客の管理されたサービスを取得します。 つまり、管理者特権を委任された顧客のすべてのサブスクリプションへのリンクを取得します。 これらのリンクを使用して、Microsoft とのサポートおよびファイルサービス要求を提供できます。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To display a list of all the managed services for a customer, use your **IAggregatePartner.Customers** collection and call the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method. Then call the [**ManagedServices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices) property, followed by the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync) methods.
+顧客のすべての管理対象サービスの一覧を表示するには、 **iaggregatepartner.customers**コレクションを使用して、 [**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**Managedservices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices)プロパティを呼び出し、その後に[**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get)または[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync)メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,38 +42,38 @@ To display a list of all the managed services for a customer, use your **IAggreg
 ResourceCollection<ManagedService> managedServices = partnerOperations.Customers.ById(selectedCustomerId).ManagedServices.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerCenterSDK.FeaturesSamples **Class**: CustomerManagedServices.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル**クラス**: CustomerManagedServices.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/managedservices HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/managedservices HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameter to get the customer's managed services.
+次のクエリパラメーターを使用して、顧客の管理されたサービスを取得します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                           |
+| 名前                   | 種類     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | A GUID corresponding to the customer. |
+| **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/managedservices HTTP/1.1
@@ -83,15 +83,15 @@ MS-RequestId: 4ff57220-f17b-4d8f-8e09-78334c57ba00
 MS-CorrelationId: 03d6064a-f048-4aee-8892-ed46dc5c8bee
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
 
-If successful, this method returns a collection of **Managed Service** objects in the response body.
+成功した場合、このメソッドは応答本文で**マネージサービス**オブジェクトのコレクションを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

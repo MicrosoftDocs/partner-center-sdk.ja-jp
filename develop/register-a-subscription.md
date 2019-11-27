@@ -1,6 +1,6 @@
 ---
-title: Register a subscription
-description: Register an existing subscription so that it is enabled for ordering Azure reservations.
+title: サブスクリプションを登録する
+description: Azure 予約の注文が有効になるように、既存のサブスクリプションを登録します。
 ms.assetid: 9B853BF2-855C-4EB3-BBE5-7ECC1336AE08
 ms.date: 07/27/2018
 ms.service: partner-dashboard
@@ -13,30 +13,30 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486732"
 ---
-# <a name="register-a-subscription"></a>Register a subscription
+# <a name="register-a-subscription"></a>サブスクリプションを登録する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-Register an existing [Subscription](subscription-resources.md) so that it is enabled for ordering Azure reservations.  
+Azure 予約の注文が有効になるように、既存の[サブスクリプション](subscription-resources.md)を登録します。  
 
-To purchase an Azure reservation you must have at least one existing CSP Azure subscription. This method allows you to register your existing CSP Azure subscription, enabling it for purchasing Azure reservations. 
+Azure 予約を購入するには、少なくとも1つの既存の CSP Azure サブスクリプションが必要です。 この方法では、既存の CSP Azure サブスクリプションを登録し、Azure 予約を購入できるようにすることができます。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- サブスクリプション ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To register a customer's subscription, retrieve an interface to subscription operations by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then, call the [**Subscription.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method with the subscription ID to identify the subscription that you are registering. 
+顧客のサブスクリプションを登録するには、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別することによって、サブスクリプション操作へのインターフェイスを取得します。 次に、サブスクリプション ID を指定して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出し、登録するサブスクリプションを識別します。 
 
-Finally, call the **Registration.Register()** method to register the subscription and retrieve a URI that can be used to get the subscription registration status. For more information, see [Get subscription registration status](get-subscription-registration-status.md).
+最後に、 **register ()** メソッドを呼び出してサブスクリプションを登録し、サブスクリプションの登録状態を取得するために使用できる URI を取得します。 詳細については、「[サブスクリプション登録状態の取得](get-subscription-registration-status.md)」を参照してください。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -48,37 +48,37 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 ```
 
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド    | 要求 URI                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **POST**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations HTTP/1.1 |
+| **投稿**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations HTTP/1.1 |
 
  
 
-**URI parameters**
+**URI パラメーター**
 
-Use the following path parameters to identify the customer and subscription. 
+次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。 
 
-| 名前                    | タスクバーの検索ボックスに       | 必須かどうか | 説明                                                   |
+| 名前                    | 種類       | 必須 | 説明                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| customer-id             | string     | [はい]      | A GUID formatted string that identifies the customer.         |
-| subscription-id         | string     | [はい]      | A GUID formatted string that identifies the subscription.     |
+| 顧客 id             | string     | 〇      | 顧客を識別する GUID 形式の文字列。         |
+| サブスクリプション id         | string     | 〇      | サブスクリプションを識別する GUID 形式の文字列。     |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/<customer-id>/subscriptions/<subscription-id>/registrations HTTP/1.1
@@ -92,16 +92,16 @@ Expect: 100-continue
 Connection: Keep-Alive
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
 
 
-If successful, the response contains a **Location** header with a URI that can be used to retrieve the subscription registration status. Save this URI for use with other related REST APIs. For an example of how to retrieve the status, see [Get subscription registration status](get-subscription-registration-status.md). 
+成功した場合、応答には、サブスクリプションの登録状態を取得するために使用できる URI を含む**Location**ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。 状態を取得する方法の例については、「[サブスクリプション登録状態の取得](get-subscription-registration-status.md)」を参照してください。 
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 202 Accepted

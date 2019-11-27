@@ -1,6 +1,6 @@
 ---
-title: Get licenses assigned to a user
-description: Get a list of licenses assigned to a user within a customer account.
+title: ユーザーに割り当てられているライセンスを取得する
+description: 顧客アカウント内のユーザーに割り当てられているライセンスの一覧を取得します。
 ms.assetid: 87DC74A1-92E2-4639-BC4C-168A677F5F52
 ms.date: 05/22/2019
 ms.service: partner-dashboard
@@ -13,23 +13,23 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488962"
 ---
-# <a name="get-licenses-assigned-to-a-user"></a>Get licenses assigned to a user
+# <a name="get-licenses-assigned-to-a-user"></a>ユーザーに割り当てられているライセンスを取得する
 
 適用対象:
 
 - パートナー センター
 
-How to get a list of licenses assigned to a user within a customer account. The examples shown here return licenses assigned from group1, the default license group that represents licenses managed by Azure Active Directory. To get licenses assigned from specified license groups, see [Get licenses assigned to a user by license group](get-licenses-assigned-to-a-user-by-license-group.md).
+顧客アカウント内のユーザーに割り当てられたライセンスの一覧を取得する方法。 次に示す例では、group1 から割り当てられたライセンスが返されます。これは、Azure Active Directory によって管理されるライセンスを表す既定のライセンスグループです。 指定したライセンスグループから割り当てられたライセンスを取得するには、「[ライセンスグループ別にユーザーに割り当てられたライセンスを取得](get-licenses-assigned-to-a-user-by-license-group.md)する」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A user identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客識別子。
+- ユーザー識別子。
 
 ## <a name="c"></a>C#
 
-To check which licenses are assigned to a user from the default group1 license group, first use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then call the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the user ID to identify the user. Next, get an interface to customer user license operations from the [**Licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) property. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) or the [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) method to retrieve the collection of licenses assigned to the user.
+既定の group1 ライセンスグループからユーザーに割り当てられているライセンスを確認するには、まず、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、ユーザー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出し、ユーザーを識別します。 次に、[[**ライセンス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses)] プロパティから顧客のユーザーライセンス操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync)メソッドを呼び出して、ユーザーに割り当てられているライセンスのコレクションを取得します。
 
 ``` csharp
 // string selectedCustomerUserId;
@@ -39,28 +39,28 @@ To check which licenses are assigned to a user from the default group1 license g
 var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Licenses.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CustomerUserAssignedLicenses.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CustomerUserAssignedLicenses.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following path parameters to identify the customer and user.
+次のパスパラメーターを使用して、顧客とユーザーを識別します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | string | [はい]      | A GUID formatted string that identifies the customer. |
-| user-id     | string | [はい]      | A GUID formatted string that identifies the user.     |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
+| ユーザー id     | string | 〇      | ユーザーを識別する GUID 形式の文字列。     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -78,13 +78,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains the collection of [License](license-resources.md#license) resources.
+成功した場合、応答本文には[ライセンス](license-resources.md#license)リソースのコレクションが含まれます。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

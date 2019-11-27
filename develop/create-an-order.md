@@ -1,6 +1,6 @@
 ---
-title: Create an order
-description: How to create an order for a customer.
+title: 注文を作成する
+description: 顧客の注文を作成する方法。
 ms.assetid: FE4949FA-7C4D-462D-8F32-FAADCF166875
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489662"
 ---
-# <a name="create-an-order"></a>Create an order
+# <a name="create-an-order"></a>注文を作成する
 
 適用対象:
 
@@ -21,26 +21,26 @@ ms.locfileid: "74489662"
 - 21Vianet が運営するパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Creating an **order for Azure reserved VM instance products** applies *only* to:
+**Azure 予約 VM インスタンス製品の注文の**作成は、次の*場合にのみ*適用されます。
 
 - パートナー センター
 
-For information about what is currently available to sell, see [Partner offers in the Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-offers).
+現在販売可能なものの詳細については、 [Cloud Solution Provider プログラムのパートナープランに](https://docs.microsoft.com/partner-center/csp-offers)関する情報を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
-- An offer identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
+- プラン識別子。
 
 ## <a name="c"></a>C\#
 
-To create an order for a customer:
+顧客の注文を作成するには、次のようにします。
 
-1. Instantiate an [**Order**](order-resources.md) object and set the **ReferenceCustomerID** property to the customer ID to record the customer.
-2. Create a list of [**OrderLineItem**](order-resources.md#orderlineitem) objects, and assign the list to the order's **LineItems** property. Each order line item contains the purchase information for one offer. You must have at least one order line item.
-3. Obtain an interface to order operations. First, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Next, retrieve the interface from the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property.
-4. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) method and pass in the [**Order**](order-resources.md) object.
+1. [**注文**](order-resources.md)オブジェクトをインスタンス化し、 **ReferenceCustomerID**プロパティを顧客 ID に設定して顧客を記録します。
+2. [**Orderlineitem**](order-resources.md#orderlineitem)オブジェクトの一覧を作成し、そのリストを注文の**LineItems**プロパティに割り当てます。 各注文品目には、1つのオファーの購入情報が含まれています。 少なくとも1つの注文品目が必要です。
+3. 順序付け操作のためのインターフェイスを取得します。 まず、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。 次に、 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティからインターフェイスを取得します。
+4. [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync)メソッドを呼び出し、 [**Order**](order-resources.md)オブジェクトを渡します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -70,74 +70,74 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateOrder.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateOrder.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path parameter to identify the customer.
+顧客を識別するには、次のパスパラメーターを使用します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                |
+| 名前        | 種類   | 必須 | 説明                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| customer-id | string | [はい]      | A GUID formatted customer-id that identifies the customer. |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の顧客 id。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
 #### <a name="order"></a>[オーダー]
 
-This table describes the [Order](order-resources.md) properties in the request body.
+次の表では、要求本文の[Order](order-resources.md)プロパティについて説明します。
 
-| プロパティ             | タスクバーの検索ボックスに                        | 必須かどうか                        | 説明                                                                   |
+| プロパティ             | 種類                        | 必須                        | 説明                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| id                   | string                      | 必須ではない                              | An order identifier that is supplied upon successful creation of the order.   |
-| referenceCustomerId  | string                      | 必須ではない                              | The customer identifier. |
-| billingCycle         | string                      | 必須ではない                              | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [BillingCycleType](product-resources.md#billingcycletype). The default is "Monthly" or "OneTime" at order creation. This field is applied upon successful creation of the order. |
-| lineItems            | array of [OrderLineItem](order-resources.md#orderlineitem) resources | [はい]      | An itemized list of the offers the customer is purchasing including the quantity.        |
-| currencyCode         | string                      | 必須ではない                              | Read-only. The currency used when placing the order. Applied upon successful creation of the order.           |
-| creationDate         | datetime                    | 必須ではない                              | Read-only. The date the order was created, in date-time format. Applied upon successful creation of the order.                                   |
-| status               | string                      | 必須ではない                              | Read-only. The status of the order.  Supported values are the member names found in [OrderStatus](order-resources.md#orderstatus).        |
-| links                | [OrderLinks](utility-resources.md#resourcelinks)              | 必須ではない                              | The resource links corresponding to the Order. |
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 必須ではない                              | The metadata attributes corresponding to the Order. |
+| id                   | string                      | X                              | 注文が正常に作成されたときに提供される注文 id。   |
+| ReferenceCustomerId  | string                      | X                              | 顧客識別子。 |
+| 周期サイクル         | string                      | X                              | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [BillingCycleType](product-resources.md#billingcycletype)で見つかったメンバー名です。 既定値は、注文の作成時に "毎月" または "OneTime" です。 このフィールドは、注文が正常に作成されたときに適用されます。 |
+| lineItems            | [Orderlineitem](order-resources.md#orderlineitem)リソースの配列 | 〇      | 顧客が購入しているプランの一覧 (数量を含む)。        |
+| currencyCode         | string                      | X                              | 読み取り専用。 注文を配置するときに使用する通貨。 注文が正常に作成されたときに適用されます。           |
+| CreationDate         | datetime                    | X                              | 読み取り専用。 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。                                   |
+| status               | string                      | X                              | 読み取り専用。 注文の状態。  サポートされる値は、 [Orderstatus](order-resources.md#orderstatus)で見つかったメンバー名です。        |
+| links                | [OrderLinks](utility-resources.md#resourcelinks)              | X                              | 注文に対応するリソースリンク。 |
+| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | X                              | 順序に対応するメタデータ属性。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
-This table describes the [OrderLineItem](order-resources.md#orderlineitem) properties in the request body.
+次の表では、要求本文の[Orderlineitem](order-resources.md#orderlineitem)プロパティについて説明します。
 
 >[!NOTE]
->The partnerIdOnRecord should only be provided when an indirect provider places an order on behalf of an indirect reseller. It's used to store the Microsoft Partner Network ID of the indirect reseller only (never the ID of the indirect provider).
+>PartnerIdOnRecord は、間接リセラーが間接リセラーの代わりに注文を行う場合にのみ指定する必要があります。 間接リセラーの Microsoft Partner Network ID のみを格納するために使用されます (間接プロバイダーの ID ではありません)。
 
-| 名前                 | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                                                                                                                                                                                |
+| 名前                 | 種類   | 必須 | 説明                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | 整数    | [はい]      | Each line item in the collection gets a unique line number, counting up from 0 to count-1.                                                                                                                                                 |
-| offerId              | string | [はい]      | The offer identifier.                                                                                                                                                                                                                      |
-| subscriptionId       | string | 必須ではない       | The subscription identifier.                                                                                                                                                                                                               |
-| parentSubscriptionId | string | 必須ではない       | (省略可能)。 The ID of the parent subscription in an add-on offer. Applies to PATCH only.                                                                                                                                                     |
-| friendlyName         | string | 必須ではない       | (省略可能)。 The friendly name for the subscription defined by the partner to help disambiguate.                                                                                                                                              |
-| quantity             | 整数    | [はい]      | The number of licenses for a license-based subscription.                                                                                                                                                                                   |
-| partnerIdOnRecord    | string | 必須ではない       | When an indirect provider places an order on behalf of an indirect reseller, populate this field with the MPN ID of the **indirect reseller only** (never the ID of the indirect provider). This ensures proper accounting for incentives. |
-| provisioningContext  | Dictionary<string, string>                | 必須ではない       |  Information required for provisioning for some items in the catalog. The provisioningVariables property in a SKU indicates which properties are required for specific items in the catalog.                  |
-| links                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | 必須ではない       |  Read-only. The resource links corresponding to the Order line item.  |
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | 必須ではない       | The metadata attributes corresponding to the OrderLineItem. |
-| renewsTo             | Array of objects                          | 必須ではない    |An array of [RenewsTo](order-resources.md#renewsto) resources.                                                                            |
+| LineItemNumber       | int    | 〇      | コレクション内の各行項目は、0からカウント-1 までカウントされる一意の行番号を取得します。                                                                                                                                                 |
+| offerId              | string | 〇      | プランの識別子。                                                                                                                                                                                                                      |
+| subscriptionId       | string | X       | サブスクリプション識別子。                                                                                                                                                                                                               |
+| ParentSubscriptionId | string | X       | (省略可能)。 アドオンプランの親サブスクリプションの ID。 PATCH にのみ適用されます。                                                                                                                                                     |
+| friendlyName         | string | X       | (省略可能)。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。                                                                                                                                              |
+| quantity             | int    | 〇      | ライセンスベースのサブスクリプションのライセンス数。                                                                                                                                                                                   |
+| PartnerIdOnRecord    | string | X       | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを適切にアカウンティングできます。 |
+| provisioningContext  | Dictionary < string、string >                | X       |  カタログ内の一部の項目のプロビジョニングに必要な情報。 SKU の "プロビジョニング変数" プロパティは、カタログ内の特定のアイテムに必要なプロパティを示します。                  |
+| links                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | X       |  読み取り専用。 注文明細項目に対応するリソースリンク。  |
+| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | X       | OrderLineItem に対応するメタデータ属性。 |
+| RenewsTo             | オブジェクトの配列                          | X    |[Renewsto](order-resources.md#renewsto)の配列。                                                                            |
 
 ##### <a name="renewsto"></a>RenewsTo
 
-This table describes the [RenewsTo](order-resources.md#renewsto) properties in the request body.
+次の表では、要求本文の[renewsto](order-resources.md#renewsto)について説明します。
 
-| プロパティ              | タスクバーの検索ボックスに             | 必須かどうか        | 説明 |
+| プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | 必須ではない              | An ISO 8601 representation of the renewal term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year). |
+| termDuration          | string           | X              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 
 ### <a name="request-example"></a>要求の例
 
@@ -167,21 +167,21 @@ Content-Type: application/json
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the method returns an [Order](order-resources.md) resource in the response body.
+成功した場合、メソッドは応答本文で[注文](order-resources.md)リソースを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード     | エラー コード   | 説明                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2093         | Inventory is not available for the catalog item selected.                                                 |
-| 400                  | 2094         | Subscription is not a valid Azure subscription. Only applicable for Azure Reserved VM Instance purchase.     |
-| 400                  | 2095         | Subscription is not enabled for an Azure Reserved VM Instance purchase. |
+| 400                  | 2093         | 選択されたカタログ項目では、インベントリを利用できません。                                                 |
+| 400                  | 2094         | サブスクリプションは有効な Azure サブスクリプションではありません。 Azure 予約 VM インスタンスの購入にのみ適用されます。     |
+| 400                  | 2095         | サブスクリプションは、Azure 予約 VM インスタンスの購入に対して有効になっていません。 |
 
 ### <a name="response-example"></a>応答の例
 

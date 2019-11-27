@@ -1,6 +1,6 @@
 ---
-title: Verify an indirect reseller's Microsoft Partner Agreement signing status
-description: You can use the AgreementStatus API to verify whether an indirect reseller has signed the Microsoft Partner Agreement.
+title: 間接リセラーの Microsoft パートナーアグリーメント署名の状態を確認する
+description: AgreementStatus API を使用して、間接リセラーが Microsoft パートナー契約に署名したかどうかを確認できます。
 ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,48 +12,48 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487712"
 ---
-# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Verify an indirect reseller's Microsoft Partner Agreement signing status
+# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>間接リセラーの Microsoft パートナーアグリーメント署名の状態を確認する
 
 適用対象:
 
 * パートナー センター
 * 米国政府機関向け Microsoft Cloud のパートナー センター
 
-You can verify whether an indirect reseller has signed the Microsoft Partner Agreement using their Microsoft Partner Network (MPN) ID or Cloud Solution Provider (CSP) tenant ID (Microsoft ID). You can use one of these identifiers to check the Microsoft Partner Agreement signing status using the **AgreementStatus** API.
+間接リセラーが Microsoft Partner Network (MPN) ID またはクラウドソリューションプロバイダー (CSP) テナント ID (Microsoft ID) を使用して Microsoft パートナー契約に署名しているかどうかを確認できます。 これらの識別子のいずれかを使用して、 **AgreementStatus** API を使用して Microsoft パートナーアグリーメント署名の状態を確認できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-* Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-* The MPN ID or the CSP tenant ID (Microsoft ID) of the indirect reseller. *You must use one of these two identifiers.*
+* 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+* 間接リセラーの MPN ID または CSP テナント ID (Microsoft ID)。 *これら2つの識別子のいずれかを使用する必要があります。*
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド | 要求 URI |
 | ------ | ----------- |
-| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId} |
+| **取得** | *[{baseURL}](partner-center-rest-urls.md)* /V1/compliance/{ProgramName}/agreementstatus? mpnid = {mpnid} & tenantid = {tenantid} |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
-You must provide one of the following two query parameters to identify the partner. If you don't provide one of these two query parameters, you will receive a **400 (Bad request)** error.
+パートナーを識別するには、次の2つのクエリパラメーターのいずれかを指定する必要があります。 これら2つのクエリパラメーターのいずれかを指定しない場合は、 **400 (Bad request)** エラーが発生します。
 
-| 名前 | タスクバーの検索ボックスに | 必須かどうか | 説明 |
+| 名前 | 種類 | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | 整数 | 必須ではない | A Microsoft Partner Network ID that identifies the indirect reseller. |
-| **TenantId** | GUID | 必須ではない | A Microsoft ID that identifies the CSP account of the indirect reseller. |
+| **MpnId** | int | X | 間接リセラーを識別する Microsoft Partner Network ID。 |
+| **テナント** | GUID | X | 間接リセラーの CSP アカウントを識別する Microsoft ID。 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Partner Center REST headers](https://docs.microsoft.com/en-us/partner-center/develop/headers).
+詳細については、「[パートナーセンターの REST ヘッダー](https://docs.microsoft.com/en-us/partner-center/develop/headers)」を参照してください。
 
 #### <a name="request-examples"></a>要求の例
 
-##### <a name="request-using-mpn-id"></a>Request using MPN ID
+##### <a name="request-using-mpn-id"></a>MPN ID を使用した要求
 
-The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's Microsoft Partner Network ID.
+次の要求例では、間接リセラーの Microsoft Partner Network ID を使用して、間接リセラーの Microsoft パートナーアグリーメント署名の状態を取得します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?mpnid=1234567 HTTP/1.1
@@ -65,9 +65,9 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="request-using-csp-tenant-id"></a>Request using CSP tenant ID
+##### <a name="request-using-csp-tenant-id"></a>CSP テナント ID を使用した要求
 
-The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's CSP tenant ID (Microsoft ID).
+次の要求例では、間接リセラーの CSP テナント ID (Microsoft ID) を使用して、間接リセラーの Microsoft パートナーアグリーメント署名の状態を取得します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?tenantId=a2898e3a-06ca-454e-a0d0-c73b0ee36bba HTTP/1.1
@@ -79,15 +79,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](https://docs.microsoft.com/en-us/partner-center/develop/error-codes).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](https://docs.microsoft.com/en-us/partner-center/develop/error-codes)」を参照してください。
 
-#### <a name="response-example-success"></a>Response example (success)
+#### <a name="response-example-success"></a>応答の例 (成功)
 
-The following example response successfully returns whether the indirect reseller has signed the Microsoft Partner Agreement.
+次の応答例では、間接リセラーが Microsoft パートナーアグリーメントに署名しているかどうかを正常に返します。
 
 ```http
 HTTP/1.1 200 OK
@@ -104,13 +104,13 @@ Connection: close
 }
 ```
 
-#### <a name="response-examples-failure"></a>Response examples (failure)
+#### <a name="response-examples-failure"></a>応答の例 (失敗)
 
-You may receive responses similar to the following examples when the signing status of the indirect reseller's Microsoft Partner Agreement can't be returned.
+間接リセラーの Microsoft パートナーアグリーメントの署名の状態を返すことができない場合、次の例のような応答が返されることがあります。
 
-##### <a name="non-guid-formatted-csp-tenant-id"></a>Non-GUID formatted CSP tenant ID
+##### <a name="non-guid-formatted-csp-tenant-id"></a>GUID 形式以外の CSP テナント ID
 
-The following example response is returned when the CSP tenant ID that you passed to the API is not a GUID.
+API に渡された CSP テナント ID が GUID ではない場合、次の応答の例が返されます。
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -130,9 +130,9 @@ Connection: close
 }
 ```
 
-##### <a name="non-numeric-mpn-id"></a>Non-numeric MPN ID
+##### <a name="non-numeric-mpn-id"></a>数値以外の MPN ID
 
-The following example response is returned when the MPN ID that you passed to the API is non-numeric.
+次の応答例は、API に渡された MPN ID が非数値である場合に返されます。
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -152,9 +152,9 @@ Connection: close
 }
 ```
 
-##### <a name="no-mpn-id-or-csp-tenant-id"></a>No MPN ID or CSP tenant ID
+##### <a name="no-mpn-id-or-csp-tenant-id"></a>MPN ID または CSP テナント ID がありません
 
-The following example response is returned when you haven't passed an MPN ID or CSP tenant ID to the API. You must pass one of the two ID types to the API.
+API に MPN ID または CSP テナント ID を渡さなかった場合に返される応答の例を次に示します。 2種類の ID のいずれかを API に渡す必要があります。
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -174,9 +174,9 @@ Connection: close
 }
 ```
 
-##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>Both MPN ID and CSP tenant ID passed
+##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>MPN ID と CSP テナント ID の両方が渡されました
 
-The following example response is returned when you pass both the MPN ID and CSP tenant ID to the API. You must pass *only one* of the two identifier types to the API.
+MPN ID と CSP テナント ID の両方を API に渡すと、次の応答の例が返されます。 API には、2つの識別子の型の*うち1つだけ*を渡す必要があります。
 
 ```http
 HTTP/1.1 400 Bad Request

@@ -1,6 +1,6 @@
 ---
-title: Offer resources
-description: Describes a product listed in the reseller catalog that they can offer to their customers.
+title: プランリソース
+description: リセラーのカタログに記載されている製品を顧客に提供することができます。
 ms.assetid: 702B18DB-D78A-4E3B-BC8F-EFD4092131DE
 ms.date: 03/15/2019
 ms.service: partner-dashboard
@@ -13,82 +13,82 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486892"
 ---
-# <a name="offer-resources"></a>Offer resources
+# <a name="offer-resources"></a>プランリソース
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Describes a product listed in the reseller catalog that they can offer to their customers.
+リセラーのカタログに記載されている製品を顧客に提供することができます。
 
-## <a name="span-idofferspan-idofferspan-idofferoffer"></a><span id="Offer"/><span id="offer"/><span id="OFFER"/>Offer
+## <a name="span-idofferspan-idofferspan-idofferoffer"></a><span id="Offer"/><span id="offer"/><span id="OFFER"/>プラン
 
-| プロパティ                    | タスクバーの検索ボックスに                      | 説明                                                                                                                                                                |
+| プロパティ                    | 種類                      | 説明                                                                                                                                                                |
 |-----------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                          | string                    | The offer identifier.                                                                                           |
-| 名前                        | string                    | The offer name.                                                                                                 |
-| 説明                 | string                    | A description of the offer.                                                                                     |
-| minimumQuantity             | 整数                       | The minimum quantity available.                                                                                 |
-| maximumQuantity             | 整数                       | The maximum quantity available.                                                                                 |
-| rank                        | 整数                       | The offer rank or priority compared to other categories in the same product line. This property should be set only if there is more than one offer for a given product line.  |
-| uri                         | string                    | The offer URI.                                                                                                  |
-| locale                      | string                    | The locale in which the offer applies.                                                                          |
-| country                     | string                    | The country/region  where the offer applies.                                                                    |
-| category                    | [OfferCategory](#offercategory)           | The category of the offer.                                                                   |
-| limitUnitOfMeasure          | string                    | A value that indicates the type of purchase limitation. 表示される値は次のとおりです。<br/> "None" - There are no restrictions on the number of subscriptions based on the offer purchased.<br/> "Concurrent" - The number of subscriptions that can exist on the customer tenant at a given time, this includes subscriptions that are active or canceled. This value applies mostly to small business offers where license counts are less than 300. De-provisionioned subscriptions don't count.<br/> "LifeTime" - The number of subscriptions that can exist for the lifetime of the customer tenant. This value is most applicable to Trials. De-provisionioned subscriptions don't count.      |
-| limit                       | 整数                       | The amount of subscriptions that can be purchased of this offer based on the limitUnitOfMeasure.                |
-| prerequisiteOffers          | string                    | The prerequisite offers.                                                                                        |
-| isAddOn                     | boolean                   | A value indicating whether this instance is an addon.                                                           |
-| hasAddOns                   | boolean                   | A value indicating whether this offer has any addons.                                                           |
-| isAvailableForPurchase      | boolean                   | A value indicating whether this instance is available for purchase.                                             |
-| 請求                     | string                    | Specifies the billing type for the line item purchase: "none", "usage", or "license".                           |
-| supportedBillingCycles      | 文字列の配列          | Indicates the billing cycles supported for this offer. Supported values are the member names found in [BillingCycleType](product-resources.md#billingcycletype)   |
-| isAutoRenewable             | boolean                   | A value indicating whether the offer renews automatically.                                                      |
-| upgradeTargetOffers         | 文字列の配列          | The list of offers that this offer can be upgraded to.                                                          |
-| conversionTargetOffers      | 文字列の配列          | The list of offers that this offer can be converted to.                                                         |
-| reselleeQualifications      | 文字列の配列          | The qualifications required by the customer in order for a partner to purchase the offer for that customer.     |
-| resellerQualifications      | 文字列の配列          | The qualifications required by the partner in order to purchase the offer for a customer.                       |
-| salesGroupId                | string                    | A string used to group offers into separate orders.                                                             |
-| isTrial                     | boolean                   | A value indicating whether this is a trial offer.                                                               |
-| product                     | [OfferProduct](#offerproduct)           | Gets the offer product.                                                                           |
-| unitType                    | string                    | The type of the unit.                                                                                      |
-| links                       | [OfferLinks](#offerlinks)               | The offer's "learn more" link.                                                                    |
-| 属性                  | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the offer.                         |
+| id                          | string                    | プランの識別子。                                                                                           |
+| name                        | string                    | プラン名。                                                                                                 |
+| 説明                 | string                    | プランの説明。                                                                                     |
+| minimumQuantity             | int                       | 使用可能な最小数量。                                                                                 |
+| maximumQuantity             | int                       | 利用可能な最大数量。                                                                                 |
+| ランク                        | int                       | 同じ製品ライン内の他のカテゴリと比較したプランのランクまたは優先順位。 このプロパティは、特定の製品ラインに対して複数のプランがある場合にのみ設定する必要があります。  |
+| uri                         | string                    | プランの URI。                                                                                                  |
+| locale                      | string                    | プランが適用されるロケール。                                                                          |
+| country                     | string                    | プランが適用される国/地域。                                                                    |
+| 別                    | [OfferCategory](#offercategory)           | オファーのカテゴリ。                                                                   |
+| limitUnitOfMeasure          | string                    | 購入制限の種類を示す値です。 表示される値は次のとおりです。<br/> "なし"-購入したプランに基づくサブスクリプションの数に制限はありません。<br/> "同時実行"-特定の時点で顧客のテナントに存在できるサブスクリプションの数。これには、アクティブまたは取り消されたサブスクリプションが含まれます。 この値は、ほとんどの場合、ライセンス数が300未満の小規模ビジネスプランに適用されます。 Provisionioned サブスクリプションはカウントされません。<br/> "有効期間"-顧客テナントの有効期間中に存在できるサブスクリプションの数。 この値は、試用版に最も適しています。 Provisionioned サブスクリプションはカウントされません。      |
+| limit                       | int                       | LimitUnitOfMeasure に基づいて、このプランの購入可能なサブスクリプションの量。                |
+| prerequisiteOffers          | string                    | 前提条件の提供。                                                                                        |
+| isAddOn                     | boolean                   | このインスタンスがアドオンであるかどうかを示す値。                                                           |
+| hasAddOns                   | boolean                   | このプランにアドオンがあるかどうかを示す値。                                                           |
+| Isの購入      | boolean                   | このインスタンスを購入できるかどうかを示す値。                                             |
+| 請求                     | string                    | 品目の購入の課金の種類を指定します: "none"、"usage"、または "license"。                           |
+| supportedBillingCycles      | 文字列の配列          | このプランでサポートされている請求サイクルを示します。 サポートされている値は、 [BillingCycleType](product-resources.md#billingcycletype)で見つかったメンバー名です。   |
+| isAutoRenewable             | boolean                   | オファーが自動的に更新されるかどうかを示す値。                                                      |
+| upgradeTargetOffers         | 文字列の配列          | このプランをにアップグレードできるプランの一覧。                                                          |
+| conversionTargetOffers      | 文字列の配列          | このオファーを変換できるプランの一覧。                                                         |
+| reselleeQualifications      | 文字列の配列          | パートナーがその顧客のオファーを購入するために必要な資格。     |
+| resellerQualifications      | 文字列の配列          | パートナーが顧客のオファーを購入するために必要な資格。                       |
+| salesGroupId                | string                    | プランを別の注文にグループ化するために使用される文字列。                                                             |
+| isTrial                     | boolean                   | 評価版であるかどうかを示す値です。                                                               |
+| 梱包                     | [OfferProduct](#offerproduct)           | オファー製品を取得します。                                                                           |
+| Unittype.pixel 単位                    | string                    | 単位の型。                                                                                      |
+| links                       | [OfferLinks](#offerlinks)               | プランの "詳細情報" リンク。                                                                    |
+| 属性                  | [ResourceAttributes](utility-resources.md#resourceattributes) | オファーに対応するメタデータ属性。                         |
 
 ## <a name="span-idoffercategoryspan-idoffercategoryspan-idoffercategoryoffercategory"></a><span id="OfferCategory"/><span id="offercategory"/><span id="OFFERCATEGORY"/>OfferCategory
 
-Describes the categorization of an offer. This includes the rank or priority of this offer category compared to others in the same product line.
+オファーの分類について説明します。 これには、同じ製品ライン内の他のカテゴリと比較した、このオファーカテゴリのランクまたは優先順位が含まれます。
 
-| プロパティ   | タスクバーの検索ボックスに                                                           | 説明                                                                                                                                                                |
+| プロパティ   | 種類                                                           | 説明                                                                                                                                                                |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id         | string                                                         | The category identifier.                                                                                                                                                   |
-| 名前       | string                                                         | The category name.                                                                                                                                                         |
-| rank       | 整数                                                            | The category rank or priority compared to other categories in the same offer. This property should be set only if there is more than one offer category for a given offer. |
-| locale     | string                                                         | The locale in which the offer applies.                                                                                                                        |
-| country    | string                                                         | The country/region where the offer applies.                                                                                                                   |
-| links      | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links corresponding to the OfferCategory.                                                                                                                     |
-| 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the OfferCategory.                                                                                                                |
+| id         | string                                                         | カテゴリ識別子。                                                                                                                                                   |
+| name       | string                                                         | カテゴリ名。                                                                                                                                                         |
+| ランク       | int                                                            | 同じプラン内の他のカテゴリと比較したカテゴリのランクまたは優先順位。 このプロパティは、特定のプランに対して複数のプランカテゴリがある場合にのみ設定する必要があります。 |
+| locale     | string                                                         | プランが適用されるロケール。                                                                                                                        |
+| country    | string                                                         | プランが適用される国/地域。                                                                                                                   |
+| links      | [ResourceLinks](utility-resources.md#resourcelinks)           | OfferCategory に対応するリソースリンク。                                                                                                                     |
+| 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | OfferCategory に対応するメタデータ属性。                                                                                                                |
 
 ## <a name="span-idofferlinksspan-idofferlinksspan-idofferlinksofferlinks"></a><span id="OfferLinks"/><span id="offerlinks"/><span id="OFFERLINKS"/>OfferLinks
 
-Contains links for learning more information about the offer.
+プランに関する詳細情報を提供するリンクが含まれています。
 
-| プロパティ  | タスクバーの検索ボックスに | 説明                 |
+| プロパティ  | 種類 | 説明                 |
 |-----------|------|-----------------------------|
-| learnMore | [リンク] | The "learn more" link.      |
-| self      | [リンク] | The self URI                |
-| 次へ      | [リンク] | The next page of items.     |
-| previous  | [リンク] | The previous page of items. |
+| learnMore | リンク | [詳細情報] リンク      |
+| 自身      | リンク | 自己 URI                |
+| 次へ      | リンク | 項目の次のページ。     |
+| 先の  | リンク | 項目の前のページ。 |
 
 ## <a name="span-idofferproductspan-idofferproductspan-idofferproductofferproduct"></a><span id="OfferProduct"/><span id="offerproduct"/><span id="OFFERPRODUCT"/>OfferProduct
 
-A product or service which may have more than one offer associated with it, each with different sets of features and targeted at different customer needs.
+製品またはサービスに複数のプランが関連付けられており、それぞれに異なる機能セットがあり、顧客のニーズが異なる場合があります。
 
-| プロパティ | タスクバーの検索ボックスに   | 説明              |
+| プロパティ | 種類   | 説明              |
 |----------|--------|--------------------------|
-| Id       | string | The category identifier. |
-| 名前     | string | The category name.       |
-| Unit     | string | The product unit.        |
+| ID       | string | カテゴリ識別子。 |
+| 名前     | string | カテゴリ名。       |
+| Unit     | string | 製品単位。        |

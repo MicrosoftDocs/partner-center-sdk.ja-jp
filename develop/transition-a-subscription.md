@@ -1,6 +1,6 @@
 ---
-title: Transition a subscription
-description: Upgrades a customer's subscription to a specified target subscription.
+title: サブスクリプションを移行する
+description: 指定されたターゲットサブスクリプションに顧客のサブスクリプションをアップグレードします。
 ms.assetid: 54618BC1-6AF7-4518-925B-8A6A4C926CE7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486502"
 ---
-# <a name="transition-a-subscription"></a>Transition a subscription
+# <a name="transition-a-subscription"></a>サブスクリプションを移行する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Upgrades a customer's subscription to a specified target subscription.
+指定されたターゲットサブスクリプションに顧客のサブスクリプションをアップグレードします。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- Two subscription IDs, one for the initial subscription and one for the target subscription.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- 2つのサブスクリプション Id (最初のサブスクリプションに1つ、ターゲットサブスクリプションに1つ)。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To upgrade a customer's subscription, first [get that's customer's subscription](get-a-subscription-by-id.md). Then, obtain a list of upgrades for that subscription by calling the **Upgrades** property followed by the **Get()** or **GetAsync()** methods. Choose a target upgrade from that list of upgrades, and then call the **Upgrades** property of the initial subscription, followed by the **Create()** method.
+顧客のサブスクリプションをアップグレードするには、まず[その顧客のサブスクリプションを取得](get-a-subscription-by-id.md)します。 次に、**アップグレード**のプロパティの後に**Get ()** または**GetAsync ()** メソッドを呼び出して、そのサブスクリプションのアップグレードの一覧を取得します。 アップグレードの一覧からターゲットのアップグレードを選択して**から、最初**のサブスクリプションの upgrade プロパティを呼び出し、その後に**Create ()** メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,41 +46,41 @@ To upgrade a customer's subscription, first [get that's customer's subscription]
 UpgradeResult upgradeResult = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(subscriptionIdForUpgrade).Upgrades.Create(targetOffer);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: UpgradeSubscription.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: UpgradeSubscription.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド   | 要求 URI                                                                                                                         |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1 |
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-target}/upgrades HTTP/1.1       |
+| **取得**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-target}/upgrades HTTP/1.1       |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameter to transition the subscription.
+サブスクリプションを移行するには、次のクエリパラメーターを使用します。
 
-| 名前                    | タスクバーの検索ボックスに     | 必須かどうか | 説明                                       |
+| 名前                    | 種類     | 必須 | 説明                                       |
 |-------------------------|----------|----------|---------------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.             |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the initial subscription. |
-| **id-for-target**       | **guid** | Y        | A GUID corresponding to the target subscription.  |
+| **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。             |
+| **id-サブスクリプション** | **guid** | Y        | 初期サブスクリプションに対応する GUID。 |
+| **id-ターゲット**       | **guid** | Y        | ターゲットサブスクリプションに対応する GUID。  |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1
@@ -153,16 +153,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, this method returns an **Upgrade** result resource in the response body.
+成功した場合、このメソッドは応答本文で**アップグレード**結果リソースを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

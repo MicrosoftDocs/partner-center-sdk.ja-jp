@@ -1,6 +1,6 @@
 ---
-title: Check inventory
-description: Check the inventory for a specific set of catalog items.
+title: インベントリの確認
+description: 特定のカタログ項目のセットの在庫を確認します。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 05/22/2019
 ms.service: partner-dashboard
@@ -13,24 +13,24 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488972"
 ---
-# <a name="check-inventory"></a>Check inventory
+# <a name="check-inventory"></a>インベントリの確認
 
 適用対象:
 
 - パートナー センター
 
-How to check the inventory for a specific set of catalog items.
+特定のカタログアイテムのセットの在庫を確認する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- One or more product IDs. Optionally, SKU IDs can also be specified.
-- Any additional context needed for verifying the inventory of the SKU(s) referenced by the provided product/SKU ID(s). These requirements may vary by type of product/SKU and can be determined from the [SKU's](product-resources.md#sku) **InventoryVariables** property. 
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 1つまたは複数の製品 Id。 必要に応じて、SKU Id を指定することもできます。
+- 指定された製品/SKU ID によって参照されている SKU のインベントリを確認するために必要な追加のコンテキスト。 これらの要件は、製品/SKU の種類によって異なる場合があり、 [sku の](product-resources.md#sku) **InventoryVariables**プロパティから決定できます。 
 
 ## <a name="c"></a>C#
 
 
-To check the inventory, build an [InventoryCheckRequest](product-resources.md#inventorycheckrequest) object using an [InventoryItem](product-resources.md#inventoryitem) object for each item to be checked. Then, use an **IAggregatePartner.Extensions** accessor, scope it down to **Product** and then select the country using the **ByCountry()** method. Finally, call the **CheckInventory()** method with your **InventoryCheckRequest** object.
+インベントリを確認するには、チェックする項目ごとに[InventoryItem](product-resources.md#inventoryitem)オブジェクトを使用して[InventoryCheckRequest](product-resources.md#inventorycheckrequest)オブジェクトを作成します。 次に、 **iaggregatepartner.customers**アクセサーを使用して、**製品**にスコープを適用し、 **bycountry ()** メソッドを使用して国を選択します。 最後に、 **InventoryCheckRequest**オブジェクトを使用して**checkinventory ()** メソッドを呼び出します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -55,29 +55,29 @@ var inventoryCheckRequest = new InventoryCheckRequest()
 var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCode).CheckInventory(inventoryCheckRequest);
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory?country={country-code} HTTP/1.1                        |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory? country = {country-CODE} HTTP/1.1                        |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following query parameter to check the inventory.
+次のクエリパラメーターを使用して、インベントリを確認します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                     |
+| 名前                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| country-code           | string   | [はい]      | A country/region ID.                                            |
+| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-The inventory request details, consisting of an [InventoryCheckRequest](product-resources.md#inventorycheckrequest) resource containing one or more [InventoryItem](product-resources.md#inventoryitem) resources. 
+1つ以上の[InventoryItem](product-resources.md#inventoryitem)リソースを含む[InventoryCheckRequest](product-resources.md#inventorycheckrequest)リソースで構成される在庫要求の詳細。 
 
 ### <a name="request-example"></a>要求の例
 
@@ -96,21 +96,21 @@ Content-Type: application/json
 
 ## <a name="response"></a>応答
 
-If successful, the response body contains a collection of [InventoryItem](product-resources.md#inventoryitem) objects populated with the restriction details, if any apply.
+成功した場合、応答本文には、制限の詳細が設定されている[InventoryItem](product-resources.md#inventoryitem)オブジェクトのコレクションが含まれます (該当する場合)。
 
 >[!NOTE]
->If an input InventoryItem represents an item that could not be found in the catalog, it will not be included in the output collection.
+>入力 InventoryItem がカタログに見つからなかった項目を表している場合、その項目は出力コレクションに含まれません。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード     | エラー コード   | 説明                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2001         | The request body is missing.                                                                              |
-| 400                  | 400026       | A required inventory context item is missing.                                                             |
+| 400                  | 2001         | 要求本文がありません。                                                                              |
+| 400                  | 400026       | 必要なインベントリコンテキスト項目がありません。                                                             |
 
 ### <a name="response-example"></a>応答の例
 

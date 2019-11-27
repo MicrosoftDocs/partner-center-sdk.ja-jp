@@ -1,6 +1,6 @@
 ---
-title: CSP Customer Storefront Builder Quick Start Guide
-description: Create an online marketplace to sell cloud solution provider (CSP) offers using the CSP Customer Storefront Builder.
+title: CSP カスタマーストアビルダークイックスタートガイド
+description: CSP カスタマーネットショップビルダーを使用して、クラウドソリューションプロバイダー (CSP) プランを販売するオンラインマーケットプレースを作成します。
 ms.assetid: 333EE80D-E49E-4E89-87FB-3F02AC48C236
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,80 +13,80 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489732"
 ---
-# <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP Customer Storefront Builder Quick Start Guide
+# <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP カスタマーストアビルダークイックスタートガイド
 
 適用対象:
 
 - パートナー センター
 
-Create an online marketplace to sell cloud solution provider (CSP) offers by using the CSP Customer Storefront Builder.
+CSP カスタマーネットショップビルダーを使用して、クラウドソリューションプロバイダー (CSP) プランを販売するオンラインマーケットプレースを作成します。
 
-## <a name="introduction-to-the-csp-customer-storefront-builder"></a>Introduction to the CSP Customer Storefront Builder
+## <a name="introduction-to-the-csp-customer-storefront-builder"></a>CSP カスタマーストアビルダーの概要
 
-The CSP Customer Storefront Builder helps partners easily create an online marketplace to sell CSP offers to their customers. Most partners and small sales organizations want to focus on selling rather than developing an online marketplace. The Partner Center SDK sample app requires software development skills to create and deploy a website. With the CSP Customer Storefront Builder, you can quickly and easily create your own website. You can also download the website as sample code or deploy directly to your Azure subscription with a Ready to Transact website.
+CSP カスタマーネットショップビルダーは、パートナーが CSP オファーを顧客に販売するための簡単なオンラインマーケットプレースを作成するのに役立ちます。 ほとんどのパートナーと小規模な営業組織は、オンラインマーケットプレースを開発するのではなく、販売に集中することを望んでいます。 パートナーセンターの SDK サンプルアプリには、web サイトを作成して展開するためのソフトウェア開発スキルが必要です。 CSP カスタマーネットショップビルダーを使用すると、独自の web サイトをすばやく簡単に作成できます。 Web サイトをサンプルコードとしてダウンロードしたり、Azure サブスクリプションに直接デプロイしたりすることもできます。
 
-This website is fully owned, supported, and maintained by partners, and Microsoft does not collect any data or telemetry from the website. The CSP Customer Storefront Builder creates a website for the partner that is fully compliant with the [Payment Card Industry Data Security Standard](https://www.pcisecuritystandards.org/) (PCI DSS).
+この web サイトはパートナーによって完全に所有、サポート、および管理されており、マイクロソフトは web サイトからデータやテレメトリを収集しません。 CSP カスタマーネットショップビルダーは、[支払いカード業界データセキュリティ標準](https://www.pcisecuritystandards.org/)(PCI DSS) に完全に準拠しているパートナーの web サイトを作成します。
 
-The CSP Customer Storefront Builder code is subject to the license available in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+CSP 顧客の店舗ビルダーコードは、[パートナーセンター SDK の EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)で利用可能なライセンスの対象となります。
 
 >[!NOTE]
->You are responsible for the storefront website management, maintenance, and any issues that might result from website creation. Read and understand the terms in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+>ユーザーは、web サイトの管理、メンテナンス、web サイトの作成によって生じる可能性のある問題について責任を持ちます。 [パートナーセンター SDK の使用許諾契約書](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)の条項を読み、理解します。
 
-For additional information, also see the following topics: [CSP customer web storefront](csp-customer-web-storefront.md) and [console test app](console-test-app.md).
+詳細については、「 [CSP customer web ストア](csp-customer-web-storefront.md)と[コンソールテストアプリ](console-test-app.md)」も参照してください。
 
 ## <a name="considerations"></a>考慮事項
 
-The CSP Customer Storefront Builder is intended as a quick way to create a website. Be aware of the following considerations during your planning:
+CSP Customer ネットショップビルダーは、web サイトを簡単に作成できるようにするためのものです。 計画時には、次の点に注意してください。
 
-- Once deployed, Microsoft and Partner Center does not maintain a copy of the partner website or any information added into the CSP Customer Storefront Builder.
-- Partner Center can only deploy a CSP Customer Storefront website to a partner's Azure subscriptions.
-- This website, once deployed, is fully owned and managed by the partner. Microsoft does not have access to this website, or any data related to the website. Partners are responsible for maintenance and management of the website. Microsoft will not provide any live website or other support related to the CSP Customer Storefront Builder or any website created by using the CSP Customer Storefront Builder.
-- Partner Center cannot directly access or upgrade this website with new or changed SDK or API features. Any new features or enhancements must be owned, developed, and managed by partners, including adding new Partner Center SDK or API features.
-- This CSP Customer Storefront Builder currently provides the ability to configure payment to a PayPal Pro/PayU Money (for India) account. If partners need to change the payment processor, they will need to change the code to support their preferred payment method.
-- Any payment related information added in the CSP Customer Storefront Builder is not stored or maintained in Partner Center.
-- PayPal payment configuration will work in any geographies where PayPal is available. PayPal availability and support is solely controlled by PayPal, and may be discontinued at any time by PayPal.
-- PayU payment configuration will work only in India currently. PayU availability and support is solely controlled by PayU and may be discontinued at any time by PayU.
-- Read and understand the terms in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+- Microsoft とパートナーセンターでは、展開後、パートナー web サイトのコピーや、CSP の顧客ストアビルダーに追加された情報は保持されません。
+- パートナーセンターでは、パートナーの Azure サブスクリプションに CSP 顧客の店舗 web サイトのみをデプロイできます。
+- この web サイトは、デプロイ後にパートナーによって完全に所有および管理されます。 Microsoft は、この web サイト、または web サイトに関連するデータにアクセスできません。 パートナーは、web サイトのメンテナンスと管理に責任を持ちます。 Microsoft は、CSP カスタマーストアビルダーまたは CSP の顧客ストアビルダーを使用して作成された web サイトに関する、ライブ web サイトやその他のサポートを提供しません。
+- パートナーセンターは、新しい SDK または API 機能を使用して、この web サイトに直接アクセスしたり、アップグレードしたりすることはできません。 新しい機能や機能強化は、パートナーセンター SDK または API の新機能の追加など、パートナーが所有、開発、管理する必要があります。
+- この CSP カスタマネットショップでは、現在、PayPal Pro/給料 u (インド) アカウントへの支払いを構成する機能が提供されています。 パートナーが支払いプロセッサを変更する必要がある場合は、優先支払い方法をサポートするようにコードを変更する必要があります。
+- CSP の顧客ストアビルダーに追加された支払いに関連する情報は、パートナーセンターに格納または保守されません。
+- PayPal の支払い構成は、PayPal が使用可能なすべての地域で機能します。 Paypal の可用性とサポートは、PayPal によってのみ制御され、PayPal によっていつでも廃止される可能性があります。
+- 給料 u の支払い構成は、現在インドでのみ機能します。 給料 u の可用性とサポートは、給料によってのみ管理されており、いつでも提供が中止される可能性があります。
+- [パートナーセンター SDK の使用許諾契約書](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)の条項を読み、理解します。
 
-## <a name="using-the-csp-customer-storefront-builder"></a>Using the CSP Customer Storefront Builder
+## <a name="using-the-csp-customer-storefront-builder"></a>CSP カスタマーストアビルダーの使用
 
-CSP partner admins on Partner Center can deploy a CSP Customer Storefront directly from Partner Center. With minimal effort, a new website can be deployed on the partner's tenant. Once deployed, partners can use the website to configure branding, offers, and payment-related information, and then share the website URL address with customers.
+パートナーセンターの CSP パートナー管理者は、パートナーセンターから CSP の顧客の店舗を直接展開できます。 最小限の労力で、パートナーのテナントに新しい web サイトをデプロイできます。 パートナーは、デプロイが完了すると、web サイトを使用してブランド、オファー、支払いに関連する情報を構成し、web サイトの URL アドレスを顧客と共有できるようになります。
 
-The process for creating a storefront website is to:
+店舗 web サイトを作成するためのプロセスは次のとおりです。
 
-1. [Deploy the website](#deploy)
-2. [Configure the storefront](#configure)
-3. [Transact on the storefront](#transact)
+1. [Web サイトをデプロイする](#deploy)
+2. [ネットストアを構成する](#configure)
+3. [店舗での Transact](#transact)
 
 ### <a name="deploy"></a>展開
 
 展開オプション:
 
-- Deploy your website from Partner Center
-- Integrate with Azure to deploy the configured website
-- Deploy on an existing subscription or bring your own subscription
+- パートナーセンターから web サイトをデプロイする
+- Azure と統合して、構成済みの web サイトをデプロイする
+- 既存のサブスクリプションへのデプロイ、または独自のサブスクリプションの作成
 
 ### <a name="configure"></a>構成
 
-No development skills are required to customize a storefront.
+店舗をカスタマイズするために開発スキルは必要ありません。
 
-Log in with your Partner Center admin credentials to configure:
+パートナーセンターの管理者資格情報でログインして、次の構成を行います。
 
-- **Branding**: company name, logo, contacts, and more.
-- **Offers**: view all CSP offers. You can select which offers your customers can view and purchase. You can also personalize offer information and add your price.
-- **PayPal payment configuration**: add your PayPal payment account information. If you don't have a PayPal account, you can visit <https://www.paypal.com> and create a new account. This account will be used for PayPal to credit the payments made by customers. *Microsoft is not responsible for the relationship between partners and PayPal. Use of PayPal may require the partner or partner's customers to agree to additional terms.*
-- (*For India*) **PayU Payment configuration**: add your PayU Money payment account information. If you don't have a PayU Money account, you can visit <https://www.payumoney.com/> and create a new account. This account will be used for PayU to credit the payments made by customers. *Microsoft is not responsible for the relationship between partners and PayU. Use of PayU may require the partner or partner's customers to agree to additional terms.*
+- **ブランド**化: 会社名、ロゴ、連絡先など。
+- **提供**: すべての CSP オファーを表示します。 顧客が表示および購入できるプランを選択できます。 また、オファー情報をカスタマイズして価格を追加することもできます。
+- **Paypal 支払い構成**: paypal 支払アカウント情報を追加します。 PayPal アカウントを持っていない場合は、<https://www.paypal.com> にアクセスして新しいアカウントを作成できます。 このアカウントは、お客様による支払いのクレジットを PayPal に提供するために使用されます。 *Microsoft は、パートナーと PayPal の関係については責任を負いません。PayPal を使用する場合、パートナーまたはパートナーの顧客が追加の条件に同意することが必要になる場合があります。*
+- (*インドの場合*)**給料 u の支払い構成**: お支払い額を追加します。 お金をお持ちでない場合は、<https://www.payumoney.com/> にアクセスして新しいアカウントを作成することができます。 このアカウントは、お客様による支払いをクレジットするために、支払いに使用されます。 *Microsoft は、パートナーと支払い方法の関係について責任を負いません。給料 u を使用する場合、パートナーまたはパートナーの顧客が追加の条件に同意することが必要になる場合があります。*
 
-### <a name="transact"></a>Transact
+### <a name="transact"></a>T-sql
 
-- After deployment, customers can immediately purchase and transact.
-- Customers can buy directly from the partner portal integrated with the Partner Center SDK.
+- デプロイ後、お客様はすぐにとを購入できます。
+- パートナーセンター SDK と統合されたパートナーポータルから直接購入できます。
 
-#### <a name="customer-countries"></a>Customer countries
+#### <a name="customer-countries"></a>お客様の国
 
-Customers can belong to these countries:
+お客様は次の国に属することができます。
 
-| 国コード | Country Name   |
+| 国コード | 国名   |
 |--------------|----------------|
 | AU           | オーストラリア      |
 | AT           | オーストリア        |
@@ -109,7 +109,7 @@ Customers can belong to these countries:
 | IT           | イタリア          |
 | JP           | 日本          |
 | LV           | ラトビア         |
-| LI           | リヒテンシュタイン  |
+| &           | リヒテンシュタイン  |
 | LT           | リトアニア      |
 | LU           | ルクセンブルク     |
 | MT           | マルタ          |
@@ -125,103 +125,103 @@ Customers can belong to these countries:
 | ES           | スペイン          |
 | SE           | スウェーデン         |
 | CH           | スイス    |
-| GB           | 英国 |
+| GB           | イギリス |
 | US           | 米国  |
 
 ### <a name="additional-resources"></a>その他の資料
 
-To enhance or customize your CSP Customer Storefront:
+CSP 顧客のネットショップを強化またはカスタマイズするには、次のようにします。
 
-- Download the [Partner Center storefront sample code](https://github.com/Microsoft/Partner-Center-Storefront) make additional customizations.
-- Use Microsoft Visual Studio 2015 (or later) to develop.
-- Build for additional changes and enhancements (including authorizations, certifications, manifest changes, and other items).
+- [パートナーセンターのネットショップサンプルコード](https://github.com/Microsoft/Partner-Center-Storefront)をダウンロードして、追加のカスタマイズを行います。
+- Microsoft Visual Studio 2015 (またはそれ以降) を使用して開発します。
+- 追加の変更と強化 (承認、認定、マニフェストの変更、およびその他のアイテムを含む) をビルドします。
 
-## <a name="partner-experience-scenarios"></a>Partner experience scenarios
+## <a name="partner-experience-scenarios"></a>パートナーエクスペリエンスのシナリオ
 
 ### <a name="deployment-scenario"></a>展開方法
 
-- A partner admin can use Partner Center to deploy the website. In Account settings, choose **Web storefront** to deploy a new website.
-- On this page, partners can see the availability of a new site name and change it (if available).
-- This page shows all active Azure subscriptions associated to this partner tenant and that a partner can choose to use to deploy the website.
-- If a partner does not have an active subscription associated to this Partner Center account, they can add this account as an admin to an existing Azure subscription, and refresh to see that subscription in this list.
-- Partners choose the data center location where this website will be deployed.
-- The **Deploy your store** link will deploy this new website based on the information provided and show the URL.
-- Be sure to copy this URL as Partner Center does not maintain the state or history of these websites. If you close the browser page, you will lose the website name.
-- During deployment, the website will be deployed with the web app credentials created in Partner Center. If you did not register a web app, this will be registered during deployment.
+- パートナー管理者は、パートナーセンターを使用して web サイトをデプロイできます。 アカウント設定 で、 **Web ストア** を選択して新しい web サイトをデプロイします。
+- このページでは、パートナーは新しいサイト名の可用性を確認し、変更することができます (使用可能な場合)。
+- このページには、このパートナーテナントに関連付けられているすべてのアクティブな Azure サブスクリプションが表示され、パートナーはこの web サイトのデプロイに使用することを選択できます。
+- パートナーがこのパートナーセンターアカウントに関連付けられているアクティブなサブスクリプションを持っていない場合は、このアカウントを管理者として既存の Azure サブスクリプションに追加し、更新してそのサブスクリプションをこの一覧に表示することができます。
+- パートナーは、この web サイトが配置されるデータセンターの場所を選択します。
+- **[ストアのデプロイ]** リンクを使用すると、提供された情報に基づいてこの新しい web サイトがデプロイされ、URL が表示されます。
+- パートナーセンターでは、これらの web サイトの状態または履歴が保持されないため、必ずこの URL をコピーしてください。 ブラウザーページを閉じると、web サイトの名前が失われます。
+- デプロイ時に、パートナーセンターで作成された web アプリの資格情報を使用して web サイトがデプロイされます。 Web アプリを登録していない場合は、デプロイ中に登録されます。
 
-### <a name="configuration-scenario"></a>Configuration scenario
+### <a name="configuration-scenario"></a>構成シナリオ
 
-- The newly created website is linked to a partner tenant and has access to all admin accounts of this partner tenant.
-  -Partners can log in to this new website using their Partner Center admin credentials.
-- The storefront application currently supports French, Spanish, Dutch, German, Japanese and English. (English serves as the fallback language.)
-  - The storefront configures the locale by using the partner's default locale from the partner's profile in the Partner Center. This locale is used to configure currencies, date formats, and localized offers in the repository.
-- Partners can configure branding, offers and PayPal or PayU (for India) payment information.
-- Partners can update the company name, company logo, header image, sales and support contacts and more.
-- Partners can see all CSP offers available based on their territory.
-  - Partners can choose which offers they want to show to all of their customers.
-  - A CSP partner can select one or more offers and update the name, quantity, feature description, and price.
-  - The price is the annual price. Customers subscribe annually.
-- Partners can at any time configure pre-approved transactions for (a) all current and future customers OR (b) specific customers.
-  - Pre-approved customers are not required to pay on the portal when they add new subscriptions, purchase additional seats to existing subscriptions, or renew a subscription.
-  - Pre-approved customers will not be redirected to PayPal or PayU (for India) for payment during these transactions.
-  - Pre-approved customer transactions allow a partner to perform offline billing and invoicing to their pre-approved customers.
-- A CSP partner can input their PayPal account information such as PayPal Client ID and secret. A CSP partner can also select whether they want to test using a sandbox or a live account.
-  - Partners can find this information on <https://developer.paypal.com/> in **my apps & credentials**. You can also get this information from a current app or by creating a new app in PayPal.
-  - Create a new PayPal account if you don't already have one. This account will be used for PayPal to credit the payments made by customers.
-    - To open a PayPal business account, see <https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register>.
-    - To create a PayPal sandbox account see <https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/>.
-- (For India) a CSP partner can input their PayU Money account information such as PayU Client ID and password. Partners can find more information on <https://developer.payumoney.com/>.
-  - Create a new PayU Money account if you don't already have one. To open a PayU Money account, visit <https://www.payumoney.com/merchant-account/#/>. This account will be used for PayU to credit the payments made by customers.
+- 新しく作成された web サイトは、パートナーテナントにリンクされ、このパートナーテナントのすべての管理者アカウントにアクセスできます。
+  -パートナーは、パートナーセンターの管理者の資格情報を使用して、この新しい web サイトにログインできます。
+- 店頭アプリケーションは現在、フランス語、スペイン語、オランダ語、ドイツ語、日本語、英語をサポートしています。 (英語はフォールバック言語として機能します)。
+  - ネットショップでは、パートナーセンターのパートナーのプロファイルからパートナーの既定のロケールを使用してロケールを構成します。 このロケールは、リポジトリで通貨、日付形式、およびローカライズされたプランを構成するために使用されます。
+- パートナーは、ブランド、オファー、PayPal、または (インドの) 支払い情報を構成できます。
+- パートナーは、会社名、会社のロゴ、ヘッダーイメージ、販売およびサポートの連絡先などを更新できます。
+- パートナーは、その担当区域に基づいて、利用可能なすべての CSP プランを表示できます。
+  - パートナーは、すべての顧客に対して表示するオファーを選択できます。
+  - CSP パートナーは、1つまたは複数のプランを選択して、名前、数量、機能の説明、および価格を更新できます。
+  - 料金は年間価格です。 顧客は毎年サブスクライブします。
+- パートナーは、(a) 現在および将来のすべての顧客または (b) 固有の顧客に対して事前承認されたトランザクションをいつでも構成できます。
+  - 事前承認済みのお客様は、新しいサブスクリプションを追加したり、既存のサブスクリプションに追加の座席を購入したり、サブスクリプションを更新したりするときに、ポータルで支払いを行う必要はありません。
+  - 事前承認された顧客は、これらのトランザクションの間に支払いを行うために、PayPal にリダイレクトされたり、(インドの場合は) 支払いが行われたりしません。
+  - 事前承認済みの顧客トランザクションを使用すると、パートナーは、事前に承認された顧客に対してオフラインの請求と請求を実行できます。
+- CSP パートナーは、paypal のクライアント ID やシークレットなどの PayPal アカウント情報を入力できます。 CSP パートナーは、サンドボックスまたはライブアカウントのどちらを使用してテストするかを選択することもできます。
+  - パートナーは、 **マイアプリ & の資格情報**の <https://developer.paypal.com/> に関する情報を確認できます。 この情報は、現在のアプリから取得することも、PayPal で新しいアプリを作成することによって取得することもできます。
+  - 新しい PayPal アカウントを作成します (まだお持ちでない場合)。 このアカウントは、お客様による支払いのクレジットを PayPal に提供するために使用されます。
+    - PayPal ビジネスアカウントを開くには、「<https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register>」を参照してください。
+    - PayPal サンドボックスアカウントを作成するには、「<https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/>」を参照してください。
+- (インドの場合) CSP パートナーは、給料 u のクライアント ID やパスワードなど、給料を入力することができます。 <https://developer.payumoney.com/>の詳細については、パートナーに参照してください。
+  - まだお持ちでない場合は、新しいアカウントを作成します。 Money アカウントを開くには、<https://www.payumoney.com/merchant-account/#/>にアクセスしてください。 このアカウントは、お客様による支払いをクレジットするために、支払いに使用されます。
 
-## <a name="customer-experience-scenarios"></a>Customer experience scenarios
+## <a name="customer-experience-scenarios"></a>カスタマーエクスペリエンスのシナリオ
 
-### <a name="new-customer-signup-scenario"></a>New customer signup scenario
+### <a name="new-customer-signup-scenario"></a>新しい顧客サインアップシナリオ
 
-- By default, the website is publicly available and shows the partner's catalog on the homepage.
-- Customers can now belong to a large number of [customer countries](#customer-countries).
-- The focus has been on the European Free Trade Association (EFTA) countries, North America, Japan, India, Australia, and New Zealand regions.
-  - This feature uses the regional authorization support in the Partner Center SDK.
-- Customers can select an offer from the catalog to purchase.
-  - They can add their customer name, address, and domain related information.
-- Customers will be directed to the PayPal or PayU (for India) checkout experience. Customers can provide payment using either:
-  - Their existing PayPal or PayU (for India) account
-  - Funding instruments supported in their country by PayPal or PayU (for India). These may include credit cards, debit cards and bank accounts as applicable.
-- A customer tenant is created for this customer. After successful creation of the tenant order, customers are provided the account username, password and subscription details.
-  - Customers can save the username and password to stay logged in for further purchases.
-  - Each subscription is purchased for a year and customers can renew in the 30 days prior to the subscription end date.
+- 既定では、web サイトは一般公開されており、ホームページにパートナーのカタログが表示されます。
+- お客様は、多数の[お客様の国](#customer-countries)に所属できるようになりました。
+- この分野では、ヨーロッパの無料取引協会 (EFTA) の国、北米、日本、インド、オーストラリア、ニュージーランドのリージョンに焦点を合わせています。
+  - この機能は、パートナーセンター SDK のリージョン承認サポートを使用します。
+- お客様は、カタログから購入するプランを選択できます。
+  - 顧客名、住所、およびドメインに関連する情報を追加できます。
+- お客様は、PayPal または給料 u (インド) のチェックアウトエクスペリエンスにご案内します。 お客様は次のいずれかの方法で支払いを提供できます。
+  - 既存の PayPal または給料 u (インド) アカウント
+  - お客様の国でサポートされている資金の資金は、PayPal または給料 u (インドの場合) でサポートされます。 これには、クレジットカード、デビットカード、銀行口座が該当する場合があります。
+- この顧客に対して顧客テナントが作成されます。 テナントの注文が正常に作成されると、アカウントのユーザー名、パスワード、およびサブスクリプションの詳細が表示されます。
+  - お客様は、ユーザー名とパスワードを保存して、今後の購入のためにログインし続けることができます。
+  - 各サブスクリプションは1年間購入され、お客様はサブスクリプション終了日の30日前に更新を行うことができます。
 
-### <a name="view-prior-purchases-scenario"></a>View prior purchases scenario
+### <a name="view-prior-purchases-scenario"></a>前の購入シナリオを表示する
 
-- Customer signs in with Customer tenant username and password and goes to the **My Orders** section.
-- Customers can navigate to the **My Orders** page where they can view purchased subscriptions and make updates if required.
-- Customers can navigate to the **My Subscriptions** page where they can view all subscriptions (license-based as well as usage-based), including those maintained in Partner Center.
+- 顧客は、顧客のテナントのユーザー名とパスワードを使用してサインインし、 **[担当注文**] セクションに移動します。
+- お客様は、購入したサブスクリプションを表示し、必要に応じて更新を行うことができる **[担当の注文**] ページに移動できます。
+- お客様は **[個人用サブスクリプション**] ページに移動できます。ここでは、パートナーセンターで管理されているサブスクリプションを含め、すべてのサブスクリプション (ライセンスベースおよび使用量ベース) を表示できます。
 
-### <a name="add-seats-to-existing-subscriptions-scenario"></a>Add seats to existing subscriptions scenario
+### <a name="add-seats-to-existing-subscriptions-scenario"></a>既存のサブスクリプションにシートを追加するシナリオ
 
-- From the **My Orders** section, customers can add more seats to existing subscriptions. Customers can add more seats anytime during a subscription year.
-- Each added seat does not change the end date of the subscription. However, the price of the subscription changes based on the date on which you add the seat, and where that date is in the year. Pricing is prorated on a daily basis to only charge for the remaining days of the year.
+- **[担当注文**] セクションから、既存のサブスクリプションに追加のシートを追加できます。 サブスクリプションの期間中は、いつでも座席を追加できます。
+- 追加された各接続クライアントは、サブスクリプションの終了日を変更しません。 ただし、サブスクリプションの価格は、座席を追加した日付と、その日付が年に含まれている場所によって異なります。 料金は、その年の残りの日にのみ課金されるように、1日単位で計算されます。
 
-### <a name="add-more-subscriptions-scenario"></a>Add more subscriptions scenario
+### <a name="add-more-subscriptions-scenario"></a>サブスクリプションの追加シナリオ
 
-- Customers can buy any number of subscriptions at any time from the **Add subscriptions** section under **My Orders**.
-- A customer can select a subscription, add a quantity, and pay to complete the transaction and start using the subscription immediately. If a customer is a pre-approved customer, the subscription is available for use immediately and an invoice will be sent to the customer for payment.
+- お客様は、 **[サブスクリプションの追加]** セクションから、いつでも任意の数のサブスクリプションを購入でき**ます。**
+- 顧客はサブスクリプションを選択し、数量を追加して、トランザクションを完了して、すぐにサブスクリプションの使用を開始することができます。 顧客が事前承認された顧客の場合、サブスクリプションはすぐに使用できるようになり、支払いのために請求書が顧客に送信されます。
 
-### <a name="renew-subscription-scenario"></a>Renew subscription scenario
+### <a name="renew-subscription-scenario"></a>サブスクリプションの更新シナリオ
 
-- A customer can renew a subscription during the last 30 days prior to the subscription end date.
-- This is available only in the last 30 days.
-- If not renewed in last 30 days, the subscription will be removed from the list of subscriptions for this Customer tenant.
-- You cannot update the quantity during renewal.
+- お客様は、サブスクリプション終了日の過去30日前にサブスクリプションを更新できます。
+- これは、過去30日間にのみ使用できます。
+- 過去30日間に更新されていない場合は、この顧客テナントのサブスクリプションの一覧からサブスクリプションが削除されます。
+- 更新中に数量を更新することはできません。
 
-### <a name="payments-scenario"></a>Payments scenario
+### <a name="payments-scenario"></a>支払いシナリオ
 
-- If the customer is pre-approved for transactions by the admin, the payment experience is not presented for the above scenarios. Instead, the partner can send the invoice for payment to the pre-approved customer.
-- For all new purchases, you can add more seats, add subscriptions and renew. A customer can pay a partner using this website through PayPal or PayU (for India).
-- This website is integrated with PayPal or PayU (for India) and allows partners to accept payments from their customers. PayPal or PayU (for India) credits this amount in a partner's account. PayPal or PayU (for India) Bank account management is outside of this website and is managed on PayPal.com or PayUmoney.com respectively.
-- This is dependent on partners configuring their PayPal orPayU (for India) payment configuration at PayPal.com or PayUmoney.com. Microsoft does not save this information or actual payment transactions resulting from the use of this option.
+- 顧客が管理者によってトランザクションを事前に承認されている場合、上記のシナリオでは支払いエクスペリエンスが表示されません。 代わりに、パートナーは、事前承認済みの顧客に支払い請求書を送信できます。
+- すべての新規購入について、シートを追加したり、サブスクリプションを追加したり、更新したりすることができます。 お客様は、この web サイトを使用して、PayPal または給料 u (インドの場合) を使用してパートナーに支払いを行うことができます。
+- この web サイトは、PayPal または給料 u (インドの場合) に統合されており、パートナーは顧客からの支払いを受け入れることができます。 PayPal または給料 u (インドの場合) は、パートナーのアカウントでこの金額をクレジットします。 PayPal または給料 u (インド) の銀行口座の管理は、この web サイトの外部にあり、それぞれ PayPal.com または PayUmoney.com で管理されています。
+- これは、PayPal.com または PayUmoney.com で PayPal (インド) の支払い構成を構成するパートナーに依存しています。 このオプションを使用しても、この情報や実際の支払いトランザクションは保存されません。
 
-### <a name="prorated-pricing-scenario"></a>Prorated pricing scenario
+### <a name="prorated-pricing-scenario"></a>日割り価格シナリオ
 
-- This website supports prorated pricing in cases when customers add more seats to an existing subscription.
-- Each subscription expires after one year and cannot be changed after the subscription is purchased.
-- The end date of the subscription will not change by adding additional seats. Customers will be charged for the remaining number of days until the end date. For example, if on day one the subscription cost is $365, and you add one more seat on day two, the price for new seat will be $364. If you add one more 10 days later, the price will be $354.
+- この web サイトでは、お客様が既存のサブスクリプションにより多くのシートを追加した場合に、日割り料金がサポートされます。
+- 各サブスクリプションは1年後に有効期限が切れ、サブスクリプションを購入した後に変更することはできません。
+- 追加のシートを追加しても、サブスクリプションの終了日は変更されません。 お客様には、終了日までの残りの日数分の料金が請求されます。 たとえば、サブスクリプションのコストが $365 で、2日目に接続クライアントを1つ追加した場合、新しい座席の価格は $364 になります。 10日後に追加すると、価格は $354 になります。

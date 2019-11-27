@@ -1,6 +1,6 @@
 ---
-title: Verify a partner MPN ID
-description: How to verify a partner's Microsoft Partner Network identifier (MPN ID).The technique shown here verifies the partner's Microsoft Partner Network identifier by requesting the partner's MPN profile from partner center.
+title: パートナー MPN ID を確認する
+description: パートナーの Microsoft Partner Network 識別子 (MPN ID) を確認する方法。次に示す手法では、パートナーセンターからパートナーの MPN プロファイルを要求することによって、パートナーの Microsoft Partner Network 識別子を確認します。
 ms.assetid: 95CBA254-0980-4519-B95D-1F906C321863
 ms.date: 09/29/2018
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490052"
 ---
-# <a name="verify-a-partner-mpn-id"></a>Verify a partner MPN ID
+# <a name="verify-a-partner-mpn-id"></a>パートナー MPN ID を確認する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to verify a partner's Microsoft Partner Network identifier (MPN ID).
+パートナーの Microsoft Partner Network 識別子 (MPN ID) を確認する方法。
 
-The technique shown here verifies the partner's Microsoft Partner Network identifier by requesting the partner's MPN profile from partner center. The identifier is considered valid if the request succeeds.
+次に示す手法では、パートナーセンターからパートナーの MPN プロファイルを要求することによって、パートナーの Microsoft Partner Network 識別子を確認します。 この識別子は、要求が成功した場合に有効と見なされます。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- The partner MPN ID to verify. If you omit this value, the request retrieves the MPN profile of the signed-in partner.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 確認するパートナー MPN ID。 この値を省略した場合、要求はサインインしているパートナーの MPN プロファイルを取得します。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
-To verify a partner's MPN ID, first retrieve an interface to partner profile collection operations from the [**IAggregatePartner.Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) property. Then get an interface to MPN profile operations from the [**MpnProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) property. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) methods with the MPN ID to retrieve the MPN profile. If you omit the MPN ID from the Get or GetAsync call, the request attempts to retrieve the MPN profile of the signed-in partner.
+パートナーの MPN ID を確認するには、まず、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles)プロパティからパートナープロファイルコレクション操作へのインターフェイスを取得します。 次に、 [**Mpnprofile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile)プロパティから MPN profile 操作へのインターフェイスを取得します。 最後に、MPN ID を使用して[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync)メソッドを呼び出し、MPN プロファイルを取得します。 Get または GetAsync 呼び出しから MPN ID を省略した場合、要求はサインインしているパートナーの MPN プロファイルを取得しようとします。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,34 +42,34 @@ To verify a partner's MPN ID, first retrieve an interface to partner profile col
 var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: VerifyPartnerMpnId.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: VerifyPartnerMpnId.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                         |
 |---------|-------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/mpn?mpnId={mpn-id} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/profiles/mpn? mpnid = {MPN} HTTP/1.1 |
 
-**URI parameter**
+**URI パラメーター**
 
-Provide the following query parameter to identify the partner. If you omit this query parameter, the request returns the MPN profile of the signed-in partner.
+次のクエリパラメーターを指定して、パートナーを識別します。 このクエリパラメーターを省略すると、要求によって、サインインしているパートナーの MPN プロファイルが返されます。
 
-| 名前   | タスクバーの検索ボックスに | 必須かどうか | 説明                                                 |
+| 名前   | 種類 | 必須 | 説明                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| mpn-id | 整数  | 必須ではない       | A Microsoft Partner Network ID that identifies the partner. |
+| mpn-id | int  | X       | パートナーを識別する Microsoft Partner Network ID。 |
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/profiles/mpn?mpnId=9999999 HTTP/1.1
@@ -83,15 +83,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 応答
 
-If successful, the response body contains the [MpnProfile](profile-resources.md#mpnprofile) resource for the partner.
+成功した場合、応答本文には、パートナーの[Mpnprofile](profile-resources.md#mpnprofile)リソースが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example (success)**
+**応答の例 (成功)**
 
 ```http
 HTTP/1.1 200 OK
@@ -119,7 +119,7 @@ Date: Thu, 13 Apr 2017 18:13:40 GMT
 }
 ```
 
-**Response example (failure)**
+**応答の例 (失敗)**
 
 ```http
 HTTP/1.1 404 Not Found

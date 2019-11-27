@@ -1,6 +1,6 @@
 ---
-title: Conversions resources
-description: Conversion resources support the conversion of a trial subscription to a paid subscription.
+title: 変換に関するリソース
+description: 変換リソースでは、試用版サブスクリプションから有料サブスクリプションへの変換がサポートされます。
 ms.assetid: 4AE796E3-47D9-428B-8267-A5247B573E0C
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488902"
 ---
-# <a name="conversions-resources"></a>Conversions resources
+# <a name="conversions-resources"></a>変換に関するリソース
 
 適用対象:
 
@@ -22,36 +22,36 @@ ms.locfileid: "74488902"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Conversion resources support the conversion of a trial subscription to a paid subscription.
+変換リソースでは、試用版サブスクリプションから有料サブスクリプションへの変換がサポートされます。
 
 ## <a name="conversion"></a>変換
 
-Contains information used to convert a trial subscription to a paid subscription.
+試用版のサブスクリプションを有料サブスクリプションに変換するために使用する情報が含まれています。
 
-| プロパティ | タスクバーの検索ボックスに | 説明 |
+| プロパティ | 種類 | 説明 |
 | -------- | ---- | ----------- |
-| offerId | string | The offer identifier of the original, trial offer. |
-| targetOfferId | string | The offer identifier for the target offer. |
-| orderId | string | The order identifier. |
-| quantity | 整数 | The number of licenses. The default is the number of licenses in the trial subscription. |
-| billingCycle | string | Indicates how often the partner is charged for the subscription. Possible values: **Monthly** (partner is billed monthly), **Annual** (partner is billed annually), or **None** (Partner isn't billed. Used for trial subscriptions). |
+| offerId | string | 元の試用版プランのプラン id。 |
+| targetOfferId | string | ターゲットプランのプラン識別子。 |
+| orderId | string | 順序識別子。 |
+| quantity | int | ライセンスの数。 既定値は、試用版サブスクリプションのライセンス数です。 |
+| 周期サイクル | string | パートナーがサブスクリプションに対して課金される頻度を示します。 使用可能な値:**毎月**(パートナーは月単位)、**年間**(パートナーは毎年請求)、または**なし**(パートナーには課金されません)。 試用版のサブスクリプションで使用されます)。 |
 
 ## <a name="conversionerror"></a>ConversionError
 
-Represents an error that occurred during conversion.
+変換中に発生したエラーを表します。
 
-| プロパティ | タスクバーの検索ボックスに | 説明 |
+| プロパティ | 種類 | 説明 |
 | -------- | ---- | ----------- |
-| コード | string | The error code associated with the issue. Possible values: **Other** (general error), **ConversionsNotFound** (can't find any conversions for the trial subscription to convert to).
-| 説明 | string | The friendly text describing the issue. |
+| code | string | 問題に関連付けられているエラーコード。 使用可能な値: **Other** (一般エラー)、 **ConversionsNotFound** (変換先の評価版サブスクリプションの変換が見つかりません)。
+| 説明 | string | 問題を説明するフレンドリテキスト。 |
 
 ## <a name="conversionresult"></a>ConversionResult
 
-Represents the result of performing a subscription conversion.
+サブスクリプション変換の実行結果を表します。
 
-| プロパティ       | タスクバーの検索ボックスに                                | 説明                                                            |
+| プロパティ       | 種類                                | 説明                                                            |
 |----------------|-------------------------------------|------------------------------------------------------------------------|
-| subscriptionId | string                              | The subscription identifier.                                           |
-| offerId        | string                              | The original offer identifier.                                         |
-| targetOfferId  | string                              | The offer identifier for the target offer.                             |
-| エラーを修正する          | [ConversionError](#conversionerror) | The error encountered while attempting the conversion, if applicable.. |
+| subscriptionId | string                              | サブスクリプション識別子。                                           |
+| offerId        | string                              | 元のプラン識別子。                                         |
+| targetOfferId  | string                              | ターゲットプランのプラン識別子。                             |
+| error (エラー)          | [ConversionError](#conversionerror) | 変換の試行中にエラーが発生しました (該当する場合)。 |

@@ -1,6 +1,6 @@
 ---
-title: Get licenses deployment information
-description: How to get deployment information for Office and Dynamics licenses.
+title: ライセンスの取得の展開情報
+description: Office と Dynamics のライセンスのデプロイ情報を取得する方法について説明します。
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,45 +12,45 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488602"
 ---
-# <a name="get-licenses-deployment-information"></a>Get licenses deployment information
+# <a name="get-licenses-deployment-information"></a>ライセンスの取得の展開情報
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-How to get deployment information for Office and Dynamics licenses.
+Office と Dynamics のライセンスのデプロイ情報を取得する方法について説明します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。
 
-**Request syntax**
+
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                     |
 |---------|-------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/analytics/commercial/deployment/license/ HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/analytics/commercial/deployment/license/HTTP/1.1 |
 
  
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.  
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。  
 
-**URI parameters**
+**URI パラメーター**
 
-| パラメーター         | タスクバーの検索ボックスに     | 説明 | 必須かどうか |  
+| パラメーター         | 種類     | 説明 | 必須 |  
 |-------------------|----------|-------------|----------|  
-| top               | string   | 要求で返すデータの行数です。 指定されない場合の既定値は、最大値でもある 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 | 必須ではない | 
-| skip              | 整数      | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。 | 必須ではない | 
-| filter            | string   | <p>要求の <em>filter</em> パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各ステートメントには **eq** 演算子または **ne** 演算子と関連付けられるフィールドと値が含まれ、**and** または **or** を使ってステートメントを組み合わせることができます。 <em>filter</em> パラメーターの例を次に示します。</p><ul><li><em>filter=serviceCode eq 'O365'</em></li><li><em>filter=serviceCode eq 'O365'</em> or (<em>channel eq 'Reseller'</em>)</li></ul><p>You can specify the following fields</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>channel</strong></li><li><strong>customerTenantId</strong></li><li><strong>customerName</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul> | 必須ではない | 
-| groupby           | string   | <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>channel</strong></li><li><strong>customerTenantId</strong></li><li><strong>customerName</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul><p>返されるデータ行には、<em>groupby</em> パラメーターに指定したフィールドと次の値が含まれます。</p><ul><li><strong>licensesDeployed</strong></li><li><strong>licensesSold</strong></li></ul> | 必須ではない | 
-| processedDateTime | DateTime | One can specify the date from which usage data was processed. Defaults to the latest date when the data was processed | 必須ではない | 
+| top               | string   | 要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 | X | 
+| skip              | int      | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。 | X | 
+| filter            | string   | <p>要求の <em>filter</em> パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各ステートメントには **eq** 演算子または **ne** 演算子と関連付けられるフィールドと値が含まれ、**and** または **or** を使ってステートメントを組み合わせることができます。 <em>filter</em> パラメーターの例を次に示します。</p><ul><li><em>filter = serviceCode eq ' O365 '</em></li><li><em>filter = serviceCode eq ' O365 '</em>または (<em>Channel eq ' リセラー '</em>)</li></ul><p>次のフィールドを指定できます。</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>チャンネル</strong></li><li><strong>顧客 Tenantid</strong></li><li><strong>おける</strong></li><li><strong>Id</strong></li><li><strong>同様</strong></li></ul> | X | 
+| groupby           | string   | <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>チャンネル</strong></li><li><strong>顧客 Tenantid</strong></li><li><strong>おける</strong></li><li><strong>Id</strong></li><li><strong>同様</strong></li></ul><p>返されるデータ行には、<em>groupby</em> パラメーターに指定したフィールドと次の値が含まれます。</p><ul><li><strong>licensesDeployed</strong></li><li><strong>licensesSold</strong></li></ul> | X | 
+| processedDateTime | DateTime | 使用状況データが処理された日付を指定できます。 データが処理された最新の日付を既定値に設定します。 | X | 
 
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/commercial/deployment/license?filter=customerTenantId%20eq%20%270112A436-B14E-4888-967B-CA4BB2CF1234%27 HTTP 1.1
@@ -63,30 +63,30 @@ Host: api.partnercenter.microsoft.com
 ```
 
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, the response body contains the following fields containing data about the licenses deployed.
+成功した場合、応答本文には、デプロイされたライセンスに関するデータを含む次のフィールドが含まれます。
 
-| フィールド             | タスクバーの検索ボックスに     | 説明                           |
+| フィールド             | 種類     | 説明                           |
 |-------------------|----------|---------------------------------------|
-| serviceCode       | string   | Service code                          |
+| serviceCode       | string   | サービスコード                          |
 | serviceName       | string   | サービス名                          |
-| channel           | string   | Channel name, reseller                |
-| customerTenantId  | string   | Unique identifier for the customer    |
-| customerName      | string   | 顧客名                         |
-| productId         | string   | Unique identifier for the product     |
+| channel           | string   | チャネル名、リセラー                |
+| 顧客 Tenantid  | string   | 顧客の一意の識別子    |
+| おける      | string   | 顧客名                         |
+| productId         | string   | 製品の一意識別子     |
 | productName       | string   | 製品名                          |
-| licensesDeployed  | long     | Number of licenses deployed           |
+| licensesDeployed  | long     | 展開されたライセンスの数           |
 | licensesSold      | long     | 販売済みライセンス数               |
-| processedDateTime | DateTime | Date when the data was last processed |
+| processedDateTime | DateTime | データが最後に処理された日付 |
 
 
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK 

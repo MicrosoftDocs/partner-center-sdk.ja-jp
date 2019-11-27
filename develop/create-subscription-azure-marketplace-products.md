@@ -1,6 +1,6 @@
 ---
-title: Create a subscription for commercial marketplace products
-description: Developers can create and manage a subscription for commercial marketplace products using Partner Center APIs.
+title: 商用 marketplace 製品のサブスクリプションを作成する
+description: 開発者は、パートナーセンター Api を使用して、商用 marketplace 製品のサブスクリプションを作成および管理できます。
 ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -13,96 +13,96 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488652"
 ---
-# <a name="create-a-subscription-for-commercial-marketplace-products"></a>Create a subscription for commercial marketplace products
+# <a name="create-a-subscription-for-commercial-marketplace-products"></a>商用 marketplace 製品のサブスクリプションを作成する
 
 適用対象:
 
 * パートナー センター
 
-パートナーセンター API を使用して、商用マーケットプレース製品のサブスクリプションを作成できます。 You must [get a list of offers for a market](#get-a-list-of-offers-for-a-market), [create and submit an order](#create-and-submit-an-order) for a commercial marketplace subscription, then [retrieve an activation link](#get-activation-link).
+パートナーセンター API を使用して、商用マーケットプレース製品のサブスクリプションを作成できます。 [市場向けのオファーの一覧を取得](#get-a-list-of-offers-for-a-market)し、商業市場向けサブスクリプションの[注文を作成および送信](#create-and-submit-an-order)してから、[ライセンス認証リンクを取得](#get-activation-link)する必要があります。
 
-You can also [perform lifecycle management](#lifecycle-management) and [manage invoices](#invoice-and-reconciliation) for these subscriptions.
+また、[ライフサイクル管理を実行](#lifecycle-management)し、これらのサブスクリプションの[請求書を管理](#invoice-and-reconciliation)することもできます。
 
 ## <a name="prerequisites"></a>前提条件
 
-* [Partner Center authentication](partner-center-authentication.md) credentials. This scenario supports authentication with both standalone App and App+User credentials.
-* The customer identifier. If you don't have a customer's identifier: sign in to Partner Center, choose the customer from the customers list, select **Account**, then save their **Microsoft ID**.
+* [パートナーセンターの認証](partner-center-authentication.md)資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+* 顧客識別子。 顧客の識別子がない場合: パートナーセンターにサインインし、顧客 の一覧から顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存します。
 
-## <a name="get-a-list-of-offers-for-a-market"></a>Get a list of offers for a market
+## <a name="get-a-list-of-offers-for-a-market"></a>市場向けプランの一覧を取得する
 
-You can check the available offers for a market using the following Partner Center API models:
+次のパートナーセンター API モデルを使用して、市場の利用可能なオファーを確認することができます。
 
-* **[Product](product-resources.md#product)** : A grouping construct for purchasable goods or services. A product itself is not a purchasable item.
-* **[SKU](product-resources.md#sku)** : A purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product.
-* **[Availability](product-resources.md#availability)** : A configuration in which a SKU is available for purchase (such as country, currency or industry segment).
+* **[Product](product-resources.md#product)** : 購入可能な商品またはサービスのグループ化構成体。 製品自体は購入可能なの項目ではありません。
+* **[Sku](product-resources.md#sku)** : 製品の購入可能な在庫保持ユニット (sku)。 これらは、製品のさまざまな形状を表します。
+* **[可用性](product-resources.md#availability)** : SKU を購入できるようにする構成 (国、通貨、業界セグメントなど)。
 
-Before you purchase an Azure reservation, complete the following steps:
+Azure 予約を購入する前に、次の手順を実行します。
 
-1. Identify and retrieve the product and SKU that you want to purchase. If you already know the Product ID and SKU ID, select them.
+1. 購入する製品と SKU を特定して取得します。 製品 ID と SKU ID が既にわかっている場合は、それを選択します。
 
-    * [Get a list of products](get-a-list-of-products.md)
-    * [Get a product using the product ID](get-a-product-by-id.md)
-    * [Get a list of SKUs for a product](get-a-list-of-skus-for-a-product.md)
-    * [Get a SKU using the SKU ID](get-a-sku-by-id.md)
-
-    > [!NOTE]
-    > You can identify commercial marketplace products by their **ProductType** property of **"Azure"** and their **SubType** property of **"SaaS"** .
-
-2. If the SKUs are tagged with an **InventoryCheck** prerequisite, [check the inventory for a SKU](check-inventory.md).
+    * [製品の一覧を取得する](get-a-list-of-products.md)
+    * [製品 ID を使用して製品を取得する](get-a-product-by-id.md)
+    * [製品の Sku の一覧を取得する](get-a-list-of-skus-for-a-product.md)
+    * [SKU ID を使用して SKU を取得する](get-a-sku-by-id.md)
 
     > [!NOTE]
-    > At this time, there are no commercial marketplace products that support inventory check or are tagged with an **InventoryCheck** prerequisite.
+    > **"Azure"** の**ProductType**プロパティと **"SaaS"** の**SubType**プロパティによって、商業市場製品を特定できます。
 
-3. Retrieve the availability for the SKU. You will need the **CatalogItemId** of the availability when placing the order, which you can retrieve through the following APIs:
+2. **InventoryCheck**の前提条件で sku にタグが付けられている場合は、 [sku のインベントリを確認](check-inventory.md)します。
 
-    * [Get a list of availabilities for a SKU](get-a-list-of-availabilities-for-a-sku.md)
-    * [Get an availability using the availability ID](get-an-availability-by-id.md)
+    > [!NOTE]
+    > 現時点では、在庫チェックをサポートするか、 **InventoryCheck**の前提条件のタグが付けられている商用 marketplace 製品はありません。
 
-## <a name="create-and-submit-an-order"></a>Create and submit an order
+3. SKU の可用性を取得します。 注文を配置するときに、可用性の**Catalogitemid**が必要になります。この場合、次の api を使用して取得できます。
 
-To submit your Azure reservation order, do the following:
+    * [SKU に使用できる機能の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
+    * [可用性 ID を使用して可用性を取得する](get-an-availability-by-id.md)
 
-1. [Create a cart](create-a-cart.md) to hold the collection of catalog items that you intend to buy. When you create a [cart](cart-resources.md#cart), the [cart line items](cart-resources.md#cartlineitem) are automatically grouped based on what can be purchased together in the same [order](order-resources.md#order). (You can also [update a cart](update-a-cart.md).)
-2. [Check out the cart](checkout-a-cart.md), which results in the creation of an [order](order-resources.md#order).
+## <a name="create-and-submit-an-order"></a>注文を作成して送信する
 
-### <a name="get-order-details"></a>Get order details
+Azure 予約注文を送信するには、次の手順を実行します。
 
-You can [retrieve the details of an individual order using the order ID](get-an-order-by-id.md). You can also [retrieve a list of all orders for a specific customer](get-all-of-a-customer-s-orders.md).
+1. 購入するカタログアイテムのコレクションを保持する[カートを作成](create-a-cart.md)します。 [カート](cart-resources.md#cart)を作成すると、同じ[順序](order-resources.md#order)で一緒に購入できるものに基づいて[カートの品目](cart-resources.md#cartlineitem)が自動的にグループ化されます。 ([カートを更新](update-a-cart.md)することもできます)。
+2. [カート](checkout-a-cart.md)をチェックアウトすると、[注文](order-resources.md#order)が作成されます。
+
+### <a name="get-order-details"></a>注文の詳細を取得する
+
+[注文 ID を使用して、個々の注文の詳細を取得](get-an-order-by-id.md)できます。 また、[特定の顧客のすべての注文の一覧を取得](get-all-of-a-customer-s-orders.md)することもできます。
 
 > [!NOTE]
-> After an order is submitted, there is a delay of up to 15 minutes before the order appears in that customer's order list.
+> 注文が送信されると、その顧客の注文リストに注文が表示されるまでに最大15分の遅延が発生します。
 
-## <a name="get-activation-link"></a>Get activation link
+## <a name="get-activation-link"></a>アクティブ化リンクの取得
 
-The partner or customer must activate subscriptions to Azure Markeplace products. You can [get an activation link by order line item](get-activation-link-by-order-line-item.md). You can also [get a subscription by ID](get-a-subscription-by-id.md), then enumerate its **Links** property to create an activation link.
+パートナーまたは顧客は、Azure にマークされた場所製品のサブスクリプションをアクティブ化する必要があります。 [注文明細項目を使用してアクティブ化リンクを取得](get-activation-link-by-order-line-item.md)できます。 また、 [ID でサブスクリプションを取得](get-a-subscription-by-id.md)し、その**Links**プロパティを列挙してアクティベーションリンクを作成することもできます。
 
 ## <a name="lifecycle-management"></a>ライフサイクルの管理
 
-You can manage the lifecycle of your subscriptions to commercial marketplace products using the following methods:
+次の方法を使用して、商用 marketplace 製品に対するサブスクリプションのライフサイクルを管理できます。
 
-* [Cancel a commercial marketplace subscription](cancel-an-azure-marketplace-subscription.md)
-* [Enable or disable autorenew for a commercial marketplace subscription](update-autorenew-for-an-azure-marketplace-subscription.md)
+* [商用 marketplace サブスクリプションをキャンセルする](cancel-an-azure-marketplace-subscription.md)
+* [商用 marketplace サブスクリプションの autorenew を有効または無効にする](update-autorenew-for-an-azure-marketplace-subscription.md)
 
-## <a name="quantity-management"></a>Quantity management
+## <a name="quantity-management"></a>数量管理
 
-The quantity of a commercial marketplace subscription must be within the limits defined by its associated [SKU](product-resources.md#sku) (see the **minimumQuantity** and **maximumQuantity** attributes). To update the quantity of a commercial marketplace subscription, use the following method:
+商用 marketplace サブスクリプションの数量は、関連付けられている[SKU](product-resources.md#sku)で定義されている制限内である必要があります ( **Minimumquantity**属性と**maximumquantity**属性を参照してください)。 商用 marketplace サブスクリプションの数量を更新するには、次の方法を使用します。
 
-* [Change the quantity of a subscription](change-the-quantity-of-a-subscription.md)
+* [サブスクリプションの数量を変更する](change-the-quantity-of-a-subscription.md)
 
-## <a name="invoice-and-reconciliation"></a>Invoice and reconciliation
+## <a name="invoice-and-reconciliation"></a>請求書と調整
 
-You can manage customer [invoices](invoice-resources.md) (including charges for subscriptions to commercial marketplace products) using the following methods:
+次の方法を使用して、顧客の[請求書](invoice-resources.md)(商用 marketplace 製品へのサブスクリプションの請求を含む) を管理できます。
 
-* [Get invoice billed commercial marketplace consumption line items](get-invoice-billed-consumption-lineitems.md)
-* [Get invoice estimate links](get-invoice-estimate-links.md)
-* [Get invoice unbilled commercial marketplace consumption line items](get-invoice-unbilled-consumption-lineitems.md)
-* [Get invoice unbilled reconciliation line items](get-invoice-unbilled-recon-lineitems.md)
+* [請求書を取得する商用マーケットプレースの従量課金明細項目](get-invoice-billed-consumption-lineitems.md)
+* [請求書の推定リンクの取得](get-invoice-estimate-links.md)
+* [Invoice 未請求商業市場消費量の品目を取得する](get-invoice-unbilled-consumption-lineitems.md)
+* [Invoice 未請求調整の品目を取得する](get-invoice-unbilled-recon-lineitems.md)
 
-## <a name="test-using-integration-sandbox-account"></a>Test using integration sandbox account
+## <a name="test-using-integration-sandbox-account"></a>統合サンドボックスアカウントを使用してテストする
 
-In production, after you have created a subscription to commercial marketplace SaaS products, you need to retrieve a personalized activation link from Partner Center and visit the publisher's site to complete the setup process. Subscription billing will begin only after setup is complete.
+運用環境では、商用 marketplace SaaS 製品へのサブスクリプションを作成した後で、パートナーセンターからパーソナライズされたアクティベーションリンクを取得し、発行者のサイトにアクセスしてセットアッププロセスを完了する必要があります。 サブスクリプションの課金は、セットアップの完了後にのみ開始されます。
 
-In the CSP sandbox environment, there is no integration with ISVs. If you try to retrieve an activation link from Partner Center, a dummy link will be returned. You cannot use this dummy link to complete the setup process at the publisher's site. To use the integration sandbox account to test billing for subscriptions to commercial marketplace SaaS products, use the following method to activate the subscription instead. Subscription billing will begin after successful activation:
+CSP サンドボックス環境では、Isv との統合はありません。 パートナーセンターからライセンス認証リンクを取得しようとすると、ダミーリンクが返されます。 このダミーリンクを使用して、発行元のサイトでセットアッププロセスを完了することはできません。 統合サンドボックスアカウントを使用して、商用 marketplace SaaS 製品へのサブスクリプションの課金をテストするには、次の方法を使用してサブスクリプションをアクティブ化します。 アクティブ化が成功すると、サブスクリプションの課金が開始されます。
 
-* [Activate a sandbox subscription for commercial marketplace products](activate-sandbox-subscription-azure-marketplace-products.md)
+* [商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化する](activate-sandbox-subscription-azure-marketplace-products.md)
 

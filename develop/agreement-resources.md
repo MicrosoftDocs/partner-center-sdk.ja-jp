@@ -1,6 +1,6 @@
 ---
-title: Agreement resources
-description: The Agreement resource represents a Microsoft cloud customer agreement.
+title: 契約リソース
+description: アグリーメントリソースは、Microsoft cloud customer Agreement を表します。
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,29 +12,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489262"
 ---
-# <a name="agreement-resources"></a>Agreement resources
+# <a name="agreement-resources"></a>契約リソース
 
 適用対象:
 
 - パートナー センター
 
-The **Agreement** resource is currently supported by Partner Center in the Microsoft public cloud only. 以下には適用されません。
+**アグリーメント**リソースは、現在、Microsoft パブリッククラウドのパートナーセンターでのみサポートされています。 以下には適用されません。
 
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-The **Agreement** resource represents a Microsoft cloud customer agreement.
+**アグリーメント**リソースは、Microsoft cloud customer Agreement を表します。
 
 ## <a name="agreement"></a>契約
 
-The **Agreement** resource represents the details of certification provided by the partner.
+**アグリーメント**リソースは、パートナーによって提供される認定の詳細を表します。
 
-| プロパティ       | タスクバーの検索ボックスに   | 説明                                                                                               |
+| プロパティ       | 種類   | 説明                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| userId         | string                         | Object identifier of the logged-in user in the partner tenant who is providing confirmation on behalf of the partner organization. When using App+User authentication to create an Agreement resource, Partner Center automatically derives the **userId** attribute value from the App+User token.                                                                             |
-| primaryContact | [Contact](./utility-resources.md#contact) | Information about the user from the customer organization that accepted the Microsoft Cloud Agreement, including:  **firstName**, **lastName**, **email**, and **phoneNumber** (optional). |
-| dateAgreed     | string in UTC date time format | The date when the customer accepted the agreement.                                 |
-| templateId     |string                          | Unique identifier of the agreement that the customer accepted. |
-| type           |string                          | Agreement type. Currently, supported values include **MicrosoftCloudAgreement** and **MicrosoftCustomerAgreement**.|
-| agreementLink  | string                         | URL for the agreement template.                                                    |
+| userId         | string                         | パートナー組織の代わりに確認を提供する、パートナーテナント内のログインユーザーのオブジェクト識別子。 アプリ + ユーザー認証を使用してアグリーメントリソースを作成する場合、パートナーセンターは自動的に、アプリ + ユーザートークンから**userId**属性の値を取得します。                                                                             |
+| primaryContact | [Contact](./utility-resources.md#contact) | Microsoft Cloud 契約に同意した顧客組織からのユーザーに関する情報 ( **firstName**、 **lastName**、 **email**、 **phoneNumber**など)。 |
+| dateAgreed     | UTC 日時形式の文字列 | 顧客がアグリーメントに同意した日付。                                 |
+| templateId     |string                          | 顧客が同意したアグリーメントの一意識別子。 |
+| type           |string                          | 契約の種類。 現在サポートされている値は、 **microsoft の cloudagreement**と**Microsoft の顧客契約**です。|
+| agreementLink  | string                         | アグリーメントテンプレートの URL。                                                    |

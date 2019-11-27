@@ -1,6 +1,6 @@
 ---
-title: Get add-ons for an offer ID
-description: How to get the add-ons for an offer ID.
+title: プラン ID のアドオンを取得する
+description: プラン ID のアドオンを取得する方法。
 ms.assetid: 647EBB14-7ABF-47A4-A342-7A691D8B2BA4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486042"
 ---
-# <a name="get-add-ons-for-an-offer-id"></a>Get add-ons for an offer ID
+# <a name="get-add-ons-for-an-offer-id"></a>プラン ID のアドオンを取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to get the add-ons for an offer ID.
+プラン ID のアドオンを取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An offer ID. If you don't have the offer ID, see [Get a list of offers for a market](get-a-list-of-offers-for-a-market.md).
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- プラン ID。 プラン ID をお持ちでない場合は、「[市場向けのプランの一覧を取得する](get-a-list-of-offers-for-a-market.md)」を参照してください。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get the add-ons for an offer by ID, first call the [**IAggregatePartner.Offers.ByCountry**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) method with the country code to get an interface to offer operations based on the given country. Then call the [**ByID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) method with the offer ID to identify the offer whose add-ons you want to retrieve. Next, use the [**AddOns**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) property to get an interface to add-on operations for the current offer. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) method to get a collection of all the add-ons for the specified offer.
+ID でオファーのアドオンを取得するには、まず、国コードを使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry)メソッドを呼び出し、指定された国に基づいて操作を提供するインターフェイスを取得します。 次に、オファー ID を指定して[**ByID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)メソッドを呼び出し、アドオンを取得するオファーを識別します。 次に、[**アドオン**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons)プロパティを使用して、現在のプランのアドオン操作へのインターフェイスを取得します。 最後に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync)メソッドを呼び出して、指定されたオファーのすべてのアドオンのコレクションを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,39 +44,39 @@ To get the add-ons for an offer by ID, first call the [**IAggregatePartner.Offer
 var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).AddOns.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetOffer.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetOffer.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons?country={country-code} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons? country = {country-CODE} HTTP/1.1 |
 
  
 
-**URI parameters**
+**URI パラメーター**
 
-Use the following parameters to provide the offer ID and country code.
+次のパラメーターを使用して、プラン ID と国コードを指定します。
 
-| 名前         | タスクバーの検索ボックスに       | 必須かどうか | 説明                       |
+| 名前         | 種類       | 必須 | 説明                       |
 |--------------|------------|----------|-----------------------------------|
-| **offer-id** | **guid**   | Y        | A GUID that identifies the offer. |
-| **country**  | **string** | Y        | The country code (e.g. US).       |
+| **プラン id** | **guid**   | Y        | オファーを識別する GUID。 |
+| **原産**  | **文字列** | Y        | 国コード (例: US)。       |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/195416C1-3447-423A-B37B-EE59A99A19C4/addons?country=us HTTP/1.1
@@ -88,16 +88,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, this method returns a collection of [Offer](offer-resources.md) objects in the response body.
+成功した場合、このメソッドは応答本文で[オファー](offer-resources.md)オブジェクトのコレクションを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
 title: 顧客のユーザー アカウントを更新する
-description: Update details in an existing user account for your customer.
+description: 顧客の既存のユーザーアカウントの詳細を更新します。
 ms.assetid: 26E79662-2376-4208-A645-20069DBE0457
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -16,22 +16,22 @@ ms.locfileid: "74487832"
 # <a name="update-user-accounts-for-a-customer"></a>顧客のユーザー アカウントを更新する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-Update details in an existing user account for your customer.
+顧客の既存のユーザーアカウントの詳細を更新します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update the details for a specified customer user, first retrieve the specified customer ID and user to update. Then, create an updated version of the user in a new **CustomerUser** object. Then, use your **IAggregatePartner.Customers** collection and call the **ById()** method. Then call the **Users** property, the **ById()** method, followed by the **Patch()** method.
+指定された顧客ユーザーの詳細を更新するには、最初に、指定した顧客 ID と更新するユーザーを取得します。 次に、新しいユーザーオブジェクトで、更新されたバージョン**のユーザーを**作成します。 次に、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、 **Users**プロパティ、 **ById ()** メソッド、 **Patch ()** メソッドの順に呼び出します。
 
 ``` csharp
 // string selectedCustomerId;
@@ -54,37 +54,37 @@ User updatedCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomer
 
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: CustomerUserUpdate.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: CustomerUserUpdate.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド    | 要求 URI                                                                                  |
 |-----------|----------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
+| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameter to identify the correct customer.
+次のクエリパラメーターを使用して、正しい顧客を特定します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **user-id**            | **guid** | Y        | The value is a GUID formatted **user-id** that belongs to a single user account.                                                                       |
+| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **ユーザー id**            | **guid** | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                                                       |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
-**Request example**
+**要求の例**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/users/<user-id> HTTP/1.1
@@ -101,16 +101,16 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
 
 
-If successful, this method returns a user account with the updated information.
+成功した場合、このメソッドは、更新された情報を持つユーザーアカウントを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

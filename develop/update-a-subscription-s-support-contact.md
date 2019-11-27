@@ -1,6 +1,6 @@
 ---
-title: Update a subscription's support contact
-description: How to update a subscription's support contact to one of the partner's value added resellers.
+title: サブスクリプションのサポート連絡先を更新する
+description: サブスクリプションのサポート担当者を、パートナーの付加価値再販業者の1つに更新する方法。
 ms.assetid: 6DE6EF60-6F8B-46F2-8278-CD706081B180
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486422"
 ---
-# <a name="update-a-subscriptions-support-contact"></a>Update a subscription's support contact
+# <a name="update-a-subscriptions-support-contact"></a>サブスクリプションのサポート連絡先を更新する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to update a subscription's support contact to one of the partner's value added resellers.
+サブスクリプションのサポート担当者を、パートナーの付加価値再販業者の1つに更新する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A subscription identifier.
-- Information about the new support contact: tenant identifier, Microsoft Partner Network identifier, and name. The support contact must be one of the partner's value added resellers.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客識別子。
+- サブスクリプション識別子。
+- 新しいサポート連絡先に関する情報: テナント識別子、Microsoft Partner Network 識別子、および名前。 サポート担当者は、パートナーの付加価値再販業者の1人である必要があります。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update a subscription's support contact, first instantiate and populate a [**SupportContact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) object with the new values. Then use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Next, get an interface to subscription operations by calling the [**Subscriptions.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the subscription ID. Then, use the [**SupportContact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) property to obtain an interface to support contact operations. Finally, call the [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update) or [**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync) method with the populated SupportContact object to update the support contact.
+サブスクリプションのサポート担当者を更新するには、まず、新しい値を使用して[**supportcontact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact)オブジェクトをインスタンス化して設定します。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、サブスクリプション ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、 [**supportcontact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact)プロパティを使用して、連絡先操作をサポートするインターフェイスを取得します。 最後に、設定された SupportContact オブジェクトを使用して[**update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update)または[**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync)メソッドを呼び出し、サポート連絡先を更新します。
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -54,39 +54,39 @@ var supportContact = new SupportContact()
 var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionID).SupportContact.Update(supportContact);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: UpdateSubscriptionSupportContact.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: UpdateSubscriptionSupportContact.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/supportcontact HTTP/1.1 |
+| **投入** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/supportcontact HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following path parameters to identify the customer and subscription.
+次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| 名前            | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                     |
+| 名前            | 種類   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | string | [はい]      | A GUID formatted string that identifies the customer.           |
-| subscription-id | string | [はい]      | A GUID formatted string that identifies the trial subscription. |
+| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。           |
+| サブスクリプション id | string | 〇      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
-You must include a populated [SupportContact](subscription-resources.md#supportcontact) resource in the request body. The support contact must be an existing reseller with a relationship to the partner.
+要求本文には、設定された[Supportcontact](subscription-resources.md#supportcontact)リソースを含める必要があります。 サポート連絡先は、パートナーとの関係を持つ既存の再販業者である必要があります。
 
-**Request example**
+**要求の例**
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/customers/0c39d6d5-c70d-4c55-bc02-f620844f3fd1/subscriptions/C8D8FBAB-6A62-44DC-BE50-B7C74E43A296/supportcontact HTTP/1.1
@@ -117,16 +117,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 応答
 
 
-If successful, the response body contains the [SupportContact](subscription-resources.md#supportcontact) resource.
+成功した場合、応答本文には[Supportcontact](subscription-resources.md#supportcontact)リソースが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

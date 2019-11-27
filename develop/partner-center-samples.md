@@ -1,6 +1,6 @@
 ---
-title: Partner Center samples
-description: To help you get up and running quickly with the Partner Center APIs, we provide a sample program, C\ managed code snippets, and REST sample requests and responses.
+title: パートナーセンターのサンプル
+description: パートナーセンター Api を使用して迅速に稼働させるには、サンプルプログラム、C \ マネージコードスニペット、REST サンプルの要求と応答を提供します。
 ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,16 +13,16 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486792"
 ---
-# <a name="partner-center-samples"></a>Partner Center samples
+# <a name="partner-center-samples"></a>パートナーセンターのサンプル
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-To help you get up and running quickly with the Partner Center APIs, we provide a sample program, C# managed code snippets, and REST sample requests and responses.
+パートナーセンター Api を使用して迅速に稼働させるには、サンプルプログラム、 C#マネージコードスニペット、および REST サンプルの要求と応答を提供します。
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -35,34 +35,34 @@ To help you get up and running quickly with the Partner Center APIs, we provide 
   </thead>
   <tbody>
     <tr>
-      <td>Code snippets</td>
-      <td>For pointers and .NET, Java, and PowerShell code snippets that show how to use the Partner Center managed API to manage customer accounts, get analytics, place orders, manage billing and subscriptions, provide support, and manage accounts and profiles, see <a href="scenarios.md">Scenarios</a>.</td>
+      <td>コード スニペット</td>
+      <td>パートナーセンターのマネージ API を使用して顧客アカウントを管理する方法、分析の取得、注文の配置、請求とサブスクリプションの管理、サポートの提供、アカウントとプロファイルの管理を行う方法を示すポインターと .NET、Java、PowerShell コードスニペットについては、「<a href="scenarios.md">シナリオ</a>」を参照してください。</td>
     </tr>
     <tr>
-      <td>REST samples</td>
-      <td>For sample requests and responses that show how to use the Partner Center REST API to manage customer accounts, get analytics, place orders, manage billing and subscriptions, provide support, and manage accounts and profiles, see <a href="scenarios.md">Scenarios</a>.</td>
+      <td>REST サンプル</td>
+      <td>パートナーセンターの REST API を使用して顧客アカウントを管理する方法、分析の取得、注文の配置、請求とサブスクリプションの管理、サポートの提供、アカウントとプロファイルの管理の方法を示すサンプル要求と応答については、「<a href="scenarios.md">シナリオ</a>」を参照してください。</td>
     </tr>
     <tr>
-      <td><a href="console-test-app.md">Console test app</a></td>
-      <td>This app is available in C# and Java, it provides code and some error handling for all of the scenarios listed in the scenarios section.</td>
+      <td><a href="console-test-app.md">コンソールテストアプリ</a></td>
+      <td>このアプリは、とC# Java で使用できます。また、「シナリオ」セクションに記載されているすべてのシナリオに対してコードとエラー処理を提供します。</td>
     </tr>
     <tr>
-      <td><a href="csp-customer-web-storefront.md">CSP customer web storefront</a></td>
-      <td>This site shows a working online store that your customers could use to buy subscriptions to Microsoft products. You can easily create a website for your company with the <a href="csp-customer-storefront-builder-quick-start-guide-.md">CSP Customer Storefront Builder Quickstart Guide</a>.</td>
+      <td><a href="csp-customer-web-storefront.md">CSP カスタマー web ネットショップ</a></td>
+      <td>このサイトでは、お客様が Microsoft 製品のサブスクリプションを購入するために使用できる、作業中のオンラインストアを示します。 <a href="csp-customer-storefront-builder-quick-start-guide-.md">CSP カスタマーストアビルダーのクイックスタートガイド</a>を使用して、会社用の web サイトを簡単に作成できます。</td>
     </tr>
     <tr>
-      <td>Store web site</td>
+      <td>Web サイトの保存</td>
       <td><p><strong>説明 :</strong></p>
-          <p>This application shows how to build a web store based on the catalog of offers available to Cloud Solution Provider partners. Customers can create a store account and order software subscriptions through your site.</p>
-        <p><strong>Get the code:</strong></p>
-        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">Download the sample code</a></p>
-        <p><strong>What to configure before release:</strong></p>
+          <p>このアプリケーションは、クラウドソリューションプロバイダーパートナーが利用できるオファーのカタログに基づいて web ストアを構築する方法を示しています。 お客様は、ストアアカウントを作成し、サイトを通じてソフトウェアサブスクリプションを注文することができます。</p>
+        <p><strong>コードを取得します。</strong></p>
+        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">サンプルコードをダウンロードする</a></p>
+        <p><strong>リリース前に構成する内容:</strong></p>
         <ul>
-          <li><p>Authentication: App ID & secret.</p></li>
-          <li><p>Branding: logo and company name.</p></li>
-          <li><p>Welcome message.</p></li>
-          <li><p>Offers, including descriptions and prices. The app assumes that the list prices include any applicable taxes. Alternatively, you can add additional logic to calculate tax during checkout.</p></li>
-          <li><p>Payment information: provide your own credit card options, PayPal, or other payment types. Before you configure this part, please read the guide <a href="https://docs.microsoft.com/partner-center/non-payment--fraud--or-misuse">Non-payment, fraud, or misuse</a>.</p></li>
+          <li><p>認証: アプリ ID & シークレット。</p></li>
+          <li><p>ブランド化: ロゴと会社名。</p></li>
+          <li><p>ウェルカムメッセージ。</p></li>
+          <li><p>説明と価格を含むプラン。 このアプリでは、一覧の価格に該当する税金が記載されていることを前提としています。 または、チェックアウト中に税を計算するためのロジックを追加することもできます。</p></li>
+          <li><p>支払い情報: 独自のクレジットカードオプション、PayPal、またはその他の支払いの種類を提供します。 このパートを構成する前に、「<a href="https://docs.microsoft.com/partner-center/non-payment--fraud--or-misuse">非支払い、不正行為、誤用</a>」ガイドをお読みください。</p></li>
         </ul>
       </td>
     </tr>

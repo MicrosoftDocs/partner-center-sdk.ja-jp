@@ -1,6 +1,6 @@
 ---
-title: Profile resources
-description: Describes the behavior of a Cloud Solution Provider's profiles.
+title: プロファイルリソース
+description: クラウドソリューションプロバイダーのプロファイルの動作について説明します。
 ms.assetid: 42F2959B-D70D-41A7-9A50-E22A2356A339
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,106 +13,106 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486762"
 ---
-# <a name="profile-resources"></a>Profile resources
+# <a name="profile-resources"></a>プロファイルリソース
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Describes the behavior of a Cloud Solution Provider's profiles.
+クラウドソリューションプロバイダーのプロファイルの動作について説明します。
 
-## <a name="span-idbillingprofilespan-idbillingprofilespan-idbillingprofilebillingprofile"></a><span id="BillingProfile"/><span id="billingprofile"/><span id="BILLINGPROFILE"/>BillingProfile
+## <a name="span-idbillingprofilespan-idbillingprofilespan-idbillingprofilebillingprofile"></a><span id="BillingProfile"/><span id="billingprofile"/><span id="BILLINGPROFILE"/>のプロファイル
 
 
-Describes a partner's billing profile.
+パートナーの請求プロファイルを説明します。
 
-| プロパティ            | タスクバーの検索ボックスに                                                           | 説明                                                 |
+| プロパティ            | 種類                                                           | 説明                                                 |
 |---------------------|----------------------------------------------------------------|-------------------------------------------------------------|
-| companyName         | string                                                         | The billing company name.                                   |
-| address             | [Address](utility-resources.md#address)                       | The billing address address of the company or organization. |
-| primaryContact      | [Contact](utility-resources.md#contact)                       | The primary contact for the company or organization.        |
-| purchaseOrderNumber | string                                                         | The company or organization's purchase order number.        |
-| taxId               | string                                                         | The company or organization's tax Id.                       |
-| billingCurrency     | string                                                         | The currency used by the company or organization.           |
-| profileType         | string                                                         | The partner profile type.                                   |
-| links               | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links corresponding to the profile.            |
-| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile.       |
+| 仕入         | string                                                         | 請求先の会社名。                                   |
+| address             | [先](utility-resources.md#address)                       | 会社または組織の請求先住所。 |
+| primaryContact      | [Contact](utility-resources.md#contact)                       | 会社または組織の主要連絡先。        |
+| Dbo.accountnumber | string                                                         | 会社または組織の発注番号。        |
+| taxId               | string                                                         | 会社または組織の税 Id。                       |
+| 通貨     | string                                                         | 会社または組織によって使用される通貨。           |
+| profileType         | string                                                         | パートナーのプロファイルの種類。                                   |
+| links               | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。            |
+| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。       |
 
  
 
 ## <a name="span-idlegalbusinessprofilespan-idlegalbusinessprofilespan-idlegalbusinessprofilelegalbusinessprofile"></a><span id="LegalBusinessProfile"/><span id="legalbusinessprofile"/><span id="LEGALBUSINESSPROFILE"/>LegalBusinessProfile
 
 
-Describes a partner's legal business profile.
+パートナーの法的ビジネスプロファイルについて説明します。
 
-| プロパティ               | タスクバーの検索ボックスに                                                           | 説明                                                                                                                                                          |
+| プロパティ               | 種類                                                           | 説明                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| companyName            | string                                                         | The legal company name.                                                                                                                                              |
-| address                | [Address](utility-resources.md#address)                       | The address of the company or organization.                                                                                                                          |
-| primaryContact         | [Contact](utility-resources.md#contact)                       | The primary contact for the company or organization.                                                                                                                 |
-| companyApproverAddress | [Address](utility-resources.md#address)                       | The company approver address.                                                                                                                                        |
-| companyApproverEmail   | string                                                         | The company approver email.                                                                                                                                          |
-| vettingStatus          | string                                                         | The vetting status. This value is the string representation of the one of the member names found in [**VettingStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus).           |
-| vettingSubStatus       | string                                                         | The vetting sub-status. This value is the string representation of the one of the member names found in [**VettingSubStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus). |
-| profileType            | string                                                         | The partner profile type.                                                                                                                                            |
-| links                  | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links corresponding to the profile.                                                                                                                     |
-| 属性             | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile.                                                                                                                |
+| 仕入            | string                                                         | 法的企業名。                                                                                                                                              |
+| address                | [先](utility-resources.md#address)                       | 会社または組織の住所。                                                                                                                          |
+| primaryContact         | [Contact](utility-resources.md#contact)                       | 会社または組織の主要連絡先。                                                                                                                 |
+| 会社の承認 Veraddress | [先](utility-resources.md#address)                       | 会社の承認者のアドレス。                                                                                                                                        |
+| 会社の承認 Veremail   | string                                                         | 会社の承認者の電子メール。                                                                                                                                          |
+| vettingStatus          | string                                                         | 審査の状態。 この値は、 [**VettingStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus)で見つかったメンバー名のいずれかの文字列表現です。           |
+| vettingSubStatus       | string                                                         | 審査サブステータス。 この値は、 [**VettingSubStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus)で見つかったメンバー名のいずれかの文字列表現です。 |
+| profileType            | string                                                         | パートナーのプロファイルの種類。                                                                                                                                            |
+| links                  | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。                                                                                                                     |
+| 属性             | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                                                                                                                |
 
  
 
 ## <a name="span-idmpnprofilespan-idmpnprofilespan-idmpnprofilempnprofile"></a><span id="MpnProfile"/><span id="mpnprofile"/><span id="MPNPROFILE"/>MpnProfile
 
 
-Describes a partner's Microsoft Partner Network profile.
+パートナーの Microsoft Partner Network プロファイルを記述します。
 
-| プロパティ    | タスクバーの検索ボックスに                                                           | 説明                                           |
+| プロパティ    | 種類                                                           | 説明                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
-| partnerName | string                                                         | The company or organization name.                     |
-| mpnId       | string                                                         | The Microsoft Partner Network Id.                     |
-| profileType | string                                                         | The partner profile type.                             |
-| links       | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links corresponding to the profile.      |
-| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile. |
+| partnerName | string                                                         | 会社名または組織名。                     |
+| mpnId       | string                                                         | Microsoft Partner Network Id。                     |
+| profileType | string                                                         | パートナーのプロファイルの種類。                             |
+| links       | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。      |
+| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。 |
 
  
 
-## <a name="span-idorganizationprofilespan-idorganizationprofilespan-idorganizationprofileorganizationprofile"></a><span id="OrganizationProfile"/><span id="organizationprofile"/><span id="ORGANIZATIONPROFILE"/>OrganizationProfile
+## <a name="span-idorganizationprofilespan-idorganizationprofilespan-idorganizationprofileorganizationprofile"></a><span id="OrganizationProfile"/><span id="organizationprofile"/><span id="ORGANIZATIONPROFILE"/>組織プロファイル
 
 
-Describes a partner's organization profile.
+パートナーの組織のプロファイルについて説明します。
 
-| プロパティ       | タスクバーの検索ボックスに                                                           | 説明                                                            |
+| プロパティ       | 種類                                                           | 説明                                                            |
 |----------------|----------------------------------------------------------------|------------------------------------------------------------------------|
-| id             | string                                                         | The organization's Id.                                                 |
-| companyName    | string                                                         | The name of the company or organization.                               |
-| defaultAddress | [Address](utility-resources.md#address)                       | The default address of the company or organization.                    |
-| tenantId       | string                                                         | The tenant identifier.                                                 |
-| domain         | string                                                         | The company or organization's domain.                                  |
-| メール          | string                                                         | Gets or sets the parent subscription.                                  |
-| 言語       | string                                                         | The preferred language for communication.                              |
-| culture        | string                                                         | The preferred culture for communication and currency, such as "en-us". |
-| profileType    | string                                                         | The partner profile type.                                              |
-| links          | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links corresponding to the profile.                       |
-| 属性     | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile.                  |
+| id             | string                                                         | 組織の Id。                                                 |
+| 仕入    | string                                                         | 会社または組織の名前。                               |
+| defaultAddress | [先](utility-resources.md#address)                       | 会社または組織の既定のアドレス。                    |
+| テナント       | string                                                         | テナント識別子。                                                 |
+| domain         | string                                                         | 会社または組織のドメイン。                                  |
+| 電子メール          | string                                                         | 親サブスクリプションを取得します。値の設定もできます。                                  |
+| 言語       | string                                                         | 通信に使用する言語です。                              |
+| カルチャ        | string                                                         | 通信と通貨に使用する優先カルチャ ("en-us" など)。 |
+| profileType    | string                                                         | パートナーのプロファイルの種類。                                              |
+| links          | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。                       |
+| 属性     | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                  |
 
  
 
 ## <a name="span-idsupportprofilespan-idsupportprofilespan-idsupportprofilesupportprofile"></a><span id="SupportProfile"/><span id="supportprofile"/><span id="SUPPORTPROFILE"/>SupportProfile
 
 
-Describes a partner's support profile.
+パートナーのサポートプロファイルについて説明します。
 
-| プロパティ    | タスクバーの検索ボックスに                                                           | 説明                                           |
+| プロパティ    | 種類                                                           | 説明                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
-| メール       | string                                                         | The email address associated with the profile.        |
-| 電話   | string                                                         | The phone number associated with the profile.         |
-| website     | string                                                         | The support website.                                  |
-| profileType | string                                                         | The partner profile type.                             |
-| links       | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links corresponding to the profile.      |
-| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile. |
+| 電子メール       | string                                                         | プロファイルに関連付けられている電子メールアドレス。        |
+| 電話   | string                                                         | プロファイルに関連付けられている電話番号。         |
+| Web サイト (website)     | string                                                         | サポート web サイト。                                  |
+| profileType | string                                                         | パートナーのプロファイルの種類。                             |
+| links       | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。      |
+| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。 |
 
  
 

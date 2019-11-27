@@ -1,6 +1,6 @@
 ---
-title: Customer resources
-description: Customer resources that represent a customer or reseller.
+title: お客様のリソース
+description: 顧客または再販業者を表す顧客リソース。
 ms.assetid: C7EC2657-62F2-43B3-B171-2F74498D45E0
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489702"
 ---
-# <a name="customer-resources"></a>Customer resources
+# <a name="customer-resources"></a>お客様のリソース
 
 適用対象:
 
@@ -24,59 +24,59 @@ ms.locfileid: "74489702"
 
 ## <a name="customer"></a>お客様
 
-The **Customer** resource represents a customer or reseller. Most broadly, a customer resouce can be any person, employee, or organization that wishes to do business with Microsoft and Microsoft's resellers. Customers also have a company profile and a billing profile.
+**顧客**リソースは、顧客または再販業者を表します。 多くの場合、お客様のリソースには、Microsoft および Microsoft のリセラーと取引を行うことを望んでいる任意のユーザー、従業員、または組織を使用できます。 また、お客様には会社プロファイルと請求プロファイルもあります。
 
 >[!NOTE]
->The **Customer** resource has a rate limit of 500 requests per minute per tenant identifier.
+>**お客様**のリソースには、テナント識別子ごとに1分あたり500の要求のレート制限があります。
 
-| プロパティ              | タスクバーの検索ボックスに                                                             | 説明                                                                                                                                  |
+| プロパティ              | 種類                                                             | 説明                                                                                                                                  |
 |-----------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| id                    | string                                                           | The customer ID.                                                                                                                             |
-| commerceId            | string                                                           | The commerce ID.                                                                                                                             |
-| companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | Additional information about the company or organization.                                                                                    |
-| billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | Additional information used for billing.                                                                                                     |
-| relationshipToPartner | string                                                           | Defines the licensing program that the partner uses for this customer: "none", "reseller", "advisor", "syndication" or "microsoft\_support". |
-| allowDelegatedAccess  | boolean                                                          | Whether the partner has been granted delegated admin privileges by this customer.                                                            |
-| userCredentials       | [UserCredentials](user-resources.md#usercredentials) | The user credentials.                                                                                                                        |
-| customDomains         | 文字列の配列                                                 | List of custom domains of a customer.                                                                                                        |
-| associatedPartnerId   | string                                                           | The indirect reseller associated to this customer account. This value can be set only by indirect CSP partners.                              |
-| links                 | [ResourceLinks](utility-resources.md#resourcelinks)             | The resource links contained within the profile.                                                                                             |
-| 属性            | [ResourceAttributes](utility-resources.md#resourceattributes)   | The metadata attributes corresponding to the profile.                                                                                        |
+| id                    | string                                                           | 顧客 ID。                                                                                                                             |
+| commerceId            | string                                                           | コマース ID。                                                                                                                             |
+| 会社のプロファイル        | [顧客企業プロファイル](#customercompanyprofile)                | 会社または組織に関する追加情報。                                                                                    |
+| billingProfile        | [顧客のプロファイル](#customerbillingprofile)                | 課金に使用される追加情報。                                                                                                     |
+| relationshipToPartner | string                                                           | パートナーがこの顧客に使用するライセンスプログラムを定義します。 "none"、"再販業者"、"advisor"、"シンジケーション"、"microsoft\_support" などです。 |
+| allowDelegatedAccess  | boolean                                                          | この顧客によって代理管理者特権がパートナーに付与されているかどうか。                                                            |
+| ユーザー       | [ユーザー](user-resources.md#usercredentials) | ユーザーの資格情報。                                                                                                                        |
+| customDomains         | 文字列の配列                                                 | 顧客のカスタムドメインの一覧。                                                                                                        |
+| associatedPartnerId   | string                                                           | この顧客アカウントに関連付けられている間接リセラー。 この値は、間接 CSP パートナーによってのみ設定できます。                              |
+| links                 | [ResourceLinks](utility-resources.md#resourcelinks)             | プロファイル内に含まれるリソースリンク。                                                                                             |
+| 属性            | [ResourceAttributes](utility-resources.md#resourceattributes)   | プロファイルに対応するメタデータ属性。                                                                                        |
 
-## <a name="customercompanyprofile"></a>CustomerCompanyProfile
+## <a name="customercompanyprofile"></a>顧客企業プロファイル
 
-The **CustomerCompanyProfile** resource is additional information about the company or organization.
+**顧客企業プロファイル**リソースは、会社または組織に関する追加情報です。
 
-| プロパティ    | タスクバーの検索ボックスに                                                           | 説明                                                                       |
+| プロパティ    | 種類                                                           | 説明                                                                       |
 |-------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| tenantId    | string                                                         | The customer's tenant identifier for Azure AD. This is also called a MicrosoftID. |
-| domain      | string                                                         | The customer's name, such as contoso.onmicrosoft.com.                             |
-| companyName | string                                                         | The name of the company or organization.                                          |
-| links       | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links contained within the profile.                                  |
-| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile.                             |
+| テナント    | string                                                         | Azure AD の顧客のテナント識別子。 これは、MicrosoftID とも呼ばれます。 |
+| domain      | string                                                         | 顧客の名前 (contoso.onmicrosoft.com など)。                             |
+| 仕入 | string                                                         | 会社または組織の名前。                                          |
+| links       | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイル内に含まれるリソースリンク。                                  |
+| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                             |
 
-## <a name="customerbillingprofile"></a>CustomerBillingProfile
+## <a name="customerbillingprofile"></a>顧客のプロファイル
 
-The **CustomerBillingProfile** resource is additional information used for billing the customer.
+顧客ごとの**プロファイル**リソースは、顧客の請求に使用される追加情報です。
 
-| プロパティ       | タスクバーの検索ボックスに                                                           | 説明                                                                                                                                            |
+| プロパティ       | 種類                                                           | 説明                                                                                                                                            |
 |----------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id             | string                                                         | The profile identifier.                                                                                                                                |
-| firstName      | string                                                         | The first name of the billing contact at the customer's company. This is the person that invoices and other billing communication will be directed to. |
-| lastName       | string                                                         | The last name of the billing contact.                                                                                                                  |
-| メール          | string                                                         | The billing contact's email address                                                                                                                    |
-| culture        | string                                                         | Their preferred culture for communication and currency, such as "en-us".                                                                               |
-| 言語       | string                                                         | Their preferred language for communication.                                                                                                            |
-| companyName    | string                                                         | The name of the company or organization.                                                                                                               |
-| defaultAddress | [Address](utility-resources.md#address)                       | The address that bills are sent to, where the billing contact works.                                                                                   |
-| links          | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links contained within the profile.                                                                                                       |
-| 属性     | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile.                                                                                                  |
+| id             | string                                                         | プロファイル識別子。                                                                                                                                |
+| firstName      | string                                                         | 顧客の会社の請求先の連絡先の名。 これは、請求書とその他の課金情報の送信先になります。 |
+| lastName       | string                                                         | 請求先の連絡先の姓。                                                                                                                  |
+| 電子メール          | string                                                         | 請求先の連絡先の電子メールアドレス                                                                                                                    |
+| カルチャ        | string                                                         | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。                                                                               |
+| 言語       | string                                                         | 通信に使用する優先言語。                                                                                                            |
+| 仕入    | string                                                         | 会社または組織の名前。                                                                                                               |
+| defaultAddress | [先](utility-resources.md#address)                       | 請求先となる請求先の住所。                                                                                   |
+| links          | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイル内に含まれるリソースリンク。                                                                                                       |
+| 属性     | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                                                                                                  |
 
-## <a name="customerrelationshiprequest"></a>CustomerRelationshipRequest
+## <a name="customerrelationshiprequest"></a>顧客の Relationshiprequest
 
-The **CustomerRelationshipRequest** resource contains the URL used by the customer to establish a reseller relationship with a partner.
+カスタマー **Relationshiprequest**リソースには、パートナーとの再販業者関係を確立するために顧客が使用する URL が含まれています。
 
-| プロパティ   | タスクバーの検索ボックスに                                                           | 説明                                                              |
+| プロパティ   | 種類                                                           | 説明                                                              |
 |------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| url        | string                                                         | The URL used by the customer to establish a relationship with a partner. |
-| 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the relationship request.       |
+| url        | string                                                         | パートナーとの関係を確立するために顧客が使用する URL。 |
+| 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | リレーションシップ要求に対応するメタデータ属性。       |

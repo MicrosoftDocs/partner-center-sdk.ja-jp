@@ -1,6 +1,6 @@
 ---
-title: Update a configuration policy for the specified customer
-description: How to update the specified configuration policy for the specified customer.
+title: 指定された顧客の構成ポリシーを更新します
+description: 指定された顧客に対して指定された構成ポリシーを更新する方法。
 ms.assetid: E2B91AC4-B8E8-4A77-AFB7-0CCEF5136621
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486452"
 ---
-# <a name="update-a-configuration-policy-for-the-specified-customer"></a>Update a configuration policy for the specified customer
+# <a name="update-a-configuration-policy-for-the-specified-customer"></a>指定された顧客の構成ポリシーを更新します
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-How to update the specified configuration policy for the specified customer.
+指定された顧客に対して指定された構成ポリシーを更新する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
-- The policy identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
+- ポリシー識別子。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update an existing configuration policy for the specified customer, instantiate a new [**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) object as shown in the following code snippet. The values in this new object replace the corresponding values in the existing object. Then, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer. Next, call the [**ConfigurationPolicies.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) method with the policy ID to retrieve an interface to configuration policy operations for the specified policy. Finally, call the [**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) or [**PatchAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) method to update the configuration policy.
+指定された顧客の既存の構成ポリシーを更新するには、次のコードスニペットに示すように、新しい[**configurationpolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy)オブジェクトをインスタンス化します。 この新しいオブジェクトの値は、既存のオブジェクト内の対応する値に置き換えられます。 次に、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。 次に、ポリシー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)メソッドを呼び出し、指定したポリシーの構成ポリシー操作へのインターフェイスを取得します。 最後に、Patch または[**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) [**async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync)メソッドを呼び出して、構成ポリシーを更新します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -53,50 +53,50 @@ ConfigurationPolicy updatedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Patch(configPolicyToBeUpdated);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: UpdateConfigurationPolicy.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: UpdateConfigurationPolicy.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
+| **投入** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following path parameters when creating the request.
+要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                   |
+| 名前        | 種類   | 必須 | 説明                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| customer-id | string | [はい]      | A GUID-formatted string that identifies the customer.         |
-| policy-id   | string | [はい]      | A GUID-formatted string that identifies the policy to update. |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。         |
+| ポリシー-id   | string | 〇      | 更新するポリシーを識別する GUID 形式の文字列。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
-The request body must contain an object that provides the policy information.
+要求本文には、ポリシー情報を提供するオブジェクトが含まれている必要があります。
 
-| 名前            | タスクバーの検索ボックスに             | 必須かどうか | Updatable | 説明                                                                                                                                              |
+| 名前            | 種類             | 必須 | あっ | 説明                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id              | string           | [はい]      | 必須ではない        | The GUID-formatted string that identifies the policy.                                                                                                    |
-| 名前            | string           | [はい]      | [はい]       | The friendly name of the policy.                                                                                                                         |
-| category        | string           | [はい]      | 必須ではない        | The policy category.                                                                                                                                     |
-| 説明     | string           | 必須ではない       | [はい]       | The policy description.                                                                                                                                  |
-| devicesAssigned | number           | 必須ではない       | 必須ではない        | The number of devices.                                                                                                                                   |
-| policySettings  | 文字列の配列 | [はい]      | [はい]       | The policy settings: "none","remove\_oem\_preinstalls","oobe\_user\_not\_local\_admin","skip\_express\_settings","skip \_oem\_registration,"skip\_eula". |
+| id              | string           | 〇      | X        | ポリシーを識別する GUID 形式の文字列。                                                                                                    |
+| name            | string           | 〇      | 〇       | ポリシーのフレンドリ名。                                                                                                                         |
+| 別        | string           | 〇      | X        | ポリシーカテゴリ。                                                                                                                                     |
+| 説明     | string           | X       | 〇       | ポリシーの説明。                                                                                                                                  |
+| 割り当てられたデバイス | number           | X       | X        | デバイスの数。                                                                                                                                   |
+| policySettings  | 文字列の配列 | 〇      | 〇       | ポリシー設定は、"none"、"remove\_oem\_プレインストール"、"oobe\_ユーザー\_\_ローカル\_管理者"、"\_の高速\_設定をスキップ"、"\_oem\_登録をスキップ"、"\_eula をスキップ" です。 |
 
  
 
-**Request example**
+**要求の例**
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/customers/47021739-3426-40bf-9601-61b4b6d7c793/policies/56edf752-ee77-4fd8-b7f5-df1f74a3a9ac HTTP/1.1
@@ -119,16 +119,16 @@ Host: api.partnercenter.microsoft.com
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, the response body contains the [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) resource for the new policy.
+成功した場合、応答本文には新しいポリシーの[Configurationpolicy](device-deployment-resources.md#configurationpolicy)リソースが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

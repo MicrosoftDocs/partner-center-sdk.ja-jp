@@ -1,6 +1,6 @@
 ---
-title: Get prices for Microsoft Azure Partner Shared Services
-description: How to get an Azure Rate Card with prices for Microsoft Azure Partner Shared Services.
+title: Microsoft Azure パートナーの共有サービスの価格を取得する
+description: Microsoft Azure Partner Shared Services の価格で Azure 料金カードを取得する方法について説明します。
 ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,23 +13,23 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490002"
 ---
-# <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Get prices for Microsoft Azure Partner Shared Services
+# <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Microsoft Azure パートナーの共有サービスの価格を取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to get an [Azure Rate Card](azure-rate-card-resources.md) with prices for Microsoft Azure Partner Shared Services.
+Microsoft Azure Partner Shared Services の価格で[Azure 料金カード](azure-rate-card-resources.md)を取得する方法について説明します。
 
-Prices differ by market and currency, and this API takes location into consideration. By default, it uses your partner profile settings in Partner Center and your browser language, but those are customizable. This is especially relevant if you manage sales in multiple markets from a single, centralized office.
+価格は市場と通貨によって異なります。この API は、場所を考慮します。 既定では、パートナーのプロファイル設定はパートナーセンターとブラウザーの言語で使用されますが、カスタマイズすることもできます。 これは、1つの集中管理されたオフィスから複数の市場で売上を管理する場合に特に関連します。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C# 
 
-To obtain the Azure Rate Card, call the [**IAzureRateCard.GetShared**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) method to return an [**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) resource that contains the Azure prices.
+Azure の料金カードを取得するには、 [**IAzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared)メソッドを呼び出して、azure の価格を含む[**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard)リソースを返します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -41,7 +41,7 @@ var azureRateCard = partner.RateCards.Azure.GetShared();
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To obtain the Azure Rate Card, call the **IAzureRateCard.getShared** function to return rate card details that contains the Azure prices.
+Azure の料金カードを取得するには、 **IAzureRateCard**関数を呼び出して、azure の価格を含む料金カードの詳細を返します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -53,38 +53,38 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().getShared();
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To obtain the Azure Card, execute the [**Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) command and specify the **SharedServices** parameter to retrun rate card details that contains the Azure prices.
+Azure カードを取得するには、 [**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md)コマンドを実行し、 **sharedservices**パラメーターを指定して、azure の価格を含むカードの詳細を取得します。
 
 ```powershell
 Get-PartnerAzureRateCard -SharedServices
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                               |
 |---------|---------------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/ratecards/azure-shared?currency={currency}&region={region} |
+| **取得** | *{baseURL}* /v1/ratecards/azure-shared? currency = {currency} & region = {region} |
 
-**URI parameters**
+**URI パラメーター**
 
-| 名前     | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                                                                                                                               |
+| 名前     | 種類   | 必須 | 説明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | string | 必須ではない       | Optional three letter ISO code for the currency in which the resource rates will be provided (e.g. "EUR"). The default is the currency associated with the market in the partner profile. |
-| region   | string | 必須ではない       | Optional two-letter ISO country/region code that indicates the market where the offer is purchased (e.g. "FR"). The default is the country/region code set in the partner profile.        |
+| 貨 | string | X       | リソースレートが提供される通貨に対して、省略可能な3文字の ISO コード (例: "EUR")。 既定値は、パートナープロファイルの市場に関連付けられている通貨です。 |
+| 領域 (region)   | string | X       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (例: "FR")。 既定値は、パートナープロファイルで設定されている国/地域コードです。        |
 
-If the optional X-Locale header is included in the request, its value determines the language used for the details in the response.
+省略可能な X-Locale ヘッダーが要求に含まれている場合、その値によって、応答の詳細に使用される言語が決まります。
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/ratecards/azure-shared HTTP/1.1
@@ -97,15 +97,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If this is successful, it returns an [Azure Rate Card](azure-rate-card-resources.md) resource.
+成功した場合は、 [Azure 料金カード](azure-rate-card-resources.md)リソースが返されます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

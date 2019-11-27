@@ -1,6 +1,6 @@
 ---
-title: Get an availability by ID
-description: Gets an availability for the specified product and SKU using an availability ID.
+title: ID で可用性を取得する
+description: 可用性 ID を使用して、指定された製品および SKU の可用性を取得します。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485772"
 ---
-# <a name="get-an-availability-by-id"></a>Get an availability by ID 
+# <a name="get-an-availability-by-id"></a>ID で可用性を取得する 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-Gets an availability for the specified product and SKU using an availability ID.
+可用性 ID を使用して、指定された製品および SKU の可用性を取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product ID. 
-- A SKU ID. 
-- An availability ID. 
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 製品 ID。 
+- SKU ID。 
+- 可用性 ID。 
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C# 
 
-To get details of a specific [availability](product-resources.md#availability), start by using the steps in [Get a SKU by ID](get-a-sku-by-id.md) to get the interface for a specific [SKU's](product-resources.md#sku) operations. From the resulting interface, select the **Availabilities** property to obtain an interface with the available operations for Availabilities. After that, pass the availability ID to the **ById()** method to get the operations for that specific availability and then call **Get()** or **GetAsync()** to retrieve the availability details.
+特定の[可用性](product-resources.md#availability)の詳細を取得するには、まず「 [ID で sku を取得](get-a-sku-by-id.md)する」の手順に従って、特定の[sku の](product-resources.md#sku)操作のインターフェイスを取得します。 生成されたインターフェイスから使用可能なプロパティを選択し**て、利用**可能な操作を持つインターフェイスを取得します。 その後、可用性 ID を**ById ()** メソッドに渡して、その特定の可用性に対する操作を取得し、 **get ()** または**GetAsync ()** を呼び出して可用性の詳細を取得します。
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ var availability = partnerOperations.Products.ByCountry(countryCode).ById(produc
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get details of a specific [availability](product-resources.md#availability), start by using the steps in [Get a SKU by ID](get-a-sku-by-id.md) to get the interface for a specific [SKU's](product-resources.md#sku) operations. From the resulting interface, select the **getAvailabilities** function to obtain an interface with the available operations for Availabilities. After that, pass the availability ID to the **byId()** function to get the operations for that specific availability and then call the **get()** function to retrieve the availability details.
+特定の[可用性](product-resources.md#availability)の詳細を取得するには、まず「 [ID で sku を取得](get-a-sku-by-id.md)する」の手順に従って、特定の[sku の](product-resources.md#sku)操作のインターフェイスを取得します。 生成されたインターフェイスから、 **Getavailability アビリティー**関数を選択して、利用可能な操作を持つインターフェイスを取得します。 その後、可用性 ID を**byId ()** 関数に渡して、その特定の可用性に対する操作を取得し、 **get ()** 関数を呼び出して可用性の詳細を取得します。
 
 ```java
 IAggregatePartner partnerOperations;
@@ -66,41 +66,41 @@ Availability availability = partnerOperations.getProducts().byCountry(countryCod
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get details of a specific [availability](product-resources.md#availability), execute the [**Get-PartnerProductAvailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md) and specify the **AvailabilityId**, **CountryCode**, **ProductId**, and **SkuId** parameters to retrieve the availability details.
+特定の[可用性](product-resources.md#availability)の詳細を取得するには、 **AvailabilityId**、 **CountryCode**、 **ProductId**、および**SkuId**パラメーターを指定して、 [**get partnerproductavailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md)を実行し、可用性の詳細を取得します。
 
 ```powershell
 Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId $availabilityId
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}?country={country-code} HTTP/1.1         |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}? country = {country-CODE} HTTP/1.1         |
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following path and query parameters to get a specific availability using an availability ID.
+可用性 ID を使用して特定の可用性を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                     |
+| 名前                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | string   | [はい]      | A GUID formatted string that identifies the product.            |
-| sku-id                 | string   | [はい]      | A GUID formatted string that identifies the SKU.                |
-| availability-id        | string   | [はい]      | A GUID formatted string that identifies the availability.       |
-| country-code           | string   | [はい]      | A country/region ID.                                            |
+| 製品 id             | string   | 〇      | 製品を識別する GUID 形式の文字列。            |
+| sku-id                 | string   | 〇      | SKU を識別する GUID 形式の文字列。                |
+| 可用性-id        | string   | 〇      | 可用性を識別する GUID 形式の文字列。       |
+| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
 
  
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities/DZH318XZXPHL?country=US HTTP/1.1
@@ -113,23 +113,23 @@ MS-PartnerCenter-Client: Partner Center .NET SDK
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, the response body contains an [Availability](product-resources.md#availability) resource.
+成功した場合、応答本文には[可用性](product-resources.md#availability)リソースが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード     | エラー コード   | 説明                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 404                  | 400013       | Product was not found.                                                                                    |
-| 404                  | 400018       | Sku was not found.                                                                                        |
-| 404                  | 400019       | Availability not found.                                                                                   |
+| 404                  | 400013       | 製品が見つかりませんでした。                                                                                    |
+| 404                  | 400018       | Sku が見つかりませんでした。                                                                                        |
+| 404                  | 400019       | 可用性が見つかりません。                                                                                   |
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

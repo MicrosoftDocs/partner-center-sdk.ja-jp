@@ -1,6 +1,6 @@
 ---
-title: Get all search analytics information
-description: How to get all the search analytics information.
+title: すべての検索分析情報を取得する
+description: すべての検索分析情報を取得する方法。
 ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 06/27/2018
 ms.service: partner-dashboard
@@ -13,9 +13,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485872"
 ---
-# <a name="get-all-search-analytics-information"></a>Get all search analytics information
+# <a name="get-all-search-analytics-information"></a>すべての検索分析情報を取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
@@ -23,44 +23,44 @@ ms.locfileid: "74485872"
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 
-How to get all the search analytics information for your customers. 
+顧客向けのすべての検索分析情報を取得する方法。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only. 
-
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-**Request syntax**
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。 
+
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+
+
+**要求の構文**
 
 | メソッド  | 要求 URI |
 |---------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/search HTTP/1.1 |
+| **取得** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/search HTTP/1.1 |
 
  
 
-**URI parameters**
+**URI パラメーター**
 
 
-|    パラメーター     |  タスクバーの検索ボックスに  |                                                                                                                   説明                                                                                                                    |
+|    パラメーター     |  種類  |                                                                                                                   説明                                                                                                                    |
 |------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      filter      | string |                                                                     Returns data matching the filter condition. </br> **例:**</br> `.../search?filter=field eq 'value'`                                                                     |
-|     groupby      | string |                                         Supports both terms and dates. Short circuit logic to limit the number of buckets. </br> **例:**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |
-| aggregationLevel | string | The *aggregationLevel* parameter requires a *groupby*. The *aggregationLevel* parameter applies to all date fields present in the *groupby*. </br> **例:**</br>  `.../search?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
-|       top        | string |                                                                     The page limit is 10000. Takes any value less than 10000.  </br> **例:**</br>  `.../search?top=100`                                                                     |
-|       skip       | string |                                                                                  Number of rows to skip. </br> **例:**</br> `.../search?top=100&skip=100`                                                                                   |
+|      filter      | string |                                                                     フィルター条件に一致するデータを返します。 </br> **例:**</br> `.../search?filter=field eq 'value'`                                                                     |
+|     groupby      | string |                                         は、用語と日付の両方をサポートしています。 バケット数を制限するショートサーキットロジック。 </br> **例:**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |
+| aggregationLevel | string | *AggregationLevel*パラメーターには*groupby*が必要です。 *AggregationLevel*パラメーターは、 *groupby*に存在するすべての日付フィールドに適用されます。 </br> **例:**</br>  `.../search?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
+|       top        | string |                                                                     ページ数の上限は1万です。 1万未満の値を取得します。  </br> **例:**</br>  `.../search?top=100`                                                                     |
+|       skip       | string |                                                                                  スキップする行の数。 </br> **例:**</br> `.../search?top=100&skip=100`                                                                                   |
   
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/search HTTP/1.1
@@ -70,16 +70,16 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, the response body contains a collection of [Search](partner-center-analytics-resources.md#search_resource) resources.
+成功した場合、応答本文には[検索](partner-center-analytics-resources.md#search_resource)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 {
@@ -98,5 +98,5 @@ Each response comes with an HTTP status code that indicates success or failure a
 ```
 
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>関連項目
+ - [パートナーセンター分析-リソース](partner-center-analytics-resources.md)

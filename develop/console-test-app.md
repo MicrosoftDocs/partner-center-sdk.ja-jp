@@ -1,6 +1,6 @@
 ---
-title: Console test app
-description: This console test app provides sample code for all scenarios supported by the Partner Center APIs. You can also use it for testing.
+title: コンソールテストアプリ
+description: このコンソールテストアプリは、パートナーセンター Api でサポートされているすべてのシナリオのサンプルコードを提供します。 テストにも使用できます。
 ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488922"
 ---
-# <a name="console-test-app"></a>Console test app
+# <a name="console-test-app"></a>コンソールテストアプリ
 
 適用対象:
 
@@ -22,93 +22,93 @@ ms.locfileid: "74488922"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-The console test app is provided in C# and Java, it provides sample codes for all of the scenarios supported by the Partner Center APIs. You can also use it for testing.
+コンソールテストアプリはと Java でC#提供され、パートナーセンター api でサポートされているすべてのシナリオのサンプルコードを提供します。 テストにも使用できます。
 
 ## <a name="get-the-code"></a>コードを入手する
 
-Download the sample code for the console test app.
+コンソールテストアプリのサンプルコードをダウンロードします。
 
-## <a name="net"></a>.NET の場合
+## <a name="net"></a>.NET
 
-[Download the sample code](http://go.microsoft.com/fwlink/p/?LinkId=746682) and modify it as necessary.
+[サンプルコードをダウンロード](http://go.microsoft.com/fwlink/p/?LinkId=746682)し、必要に応じて変更します。
 
 > [!IMPORTANT]
-> Before you build the application, update the values in the *App.config* file to reflect the Azure AD authentication information you created in [Partner Center authentication](partner-center-authentication.md). Specifically, you should use your integration sandbox account settings during early development or for testing in production.
+> アプリケーションをビルドする前に、 *app.config*ファイルの値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 具体的には、開発の初期段階で、または実稼働環境でのテストの際に、統合サンドボックスアカウントの設定を使用する必要があります。
 
-Under **ScenarioSettings** in the *App.config* file, you can set parameters that will be automatically passed into the scenarios that you run.
+*App.config*ファイルの**ScenarioSettings**では、実行するシナリオに自動的に渡されるパラメーターを設定できます。
 
-To modify the list of scenarios that are run, comment out lines in **IPartnerScenario\[\] mainScenarios** or in an individual **Get Scenarios** method found in the *Program.cs* file.
+実行されるシナリオの一覧を変更するには、 **Ipartnerscenario\[\] Mainscenarios**をコメントアウトするか、 *Program.cs*ファイルに記載されている個々の**シナリオの取得**メソッドをコメントアウトします。
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-[Download the sample code](http://go.microsoft.com/fwlink/p/?LinkId=2026887) and modify it as necessary.
+[サンプルコードをダウンロード](http://go.microsoft.com/fwlink/p/?LinkId=2026887)し、必要に応じて変更します。
 
 > [!IMPORTANT]
-> Before you build the application, update the values in the *SamplesConfigurations.json* file to reflect the Azure AD authentication information you created in [Partner Center authentication](partner-center-authentication.md). Specifically, you should use your integration sandbox account settings during early development or for testing in production.
+> アプリケーションをビルドする前に、 *SamplesConfigurations*ファイルの値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 具体的には、開発の初期段階で、または実稼働環境でのテストの際に、統合サンドボックスアカウントの設定を使用する必要があります。
 
-Under **ScenarioSettings** in the *SamplesConfiguration.json* file, you can set parameters that will be automatically passed into the scenarios that you run.
+*SamplesConfiguration*ファイルの**ScenarioSettings**では、実行するシナリオに自動的に渡されるパラメーターを設定できます。
 
-To modify the list of scenarios that are run, comment out lines in **IPartnerScenario\[\] mainScenarios** or in an individual **Get Scenarios** method found in the *Program.java* file.
+実行されるシナリオの一覧を変更するには、 **Ipartnerscenario\[\] Mainscenarios**にコメントアウトするか、または*java*ファイルに含まれる個々の**Get** scenario メソッドにコメントアウトします。
 
-## <a name="what-to-change"></a>What to change
+## <a name="what-to-change"></a>変更する内容
 
-Use the following lists to determine what to change or not change in the sample code.
+次の一覧を使用して、サンプルコードで変更または変更しない内容を決定します。
 
 ### <a name="partnerservicesettings"></a>PartnerServiceSettings
 
-For **PartnerServiceSettings**, don't change:
+**Partnerservicesettings**の場合は、次のように変更しないでください。
 
 - **PartnerServiceApiEndpoint**
 - **AuthenticationAuthorityEndpoint**
 - **GraphEndpoint**
 - **CommonDomain**
 
-All of these settings are necessary for the sample API calls to properly function.
+これらの設定はすべて、サンプルの API 呼び出しが適切に機能するために必要です。
 
 ### <a name="userauthentication"></a>UserAuthentication
 
-For **UserAuthentication**, you're required to change:
+**Userauthentication**の場合は、次のように変更する必要があります。
 
-- **ApplicationId** (your Azure Active Directory application ID used for login)
-- **UserName** (your active directory username)
-- **Password** (your active directory password).
+- **ApplicationId** (ログインに使用される AZURE ACTIVE DIRECTORY アプリケーション ID)
+- **ユーザー名**(active directory ユーザー名)
+- **パスワード**(active directory のパスワード)。
 
-Don't change:
+変更しない:
 
 - **ResourceUrl**
 - **RedirectUrl**
 
-### <a name="appauthentication"></a>AppAuthentication
+### <a name="appauthentication"></a>Microsoft.azure.services.appauthentication
 
-For **AppAuthentication**, you're required to change:
+**Appauthentication**の場合は、次のように変更する必要があります。
 
-- **ApplicationId** (your active directory application ID used for application login)
-- **ApplicationSecret** (your active directory application secret used for application login)
-- **Domain** (your active directory domain on which the application is hosted)
+- **ApplicationId** (アプリケーションログインに使用する active DIRECTORY アプリケーション ID)
+- **Applicationsecret** (アプリケーションログインに使用する active directory アプリケーションシークレット)
+- **ドメイン**(アプリケーションがホストされている active directory ドメイン)
 
 ### <a name="scenariosettings"></a>ScenarioSettings
 
-For **ScenarioSettings**, don't change:
+**ScenarioSettings**の場合は、次のように変更しないでください。
 
-- **CustomerDomainSuffix** (the domain suffix used when creating a new customer)
+- 顧客**domainsuffix** (新しい顧客を作成するときに使用されるドメインサフィックス)
 
-Optional settings. If left blank, this information will need to be inputted when running a scenario where necessary):
+オプションの設定。 空白のままにしておくと、必要に応じてシナリオを実行するときに、この情報を入力する必要があります。
 
-- **CustomerIdToDelete** (the ID of the customer used for deletion)
-- **DefaultCustomerId** (the customer ID to use in customer-related scenarios)
-- **DefaultInvoiceID** (the invoice ID to use in invoice scenarios)
-- **PartnerMpnId** (the partner MPN ID to use in indirect partner scenarios)
-- **DefaultServiceRequestId** (the service request ID to use in service request scenarios)
-- **DefaultSupportTopicID** (the support topic ID to use in service request scenarios)
-- **DefaultOfferID** (the offer ID to use in offer scenarios)
-- **DefaultOrderID** (the order ID to use in order scenarios)
-- **DefaultSubscriptionID** (the subscription ID to use in subscription scenarios)
+- **CustomerIdToDelete** (削除に使用された顧客の ID)
+- **Defaultcustomerid** (顧客関連のシナリオで使用する顧客 ID)
+- **DefaultInvoiceID** (請求書のシナリオで使用する請求書 ID)
+- **Partnermpnid** (間接パートナーシナリオで使用する PARTNER MPN ID)
+- **DefaultServiceRequestId** (サービス要求シナリオで使用するサービス要求 ID)
+- **Defaultsupporttopic id** (サービス要求シナリオで使用するサポートトピック id)
+- **Defaultofferid** (プランのシナリオで使用するオファー ID)
+- **Defaultorderid** (順序のシナリオで使用する注文 ID)
+- **Defaultsubscriptionid** (サブスクリプションのシナリオで使用するサブスクリプション ID)
 
-Optional to change. All of these settings specify the amount of entries per page when retrieving paged content:
+変更する場合は省略可能。 これらの設定はすべて、ページングされたコンテンツを取得するときのページごとのエントリの量を指定します。
 
-- **CustomerPageSize**
+- **顧客 Pagesize**
 - **InvoicePageSize**
 - **ServiceRequestPageSize**
 - **DefaultOfferPageSize**

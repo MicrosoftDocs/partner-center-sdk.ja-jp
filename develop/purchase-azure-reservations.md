@@ -1,6 +1,6 @@
 ---
 title: Azure Reservations を購入する
-description: You can purchase Azure reservations for a customer using the Partner Center API through your existing Microsoft Azure subscription (MS-AZR-0145P) or Azure plan.
+description: パートナーセンター API を使用して、既存の Microsoft Azure サブスクリプション (0145P) または Azure プランを通じて、お客様向けの Azure 予約を購入できます。
 ms.assetid: 1BCDA7B8-93FC-4AAC-94E0-B15BFC95737F
 ms.date: 11/01/2018
 ms.service: partner-dashboard
@@ -20,12 +20,12 @@ ms.locfileid: "74488132"
 - パートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-To purchase an Azure reservation for a customer using the Partner Center API, you must have an existing Microsoft Azure (**MS-AZR-0145P**) subscription or Azure plan for them.
+パートナーセンター API を使用して顧客の Azure 予約を購入するには、既存の Microsoft Azure (**MS AZR-0145P**) サブスクリプションまたは azure プランが必要です。
 
 > [!NOTE]  
 > 次の市場では Azure Reservations を利用できません。
 >  
-> | Unavailable Markets            | &nbsp;                            | &nbsp;                                   |
+> | 利用できないマーケット            | &nbsp;                            | &nbsp;                                   |
 > |--------------------------------|-----------------------------------|------------------------------------------|
 > | オーランド諸島                  | グリーンランド                         | パプアニューギニア                         |
 > | 米領サモア                 | グレナダ                           | ピトケアン島                         |
@@ -68,108 +68,108 @@ To purchase an Azure reservation for a customer using the Partner Center API, yo
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID for an active CSP Azure subscription or an Azure plan.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- アクティブな CSP Azure サブスクリプションまたは Azure プランのサブスクリプション ID。
 
-## <a name="how-to-purchase-microsoft-azure-reservations"></a>How to purchase Microsoft Azure reservations
+## <a name="how-to-purchase-microsoft-azure-reservations"></a>Microsoft Azure 予約を購入する方法
 
-Once you have identified the active CSP Azure subscription that you want to add an Azure reservation to, use the following steps to purchase it:
+Azure 予約を追加するアクティブな CSP Azure サブスクリプションを特定したら、次の手順を使用して購入します。
 
-1. [Enablement](#enablement) - Register an active CSP Azure subscription to enable it for purchasing Azure reservations.
-2. [Discovery](#discovery) - Find and select the Azure reservation products and SKUs you want to purchase and check their availability.
-3. [Order submission](#order-submission) - Create a shopping cart with the items in your order and submit it.
-4. [Get order details](#get-order-details) - Review the details of an order, all the orders for a customer, or view orders by billing cycle type.
+1. [有効化](#enablement)-アクティブな CSP azure サブスクリプションを登録して、azure 予約を購入できるようにします。
+2. [[検出](#discovery)]-購入する Azure 予約製品と sku を検索して選択し、その可用性を確認します。
+3. [注文の送信](#order-submission)-注文の品目を含むショッピングカートを作成して送信します。
+4. [注文の詳細を取得](#get-order-details)する-注文の詳細、顧客のすべての注文、または請求サイクルの種類別の注文を表示します。
 
-After you have purchased Azure reservations, the following scenarios show you how to manage their lifecycle by getting information about your Azure reservation entitlements, and how to retrieve balance statements, invoices, and invoice summaries.
+Azure の予約を購入した後、次のシナリオでは、Azure 予約の権利に関する情報を取得してライフサイクルを管理する方法と、残高明細書、請求書、および請求書の概要を取得する方法について説明します。
 
-- [Lifecycle management](#lifecycle-management)
-- [Invoice and reconciliation](#invoice-and-reconciliation)
+- [ライフサイクル管理](#lifecycle-management)
+- [請求書と調整](#invoice-and-reconciliation)
 
 ## <a name="enablement"></a>有効化
 
-Enablement means associating an existing Microsoft Azure (**MS-AZR-0145P**) subscription to an Azure Reserved VM Instance by registering the subscription so that it is enabled for Azure reservations. Registration is a prerequisite to purchase Azure Reserved VM Instances.
+有効化とは、サブスクリプションを登録して Azure 予約 VM インスタンスに既存の Microsoft Azure (**MS AZR-0145P**) サブスクリプションを関連付け、azure 予約に有効にすることです。 登録は Azure Reserved VM Instances を購入するための前提条件です。
 
-A subscription is required due to the following:
+次の理由により、サブスクリプションが必要です。
 
-1. To check if the customer is eligible to deploy resources and hence purchase Azure Reserved VM Instances in a region or not.
-2. To provide capacity priority for deployments on a subscription. This is applicable only to single scope Azure Reserved VM Instances with the **capacity priority** option selected.
+1. お客様がリソースをデプロイする資格があるかどうかを確認し、リージョンで Azure Reserved VM Instances を購入します。
+2. サブスクリプションでのデプロイの容量の優先順位を指定します。 これは、 **[容量優先度]** オプションが選択されている単一のスコープ Azure Reserved VM Instances にのみ適用されます。
 
-Once you have identified the active subscription that you want to add the Azure reservation to, you must register the subscription so that it is enabled for Azure reservations. To register an existing [Subscription](subscription-resources.md) resource so that it is enabled for ordering Azure reservations, see [Register a subscription](register-a-subscription.md).
+Azure 予約を追加するアクティブなサブスクリプションを特定したら、サブスクリプションを登録して Azure の予約に有効にする必要があります。 既存の[サブスクリプション](subscription-resources.md)リソースを登録して Azure 予約の順序付けを有効にする方法については、「[サブスクリプションを登録](register-a-subscription.md)する」を参照してください。
 
-After registering your subscription, you should confirm that the registration process is completed by checking the registration status. To do this, see [Get subscription registration status](get-subscription-registration-status.md).
+サブスクリプションを登録した後、登録の状態を確認して、登録プロセスが完了したことを確認する必要があります。 これを行うには、「[サブスクリプションの登録状態を取得](get-subscription-registration-status.md)する」を参照してください。
 
 > [!NOTE]  
-> When purchasing Microsoft Azure reservation for a customer with an Azure plan, you must register the Azure plan first. Similar to a Microsoft Azure (**MS-AZR-0145P**) subscription, an Azure plan is represented by a Partner Center [Subscription](subscription-resources.md) resource. Hence, you can use the same [Register a subscription](register-a-subscription.md) method to register an Azure plan.
+> Azure プランを使用して顧客の Microsoft Azure 予約を購入する場合は、まず Azure プランを登録する必要があります。 Microsoft Azure (**0145P**) サブスクリプションと同様に、Azure プランはパートナーセンターの[サブスクリプション](subscription-resources.md)リソースによって表されます。 そのため、同じ[サブスクリプション登録](register-a-subscription.md)方法を使用して、Azure プランを登録できます。
 
 ## <a name="discovery"></a>情報表示
 
-Once the subscription is enabled for purchasing Azure reservations, you're ready to select products and SKUs and check their availability using the following Partner Center API models:
+サブスクリプションで Azure 予約を購入できるようになったら、次のパートナーセンター API モデルを使用して、製品と Sku を選択し、その可用性を確認することができます。
 
-- [Product](product-resources.md#product) - A grouping construct for purchasable goods or services. A product by itself is not a purchasable item.
-- [SKU](product-resources.md#sku) - A purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product.
-- [Availability](product-resources.md#availability) - A configuration in which a SKU is available for purchase (such as country, currency and industry segment).
+- [Product](product-resources.md#product) -購入可能な商品またはサービスのグループ化構成体。 製品自体は購入可能なの項目ではありません。
+- [Sku](product-resources.md#sku) -製品の購入可能な在庫保持ユニット (sku)。 これらは、製品のさまざまな形状を表します。
+- [可用性](product-resources.md#availability)-SKU を購入できるようにする構成 (国、通貨、業界セグメントなど)。
 
-Before purchasing an Azure reservation, complete the following steps:
+Azure 予約を購入する前に、次の手順を実行します。
 
-1. Identify and retrieve the Product and SKU that you want to purchase. You can do this by listing the products and SKUs first, or If you already know the IDs of the product and SKU, selecting them.
+1. 購入する製品と SKU を特定して取得します。 これを行うには、まず製品と Sku を一覧表示します。または、製品と SKU の Id が既にわかっている場合は、それらを選択します。
 
-    - [Get a list of products (by country)](get-a-list-of-products.md)
-    - [Get a product using the product ID](get-a-product-by-id.md)
-    - [Get a list of SKUs for a product (by country)](get-a-list-of-skus-for-a-product.md)
-    - [Get a SKU using the SKU ID](get-a-sku-by-id.md)
+    - [製品の一覧を取得する (国別)](get-a-list-of-products.md)
+    - [製品 ID を使用して製品を取得する](get-a-product-by-id.md)
+    - [製品の Sku の一覧を取得する (国別)](get-a-list-of-skus-for-a-product.md)
+    - [SKU ID を使用して SKU を取得する](get-a-sku-by-id.md)
 
-2. Check the inventory for a SKU. This step is only needed for SKUs that are tagged with an **InventoryCheck** prerequisite.
+2. SKU のインベントリを確認します。 この手順は、 **InventoryCheck**の前提条件でタグ付けされている sku にのみ必要です。
 
-    - [Check Inventory](check-inventory.md)
+    - [インベントリの確認](check-inventory.md)
 
-3. Retrieve the [availability](product-resources.md#availability) for the [SKU](product-resources.md#sku). You will need the **CatalogItemId** of the availability when placing the order. To get this value, use one of the following APIs:
+3. [SKU](product-resources.md#sku)の[可用性](product-resources.md#availability)を取得します。 注文を配置するときに、可用性の**Catalogitemid**が必要になります。 この値を取得するには、次の Api のいずれかを使用します。
 
-    - [Get a list of availabilities for a SKU (by country)](get-a-list-of-availabilities-for-a-sku.md)
-    - [Get an availability using the availability ID](get-an-availability-by-id.md)
+    - [SKU に使用できる機能の一覧を取得する (国別)](get-a-list-of-availabilities-for-a-sku.md)
+    - [可用性 ID を使用して可用性を取得する](get-an-availability-by-id.md)
 
 > [!IMPORTANT]  
-> Each Microsoft Azure reservation product has different availabilities for Microsoft Azure (**MS-AZR-0145P**) subscription and Azure plan. To [Get a list of products (by country)](get-a-list-of-products.md), or [Get a list of SKUs for a product (by country)](get-a-list-of-skus-for-a-product.md), or [Get a list of availabilities for a SKU (by country)](get-a-list-of-availabilities-for-a-sku.md) which are applicable to Azure plan only, specify the "reservationScope=AzurePlan" parameter.
+> 各 Microsoft Azure 予約製品には、Microsoft Azure (**0145P**) サブスクリプションと Azure プランに対して異なる利用能力があります。 (国別に[) 製品の一覧を取得](get-a-list-of-products.md)したり、(国ごとに)[製品の sku の](get-a-list-of-skus-for-a-product.md)一覧を取得したり、Azure プランにのみ適用される[sku (国別)](get-a-list-of-availabilities-for-a-sku.md)の利用可能な機能の一覧を取得したりするには、"reservationScope = AzurePlan" パラメーターを指定します。
 
-## <a name="order-submission"></a>Order submission
+## <a name="order-submission"></a>注文の送信
 
-To submit your Azure reservation order, do the following:
+Azure 予約注文を送信するには、次の手順を実行します。
 
-1. Create a cart to hold the collection of catalog items that you intend to buy. When you create a [Cart](cart-resources.md), the [cart line items](cart-resources.md#cartlineitem) are automatically grouped based on what can be purchased together in the same [Order](order-resources.md).
+1. 購入するカタログアイテムのコレクションを保持するカートを作成します。 [カート](cart-resources.md)を作成すると、同じ[順序](order-resources.md)で一緒に購入できるものに基づいて[カートの品目](cart-resources.md#cartlineitem)が自動的にグループ化されます。
 
-    - [Create a shopping cart](create-a-cart.md)
-    - [Update a shopping cart](update-a-cart.md)
+    - [ショッピングカートを作成する](create-a-cart.md)
+    - [ショッピングカートを更新する](update-a-cart.md)
 
-2. Check out the cart. Checking out a cart results in the creation of an [Order](order-resources.md).
+2. カートをチェックアウトします。 カートをチェックアウトすると、[注文](order-resources.md)が作成されます。
 
-    - [Checkout the cart](checkout-a-cart.md)
+    - [カートをチェックアウトする](checkout-a-cart.md)
 
-## <a name="get-order-details"></a>Get order details
+## <a name="get-order-details"></a>注文の詳細を取得する
 
-Once you have created your Azure reservation order, you can retrieve the details of an individual order using the order ID, or get a list of orders for a customer. Note that there is a delay of up to 15 minutes between the time an order is submitted and when it will appear in a list of a customer's orders.
+Azure 予約注文を作成したら、注文 ID を使用して個々の注文の詳細を取得したり、顧客の注文の一覧を取得したりできます。 注文が送信されてから顧客の注文の一覧に表示されるまでに、最大15分の遅延が発生することに注意してください。
 
-- To get the details of an individual order using the order ID. See, [Get an order by ID](get-an-order-by-id.md).
+- 注文 ID を使用して個々の注文の詳細を取得します。 「 [ID で注文を取得する](get-an-order-by-id.md)」を参照してください。
 
-- To get a list of orders for a customer using the customer ID. See, [Get all of a customer's orders](get-all-of-a-customer-s-orders.md).
+- 顧客 ID を使用して顧客の注文の一覧を取得します。 「[顧客の注文をすべて取得する](get-all-of-a-customer-s-orders.md)」を参照してください。
 
-- To get a list of orders for a customer by [billing cycle type](product-resources.md#billingcycletype) allowing you to list Azure reservation orders (one-time charges) and annual or monthly billed orders separately. See, [Get a list of orders by customer and billing cycle type](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
+- [請求サイクルの種類](product-resources.md#billingcycletype)によって顧客の注文の一覧を取得するには、Azure 予約注文 (1 回限りの料金) と年間または月単位または月単位で請求される注文を個別に一覧表示します。 「[顧客と請求サイクルの種類別の注文の一覧を取得する](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)」を参照してください。
 
 ## <a name="lifecycle-management"></a>ライフサイクルの管理
 
-As part of managing the lifecycle of your Azure reservations in Partner Center, you can retrieve information about your Azure reservation [Entitlements](entitlement-resources.md), and get reservation details using the reservation order ID. For examples of how to do this, see [Get entitlements](get-a-collection-of-entitlements.md).   
+パートナーセンターで Azure の予約のライフサイクルを管理する過程で、Azure 予約の[権利](entitlement-resources.md)に関する情報を取得し、予約注文 ID を使用して予約の詳細を取得することができます。 これを行う方法の例については、「[権利の取得](get-a-collection-of-entitlements.md)」を参照してください。   
 
-## <a name="invoice-and-reconciliation"></a>Invoice and reconciliation
+## <a name="invoice-and-reconciliation"></a>請求書と調整
 
-The following scenarios show you how to programmatically view your customer's [invoices](invoice-resources.md), and get your account balances and summaries that include one-time charges for Azure reservations.  
+次のシナリオでは、顧客の[請求書](invoice-resources.md)をプログラムで表示し、Azure 予約の1回限りの料金を含むアカウントの残高と概要を取得する方法について説明します。  
 
-**Balance and payment** To get current account balance in your default currency type that is a balance of both recurring and one-time (Azure reservation) charges, see [Get your current account balance](get-the-reseller-s-current-account-balance.md)
+**残高と支払い**定期的な料金と1回限りの (Azure 予約) 料金のバランスを取る既定の通貨の種類で現在のアカウント残高を取得する方法については、「[現在のアカウント残高を取得](get-the-reseller-s-current-account-balance.md)する」を参照してください。
 
-**Multi-currency balance and payment** To get your current account balance and a collection of invoice summaries containing an invoice summary with both recurring and one-time charges for each of your customer's currency types, see [Get invoice summaries](get-invoice-summaries.md).
+**複数通貨の残高と支払い**現在のアカウント残高と、顧客の通貨の種類ごとに1回だけ課金される請求書の概要を含む請求書の概要を取得するには、「[請求書の概要を取得](get-invoice-summaries.md)する」を参照してください。
 
-**Invoices** To get a collection of invoices that show both recurring and one time charges, see [Get a collection of invoices](get-a-collection-of-invoices.md). 
+**請求書**定期的な料金と1回の課金の両方を示す請求書のコレクションを取得するには、「[請求書のコレクションを取得](get-a-collection-of-invoices.md)する」を参照してください。 
 
-**Single Invoice** To retrieve a specific invoice using the invoice ID, see [Get an invoice by ID](get-invoice-by-id.md).  
+**1 つの請求書**請求書 ID を使用して特定の請求書を取得するには、「 [ID で請求書を取得](get-invoice-by-id.md)する」を参照してください。  
 
-**Reconciliation** To get a collection of invoice line item details (Reconciliation line items) for a specific invoice ID, see [Get invoice line items](get-invoiceline-items.md).  
+**調整**特定の請求書 ID の請求書明細項目の詳細 (調整行項目) のコレクションを取得するには、「[請求書明細項目を取得](get-invoiceline-items.md)する」を参照してください。  
 
-**Download an invoice as a PDF** To retrieve an invoice statement in PDF form using an invoice ID, see [Get an invoice statement](get-invoice-statement.md).
+**PDF として請求書をダウンロード**する請求書 ID を使用して PDF 形式で請求書明細書を取得するには、「 [invoice ステートメントを取得](get-invoice-statement.md)する」を参照してください。

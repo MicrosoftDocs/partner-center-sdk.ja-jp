@@ -1,6 +1,6 @@
 ---
-title: Delete a customer account from the integration sandbox
-description: How to delete a customer account from the Testing in Production (Tip) integration sandbox.
+title: 統合サンドボックスから顧客アカウントを削除する
+description: 「運用環境でのテスト (Tip)」統合サンドボックスから顧客アカウントを削除する方法。
 ms.assetid: B95431F6-EA7F-4C21-835F-6D6C303B05A5
 ms.date: 06/20/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489922"
 ---
-# <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Delete a customer account from the integration sandbox
+# <a name="delete-a-customer-account-from-the-integration-sandbox"></a>統合サンドボックスから顧客アカウントを削除する
 
 適用対象:
 
@@ -22,31 +22,31 @@ ms.locfileid: "74489922"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-This topic explains how to delete a customer account from the Testing in Production (Tip) integration sandbox.
+このトピックでは、「運用環境でのテスト (Tip)」統合サンドボックスから顧客アカウントを削除する方法について説明します。
 
 > [!IMPORTANT]
-> When you delete a customer account, all resources associated with that customer tenant will be purged.
+> 顧客アカウントを削除すると、その顧客テナントに関連付けられているすべてのリソースが削除されます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**customer-tenant-id**).
-- All Azure Reserved Virtual Machine Instances and software purchase orders must be cancelled before deleting a customer from the Tip integration sandbox.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (**顧客-テナント id**)。
+- Tip 統合サンドボックスから顧客を削除する前に、Azure Reserved Virtual Machine Instances とソフトウェアのすべての注文書をキャンセルする必要があります。
 
 ## <a name="c"></a>C\#
 
-To delete a customer from the Tip integration sandbox:
+Tip 統合サンドボックスから顧客を削除するには、次のようにします。
 
-1. Pass your Tip account credentials to the [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) method to get an [**IPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) interface to partner operations.
-2. Use the partner operations interface to retrieve the collection of entitlements:
-    1. Call the [**Customers.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to specify the customer.
-    2. Call the **Entitlements** property.
-    3. Call the **Get** or **GetAsync** method to retrieve the [**Entitlement**](entitlement-resources.md) collection.
-3. Make sure that all Azure Reserved Virtual Machine Instances and software purchase orders for that customer are cancelled. For each [**Entitlement**](entitlement-resources.md) in the collection:
-    1. Use the [**entitlement.ReferenceOrder.Id**](entitlement-resources.md#referenceorder) to get a local copy of the corresponding [Order](order-resources.md#order) from the customer's collection of orders.
-    2. Set the [**Order.Status**](order-resources.md#order) property to "Cancelled".
-    3. Use the **Patch()** method to update the order.
-4. Cancel all orders. For example, the following code sample uses a loop to poll each order until its status is "Cancelled".
+1. ヒントアカウントの資格情報を[**Createpartneroperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡して、パートナー操作への[**ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)インターフェイスを取得します。
+2. 次のように、パートナー操作インターフェイスを使用して、権利のコレクションを取得します。
+    1. 顧客識別子を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を指定します。
+    2. **権利**プロパティを呼び出します。
+    3. **Get**または**GetAsync**メソッドを呼び出して、[**権利**](entitlement-resources.md)コレクションを取得します。
+3. その顧客に対するすべての Azure Reserved Virtual Machine Instances とソフトウェアの注文書が取り消されていることを確認します。 コレクション内の[**権利**](entitlement-resources.md)ごとに、次のようにします。
+    1. 権利を使用[**します。ReferenceOrder.Id**](entitlement-resources.md#referenceorder)は、顧客の注文のコレクションから、対応する[注文](order-resources.md#order)のローカルコピーを取得します。
+    2. [ [**Order. Status**](order-resources.md#order) ] プロパティを [取り消し済み] に設定します。
+    3. **Patch ()** メソッドを使用して、順序を更新します。
+4. すべての注文を取り消します。 たとえば、次のコードサンプルでは、ループを使用して、その状態が "取り消されました" になるまで各注文をポーリングします。
 
     ``` csharp
     // IPartnerCredentials tipAccountCredentials;
@@ -88,11 +88,11 @@ To delete a customer from the Tip integration sandbox:
     tipAccountPartnerOperations.Customers.ById(customerTenantId).Delete();
     ```
 
-5. Make sure all orders are cancelled by calling the **Delete** method for the customer.
+5. 顧客の**Delete**メソッドを呼び出して、すべての注文がキャンセルされていることを確認します。
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center PartnerCenterSDK.FeaturesSamples **Class**: DeleteCustomerFromTipAccount.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンターの Partnercenter sdk. のサンプル**クラス**: DeleteCustomerFromTipAccount.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
@@ -102,15 +102,15 @@ To delete a customer from the Tip integration sandbox:
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following query parameter to delete a customer.
+顧客を削除するには、次のクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                         |
+| 名前                   | 種類     | 必須 | 説明                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
-| customer-tenant-id     | GUID     | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
+| 顧客-テナント id     | GUID     | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -126,13 +126,13 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns an empty response.
+成功した場合、このメソッドは空の応答を返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

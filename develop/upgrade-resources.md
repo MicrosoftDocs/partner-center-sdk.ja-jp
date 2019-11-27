@@ -1,6 +1,6 @@
 ---
-title: Upgrade resources
-description: Describes the resources used to upgrade a user from a source subscription to a target subscription.
+title: リソースのアップグレード
+description: ソースサブスクリプションからターゲットサブスクリプションへのユーザーのアップグレードに使用されるリソースについて説明します。
 ms.assetid: 869007B3-D6D4-4E79-B4F0-445CA5D88D2C
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,76 +13,76 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486282"
 ---
-# <a name="upgrade-resources"></a>Upgrade resources
+# <a name="upgrade-resources"></a>リソースのアップグレード
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Describes the resources used to upgrade a user from a source subscription to a target subscription.
+ソースサブスクリプションからターゲットサブスクリプションへのユーザーのアップグレードに使用されるリソースについて説明します。
 
-## <a name="span-idupgradespan-idupgradespan-idupgradeupgrade"></a><span id="Upgrade"/><span id="upgrade"/><span id="UPGRADE"/>Upgrade
+## <a name="span-idupgradespan-idupgradespan-idupgradeupgrade"></a><span id="Upgrade"/><span id="upgrade"/><span id="UPGRADE"/>のアップグレード
 
 
-Describes the behavior of an individual upgrade resource.
+個々のアップグレードリソースの動作について説明します。
 
-| プロパティ      | タスクバーの検索ボックスに                   | 説明                                                                                  |
+| プロパティ      | 種類                   | 説明                                                                                  |
 |---------------|------------------------|----------------------------------------------------------------------------------------------|
-| TargetOffer   | プラン                  | The offer of the target subscription.                                                        |
-| UpgradeType   | string                 | The type of upgrade: "none", "upgrade\_only", or "upgrade\_with\_license\_transfer".         |
-| IsEligible    | boolean                | Identifies if the upgrade can be performed.                                                  |
-| Quantity      | 整数                | The quantify of the new offer to be purchased. Defaults to the source subscription quantity. |
-| UpgradeErrors | array of UpgradeErrors | Reasons the upgrade cannot be performed, if applicable.                                      |
-| 属性    | ResourceAttributes     | The metadata attributes corresponding to the upgrade.                                        |
+| TargetOffer   | プラン                  | ターゲットサブスクリプションのプラン。                                                        |
+| UpgradeType   | string                 | アップグレードの種類としては、"none"、"upgrade\_only"、または "upgrade\_with\_license\_transfer" があります。         |
+| IsEligible    | boolean                | アップグレードを実行できるかどうかを識別します。                                                  |
+| 数量      | 整数                | 購入する新しいプランの定量化。 既定値は、ソースサブスクリプションの数量です。 |
+| UpgradeErrors | UpgradeErrors の配列 | 必要に応じて、アップグレードを実行できない理由。                                      |
+| 属性    | ResourceAttributes     | アップグレードに対応するメタデータ属性。                                        |
 
  
 
 ## <a name="span-idupgradeerrorspan-idupgradeerrorspan-idupgradeerrorupgradeerror"></a><span id="UpgradeError"/><span id="upgradeerror"/><span id="UPGRADEERROR"/>UpgradeError
 
 
-Describes a reason why an upgrade cannot be performed.
+アップグレードを実行できない理由について説明します。
 
-| プロパティ          | タスクバーの検索ボックスに               | 説明                                                                                                                                                                                                                                                                                                                                                                                     |
+| プロパティ          | 種類               | 説明                                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| コード              | string             | The error code associated with the issue: "other", "delegated\_admin\_permissions\_disabled", "subscription\_status\_not\_active", "conflicting\_service\_types", "concurrency\_conflicts", "user\_context\_required", "subscription\_add\_ons\_present", "subscription\_does\_not\_have\_any\_upgrade\_paths", "subscription\_target\_offer\_not\_found", or "subscription\_not\_provisioned". |
-| 説明       | string             | Friendly text describing the error.                                                                                                                                                                                                                                                                                                                                                             |
-| AdditionalDetails | string             | Additional details regarding the error.                                                                                                                                                                                                                                                                                                                                                         |
-| 属性        | ResourceAttributes | The metadata attributes corresponding to the error.                                                                                                                                                                                                                                                                                                                                             |
+| コード              | string             | 問題に関連付けられているエラーコード: "その他の"、"委任された\_管理者\_アクセス許可\_無効"、"サブスクリプション\_ステータス\_がアクティブではありません"、"競合する\_サービス\_\_"、"ユーザー\_コンテキスト\_が必要"、"サブスクリプション\_\_\_を\_して\_\_\_\_アップグレード\_\_、"サブスクリプション\_ターゲット\_提供\_が見つかりませ\_ん"、または "サブスクリプション\_\_プロビジョニングされていません"。 |
+| 説明       | string             | エラーを説明するわかりやすいテキスト。                                                                                                                                                                                                                                                                                                                                                             |
+| AdditionalDetails | string             | エラーに関する追加情報。                                                                                                                                                                                                                                                                                                                                                         |
+| 属性        | ResourceAttributes | エラーに対応するメタデータ属性。                                                                                                                                                                                                                                                                                                                                             |
 
  
 
 ## <a name="span-idupgraderesultspan-idupgraderesultspan-idupgraderesultupgraderesult"></a><span id="UpgradeResult"/><span id="upgraderesult"/><span id="UPGRADERESULT"/>UpgradeResult
 
 
-Describes a the result of the subscription upgrade process.
+サブスクリプションのアップグレードプロセスの結果について説明します。
 
-| プロパティ             | タスクバーの検索ボックスに                        | 説明                                                                          |
+| プロパティ             | 種類                        | 説明                                                                          |
 |----------------------|-----------------------------|--------------------------------------------------------------------------------------|
-| SourceSubscriptionId | string                      | The identifier of the source subscription.                                           |
-| TargetSubscriptionID | string                      | The identifier of the target subscription.                                           |
-| UpgradeType          | string                      | The type of upgrade: "none", "upgrade\_only", or "upgrade\_with\_license\_transfer". |
-| UpgradeErrors        | array of UpgradeErrors      | Errors encountered while attemption to perform the upgrade, if applicable.           |
-| LicenseErrors        | array of UserLicenseErrrors | Errors encountered while attempted to migrate user licenses, if applicable.          |
-| 属性           | ResourceAttributes          | The metadata attributes corresponding to the license.                                |
+| SourceSubscriptionId | string                      | ソースサブスクリプションの識別子です。                                           |
+| TargetSubscriptionID | string                      | ターゲットサブスクリプションの識別子です。                                           |
+| UpgradeType          | string                      | アップグレードの種類としては、"none"、"upgrade\_only"、または "upgrade\_with\_license\_transfer" があります。 |
+| UpgradeErrors        | UpgradeErrors の配列      | 必要に応じて、アップグレードの実行中に attemption 中にエラーが発生しました。           |
+| LicenseErrors        | UserLicenseErrrors の配列 | ユーザーライセンスを移行しようとしたときにエラーが発生しました (該当する場合)。          |
+| 属性           | ResourceAttributes          | ライセンスに対応するメタデータ属性。                                |
 
  
 
 ## <a name="span-iduserlicenseerrorspan-iduserlicenseerrorspan-iduserlicenseerroruserlicenseerror"></a><span id="UserLicenseError"/><span id="userlicenseerror"/><span id="USERLICENSEERROR"/>UserLicenseError
 
 
-Describes errors arising from failed user license transfer.
+失敗したユーザーライセンスの譲渡に起因するエラーについて説明します。
 
-| プロパティ     | タスクバーの検索ボックスに                   | 説明                                                               |
+| プロパティ     | 種類                   | 説明                                                               |
 |--------------|------------------------|---------------------------------------------------------------------------|
-| UserObjectId | string                 | The unique identified of the user object.                                 |
+| UserObjectId | string                 | ユーザーオブジェクトを識別する一意の。                                 |
 | 名前         | string                 | ユーザーの名前。                                                     |
-| [メール]        | string                 | The email of the user.                                                    |
-| Errors       | array of ServiceFaults | A list of exceptions thrown when trying to perform user license transfer. |
-| 属性   | ResourceAttributes     | The metadata attributes corresponding to the license.                     |
+| Email        | string                 | ユーザーの電子メール。                                                    |
+| エラー       | ServiceFaults の配列 | ユーザーライセンスの転送を実行しようとしたときにスローされた例外の一覧。 |
+| 属性   | ResourceAttributes     | ライセンスに対応するメタデータ属性。                     |
 
  
 

@@ -1,6 +1,6 @@
 ---
 title: 請求書を管理する
-description: This section describes the ways that Cloud Solution Provider partners can use the Partner Center to programmatically view and manage their invoices, and view their customer's progress against an Azure spending budget.
+description: このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用してプログラムで請求書を表示および管理する方法と、Azure の支出予算に対する顧客の進捗状況を確認する方法について説明します。
 ms.assetid: 198D32A5-AA2C-49BB-A057-0EFFBA408753
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -16,40 +16,40 @@ ms.locfileid: "74486922"
 # <a name="manage-billing"></a>請求書を管理する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-This section describes the ways that Cloud Solution Provider partners can use Partner Center to programmatically view and manage their invoices, and view their customer's progress against an Azure spending budget.
+このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用してプログラムで請求書を表示および管理する方法と、Azure の支出予算に対する顧客の進捗状況を確認する方法について説明します。
 
-**Billing Cycle:**
-- [Change the billing cycle](change-the-billing-cycle.md)
+**請求サイクル:**
+- [請求サイクルを変更する](change-the-billing-cycle.md)
 
-**Azure rates and utilization:**
-- [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md)
-- [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md)
+**Azure の料金と使用率:**
+- [Azure の顧客の使用状況レコードを取得する](get-a-customer-s-utilization-record-for-azure.md)
+- [Microsoft Azure の価格を取得する](get-prices-for-microsoft-azure.md)
 
-**Invoices:**
-- [Get a collection of invoices](get-a-collection-of-invoices.md)
-- [Get invoice estimate links](get-invoice-estimate-links.md)
-- [Get invoice billed commercial marketplace consumption line items](get-invoice-billed-consumption-lineitems.md)
-- [Get invoice by ID](get-invoice-by-id.md)
-- [Get invoice line items](get-invoiceline-items.md)
-- [Get invoice receipt statement](get-invoice-receipt-statement.md)
-- [Get invoice statement](get-invoice-statement.md) 
-- [Get invoice summaries](get-invoice-summaries.md)
-- [Get invoice unbilled commercial marketplace consumption line items](get-invoice-unbilled-consumption-lineitems.md)
-- [Get invoice unbilled recon line items](get-invoice-unbilled-recon-lineitems.md)
-- [Get the reseller's current account balance](get-the-reseller-s-current-account-balance.md)
+**請求書**
+- [請求書のコレクションを取得する](get-a-collection-of-invoices.md)
+- [請求書の推定リンクの取得](get-invoice-estimate-links.md)
+- [請求書を取得する商用マーケットプレースの従量課金明細項目](get-invoice-billed-consumption-lineitems.md)
+- [ID で請求書を取得する](get-invoice-by-id.md)
+- [請求書の品目を取得する](get-invoiceline-items.md)
+- [請求書の領収書の取得](get-invoice-receipt-statement.md)
+- [請求書明細書の取得](get-invoice-statement.md) 
+- [請求書の概要を取得する](get-invoice-summaries.md)
+- [Invoice 未請求商業市場消費量の品目を取得する](get-invoice-unbilled-consumption-lineitems.md)
+- [請求書未請求偵察の品目を取得する](get-invoice-unbilled-recon-lineitems.md)
+- [リセラーの現在のアカウント残高を取得する](get-the-reseller-s-current-account-balance.md)
 
-**Azure spending budget:**
-- [Get usage data for a subscription](get-all-monthly-usage-records-for-a-subscription.md
-- [Get usage summary for all of a customer's subscriptions](get-a-customer-usage-summary.md)
+**Azure の支出予算:**
+- [サブスクリプションの使用状況データの取得](get-all-monthly-usage-records-for-a-subscription.md
+- [すべての顧客のサブスクリプションの使用状況の概要を取得する](get-a-customer-usage-summary.md)
 
-For more information, see [Scenarios](scenarios.md), specifically the [Background](scenarios.md#background) section.
+詳細については、「[シナリオ](scenarios.md)、特に[背景](scenarios.md#background)セクション」を参照してください。
 
  
 

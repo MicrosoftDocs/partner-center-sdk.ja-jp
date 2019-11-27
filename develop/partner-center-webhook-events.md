@@ -1,6 +1,6 @@
 ---
-title: Partner Center webhook events
-description: Documentation for all Webhook events supported by Partner Center.
+title: パートナーセンターの webhook イベント
+description: パートナーセンターでサポートされているすべての Webhook イベントに関するドキュメント。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,40 +12,40 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486972"
 ---
-# <a name="partner-center-webhook-events"></a>Partner Center webhook events
+# <a name="partner-center-webhook-events"></a>パートナーセンターの webhook イベント
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Partner Center webhook events are resource change events delivered in the form of HTTP POSTs to a registered URL. To receive an event from Partner Center, you host a callback where Partner Center can POST the event. The event is digitally signed so you can validate that it was sent from Partner Center. 
+パートナーセンターの webhook イベントは、登録された URL に HTTP Post の形式で配信されるリソース変更イベントです。 パートナーセンターからイベントを受信するには、パートナーセンターがイベントを投稿できるコールバックをホストします。 イベントはデジタル署名されているため、パートナーセンターから送信されたことを検証できます。 
 
-For information on how to receive events, authenticate a callback, and use the Partner Center webhook APIs to create, view, and update an event registration, see [Partner Center Webhooks](partner-center-webhooks.md).
+イベントを受信する方法、コールバックを認証する方法、およびパートナーセンターの webhook Api を使用してイベント登録を作成、表示、更新する方法については、「[パートナーセンター](partner-center-webhooks.md)の webhook」を参照してください。
 
 
-## <a name="supported-events"></a>Supported Events
+## <a name="supported-events"></a>サポートされるイベント
 
-The following webhook events are supported by Partner Center.
+パートナーセンターでは、次の webhook イベントがサポートされています。
 
-### <a name="test-event"></a>Test Event
+### <a name="test-event"></a>テストイベント
 
-This event allows you to self-onboard and test your registration by requesting a test event and then tracking its progress. You will be able to see the failure messages that are being received from Microsoft while trying to deliver the event. This will only apply to "test-created" events and data older than 7 days will be purged.
+このイベントを使用すると、テストイベントを要求し、その進行状況を追跡することによって、登録を自己オンボードしてテストできます。 イベントの配信を試みている間に、Microsoft から受信されているエラーメッセージを確認することができます。 これは "テスト作成済み" イベントにのみ適用され、7日を経過したデータは消去されます。
 
 >[!NOTE]
->There is a throttle limit of 2 requests per minute when posting a test-created event.
+>テスト作成イベントを投稿する場合、1分あたり2要求のスロットル制限があります。
 
 **[プロパティ]**
 
-| プロパティ                  | タスクバーの検索ボックスに                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | string                             | The name of the event. In the form {resource}-{action}. For this event, the value is "test-created".                                          |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" |
-| ResourceName              | string                             | The name of the resource that will trigger the event. For this event, the value is "test".                                  |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "テスト作成済み" です。                                          |
+| ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" を使用します。 |
+| ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "test" です。                                  |
+| AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
+| ResourceChangeUtcDate     | UTC 日時形式の文字列 | リソースが変更された日付と時刻。                                                         |
 
 
 
@@ -62,22 +62,22 @@ This event allows you to self-onboard and test your registration by requesting a
 ```
 
 
-### <a name="subscription-updated-event"></a>Subscription Updated Event
+### <a name="subscription-updated-event"></a>サブスクリプションの更新イベント
 
-This event is raised when the specified subscription changes. A Subscription Updated event is generated when there is an internal change in addition to when changes are made through the Partner Center API. 
+このイベントは、指定されたサブスクリプションが変更されたときに発生します。 パートナーセンター API を使用して変更が行われた場合に加えて、サブスクリプションの更新イベントが生成されます。 
 
 >[!NOTE]
->There is a delay of up to 48 hours between the time a subscription changes and when the Subscription Updated event is triggered.  
+>サブスクリプションが変更されてからサブスクリプションの更新イベントがトリガーされるまでに、最大48時間の遅延が発生します。  
 
 **[プロパティ]**
 
-| プロパティ                  | タスクバーの検索ボックスに                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | string                             | The name of the event. In the form {resource}-{action}. For this event, the value is "subscription-updated".                                  |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" |
-| ResourceName              | string                             | The name of the resource that will trigger the event. For this event, the value is "subscription".                          |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "subscription-updated" です。                                  |
+| ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" を使用します。 |
+| ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "subscription" です。                          |
+| AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
+| ResourceChangeUtcDate     | UTC 日時形式の文字列 | リソースが変更された日付と時刻。                                                         |
 
 
 
@@ -94,19 +94,19 @@ This event is raised when the specified subscription changes. A Subscription Upd
 ```
 
 
-### <a name="threshold-exceeded-event"></a>Threshold Exceeded Event
+### <a name="threshold-exceeded-event"></a>しきい値を超えたイベント
 
-いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 For more information, see  [Set an Azure spending budget for your customers](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
+いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 詳細については、「[顧客の Azure 支出予算を設定する](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers)」を参照してください。
 
 **[プロパティ]**
 
-| プロパティ                  | タスクバーの検索ボックスに                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | string                             | The name of the event. In the form {resource}-{action}. For this event, the value is "usagerecords-thresholdExceeded".                                  |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" |
-| ResourceName              | string                             | The name of the resource that will trigger the event. For this event, the value is "usagerecords".                          |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "usagerecords-thresholdExceeded" です。                                  |
+| ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" を使用します。 |
+| ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "usagerecords" です。                          |
+| AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
+| ResourceChangeUtcDate     | UTC 日時形式の文字列 | リソースが変更された日付と時刻。                                                         |
 
 
 
@@ -122,19 +122,19 @@ This event is raised when the specified subscription changes. A Subscription Upd
 }
 ```
 
-### <a name="referral-created-event"></a>Referral Created Event
+### <a name="referral-created-event"></a>紹介作成イベント
 
-This event is raised when the referral is created. 
+このイベントは、参照が作成されるときに発生します。 
 
 **[プロパティ]**
 
-| プロパティ                  | タスクバーの検索ボックスに                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | string                             | The name of the event. In the form {resource}-{action}. For this event, the value is "referral-created".                                  |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
-| ResourceName              | string                             | The name of the resource that will trigger the event. For this event, the value is "referral".                          |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "参照作成" です。                                  |
+| ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" を使用します。 |
+| ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "参照" です。                          |
+| AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
+| ResourceChangeUtcDate     | UTC 日時形式の文字列 | リソースが変更された日付と時刻。                                                         |
 
 
 
@@ -150,19 +150,19 @@ This event is raised when the referral is created.
 }
 ```
 
-### <a name="referral-updated-event"></a>Referral Updated Event
+### <a name="referral-updated-event"></a>参照の更新イベント
 
-This event is raised when the referral is updated. 
+このイベントは、参照が更新されたときに発生します。 
 
 **[プロパティ]**
 
-| プロパティ                  | タスクバーの検索ボックスに                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | string                             | The name of the event. In the form {resource}-{action}. For this event, the value is "referral-updated".                                  |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
-| ResourceName              | string                             | The name of the resource that will trigger the event. For this event, the value is "referral".                          |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "参照-更新" です。                                  |
+| ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" を使用します。 |
+| ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "参照" です。                          |
+| AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
+| ResourceChangeUtcDate     | UTC 日時形式の文字列 | リソースが変更された日付と時刻。                                                         |
 
 
 
@@ -178,17 +178,17 @@ This event is raised when the referral is updated.
 }
 ```
 
-### <a name="invoice-ready-event"></a>Invoice Ready Event
+### <a name="invoice-ready-event"></a>請求書の準備完了イベント
 
-This event is raised when the new invoice is ready.
+このイベントは、新しい請求書の準備が整ったときに発生します。
 
-| プロパティ                  | タスクバーの検索ボックスに                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName | string | The name of the event. In the form {resource}-{action}. For this event, the value is "invoice-ready". |
-| ResourceUri | URI | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" |
-| ResourceName | string | The name of the resource that will trigger the event. For this event, the value is "invoice". |
-| AuditUri |  URI | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}") |
-| ResourceChangeUtcDate | string in the UTC date-time format | The date and time when the resource change occurred. |
+| eventName | string | イベントの名前です。 {Resource}-{action} の形式で。 このイベントの場合、値は "invoice ready" です。 |
+| ResourceUri | URI | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" を使用します。 |
+| ResourceName | string | イベントを発生させるリソースの名前。 このイベントでは、値は "invoice" です。 |
+| AuditUri |  URI | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}") を使用します。 |
+| ResourceChangeUtcDate | UTC 日時形式の文字列 | リソースが変更された日付と時刻。 |
 
 **例**
 

@@ -1,6 +1,6 @@
 ---
-title: Agreement metadata resources
-description: The AgreementMetadata resource collection describes agreement types that partners can use to provide confirmation of customer acceptance.
+title: アグリーメントメタデータリソース
+description: AgreementMetadata リソースコレクションは、パートナーが顧客の同意を確認するために使用できる契約の種類について説明します。
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,26 +12,26 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488712"
 ---
-# <a name="agreement-metadata-resources"></a>Agreement metadata resources
+# <a name="agreement-metadata-resources"></a>アグリーメントメタデータリソース
 
 適用対象:
 
 - パートナー センター
 
-The **AgreementMetaData** resource is currently supported by Partner Center only in the *Microsoft public cloud*. This resource isn't applicable to:
+**AgreementMetaData**リソースは、現在、 *Microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 このリソースは、以下には適用されません。
 
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-The **AgreementMetaData** collection provides metadata about all the agreement types. Partners can use this collection to provide confirmation of customer acceptance of agreements. Currently, the **AgreementMetaData** collection only returns metadata for one agreement type, which is the **Microsoft Cloud Agreement**.
+**AgreementMetaData**コレクションは、すべてのアグリーメントの種類に関するメタデータを提供します。 パートナーは、このコレクションを使用して、契約に対する顧客の同意の確認を行うことができます。 現時点では、 **AgreementMetaData**コレクションは、1つのアグリーメントの種類 ( **Microsoft Cloud アグリーメント**) のメタデータのみを返します。
 
 ## <a name="agreementmetadata"></a>AgreementMetaData
 
-Agreement metadata returned includes the following:
+返されるアグリーメントメタデータには、次のものが含まれます。
 
-| プロパティ      | タスクバーの検索ボックスに               | 説明                                                                       |
+| プロパティ      | 種類               | 説明                                                                       |
 |---------------|--------------------|-----------------------------------------------------------------------------------|
-| templateId    | string             | Unique identifier of an agreement template.                                       |
-| type          | string             | Agreement type. Currently, supported values include **MicrosoftCloudAgreement** and **MicrosoftCustomerAgreement** (preview). |
-| agreementLink | string             | URL for the agreement template.                                                    |
+| templateId    | string             | アグリーメントテンプレートの一意識別子。                                       |
+| type          | string             | 契約の種類。 現在サポートされている値は、 **microsoft の Cloudagreement**と**Microsoft の顧客契約**(プレビュー) です。 |
+| agreementLink | string             | アグリーメントテンプレートの URL。                                                    |

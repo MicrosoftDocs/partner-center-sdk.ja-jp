@@ -1,6 +1,6 @@
 ---
-title: Get a list of a customer's policies
-description: How to retrieve a collection of the specified customer's configuration policies.
+title: 顧客のポリシーの一覧を取得する
+description: 指定された顧客の構成ポリシーのコレクションを取得する方法。
 ms.assetid: 37C40EFC-7BC9-4111-BB9E-27018B583391
 ms.date: 07/25/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487542"
 ---
-# <a name="get-a-list-of-a-customers-policies"></a>Get a list of a customer's policies
+# <a name="get-a-list-of-a-customers-policies"></a>顧客のポリシーの一覧を取得する
 
 適用対象:
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-This topic describes how to retrieve a collection of the specified customer's configuration policies.
+このトピックでは、指定された顧客の構成ポリシーのコレクションを取得する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
 
 ## <a name="c"></a>C\#
 
-To get a list of all of a customer's policies:
+顧客のすべてのポリシーの一覧を取得するには、次のようにします。
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.
-2. Retrieve the [**ConfigurationPolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) property to get an interface to configuration policy collection operations.
-3. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync) method to retrieve the collection of policies.
+1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+2. 構成ポリシーのコレクション操作へのインターフェイスを取得するには、 [**Configurationpolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies)プロパティを取得します。
+3. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync)メソッドを呼び出して、ポリシーのコレクションを取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -42,31 +42,31 @@ string selectedCustomerId;
 var configPolicies = partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.Get();
 ```
 
-For an example, see the following:
+例については、以下を参照してください。
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetAllConfigurationPolicies.cs**
+- サンプル:[コンソールテストアプリ](console-test-app.md)
+- プロジェクト:**パートナーセンター SDK のサンプル**
+- クラス: **GetAllConfigurationPolicies.cs**
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                              |
 |---------|------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following path parameter when creating the request:
+要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | string | [はい]      | A GUID-formatted string that identifies the customer. |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -85,13 +85,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains the collection of [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) resources.
+成功した場合、応答本文には[Configurationpolicy](device-deployment-resources.md#configurationpolicy)リソースのコレクションが含まれます。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

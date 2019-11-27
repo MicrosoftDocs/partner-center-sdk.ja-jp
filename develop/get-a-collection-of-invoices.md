@@ -1,6 +1,6 @@
 ---
-title: Get a collection of invoices
-description: How to retrieve a collection of the partner's invoices.
+title: 請求書のコレクションを取得する
+description: パートナーの請求書のコレクションを取得する方法。
 ms.assetid: B5392987-3D2E-493B-9F97-A20055D5D46A
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,31 +13,31 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489892"
 ---
-# <a name="get-a-collection-of-invoices"></a>Get a collection of invoices
+# <a name="get-a-collection-of-invoices"></a>請求書のコレクションを取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to retrieve a collection of the partner's invoices.
+パートナーの請求書のコレクションを取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a collection of all available invoices, use the [**Invoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) property to get an interface to invoice operations, and then call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync) method to retrieve the collection.
+使用可能なすべての請求書のコレクションを取得する[**には、invoice プロパティを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)使用して請求書操作へのインターフェイスを取得し、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync)メソッドを呼び出してコレクションを取得します。
 
-To get a paged collection of invoices, first call the [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) method and pass it the page size to create an [**IQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) object. Next, use the [**Invoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) property to get an interface to invoice operations, and then pass the IQuery object to the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) or [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) method to send the request and get the first page.
+ページ分割された請求書のコレクションを取得するには、まず[**Buildindexedquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery)メソッドを呼び出し、それにページサイズを渡して[**iquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)オブジェクトを作成します。 次に、invoice[**プロパティを使用して請求**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)書操作へのインターフェイスを取得し、[**クエリ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query)または[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync)メソッドに iquery オブジェクトを渡して、要求を送信して最初のページを取得します。
 
-Next, use the [**Enumerators**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) property to get an interface to the collection of supported resource collection enumerators, and then call [**Invoices.Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) to create an enumerator for traversing the collection of invoices. Finally, use the enumerator to retrieve and work with each page of invoices as shown in the following code example. Each call to the [**Next**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) method sends a request for the next page of invoices based on the page size.
+次に、[**列挙子**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators)プロパティを使用して、サポートされているリソースコレクション列挙子のコレクションへのインターフェイスを取得し、[請求書] を呼び出し[**ます。 [作成**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)] をクリックして、請求書のコレクションを走査するための列挙子を作成します。 最後に、列挙子を使用して、次のコード例に示すように、請求書の各ページを取得して操作します。 [**次**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next)のメソッドを呼び出すたびに、ページサイズに基づいて請求書の次のページの要求が送信されます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -78,39 +78,39 @@ while (invoicesEnumerator.HasValue)
 }
 ```
 
-For a slightly different example, see **Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetPagedInvoices.cs
+少し異なる例については、「**サンプル**:[コンソールテストアプリ](console-test-app.md)」を参照してください。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetPagedInvoices.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices?size={size}&offset={offset} HTTP/1.1  |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices? size = {size} & オフセット = {OFFSET} HTTP/1.1  |
 
  
 
-**URI parameters**
+**URI パラメーター**
 
-Use the following query parameters when creating the request.
+要求の作成時には、次のクエリパラメーターを使用します。
 
-| 名前   | タスクバーの検索ボックスに | 必須かどうか | 説明                                                                            |
+| 名前   | 種類 | 必須 | 説明                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| size   | 整数  | 必須ではない       | The number of invoice resources to return in the response. このパラメーターは省略可能です。 |
-| offset | 整数  | 必須ではない       | The zero-based index of the first invoice to return.                                   |
+| size   | int  | X       | 応答で返される請求リソースの数。 このパラメーターは省略可能です。 |
+| offset | int  | X       | 返される最初の請求書の0から始まるインデックス。                                   |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices?size=200&offset=0 HTTP/1.1
@@ -123,16 +123,16 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 応答
 
 
-If successful, the response body contains the collection of [Invoice](invoice-resources.md#invoice) resources.
+成功した場合、応答本文には[請求](invoice-resources.md#invoice)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Get a list of customers
-description: How to get a collection of resources representing all of a partner's customers.
+title: 顧客の一覧を取得する
+description: パートナーのすべての顧客を表すリソースのコレクションを取得する方法。
 ms.assetid: 6D636257-7C23-4DDF-9895-96F208B66232
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487472"
 ---
-# <a name="get-a-list-of-customers"></a>Get a list of customers
+# <a name="get-a-list-of-customers"></a>顧客の一覧を取得する
 
 適用対象:
 
@@ -22,21 +22,21 @@ ms.locfileid: "74487472"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-This topic describes how to get a collection of resources that represents all of a partner's customers.
+このトピックでは、パートナーのすべての顧客を表すリソースのコレクションを取得する方法について説明します。
 
 > [!TIP]
-> You can also perform this operation in the Partner Center dashboard. On the main page, under **Customer management**, select **View Customers**. Or, on the sidebar, select **Customers**.
+> この操作は、パートナーセンターのダッシュボードでも実行できます。 メインページの **[カスタマー管理]** で、 **[顧客の表示]** を選択します。 または、サイドバーで **[Customers]** を選択します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="c"></a>C\#
 
-To get a list of all customers:
+すべての顧客の一覧を取得するには:
 
-1. Use the [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection to create an **IPartner** object.
-2. Retrieve the customer list using the [**Query()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) or [**QueryAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) methods. (For instructions on creating a query, see the [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) class.)
+1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 **ipartner**オブジェクトを作成します。
+2. [**Query ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)メソッドまたは[**QueryAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)メソッドを使用して、顧客リストを取得します。 (クエリを作成する手順については、「 [**Queryfactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)クラス」を参照してください)。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,20 +49,20 @@ var customersBatch = scopedPartnerOperations.Customers.Query(QueryFactory.Instan
 var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(customersBatch);
 ```
 
-For an example, see the following:
+例については、以下を参照してください。
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSamples**
-- Class: **CustomerPaging.cs**
+- サンプル:[コンソールテストアプリ](console-test-app.md)
+- プロジェクト: **Partnersdk. FeatureSamples**
+- クラス: **CustomerPaging.cs**
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a list of all customers:
+すべての顧客の一覧を取得するには:
 
-1. Use the **[IAggregatePartner.getCustomers]** function to get a reference to the customer operations.
-2. Retrieve the customer list using the **query()** function.
+1. 顧客の操作への参照を取得するには、 **[iaggregatepartner.customers]** 関数を使用します。
+2. **Query ()** 関数を使用して顧客リストを取得します。
 
 ```java
 // Query the customers, get the first page if a page size was set, otherwise get all customers
@@ -90,31 +90,31 @@ while (customersEnumerator.hasValue())
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-Execute the [**Get-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) command with no parameters to get a complete list of customers.
+すべての顧客の一覧を取得するには、パラメーターを使用せずに、 [**Get PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md)コマンドを実行します。
 
 ```powershell
 Get-PartnerCustomer
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers?size={size} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers? size = {SIZE} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following query parameter to get a list of customers.
+次のクエリパラメーターを使用して、顧客の一覧を取得します。
 
-| 名前     | タスクバーの検索ボックスに    | 必須かどうか | 説明                                        |
+| 名前     | 種類    | 必須 | 説明                                        |
 |----------|---------|----------|----------------------------------------------------|
-| **size** | **int** | Y        | The number of results to be displayed at one time. |
+| **size** | **通り** | Y        | 一度に表示される結果の数。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Headers](headers.md) for more information.
+詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -130,13 +130,13 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns a collection of [Customer](customer-resources.md#customer) resources in the response body.
+成功した場合、このメソッドは応答本文で[顧客](customer-resources.md#customer)リソースのコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

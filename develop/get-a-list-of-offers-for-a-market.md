@@ -1,6 +1,6 @@
 ---
-title: Get a list of offers for a market
-description: Gets a collection that contains all the offers for a specific market.
+title: 市場向けプランの一覧を取得する
+description: 特定の市場向けのすべてのオファーを含むコレクションを取得します。
 ms.assetid: 9251B841-498D-4B20-A90B-EB493A8FF212
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487352"
 ---
-# <a name="get-a-list-of-offers-for-a-market"></a>Get a list of offers for a market
+# <a name="get-a-list-of-offers-for-a-market"></a>市場向けプランの一覧を取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets a collection that contains all the offers for a specific market.
+特定の市場向けのすべてのオファーを含むコレクションを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a list of offers in a given market, use your **IAggregatePartner.Offers** collection, select the market by country, and call the **Get()** or **Get Async()** method.
+特定の市場にあるプランの一覧を取得するには、 **iaggregatepartner.customers**コレクションを使用して、国別に市場を選択し、 **get ()** または**get Async ()** メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,39 +41,39 @@ To get a list of offers in a given market, use your **IAggregatePartner.Offers**
 ResourceCollection<Offer> offers = partnerOperations.Offers.ByCountry("US").Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: Offers.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: Offers.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                          |
 |---------|--------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers?country={country-id} HTTP/1.1   |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers? country = {country-ID} HTTP/1.1   |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-This table lists the required query parameters to get the offers.
+次の表に、プランを取得するために必要なクエリパラメーターを示します。
 
-| 名前           | タスクバーの検索ボックスに       | 必須かどうか | 説明            |
+| 名前           | 種類       | 必須 | 説明            |
 |----------------|------------|----------|------------------------|
-| **country-id** | **string** | Y        | The country/region ID. |
+| **国-id** | **文字列** | Y        | 国/地域 ID。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- A **locale-id** formatted as a string is required.
-- See [Headers](headers.md) for more information.
+- 文字列として書式設定された**ロケール id**が必要です。
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers?country=<country-id> HTTP/1.1
@@ -84,16 +84,16 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 X-Locale: <locale-id>
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, this method returns a collection of **Offer** resources in the response body.
+成功した場合、このメソッドは応答本文で**オファー**リソースのコレクションを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

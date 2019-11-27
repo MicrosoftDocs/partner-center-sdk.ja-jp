@@ -1,6 +1,6 @@
 ---
-title: Get a list of availabilities for a SKU (by country)
-description: How to get a collection of availabilities for the specified product and SKU by customer country.
+title: SKU に使用できる機能の一覧を取得する (国別)
+description: 指定された製品および SKU の利用能力のコレクションを顧客の国別に取得する方法。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487532"
 ---
-# <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Get a list of availabilities for a SKU (by country)
+# <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>SKU に使用できる機能の一覧を取得する (国別)
 
 適用対象:
 
 - パートナー センター
 
-This topic describes how to get a collection of availabilities in a particular country for a specified product and SKU.
+このトピックでは、指定された製品および SKU の特定の国で利用できる機能のコレクションを取得する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product identifier.
-- A SKU identifier.
-- A country.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 製品識別子。
+- SKU 識別子。
+- 国。
 
 ## <a name="c"></a>C\#
 
-To get the list of [availabilities](product-resources.md#availability) for a [SKU](product-resources.md#sku):
+[SKU](product-resources.md#sku)に使用できる機能の一覧を取得するには、[次のよう](product-resources.md#availability)にします。
 
-1. Follow the steps in [Get a SKU by ID](get-a-sku-by-id.md) to get the interface for a specific SKU's operations.
-2. From the SKU interface, select the **Availabilities** property to get an interface with the operations for availabilities.
-3. (Optional) Use the **ByTargetSegment()** method to filter the availabilities by target segment.
-4. Call **Get()** or **GetAsync()** to retrieve a collection of the availabilities for this SKU.
+1. 「 [ID で sku を取得](get-a-sku-by-id.md)する」の手順に従って、特定の sku の操作のインターフェイスを取得します。
+2. SKU インターフェイスから、[利用**能力**] プロパティを選択して、利用できる操作を含むインターフェイスを取得します。
+3. Optional**Bytargetsegment ()** メソッドを使用して、ターゲットセグメントで可用性をフィルター処理します。
+4. **Get ()** または**GetAsync ()** を呼び出して、この SKU の利用能力のコレクションを取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -60,31 +60,31 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities?country={country-code}&targetSegment={target-segment} HTTP/1.1     |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities? country = {country-code} & targetsegment = {target-SEGMENT} HTTP/1.1     |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path and query parameters to get a list of availabilities for a SKU.
+SKU に利用できる機能の一覧を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                     |
+| 名前                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | string   | [はい]      | A string that identifies the product.                           |
-| sku-id                 | string   | [はい]      | A string that identifies the SKU.                               |
-| country-code           | string   | [はい]      | A country/region ID.                                            |
-| target-segment         | string   | 必須ではない       | A string that identifies the target segment used for filtering. |
-| reservationScope | string   | 必須ではない | When querying for a list of availabilities for an Azure Reservation SKU, specify `reservationScope=AzurePlan` to get a list of availabilities which are applicable to AzurePlan. Exclude this parameter to get a list of availabilities which are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.  |
+| 製品 id             | string   | 〇      | 製品を識別する文字列。                           |
+| sku-id                 | string   | 〇      | SKU を識別する文字列。                               |
+| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
+| ターゲット-セグメント         | string   | X       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
+| reservationScope | string   | X | Azure 予約 SKU の利用可能な機能の一覧を照会するときに、`reservationScope=AzurePlan` を指定して、AzurePlan に適用できる利用可能な機能の一覧を取得します。 Microsoft Azure (0145P) サブスクリプションに適用できる利用可能な機能の一覧を取得するには、このパラメーターを除外します。  |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Headers](headers.md).
+詳細については、「[ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -92,9 +92,9 @@ For more information, see [Headers](headers.md).
 
 #### <a name="request-examples"></a>要求の例
 
-##### <a name="availabilities-for-sku-by-country"></a>Availabilities for SKU by country
+##### <a name="availabilities-for-sku-by-country"></a>国別の SKU の利用能力
 
-Follow this example to get a list of availabilities for a given SKU by country:
+次の例に従って、特定の SKU の利用できる機能の一覧を国別に取得します。
 
 ```http
 GET http:// api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US HTTP/1.1
@@ -104,9 +104,9 @@ MS-RequestId: 70324727-62d8-4195-8f99-70ea25058d02
 MS-CorrelationId: 83b644b5-e54a-4bdc-b354-f96c525b3c58
 ```
 
-##### <a name="availabilities-for-vm-reservations-azure-plan"></a>Availabilities for VM reservations (Azure plan)
+##### <a name="availabilities-for-vm-reservations-azure-plan"></a>VM 予約の利用能力 (Azure プラン)
 
-Follow this example to get a list of availabilities by country for Azure VM reservation SKUs. This example is for SKUs that apply to Azure plans:
+次の例に従って、Azure VM 予約 Sku の国別利用できる機能の一覧を取得します。 この例は、Azure プランに適用される Sku を対象としています。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -116,9 +116,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-##### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Availabilities for VM reservations for Microsoft Azure (MS-AZR-0145P) subscriptions
+##### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS AZR-0145P) サブスクリプションの VM 予約の可用性機能
 
-Follow this example to get a list of availabilities by country for Azure VM reservations that are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.
+次の例に従って、Microsoft Azure (0145P) サブスクリプションに適用される Azure VM 予約の国別の利用可能な機能の一覧を取得します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/productsDZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureAzureReservationsVM HTTP/1.1
@@ -128,19 +128,19 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains a collection of [**Availability**](product-resources.md#availability) resources.
+成功した場合、応答本文には[**可用性**](product-resources.md#availability)リソースのコレクションが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード     | エラー コード   | 説明                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Access to the requested **targetSegment** is not allowed.                                                     |
+| 403                  | 400030       | 要求された**Targetsegment**へのアクセスは許可されていません。                                                     |
 
 #### <a name="response-example"></a>応答の例
 

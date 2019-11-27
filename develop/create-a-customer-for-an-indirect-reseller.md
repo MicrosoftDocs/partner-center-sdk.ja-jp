@@ -1,6 +1,6 @@
 ---
-title: Create a customer for an indirect reseller
-description: An indirect provider can create a customer for an indirect reseller.
+title: 間接リセラーの顧客を作成する
+description: 間接プロバイダーは、間接リセラーの顧客を作成できます。
 ms.assetid: F6196EE1-1B72-4D0A-BE6E-56A243671CDE
 ms.date: 06/03/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488772"
 ---
-# <a name="create-a-customer-for-an-indirect-reseller"></a>Create a customer for an indirect reseller
+# <a name="create-a-customer-for-an-indirect-reseller"></a>間接リセラーの顧客を作成する
 
 適用対象:
 
 - パートナー センター
 
-An indirect provider can create a customer for an indirect reseller.
+間接プロバイダーは、間接リセラーの顧客を作成できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- The tenant identifier of the indirect reseller.
-- The indirect reseller must have a partnership with the indirect provider.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 間接リセラーのテナント識別子。
+- 間接リセラーは、間接プロバイダとのパートナーシップを持っている必要があります。
 
 ## <a name="c"></a>C\#
 
-To add a new customer for an indirect reseller:
+間接リセラーに新しい顧客を追加するには、次のようにします。
 
-1. Instantiate a new [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object and then instantiate and populate the [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) and [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile). Be sure to assign the indirect reseller ID to the [**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid) property.
-2. Use the [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) property to get an interface to customer collection operations. 
-3. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) method to create the customer.
+1. 新しい[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)オブジェクトをインスタンス化し、そのインスタンスを作成して、その[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)と会社の[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)を作成します。 必ず間接リセラー ID を[**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid)プロパティに割り当ててください。
+2. 顧客コレクション操作へのインターフェイスを取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)プロパティを使用します。 
+3. 顧客を作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)メソッドを呼び出します。
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>C\# の例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -73,49 +73,49 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateCustomerforIndirectReseller.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateCustomerforIndirectReseller.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-This table describes the required properties in the request body.
+次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                                          | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                                                                                                                                                                                                                                                                                           |
+| 名前                                          | 種類   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | オブジェクト | [はい]      | The customer's billing profile information.                                                                                                                                                                                                                                                                                                           |
-| [CompanyProfile](#company-profile)             | オブジェクト | [はい]      | The customer's company profile information.                                                                                                                                                                                                                                                                                                           |
-| [AssociatedPartnerId](customer-resources.md#customer) | string | [はい]      | The indirect reseller ID. Note that the indirect reseller as indicated by the ID supplied here must have a partnership with the indirect provider or the request will fail. Also note that if the AssociatedPartnerId value is not supplied, the customer is created as a direct customer of the indirect provider rather than the indirect reseller. |
+| [BillingProfile](#billing-profile)             | オブジェクト | 〇      | 顧客の請求プロファイル情報。                                                                                                                                                                                                                                                                                                           |
+| [会社のプロファイル](#company-profile)             | オブジェクト | 〇      | 顧客の会社のプロファイル情報。                                                                                                                                                                                                                                                                                                           |
+| [AssociatedPartnerId](customer-resources.md#customer) | string | 〇      | 間接リセラー ID。 ここで指定する ID によって示される間接リセラーは、間接プロバイダーとのパートナーシップを持つ必要があります。間接リセラーの場合、要求は失敗します。 また、AssociatedPartnerId 値が指定されていない場合、顧客は間接リセラーではなく間接プロバイダーの直接の顧客として作成されることに注意してください。 |
 
-#### <a name="billing-profile"></a>Billing profile
+#### <a name="billing-profile"></a>課金プロファイル
 
-This table describes the minimum required fields from the [CustomerBillingProfile](customer-resources.md#customerbillingprofile) resource needed to create a new customer.
+次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | タスクバーの検索ボックスに                                     | 必須かどうか | 説明                                                                                                                                                                                                     |
+| 名前             | 種類                                     | 必須 | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| メール            | string                                   | [はい]      | The customer's email address.                                                                                                                                                                                   |
-| culture          | string                                   | [はい]      | Their preferred culture for communication and currency, such as "en-US". See [Partner Center supported languages and locales](partner-center-supported-languages-and-locales.md) for the supported cultures. |
-| 言語         | string                                   | [はい]      | The default language. Two character language codes (e.g., en, fr) are supported.                                                                                                                                |
-| company\_name    | string                                   | [はい]      | The registered company/organization name.                                                                                                                                                                       |
-| default\_address | [Address](utility-resources.md#address) | [はい]      | The registered address of the customer's company/organization. See the [Address](utility-resources.md#address) resource for information on any length limitations.                                             |
+| 電子メール            | string                                   | 〇      | 顧客の電子メールアドレス。                                                                                                                                                                                   |
+| カルチャ          | string                                   | 〇      | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
+| 言語         | string                                   | 〇      | 既定の言語です。 2文字の言語コード (en、fr など) がサポートされています。                                                                                                                                |
+| 会社の\_名    | string                                   | 〇      | 登録されている会社名または組織名。                                                                                                                                                                       |
+| 既定の\_アドレス | [先](utility-resources.md#address) | 〇      | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
 
-#### <a name="company-profile"></a>Company profile
+#### <a name="company-profile"></a>会社のプロファイル
 
-This table describes the minimum required fields from the [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) resource needed to create a new customer.
+次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                  |
+| 名前   | 種類   | 必須 | 説明                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| domain | string | .Yes     | The customer's domain name, such as contoso.onmicrosoft.com. |
+| domain | string | .うん     | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 
 ### <a name="request-example"></a>要求の例
 
@@ -178,13 +178,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response contains a [Customer](customer-resources.md#customer) resource for the new customer.
+成功した場合、応答には新しい顧客の[顧客](customer-resources.md#customer)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

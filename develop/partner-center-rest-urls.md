@@ -1,6 +1,6 @@
 ---
-title: Partner Center REST URLs
-description: Partner Center is available in different countries and regions around the world. Some versions of Partner Center might require different end points for your apps to work correctly.
+title: パートナーセンターの REST Url
+description: パートナーセンターは、世界中のさまざまな国や地域でご利用いただけます。 一部のバージョンのパートナーセンターでは、アプリが正常に動作するために、異なるエンドポイントが必要になる場合があります。
 ms.assetid: D4E1AC16-3FB1-4192-A06A-5766BF00A6D8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,19 +13,19 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488282"
 ---
-# <a name="partner-center-rest-urls"></a>Partner Center REST URLs
+# <a name="partner-center-rest-urls"></a>パートナーセンターの REST Url
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Partner Center is available in different countries and regions around the world. Some versions of Partner Center might require different end points for your apps to work correctly.
+パートナーセンターは、世界中のさまざまな国や地域でご利用いただけます。 一部のバージョンのパートナーセンターでは、アプリが正常に動作するために、異なるエンドポイントが必要になる場合があります。
 
-The following table describes the base URLs to use with the different versions of Partner Center:
+次の表では、パートナーセンターの異なるバージョンで使用するベース Url について説明します。
 
 <table>
 <colgroup>
@@ -34,8 +34,8 @@ The following table describes the base URLs to use with the different versions o
 </colgroup>
 <thead>
 <tr class="header">
-<th>Partner Center Version</th>
-<th>Base URL</th>
+<th>パートナーセンターのバージョン</th>
+<th>ベース URL</th>
 </tr>
 </thead>
 <tbody>
@@ -55,7 +55,7 @@ The following table describes the base URLs to use with the different versions o
  
 
 >[!NOTE]
->The token authority for Partner Center for Microsoft Cloud Germany Azure AD Library is: https://login.microsoftonline.de.   
+>Microsoft Cloud ドイツ Azure AD Library のパートナーセンターのトークン機関は https://login.microsoftonline.deです。   
 
  
 

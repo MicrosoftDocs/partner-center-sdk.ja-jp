@@ -1,6 +1,6 @@
 ---
-title: Product upgrade resources
-description: You can use multiple resources related to Partner Center product upgrades to an Azure plan. These include ProductUpgradeRequest, ProductUpgradesEligibility, ProductUpgradesStatus, UpgradesLineItem, UpgradeProduct and ErrorDetails.
+title: 製品のアップグレードに関するリソース
+description: Azure プランへのパートナーセンター製品のアップグレードに関連する複数のリソースを使用できます。 これには、ProductUpgradeRequest ProductUpgradesEligibility、Productupgradeesstatus、アップグレード Eslineitem、UpgradeProduct、および ErrorDetails が含まれます。
 ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,79 +13,79 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488202"
 ---
-# <a name="product-upgrade-resources"></a>Product upgrade resources
+# <a name="product-upgrade-resources"></a>製品のアップグレードに関するリソース
 
 適用対象:
 
 - パートナー センター
 
-You can use the following resources for information about Partner Center product upgrades from a Microsoft Azure (MS-AZR-0145P) subscription to an Azure plan.
+Microsoft Azure (0145P) サブスクリプションから Azure プランへのパートナーセンター製品のアップグレードに関する情報については、次のリソースを参照してください。
 
-## <a name="productupgraderequest"></a>ProductUpgradeRequest
+## <a name="productupgraderequest"></a>Productアップグレード
 
-The **ProductUpgradesRequest** resource provides information about the product upgrades request object.
+**Productの**アップグレード要求のリソースには、製品アップグレード要求オブジェクトに関する情報が記載されています。
 
-| プロパティ | タスクバーの検索ボックスに | 説明 |
+| プロパティ | 種類 | 説明 |
 |----------------------|----------------------------------------------|----------------------------------------------------------------|
-| customerId           | string                                       | A GUID-formatted string that identifies the customer. |
-| productFamily        | string                                       | The product family for which the upgrade is requested for. |
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| 顧客           | string                                       | 顧客を識別する GUID 形式の文字列。 |
+| productFamily        | string                                       | アップグレードが要求されている製品ファミリ。 |
+| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 |
 
 ## <a name="productupgradeseligibility"></a>ProductUpgradesEligibility
 
-The **ProductUpgradesEligibility** resource provides information about the customer's eligibility for upgrading a product.
+**ProductUpgradesEligibility**リソースは、顧客が製品をアップグレードするための資格に関する情報を提供します。
 
-| プロパティ | タスクバーの検索ボックスに | 説明 |
+| プロパティ | 種類 | 説明 |
 |----------------------|--------------------------------------------- |----------------------------------------------------------------|
-| customerId           | string                                       | A GUID-formatted string that identifies the customer. |          | productFamily        | string                                       | The product family for which the upgrade is requested for. |
-| isEligible           | bool                                         | The bool value indicates whether the customer is eligible for requested upgrade. |
-| upgradeId            | string                                       | The upgrade ID if a product upgrade for given family is already in place. |
-| reason               | string                                       | The reason for which customer isn't eligible for product upgrade. |
-| productFamily        | string                                       | The product family for which the upgrade is requested for. |
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.  
+| 顧客           | string                                       | 顧客を識別する GUID 形式の文字列。 |          | productFamily        | string                                       | アップグレードが要求されている製品ファミリ。 |
+| IsEligible           | bool                                         | ブール値は、顧客が要求されたアップグレードの条件を満たしているかどうかを示します。 |
+| upgradeId            | string                                       | 指定されたファミリの製品のアップグレードが既に配置されている場合のアップグレード ID。 |
+| reason               | string                                       | 顧客が製品のアップグレードに適合していない理由。 |
+| productFamily        | string                                       | アップグレードが要求されている製品ファミリ。 |
+| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。  
 
-## <a name="productupgradesstatus"></a>ProductUpgradesStatus
+## <a name="productupgradesstatus"></a>Productアップグレード Esstatus
 
-The **ProductUpgradesStatus** resource provides information about the status of a product upgrade.
+**Productupgrade esstatus**リソースは、製品のアップグレードの状態に関する情報を提供します。
 
-| プロパティ | タスクバーの検索ボックスに | 説明 |
+| プロパティ | 種類 | 説明 |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------|
-| Id                  | string                                                         | A GUID-formatted string that identifies the upgrade. |
-| productFamily       | string                                                         | The product family for which the upgrade is requested for.
-| status              | string                                                         | The status of the product upgrade.
-| lineItems           | array of [UpgradesLineItem](#upgradeslineitem) resources       | An array of objects that provides information of the upgrade details for each line item that was part of the request body.
-| errorDetails        | [ErrorDetails](#errordetails) resource                         | The error details for upgrade requested.
-| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes. |
+| ID                  | string                                                         | アップグレードを識別する GUID 形式の文字列。 |
+| productFamily       | string                                                         | アップグレードが要求されている製品ファミリ。
+| status              | string                                                         | 製品のアップグレードの状態。
+| lineItems           | アップグレード時の[lineitem](#upgradeslineitem)リソースの配列       | 要求本文の一部であった各品目のアップグレードの詳細情報を提供するオブジェクトの配列。
+| errorDetails        | [Errordetails](#errordetails)リソース                         | アップグレードが要求された場合のエラーの詳細。
+| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。 |
 
-## <a name="upgradeslineitem"></a>UpgradesLineItem
+## <a name="upgradeslineitem"></a>アップグレード Eslineitem
 
-The **UpgradesLineItem** resource describes the status of product upgrade details for each line item of the request.
+アップグレード**Eslineitem**リソースは、要求の各品目の製品アップグレードの詳細の状態を示します。
 
-| プロパティ | タスクバーの検索ボックスに | 説明 |
+| プロパティ | 種類 | 説明 |
 |-----------------|-----------------------------------------------------|--------------------------------------------------------------|
-| sourceProduct   | [UpgradeProduct](#upgradeproduct) object            | Information of the source product being upgraded. |
-| targetProduct   | [UpgradeProduct](#upgradeproduct) object            | Information of the target product post upgrade. |
-| upgradedDate    | string in UTC date-time format                      | The date the subscription was upgraded. |
-| status          | string                                              | The status of the product upgrade. |
-| errorDetails    | [ErrorDetails](#errordetails) resource              | The error details for upgrade requested. |
-| 属性      | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.  |
+| sourceProduct   | [Upgradeproduct](#upgradeproduct)オブジェクト            | アップグレードされるソース製品の情報。 |
+| targetProduct   | [Upgradeproduct](#upgradeproduct)オブジェクト            | ターゲット製品のアップグレード後の情報。 |
+| upgradedDate    | UTC 日時形式の文字列                      | サブスクリプションがアップグレードされた日付。 |
+| status          | string                                              | 製品のアップグレードの状態。 |
+| errorDetails    | [Errordetails](#errordetails)リソース              | アップグレードが要求された場合のエラーの詳細。 |
+| 属性      | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。  |
 
 ## <a name="upgradeproduct"></a>UpgradeProduct
 
-The **UpgradeProduct** resource provides information about the product being upgraded.
+**Upgradeproduct**リソースは、アップグレードされている製品に関する情報を提供します。
 
-| プロパティ | タスクバーの検索ボックスに |説明 |
+| プロパティ | 種類 |説明 |
 |----------------------|----------------------------------------------|----------------------------------------------------------------|
-| id                   | string                                       | A GUID-formatted string that identifies the product. |
-| 名前                 | string                                       | The friendly name of product being upgraded. |  
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| id                   | string                                       | 製品を識別する GUID 形式の文字列。 |
+| name                 | string                                       | アップグレードされる製品のフレンドリ名。 |  
+| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 |
 
 ## <a name="errordetails"></a>ErrorDetails
 
-The **ErrorDetails** resource provides details about errors during the upgrade process.
+**Errordetails**リソースは、アップグレード処理中のエラーに関する詳細を提供します。
 
-| プロパティ | タスクバーの検索ボックスに | 説明 |
+| プロパティ | 種類 | 説明 |
 |-------------------------|----------------------------------------------|-------------------------------------------------------------|
-| コード                    | string                                       | A error code when the product upgrade fails. |
-| メッセージ                 | string                                       | The error message when the product upgrade fails. |
-| 属性              | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| code                    | string                                       | 製品のアップグレードに失敗した場合のエラーコード。 |
+| メッセージ                 | string                                       | 製品のアップグレードに失敗した場合のエラーメッセージ。 |
+| 属性              | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 |

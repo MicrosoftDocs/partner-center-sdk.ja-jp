@@ -1,6 +1,6 @@
 ---
-title: Create a new configuration policy for the specified customer
-description: How to create a new configuration policy for the specified customer.
+title: 指定された顧客の新しい構成ポリシーを作成します
+description: 指定された顧客の新しい構成ポリシーを作成する方法。
 ms.assetid: 95649991-A950-4F43-87E8-3EB1E7D06FCD
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489502"
 ---
-# <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>Create a new configuration policy for the specified customer
+# <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>指定された顧客の新しい構成ポリシーを作成します
 
 適用対象:
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-How to create a new configuration policy for the specified customer.
+指定された顧客の新しい構成ポリシーを作成する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
 
 ## <a name="c"></a>C\#
 
-To create a new configuration policy for the specified customer:
+指定された顧客の新しい構成ポリシーを作成するには、次のようにします。
 
-1. Instantiate a new [**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) object as shown in the following code snippet. Then call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.
-2. Retrieve the [**ConfigurationPolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) property to get an interface to configuration policy collection operations.
-3. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) method to create the configuration policy.
+1. 次のコードスニペットに示すように、新しい[**Configurationpolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy)オブジェクトをインスタンス化します。 次に、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+2. 構成ポリシーのコレクション操作へのインターフェイスを取得するには、 [**Configurationpolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies)プロパティを取得します。
+3. 構成ポリシーを作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)メソッドを呼び出します。
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>C\# の例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,38 +54,38 @@ var createdConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.Create(configurationPolicyToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateConfigurationPolicy.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateConfigurationPolicy.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                                              |
 |----------|------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following path parameters when creating the request.
+要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | string | [はい]      | A GUID-formatted string that identifies the customer. |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-The request body must contain an object with the configuration policy information as described in the following table:
+要求本文には、次の表に示すように、構成ポリシー情報を持つオブジェクトが含まれている必要があります。
 
-| 名前           | タスクバーの検索ボックスに             | 必須かどうか | 説明                      |
+| 名前           | 種類             | 必須 | 説明                      |
 |----------------|------------------|----------|----------------------------------|
-| 名前           | string           | [はい]      | The friendly name of the policy. |
-| category       | string           | [はい]      | The policy category.             |
-| 説明    | string           | 必須ではない       | The policy description.          |
-| policySettings | 文字列の配列 | [はい]      | The policy settings.             |
+| name           | string           | 〇      | ポリシーのフレンドリ名。 |
+| 別       | string           | 〇      | ポリシーカテゴリ。             |
+| 説明    | string           | X       | ポリシーの説明。          |
+| policySettings | 文字列の配列 | 〇      | ポリシー設定。             |
 
 ### <a name="request-example"></a>要求の例
 
@@ -108,13 +108,13 @@ Host: api.partnercenter.microsoft.com
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains the [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) resource for the new policy.
+成功した場合、応答本文には新しいポリシーの[Configurationpolicy](device-deployment-resources.md#configurationpolicy)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

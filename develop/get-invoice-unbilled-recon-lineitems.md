@@ -1,6 +1,6 @@
 ---
-title: Get invoice's unbilled reconciliation line items
-description: You can get a collection of unbilled reconciliation line item details for specified period using the Partner Center APIs.
+title: 請求書の未請求調整の品目を取得する
+description: パートナーセンター Api を使用して、指定した期間の未請求調整行項目の詳細のコレクションを取得できます。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489342"
 ---
-# <a name="get-invoices-unbilled-reconciliation-line-items"></a>Get invoice's unbilled reconciliation line items
+# <a name="get-invoices-unbilled-reconciliation-line-items"></a>請求書の未請求調整の品目を取得する
 
 適用対象:
 
@@ -21,34 +21,34 @@ ms.locfileid: "74489342"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-You can use the following methods get a collection of details for unbilled invoice line items (also known as open billing line items).
+次のメソッドを使用すると、未請求 invoice 品目 (オープン請求明細項目とも呼ばれます) の詳細のコレクションを取得できます。
 
 [!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An invoice identifier. This identifies the invoice for which to retrieve the line items.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
 
 ## <a name="c"></a>C\#
 
-To get the line items for the specified invoice, retrieve the invoice object:
+指定された請求書の品目を取得するには、請求書オブジェクトを取得します。
 
-1. Call the [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) method to get an interface to invoice operations for the specified invoice.
-2. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the invoice object.
+1. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
+2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、請求書オブジェクトを取得します。
 
-The invoice object contains all of the information for the specified invoice:
+Invoice オブジェクトには、指定された請求書のすべての情報が含まれています。
 
-- **Provider** identifies the source of the unbilled detail information (for example, **OneTime**).
-- **InvoiceLineItemType** specifies the type (for example, **BillingLineItem**).
+- **プロバイダー**は、未請求詳細情報のソース (たとえば、 **OneTime**) を識別します。
+- **InvoiceLineItemType**は、型を指定します (たとえば、"例 **")。**
 
-To get a collection of line items that correspond to an **InvoiceDetail** instance:
+**InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
-1. Pass the instance's BillingProvider and InvoiceLineItemType to the [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) method.
-2. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the associated line items.
-3. Create an enumerator to traverse the collection. For an example, see the following sample code.
+1. インスタンスのプロバイダーと InvoiceLineItemType を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)メソッドに渡します。
+2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
+3. コレクションを走査する列挙子を作成します。 例については、次のサンプルコードを参照してください。
 
-The following sample code uses a **foreach** loop to process the **InvoiceLineItems** collection. A separate collection of line items is retrieved for each **InvoiceLineItemType**.
+次のサンプルコードでは、 **foreach**ループを使用して**InvoiceLineItems**コレクションを処理します。 **InvoiceLineItemType**ごとに、個別の行項目のコレクションが取得されます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -106,70 +106,70 @@ while (fetchNext)
 }
 ```
 
-For a similar example, see:
+同様の例については、次を参照してください。
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetUnBilledReconLineItemsPaging.cs**
+- サンプル:[コンソールテストアプリ](console-test-app.md)
+- プロジェクト:**パートナーセンター SDK のサンプル**
+- クラス: **GetUnBilledReconLineItemsPaging.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
-You can use the following syntaxes for your REST request, depending on your use case. For more information, see the descriptions for each syntax.
+お使いのユースケースに応じて、REST 要求に対して次の構文を使用できます。 詳細については、各構文の説明を参照してください。
 
- | メソッド  | 要求 URI            | Description of syntax use case                                                                                |
+ | メソッド  | 要求 URI            | 構文のユースケースの説明                                                                                |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period} HTTP/1.1                              | Use this syntax to return a full list of every line item for the given invoice. |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1  | For large invoices, use this syntax with a specified size and 0-based offset to return a paged list of line items. |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next                               | Use this syntax to get the next page of reconciliation line items using `seekOperation = "Next"`. |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & currencycode = {currencycode} & period = {PERIOD} HTTP/1.1                              | この構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & currencycode = {currencycode} & period = {period} & size = {SIZE} HTTP/1.1  | 大きな請求書の場合は、指定されたサイズと0ベースのオフセットでこの構文を使用して、行項目のページ化されたリストを返します。 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & currencycode = {currencycode} & period = {period} & size = {size} & Seekoperation = Next                               | この構文を使用すると、`seekOperation = "Next"`を使用して、調整行項目の次のページを取得できます。 |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following URI and query parameters when creating the request.
+要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                     |
+| 名前                   | 種類   | 必須 | 説明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| invoice-id             | string | [はい]      | A string that identifies the invoice. Use 'unbilled' to get unbilled estimates. |
-| provider               | string | [はい]      | The provider: "OneTime".                                                |
-| invoice-line-item-type | string | [はい]      | The type of invoice detail: "BillingLineItems".               |
-| hasPartnerEarnedCredit | bool   | 必須ではない       | The value indicating if to return the line items with partner earned credit applied. Note: this parameter will be only applied when provider type is OneTime and InvoiceLineItemType is UsageLineItems.
-| currencyCode           | string | [はい]      | The currency code for the unbilled line items.                                  |
-| period                 | string | [はい]      | The period for unbilled recon. example: current, previous.                      |
-| size                   | number | 必須ではない       | The maximum number of items to return. Default size is 2000                     |
-| seekOperation          | string | 必須ではない       | Set seekOperation=Next to get the next page of recon line items.                |
+| 請求書-id             | string | 〇      | 請求書を識別する文字列。 未請求の推定値を取得するには、' 未請求 ' を使用します。 |
+| provider               | string | 〇      | プロバイダー: "OneTime"。                                                |
+| 請求書-品目-種類 | string | 〇      | 請求書の詳細の種類: "BillingLineItems"。               |
+| hasPartnerEarnedCredit | bool   | X       | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。
+| currencyCode           | string | 〇      | 未請求の品目の通貨コード。                                  |
+| 前期                 | string | 〇      | 未請求 recon の期間。 例: current、previous。                      |
+| size                   | number | X       | 返される項目の最大数。 既定のサイズは2000                     |
+| seekOperation          | string | X       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。                |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Partner Center REST headers](headers.md).
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
 なし。
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, the response contains the collection of line item details.
+成功した場合、応答には行項目の詳細のコレクションが含まれます。
 
-*For the line item **ChargeType**, the value **Purchase** is mapped to **New** and the value **Refund** is mapped to **Cancel**.*
+*行項目**ChargeType**の場合、**購入**した値は**新規**にマップされ、値の**返金**は**キャンセル**にマップされます。*
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-### <a name="request-response-examples"></a>Request-response examples
+### <a name="request-response-examples"></a>要求-応答の例
 
-#### <a name="request-response-example-1"></a>Request-response example 1
+#### <a name="request-response-example-1"></a>要求-応答の例1
 
-The following details apply to this example:
+この例には、次の詳細が適用されます。
 
-- Provider: **OneTime**
+- プロバイダー: **OneTime**
 - InvoiceLineItemType: **BillingLineItems**
-- Period: **Previous**
+- 期間:**前へ**
 
-#### <a name="request-example-1"></a>Request example 1
+#### <a name="request-example-1"></a>要求の例1
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1//invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode=usd&period=previous&size=2000 HTTP/1.1
@@ -182,7 +182,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-1"></a>Response example 1
+#### <a name="response-example-1"></a>応答の例1
 
 ```http
 HTTP/1.1 200 OK
@@ -309,16 +309,16 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-### <a name="request-response-example-2"></a>Request-response example 2
+### <a name="request-response-example-2"></a>要求-応答の例2
 
-The following details apply to this example:
+この例には、次の詳細が適用されます。
 
-- Provider: **OneTime**
+- プロバイダー: **OneTime**
 - InvoiceLineItemType: **BillingLineItems**
-- Period: **Previous**
-- SeekOperation: **Next**
+- 期間:**前へ**
+- SeekOperation:**次**
 
-#### <a name="request-example-2"></a>Request example 2
+#### <a name="request-example-2"></a>要求の例2
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/unbilled/lineitems?provider=onetime&invoiceLineItemType=billinglineitems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -332,7 +332,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-2"></a>Response example 2
+#### <a name="response-example-2"></a>応答の例2
 
 ```http
 HTTP/1.1 200 OK
@@ -412,7 +412,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-3"></a>Response example 3
+#### <a name="response-example-3"></a>応答の例3
 
 ```http
 HTTP/1.1 200 OK

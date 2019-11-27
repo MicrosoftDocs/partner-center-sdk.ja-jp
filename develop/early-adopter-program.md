@@ -1,6 +1,6 @@
 ---
-title: パートナー センターの API および SDK 早期導入者プログラムにご参加ください。
-description: Partners can collaborate with Microsoft on the development of partner features and capabilities.
+title: パートナー センターAPI および SDK 早期導入者プログラムにご参加ください。
+description: パートナーは、パートナーの機能の開発に関して Microsoft と共同作業を行うことができます。
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489932"
 ---
-# <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>パートナー センターの API および SDK 早期導入者プログラムにご参加ください。
+# <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>パートナー センターAPI および SDK 早期導入者プログラムにご参加ください。
 
 適用対象:
 
@@ -21,31 +21,31 @@ ms.locfileid: "74489932"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Partners can collaborate with Microsoft on the development of Partner Center API and SDK features and capabilities.
+パートナーは、パートナーセンターの API と SDK の機能の開発に関して、Microsoft と共同作業を行うことができます。
 
-## <a name="program-features"></a>Program features
+## <a name="program-features"></a>プログラムの機能
 
-The following features are available to partners who join the Partner Center API and SDK Early Adopter Program:
+パートナーセンター API と SDK 早期導入プログラムに参加しているパートナーは、次の機能を利用できます。
 
-- **Access to prerelease versions of the Partner Center APIs and SDK**: we will announce new features and capabilities to the private Partner Center Early Adopter Program Yammer group.
-- **Monthly webinars**: a monthly webinar for early adopters will be conducted to answer questions, gather feedback, share schedules and timelines, and provide support for new features.
-- **Support from subject matter experts**: participants can provide feedback and communicate with subject matter experts (SMEs) in the private Yammer group.
+- **パートナーセンターの api と SDK のプレリリース版へのアクセス**: プライベートパートナーセンターの早期導入プログラム Yammer グループに新機能が発表されます。
+- **毎月のウェビナー**: 早期導入のための毎月のウェビナーでは、質問に回答し、フィードバックを収集し、スケジュールとタイムラインを共有し、新機能のサポートを提供します。
+- **分野の専門家からのサポート**: 参加者は、フィードバックを提供し、個人の Yammer グループ内の専門家 (sme) とコミュニケーションを取ることができます。
 
-## <a name="join-the-program"></a>Join the program
+## <a name="join-the-program"></a>プログラムに参加する
 
-You must be an **existing CSP partner** or an **approved platform vendor** to join the program.
+プログラムに参加するには、**既存の CSP パートナー**または承認された**プラットフォームベンダー**である必要があります。
 
-1. **Join the Yammer group** [Partner Center Early Adopter Program](https://www.yammer.com/cloudpartnercommunity/#/threads/inGroup?type=in_group&feedId=5944712&view=all). 申し込みの確認にはしばらく時間がかかります。 グループへの参加が承認されたらメールでお知らせします。
+1. **Yammer グループ**[パートナーセンターの早期導入プログラム](https://www.yammer.com/cloudpartnercommunity/#/threads/inGroup?type=in_group&feedId=5944712&view=all)に参加します。 申し込みの確認にはしばらく時間がかかります。 グループへの参加が承認されたらメールでお知らせします。
 
    > [!NOTE]
-   > You may be required to join the Microsoft Cloud Yammer Community network before you can join the Partner Center Early Adopter Program Yammer group.
+   > パートナーセンターの早期導入プログラム Yammer グループに参加する前に、Microsoft Cloud Yammer コミュニティネットワークに参加することが必要になる場合があります。
 
-2. **Send an email to [pctap@microsoft.com](mailto:pctap@microsoft.com)** with your Microsoft ID or your TiP (Testing in Production) sandbox account, and your primary domain.
+2. Microsoft ID またはヒント (運用環境でのテスト) サンドボックスアカウントとプライマリドメインを使用して **[pctap@microsoft.com](mailto:pctap@microsoft.com)に電子メールを送信**します。
 
    > [!TIP]
-   > You can find your Microsoft ID on the **Organization Profile** page in the **Account Settings** menu.
+   > Microsoft ID は、 **[アカウント設定]** メニューの **[組織のプロファイル]** ページで確認できます。
 
-3. **Participate actively** in the program by test-driving new features early, engaging with Microsoft, and providing feedback. Be engaged with others in the early adopter community.
+3. 新しい機能を早期に体験し、マイクロソフトと協力して、フィードバックを提供することで、プログラムに**積極的に参加**します。 早期導入者コミュニティで他のユーザーと協力してください。
 
    > [!IMPORTANT]
-   > Microsoft reserves the right to remove inactive partners from the program.
+   > Microsoft は、非アクティブなパートナーをプログラムから削除する権利を留保します。

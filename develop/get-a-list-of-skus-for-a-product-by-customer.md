@@ -1,6 +1,6 @@
 ---
-title: Get a list of SKUs for a product (by customer)
-description: Gets a collection of SKUs for the specified product by customer.
+title: 製品の Sku の一覧を取得する (顧客別)
+description: 指定された製品の Sku のコレクションを顧客別に取得します。
 ms.assetid: ''
 ms.date: 10/11/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490182"
 ---
-# <a name="get-a-list-of-skus-for-a-product-by-customer"></a>Get a list of SKUs for a product (by customer)
+# <a name="get-a-list-of-skus-for-a-product-by-customer"></a>製品の Sku の一覧を取得する (顧客別)
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets a collection of SKUs for a particular product that is available to an existing customer.
+既存の顧客が利用できる特定の製品の Sku のコレクションを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**).
-- A product ID (**product-id**).
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子 (**顧客-テナント id**)。
+- 製品 ID (**製品 id**)。
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
@@ -40,16 +40,16 @@ Gets a collection of SKUs for a particular product that is available to an exist
 |--------|--------------------------------------------------------------------------------------------------------------------|
 | POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products/{product-id}/skus HTTP/1.1 |
 
-#### <a name="request-uri-parameter"></a>Request URI parameter
+#### <a name="request-uri-parameter"></a>要求 URI パラメーター
 
-| 名前               | タスクバーの検索ボックスに | 必須かどうか | 説明                                                                                 |
+| 名前               | 種類 | 必須 | 説明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | [はい] | The value is a GUID-formatted **customer-tenant-id**, which is an identifier that allows you to specify a customer. |
-| product-id | string | [はい] | A string that identifies the product. |
+| 顧客-テナント id | GUID | 〇 | 値は、GUID 形式の**顧客テナント id**です。これは、顧客を指定するための識別子です。 |
+| 製品 id | string | 〇 | 製品を識別する文字列。 |
 
 #### <a name="request-header"></a>要求ヘッダー
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -65,17 +65,17 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード | エラー コード | 説明 |
 |------------------|------------|-------------|
-| 404 | 400013 | The parent product was not found. |
+| 404 | 400013 | 親製品が見つかりませんでした。 |
 
 #### <a name="response-example"></a>応答の例
 

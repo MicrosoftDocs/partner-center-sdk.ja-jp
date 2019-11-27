@@ -1,6 +1,6 @@
 ---
-title: Agreement document resources
-description: The AgreementDocument resource represents an agreement document.
+title: 契約ドキュメントのリソース
+description: AgreementDocument リソースは、アグリーメントドキュメントを表します。
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,27 +12,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488932"
 ---
-# <a name="agreement-document-resources"></a>Agreement document resources
+# <a name="agreement-document-resources"></a>契約ドキュメントのリソース
 
 適用対象:
 
 - パートナー センター
 
-The **AgreementDocument** resource is currently supported by Partner Center only in the *Microsoft public cloud*. This resource not applicable to:
+**AgreementDocument**リソースは、現在、 *Microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 このリソースは、次には適用されません。
 
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-The **AgreementDocument** resource represents a Microsoft agreement document that is available for preview and download.
+**AgreementDocument**リソースは、プレビューとダウンロードに使用できる Microsoft agreement ドキュメントを表します。
 
 ## <a name="agreementdocument"></a>AgreementDocument
 
-An **AgreementDocument** resource includes the following properties:
+**AgreementDocument**リソースには、次のプロパティが含まれています。
 
-| プロパティ       | タスクバーの検索ボックスに   | 説明                                                                                               |
+| プロパティ       | 種類   | 説明                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| country | string | The country or market to which this document applies. |
-| 言語 | string | The language in which this document is localized. |
-| displayUri | string | A link to preview the agreement document in a browser.  |
-| downloadUri |string | A link to download the agreement document (in Microsoft Word format). |
+| country | string | このドキュメントが適用される国または地域。 |
+| 言語 | string | このドキュメントがローカライズされる言語。 |
+| displayUri | string | ブラウザーでアグリーメントドキュメントをプレビューするためのリンク。  |
+| downloadUri |string | 契約ドキュメントをダウンロードするためのリンク (Microsoft Word 形式)。 |

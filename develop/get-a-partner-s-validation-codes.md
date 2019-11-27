@@ -1,6 +1,6 @@
 ---
-title: Get a partner's Government Community Cloud validation codes
-description: How to get a partner's Government Community Cloud validation codes.
+title: パートナーの政府機関向けコミュニティクラウド検証コードを入手する
+description: パートナーの政府機関向けコミュニティクラウド検証コードを取得する方法。
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,27 +12,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489532"
 ---
-# <a name="get-a-partners-validation-codes"></a>Get a partner's validation codes
+# <a name="get-a-partners-validation-codes"></a>パートナーの検証コードを取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-How to get a collection of a partner's Government Community Cloud validation codes. A validation code is required to create a customer in the government community cloud.
+パートナーの政府機関向けコミュニティクラウド検証コードのコレクションを取得する方法。 政府コミュニティクラウドで顧客を作成するには、検証コードが必要です。
 
-If you are interested in having your organization or your customers organization approved for Office 365 Government GCC for CSP, please see [Office 365 Government GCC for CSP Partner and Customer Eligibility Criteria](https://docs.microsoft.com/partner-center/csp-gcc-validate).  
+組織またはお客様の組織に CSP 用の Office 365 Government GCC を承認することに関心がある場合は、「 [office 365 GOVERNMENT gcc FOR Csp Partner」と「Customer 適格性 Criteria](https://docs.microsoft.com/partner-center/csp-gcc-validate)」を参照してください。  
 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- Confirmed validation after filling out form [here](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).
-- A customer without a qualification.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- フォームに入力した後に[検証を確認](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner)します。
+- 資格のない顧客。
 
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
-To get a list of all of a partner's validation codes, call **GetValidationCodes**.
+パートナーのすべての検証コードの一覧を取得するには、 **Getvalidationcodes**を呼び出します。
 
 ``` csharp
 // create the partner operations
@@ -42,24 +42,24 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 ```
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1 |
 
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/all/validations HTTP/1.1
@@ -70,15 +70,15 @@ MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 ```
 
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, this method returns a list of [**ValidationCode**](utility-resources.md#validationcode) resources in the response body.
+成功した場合、このメソッドは応答本文内の[**Validationcode**](utility-resources.md#validationcode)リソースのリストを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

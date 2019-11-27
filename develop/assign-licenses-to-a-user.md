@@ -1,6 +1,6 @@
 ---
 title: ユーザーにライセンスを割り当てる
-description: How to assign licenses to a customer user.
+description: 顧客ユーザーにライセンスを割り当てる方法。
 ms.assetid: 872C7444-DF89-4EB5-8C1E-1D8E2934A40E
 ms.date: 10/11/2019
 ms.service: partner-dashboard
@@ -19,37 +19,37 @@ ms.locfileid: "74489192"
 
 - パートナー センター
 
-How to assign licenses to a customer user.
+顧客ユーザーにライセンスを割り当てる方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier. The customer should have a subscription with an available license to assign.
-- A customer user identifier. This identifies the user to whom to assign the license.
-- A product SKU identifier that identifies the product for the license.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客識別子。 お客様は、割り当てに使用できるライセンスを持つサブスクリプションを所有している必要があります。
+- 顧客のユーザー id。 これにより、ライセンスを割り当てるユーザーが識別されます。
+- ライセンスの製品を識別する製品 SKU 識別子。
 
-## <a name="assigning-licenses-through-code"></a>Assigning licenses through code
+## <a name="assigning-licenses-through-code"></a>コードを使用したライセンスの割り当て
 
-When you assign licenses to a user you must choose from the customer's collection of subscribed SKUs. Then, having identified the products that you want to assign, you must obtain the product SKU ID for each product in order to make the assignments. Each [**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) instance contains a [**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) property from which you can reference the [**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) object and get the [**ID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id).
+ユーザーにライセンスを割り当てるときは、お客様のサブスクライブ済み Sku のコレクションから選択する必要があります。 次に、割り当てる製品を特定した後、割り当てを行うために各製品の製品 SKU ID を取得する必要があります。 各[**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku)インスタンスには[ **、productsku オブジェクトを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku)参照して[**ID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)を取得できる[**productsku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku)プロパティが含まれています。
 
-A license assignment request must contain licenses from a single license group. For example, you cannot assign licenses from [**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) and **Group2** in the same request. An attempt to assign licenses from more than one group in a single request will fail with an appropriate error. To find out what licenses are available by license group, see [Get a list of available licenses by license group](get-a-list-of-available-licenses-by-license-group.md).
+ライセンス割り当て要求には、1つのライセンスグループのライセンスが含まれている必要があります。 たとえば、同じ要求で[**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)と**Group2**からライセンスを割り当てることはできません。 1つの要求で複数のグループからライセンスを割り当てようとすると、適切なエラーが発生して失敗します。 ライセンスグループごとに利用可能なライセンスを確認するには、「[ライセンスグループ別の使用可能なライセンスの一覧を取得](get-a-list-of-available-licenses-by-license-group.md)する」を参照してください。
 
-Here are the steps to assign licenses through code:
+コードを使用してライセンスを割り当てる手順は次のとおりです。
 
-1. Instantiate a [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) object. You use this object to specify the product SKU and service plans to assign.
+1. [**Licenseassignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)オブジェクトをインスタンス化します。 このオブジェクトを使用して、割り当てる製品 SKU とサービスプランを指定します。
 
     ``` csharp
     LicenseAssignment license = new LicenseAssignment();
     ```
 
-2. Populate the object properties as shown below. This code assumes that you already have the product SKU ID, and that all of the available service plans will be assigned (i.e. none will be excluded).
+2. 次に示すように、オブジェクトのプロパティを設定します。 このコードでは、製品 SKU ID が既に存在し、利用可能なすべてのサービスプランが割り当てられていることを前提としています (つまり、除外されません)。
   
     ```csharp
     license.SkuId = selectedProductSkuId;
     license.ExcludedPlans = null;
     ```
 
-3. If you don't have the product SKU ID, you need to retrieve the collection of subscribed SKUs and get the product SKU ID from one of them. Here is an example if you know the product SKU name.
+3. 製品 SKU ID を持っていない場合は、サブスクライブされた Sku のコレクションを取得し、そのうちの1つから製品 SKU ID を取得する必要があります。 製品 SKU 名がわかっている場合の例を次に示します。
 
     ```csharp
     var customerSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get();
@@ -58,21 +58,21 @@ Here are the steps to assign licenses through code:
     license.ExcludedPlans = null;
     ```
 
-4. Next, instantiate a new list of type [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment), and add the license object. You can assign more than one license by adding each individually to the list. The licenses included in this list must be from the same license group.
+4. 次に、 [**Licenseassignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)型の新しいリストをインスタンス化し、ライセンスオブジェクトを追加します。 複数のライセンスを割り当てるには、それぞれを一覧に個別に追加します。 この一覧に含まれるライセンスは、同じライセンスグループのものである必要があります。
 
     ```csharp
     List<LicenseAssignment> licenseList = new List<LicenseAssignment>();
     licenseList.Add(license);
     ```
 
-5. Create a [**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) instance and assign the list of license assignments to the [**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) property.
+5. [**Licenseupdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate)インスタンスを作成し、ライセンスの割り当ての一覧を[**licensestoassign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign)プロパティに割り当てます。
 
     ```csharp
     LicenseUpdate updateLicense = new LicenseUpdate();
     updateLicense.LicensesToAssign = licenseList;
     ```
 
-6. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) method and pass the license update object as shown below to assign the licenses.
+6. [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync)メソッドを呼び出し、次のようにライセンスの更新オブジェクトを渡してライセンスを割り当てます。
 
     ```csharp
     var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
@@ -80,11 +80,11 @@ Here are the steps to assign licenses through code:
 
 ## <a name="c"></a>C\#
 
-To assign a license to a customer user, first instantiate a [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) object, and populate the [**Skuid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) and [**ExcludedPlans**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) properties. You use this object to specify the product SKU to assign and service plans to exclude. Next, instantiate a new list of type **LicenseAssignment**, and add the license object to the list. Then create a [**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) instance and assign the list of license assignments to the [**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) property.
+顧客ユーザーにライセンスを割り当てるには、まず、 [**Licenseassignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)オブジェクトをインスタンス化し、 [**Skuid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid)プロパティと[**ExcludedPlans**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans)プロパティを設定します。 このオブジェクトを使用して、割り当てる製品 SKU と、除外するサービスプランを指定します。 次に、 **Licenseassignment**型の新しいリストをインスタンス化し、ライセンスオブジェクトをリストに追加します。 次に、 [**Licenseupdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate)インスタンスを作成し、ライセンスの割り当ての一覧を[**licensestoassign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign)プロパティに割り当てます。
 
-Next, use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the user ID to identify the user. Then get an interface to customer user license update operations from the [**LicenseUpdates**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates) property.
+次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別し、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドにユーザー id を指定してユーザーを識別します。 次に、 [**Licenseupdates**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates)プロパティから顧客のユーザーライセンスの更新操作へのインターフェイスを取得します。
 
-Finally, call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) method and pass the license update object to assign the license.
+最後に、 [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync)メソッドを呼び出し、ライセンスの更新オブジェクトを渡してライセンスを割り当てます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -109,7 +109,7 @@ updateLicense.LicensesToAssign = licenseList;
 var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CustomerUserAssignLicenses.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CustomerUserAssignLicenses.cs
 
 ## <a name="request"></a>要求
 
@@ -117,24 +117,24 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 | メソッド   | 要求 URI                                                                                                    |
 |----------|----------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path parameters to identify the customer and user.
+次のパスパラメーターを使用して、顧客とユーザーを識別します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                       |
+| 名前        | 種類   | 必須 | 説明                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| customer-id | string | [はい]      | A GUID formatted ID that identifies the customer. |
-| user-id     | string | [はい]      | A GUID formatted ID that identifies the user.     |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の ID。 |
+| ユーザー id     | string | 〇      | ユーザーを識別する GUID 形式の ID。     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-You must include a [LicenseUpdate](license-resources.md#licenseupdate) resource in the request body that specifies the licenses to assign.
+割り当てるライセンスを指定する[Licenseupdate](license-resources.md#licenseupdate)リソースを要求本文に含める必要があります。
 
 ### <a name="request-example"></a>要求の例
 
@@ -165,15 +165,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST Response
+## <a name="rest-response"></a>REST 応答
 
-If successful, an HTTP response status code 201 is returned and the response body contains a [LicenseUpdate](license-resources.md#licenseupdate) resource with the license information.
+成功すると、HTTP 応答ステータスコード201が返され、応答本文にはライセンス情報を含む[Licenseupdate](license-resources.md#licenseupdate)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-### <a name="response-example-success"></a>Response example (success)
+### <a name="response-example-success"></a>応答の例 (成功)
 
 ```http
 HTTP/1.1 201 Created
@@ -197,7 +197,7 @@ Date: Thu, 20 Apr 2017 21:50:39 GMT
 }
 ```
 
-### <a name="response-example-license-is-not-available"></a>Response example (license is not available)
+### <a name="response-example-license-is-not-available"></a>応答の例 (ライセンスは使用できません)
 
 ```http
 HTTP/1.1 400 Bad Request

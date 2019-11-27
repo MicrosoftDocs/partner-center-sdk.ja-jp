@@ -1,6 +1,6 @@
 ---
-title: Get invoice estimate links
-description: You can get a collection of estimate links to query reconciliation line item details.
+title: 請求書の推定リンクの取得
+description: クエリ調整行項目の詳細に対する推定リンクのコレクションを取得できます。
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490292"
 ---
-# <a name="get-invoice-estimate-links"></a>Get invoice estimate links
+# <a name="get-invoice-estimate-links"></a>請求書の推定リンクの取得
 
 適用対象:
 
@@ -22,16 +22,16 @@ ms.locfileid: "74490292"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-You can get estimate links to help query details for unbilled reconciliation line items.
+未請求の調整行の項目の詳細については、推定リンクを参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An invoice identifier. This identifies the invoice for which to retrieve the line items.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
 
 ## <a name="c"></a>C\#
 
-The following example code shows how you can get the estimate links to query unbilled line items for a given currency. The response contains the estimate links for each period (for example, the current and previous month).
+次のコード例は、特定の通貨の未請求の品目をクエリするための推定リンクを取得する方法を示しています。 応答には、各期間の推定リンク (現在の月や前月など) が含まれます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,33 +44,33 @@ The following example code shows how you can get the estimate links to query unb
 var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(curencyCode).Get();  
 ```
 
-For a similar example, see the following:
+同様の例については、以下を参照してください。
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetEstimatesLinks.cs**
+- サンプル:[コンソールテストアプリ](console-test-app.md)
+- プロジェクト:**パートナーセンター SDK のサンプル**
+- クラス: **GetEstimatesLinks.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/estimates/links?currencycode={currencycode} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/estimates/links? currencycode = {CURRENCYCODE} HTTP/1.1 |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following URI and query parameter when creating the request.
+要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                       |
+| 名前                   | 種類   | 必須 | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| currencyCode           | string | [はい]      | The currency code for the unbilled line items.                    |
+| currencyCode           | string | 〇      | 未請求の品目の通貨コード。                    |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Partner Center REST headers](headers.md).
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -89,13 +89,13 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, the response contains the links to retrieve unbilled estimates.
+成功した場合、応答には未請求推定を取得するためのリンクが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

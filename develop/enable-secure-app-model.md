@@ -1,6 +1,6 @@
 ---
-title: Enable secure application model
-description: Secure your Partner Center and control panel apps.
+title: セキュリティで保護されたアプリケーションモデルを有効にする
+description: パートナーセンターとコントロールパネルアプリをセキュリティで保護します。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,91 +12,91 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490102"
 ---
-# <a name="enabling-the-secure-application-model-framework"></a>Enabling the Secure Application Model framework
+# <a name="enabling-the-secure-application-model-framework"></a>セキュリティで保護されたアプリケーションモデルフレームワークを有効にする
 
 適用対象:
 
 - パートナー センター
 
-Microsoft is introducing a secure, scalable framework for authenticating cloud solution provider (CSP) partners and control panel vendors (CPV) through the Microsoft Azure multi-factor authentication (MFA) architecture.
+Microsoft では、Microsoft Azure multi-factor authentication (MFA) アーキテクチャを使用して、クラウドソリューションプロバイダー (CSP) パートナーとコントロールパネルベンダー (CPV) を認証するための、セキュリティで保護されたスケーラブルなフレームワークを導入しています。
 
-You can use the new model to elevate security for Partner Center API integration calls. This will help all parties (including Microsoft, CSP partners, and CPVs) to protect their infrastructure and customer data from security risks.
+新しいモデルを使用して、パートナーセンターの API 統合呼び出しのセキュリティを昇格させることができます。 これにより、すべてのパーティ (Microsoft、CSP パートナー、CPVs など) がセキュリティ上のリスクからインフラストラクチャと顧客データを保護するのに役立ちます。
 
-## <a name="scope"></a>適用範囲
+## <a name="scope"></a>Scope
 
-This topic concerns the following actors:
+このトピックでは、次のアクターについて説明します。
 
 - CPVs
-  - A CPV is an independent software vendor that develops apps for use by CSP partners to integrate with Partner Center APIs.
-  - A CPV is not a CSP partner with direct access to the Partner Center dashboard or APIs.
-- CSP indirect providers and CSP direct partners who are using app ID + user authentication and directly integrate with Partner Center APIs.
+  - CPV は、パートナーセンター Api と統合するために CSP パートナーが使用するアプリを開発する独立系ソフトウェアベンダーです。
+  - CPV は、パートナーセンターのダッシュボードまたは Api に直接アクセスする CSP パートナーではありません。
+- アプリ ID とユーザー認証を使用し、パートナーセンター Api と直接統合された CSP 間接プロバイダーと CSP 直接パートナー。
 
 ## <a name="security-requirements"></a>セキュリティ要件
 
-For details on security requirements, see [Partner Security Requirements](https://docs.microsoft.com/partner-center/partner-security-requirements).
+セキュリティ要件の詳細については、「[パートナーのセキュリティ要件](https://docs.microsoft.com/partner-center/partner-security-requirements)」を参照してください。
 
 ## <a name="secure-application-model"></a>セキュリティで保護されたアプリケーション モデル
 
-Marketplace applications need to impersonate CSP partner privileges to call Microsoft APIs. Security attacks on these sensitive applications can lead to the compromise of customer data.
+Marketplace アプリケーションでは、Microsoft Api を呼び出すために CSP パートナーの特権を借用する必要があります。 これらの機密性の高いアプリケーションに対するセキュリティ攻撃によって、顧客データが侵害される可能性があります。
 
-For an overview and details of the new authentication framework, download the [Secure Application Model framework](http://assetsprod.microsoft.com/secure-application-model-guide.pdf) document. This document covers principles and best practices to make marketplace applications sustainable and robust from security compromises.
+新しい認証フレームワークの概要と詳細については、[セキュリティで保護されたアプリケーションモデルフレームワーク](http://assetsprod.microsoft.com/secure-application-model-guide.pdf)に関するドキュメントをダウンロードしてください。 このドキュメントでは、marketplace アプリケーションをセキュリティ侵害から確実かつ堅牢にするための原則とベストプラクティスについて説明します。
 
 ## <a name="samples"></a>サンプル
 
-The following overview documents and sample code describe how partners can implement the Secure Application Model framework:
+次の概要ドキュメントとサンプルコードでは、パートナーがセキュリティで保護されたアプリケーションモデルフレームワークを実装する方法について説明します。
 
-- [CPV overview document](http://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
-- [CSP overview document](http://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
-- [.NET Samples](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
-- [Java Samples](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
+- [CPV の概要ドキュメント](http://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
+- [CSP の概要ドキュメント](http://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
+- [.NET のサンプル](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
+- [Java のサンプル](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
 
     [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-- [REST instructions and samples](#rest)
-- [PowerShell instructions and samples](#powershell)
+- [REST の手順とサンプル](#rest)
+- [PowerShell の手順とサンプル](#powershell)
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-To to make REST calls with the Secure Application Model framework with sample code, you must do the following:
+サンプルコードを使用して、セキュリティで保護されたアプリケーションモデルフレームワークで REST 呼び出しを行うには、次の操作を行う必要があります。
 
-1. [Create a web app](#create-a-web-app)
-2. [Get an authorization code](#get-authorization-code)
-3. [Get a refresh token](#get-refresh-token)
-4. [Get an access token](#get-access-token)
-5. [Make a Partner Center API call](#make-partner-center-api-calls)
+1. [Web アプリを作成する](#create-a-web-app)
+2. [認証コードを取得する](#get-authorization-code)
+3. [更新トークンを取得する](#get-refresh-token)
+4. [アクセストークンを取得する](#get-access-token)
+5. [パートナーセンターの API 呼び出しを作成する](#make-partner-center-api-calls)
 
 > [!TIP]
-> You can use the Partner Center PowerShell module to get an authorization code and a refresh token. You can choose this option in place of steps 2 and 3. For more information, see the [PowerShell section and examples](#powershell).
+> パートナーセンターの PowerShell モジュールを使用して、認証コードと更新トークンを取得できます。 このオプションは、手順 2. と 3. の代わりに選択できます。 詳細については、 [PowerShell のセクションと例](#powershell)を参照してください。
 
-### <a name="create-a-web-app"></a>Create a web app
+### <a name="create-a-web-app"></a>Web アプリを作成する
 
-You must create and register a web app in Partner Center before making REST calls.
+REST 呼び出しを行う前に、パートナーセンターで web アプリを作成して登録する必要があります。
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Create an Azure Active Directory (Azure AD) app.
-3. Give delegated application permissions to the following resources, *depending on your application's requirements*. If necessary, you can add more delegated permissions for application resources.
-    1. **Microsoft Partner Center** (some tenants show this as **SampleBECApp**)
-    2. **Azure Management APIs** (if you are planning to call Azure APIs)
+1. [Azure portal](https://portal.azure.com)にサインインします。
+2. Azure Active Directory (Azure AD) アプリを作成します。
+3. *アプリケーションの要件に応じて*、次のリソースへの委任されたアプリケーションアクセス許可を付与します。 必要に応じて、アプリケーションリソースに対して委任されたアクセス許可をさらに追加することができます。
+    1. **Microsoft パートナーセンター** (一部のテナントはこれを**sampleて app**として示しています)
+    2. **Azure 管理 api** (azure api の呼び出しを計画している場合)
     3. **Windows Azure Active Directory**
-4. Make sure that the home URL of your app is set to an endpoint where a live web app is running. This app will need to accept the [authorization code](#get-authorization-code) from the Azure AD login call. For example, in the example code in [the following section](#get-authorization-code), the web app is running at `https://localhost:44395/`.
-5. Note the following information from your web app's settings in Azure AD:
+4. アプリのホーム URL が、ライブ web アプリが実行されているエンドポイントに設定されていることを確認します。 このアプリは、Azure AD ログイン呼び出しからの[認証コード](#get-authorization-code)を受け入れる必要があります。 たとえば、[次のセクション](#get-authorization-code)のコード例では、web アプリが `https://localhost:44395/`で実行されています。
+5. Azure AD の web アプリの設定から次の情報を確認してください。
     - アプリケーション ID
-    - Application secret
+    - アプリケーションシークレット
 
 > [!NOTE]
-> It is recommended to [use a certificate as your application secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials). However, you can also create an application key in the Azure portal. The sample code in [the following section](#get-authorization-code) uses an application key.
+> [アプリケーションシークレットとして証明書を使用](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials)することをお勧めします。 ただし、Azure portal でアプリケーションキーを作成することもできます。 [次のセクション](#get-authorization-code)のサンプルコードでは、アプリケーションキーを使用します。
 
-### <a name="get-authorization-code"></a>Get authorization code
+### <a name="get-authorization-code"></a>認証コードの取得
 
-You must get an authorization code for your web app to accept from the Azure AD login call:
+Web アプリが Azure AD ログイン呼び出しから同意するには、次の認証コードを取得する必要があります。
 
-1. Log in to Azure AD at the following URL: <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>. Be sure to log in with the user account from which you will make Partner Center API calls (such as an admin agent or sales agent account).
-2. Replace **Application-Id** with your Azure AD app ID (GUID).
-3. When prompted, log in with your user account with MFA configured.
-4. When prompted, enter additional MFA information (phone number or email address) to verify your login.
-5. After you are logged in, the browser will redirect the call to your web app endpoint with your authorization code. For example, the following sample code redirects to `https://localhost:44395/`.
+1. 次の URL で Azure AD にログインします: <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>。 パートナーセンターの API 呼び出しを行うユーザーアカウント (管理エージェントや販売エージェントアカウントなど) を使用してログインしてください。
+2. **アプリケーション id**を AZURE AD アプリ ID (GUID) に置き換えます。
+3. プロンプトが表示されたら、MFA が構成されたユーザーアカウントでログインします。
+4. プロンプトが表示されたら、追加の MFA 情報 (電話番号または電子メールアドレス) を入力して、ログインを確認します。
+5. ログインすると、web アプリのエンドポイントへの呼び出しが、ブラウザーによって認証コードと共にリダイレクトされます。 たとえば、次のサンプルコードは `https://localhost:44395/`にリダイレクトします。
 
-#### <a name="authorization-code-call-trace"></a>Authorization code call trace
+#### <a name="authorization-code-call-trace"></a>認証コード呼び出しトレース
 
 ```http
 POST https://localhost:44395/ HTTP/1.1
@@ -112,20 +112,20 @@ Cookie: OpenIdConnect.nonce.hOMjjrivcxzuI4YqAw4uYC%2F%2BILFk4%2FCx3kHTHP3lBvA%3D
 code=AuthorizationCodeValue&id_token=IdTokenValue&<rest of properties for state>
 ```
 
-### <a name="get-refresh-token"></a>Get refresh token
+### <a name="get-refresh-token"></a>更新トークンの取得
 
-You must then use your authorization code to get a refresh token:
+次に、認証コードを使用して更新トークンを取得する必要があります。
 
-1. Make a POST call to the Azure AD login endpoint `https://login.microsoftonline.com/CSPTenantID/oauth2/token` with the authorization code. For an example, see the following [sample call](#sample-refresh-call).
-2. Note the refresh token that is returned.
-3. Store the refresh token in Azure Key Vault. For more information, see the [Key Vault API documentation](https://docs.microsoft.com/en-us/rest/api/keyvault/).
+1. 認証コードを使用して `https://login.microsoftonline.com/CSPTenantID/oauth2/token` Azure AD ログインエンドポイントへの POST 呼び出しを行います。 例については、次の[サンプル呼び出し](#sample-refresh-call)を参照してください。
+2. 返される更新トークンに注意してください。
+3. 更新トークンを Azure Key Vault に格納します。 詳細については、 [KEY VAULT API のドキュメント](https://docs.microsoft.com/en-us/rest/api/keyvault/)を参照してください。
 
 > [!IMPORTANT]
-> The refresh token must be [stored as a secret](https://docs.microsoft.com/en-us/rest/api/keyvault/setsecret/setsecret) in Key Vault.
+> 更新トークンは、Key Vault に[シークレットとして格納されて](https://docs.microsoft.com/en-us/rest/api/keyvault/setsecret/setsecret)いる必要があります。
 
-#### <a name="sample-refresh-call"></a>Sample refresh call
+#### <a name="sample-refresh-call"></a>更新呼び出しのサンプル
 
-Placeholder request:
+プレースホルダー要求:
 
 ```http
 POST https://login.microsoftonline.com/CSPTenantID/oauth2/token HTTP/1.1
@@ -135,13 +135,13 @@ Content-Length: 966
 Expect: 100-continue
 ```
 
-Request body:
+要求本文:
 
 ```http
 resource=https%3a%2f%2fapi.partnercenter.microsoft.com&client_id=Application-Id&client_secret=Application-Secret&grant_type=authorization_code&code=AuthorizationCodeValue
 ```
 
-Placeholder response:
+プレースホルダーの応答:
 
 ```http
 HTTP/1.1 200 OK
@@ -149,7 +149,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Response body:
+応答本文:
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","ext_expires_in":"3599","expires_on":"1547579127","not_before":"1547575227","resource":"https://api.partnercenter.microsoft.com","access_token":"Access
@@ -157,9 +157,9 @@ Response body:
 
 ### <a name="get-access-token"></a>アクセス トークンを取得する
 
-You must obtain an access token before you can make calls to the Partner Center APIs. You must use a refresh token to obtain an access token because access token generally have a very limited lifetime (for example, less than an hour).
+パートナーセンター Api の呼び出しを行う前に、アクセストークンを取得する必要があります。 アクセストークンを取得するには、更新トークンを使用する必要があります。これは、一般に、アクセストークンの有効期間が非常に限られているためです (たとえば、1時間未満)。
 
-Placeholder request:
+プレースホルダー要求:
 
 ```http
 POST https://login.microsoftonline.com/CSPTenantID/oauth2/token HTTP/1.1
@@ -169,13 +169,13 @@ Content-Length: 1212
 Expect: 100-continue
 ```
 
-Request body:
+要求本文:
 
 ```http
 resource=https%3a%2f%2fapi.partnercenter.microsoft.com&client_id=Application-Id &client_secret= Application-Secret&grant_type=refresh_token&refresh_token=RefreshTokenVlaue&scope=openid
 ```
 
-Placeholder response:
+プレースホルダーの応答:
 
 ```http
 HTTP/1.1 200 OK
@@ -183,17 +183,17 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Response body:
+応答本文:
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"1547581389","not_before":"1547577489","resource":"https://api.partnercenter.microsoft.com","access_token":"AccessTokenValue","id_token":"IDTokenValue"}
 ```
 
-### <a name="make-partner-center-api-calls"></a>Make Partner Center API calls
+### <a name="make-partner-center-api-calls"></a>パートナーセンターの API 呼び出しを行う
 
-You must use your access token to call the Partner Center APIs. See the following example call.
+パートナーセンター Api を呼び出すには、アクセストークンを使用する必要があります。 次の呼び出し例を参照してください。
 
-#### <a name="example-partner-center-api-call"></a>Example Partner Center API call
+#### <a name="example-partner-center-api-call"></a>パートナーセンター API 呼び出しの例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/CustomerTenantId/users HTTP/1.1
@@ -207,11 +207,11 @@ Host: api.partnercenter.microsoft.com
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-You can use the [Partner Center PowerShell module](https://www.powershellgallery.com/packages/PartnerCenter) to reduce the required infrastructure to exchange an authorization code for an access token. This method is optional for making [Partner Center REST calls](#rest).
+[パートナーセンターの PowerShell モジュール](https://www.powershellgallery.com/packages/PartnerCenter)を使用して、アクセストークンの認証コードを交換するために必要なインフラストラクチャを減らすことができます。 [パートナーセンターの REST 呼び出し](#rest)を行う場合、この方法は省略可能です。
 
-For more information on this process, see [Secure App Model](https://docs.microsoft.com/en-us/powershell/partnercenter/secure-app-model) PowerShell documentation.
+このプロセスの詳細については、「[セキュリティで保護されたアプリモデル](https://docs.microsoft.com/en-us/powershell/partnercenter/secure-app-model)の PowerShell ドキュメント」を参照してください。
 
-1. Install the Azure AD and Partner Center PowerShell modules.
+1. Azure AD とパートナーセンターの PowerShell モジュールをインストールします。
 
     ```powershell
     Install-Module AzureAD
@@ -221,7 +221,7 @@ For more information on this process, see [Secure App Model](https://docs.micros
     Install-Module PartnerCenter
     ```
 
-2. Use PowerShell to add `urn:ietf:wg:oauth:2.0:oob` as a reply URL for your Azure AD application. Be sure to replace the value for the object identifier parameter with the object identifier for you Azure AD application. You can find this value in the Azure management portal.
+2. PowerShell を使用して、Azure AD アプリケーションの応答 URL として `urn:ietf:wg:oauth:2.0:oob` を追加します。 オブジェクト識別子パラメーターの値は、Azure AD アプリケーションのオブジェクト識別子に置き換えるようにしてください。 この値は、Azure 管理ポータルで確認できます。
 
     ```powershell
     Connect-AzureAD
@@ -231,7 +231,7 @@ For more information on this process, see [Secure App Model](https://docs.micros
     Set-AzureADApplication -ObjectId 659dd68d-3414-4254-a48b-c081b5631b86 -ReplyUrls @("urn:ietf:wg:oauth:2.0:oob")
     ```
 
-3. Use the **[New-PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** command to perform the consent process and capture the required refresh token.
+3. **[PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** コマンドを使用して同意プロセスを実行し、必要な更新トークンをキャプチャします。
 
     ```powershell
     $credential = Get-Credential
@@ -242,16 +242,16 @@ For more information on this process, see [Secure App Model](https://docs.micros
     ```
 
     > [!NOTE]
-    > The **ServicePrincipal** parameter is used with the **New-PartnerAccessToken** command because an Azure AD app with a type of **web/API** is being used. This type of app require that a client identifier and secret be included in the access token request.
+    > **PartnerAccessToken**コマンドで**serviceprincipal**パラメーターを使用しているのは、種類が**web/API**の Azure AD アプリが使用されているためです。 この種類のアプリでは、アクセストークン要求にクライアント識別子とシークレットが含まれている必要があります。
 
-4. Copy the refresh token value.
+4. 更新トークンの値をコピーします。
 
     ```powershell
     $token.RefreshToken | clip
     ```
 
-5. When the **Get-Credential** command is invoked, you will be prompted to enter a username and password. Enter the application identifier as teh username. Enter the application secret as the password.
+5. **Get Credential**コマンドが呼び出されると、ユーザー名とパスワードを入力するように求められます。 アプリケーション識別子をユーザー名として入力します。 アプリケーションシークレットをパスワードとして入力します。
 
-6. When the **New-PartnerAccessToken** command is invoked, you will be prompted to enter credentials again. Enter the credentials for the service account that you are using. This service account should be a partner account with apppropriate permissions.
+6. **PartnerAccessToken**コマンドが呼び出されると、資格情報をもう一度入力するように求められます。 使用しているサービスアカウントの資格情報を入力します。 このサービスアカウントは、apppropriate アクセス許可を持つパートナーアカウントである必要があります。
 
-7. After the **New-PartnerAccessToken** is successfully executed, the **$token** variable now contains the response from Azure AD. Be sure to note and store the refresh token value in a secure repository, such as Azure Key Vault.
+7. **PartnerAccessToken**が正常に実行されると、 **$token**変数に Azure AD からの応答が含まれるようになります。 更新トークンの値は、必ず、Azure Key Vault などのセキュリティで保護されたリポジトリに保存してください。

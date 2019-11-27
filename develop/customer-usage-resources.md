@@ -1,6 +1,6 @@
 ---
-title: Customer usage resources
-description: Resources for customers with usage-based subscriptions and monthly use budgets (including CustomerMonthlyUsageRecord, CustomerUsageSummary, PartnerUsageSummary, and SpendingBudget).
+title: お客様の使用リソース
+description: 使用量ベースのサブスクリプションと毎月の使用量 (CustomerMonthlyUsageRecord、CustomerUsageSummary、PartnerUsageSummary、SpendingBudget を含む) をお持ちのお客様向けのリソース。
 ms.assetid: 268C7AF5-3A95-451F-8092-033A3E8126F2
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489822"
 ---
-# <a name="customer-usage-resources"></a>Customer usage resources
+# <a name="customer-usage-resources"></a>お客様の使用リソース
 
 適用対象:
 
@@ -21,73 +21,73 @@ ms.locfileid: "74489822"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Customers with usage-based subscriptions may have a monthly use budget. This budget sets a limit on the customer's maximum usage and allows the partner to track their usage over time.
+使用量ベースのサブスクリプションをお持ちのお客様には、月々の使用予算がある場合があります。 この予算では、顧客の最大使用量に制限を設定し、パートナーが時間の経過と共に使用状況を追跡できるようにします。
 
 > [!NOTE]
-> Customer usage numbers are estimates (not final values), which should not be used for billing purposes.
+> お客様の使用量番号は推定値であり、請求目的では使用できません。
 
 ## <a name="customermonthlyusagerecord"></a>CustomerMonthlyUsageRecord
 
-**CustomerMonthlyUsageRecord** represents the estimated monetary cost of a customer's usage in the current month.
+**CustomerMonthlyUsageRecord**は、現在の月の顧客の使用量の推定金銭的コストを表します。
 
-| プロパティ         | タスクバーの検索ボックスに               | 説明                                                              |
+| プロパティ         | 種類               | 説明                                                              |
 |------------------|--------------------|--------------------------------------------------------------------------|
-| Budget           | SpendingBudget     | The spending budget allocated for the customer.                          |
-| PercentUsed      | 10 進数             | The percentage used out of the allocated budget.                        |
-| ResourceId       | string             | The unique identifier of the resource.                                   |
-| ResourceName     | string             | The name of the resource.                                                |
-| TotalCost        | 10 進数             | The estimated total cost of usage for the resources in the subscription.|
-| CurrencyLocale   | string             | The customer's currency locale. Available for Microsoft Azure (MS-AZR-0145P) subscriptions.            |
-| CurrencyCode     | string             | Gets or sets the currency code. Available for Azure plans.           |
-| USDTotalCost     | 10 進数             | Gets or sets the estimated total cost in USD. Available for Azure plans.                                         |
-| IsUpgraded       | bool             | Gets or sets a value indicating whether the customer's Azure subscription is upgraded. The value **true** represents customers who have an Azure plan.                         |
-| LastModifiedDate | date               | The date the usage data was last modified.                               |
-| 属性       | ResourceAttributes | The metadata attributes corresponding to the usage record.               |
+| 割り当て           | SpendingBudget     | 顧客に割り当てられた支出予算。                          |
+| PercentUsed      | decimal             | 割り当てられた予算から使用された割合。                        |
+| ResourceId       | string             | リソースの一意の識別子。                                   |
+| ResourceName     | string             | リソースの名前。                                                |
+| TotalCost        | decimal             | サブスクリプション内のリソースの総使用コストの推定値。|
+| CurrencyLocale   | string             | 顧客の通貨のロケール。 Microsoft Azure (0145P) サブスクリプションで使用できます。            |
+| CurrencyCode     | string             | 通貨コードを取得または設定します。 Azure プランで使用できます。           |
+| USDTotalCost     | decimal             | 推定合計コストを USD で取得または設定します。 Azure プランで使用できます。                                         |
+| IsUpgraded       | bool             | 顧客の Azure サブスクリプションがアップグレードされているかどうかを示す値を取得または設定します。 値**true**は、Azure プランを持つ顧客を表します。                         |
+| LastModifiedDate | date               | 使用状況データが最後に変更された日付。                               |
+| 属性       | ResourceAttributes | 使用状況レコードに対応するメタデータ属性。               |
 
 ## <a name="customerusagesummary"></a>CustomerUsageSummary
 
-**CustomerUsageSummary** represents a summary of the customer's usage for an entire billing period.
+**CustomerUsageSummary**は、請求期間全体における顧客の使用状況の概要を表します。
 
-| プロパティ         | タスクバーの検索ボックスに               | 説明                                                                                                      |
+| プロパティ         | 種類               | 説明                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| Budget           | SpendingBudget     | The spending budget allocated for the customer.                                                                  |
-| ResourceId       | string             | The unique identifier of the resource. In the context of CustomerMonthlyUsageRecord, this id is the customer id. |
-| ResourceName     | string             | The name of the resource. In the context of CustomerMonthlyUsageRecord, this is the customer name.               |
-| BillingStartDate | date               | The start date of the current billing period.                                                                    |
-| BillingEndDate   | date               | The end date of the current billing period.                                                                      |
-| TotalCost        | 10 進数             | The estimated total cost of usage for the resources in the subscription.                                         |
-| CurrencyLocale   | string             | The customer's currency locale. Available for Microsoft Azure (MS-AZR-0145P) subscriptions.                                         |
-| CurrencyCode     | string             | Gets or sets the currency code. Available for Azure plans.                                         |
-| USDTotalCost     | 10 進数             | Gets or sets the estimated total cost in USD. Available for Azure plan subscription resources.                                         |
-| LastModifiedDate | date               | The date the usage data was last modified.                                                                       |
-| Links            | ResourceLinks      | The resource links corresponding to the usage summary.                                                           |
-| 属性       | ResourceAttributes | The metadata attributes corresponding to the usage summary.                                                      |
+| 割り当て           | SpendingBudget     | 顧客に割り当てられた支出予算。                                                                  |
+| ResourceId       | string             | リソースの一意の識別子。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
+| ResourceName     | string             | リソースの名前。 CustomerMonthlyUsageRecord のコンテキストでは、これは顧客名です。               |
+| /日 | date               | 現在の請求期間の開始日。                                                                    |
+| すべての日付   | date               | 現在の請求期間の終了日。                                                                      |
+| TotalCost        | decimal             | サブスクリプション内のリソースの総使用コストの推定値。                                         |
+| CurrencyLocale   | string             | 顧客の通貨のロケール。 Microsoft Azure (0145P) サブスクリプションで使用できます。                                         |
+| CurrencyCode     | string             | 通貨コードを取得または設定します。 Azure プランで使用できます。                                         |
+| USDTotalCost     | decimal             | 推定合計コストを USD で取得または設定します。 Azure プランサブスクリプションリソースで使用できます。                                         |
+| LastModifiedDate | date               | 使用状況データが最後に変更された日付。                                                                       |
+| Links            | ResourceLinks      | 使用状況の概要に対応するリソースリンク。                                                           |
+| 属性       | ResourceAttributes | 使用状況の概要に対応するメタデータ属性。                                                      |
 
 ## <a name="partnerusagesummary"></a>PartnerUsageSummary
 
-**PartnerUsageSummary** represents a partner-level summary of usage budgeting for all customers.
+**PartnerUsageSummary**は、すべての顧客の使用量の予算を示すパートナーレベルの概要を表します。
 
-| プロパティ         | タスクバーの検索ボックスに               | 説明                                                                                                      |
+| プロパティ         | 種類               | 説明                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| EmailsToNotify   | 文字列の配列   | The list of email addresses for notifications.                                                                   |
-| CustomerOverBudget | 整数          | The number of customers that are over budget.                                                                    |
-| CustomersTrendingOver | 整数       | The number of customers that are close to going over budget.                                                     |
-| CustomersWithUsageBasedSubscriptions  | 整数 | The number of customers with a usage-based subscription.                                               |
-| ResourceId       | string             | The unique identifier of the resource. In the context of CustomerMonthlyUsageRecord, this id is the customer id. |
-| ResourceName     | string             | The name of the resource. In the context of CustomerMonthlyUsageRecord, this is the customer name.               |
-| BillingStartDate | date               | The start date of the current billing period.                                                                    |
-| BillingEndDate   | date               | The end date of the current billing period.                                                                      |
-| TotalCost        | 10 進数             | The estimated total cost of all customer usage based on current usage from the start of the billing period.      |
-| CurrencyLocale   | string             | The currency locale.                                                                                             |
-| LastModifiedDate | date               | The date the usage data was last modified.                                                                       |
-| Links            | ResourceLinks      | The resource links corresponding to the usage summary.                                                           |
-| 属性       | ResourceAttributes | The metadata attributes corresponding to the usage summary.                                                      |
+| EmailsToNotify   | 文字列の配列   | 通知用の電子メールアドレスの一覧。                                                                   |
+| 顧客の超過コスト | 整数          | 予算を超過している顧客の数。                                                                    |
+| CustomersTrendingOver | 整数       | 予算を超過している顧客の数。                                                     |
+| 顧客の Swithon のサブスクリプション  | 整数 | 使用量ベースのサブスクリプションを使用している顧客の数。                                               |
+| ResourceId       | string             | リソースの一意の識別子。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
+| ResourceName     | string             | リソースの名前。 CustomerMonthlyUsageRecord のコンテキストでは、これは顧客名です。               |
+| /日 | date               | 現在の請求期間の開始日。                                                                    |
+| すべての日付   | date               | 現在の請求期間の終了日。                                                                      |
+| TotalCost        | decimal             | 請求期間の開始時点からの現在の使用状況に基づいて、すべての顧客使用量の推定総コスト。      |
+| CurrencyLocale   | string             | 通貨のロケール。                                                                                             |
+| LastModifiedDate | date               | 使用状況データが最後に変更された日付。                                                                       |
+| Links            | ResourceLinks      | 使用状況の概要に対応するリソースリンク。                                                           |
+| 属性       | ResourceAttributes | 使用状況の概要に対応するメタデータ属性。                                                      |
 
 ## <a name="spendingbudget"></a>SpendingBudget
 
-**SpendingBudget** represents the budget allocated to this customer for usage-based subscriptions.
+**SpendingBudget**は、使用量ベースのサブスクリプションについて、この顧客に割り当てられた予算を表します。
 
-| プロパティ   | タスクバーの検索ボックスに               | 説明                                                                                         |
+| プロパティ   | 種類               | 説明                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
-| Amount     | 10 進数             | The allocated budget. If the value is null, there is no spending budget allocated to this customer. |
-| 属性 | ResourceAttributes | The metadata attributes corresponding to the budget.                                                |
+| 金額     | decimal             | 割り当てられた予算。 値が null の場合、この顧客に割り当てられている支出予算はありません。 |
+| 属性 | ResourceAttributes | 予算に対応するメタデータ属性。                                                |

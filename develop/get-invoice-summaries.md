@@ -1,6 +1,6 @@
 ---
-title: Get invoice summaries
-description: You can use an invoice summaries resource for each currency type to show the balance and total charges of both recurring and one-time charges.
+title: 請求書の概要を取得する
+description: 通貨の種類ごとに請求書の概要リソースを使用して、定期的な料金と1回限りの課金の両方の残高と合計料金を表示できます。
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 09/24/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490242"
 ---
-# <a name="get-invoice-summaries"></a>Get invoice summaries
+# <a name="get-invoice-summaries"></a>請求書の概要を取得する
 
 適用対象:
 
@@ -22,20 +22,20 @@ ms.locfileid: "74490242"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-You can use the **InvoiceSummaries** to retrieve an invoice summary which shows the balance and total charges of both recurring and one-time charges. The **InvoiceSummaries** resource contains an invoice summary for each currency type.
+**InvoiceSummaries**を使用して請求書の概要を取得することができます。これには、定期的な料金と1回限りの料金の合計料金が表示されます。 **InvoiceSummaries**リソースには、通貨の種類ごとに請求書の概要が含まれています。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A valid invoice identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 有効な請求書の識別子。
 
 ## <a name="c"></a>C\#
 
-To retrieve an [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) collection that contains an [**InvoiceSummary**](invoice-resources.md#invoicesummary) for each currency type:
+通貨の種類ごとに[**InvoiceSummary**](invoice-resources.md#invoicesummary)を含む[**InvoiceSummaries**](invoice-resources.md#invoicesummaries) collection を取得するには、次のようにします。
 
-1. Use your **IAggregatePartner.Invoices** collection to call the **Summaries** property.
-2. Call the **Get()** method.
-3. To get the balance of an individual [**InvoiceSummary**](invoice-resources.md#invoicesummary), access the **BalanceAmount** property for that member of the collection.
+1. **Iaggregatepartner.customers**コレクションを使用して、**概要**プロパティを呼び出します。
+2. **Get ()** メソッドを呼び出します。
+3. 個々の[**InvoiceSummary**](invoice-resources.md#invoicesummary)のバランスを得るには、コレクションのそのメンバーの "均衡**金額**" プロパティにアクセスします。
 
 ``` csharp
 // IAggregatePartner scopedPartnerOperations;
@@ -47,21 +47,21 @@ var invoiceSummaries = scopedPartnerOperations.Invoices.Summaries.Get();
 Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].BalanceAmount);
 ```
 
-For more information, see the following example code:
+詳細については、次のコード例を参照してください。
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSample**
-- Class: **GetInvoiceSummaries.cs**
+- サンプル:[コンソールテストアプリ](console-test-app.md)
+- プロジェクト: **Partnersdk. FeatureSample**
+- クラス: **GetInvoiceSummaries.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/summaries HTTP/1.1     |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/summaries HTTP/1.1     |
 
 ##### <a name="uri-parameter"></a>URI パラメーター
 
@@ -69,7 +69,7 @@ For more information, see the following example code:
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Headers](headers.md).
+詳細については、「[ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -86,13 +86,13 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 Connection: Keep-Alive
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, this method returns an [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) resource in the response body.
+成功した場合、このメソッドは応答本文で[**InvoiceSummaries**](invoice-resources.md#invoicesummaries)リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

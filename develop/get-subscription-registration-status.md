@@ -1,6 +1,6 @@
 ---
-title: Get subscription registration status
-description: Get the status of a subscription that has been registered for use with Azure Reserved VM Instances.
+title: サブスクリプション登録状態の取得
+description: Azure Reserved VM Instances で使用するように登録されているサブスクリプションの状態を取得します。
 ms.date: 03/19/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,27 +12,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487122"
 ---
-# <a name="get-subscription-registration-status"></a>Get subscription registration status 
+# <a name="get-subscription-registration-status"></a>サブスクリプション登録状態の取得 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-How to get the subscription registration status for a customer subscription that has been enabled for purchasing Azure Reserved VM Instances.  
+Azure Reserved VM Instances 購入が有効になっている顧客サブスクリプションのサブスクリプション登録状態を取得する方法。  
 
-To purchase an Azure Reserved VM Instance using the Partner Center API, you must have at least one existing CSP Azure subscription. The [Register a subscription](register-a-subscription.md) method allows you to register your existing CSP Azure subscription, enabling it for purchasing Azure Reserved VM Instances. This method allows you to retrieve the status of that registration. 
+パートナーセンター API を使用して Azure 予約 VM インスタンスを購入するには、少なくとも1つの既存の CSP Azure サブスクリプションが必要です。 [サブスクリプションの登録](register-a-subscription.md)方法を使用すると、既存の CSP Azure サブスクリプションを登録し、Azure Reserved VM Instances を購入できるようになります。 このメソッドを使用すると、その登録の状態を取得できます。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- サブスクリプション ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get the registration status of a subscription, begin by using the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then, get an interface to subscription operations by calling the [**Subscription.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method with the subscription ID to identify the subscription. Next, use the RegistrationStatus property to obtain an interface to the current subscription's registration status operations, and call the **Get** or **GetAsync** method to retrieve the **SubscriptionRegistrationStatus** object.
+サブスクリプションの登録状態を取得するには、まず、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、サブスクリプションを識別するためにサブスクリプション ID を指定して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、RegistrationStatus プロパティを使用して、現在のサブスクリプションの登録状態操作へのインターフェイスを取得し、 **Get**または**GetAsync**メソッドを呼び出して**subscriptionregistrationstatus**オブジェクトを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,33 +43,33 @@ To get the registration status of a subscription, begin by using the [**IAggrega
 var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).RegistrationStatus.Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド    | 要求 URI                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1.1 |
+| **取得**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1.1 |
 
-**URI parameters**
+**URI パラメーター**
 
-Use the following path parameters to identify the customer and subscription. 
+次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。 
 
-| 名前                    | タスクバーの検索ボックスに       | 必須かどうか | 説明                                                   |
+| 名前                    | 種類       | 必須 | 説明                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| customer-id             | string     | [はい]      | A GUID formatted string that identifies the customer.         |
-| subscription-id         | string     | [はい]      | A GUID formatted string that identifies the subscription.     |
+| 顧客 id             | string     | 〇      | 顧客を識別する GUID 形式の文字列。         |
+| サブスクリプション id         | string     | 〇      | サブスクリプションを識別する GUID 形式の文字列。     |
 
  
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-id>/subscriptions/<subscription-id>/registrationstatus HTTP/1.1
@@ -83,15 +83,15 @@ Expect: 100-continue
 Connection: Keep-Alive
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
 
-If successful, the response body contains a [SubscriptionRegistrationStatus](subscription-resources.md#subscriptionregistrationstatus) resource.  
+成功した場合、応答本文には[Subscriptionregistrationstatus](subscription-resources.md#subscriptionregistrationstatus)リソースが含まれます。  
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

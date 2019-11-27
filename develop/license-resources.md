@@ -1,6 +1,6 @@
 ---
-title: License resources
-description: Describes resources related to licenses.
+title: ライセンスリソース
+description: ライセンスに関連するリソースについて説明します。
 ms.assetid: 20592E06-8A87-41F4-B8B0-6F9200556FDA
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,78 +13,78 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486932"
 ---
-# <a name="license-resources"></a>License resources
+# <a name="license-resources"></a>ライセンスリソース
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Describes resources related to licenses.
+ライセンスに関連するリソースについて説明します。
 
-## <a name="span-idlicensespan-idlicensespan-idlicenselicense"></a><span id="License"/><span id="license"/><span id="LICENSE"/>License
+## <a name="span-idlicensespan-idlicensespan-idlicenselicense"></a><span id="License"/><span id="license"/><span id="LICENSE"/>ライセンス
 
 
-Describes a user license.
+ユーザーライセンスについて説明します。
 
 >[!NOTE]
->Unsupported on Partner Center operated by 21Vianet.
+>21Vianet が運用するパートナーセンターではサポートされていません。
 
  
 
-| プロパティ     | タスクバーの検索ボックスに                                                           | 説明                                                    |
+| プロパティ     | 種類                                                           | 説明                                                    |
 |--------------|----------------------------------------------------------------|----------------------------------------------------------------|
-| servicePlans | array of ServicePlan resources                                 | The collection of service plans that correspond to the license |
-| productSKU   | ProductSku                                                     | The sku of the product that corresponds to the license.        |
-| 属性   | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the license.          |
+| servicePlans | ServicePlan リソースの配列                                 | ライセンスに対応するサービスプランのコレクション |
+| productSKU   | ProductSku                                                     | ライセンスに対応する製品の sku。        |
+| 属性   | [ResourceAttributes](utility-resources.md#resourceattributes) | ライセンスに対応するメタデータ属性。          |
 
  
 
 ## <a name="span-idlicenseupdatespan-idlicenseupdatespan-idlicenseupdatelicenseupdate"></a><span id="LicenseUpdate"/><span id="licenseupdate"/><span id="LICENSEUPDATE"/>LicenseUpdate
 
 
-Provides information used to assign or remove licenses from a user.
+ユーザーにライセンスを割り当てる、または削除するために使用する情報を提供します。
 
-| プロパティ         | タスクバーの検索ボックスに                                                           | 説明                                               |
+| プロパティ         | 種類                                                           | 説明                                               |
 |------------------|----------------------------------------------------------------|-----------------------------------------------------------|
-| licensestoAssign | オブジェクトの配列                                               | Array of [LicenseAssignment](#licenseassignment) objects. |
-| licensesToRemove | 文字列の配列                                               | The product SKU identifiers of the licenses to remove.    |
-| licenseWarnings  | オブジェクトの配列                                               | Array of [LicenseWarning](#licensewarning) objects.       |
-| 属性       | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.                                  |
+| licensestoAssign | オブジェクトの配列                                               | [Licenseassignment](#licenseassignment)オブジェクトの配列。 |
+| licensesToRemove すべてのものを | 文字列の配列                                               | 削除するライセンスの製品 SKU 識別子。    |
+| licenseWarnings  | オブジェクトの配列                                               | [Licensewarning](#licensewarning)オブジェクトの配列。       |
+| 属性       | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                  |
 
  
 
 ## <a name="span-idlicenseassignmentspan-idlicenseassignmentspan-idlicenseassignmentlicenseassignment"></a><span id="LicenseAssignment"/><span id="licenseassignment"/><span id="LICENSEASSIGNMENT"/>LicenseAssignment
 
 
-Provides information needed for a license update operation.
+ライセンスの更新操作に必要な情報を提供します。
 
-| プロパティ      | タスクバーの検索ボックスに             | 説明                                                                |
+| プロパティ      | 種類             | 説明                                                                |
 |---------------|------------------|----------------------------------------------------------------------------|
-| excludedPlans | 文字列の配列 | The service plan identifiers to be excluded from availability to the user. |
-| skuId         | string           | The product SKU identifier for the license.                                |
+| excludedPlans | 文字列の配列 | ユーザーが可用性から除外するサービスプラン識別子。 |
+| skuId         | string           | ライセンスの製品 SKU 識別子。                                |
 
  
 
 ## <a name="span-idlicensewarningspan-idlicensewarningspan-idlicensewarninglicensewarning"></a><span id="LicenseWarning"/><span id="licensewarning"/><span id="LICENSEWARNING"/>LicenseWarning
 
 
-Contains warning information that occurred during a license update operation.
+ライセンスの更新操作中に発生した警告情報が含まれます。
 
-| プロパティ     | タスクバーの検索ボックスに             | 説明                                         |
+| プロパティ     | 種類             | 説明                                         |
 |--------------|------------------|-----------------------------------------------------|
-| コード         | string           | The warning code.                                   |
-| メッセージ      | string           | The warning message.                                |
-| servicePlans | 文字列の配列 | The service plan names associated with the warning. |
+| code         | string           | 警告コード。                                   |
+| メッセージ      | string           | 警告メッセージ。                                |
+| servicePlans | 文字列の配列 | 警告に関連付けられているサービスプラン名。 |
 
  
 
 ## <a name="span-idproductskuspan-idproductskuspan-idproductskuproductsku"></a><span id="ProductSku"/><span id="productsku"/><span id="PRODUCTSKU"/>ProductSku
 
 
-Describes product details.
+製品の詳細について説明します。
 
 <table>
 <colgroup>
@@ -95,7 +95,7 @@ Describes product details.
 <thead>
 <tr class="header">
 <th>プロパティ</th>
-<th>タスクバーの検索ボックスに</th>
+<th>種類</th>
 <th>説明</th>
 </tr>
 </thead>
@@ -103,29 +103,29 @@ Describes product details.
 <tr class="odd">
 <td>id</td>
 <td>string</td>
-<td>The product identifier.</td>
+<td>製品識別子。</td>
 </tr>
 <tr class="even">
-<td>名前</td>
+<td>name</td>
 <td>string</td>
-<td>The user principal identifier.</td>
+<td>ユーザープリンシパル識別子。</td>
 </tr>
 <tr class="odd">
 <td>skuPartNumber</td>
 <td>string</td>
-<td>The SKU part number name for the product. For example, for Office 365 Plan E3 , this value is &quot;EnterprisePack&quot;. This can be used in place of id if the id is not available.</td>
+<td>製品の SKU 部品番号名。 たとえば、Office 365 Plan E3 の場合、この値は EnterprisePack&quot;&quot;ます。 Id が使用できない場合は、id の代わりにこれを使用できます。</td>
 </tr>
 <tr class="even">
 <td>targetType</td>
 <td>string</td>
-<td>The target type of the product. This identifies whether the product is applicable to a &quot;User&quot; or a &quot;Tenant&quot;.</td>
+<td>製品のターゲットの種類。 これにより、製品が &quot;ユーザー&quot; または &quot;テナント&quot;に適用可能かどうかが識別されます。</td>
 </tr>
 <tr class="odd">
 <td>licenseGroupId</td>
 <td>string</td>
-<td>Identifies via a group identifier the authority or service that manages the productSku license. Products are segregated under license groups for better manageability.
-<p>&quot;group1&quot; - All products whose licenses can be managed by Azure Active Directory (AAD).</p>
-<p>&quot;group2&quot; - Minecraft product licenses.</p></td>
+<td>ProductSku ライセンスを管理する機関またはサービスをグループ識別子で識別します。 管理しやすいように、製品はライセンスグループの下に分離されています。
+<p>&quot;group1&quot;-Azure Active Directory (AAD) で管理できるライセンスを持つすべての製品。</p>
+<p>&quot;group2&quot; 製品ライセンスです。</p></td>
 </tr>
 </tbody>
 </table>
@@ -135,35 +135,35 @@ Describes product details.
 ## <a name="span-idserviceplanspan-idserviceplanspan-idserviceplanserviceplan"></a><span id="ServicePlan"/><span id="serviceplan"/><span id="SERVICEPLAN"/>ServicePlan
 
 
-Identifies a deployable service within a product SKU. A product can have many service plans.
+製品 SKU 内の展開可能なサービスを識別します。 製品には、多くのサービスプランを含めることができます。
 
-| プロパティ         | タスクバーの検索ボックスに   | 説明                                                                                                       |
+| プロパティ         | 種類   | 説明                                                                                                       |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------|
-| id               | string | The service plan identifier.                                                                                      |
-| displayName      | string | The localized display name for the service plan.                                                                  |
-| serviceName      | string | The service name.                                                                                                 |
-| capabilityStatus | string | The service plan status of the service plan.                                                                      |
-| targetType       | string | The target type of the service plan. This identifies whether the product is applicable to a "User" or a "Tenant". |
+| id               | string | サービスプランの識別子。                                                                                      |
+| displayName      | string | サービスプランのローカライズされた表示名。                                                                  |
+| serviceName      | string | サービス名。                                                                                                 |
+| capabilityStatus | string | サービスプランのサービスプランの状態。                                                                      |
+| targetType       | string | サービスプランのターゲットの種類。 これにより、製品が "ユーザー" または "テナント" に適用可能かどうかが識別されます。 |
 
  
 
 ## <a name="span-idsubscribedskuspan-idsubscribedskuspan-idsubscribedskusubscribedsku"></a><span id="SubscribedSku"/><span id="subscribedsku"/><span id="SUBSCRIBEDSKU"/>SubscribedSku
 
 
-Describes a subscribed product owned by a tenant.
+テナントが所有するサブスクライブ済みの製品について説明します。
 
-| プロパティ         | タスクバーの検索ボックスに                                                           | 説明                                                                                       |
+| プロパティ         | 種類                                                           | 説明                                                                                       |
 |------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| availableUnits   | 整数                                                        | The number of units available for assignment. This is calculated as total units - consumed units. |
-| activeUnits      | 整数                                                        | The number of units active for assignment.                                                        |
-| consumedUnits    | 整数                                                        | The number of units consumed.                                                                     |
-| suspendedUnits   | 整数                                                        | The number of units suspended.                                                                    |
-| totalUnits       | 整数                                                        | The total number of units. This is calculated as the sum of the active and warning units.         |
-| warningUnits     | 整数                                                        | The number of warning units.                                                                      |
-| productSku       | ProductSku                                                     | The product sku.                                                                                  |
-| servicePlans     | array of ServicePlan resources                                 | The collection of service plans of a product.                                                     |
-| capabilityStatus | string                                                         | The sku status of a product.                                                                      |
-| 属性       | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the resource.                                            |
+| ご自身のユニット   | 整数                                                        | 割り当てに使用できる単位の数。 これは、合計ユニット消費ユニット数として計算されます。 |
+| activeUnits      | 整数                                                        | 割り当てに対してアクティブな単位の数。                                                        |
+| consumedUnits    | 整数                                                        | 消費された単位の数。                                                                     |
+| suspendedUnits   | 整数                                                        | 中断されたユニットの数。                                                                    |
+| totalUnits       | 整数                                                        | ユニットの合計数。 これは、アクティブおよび警告単位の合計として計算されます。         |
+| 警告ユニット     | 整数                                                        | 警告単位の数。                                                                      |
+| ProductSku       | ProductSku                                                     | 製品 sku。                                                                                  |
+| servicePlans     | ServicePlan リソースの配列                                 | 製品のサービスプランのコレクション。                                                     |
+| capabilityStatus | string                                                         | 製品の sku の状態。                                                                      |
+| 属性       | [ResourceAttributes](utility-resources.md#resourceattributes) | リソースに対応するメタデータ属性。                                            |
 
  
 

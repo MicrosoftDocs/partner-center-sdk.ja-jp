@@ -1,6 +1,6 @@
 ---
-title: Get a list of SKUs for a product (by country)
-description: You can get and filter a collection of SKUs by country for a product using the Partner Center APIs.
+title: 製品の Sku の一覧を取得する (国別)
+description: パートナーセンター Api を使用して、製品の国別に Sku のコレクションを取得したり、フィルター処理したりすることができます。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489762"
 ---
-# <a name="get-a-list-of-skus-for-a-product-by-country"></a>Get a list of SKUs for a product (by country)
+# <a name="get-a-list-of-skus-for-a-product-by-country"></a>製品の Sku の一覧を取得する (国別)
 
 適用対象:
 
 - パートナー センター
 
-You can get a collection of SKUs available in a country for a specific product using Partner Center APIs.
+パートナーセンター Api を使用して、特定の製品の国で利用可能な Sku のコレクションを取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 製品識別子。
 
 ## <a name="c"></a>C\#
 
-To get the list of SKUs for a product:
+製品の Sku の一覧を取得するには、次のようにします。
 
-1. Get an interface for a specific product's operations by following the steps in [Get a product by ID](get-a-product-by-id.md).
-2. From the interface, select the **Skus** property to obtain an interface with the available operations for SKUs.
-3. Call the **Get()** or **GetAsync()** method to retrieve a collection of the available SKUs for the product.
-4. (Optional) Select the reservation scope using the **ByReservationScope()** method.
-5. (Optional) Use the **ByTargetSegment()** method to filter the SKUs by target segment before calling **Get()** or **GetAsync()** .
+1. 「 [ID で製品を取得する](get-a-product-by-id.md)」の手順に従って、特定の製品の操作のインターフェイスを取得します。
+2. インターフェイスから sku プロパティを選択し**て、sku**で使用可能な操作を含むインターフェイスを取得します。
+3. **Get ()** または**GetAsync ()** メソッドを呼び出して、製品で使用可能な sku のコレクションを取得します。
+4. Optional**ByReservationScope ()** メソッドを使用して予約スコープを選択します。
+5. Optional**Bytargetsegment ()** メソッドを使用して、 **Get ()** または**GetAsync ()** を呼び出す前に、ターゲットセグメントで sku をフィルター処理します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -62,12 +62,12 @@ var skus = partnerOperations.Products.ByCountry(countryCode).ById(productIdForAz
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get the list of SKUs for a product:
+製品の Sku の一覧を取得するには、次のようにします。
 
-1. Get an interface for a specific product's operations by following the steps in [Get a product by ID](get-a-product-by-id.md).
-2. From the interface, select the **getSkus** function to obtain an interface with the available operations for SKUs.
-3. Call the **get()** function to retrieve a collection of the available SKUs for the product.
-4. (Optional) Use the **byTargetSegment()** function to filter the SKUs by target segment before calling the **get()** function.
+1. 「 [ID で製品を取得する](get-a-product-by-id.md)」の手順に従って、特定の製品の操作のインターフェイスを取得します。
+2. インターフェイスから、 **getskus**関数を選択して、sku で使用可能な操作を含むインターフェイスを取得します。
+3. **Get ()** 関数を呼び出して、製品で使用可能な sku のコレクションを取得します。
+4. Optional**Bytargetsegment ()** 関数を使用して、 **get ()** 関数を呼び出す前に、ターゲットセグメントで sku をフィルター処理します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -87,10 +87,10 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get the list of SKUs for a product:
+製品の Sku の一覧を取得するには、次のようにします。
 
-1. Execute the [**Get-PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md) command.
-2. (Optional) Specify the **Segment** parameter to filter the SKUs by target segment.
+1. [**Get PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md)コマンドを実行します。
+2. Optional**セグメント**パラメーターを指定して、ターゲットセグメントで sku をフィルター処理します。
 
 ```powershell
 # $productId
@@ -103,30 +103,30 @@ Get-PartnerProductSku -ProudctId $productId
 Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus?country={country-code}&targetSegment={target-segment} HTTP/1.1  |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus? country = {country-code} & targetsegment = {target-SEGMENT} HTTP/1.1  |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path and query parameters to get a list of SKUs for a product.
+製品の Sku の一覧を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                     |
+| 名前                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | string   | [はい]      | A string that identifies the product.                           |
-| country-code           | string   | [はい]      | A country/region ID.                                            |
-| target-segment         | string   | 必須ではない       | A string that identifies the target segment used for filtering. |
-| reservationScope | string   | 必須ではない | When querying for a list of SKUs for an Azure Reservation product, specify `reservationScope=AzurePlan` to get a list of SKUs which are applicable to AzurePlan. Exclude this parameter to get a list of SKUs for an Azure Reservation products which are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.  |
+| 製品 id             | string   | 〇      | 製品を識別する文字列。                           |
+| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
+| ターゲット-セグメント         | string   | X       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
+| reservationScope | string   | X | Azure 予約製品の Sku の一覧を照会するときに、`reservationScope=AzurePlan` を指定して、AzurePlan に適用できる Sku の一覧を取得します。 Microsoft Azure (0145P) サブスクリプションに適用される Azure 予約製品の Sku の一覧を取得するには、このパラメーターを除外します。  |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Headers](headers.md).
+詳細については、「[ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -134,7 +134,7 @@ For more information, see [Headers](headers.md).
 
 #### <a name="request-examples"></a>要求の例
 
-Get a list of SKUs for a given product:
+特定の製品の Sku の一覧を取得します。
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BPS6/skus?country=US HTTP/1.1
@@ -144,7 +144,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Get a list of SKUs for an Azure Reservation product. Only include the SKUs which are applicable to Azure plans and not Microsoft Azure (MS-AZR-0145P) subscriptions:
+Azure 予約製品の Sku の一覧を取得します。 Microsoft Azure (MS AZR-0145P) サブスクリプションではなく、Azure プランに適用可能な Sku のみを含めます。
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US&reservationScope=AzurePlan HTTP/1.1
@@ -154,7 +154,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Get a list of SKUs for an Azure Reservation product. Only include the SKUs which are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions and not Azure plans:
+Azure 予約製品の Sku の一覧を取得します。 Azure プランではなく Microsoft Azure (MS AZR-0145P) サブスクリプションに適用可能な Sku のみを含めます。
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US HTTP/1.1
@@ -164,20 +164,20 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains a collection of [SKU](product-resources.md#sku) resources.
+成功した場合、応答本文には[SKU](product-resources.md#sku)リソースのコレクションが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード     | エラー コード   | 説明                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Access to the requested targetSegment is not allowed.                                                     |
-| 404                  | 400013       | The parent product was not found.                                                                         |
+| 403                  | 400030       | 要求された targetSegment へのアクセスは許可されていません。                                                     |
+| 404                  | 400013       | 親製品が見つかりませんでした。                                                                         |
 
 #### <a name="response-example"></a>応答の例
 

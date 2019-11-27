@@ -1,6 +1,6 @@
 ---
-title: Get subscription analytics grouped by dates or terms
-description: How to get subscription analytics information grouped by dates or terms.
+title: サブスクリプション分析を日付または使用条件でグループ化して取得する
+description: サブスクリプション分析情報を日付または使用条件でグループ化して取得する方法。
 ms.assetid: 5D0C0649-F64D-40A9-ACCC-2077E2D2BA4E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
@@ -13,9 +13,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487162"
 ---
-# <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Get subscription analytics grouped by dates or terms
+# <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>サブスクリプション分析を日付または使用条件でグループ化して取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
@@ -23,92 +23,92 @@ ms.locfileid: "74487162"
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 
-How to get subscription analytics information for your customers grouped by dates or terms.
+顧客のサブスクリプション分析情報を日付または使用条件でグループ化して取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。
 
 
-**Request syntax**
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+
+
+**要求の構文**
 
 | メソッド | 要求 URI |
 |--------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions?groupby={groupby_queries} |
+| **取得** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions? groupby = {groupby_queries} |
 
  
-**URI parameters**
+**URI パラメーター**
 
-Use the following required path parameters to identify your organization and to group the results.
+組織を識別し、結果をグループ化するには、次の必須のパスパラメーターを使用します。
 
-| 名前 | タスクバーの検索ボックスに | 必須かどうか | 説明 |
+| 名前 | 種類 | 必須 | 説明 |
 |------|------|----------|-------------|
-| groupby_queries | pairs of strings and dateTime | [はい] | The terms and dates to filter the result. |
+| groupby_queries | 文字列と dateTime のペア | 〇 | 結果をフィルター処理するための用語と日付。 |
 
  
 
-**GroupBy syntax**
+**GroupBy 構文**
 
-The group by parameter must be composed as a series of comma separated, field values.
+Group by パラメーターは、一連のコンマ区切りのフィールド値として構成する必要があります。
 
-An unencoded example looks like this:  
+エンコード前の例は次のようになります。  
 
 ```http
 ?groupby=termField1,dateField1,termField2
 ```
 
-The following table shows a list of the supported fields for group by.
+次の表に、group by でサポートされているフィールドの一覧を示します。
 
-| フィールド | タスクバーの検索ボックスに | 説明 |
+| フィールド | 種類 | 説明 |
 |-------|------|-------------|
-| customerTenantId | string | A GUID-formatted string that identifies the customer tenant. |  
-| customerName | string | The name of the customer. |  
-| customerMarket | string | The country/region that the customer does business in. |  
-| id | string | A GUID-formatted string that identifies the subscription. |  
-| status | string | The subscription status. Supported values are: "ACTIVE", "SUSPENDED", or "DEPROVISIONED". |  
+| 顧客 Tenantid | string | 顧客のテナントを識別する GUID 形式の文字列。 |  
+| おける | string | 顧客の名前。 |  
+| 顧客市場 | string | 顧客が事業を行っている国/地域。 |  
+| id | string | サブスクリプションを識別する GUID 形式の文字列。 |  
+| status | string | サブスクリプションの状態。 サポートされている値は、"ACTIVE"、"中断"、または "プロビジョニング解除" です。 |  
 | productName | string | 製品の名前。 |  
-| subscriptionType | string | The subscription type. Note: This field is case sensitive. Supported values are: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |  
-| autoRenewEnabled | Boolean | A value indicating whether the subscription is renewed automatically. |  
-| partnerId  | string | The MPN ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |  
-| friendlyName | string | The name of the subscription. |  
-| partnerName | string | Name of the partner for whom the subscription was purchased |  
-| providerName | string | When subscription transaction is for the indirect reseller, provider name is the indirect provider who bought the subscription.
-| creationDate | string in UTC date time format | The date the subscription was created. |  
-| effectiveStartDate | string in UTC date time format | The date the subscription starts. |  
-| commitmentEndDate | string in UTC date time format | The date the subscription ends. |  
-| currentStateEndDate | string in UTC date time format | The date that the current status of the subscription will change. |  
-| trialToPaidConversionDate | string in UTC date time format | The date that the subscription converts from trial to paid. 既定値は null です。 |  
-| trialStartDate | string in UTC date time format | The date that the trial period for the subscription started. 既定値は null です。 |  
-| lastUsageDate | string in UTC date time format | The date that the subscription was last used. 既定値は null です。 |  
-| deprovisionedDate | string in UTC date time format | The date that the subscription was deprovisioned. 既定値は null です。 |  
-| lastRenewalDate | string in UTC date time format | The date that the subscription was last renewed. 既定値は null です。 |  
+| subscriptionType | string | サブスクリプションの種類。 注: このフィールドでは大文字と小文字が区別されます。 サポートされている値は、"Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS" です。 |  
+| autoRenewEnabled | ブール値 | サブスクリプションが自動的に更新されるかどうかを示す値です。 |  
+| パートナー  | string | MPN ID です。 ダイレクトリセラーの場合、これはパートナーの MPN ID になります。 間接リセラーの場合、これは間接リセラーの MPN ID になります。 |  
+| friendlyName | string | サブスクリプションの名前。 |  
+| partnerName | string | サブスクリプションが購入されたパートナーの名前 |  
+| プロバイダー | string | 間接リセラーのサブスクリプショントランザクションの場合、プロバイダー名はサブスクリプションを購入した間接プロバイダーになります。
+| creationDate | UTC 日時形式の文字列 | サブスクリプションが作成された日付。 |  
+| And rateplancharge.effectivestartdate | UTC 日時形式の文字列 | サブスクリプションが開始された日付。 |  
+| Commitの Enddate | UTC 日時形式の文字列 | サブスクリプションが終了する日付。 |  
+| currentStateEndDate | UTC 日時形式の文字列 | サブスクリプションの現在の状態が変更される日付。 |  
+| trialToPaidConversionDate | UTC 日時形式の文字列 | サブスクリプションが試用から有料に変換される日付。 既定値は null です。 |  
+| trialStartDate | UTC 日時形式の文字列 | サブスクリプションの試用期間が開始された日付。 既定値は null です。 |  
+| Lastの終了日 | UTC 日時形式の文字列 | サブスクリプションが最後に使用された日付。 既定値は null です。 |  
+| deprovisionedDate | UTC 日時形式の文字列 | サブスクリプションがプロビジョニング解除された日付。 既定値は null です。 |  
+| lastRenewalDate | UTC 日時形式の文字列 | サブスクリプションが最後に更新された日付。 既定値は null です。 |  
 
-**Filter fields**
+**フィールドのフィルター**
 
-The following table lists optional filter fields and their descriptions:
+次の表に、オプションのフィルターフィールドとその説明を示します。
 
-| フィールド | タスクバーの検索ボックスに |  説明 |
+| フィールド | 種類 |  説明 |
 |-------|------|--------------|
-| top | 整数 | 要求で返すデータの行数です。 If the value is not specified, the maximum value and the default value are 10000. クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |
-| skip | 整数 | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 For example, top=10000 and skip=0 retrieves the first 10000 rows of data, top=10000 and skip=10000 retrieves the next 10000 rows of data. |
-| filter | string | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 Each filter statement contains a field name from the response body and a value that are associated with the **eq**, **ne**, or for certain fields, the **contains** operator. **and** または **or** を使ってステートメントを組み合わせることができます。 String values must be surrounded by single quotes in the filter parameter. See the following section for a list of fields that can be filtered and the operators that are supported with those fields. |
-| aggregationLevel | string | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。**day**、**week**、または **month**。 If the value is not specified, the default is **dateRange**. **Note**: This parameter applies only when a date field is passed as part of the groupBy parameter. |
+| top | int | 要求で返すデータの行数です。 値が指定されていない場合、最大値と既定値は1万です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |
+| skip | int | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top = 10000 および skip = 0 はデータの最初の1万行を取得し、top = 10000、skip = 10000 は、次の1万行のデータを取得します。 |
+| filter | string | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各フィルターステートメントには、応答本文のフィールド名と、 **eq**、 **ne**、特定のフィールドに関連付けられている値が含まれています、 **contains**演算子です。 **and** または **or** を使ってステートメントを組み合わせることができます。 文字列値は、フィルターパラメーターで単一引用符で囲む必要があります。 フィルター処理できるフィールドと、それらのフィールドでサポートされている演算子の一覧については、次のセクションを参照してください。 |
+| aggregationLevel | string | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。**day**、**week**、または **month**。 値が指定されていない場合、既定値は**dateRange**です。 **注**: このパラメーターは、日付フィールドが groupBy パラメーターの一部として渡された場合にのみ適用されます。 |
 | groupBy | string | 指定したフィールドのみにデータ集計を適用するステートメントです。 |
 
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/subscriptions?groupBy=subscriptionType  
@@ -120,15 +120,15 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 応答
 
-If successful, the response body contains a collection of [Subscription](partner-center-analytics-resources.md#subscription) resources grouped by the specified terms and dates.
+成功した場合、応答本文には、指定した用語と日付でグループ化された[サブスクリプション](partner-center-analytics-resources.md#subscription)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK
@@ -179,6 +179,6 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>関連項目
 
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+ - [パートナーセンター分析-リソース](partner-center-analytics-resources.md)

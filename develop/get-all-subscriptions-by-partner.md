@@ -1,6 +1,6 @@
 ---
-title: Get a customer's subscriptions by partner MPN ID
-description: How to get a list of subscriptions provided by a given partner to a specified customer.
+title: パートナー MPN ID で顧客のサブスクリプションを取得する
+description: 特定のパートナーから提供されたサブスクリプションの一覧を指定された顧客に取得する方法。
 ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485832"
 ---
-# <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>Get a customer's subscriptions by partner MPN ID
+# <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>パートナー MPN ID で顧客のサブスクリプションを取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to get a list of subscriptions provided by a given partner to a specified customer.
+特定のパートナーから提供されたサブスクリプションの一覧を指定された顧客に取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
-- A partner Microsoft Partner Network (MPN) identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
+- パートナー Microsoft Partner Network (MPN) 識別子。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C#
 
-To get a list of subscriptions provided by a given partner to a specified customer, first use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then get an interface to customer subscription collection operations from the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, and call the [**ByPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) method with the MPN ID to identify the partner and retrieve an interface to partner subscription operations. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) method to get the collection.
+指定された顧客に対して特定のパートナーによって提供されたサブスクリプションの一覧を取得するには、最初に顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティから顧客サブスクリプションコレクション操作へのインターフェイスを取得し、MPN ID を指定して[**ByPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner)メソッドを呼び出してパートナーを識別し、パートナーサブスクリプション操作へのインターフェイスを取得します。 最後に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)メソッドを呼び出して、コレクションを取得します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -45,13 +45,13 @@ To get a list of subscriptions provided by a given partner to a specified custom
 var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).Subscriptions.ByPartner(partnerMpnId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetSubscriptionsByMpnid.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetSubscriptionsByMpnid.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a list of subscriptions provided by a given partner to a specified customer, first use the **IAggregatePartner.getCustomers.byId** function with the customer ID to identify the customer. Then get an interface to customer subscription collection operations from the **getSubscriptions** function, and call the **byPartner** function with the MPN ID to identify the partner and retrieve an interface to partner subscription operations. Finally, call the **get** function to get the collection.
+指定された顧客に対して特定のパートナーによって提供されたサブスクリプションの一覧を取得するには、まず、顧客 ID と共に**iaggregatepartner.customers**関数を使用して顧客を識別します。 次に、 **getsubscriptions**関数から顧客サブスクリプションコレクション操作へのインターフェイスを取得し、MPN ID を指定して**byPartner**関数を呼び出し、パートナーを識別し、パートナーサブスクリプション操作へのインターフェイスを取得します。 最後に、 **get**関数を呼び出して、コレクションを取得します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -65,7 +65,7 @@ ResourceCollection<Subscription> customerSubscriptionsByMpnId = partnerOperation
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a list of subscriptions provided by a given partner to a specified customer, execute the [**Get-PartnerCustomerSubscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) command. Specify the customer ID to identify the customer using the **CustomerId** parameter, and populate the **MpnId** parameter with the MPN ID to identify the partner.
+指定された顧客に対して特定のパートナーから提供されたサブスクリプションの一覧を取得するには、 [**Get Partnercustomer subscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md)コマンドを実行します。 **CustomerId**パラメーターを使用して顧客を識別するための顧客 ID を指定し、 **MPNID**パラメーターに MPN ID を設定して、パートナーを識別します。
 
 ```powershell
 # $customerId
@@ -74,33 +74,33 @@ To get a list of subscriptions provided by a given partner to a specified custom
 Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions?mpn\_id={mpn-id} HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions? mpn\_id = {mpn-ID} HTTP/1.1 |
 
-**URI parameters**
+**URI パラメーター**
 
-Use the following path and query parameters to identify the customer and partner.
+次のパスとクエリパラメーターを使用して、顧客とパートナーを識別します。
 
-| 名前        | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                 |
+| 名前        | 種類   | 必須 | 説明                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| customer-id | string | [はい]      | A GUID formatted string that identifies the customer.       |
-| mpn-id      | 整数    | [はい]      | A Microsoft Partner Network ID that identifies the partner. |
+| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。       |
+| mpn-id      | int    | 〇      | パートナーを識別する Microsoft Partner Network ID。 |
 
  
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/c501c3c4-d776-40ef-9ecf-9cefb59442c1/subscriptions?mpn_id=4847383 HTTP/1.1
@@ -113,15 +113,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
-If successful, the response body contains the collection of [Subscription](subscription-resources.md) resources.
+成功した場合、応答本文には[サブスクリプション](subscription-resources.md)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK
@@ -177,5 +177,5 @@ Date: Thu, 13 Apr 2017 20:58:08 GMT
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>関連項目
+ - [パートナーセンター分析-リソース](partner-center-analytics-resources.md)

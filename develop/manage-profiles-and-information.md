@@ -1,6 +1,6 @@
 ---
-title: Manage accounts and profiles
-description: This section describes the ways that Cloud Solution Provider partners can use the Partner Center to programmatically manage their user accounts and profiles.
+title: アカウントとプロファイルの管理
+description: このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用して、ユーザーアカウントとプロファイルをプログラムで管理する方法について説明します。
 ms.assetid: 7E2D461D-279E-4E6C-ACFA-BC96AAE8503C
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,31 +13,31 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488322"
 ---
-# <a name="manage-accounts-and-profiles"></a>Manage accounts and profiles
+# <a name="manage-accounts-and-profiles"></a>アカウントとプロファイルの管理
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-This section describes the ways that Cloud Solution Provider partners can use Partner Center to programmatically manage their user accounts and profiles.
+このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用して、ユーザーアカウントとプロファイルをプログラムで管理する方法について説明します。
 
-- [Get legal business profile](get-legal-business-profile.md)
-- [Get an organization profile](get-an-organization-profile.md)
-- [Get partner billing profile](get-partner-billing-profile.md)
-- [Get Microsoft Partner Network profile](get-partner-network-profile.md)
-- [Get support profile](get-support-profile.md)
-- [Update legal business profile](update-legal-business-profile.md)
-- [Update a partner's billing profile](update-partner-billing-profile.md)
-- [Update support profile](update-support-profile.md)
-- [Update an organization profile](update-an-organization-profile.md)
+- [法的ビジネスプロファイルを取得する](get-legal-business-profile.md)
+- [組織のプロファイルを取得する](get-an-organization-profile.md)
+- [パートナーの請求プロファイルを取得する](get-partner-billing-profile.md)
+- [プロファイルの取得 Microsoft Partner Network](get-partner-network-profile.md)
+- [サポートプロファイルの取得](get-support-profile.md)
+- [法的ビジネスプロファイルの更新](update-legal-business-profile.md)
+- [パートナーの請求プロファイルを更新する](update-partner-billing-profile.md)
+- [サポートプロファイルの更新](update-support-profile.md)
+- [組織プロファイルを更新する](update-an-organization-profile.md)
 
 他のパートナーとの連携
 
-- [Get partner by MPN ID](get-partner-by-mpn-id.md)
-- [Get all subscriptions by partner](get-all-subscriptions-by-partner.md)
+- [MPN ID でのパートナーの取得](get-partner-by-mpn-id.md)
+- [パートナー別のすべてのサブスクリプションを取得する](get-all-subscriptions-by-partner.md)
 
-For more information, see [Scenarios](scenarios.md), specifically the [Background](scenarios.md#background) section.
+詳細については、「[シナリオ](scenarios.md)、特に[背景](scenarios.md#background)セクション」を参照してください。

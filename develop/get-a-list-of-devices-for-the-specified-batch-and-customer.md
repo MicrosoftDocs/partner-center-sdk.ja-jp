@@ -1,6 +1,6 @@
 ---
-title: Get a list of devices for the specified batch and customer
-description: How to retrieve a collection of devices and device details in the specified device batch for a customer.
+title: 指定されたバッチと顧客のデバイスの一覧を取得します。
+description: 顧客に対して指定されたデバイスバッチ内のデバイスとデバイスの詳細のコレクションを取得する方法。
 ms.assetid: 13FD2D2D-1EF3-4BE2-977D-83577DA57F51
 ms.date: 07/25/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489772"
 ---
-# <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Get a list of devices for the specified batch and customer
+# <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>指定されたバッチと顧客のデバイスの一覧を取得します。
 
 適用対象:
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-This topic describes how to retrieve a collection of devices in a specified device batch for a specified customer. Each device resource contains details about the device.
+このトピックでは、指定した顧客について、指定したデバイスバッチ内のデバイスのコレクションを取得する方法について説明します。 各デバイスリソースには、デバイスに関する詳細が含まれています。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
-- A device batch identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。
+- デバイスバッチ識別子。
 
 ## <a name="c"></a>C\#
 
-To retrieve a collection of the devices in a specified device batch for the specified customer:
+指定された顧客について、指定されたデバイスバッチ内のデバイスのコレクションを取得するには、次のようにします。
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.
-2. Call the [**DeviceBatches.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) method to get an interface to device batch collection operations for the specified batch.
-3. Retrieve the [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) property to get an interface to device collection operations for the batch.
-4. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) method to retrieve the collection of devices.
+1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+2. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid)メソッドを呼び出して、指定されたバッチのデバイスバッチコレクション操作へのインターフェイスを取得します。
+3. [**デバイスプロパティを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices)取得して、バッチのデバイスコレクション操作へのインターフェイスを取得します。
+4. デバイスのコレクションを取得するには、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync)メソッドを呼び出します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -46,32 +46,32 @@ var devices =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.Get();
 ```
 
-For an example, see the following:
+例については、以下を参照してください。
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetDevices.cs**
+- サンプル:[コンソールテストアプリ](console-test-app.md)
+- プロジェクト:**パートナーセンター SDK のサンプル**
+- クラス: **GetDevices.cs**
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path parameters when creating the request.
+要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前           | タスクバーの検索ボックスに   | 必須かどうか | 説明                                           |
+| 名前           | 種類   | 必須 | 説明                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| customer-id    | string | [はい]      | A GUID-formatted string that identifies the customer. |
-| devicebatch-id | string | [はい]      | A string identifier that identifies the device batch. |
+| 顧客 id    | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
+| devicebatch-id | string | 〇      | デバイスバッチを識別する文字列識別子。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -89,13 +89,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains a paged collection of [Device](device-deployment-resources.md#device) resources. The collection contains 100 devices in a page. To retrieve the next page of 100 devices, the continuationToken in the response body must be included in the subsequent request as an MS-ContinuationToken header.
+成功した場合、応答本文には、[デバイス](device-deployment-resources.md#device)リソースのページングされたコレクションが含まれます。 コレクションには、ページ内の100デバイスが含まれます。 100デバイスの次のページを取得するには、応答本文の continuationToken を ContinuationToken ヘッダーとして後続の要求に含める必要があります。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

@@ -1,6 +1,6 @@
 ---
-title: Update a service request
-description: How to update an existing customer service request that a Cloud Solution Provider has filed with Microsoft on the customer's behalf.
+title: サービス要求の更新
+description: お客様の代わりに、クラウドソリューションプロバイダーによって Microsoft に提出された既存のカスタマーサービスリクエストを更新する方法。
 ms.assetid: 09C13775-739B-4CB9-9442-456E17F91452
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487892"
 ---
-# <a name="update-a-service-request"></a>Update a service request
+# <a name="update-a-service-request"></a>サービス要求の更新
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to update an existing customer service request that a Cloud Solution Provider has filed with Microsoft on the customer's behalf.
+お客様の代わりに、クラウドソリューションプロバイダーによって Microsoft に提出された既存のカスタマーサービスリクエストを更新する方法。
 
-In the Partner Center dashboard, this operation can be performed by first [selecting a customer](get-a-customer-by-name.md). Then, select **Service management** on the left sidebar. Under the **Support requests** header, select the service request in question. To finish, make the desired changes to the service request then select **Submit.**
+パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、左側のサイドバーで **[サービス管理]** を選択します。 **[サポート要求]** ヘッダーの下で、対象のサービス要求を選択します。 完了するには、サービス要求に必要な変更を行い、[送信] を選択し**ます。**
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A service request ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- サービス要求 ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update a customer's service request, call the [**IServiceRequestCollection.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) method with the service request id to identify and return the service request interface. Then call the [**IServiceRequest.Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch) or [**PatchAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync) method to update the service request. To provide the updated values, create a new, empty [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) object and set only the property values that you want to change. Then pass that object in the call to the Patch or PatchAsync method.
+顧客のサービス要求を更新するには、サービス要求 id を指定して[**IServiceRequestCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid)メソッドを呼び出し、サービス要求インターフェイスを特定して返します。 次に、 [**IServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch)または Patch [**async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync)メソッドを呼び出して、サービス要求を更新します。 更新された値を提供するには、新しい空の[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)オブジェクトを作成し、変更するプロパティ値のみを設定します。 次に、そのオブジェクトを Patch または Patch Async メソッドの呼び出しで渡します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,38 +47,38 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 });
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: UpdatePartnerServiceRequest.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: UpdatePartnerServiceRequest.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド    | 要求 URI                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1 |
+| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following URI parameter to update the service request.
+サービス要求を更新するには、次の URI パラメーターを使用します。
 
-| 名前                  | タスクバーの検索ボックスに     | 必須かどうか | 説明                                 |
+| 名前                  | 種類     | 必須 | 説明                                 |
 |-----------------------|----------|----------|---------------------------------------------|
-| **servicerequest-id** | **guid** | Y        | A GUID that identifies the service request. |
+| **servicerequest-id** | **guid** | Y        | サービス要求を識別する GUID。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST Headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
-The request body should contain a [ServiceRequest](service-request-resources.md) resource. The only required values are those to be updated.
+要求本文には、 [ServiceRequest](service-request-resources.md)リソースが含まれている必要があります。 必要な値は、更新される値のみです。
 
-**Request example**
+**要求の例**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/servicerequests/616122292874576 HTTP/1.1
@@ -122,16 +122,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, this method returns a **Service Request** resource with updated properties in the response body.
+成功した場合、このメソッドは応答本文で更新されたプロパティを含む**サービス要求**リソースを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Resource usage record resources
-description: You can use the ResourceUsageRecord resource to describe the estimated monetary cost of a subscription's resource level usage in the current billing cycle.
+title: リソース使用状況レコードリソース
+description: ResourceUsageRecord リソースを使用して、現在の請求サイクルにおけるサブスクリプションのリソースレベルの使用量の推定金銭的コストを記述できます。
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488092"
 ---
-# <a name="resource-usage-record-resources"></a>Resource usage record resources
+# <a name="resource-usage-record-resources"></a>リソース使用状況レコードリソース
 
 適用対象:
 
 - パートナー センター
 
-You can use the **ResourceUsageRecord** resource to describe the estimated monetary cost of a subscription's resource level usage in the current billing cycle.
+**ResourceUsageRecord**リソースを使用して、現在の請求サイクルにおけるサブスクリプションのリソースレベルの使用量の推定金銭的コストを記述できます。
 
 ## <a name="resourceusagerecord"></a>ResourceUsageRecord
 
-| プロパティ         | タスクバーの検索ボックスに               | 説明                                                                                   |
+| プロパティ         | 種類               | 説明                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| SubscriptionId           | string             | Gets or sets the subscription identifier. For Microsoft Azure (MS-AZR-0145P) subscriptions, this value is the commerce subscription identifier. For Azure plans, this value is the Azure plan identifier).                  |
-| ResourceUri  | string             | Gets or sets the resource URI."                                                        |
-| ResourceType          | string             | Gets or sets the resource type.                                       |
-| EntitlementId               | string             | Gets or sets the entitlement identifier (the Azure subscription identifier).                                                 |
-| EntitlementName             | string             | Gets or sets the entitlement name.                                                     |
-| ResourceGroupName        | double             | Gets or sets the resource group name.   |
-| 名前   | string             | The name of the resource. |
-| ResourceName   | string             | Gets or sets the name of the resource. |
-| TotalCost   | 10 進数             | Gets or sets the estimated total cost usage. |
-| CurrencyCode   | string             | Gets or sets the currency code.                                          |
-| USDTotalCost   | 10 進数             | Gets or sets the estimated total cost in USD.                                         |
-| LastModifiedDate | string             | The day (in date-time format) that this record was last modified.                             |
-| 属性       | ResourceAttributes | The metadata attributes corresponding to the resource.                                        |                                           |
+| SubscriptionId           | string             | サブスクリプション識別子を取得します。値の設定もできます。 Microsoft Azure (0145P) サブスクリプションの場合、この値はコマースサブスクリプション識別子です。 Azure プランの場合、この値は Azure プラン識別子です)。                  |
+| resourceUri  | string             | リソース URI を取得または設定します。 "                                                        |
+| ResourceType          | string             | リソースの種類を取得または設定します。                                       |
+| EntitlementId               | string             | 権利識別子 (Azure サブスクリプション識別子) を取得または設定します。                                                 |
+| EntitlementName             | string             | 権利の名前を取得または設定します。                                                     |
+| ResourceGroupName        | double             | リソースグループ名を取得または設定します。   |
+| 名前   | string             | リソースの名前。 |
+| ResourceName   | string             | リソースの名前を取得または設定します。 |
+| TotalCost   | decimal             | 推定総コスト使用量を取得します。値の設定もできます。 |
+| CurrencyCode   | string             | 通貨コードを取得または設定します。                                          |
+| USDTotalCost   | decimal             | 推定合計コストを USD で取得または設定します。                                         |
+| LastModifiedDate | string             | このレコードが最後に変更された日 (日付と時刻の形式)。                             |
+| 属性       | ResourceAttributes | リソースに対応するメタデータ属性。                                        |                                           |

@@ -1,6 +1,6 @@
 ---
-title: CSP customer web storefront
-description: This sample website code shows a working online store for customers to buy subscriptions to Microsoft products.
+title: CSP カスタマー web ネットショップ
+description: このサンプル web サイトコードは、お客様が Microsoft 製品へのサブスクリプションを購入するための作業オンラインストアを示しています。
 ms.assetid: 0726B1CA-97A1-42E6-92AD-25787BFE0C67
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,50 +13,50 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489742"
 ---
-# <a name="csp-customer-web-storefront"></a>CSP customer web storefront
+# <a name="csp-customer-web-storefront"></a>CSP カスタマー web ネットショップ
 
 適用対象:
 
 - パートナー センター
 
 > [!NOTE]
-> This sample app applies only to the global instance of Partner Center. It does not apply to Partner Center for Microsoft Cloud Germany or to Partner Center for Microsoft Cloud for US Government.
+> このサンプルアプリは、パートナーセンターのグローバルインスタンスにのみ適用されます。 Microsoft Cloud ドイツのパートナーセンターや米国政府機関向けのパートナー Microsoft Cloud センターには適用されません。
 
-The [Partner Center storefront](https://github.com/Microsoft/Partner-Center-Storefront) is a **sample website** for an online store that customers can use to buy subscriptions to Microsoft products. You can modify this **sample code** for your own use to [configure the offers](#configure-offers), [add branding](#configure-branding) and [add a payment method](#configure-payment-types).
+[パートナーセンターの店舗](https://github.com/Microsoft/Partner-Center-Storefront)は、お客様が Microsoft 製品のサブスクリプションを購入するために使用できるオンラインストアの**サンプル web サイト**です。 独自の**サンプルコード**を変更して、オファーの[構成](#configure-offers)、ブランドの[追加](#configure-branding)、[支払い方法の追加](#configure-payment-types)を行うことができます。
 
 ## <a name="sample-code"></a>サンプル コード
 
-Download the [Partner Center storefront sample code](https://github.com/Microsoft/Partner-Center-Storefront) from GitHub.
+GitHub から[パートナーセンターのサンプルコード](https://github.com/Microsoft/Partner-Center-Storefront)をダウンロードします。
 
 ## <a name="configure-authentication"></a>認証設定の構成
 
-Before you build the application, update the following values in the Web.config file to reflect the Azure AD authentication information you created in [Partner Center authentication](partner-center-authentication.md). You should use your integration sandbox account settings during early development or for testing in production (TiP).
+アプリケーションをビルドする前に、web.config ファイルの次の値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 統合サンドボックスアカウントの設定は、初期開発時または運用環境でのテスト (TiP) で使用する必要があります。
 
-- **partnerCenter.applicationId**
-- **partnerCenter.applicationSecret**
-- **partnerCenter.domain**
-- **webPortal.clientId**
-- **webPortal.clientSecret**
-- **webPortal.domain**
-- **webPortal.azureStorageConnectionString**
+- **partnerCenter. applicationId**
+- **partnerCenter. applicationSecret**
+- **partnerCenter. ドメイン**
+- **webPortal. clientId**
+- **webPortal. clientSecret**
+- **webPortal. ドメイン**
+- **webPortal. azureStorageConnectionString**
 
-## <a name="configure-offers"></a>Configure offers
+## <a name="configure-offers"></a>オファーの構成
 
-You can configure the set of offers (**MicrosoftOffer**) in the **OfferCatalogViewModel**.
+**OfferCatalogViewModel**のプランセット (**MicrosoftOffer**) を構成できます。
 
-## <a name="configure-branding"></a>Configure branding
+## <a name="configure-branding"></a>ブランドの構成
 
-This sample website tracks the following company and brand information in *BrandingConfiguration.cs* and *PortalBranding.cs*:
+このサンプル web サイトでは、 *BrandingConfiguration.cs*と*PortalBranding.cs*の次の会社とブランドの情報を追跡します。
 
 - 組織名
-- Organization logo
-- Header image
-- Privacy agreement
-- Contact email
-- Contact phone number
-- Support email
-- Support phone number
+- 組織のロゴ
+- ヘッダーイメージ
+- プライバシーに関する契約
+- 連絡先の電子メール
+- 連絡先の電話番号
+- サポート電子メール
+- サポートの電話番号
 
-### <a name="configure-payment-types"></a>Configure payment types
+### <a name="configure-payment-types"></a>支払いの種類を構成する
 
-The app currently uses a PayPal gateway, implemented in *PayPalGateway.cs*.
+アプリは現在、 *PayPalGateway.cs*で実装されている PayPal ゲートウェイを使用しています。

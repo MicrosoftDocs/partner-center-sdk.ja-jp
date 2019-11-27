@@ -1,6 +1,6 @@
 ---
-title: Utility resources
-description: The Partner Center REST API contains many resources which describe general-purpose data models used throughout the SDK.
+title: ユーティリティのリソース
+description: パートナーセンター REST API には、SDK 全体で使用される汎用データモデルについて説明する多くのリソースが含まれています。
 ms.assetid: C77219B9-FFDD-4779-AE15-5B15BA7BA863
 ms.date: 11/08/2018
 ms.service: partner-dashboard
@@ -13,135 +13,135 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486252"
 ---
-# <a name="utility-resources"></a>Utility resources
+# <a name="utility-resources"></a>ユーティリティのリソース
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-The Partner Center REST API contains many resources which describe general-purpose data models used throughout the SDK.
+パートナーセンター REST API には、SDK 全体で使用される汎用データモデルについて説明する多くのリソースが含まれています。
 
 
-## <a name="span-idaddressspan-idaddressaddress"></a><span id="address"/><span id="ADDRESS"/>Address
+## <a name="span-idaddressspan-idaddressaddress"></a><span id="address"/><span id="ADDRESS"/>アドレス
 
-An address to use for the customer or for partner profiles. For more information about the supported formats and properties in different countries/regions, see [Get address formatting rules by market](get-market-specific-validation-data.md).
+顧客またはパートナープロファイルに使用するアドレス。 さまざまな国/地域でサポートされている形式とプロパティの詳細については、「[市場別の住所書式規則の取得](get-market-specific-validation-data.md)」を参照してください。
 
-| プロパティ     | タスクバーの検索ボックスに   | Length (min, max) | 説明                                                                                      |
+| プロパティ     | 種類   | 長さ (最小、最大) | 説明                                                                                      |
 |--------------|--------|-------------------|--------------------------------------------------------------------------------------------------|
-| AddressLine1 | string | (1, 200)          | The first line of the address.                                                                   |
-| AddressLine2 | string | (0, 200)          | The second line of the address. このプロパティは省略可能です。                                       |
-| 市区町村         | string | なし               | The city.                                                                                        |
-| 都道府県        | string | (0, 2)            | The state.                                                                                       |
-| PostalCode   | string | なし               | The ZIP code or postal code.                                                                     |
-| Country      | string | (2, 2)            | The country/region in ISO country code format.                                                   |
-| Region       | string | なし               | The region.                                                                                      |
-| FirstName    | string | (1, 50)           | The first name of a contact at the customer's company/organization.                              |
-| LastName     | string | (1, 50)           | The last name of a contact at the customer's company/organization.                               |
-| PhoneNumber  | string | なし               | The phone number of a contact at the customer's company/organization. このプロパティは省略可能です。 |
+| AddressLine1 | string | (1, 200)          | 住所の1行目。                                                                   |
+| AddressLine2 | string | (0, 200)          | アドレスの2番目の行。 このプロパティは省略可能です。                                       |
+| 市区町村         | string | なし               | 市区町村。                                                                                        |
+| 状態        | string | (0, 2)            | 状態。                                                                                       |
+| PostalCode   | string | なし               | 郵便番号。                                                                     |
+| Country      | string | (2, 2)            | ISO 国コード形式の国/地域。                                                   |
+| Region       | string | なし               | 領域。                                                                                      |
+| FirstName    | string | (1, 50)           | 顧客の会社/組織の連絡先の名。                              |
+| LastName     | string | (1, 50)           | 顧客の会社/組織の連絡先の姓。                               |
+| PhoneNumber  | string | なし               | 顧客の会社/組織の連絡先の電話番号。 このプロパティは省略可能です。 |
  
 
-## <a name="span-idcontactspan-idcontactspan-idcontactcontact"></a><span id="Contact"/><span id="contact"/><span id="CONTACT"/>Contact
+## <a name="span-idcontactspan-idcontactspan-idcontactcontact"></a><span id="Contact"/><span id="contact"/><span id="CONTACT"/>連絡先
 
-Describes contact information for a specific individual.
+特定の個人の連絡先情報について説明します。
 
-| プロパティ    | タスクバーの検索ボックスに   | 説明                  |
+| プロパティ    | 種類   | 説明                  |
 |-------------|--------|------------------------------|
-| FirstName   | string | The contact's first name.    |
-| LastName    | string | The contact's last name.     |
-| [メール]       | string | The contact's email address. |
-| PhoneNumber | string | The contact's phone number.  |
+| FirstName   | string | 連絡先の名。    |
+| LastName    | string | 連絡先の姓。     |
+| Email       | string | 連絡先の電子メールアドレス。 |
+| PhoneNumber | string | 連絡先の電話番号。  |
  
 
 ## <a name="span-idfieldfilterspan-idfieldfilterspan-idfieldfilterfieldfilter"></a><span id="FieldFilter"/><span id="fieldfilter"/><span id="FIELDFILTER"/>FieldFilter
 
-Describes a filter that can be applied to search results.
+検索結果に適用できるフィルターについて説明します。
 
-| プロパティ | タスクバーの検索ボックスに   | 説明                                                                                                                                                                                        |
+| プロパティ | 種類   | 説明                                                                                                                                                                                        |
 |----------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 演算子 | string | The filter operator: "equals", "not\_equals", "greater\_than", "greater\_than\_or\_equals", "less\_than", "less\_than\_or\_equals", "substring", "and", "or", "starts\_with", "not\_starts\_with". |
+| 演算子 | string | フィルター演算子: "equals"、"not\_equals"、"より大きい\_より大きい"、"より大きい\_"、"\_または\_と等しい"、"より小さい"、"部分文字列"、"and"、"or"、"", "を使用して開始\_"、"ではなく\_"\_\_\_\_\_ |
  
 
 ## <a name="span-idfileinfospan-idfileinfospan-idfileinfofileinfo"></a><span id="FileInfo"/><span id="fileinfo"/><span id="FILEINFO"/>FileInfo
 
-Represents an external file uploaded to Partner Center.
+パートナーセンターにアップロードされた外部ファイルを表します。
 
-| プロパティ                 | タスクバーの検索ボックスに   | 説明                                   |
+| プロパティ                 | 種類   | 説明                                   |
 |--------------------------|--------|-----------------------------------------------|
-| Comment                  | string | A comment associated with the file upload.    |
-| FileExtension            | string | The file extension.                           |
-| FileNameWithoutExtension | string | The name of the file, extension not included. |
-| FileSize                 | long   | The size of the file.                         |
-| Id                       | string | The unique ID for the file upload.            |
+| Comment                  | string | ファイルのアップロードに関連付けられているコメント。    |
+| FileExtension            | string | ファイル拡張子。                           |
+| FileNameWithoutExtension | string | 拡張子が含まれていないファイルの名前。 |
+| FileSize                 | long   | ファイルのサイズ。                         |
+| ID                       | string | ファイルをアップロードするための一意の ID。            |
  
 
-## <a name="span-idlinkspan-idlinkspan-idlinklink"></a><span id="Link"/><span id="link"/><span id="LINK"/>Link
+## <a name="span-idlinkspan-idlinkspan-idlinklink"></a><span id="Link"/><span id="link"/><span id="LINK"/>リンク
 
-Contains a URI link and associated information.
+URI リンクと関連情報が含まれています。
 
-| プロパティ | タスクバーの検索ボックスに                   | 説明                        |
+| プロパティ | 種類                   | 説明                        |
 |----------|------------------------|------------------------------------|
-| URI      | string                 | The URI.                           |
-| メソッド   | string                 | The method represented by the URI. |
-| ヘッダー  | Array of KeyValuePairs | The headers for the link.          |
+| URI      | string                 | URI。                           |
+| メソッド   | string                 | URI によって表されるメソッド。 |
+| ヘッダー  | Keyvaluepair の配列 | リンクのヘッダー。          |
  
 
 ## <a name="span-idpasswordprofilespan-idpasswordprofilespan-idpasswordprofilepasswordprofile"></a><span id="PasswordProfile"/><span id="passwordprofile"/><span id="PASSWORDPROFILE"/>PasswordProfile
 
-Describes a specific password and if that password needs to be changed.
+特定のパスワードを指定し、そのパスワードを変更する必要がある場合はを示します。
 
 >[!NOTE]
->Unsupported on Partner Center operated by 21Vianet.
+>21Vianet が運用するパートナーセンターではサポートされていません。
 
-| プロパティ            | タスクバーの検索ボックスに                          | 説明                                                            |
+| プロパティ            | 種類                          | 説明                                                            |
 |---------------------|-------------------------------|------------------------------------------------------------------------|
-| パスワード            | [SecureString](#securestring) | The password.                                                          |
-| ForceChangePassword | boolean                       | Determines if the password needs to be forcibly changed on next login. |
+| パスワード            | [SecureString](#securestring) | パスワード。                                                          |
+| ForceChangePassword | boolean                       | 次回ログイン時にパスワードを強制的に変更する必要があるかどうかを決定します。 |
  
 
 ## <a name="span-idresourcelinksspan-idresourcelinksspan-idresourcelinksresourcelinks"></a><span id="ResourceLinks"/><span id="resourcelinks"/><span id="RESOURCELINKS"/>ResourceLinks
 
-Contains a list of links for a resource.
+リソースのリンクの一覧が含まれています。
 
-| プロパティ   | タスクバーの検索ボックスに                                      | 説明                                        |
+| プロパティ   | 種類                                      | 説明                                        |
 |------------|-------------------------------------------|----------------------------------------------------|
-| Self (自己)       | [Link](#link)                             | The self URI.                                      |
-| [次へ]       | [Link](#link)                             | The next page of items.                            |
-| Previous   | [Link](#link)                             | The previous page of items.                        |
-| 属性 | [ResourceAttributes](#resourceattributes) | The metadata attributes corresponding to the user. |
+| Self (自己)       | [Link](#link)                             | 自己 URI。                                      |
+| 次へ       | [Link](#link)                             | 項目の次のページ。                            |
+| 戻る   | [Link](#link)                             | 項目の前のページ。                        |
+| 属性 | [ResourceAttributes](#resourceattributes) | ユーザーに対応するメタデータ属性。 |
  
 
 ## <a name="span-idresourceattributesspan-idresourceattributesspan-idresourceattributesresourceattributes"></a><span id="ResourceAttributes"/><span id="resourceattributes"/><span id="RESOURCEATTRIBUTES"/>ResourceAttributes
 
-Contains attribute metadata for a resource.
+リソースの属性メタデータを格納します。
 
-| プロパティ   | タスクバーの検索ボックスに   | 説明                                 |
+| プロパティ   | 種類   | 説明                                 |
 |------------|--------|---------------------------------------------|
-| Etag       | string | The etag, also known as the object version. |
-| ObjectType | string | The type of object of the base resource.    |
+| Etag       | string | Etag。オブジェクトバージョンとも呼ばれます。 |
+| ObjectType | string | 基本リソースのオブジェクトの型。    |
  
 
 ## <a name="span-idsecurestringspan-idsecurestringspan-idsecurestringsecurestring"></a><span id="SecureString"/><span id="securestring"/><span id="SECURESTRING"/>SecureString
 
-Stores secured information, such as a password.
+パスワードなどのセキュリティで保護された情報を格納します。
 
-| プロパティ | タスクバーの検索ボックスに | 説明                       |
+| プロパティ | 種類 | 説明                       |
 |----------|------|-----------------------------------|
-| 長さ   | 整数  | The length of the secured string. |
+| 長さ   | int  | セキュリティで保護された文字列の長さ。 |
 
 
-## <a name="span-idvalidationcodespan-idvalidationcodespan-idvalidationcodevalidationcode"></a><span id="ValidationCode"/><span id="validationcode"/><span id="VALIDATIONCODE"/>ValidationCode
+## <a name="span-idvalidationcodespan-idvalidationcodespan-idvalidationcodevalidationcode"></a>ValidationCode <span id="VALIDATIONCODE"/><span id="validationcode"/><span id="ValidationCode"/>
 
-Represents a partner's Government Community Cloud validation code.
+パートナーの政府機関向けコミュニティクラウド検証コードを表します。
 
-| プロパティ         | タスクバーの検索ボックスに         | 説明                                                              |
+| プロパティ         | 種類         | 説明                                                              |
 |------------------|--------------|--------------------------------------------------------------------------|
-| PartnerId        | GUID         | Partner identifier                                                       |
-| OrganizationName | string       | The organization name provided during the validation process             |
-| ValidationId     | 整数          | A unique identifier for validation                                       |
-| MaxCreates       | nullable int | The maximum customers allowed to be created with this validation code    |
-| RemainingCreates | nullable int | Remaining customer creates under this validation ID                      |
-| ETag             | string       | The specific version of this resource. Changes when resource is changed. |
+| PartnerId        | GUID         | パートナー id                                                       |
+| OrganizationName | string       | 検証プロセス中に指定された組織名             |
+| ValidationId     | int          | 検証の一意の識別子                                       |
+| MaxCreates       | null 許容の int | この検証コードを使用して作成できる最大顧客数    |
+| RemainingCreates | null 許容の int | 残りの顧客はこの検証 ID で作成します                      |
+| ETag             | string       | このリソースの特定のバージョン。 リソースが変更されると変更されます。 |

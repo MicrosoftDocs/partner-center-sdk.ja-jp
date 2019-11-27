@@ -1,6 +1,6 @@
 ---
-title: Checkout a cart
-description: How to checkout an order for a customer in a cart.
+title: カートをチェックアウトする
+description: カート内の顧客の注文をチェックアウトする方法。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489412"
 ---
-# <a name="checkout-a-cart"></a>Checkout a cart
+# <a name="checkout-a-cart"></a>カートをチェックアウトする
 
 適用対象:
 
@@ -21,19 +21,19 @@ ms.locfileid: "74489412"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to checkout an order for a customer in a cart.
+カート内の顧客の注文をチェックアウトする方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A Cart ID for an existing cart.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- 既存のカートのカート ID。
 
 ## <a name="examples"></a>例
 
 ### <a name="c"></a>C#
 
-To checkout an order for a customer, get a reference to the cart using the cart and customer identifier. Finally, call the **Create** or **CreateAsync** functions to complete the order.
+顧客の注文をチェックアウトするには、カートと顧客識別子を使用してカートへの参照を取得します。 最後に、 **Create**または**createasync**関数を呼び出して、注文を完了します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checko
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To checkout an order for a customer, get a reference to the cart using the cart and customer identifier. Finally, call the **create** function to complete the order.
+顧客の注文をチェックアウトするには、カートと顧客識別子を使用してカートへの参照を取得します。 最後に、 **create**関数を呼び出して、注文を完了します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -61,7 +61,7 @@ Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(car
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) to complete the order.
+顧客の注文をチェックアウトするには、[**送信パートナー**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md)の顧客カートを実行して注文を完了します。
 
 ```powershell
 # $customerId
@@ -70,26 +70,26 @@ To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**
 Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
-Use the following path parameters to identify the customer and specify the cart to be checked out.
+次のパスパラメーターを使用して顧客を特定し、チェックアウトするカートを指定します。
 
-| 名前            | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                            |
+| 名前            | 種類     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | string   | [はい]      | A GUID formatted customer-id that identifies the customer.             |
-| **cart-id**     | string   | [はい]      | A GUID formatted cart-id that identifies the cart.                     |
+| **顧客 id** | string   | 〇      | 顧客を識別する GUID 形式の顧客 id。             |
+| **カート-id**     | string   | 〇      | カートを識別する GUID 形式のカート id。                     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -113,13 +113,13 @@ Expect: 100-continue
 No-Content-Body
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains the populated [CartCheckoutResult](cart-resources.md#cartcheckoutresult) resource.
+成功した場合、応答本文には、設定された[CartCheckoutResult](cart-resources.md#cartcheckoutresult)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

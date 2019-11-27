@@ -1,6 +1,6 @@
 ---
-title: Get service request details by ID.
-description: How to retrieve the details of an existing customer service request by ID.
+title: ID でサービス要求の詳細を取得します。
+description: ID によって既存の顧客サービス要求の詳細を取得する方法。
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,27 +12,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487302"
 ---
-# <a name="get-service-request-details-by-id"></a>Get service request details by ID
+# <a name="get-service-request-details-by-id"></a>ID でサービス要求の詳細を取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to retrieve the details of an existing customer service request using the service request identifier. 
+サービス要求識別子を使用して、既存のカスタマーサービス要求の詳細を取得する方法。 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A service request ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- サービス要求 ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve the details of an existing customer service request, call the [**IServiceRequestCollection.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) method, and pass in a [**ServiceRequest.Id**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) to identify and return an interface to the specific [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) object. 
+既存のカスタマーサービス要求の詳細を取得するには、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid)メソッドを呼び出し、 [**ServiceRequest.Id**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id)を渡して、特定の[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)オブジェクトに対してインターフェイスを識別し、返すようにします。 
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,36 +47,36 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 )); 
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド    | 要求 URI                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1  |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1  |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following URI parameter to get the specified service request. 
+指定されたサービス要求を取得するには、次の URI パラメーターを使用します。 
 
-| 名前                  | タスクバーの検索ボックスに     | 必須かどうか | 説明                                 |
+| 名前                  | 種類     | 必須 | 説明                                 |
 |-----------------------|----------|----------|---------------------------------------------|
-| **servicerequest-id** | **guid** | Y        | A GUID that identifies the service request. |
+| **servicerequest-id** | **guid** | Y        | サービス要求を識別する GUID。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST Headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/servicerequests/616122292874576 HTTP/1.1
@@ -90,16 +90,16 @@ Host: api.partnercenter.microsoft.com
 Content-Length: 0 
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 応答
 
 
-If successful, this method returns a **Service Request** resource in the response body. 
+成功した場合、このメソッドは応答本文で**サービス要求**リソースを返します。 
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

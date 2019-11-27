@@ -1,6 +1,6 @@
 ---
-title: Azure rate card resources
-description: The Azure Rate Card provides real-time prices for Azure offers.
+title: Azure 料金カードのリソース
+description: Azure 料金カードでは、Azure プランのリアルタイム料金が提供されます。
 ms.assetid: A42B4FFA-278E-41FF-B51E-E48C2CA70EEF
 ms.date: 05/21/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489142"
 ---
-# <a name="azure-rate-card-resources"></a>Azure rate card resources
+# <a name="azure-rate-card-resources"></a>Azure 料金カードのリソース
 
 適用対象:
 
@@ -21,50 +21,50 @@ ms.locfileid: "74489142"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-The Azure Rate Card provides real-time prices for Azure offers. Azure pricing is quite dynamic and changes frequently. Microsoft publishes updates on Partner Center, but the REST API provides the fastest way for Cloud Solution Provider partners to get current prices.
+Azure 料金カードでは、Azure プランのリアルタイム料金が提供されます。 Azure の価格は非常に動的で、頻繁に変更されます。 Microsoft はパートナーセンターで更新プログラムを発行しますが、REST API は、クラウドソリューションプロバイダーパートナーが現在の価格を取得するための最速の方法を提供します。
 
-To track usage and help predict your monthly bill and the bills for individual customers, you can combine a Rate Card query to [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md) with a request to [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md).
+使用量を追跡し、個々の顧客の毎月の請求書と請求額を予測できるようにするには、料金カードクエリを組み合わせて、 [Azure の顧客の使用状況レコードを取得](get-a-customer-s-utilization-record-for-azure.md)するための要求に[Microsoft Azure の価格を取得](get-prices-for-microsoft-azure.md)します。
 
-Prices differ by market and currency, and this API takes location into consideration. By default, it uses your partner profile settings in Partner Center and your browser language, but those are customizable. This is especially relevant if you manage sales in multiple markets from a single, centralized office.
+価格は市場と通貨によって異なります。この API は、場所を考慮します。 既定では、パートナーのプロファイル設定はパートナーセンターとブラウザーの言語で使用されますが、カスタマイズすることもできます。 これは、1つの集中管理されたオフィスから複数の市場で売上を管理する場合に特に関連します。
 
 ## <a name="azureratecard"></a>AzureRateCard
 
-Describes the properties of an Azure Rate Card resource.
+Azure 料金カードリソースのプロパティについて説明します。
 
-| プロパティ      | タスクバーの検索ボックスに                                      | 説明                                                       |
+| プロパティ      | 種類                                      | 説明                                                       |
 |---------------|-------------------------------------------|-------------------------------------------------------------------|
-| currency      | string                                    | The currency in which the rates are provided.                     |
-| isTaxIncluded | boolean                                   | All rates are pretax, so this will always be returned as "false". |
-| locale        | string                                    | The culture in which the resource information is localized.       |
-| meters        | オブジェクトの配列                          | Array of [AzureMeter](#azuremeter) objects.                       |
-| offerTerms    | オブジェクトの配列                          | Array of [AzureOfferTerm](#azureofferterm) objects.               |
-| 属性    | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. Contains "objectType": "AzureRateCard"   |
+| 貨      | string                                    | 料金が提供される通貨。                     |
+| isTaxIncluded | boolean                                   | すべてのレートは税込みなので、常に "false" として返されます。 |
+| locale        | string                                    | リソース情報がローカライズされるカルチャ。       |
+| メーター        | オブジェクトの配列                          | [Azuremeter](#azuremeter)オブジェクトの配列。                       |
+| offerTerms    | オブジェクトの配列                          | [AzureOfferTerm](#azureofferterm)オブジェクトの配列。               |
+| 属性    | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "AzureRateCard" が含まれています。   |
 
 
-### <a name="operations-on-the-azureratecard-resource"></a>Operations on the AzureRateCard resource
+### <a name="operations-on-the-azureratecard-resource"></a>AzureRateCard リソースに対する操作
 
-- [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md)
+- [Microsoft Azure の価格を取得する](get-prices-for-microsoft-azure.md)
 
 ## <a name="azuremeter"></a>AzureMeter
 
-| プロパティ         | タスクバーの検索ボックスに             | 説明                                                                                   |
+| プロパティ         | 種類             | 説明                                                                                   |
 |------------------|------------------|-----------------------------------------------------------------------------------------------|
-| id               | string           | Meter's unique identifier.                                                                    |
-| 名前             | string           | Friendly name of the meter.                                                                   |
-| rates            | オブジェクト           | Meter rates. The key is the meter quantity (string) and the value is the meter rate (number). |
-| tags             | 文字列の配列 | Optional meter tags. This array can be empty.                                                 |
-| category         | string           | Category of the resource.                                                                     |
-| subcategory      | string           | Sub-category of the resource.                                                                 |
-| region           | string           | Region of the id.                                                                             |
-| ユニット             | string           | The type of quantity (hours, bytes, etc.)                                                     |
-| includedQuantity | number           | Meter quantity that is included free of charge.                                               |
-| effectiveDate    | string           | The date this meter is in effect.                                                             |
+| id               | string           | メーターの一意の識別子。                                                                    |
+| name             | string           | メーターのフレンドリ名。                                                                   |
+| 料率            | オブジェクト           | メーターレート。 キーはメーターの数量 (文字列) で、値はメーターのレート (number) です。 |
+| tags             | 文字列の配列 | 測定タグ (省略可能)。 この配列は空にすることができます。                                                 |
+| 別         | string           | リソースのカテゴリ。                                                                     |
+| サブカテゴリ      | string           | リソースのサブカテゴリ。                                                                 |
+| 領域 (region)           | string           | Id のリージョン。                                                                             |
+| ユニット             | string           | 数量の種類 (時間、バイトなど)                                                     |
+| includedQuantity | number           | 無料で含まれているメーターの数量。                                               |
+| effectiveDate    | string           | このメーターが有効な日付。                                                             |
 
 ## <a name="azureofferterm"></a>AzureOfferTerm
 
-| プロパティ         | タスクバーの検索ボックスに             | 説明                             |
+| プロパティ         | 種類             | 説明                             |
 |------------------|------------------|-----------------------------------------|
-| 名前             | string           | Friendly name of the offer term.        |
-| discount         | number           | The discount applied, if any.           |
-| excludedMeterIds | 文字列の配列 | Meters excluded from the offer, if any. |
-| effectiveDate    | string           | The date the offer is in effect.        |
+| name             | string           | プランの用語のフレンドリ名。        |
+| 価格         | number           | 適用されている割引 (存在する場合)。           |
+| excludedMeterIds | 文字列の配列 | プランから除外されたメーター (存在する場合)。 |
+| effectiveDate    | string           | プランが有効である日付。        |

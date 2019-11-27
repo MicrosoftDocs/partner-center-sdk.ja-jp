@@ -1,6 +1,6 @@
 ---
-title: Get the product upgrade status for a customer
-description: You can use the ProductUpgradeRequest resource to determine the status of a product upgrade for a customer to a new product family, such as from a Microsoft Azure (MS-AZR-0145P) subscription to an Azure plan.
+title: 顧客の製品のアップグレード状態を取得する
+description: ProductUpgradeRequest リソースを使用して、顧客の製品のアップグレードの状態を、新しい製品ファミリに (たとえば、Azure プランの Microsoft Azure (MS AZR-5P) サブスクリプションから) 確認できます。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,29 +12,29 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487292"
 ---
-# <a name="get-the-product-upgrade-status-for-a-customer"></a>Get the product upgrade status for a customer
+# <a name="get-the-product-upgrade-status-for-a-customer"></a>顧客の製品のアップグレード状態を取得する
 
 適用対象:
 
 - パートナー センター
 
-You can use the [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) resource to get the status of an upgrade to a new product family. This resource applies when you're upgrading a customer from an Microsoft Azure (MS-AZR-0145P) subscription to an Azure plan. A successful request returns the [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) resource.
+[**Productupgrade**](product-upgrade-resources.md#productupgraderequest)のリソースを使用して、新しい製品ファミリへのアップグレードの状態を取得できます。 このリソースは、Microsoft Azure (MS AZR-0145P) サブスクリプションから Azure プランに顧客をアップグレードするときに適用されます。 要求が成功すると、 [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)リソースが返されます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials. Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.
-- The customer identifier.
-- The product family.
-- The upgrade-id of an upgrade request.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、[セキュリティで保護されたアプリモデル](enable-secure-app-model.md)に従います。
+- 顧客識別子。
+- 製品ファミリ。
+- アップグレード要求のアップグレード id。
 
 ## <a name="c"></a>C\#
 
-To check if a customer is eligible to upgrade to Azure plan:
+顧客が Azure プランにアップグレードする資格があるかどうかを確認するには、次のようにします。
 
-1. Create a **ProductUpgradesRequest** object and specify the customer identifier and "Azure" as the product family.
-2. Use the **IAggregatePartner.ProductUpgrades** collection.
-2. Call the **ById** method and pass in the **upgrade-id**.
-3. Call the **CheckStatus** method and pass in the **ProductUpgradesRequest** object, which will return a **ProductUpgradeStatus** object.
+1. **Product・アップグレード Esrequest**オブジェクトを作成し、製品ファミリとして顧客識別子と "Azure" を指定します。
+2. **Iaggregatepartner.customers**コレクションを使用します。
+2. **ById**メソッドを呼び出し、**アップグレード id**を渡します。
+3. **Checkstatus**メソッドを呼び出し、 **Productupgradesrequest**オブジェクトを渡します。これにより、 **productupgradestatus**オブジェクトが返されます。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -111,13 +111,13 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, this method returns a [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) resource in the body.
+成功した場合、このメソッドは本文で[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

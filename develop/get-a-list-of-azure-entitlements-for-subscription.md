@@ -1,6 +1,6 @@
 ---
-title: Get a list of Azure entitlements for a subscription
-description: You can use the AzureEntitlement resource to  get a collection of Azure entitlement resources that belong to a subscription.
+title: サブスクリプションの Azure の権利の一覧を取得する
+description: AzureEntitlement リソースを使用して、サブスクリプションに属している Azure の権利リソースのコレクションを取得できます。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,40 +12,40 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487502"
 ---
-# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>Get a list of Azure entitlements for a subscription
+# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>サブスクリプションの Azure の権利の一覧を取得する
 
 適用対象:
 
 - パートナー センター
 
-You can use the [Azure entitlement resource](subscription-resources.md#azureentitlement) (**AzureEntitlement**) to get a collection of resources that belong to a subscription.
+[Azure の権利リソース](subscription-resources.md#azureentitlement)(**azureentitlement**) を使用して、サブスクリプションに属するリソースのコレクションを取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**). If you don't have a customer's identifier, you can look it up in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their **Microsoft ID**.
-- A subscription identifier.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客識別子 (**顧客-テナント id**)。 顧客の id を持っていない場合は、顧客 一覧から顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで検索できます。
+- サブスクリプション識別子。
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                                                   |
 |---------|---------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-The following table lists the required query parameters to get all the Azure entitlements for a subscription.
+次の表に、サブスクリプションのすべての Azure 権限を取得するために必要なクエリパラメーターを示します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                           |
+| 名前                   | 種類     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | A GUID corresponding to the customer. |
-| **subscription-id**       | **guid** | Y        | A GUID corresponding to the subscription.    |
+| **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。 |
+| **サブスクリプション id**       | **guid** | Y        | サブスクリプションに対応する GUID。    |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Headers](headers.md).
+詳細については、「[ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -62,13 +62,13 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns a collection of [**AzureEntitlement**](subscription-resources.md#azureentitlement) resources in the response body.
+成功した場合、このメソッドは応答本文で[**Azureentitlement**](subscription-resources.md#azureentitlement)リソースのコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

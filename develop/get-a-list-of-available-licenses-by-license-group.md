@@ -1,6 +1,6 @@
 ---
-title: Get a list of available licenses by license group
-description: How to get a list of licenses for the specified license groups available to users of the specified customer.
+title: ライセンスグループ別に使用可能なライセンスの一覧を取得する
+description: 指定された顧客のユーザーが使用できる、指定されたライセンスグループのライセンスの一覧を取得する方法。
 ms.assetid: 1677A68C-0298-49C7-BAE1-5E74D8449C3F
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487522"
 ---
-# <a name="get-a-list-of-available-licenses-by-license-group"></a>Get a list of available licenses by license group
+# <a name="get-a-list-of-available-licenses-by-license-group"></a>ライセンスグループ別に使用可能なライセンスの一覧を取得する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-How to get a list of licenses for the specified license groups available to users of the specified customer.
+指定された顧客のユーザーが使用できる、指定されたライセンスグループのライセンスの一覧を取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A list of one or more license group identifiers.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客識別子。
+- 1つまたは複数のライセンスグループ識別子の一覧。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a list of available licenses for the specified license groups, start by instantiating a [List](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) of type [**LicenseGroupId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid), and then add the license groups to the list. Next, use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then, get the value of the [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) property to retrieve an interface to customer subscribed SKU collection operations. Finally, pass the list of license groups to the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) method to retrieve the list of subscribed SKUs with details on available license units.
+指定されたライセンスグループの使用可能なライセンスの一覧を取得するには、まず種類が[**Licensegroupid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)の[リスト](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)をインスタンス化してから、その一覧にライセンスグループを追加します。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、 [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)プロパティの値を取得して、顧客がサブスクライブしている SKU コレクション操作へのインターフェイスを取得します。 最後に、ライセンスグループの一覧を[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync)メソッドに渡して、使用可能なライセンスユニットの詳細を含むサブスクライブ済み sku の一覧を取得します。
 
 ``` csharp
 // string selectedCustomerId;
@@ -51,39 +51,39 @@ List<LicenseGroupId> licenseGroupIds = new List<LicenseGroupId>() { LicenseGroup
 var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get(licenseGroupIds);
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                                  |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus?licenseGroupIds=Group1 HTTP/1.1                        |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus?licenseGroupIds=Group2 HTTP/1.1                        |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? licenseGroupIds = Group1 HTTP/1.1                        |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? licenseGroupIds = Group2 HTTP/1.1                        |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? Licensegroupids = Group1 & Licensegroupids = Group2 HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following path and query parameters to identify the customer and the license groups.
+次のパスとクエリパラメーターを使用して、顧客とライセンスグループを識別します。
 
-| 名前            | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                                                                                                                                                                                                           |
+| 名前            | 種類   | 必須 | 説明                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id     | string | [はい]      | A GUID formatted string that identifies the customer.                                                                                                                                                                                                                 |
-| licenseGroupIds | string | 必須ではない       | An enum value that indicates the license group of the assigned licenses. Valid values: Group1, Group2 Group1 - This group has all products whose license can be managed in the Azure Active Directory (AAD). Group2 - This group has only Minecraft product licenses. |
+| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。                                                                                                                                                                                                                 |
+| licenseGroupIds | string | X       | 割り当てられたライセンスのライセンスグループを示す列挙値。 有効な値: Group1、Group2 Group1-このグループには、Azure Active Directory (AAD) で管理できるライセンスを持つすべての製品が含まれています。 Group2-このグループには、Minecraft 製品ライセンスのみが含まれています。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/0c39d6d5-c70d-4c55-bc02-f620844f3fd1/subscribedskus?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1
@@ -95,16 +95,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 応答
 
 
-If successful, the response body contains a collection of [SubscribedSku](license-resources.md#subscribedsku) resources.
+成功した場合、応答本文には[SubscribedSku](license-resources.md#subscribedsku)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK
@@ -238,9 +238,9 @@ Date: Sat, 10 Jun 2017 00:19:44 GMT
 }
 ```
 
-**Response example (no matching SKUs found)**
+**応答の例 (一致する Sku が見つかりません)**
 
-If no matching subscribed SKUs can be found for the specified license groups, the response contains an empty collection with a totalCount element whose value is 0.
+指定されたライセンスグループに一致するサブスクライブ済み Sku が見つからない場合、応答には、値が0の totalCount 要素を持つ空のコレクションが含まれます。
 
 ```http
 HTTP/1.1 200 OK

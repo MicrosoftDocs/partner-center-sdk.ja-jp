@@ -1,6 +1,6 @@
 ---
-title: Get a product by ID
-description: Gets the specified product resource using a product ID.
+title: ID によって製品を取得します。
+description: 製品 ID を使用して、指定された製品リソースを取得します。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,24 +13,24 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489482"
 ---
-# <a name="get-a-product-by-id"></a>Get a product by ID
+# <a name="get-a-product-by-id"></a>ID によって製品を取得します。
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-Gets the specified product resource using a product ID.
+製品 ID を使用して、指定された製品リソースを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 製品 ID。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
 ### <a name="c"></a>C#
 
-To find a specific product by ID, use your **IAggregatePartner.Products** collection, select the country by using the **ByCountry()** method, then call the **ById()** method. Finally, call the **Get()** or **GetAsync()** method to return the product. 
+ID で特定の製品を検索するには、 **iaggregatepartner.customers**コレクションを使用し、 **bycountry ()** メソッドを使用して国を選択してから、 **ById ()** メソッドを呼び出します。 最後に、 **Get ()** または**GetAsync ()** メソッドを呼び出して、製品を返します。 
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -42,7 +42,7 @@ Product productDetail = partnerOperations.Products.ByCountry("US").ById("DZH318Z
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To find a specific product by ID, use your **IAggregatePartner.getProducts** function, select the country by using the **byCountry()** function, then call the **byId()** function. Finally, call the **get()** function to return the product. 
+ID で特定の製品を検索するには、 **iaggregatepartner.customers**関数を使用し、 **bycountry ()** 関数を使用して国を選択してから、 **byId ()** 関数を呼び出します。 最後に、 **get ()** 関数を呼び出して製品を返します。 
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -54,39 +54,39 @@ Product productDetail = partnerOperations.getProducts().byCountry("US").byId("DZ
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To find a specific product by ID, execute the [**Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) command and specify the **ProductId** paramater. The **CountryCode** paramater is options, if it is not specified then the country associated with the reseller will be used.
+ID で特定の製品を検索するには、パラメーター [**product**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md)コマンドを実行し、 **ProductId**を指定します。 **CountryCode**パラメーターはオプションです。指定されていない場合は、リセラーに関連付けられている国が使用されます。
 
 ```powershell
 Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}?country={country} HTTP/1.1  | 
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}? country = {COUNTRY} HTTP/1.1  | 
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following path parameters to get the specified product.
+次のパスパラメーターを使用して、指定された製品を取得します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                     |
+| 名前                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | string   | [はい]      | A string that identifies the product.                           |
-| country                | string   | [はい]      | A country/region ID.                                            |
+| 製品 id             | string   | 〇      | 製品を識別する文字列。                           |
+| country                | string   | 〇      | 国/地域 ID。                                            |
 
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products/{product-id}?country=US HTTP/1.1
@@ -96,22 +96,22 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If successful, the response body contains a [Product](product-resources.md#product) resource.
+成功した場合、応答本文には[製品](product-resources.md#product)リソースが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-This method returns the following error codes:
+このメソッドは、次のエラーコードを返します。
 
 | HTTP 状態コード     | エラー コード   | 説明                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
-| 404                  | 400013       | Product was not found.                                                     |
+| 404                  | 400013       | 製品が見つかりませんでした。                                                     |
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

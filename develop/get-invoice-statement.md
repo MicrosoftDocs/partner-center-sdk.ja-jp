@@ -1,6 +1,6 @@
 ---
-title: Get invoice statement
-description: Retrieves an invoice statement using the invoice ID.
+title: 請求書明細書の取得
+description: 請求書 ID を使用して請求書明細書を取得します。
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489372"
 ---
-# <a name="get-invoice-statement"></a>Get invoice statement
+# <a name="get-invoice-statement"></a>請求書明細書の取得
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Retrieves an invoice statement using the invoice ID.
+請求書 ID を使用して請求書明細書を取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A valid Invoice ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 有効な請求書 ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get an invoice statement by ID, use your **IPartner.Invoices** collection and call the **ById()** method using the invoice ID, then call the **Documents()** and **Statement()** methods to access the invoice statement. Finally, call the **Get()** or **GetAsync()** methods.
+ID で請求書明細書を取得するには、 **ById ()** メソッドを使用**して請求**書 id を使用し、**ドキュメント ()** および**ステートメント ()** メソッドを呼び出して、invoice ステートメントにアクセスします。 最後に、 **Get ()** メソッドまたは**GetAsync ()** メソッドを呼び出します。
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -42,37 +42,37 @@ To get an invoice statement by ID, use your **IPartner.Invoices** collection and
 var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Documents.Statement.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetInvoiceStatement.cs 
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: GetInvoiceStatement.cs 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                       |
 |---------|---------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/documents/statement HTTP/1.1  |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/documents/statement HTTP/1.1  |
 
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameter to get the invoice statement.
+次のクエリパラメーターを使用して、invoice ステートメントを取得します。
 
-| 名前       | タスクバーの検索ボックスに       | 必須かどうか | 説明                                                                                        |
+| 名前       | 種類       | 必須 | 説明                                                                                        |
 |------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| invoice-id | string     | [はい]      | The value is an invoice-id that allows the reseller to filter the results for a given invoice. |
+| 請求書-id | string     | 〇      | 値は請求書 id で、リセラーは特定の請求書の結果をフィルター処理できます。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Headers](headers.md) for more information.
+- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/<invoice-id>/documents/statement HTTP/1.1
@@ -82,16 +82,16 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 応答
 
 
-If successful, this method returns an [InvoiceStatement](invoice-resources.md#invoicestatement) resource in the response body.
+成功した場合、このメソッドは応答本文で[InvoiceStatement](invoice-resources.md#invoicestatement)リソースを返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

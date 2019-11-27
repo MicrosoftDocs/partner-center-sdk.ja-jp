@@ -1,6 +1,6 @@
 ---
-title: Audit operations
-description: Get a record of Partner Center activity using auditing operations.
+title: 監査操作
+description: 監査操作を使用して、パートナーセンターのアクティビティのレコードを取得します。
 ms.assetid: C6337A08-6009-4F12-A7A3-B1CA1AE016A1
 ms.date: 05/21/2019
 ms.service: partner-dashboard
@@ -13,15 +13,15 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489162"
 ---
-# <a name="audit-operations"></a>Audit operations
+# <a name="audit-operations"></a>監査操作
 
-The Partner Center APIs provide auditing features so you can get a record of Partner Center activity.
+パートナーセンターの Api は、パートナーセンターのアクティビティの記録を取得できるように、監査機能を提供します。
 
-You can retrieve audit records for the previous 30 days from the current date, or for a date range specified by including the start date and/or the end date. Note, however, that for performance reasons activity log data availability is limited to the previous 90 days. Requests with a start date greater than 90 days prior to the current date will receive a bad request exception (error code: 400) and an appropriate message.
+過去30日間の監査レコードを現在の日付から取得することも、開始日または終了日を含めることによって指定された日付範囲について取得することもできます。 ただし、パフォーマンス上の理由から、アクティビティログデータの可用性は過去90日間に制限されていることに注意してください。 現在の日付より前の開始日が90日を超える要求は、無効な要求例外 (エラーコード: 400) と適切なメッセージを受け取ります。
 
-## <a name="retrieve-audit-records"></a>Retrieve audit records
+## <a name="retrieve-audit-records"></a>監査レコードの取得
 
-Get detailed historical audit records of operations performed by a partner user or application:
+パートナーのユーザーまたはアプリケーションによって実行される操作の詳細な監査レコードを取得します。
 
 - [パートナー センター アクティビティのレコードを取得する](get-a-record-of-partner-center-activity-by-user.md)
-- [Auditing resources](auditing-resources.md)
+- [リソースの監査](auditing-resources.md)

@@ -1,6 +1,6 @@
 ---
-title: Verify domain availability
-description: How to determine if a domain is available for use.
+title: ドメインの可用性を確認する
+description: ドメインが使用可能かどうかを確認する方法。
 ms.assetid: 9ECF8241-3672-441D-B34D-83F7C23138B3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486242"
 ---
-# <a name="verify-domain-availability"></a>Verify domain availability
+# <a name="verify-domain-availability"></a>ドメインの可用性を確認する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-How to determine if a domain is available for use.
+ドメインが使用可能かどうかを確認する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A domain (e.g. "contoso.onmicrosoft.com").
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- ドメイン (例: "contoso.onmicrosoft.com")。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To verify if a domain is available, first call [**IAggregatePartner.Domains**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains) to obtain an interface to domain operations. Then call the [**ByDomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) method with the domain to check. This retrieves an interface to the operations available for a specific domain. Finally, call the [**Exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) method to see if the domain already exists.
+ドメインが使用可能かどうかを確認するには、まず[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains)を呼び出して、ドメイン操作へのインターフェイスを取得します。 次に、ドメインで[**bydomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain)メソッドを呼び出して確認します。 これにより、特定のドメインで使用可能な操作に対するインターフェイスが取得されます。 最後に、 [**exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists)メソッドを呼び出して、ドメインが既に存在するかどうかを確認します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,38 +43,38 @@ To verify if a domain is available, first call [**IAggregatePartner.Domains**](h
 bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CheckDomainAvailability.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CheckDomainAvailability.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド   | 要求 URI                                                              |
 |----------|--------------------------------------------------------------------------|
-| **HEAD** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1.1 |
+| **矢印** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameter to verify domain availability.
+ドメインの可用性を確認するには、次のクエリパラメーターを使用します。
 
-| 名前       | タスクバーの検索ボックスに       | 必須かどうか | 説明                                   |
+| 名前       | 種類       | 必須 | 説明                                   |
 |------------|------------|----------|-----------------------------------------------|
-| **domain** | **string** | Y        | A string that identifies the domain to check. |
+| **domain** | **文字列** | Y        | 確認するドメインを識別する文字列。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし
 
-**Request example**
+**要求の例**
 
 ```http
 HEAD https://api.partnercenter.microsoft.com/v1/domains/contoso.onmicrosoft.com HTTP/1.1
@@ -87,16 +87,16 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
 
 
-If the domain exists it is not available for use and a response status code 200 OK is returned. If the domain is not found it is available for use and a response status code 404 Not Found is returned.
+ドメインが存在する場合は使用できず、応答状態コード 200 OK が返されます。 ドメインが見つからない場合は、そのドメインが使用可能であり、応答状態コード "404 が見つかりません" が返されます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example for when the domain is already in use**
+**ドメインが既に使用されている場合の応答の例**
 
 ```http
 HTTP/1.1 200 OK
@@ -108,7 +108,7 @@ MS-ServerId: 201022015
 Date: Tue, 31 Jan 2017 22:22:35 GMT
 ```
 
-**Response example for when the domain is available**
+**ドメインが使用可能な場合の応答の例**
 
 ```http
 HTTP/1.1 404 Not Found

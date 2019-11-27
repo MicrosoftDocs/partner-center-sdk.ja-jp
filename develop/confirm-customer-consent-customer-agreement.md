@@ -1,6 +1,6 @@
 ---
-title: Confirm customer acceptance of Microsoft Customer Agreement
-description: Confirm customer acceptance of the Microsoft Customer Agreement.
+title: Microsoft カスタマーアグリーメントに同意するかどうかを確認する
+description: お客様による Microsoft カスタマーアグリーメントへの同意を確認します。
 ms.date: 09/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,37 +12,37 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488952"
 ---
-# <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Confirm customer acceptance of Microsoft Customer Agreement
+# <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft カスタマーアグリーメントに同意するかどうかを確認する
 
 適用対象:
 
 - パートナー センター
 
-Partner Center currently supports confirmation of customer acceptance of the Microsoft Customer Agreement only in the *Microsoft public cloud*. This functionality doesn't currently apply to:
+現在、パートナーセンターでは、microsoft*パブリッククラウド*でのみ、Microsoft カスタマー契約に対する顧客からの同意の確認をサポートしています。 現在、この機能は次の対象には適用されません。
 
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-This article describes how to confirm or re-confirm customer acceptance of the Microsoft Customer Agreement.
+この記事では、Microsoft カスタマーアグリーメントに対する顧客の同意を確認または再確認する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- If you are using the Partner Center .NET SDK, version 1.14 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). *This scenario only supports App+User authentication.*
-- A customer identifier (**customer-tenant-id**).
-- The date (**dateAgreed**) when the customer accepted the Microsoft Customer Agreement.
-- Information about the user from the customer organization that accepted the Microsoft Customer Agreement. たとえば、次のようなアニメーションや効果を作成できます。
+- パートナーセンター .NET SDK を使用している場合は、バージョン1.14 以降が必要です。
+- 「[パートナーセンターの認証](./partner-center-authentication.md)」で説明されている資格情報。 *このシナリオでは、アプリとユーザー認証のみがサポートされます。*
+- 顧客識別子 (**顧客-テナント id**)。
+- 顧客が Microsoft カスタマーアグリーメントに同意した日付 (**dateagreed**)。
+- Microsoft カスタマーアグリーメントに同意した顧客組織のユーザーに関する情報。 たとえば、次のようなアニメーションや効果を作成できます。
   - 名
   - 姓
   - メール アドレス
   - 電話番号 (オプション)
 
-## <a name="net"></a>.NET の場合
+## <a name="net"></a>.NET
 
-To confirm or re-confirm customer acceptance of the Microsoft Customer Agreement:
+Microsoft カスタマーアグリーメントに同意するかどうかを確認または再確認するには:
 
-1. Retrieve the agreement metadata for the Microsoft Customer Agreement. You must obtain the **templateId** of the Microsoft Customer Agreement. For more details, see [Get agreement metadata for Microsoft Customer Agreement](get-customer-agreement-metadata.md).
+1. Microsoft カスタマーアグリーメントの契約メタデータを取得します。 Microsoft カスタマーアグリーメントの**templateId**を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -52,9 +52,9 @@ string agreementType = "MicrosoftCustomerAgreement";
 var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-2. Create a new **Agreement** object containing details of the confirmation.
-3. Use the **IAgreggatePartner.Customers** collection and call the **ById** method with the specified **customer-tenant-id**.
-4. Use the **Agreements** property, followed by calling **Create** or **CreateAsync**.
+2. 確認の詳細を含む新しい**アグリーメント**オブジェクトを作成します。
+3. **IAgreggatePartner**コレクションを使用し、指定された**顧客テナント id**を使用して**ById**メソッドを呼び出します。
+4. **[アグリーメント]** プロパティを使用し、次に**Create**または**createasync**を呼び出します。
 
 ```csharp
 // string selectedCustomerId;
@@ -75,15 +75,15 @@ var agreementToCreate = new Agreement
 Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
 ```
 
-A complete sample can be found in the [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+完全なサンプルは、[コンソールテストアプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)プロジェクトの[CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs)クラスにあります。
 
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
-To confirm or re-confirm customer acceptance of the Microsoft Customer Agreement:
+Microsoft カスタマーアグリーメントに同意するかどうかを確認または再確認するには:
 
-1. Retrieve the agreement metadata for the Microsoft Customer Agreement. You must obtain the **templateId** of the Microsoft Customer Agreement. For more details, see [Get agreement metadata for Microsoft Customer Agreement](get-customer-agreement-metadata.md).
-2. Create a new [**Agreement** resource](agreement-resources.md) to confirm that a customer has accepted the Microsoft Customer Agreement. Use the following [REST request syntax](#request-syntax).
+1. Microsoft カスタマーアグリーメントの契約メタデータを取得します。 Microsoft カスタマーアグリーメントの**templateId**を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
+2. 新しい[**契約**リソース](agreement-resources.md)を作成して、顧客が Microsoft カスタマーアグリーメントに同意したことを確認します。 次の[REST 要求構文](#request-syntax)を使用します。
 
 ### <a name="request-syntax"></a>要求の構文
 
@@ -93,34 +93,34 @@ To confirm or re-confirm customer acceptance of the Microsoft Customer Agreement
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following query parameter to specify the customer that you're confirming.
+次のクエリパラメーターを使用して、確認する顧客を指定します。
 
-| 名前               | タスクバーの検索ボックスに | 必須かどうか | 説明                                                                                 |
+| 名前               | 種類 | 必須 | 説明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | [はい] | The value is a GUID-formatted **customer-tenant-id**, which is an identifier that allows you to specify a customer. |
+| 顧客-テナント id | GUID | 〇 | 値は、GUID 形式の**顧客テナント id**です。これは、顧客を指定するための識別子です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Partner Center REST headers](headers.md).
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-This table describes the required properties in the REST request body.
+次の表では、REST 要求本文の必須プロパティについて説明します。
 
-| 名前      | タスクバーの検索ボックスに   | 説明                                                                                  |  
+| 名前      | 種類   | 説明                                                                                  |  
 |-----------|--------|----------------------------------------------------------------------------------------------|  
-| 契約 | オブジェクト | Details provided by partner to confirm customer acceptance of the Microsoft Customer Agreement. |  
+| 契約 | オブジェクト | パートナーによって提供される、Microsoft カスタマーアグリーメントに対する顧客の同意を確認するための詳細。 |  
 
 #### <a name="agreement"></a>契約
 
-This table describes the minimum required fields to create an [**Agreement** resource](agreement-resources.md).
+次の表では、 [**アグリーメント**リソース](agreement-resources.md)を作成するために必要な最小限のフィールドについて説明します。
 
-| プロパティ       | タスクバーの検索ボックスに   | 説明                              |
+| プロパティ       | 種類   | 説明                              |
 |----------------|--------|------------------------------------------|
-| primaryContact | [Contact](./utility-resources.md#contact) | Information about the user from the customer organization who accepted the Microsoft Cloud Agreement, including:  **firstName**, **lastName**, **email** and **phoneNumber** (optional) |
-| dateAgreed     | string in UTC date time format |The date when the customer accepted the agreement. |
-| templateId     | string | Unique identifier of the agreement type accepted by the customer. You can obtain the **templateId** for Microsoft Customer Agreement by retrieving the agreement metadata for Microsoft Customer Agreement. See [Get agreement metadata for Microsoft Cloud Agreement](./get-customer-agreement-metadata.md) for details. |
-| type           | string | Agreement type accepted by the customer. Use "MicrosoftCustomerAgreement" if customer accepted the Microsoft Customer Agreement. |
+| primaryContact | [Contact](./utility-resources.md#contact) | Microsoft Cloud 契約に同意したお客様の組織のユーザーに関する情報: **firstName**、 **lastName**、 **email** 、 **phoneNumber** (省略可能) |
+| dateAgreed     | UTC 日時形式の文字列 |顧客がアグリーメントに同意した日付。 |
+| templateId     | string | 顧客が受け入れるアグリーメントの種類を表す一意の識別子。 Microsoft Customer Agreement の契約メタデータを取得することによって、 **templateId** For Microsoft customer agreement を取得できます。 詳細については、「 [Microsoft Cloud agreement のアグリーメントメタデータの取得](./get-customer-agreement-metadata.md)」を参照してください。 |
+| type           | string | 顧客が受け入れる契約の種類。 お客様が Microsoft カスタマーアグリーメントに同意した場合は、"microsoft の顧客契約" を使用します。 |
   
 #### <a name="request-example"></a>要求の例
 
@@ -143,15 +143,15 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-### <a name="rest-response"></a>REST Response
+### <a name="rest-response"></a>REST 応答
 
-If successful, this method returns an [**Agreement** resource](./agreement-resources.md).
+成功した場合、このメソッドは[**アグリーメント**リソース](./agreement-resources.md)を返します。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. 
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 
 
-Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

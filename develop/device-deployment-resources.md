@@ -1,6 +1,6 @@
 ---
-title: Device deployment resources
-description: Resources related to Partner Center device deployment.
+title: デバイス展開のリソース
+description: パートナーセンターのデバイスの展開に関連するリソース。
 ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 06/11/2019
 ms.service: partner-dashboard
@@ -13,103 +13,103 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489952"
 ---
-# <a name="device-deployment-resources"></a>Device deployment resources
+# <a name="device-deployment-resources"></a>デバイス展開のリソース
 
 適用対象:
 
 - パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-The following resources are related to device deployment.
+次のリソースは、デバイスの展開に関連しています。
 
 ## <a name="configurationpolicy"></a>ConfigurationPolicy
 
-**ConfigurationPolicy** provides information about a configuration policy.
+**Configurationpolicy**は、構成ポリシーに関する情報を提供します。
 
-| プロパティ             | タスクバーの検索ボックスに                                                           | 説明                                                        |
+| プロパティ             | 種類                                                           | 説明                                                        |
 |----------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| id                   | string                                       | A GUID-formatted string that identifies the policy.                                  |
-| 名前                 | string                                       | The friendly name for the policy.                                                    |
-| category             | string                                       | The category.                                                                        |
-| 説明          | string                                       | The policy description.                                                              |
-| devicesAssignedCount | number                                       | The number of devices assigned to this policy.                                       |
-| policySettings       | 文字列の配列                             | The policy settings: "none","remove\_oem\_preinstalls","oobe\_user\_not\_local\_admin","skip\_express\_settings","skip\_oem\_registration", "skip\_eula".    |
-| createdDate          | string in UTC date-time format               | The date and time the policy was created.                                            |
-| lastModifiedDate     | string in UTC date-time format               | The date and time the policy was last modified.                                      |
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.                                            |
+| id                   | string                                       | ポリシーを識別する GUID 形式の文字列。                                  |
+| name                 | string                                       | ポリシーのフレンドリ名。                                                    |
+| 別             | string                                       | カテゴリ。                                                                        |
+| 説明          | string                                       | ポリシーの説明。                                                              |
+| devicesAssignedCount | number                                       | このポリシーに割り当てられているデバイスの数。                                       |
+| policySettings       | 文字列の配列                             | ポリシー設定は、"none"、"remove\_oem\_プレインストール"、"oobe\_ユーザー\_\_ローカル\_管理者"、"\_の高速\_設定をスキップ"、"\_oem\_の登録をスキップ"、"\_eula をスキップ" です。    |
+| createdDate          | UTC 日時形式の文字列               | ポリシーが作成された日付と時刻。                                            |
+| lastModifiedDate     | UTC 日時形式の文字列               | ポリシーが最後に変更された日付と時刻。                                      |
+| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                            |
 
 ## <a name="device"></a>デバイス
 
-**Device** provides information about a device.
+**デバイスに**関する情報を提供します。
 
-| プロパティ            | タスクバーの検索ボックスに                                                           | 説明                                                              |
+| プロパティ            | 種類                                                           | 説明                                                              |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| id                  | string                                                         | A GUID-formatted string that identifies the device.                      |
-| serialNumber        | string                                                         | The serial number uniquely associated with the device.                   |
-| productKey          | string                                                         | The product key uniquely associated with the device.                     |
-| hardwareHash        | string                                                         | The hardware hash uniquely associated with the device.                   |
-| modelName           | string                                                         | The model name associated with the device.                               |
-| oemManufacturerName | string                                                         | The name of the OEM manufacturer associated with the device.             |
-| ポリシー            | オブジェクトの配列                                               | The list of policies assigned to the device.                             |
-| uploadedDate        | string in UTC date-time format                                 | The date and time the device details were uploaded.                      |
-| allowedOperations   | 文字列の配列                                               | The list of HTTP methods allowed on a device sync as GET, PATCH, DELETE. |
-| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                                 |
+| id                  | string                                                         | デバイスを識別する GUID 形式の文字列。                      |
+| serialNumber        | string                                                         | デバイスに一意に関連付けられているシリアル番号。                   |
+| productKey          | string                                                         | デバイスに一意に関連付けられているプロダクトキー。                     |
+| ハードウェアハッシュ        | string                                                         | デバイスに一意に関連付けられたハードウェアハッシュ。                   |
+| modelName           | string                                                         | デバイスに関連付けられているモデル名。                               |
+| oemManufacturerName | string                                                         | デバイスに関連付けられている OEM 製造元の名前。             |
+| ポリシー            | オブジェクトの配列                                               | デバイスに割り当てられているポリシーの一覧。                             |
+| uploadedDate        | UTC 日時形式の文字列                                 | デバイスの詳細がアップロードされた日付と時刻。                      |
+| allowedOperations   | 文字列の配列                                               | デバイスを GET、PATCH、DELETE として同期することが許可されている HTTP メソッドの一覧。 |
+| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。                                                 |
 
 ## <a name="batchuploaddetails"></a>BatchUploadDetails
 
-**BatchUploadDetails** describes the status of a device batch upload of information about each device in a list of devices.
+**Batchuploaddetails**は、デバイスの一覧にある各デバイスに関する情報のデバイスバッチアップロードの状態を示します。
 
-| プロパティ        | タスクバーの検索ボックスに     | 説明                                                                  |
+| プロパティ        | 種類     | 説明                                                                  |
 |-----------------|----------|------------------------------------------------------------------------------|
-| batchTrackingId | string   | A GUID-formatted string that is associated with the batch of devices uploaded. |
-| status          | string   | The status of the batch upload: "unknown","queued","processing","finished","finished\_with\_errors". |
-| startedTime     | string in UTC date-time format | The date and time that the batch upload process started.   |
-| completedTime   | string in UTC date-time format  | The date and time that the batch upload process completed.   |
-| devicesStatus   | array of [DeviceUploadDetails](#deviceuploaddetails) resources | An array of objects that specify the status of each device information upload. |
-| 属性      | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.  |
+| batchTrackingId | string   | アップロードされたデバイスのバッチに関連付けられている GUID 形式の文字列。 |
+| status          | string   | バッチアップロードの状態: "不明"、"キューに登録済み"、"処理中"、"完了"、"完了した\_\_エラー"。 |
+| startedTime     | UTC 日時形式の文字列 | バッチのアップロード処理が開始された日付と時刻。   |
+| completedTime   | UTC 日時形式の文字列  | バッチのアップロード処理が完了した日付と時刻。   |
+| デバイスの状態   | [Deviceuploaddetails](#deviceuploaddetails)リソースの配列 | 各デバイス情報のアップロードの状態を示すオブジェクトの配列です。 |
+| 属性      | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。  |
 
 ## <a name="deviceuploaddetails"></a>DeviceUploadDetails
 
-**DeviceUploadDetails** describes the status of an upload of information about a device.
+**Deviceuploaddetails**は、デバイスに関する情報のアップロードの状態を示します。
 
-| プロパティ         | タスクバーの検索ボックスに                    | 説明                                 |
+| プロパティ         | 種類                    | 説明                                 |
 |------------------|-------------------------|---------------------------------------------|
-| deviceId         | string                  | A GUID-formatted string that is associated with the device. |
-| serialNumber     | string                  | The serial number uniquely associated with the device. |
-| productKey       | string                  | The product key uniquely associated with the device. |
-| status           | string                  | The status of the device information upload: "in-progress", "finished", "finished\_with\_errors". |
-| errorCode        | string                  | The HTTP status error code returned if the device upload fails. |
-| errorDescription | string                  | The HTTP error description if the device upload fails. |
-| 属性       | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.   |
+| deviceId         | string                  | デバイスに関連付けられている GUID 形式の文字列。 |
+| serialNumber     | string                  | デバイスに一意に関連付けられているシリアル番号。 |
+| productKey       | string                  | デバイスに一意に関連付けられているプロダクトキー。 |
+| status           | string                  | デバイス情報のアップロードの状態: "進行中"、"完了"、"完了した\_と\_エラー"。 |
+| errorCode        | string                  | デバイスのアップロードに失敗した場合に返される HTTP 状態エラーコード。 |
+| errorDescription | string                  | デバイスのアップロードに失敗した場合の HTTP エラーの説明。 |
+| 属性       | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。   |
 
 ## <a name="devicebatch"></a>DeviceBatch
 
-**DeviceBatch** represents a collection of devices.
+**Devicebatch**は、デバイスのコレクションを表します。
 
-| プロパティ     | タスクバーの検索ボックスに                                                           | 説明                                                           |
+| プロパティ     | 種類                                                           | 説明                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| id           | string                                                         | A GUID-formatted string that is associated with the batch of devices. |
-| createdBy    | string                                                         | The name of the tenant that created the collection.                   |
-| creationDate | string in UTC date-time format                                 | The data and time that the collection was created.                    |
-| deviceCount  | number                                                         | The number of devices in the collection.                              |
-| devicesLink  | [Link](utility-resources.md#link)                              | A link to the devices contained in this batch.                        |
-| 属性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| id           | string                                                         | デバイスのバッチに関連付けられている GUID 形式の文字列。 |
+| createdBy    | string                                                         | コレクションを作成したテナントの名前。                   |
+| CreationDate | UTC 日時形式の文字列                                 | コレクションが作成されたデータと時刻。                    |
+| deviceCount  | number                                                         | コレクション内のデバイスの数。                              |
+| デバイスのリンク  | [Link](utility-resources.md#link)                              | このバッチに含まれるデバイスへのリンク。                        |
+| 属性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。                                              |
 
-## <a name="devicebatchcreationrequest"></a>DeviceBatchCreationRequest
+## <a name="devicebatchcreationrequest"></a>Devicebatchの要求
 
-**DeviceBatchCreationRequest** provides the information required to create a device batch and populates it with devices.
+**Devicebatchの要求**は、デバイスのバッチを作成してデバイスを設定するために必要な情報を提供します。
 
-| プロパティ     | タスクバーの検索ボックスに                                                           | 説明                                                           |
+| プロパティ     | 種類                                                           | 説明                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| batchId      | string                                                         | A GUID-formatted string that is associated with the batch of devices. |
-| devices      | array of [Device](#device) objects                             | Each object specifies a device. The following combinations of fields for identifying a device are accepted: hardwareHash + productKey, hardwareHash + serialNumber, hardwareHash + productKey + serialNumber, hardwareHash only, productKey only, serialNumber + oemManufacturerName + modelName. |
-| 属性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| batchId      | string                                                         | デバイスのバッチに関連付けられている GUID 形式の文字列。 |
+| デバイス      | [デバイス](#device)オブジェクトの配列                             | 各オブジェクトはデバイスを指定します。 デバイスを識別するための次のフィールドの組み合わせが受け入れられます: ハードウェアハッシュ + productKey、ハードウェアハッシュ + シリアル、ハードウェアハッシュ + productKey + シリアル数、ハードウェアハッシュのみ、productKey のみ、シリアル + oemManufacturerName +modelName. |
+| 属性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。                                              |
 
 ## <a name="devicepolicyupdaterequest"></a>DevicePolicyUpdateRequest
 
-**DevicePolicyUpdateRequest** provides the information required to update a list of devices with a policy.
+**Devicepolicyupdaterequest** 、ポリシーを使用してデバイスの一覧を更新するために必要な情報を提供します。
 
-| プロパティ     | タスクバーの検索ボックスに                                                           | 説明                                                           |
+| プロパティ     | 種類                                                           | 説明                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| devices      | array of [Device](#device) objects                             | Each object specifies a device. The following properties are required: Id, Policies. |
-| 属性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| デバイス      | [デバイス](#device)オブジェクトの配列                             | 各オブジェクトはデバイスを指定します。 次のプロパティが必要です: Id、ポリシー。 |
+| 属性   | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。                                              |

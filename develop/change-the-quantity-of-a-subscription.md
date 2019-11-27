@@ -1,6 +1,6 @@
 ---
-title: Change the quantity of a subscription
-description: Update a subscription to increase or decrease the quantity of licenses for a customer.
+title: サブスクリプションの数量を変更する
+description: サブスクリプションを更新して、顧客のライセンスの数を増減させます。
 ms.assetid: 10535C45-63BF-4E75-A6E5-E03ADC1DF8DC
 ms.date: 06/05/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489002"
 ---
-# <a name="change-the-quantity-of-a-subscription"></a>Change the quantity of a subscription
+# <a name="change-the-quantity-of-a-subscription"></a>サブスクリプションの数量を変更する
 
 適用対象:
 
@@ -22,19 +22,19 @@ ms.locfileid: "74489002"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Updates a [subscription](subscription-resources.md) to increase or decrease the quantity of licenses.
+[サブスクリプション](subscription-resources.md)を更新してライセンスの数を増減します。
 
-In the Partner Center dashboard, this operation can be performed by first [selecting a customer](get-a-customer-by-name.md). Then, select the subscription in question that you wish to rename. To finish, change the value in the **Quantity** field, then select **Submit.**
+パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、名前を変更する対象のサブスクリプションを選択します。 完了するには、 **Quantity**フィールドの値を変更し、[送信] を選択し**ます。**
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- サブスクリプション ID。
 
 ## <a name="c"></a>C\#
 
-To change the quantity of a customer's subscription, first [get the subscription](get-a-subscription-by-id.md), then change the subscription's [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) property. Once the change is made, use your **IAggregatePartner.Customers** collection and call the **ById()** method. Then call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method. Then, finish by calling the **Patch()** method.
+顧客のサブスクリプションの数量を変更するには、最初に[サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの[**quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity)プロパティを変更します。 変更が完了したら、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを呼び出し、その後に[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。 次に、 **Patch ()** メソッドを呼び出して終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,32 +51,32 @@ selectedSubscription.Quantity++;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: UpdateSubscription.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: UpdateSubscription.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-This table lists the required query parameter to change the quantity of the subscription.
+次の表に、サブスクリプションの数量を変更するために必要なクエリパラメーターを示します。
 
-| 名前                    | タスクバーの検索ボックスに     | 必須かどうか | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。     |
+| **id-サブスクリプション** | **guid** | Y        | サブスクリプションに対応する GUID。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [headers](headers.md) for more information.
+詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-A full **Subscription** resource is required in the request body. Ensure that the **Quantity** property has been updated.
+要求本文には、完全な**サブスクリプション**リソースが必要です。 **Quantity**プロパティが更新されていることを確認します。
 
 ### <a name="request-example"></a>要求の例
 
@@ -113,21 +113,21 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns an **HTTP status 200** status code and updated [subscription resource](subscription-resources.md)  properties in the response body.
+成功した場合、このメソッドは応答本文で**HTTP ステータス 200**状態コードおよび更新された[サブスクリプションリソース](subscription-resources.md)プロパティを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response returns an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read the status code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが返されます。 ネットワークトレースツールを使用して、状態コード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
-When the patch operation takes longer than the expected time, the Partner Center sends an **HTTP status 202** status code and a location header that points to where to retrieve the subscription. You can query the subscription periodically to monitor the status and quantity changes.
+修正プログラムの処理に予想される時間よりも時間がかかる場合、パートナーセンターは、 **HTTP 状態 202**状態コードと、サブスクリプションを取得する場所を指す location ヘッダーを送信します。 サブスクリプションを定期的に照会して、状態と数量の変化を監視することができます。
 
-### <a name="response-examples"></a>Response examples
+### <a name="response-examples"></a>応答の例
 
-#### <a name="response-example-1"></a>Response example 1
+#### <a name="response-example-1"></a>応答の例1
 
-Successful request with an **HTTP status 200** status code:
+**HTTP ステータス 200**状態コードで成功した要求:
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
@@ -180,9 +180,9 @@ Connection: Keep-Alive
 }
 ```
 
-#### <a name="response-example-2"></a>Response example 2
+#### <a name="response-example-2"></a>応答の例2
 
-Successful request with an **HTTP status 202** status code:
+**HTTP ステータス 202**状態コードで成功した要求:
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1

@@ -1,6 +1,6 @@
 ---
 title: 顧客の削除されたユーザーを復元する
-description: How to restore a deleted User by customer ID and user ID.
+description: 顧客 ID とユーザー ID を使って削除されたユーザーを復元する方法。
 ms.assetid: A48A4718-6EAF-4FC8-8B44-F3FDCA2B3298
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -16,28 +16,28 @@ ms.locfileid: "74486572"
 # <a name="restore-a-deleted-user-for-a-customer"></a>顧客の削除されたユーザーを復元する
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-How to restore a deleted **User** by customer ID and user ID.
+顧客 ID とユーザー ID を使って削除された**ユーザー**を復元する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- The user ID. If you do not have the user ID, see [View deleted users for a customer](view-a-deleted-user.md).
-
-## <a name="span-idwhen_can_you_restore_a_deleted_user_account_span-idwhen_can_you_restore_a_deleted_user_account_span-idwhen_can_you_restore_a_deleted_user_account_when-can-you-restore-a-deleted-user-account"></a><span id="When_can_you_restore_a_deleted_user_account_"/><span id="when_can_you_restore_a_deleted_user_account_"/><span id="WHEN_CAN_YOU_RESTORE_A_DELETED_USER_ACCOUNT_"/>When can you restore a deleted user account?
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-The user state is set to "inactive" when you delete a user account. It remains that way for thirty days, after which the user account and its associated data are purged and made unrecoverable. You can only restore a deleted user account during this thirty day window. Note that once deleted and marked "inactive" the user account is no longer returned as a member of the user collection (for example, using [Get a list of all user accounts for a customer](get-a-list-of-all-user-accounts-for-a-customer.md)).
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- ユーザー ID。 ユーザー ID を持っていない場合は、「[顧客の削除されたユーザーの表示](view-a-deleted-user.md)」を参照してください。
+
+## <a name="span-idwhen_can_you_restore_a_deleted_user_account_span-idwhen_can_you_restore_a_deleted_user_account_span-idwhen_can_you_restore_a_deleted_user_account_when-can-you-restore-a-deleted-user-account"></a>削除されたユーザーアカウントを復元できるのは、<span id="When_can_you_restore_a_deleted_user_account_"/><span id="when_can_you_restore_a_deleted_user_account_"/><span id="WHEN_CAN_YOU_RESTORE_A_DELETED_USER_ACCOUNT_"/>。
+
+
+ユーザーアカウントを削除すると、ユーザーの状態が "非アクティブ" に設定されます。 30日間はそのままで、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。 削除されたユーザーアカウントは、この30日間の期間中のみ復元できます。 削除され、"inactive" とマークされた場合、ユーザーアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、[[顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)する] を使用します)。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To restore a user, create a new instance of the [**CustomerUser**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) class, and set the value of the [**User.State**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.user.state) property to [**UserState.Active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.userstate). You restore a deleted user by setting the user's state to active. Note that you do not have to repopulate the remaining fields in the user resource. Those values will automatically be restored from the deleted, inactive user resource. Next, use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method to identify the user. Finally, call the [**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) method and pass the **CustomerUser** instance to send the request to restore the user.
+ユーザーを復元するには、[**顧客ユーザー**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.customeruser)クラスの新しいインスタンスを作成し、[**ユーザーの状態**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.user.state)プロパティの値を[**UserState. Active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.userstate)に設定します。 削除されたユーザーを復元するには、ユーザーの状態を [アクティブ] に設定します。 ユーザーリソースの残りのフィールドを再作成する必要はないことに注意してください。 これらの値は、削除済みの非アクティブなユーザーリソースから自動的に復元されます。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別し、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを使用してユーザーを識別します。 最後に、 [**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch)メソッドを呼び出して、ユーザーを復元する要求を送信するための**ユーザー**インスタンスを渡します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,46 +53,46 @@ var updatedCustomerUser = new CustomerUser()
 var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Patch(updatedCustomerUser);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CustomerUserRestore.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CustomerUserRestore.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**Request syntax**
+**要求の構文**
 
 | メソッド    | 要求 URI                                                                                            |
 |-----------|--------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
+| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
 
  
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following query parameters to specify the customer id and user id.
+次のクエリパラメーターを使用して、顧客 id とユーザー id を指定します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                              |
+| 名前                   | 種類     | 必須 | 説明                                                                                                              |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results to a given customer. |
-| **user-id**            | **guid** | Y        | The value is a GUID formatted **user-id** that belongs to a single user account.                                         |
+| **顧客-テナント id** | **guid** | Y        | この値は、リセラーが特定の顧客に対して結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **ユーザー id**            | **guid** | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                         |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST Headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
-This table describes the required properties in the request body.
+次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前       | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                            |
+| 名前       | 種類   | 必須 | 説明                                                            |
 |------------|--------|----------|------------------------------------------------------------------------|
-| 都道府県      | string | Y        | The user state. To restore a deleted user, this must contain "active". |
-| 属性 | オブジェクト | N        | Contains "ObjectType": "CustomerUser".                                 |
+| 状態      | string | Y        | ユーザー状態。 削除されたユーザーを復元するには、これに "active" が含まれている必要があります。 |
+| 属性 | オブジェクト | N        | "ObjectType": "顧客ユーザー" が含まれています。                                 |
 
  
 
-**Request example**
+**要求の例**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/users/a45f1416-3300-4f65-9e8d-f123b397a4ea HTTP/1.1
@@ -114,16 +114,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
 
 
-If successful, this method returns the restored user information in the response body.
+成功した場合、このメソッドは、復元されたユーザー情報を応答本文に返します。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK

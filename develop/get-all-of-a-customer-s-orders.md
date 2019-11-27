@@ -1,6 +1,6 @@
 ---
-title: Get all of a customer's orders
-description: Gets a collection of all the orders for a specified customer.
+title: 顧客の注文をすべて取得する
+description: 指定された顧客のすべての注文のコレクションを取得します。
 ms.assetid: DF1E52F6-1A3D-4B26-8BCC-6E429410C662
 ms.date: 06/19/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485902"
 ---
-# <a name="get-all-of-a-customers-orders"></a>Get all of a customer's orders
+# <a name="get-all-of-a-customers-orders"></a>顧客の注文をすべて取得する
 
 適用対象:
 
@@ -22,19 +22,19 @@ ms.locfileid: "74485902"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Gets a collection of all the orders for a specified customer. Note that there is a delay of up to 15 minutes between the time an order is submitted and when it will appear in a collection of a customer's orders.
+指定された顧客のすべての注文のコレクションを取得します。 注文が送信されてから顧客の注文のコレクションに表示されるまでに、最大15分の遅延が発生することに注意してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="c"></a>C\#
 
-To obtain a collection of all of a customer's orders:
+顧客のすべての注文のコレクションを取得するには、次のようにします。
 
-1. Use your [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection and call the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method.
-2. Call the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property, followed by the [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) methods.
+1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 [**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。
+2. [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティを呼び出し、その後に[**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)または[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,27 +43,27 @@ To obtain a collection of all of a customer's orders:
 var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: GetOrders.cs
+**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: GetOrders.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders HTTP/1.1  |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders HTTP/1.1  |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following query parameter to get all orders.
+すべての注文を取得するには、次のクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                               |
+| 名前                   | 種類     | 必須 | 説明                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
-| customer-tenant-id     | string   | [はい]      | A GUID formatted string corresponding to the customer.    |
+| 顧客-テナント id     | string   | 〇      | 顧客に対応する GUID 形式の文字列。    |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Headers](headers.md) for more information.
+詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
@@ -80,13 +80,13 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>REST 応答
 
-If successful, this method returns a collection of [Order](order-resources.md) resources in the response body.
+成功した場合、このメソッドは応答本文で[注文](order-resources.md)リソースのコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

@@ -1,6 +1,6 @@
 ---
-title: Get licenses assigned to a user by license group
-description: How to get a list of user assigned licenses for the specified license groups.
+title: ライセンスグループ別にユーザーに割り当てられたライセンスを取得する
+description: 指定されたライセンスグループに割り当てられたユーザーライセンスの一覧を取得する方法。
 ms.assetid: 8BC0B0BA-894D-42F8-8186-6963AA02E9F6
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488612"
 ---
-# <a name="get-licenses-assigned-to-a-user-by-license-group"></a>Get licenses assigned to a user by license group
+# <a name="get-licenses-assigned-to-a-user-by-license-group"></a>ライセンスグループ別にユーザーに割り当てられたライセンスを取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
-How to get a list of user assigned licenses for the specified license groups.
+指定されたライセンスグループに割り当てられたユーザーライセンスの一覧を取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A user identifier.
-- A list of one or more license group identifiers.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客識別子。
+- ユーザー識別子。
+- 1つまたは複数のライセンスグループ識別子の一覧。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To check which licenses are assigned to a user from specified license groups, start by instantiating a [List](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) of type [**LicenseGroupId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid), and then add the license groups to the list. Then, use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Next, call the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the user ID to identify the user. Then, get an interface to customer user license operations from the [**Licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) property. Finally, pass the list of license groups to the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) method to retrieve the collection of licenses assigned to the user.
+指定したライセンスグループからユーザーに割り当てられているライセンスを確認するには、まず「 [**Licensegroupid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)」という種類の[リスト](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)をインスタンス化してから、一覧にライセンスグループを追加します。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、ユーザー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出し、ユーザーを識別します。 次に、[[**ライセンス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses)] プロパティから顧客のユーザーライセンス操作へのインターフェイスを取得します。 最後に、ライセンスグループの一覧を[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync)メソッドに渡して、ユーザーに割り当てられているライセンスのコレクションを取得します。
 
 ``` csharp
 // string selectedCustomerUserId;
@@ -52,38 +52,38 @@ List<LicenseGroupId> licenseGroupIds = new List<LicenseGroupId>(){ LicenseGroupI
 var customerUserBothAadAndSfbAssignedLicenses = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Licenses.Get(licenseGroupIds);
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
-**Request syntax**
+**要求の構文**
 
 | メソッド  | 要求 URI                                                                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group1 HTTP/1.1                        |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group2 HTTP/1.1                        |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1 |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses? licenseGroupIds = Group1 HTTP/1.1                        |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses? licenseGroupIds = Group2 HTTP/1.1                        |
+| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/users/{user-id}/licenses? Licensegroupids = Group1 & Licensegroupids = Group2 HTTP/1.1 |
 
 
-**URI parameter**
+**URI パラメーター**
 
-Use the following path and query parameters to identify the customer, user and license groups.
+次のパスとクエリパラメーターを使用して、顧客、ユーザー、およびライセンスグループを識別します。
 
-| 名前            | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                                                                                                                                                                                                           |
+| 名前            | 種類   | 必須 | 説明                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id     | string | [はい]      | A GUID formatted string that identifies the customer.                                                                                                                                                                                                                 |
-| user-id         | string | [はい]      | A GUID formatted string that identifies the user.                                                                                                                                                                                                                     |
-| licenseGroupIds | string | 必須ではない       | An enum value that indicates the license group of the assigned licenses. Valid values: Group1, Group2 Group1 - This group has all products whose license can be managed in the Azure Active Directory (AAD). Group2 - This group has only Minecraft product licenses. |
+| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。                                                                                                                                                                                                                 |
+| ユーザー id         | string | 〇      | ユーザーを識別する GUID 形式の文字列。                                                                                                                                                                                                                     |
+| licenseGroupIds | string | X       | 割り当てられたライセンスのライセンスグループを示す列挙値。 有効な値: Group1、Group2 Group1-このグループには、Azure Active Directory (AAD) で管理できるライセンスを持つすべての製品が含まれています。 Group2-このグループには、Minecraft 製品ライセンスのみが含まれています。 |
 
  
 
-**Request headers**
+**要求ヘッダー**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-**Request body**
+**要求本文**
 
 なし。
 
-**Request example**
+**要求の例**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/0c39d6d5-c70d-4c55-bc02-f620844f3fd1/users/482e2152-4b49-48ec-b715-823365ce3d4c/licenses?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1
@@ -95,15 +95,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 応答
 
-If successful, the response body contains the collection of [License](license-resources.md#license) resources.
+成功した場合、応答本文には[ライセンス](license-resources.md#license)リソースのコレクションが含まれます。
 
-**Response success and error codes**
+**応答成功およびエラーコード**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-**Response example**
+**応答の例**
 
 ```http
 HTTP/1.1 200 OK
@@ -159,9 +159,9 @@ Date: June 24 2016 22:00:25 PST
 }
 ```
 
-**Response example (no matching licenses found)**
+**応答の例 (一致するライセンスが見つかりません)**
 
-If no matching licenses can be found for the specified license groups, the response contains an empty collection with a totalCount element whose value is 0.
+指定したライセンスグループに一致するライセンスが見つからない場合、応答には、値が0の totalCount 要素を持つ空のコレクションが含まれます。
 
 ```http
 HTTP/1.1 200 OK

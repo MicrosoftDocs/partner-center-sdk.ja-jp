@@ -1,6 +1,6 @@
 ---
-title: Country information resources
-description: Descriptive metadata for a country/region.
+title: 国情報リソース
+description: 国/地域の記述メタデータ。
 ms.assetid: 19460437-5611-49A1-A7E7-704420C1DE8F
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488812"
 ---
-# <a name="country-information-resources"></a>Country information resources
+# <a name="country-information-resources"></a>国情報リソース
 
 適用対象:
 
@@ -22,56 +22,56 @@ ms.locfileid: "74488812"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-The following resources are descriptive metadata for a country/region.
+次のリソースは、国/地域の記述メタデータです。
 
 ## <a name="countryinformation"></a>CountryInformation
 
-| プロパティ                      | タスクバーの検索ボックスに               | 説明                                                                                        |
+| プロパティ                      | 種類               | 説明                                                                                        |
 |-------------------------------|--------------------|----------------------------------------------------------------------------------------------------|
-| ExtensionData                 | string             | The extension data.                                                                                |
-| Iso2Code                      | string             | An ISO-2 code.                                                                                     |
-| Iso3Code                      | string             | An ISO-3 code.                                                                                     |
-| DefaultCulture                | string             | The default culture.                                                                               |
-| IsStateRequired               | boolean            | Indicates whether a state/province is required or not.                                             |
-| SupportedStatesList           | 文字列の配列   | If a state/province is required, returns the full list for that country/region.                    |
-| SupportedLanguagesList        | 文字列の配列   | A list of supported languages.                                                                     |
-| SupportedCulturesList         | 文字列の配列   | A list of supported cultures.                                                                      |
-| IsPostalCodeRequired          | boolean            | Indicates whether a ZIP code or postal code is required or not.                                    |
-| PostalCodeRegex               | string             | The regular expression that defines the ZIP/postal code .                                          |
-| IsCityRequired                | boolean            | Indicates whether a city is required or not.                                                       |
-| IsVatIdSupported              | boolean            | Indicates whether a VAT ID is required or not.                                                     |
-| TaxIdFormat                   | string             | The tax ID format.                                                                                 |
-| TaxIdSample                   | string             | The tax ID sample.                                                                                 |
-| VatIdRegex                    | string             | The tax ID regular expression.                                                                     |
-| PhoneNumberRegex              | string             | The phone number regular expression.                                                               |
-| IsRegistrationNumberSupported | boolean            | Indicates whether a registration number is supported or not.                                       |
-| IsTaxIdSupported              | boolean            | Indicates whether a tax ID is supported or not. Note that this is different than IsVatIdSupported. |
-| ResellerAgreementRegion       | string             | The reseller agreement region.                                                                     |
-| GeographicRegion              | string             | The geographic region.                                                                             |
-| CountryCallingCodesList       | 文字列の配列   | The calling codes supported in the country/region.                                                 |
-| 属性                    | ResourceAttributes | The metadata attributes corresponding to the CountryInformation resource.                          |
+| ExtensionData                 | string             | 拡張データ。                                                                                |
+| Iso2Code                      | string             | ISO 2 のコード。                                                                                     |
+| Iso3Code                      | string             | ISO 3 コード。                                                                                     |
+| DefaultCulture                | string             | 既定のカルチャ。                                                                               |
+| IsStateRequired               | boolean            | 都道府県が必須かどうかを示します。                                             |
+| SupportedStatesList           | 文字列の配列   | 都道府県が必要な場合は、その国/地域の完全な一覧を返します。                    |
+| SupportedLanguagesList        | 文字列の配列   | サポートされている言語の一覧。                                                                     |
+| SupportedCulturesList         | 文字列の配列   | サポートされているカルチャの一覧。                                                                      |
+| IsPostalCodeRequired          | boolean            | 郵便番号が必要かどうかを示します。                                    |
+| PostalCodeRegex               | string             | 郵便番号を定義する正規表現。                                          |
+| IsCityRequired                | boolean            | 市区町村が必須かどうかを示します。                                                       |
+| サポートされているもの              | boolean            | VAT ID が必須かどうかを示します。                                                     |
+| TaxIdFormat                   | string             | 税 ID 形式。                                                                                 |
+| TaxIdSample                   | string             | 税 ID のサンプルです。                                                                                 |
+| V・ Dregex                    | string             | 税 ID の正規表現。                                                                     |
+| PhoneNumberRegex              | string             | 電話番号の正規表現。                                                               |
+| サポートされている Isregistrationnumber | boolean            | 登録番号がサポートされているかどうかを示します。                                       |
+| IsTaxIdSupported              | boolean            | 税 ID がサポートされているかどうかを示します。 これは Isvがサポートされているものとは異なることに注意してください。 |
+| ResellerAgreementRegion       | string             | リセラー契約リージョン。                                                                     |
+| GeographicRegion              | string             | 地理的領域。                                                                             |
+| CountryCallingCodesList       | 文字列の配列   | 国/地域でサポートされている呼び出しコード。                                                 |
+| 属性                    | ResourceAttributes | CountryInformation リソースに対応するメタデータ属性。                          |
 
 ## <a name="countryvalidationrules"></a>CountryValidationRules
 
-Describes the address formatting rules for a country/region.
+国/地域の住所の書式規則について説明します。
 
-| プロパティ                | タスクバーの検索ボックスに               | 説明                                                                                        |
+| プロパティ                | 種類               | 説明                                                                                        |
 |-------------------------|--------------------|----------------------------------------------------------------------------------------------------|
-| Iso2Code                | string             | An ISO-2 code.                                                                                     |
-| DefaultCulture          | string             | The default culture.                                                                               |
-| IsStateRequired         | boolean            | Indicates whether a state/province is required or not.                                             |
-| SupportedStatesList     | 文字列の配列   | If a state/province is required, returns the full list for that country/region.                    |
-| SupportedLanguagesList  | 文字列の配列   | A list of supported languages.                                                                     |
-| SupportedCulturesList   | 文字列の配列   | A list of supported cultures.                                                                      |
-| IsPostalCodeRequired    | boolean            | Indicates whether a ZIP code or postal code is required or not.                                    |
-| PostalCodeRegex         | string             | The regular expression that defines the ZIP/postal code .                                          |
-| IsCityRequired          | boolean            | Indicates whether a city is required or not.                                                       |
-| IsVatIdSupported        | boolean            | Indicates whether a VAT ID is required or not.                                                     |
-| TaxIdFormat             | string             | The tax ID format.                                                                                 |
-| TaxIdSample             | string             | The tax ID sample.                                                                                 |
-| VatIdRegex              | string             | The tax ID regular expression.                                                                     |
-| PhoneNumberRegex        | string             | The phone number regular expression.                                                               |
-| IsTaxIdSupported        | boolean            | Indicates whether a tax ID is supported or not. Note that this is different than IsVatIdSupported. |
-| IsTaxIdOptional         | boolean            | Indicates whether a tax ID is optional or not.                                                     |
-| CountryCallingCodesList | 文字列の配列   | The calling codes supported in the country/region.                                                 |
-| 属性              | ResourceAttributes | The metadata attributes corresponding to the CountryInformation resource.                          |
+| Iso2Code                | string             | ISO 2 のコード。                                                                                     |
+| DefaultCulture          | string             | 既定のカルチャ。                                                                               |
+| IsStateRequired         | boolean            | 都道府県が必須かどうかを示します。                                             |
+| SupportedStatesList     | 文字列の配列   | 都道府県が必要な場合は、その国/地域の完全な一覧を返します。                    |
+| SupportedLanguagesList  | 文字列の配列   | サポートされている言語の一覧。                                                                     |
+| SupportedCulturesList   | 文字列の配列   | サポートされているカルチャの一覧。                                                                      |
+| IsPostalCodeRequired    | boolean            | 郵便番号が必要かどうかを示します。                                    |
+| PostalCodeRegex         | string             | 郵便番号を定義する正規表現。                                          |
+| IsCityRequired          | boolean            | 市区町村が必須かどうかを示します。                                                       |
+| サポートされているもの        | boolean            | VAT ID が必須かどうかを示します。                                                     |
+| TaxIdFormat             | string             | 税 ID 形式。                                                                                 |
+| TaxIdSample             | string             | 税 ID のサンプルです。                                                                                 |
+| V・ Dregex              | string             | 税 ID の正規表現。                                                                     |
+| PhoneNumberRegex        | string             | 電話番号の正規表現。                                                               |
+| IsTaxIdSupported        | boolean            | 税 ID がサポートされているかどうかを示します。 これは Isvがサポートされているものとは異なることに注意してください。 |
+| Ist軸のその他の条件         | boolean            | 税 ID が省略可能かどうかを示します。                                                     |
+| CountryCallingCodesList | 文字列の配列   | 国/地域でサポートされている呼び出しコード。                                                 |
+| 属性              | ResourceAttributes | CountryInformation リソースに対応するメタデータ属性。                          |

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Cloud 契約の契約メタデータを取得する
-description: This topic explains how to get agreement metadata for Microsoft Cloud Agreement.
+description: このトピックでは、Microsoft Cloud Agreement のアグリーメントメタデータを取得する方法について説明します。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -14,31 +14,31 @@ ms.locfileid: "74486102"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Microsoft Cloud 契約の契約メタデータを取得する
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 
 > [!NOTE]  
-> The **AgreementMetaData** resource is currently supported by Partner Center in the Microsoft public cloud only. 以下には適用されません。
+> **AgreementMetaData**リソースは、現在、Microsoft パブリッククラウドのパートナーセンターでのみサポートされています。 以下には適用されません。
 > - 21Vianet が運営するパートナー センター
 > - Microsoft Cloud ドイツのパートナー センター
 > - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 ## <a name="prerequisites"></a>前提条件
 
-- If you are using the Partner Center .NET SDK, version 1.9 or newer is required.
-- If you are using the Partner Center Java SDK, version 1.8 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). This scenario supports app + user authentication..
+- パートナーセンター .NET SDK を使用している場合は、バージョン1.9 以降が必要です。
+- パートナーセンターの Java SDK を使用している場合は、バージョン1.8 以降が必要です。
+- 「[パートナーセンターの認証](./partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー認証がサポートされています。
 
-## <a name="net-version-114-or-newer"></a>.NET (version 1.14 or newer)
+## <a name="net-version-114-or-newer"></a>.NET (バージョン1.14 以降)
 
-To retrieve the agreement metadata for Microsoft Cloud Agreement:
+Microsoft Cloud Agreement のアグリーメントメタデータを取得するには:
 
-1. First, retrieve the **IAggregatePartner.AgreementDetails** collection.
+1. まず、 **AgreementDetails**コレクションを取得します。
 
-2. Call **ByAgreementType** method to filter the collection to Microsoft Cloud Agreement.
+2. **ByAgreementType**メソッドを呼び出して、コレクションを Microsoft Cloud Agreement にフィルター処理します。
 
-3. Finally, call **Get** or **GetAsync** method.
+3. 最後に、 **Get**または**GetAsync**メソッドを呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -48,13 +48,13 @@ string agreementType = "MicrosoftCloudAgreement";
 var microsoftCloudAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-A complete sample can be found in the [GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+完全なサンプルは、[コンソールテストアプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)プロジェクトの[GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs)クラスにあります。
 
-## <a name="net-version-19---113"></a>.NET (version 1.9 - 1.13)
+## <a name="net-version-19---113"></a>.NET (バージョン 1.9-1.13)
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+Microsoft Cloud Agreement のアグリーメントメタデータを取得するには:
 
-First retrieve the **IAggregatePartner.AgreementDetails** collection and then call the **Get** or **GetAsync** methods. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+まず**Iaggregatepartner.customers AgreementDetails**コレクションを取得し、 **Get**または**GetAsync**メソッドを呼び出します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -68,9 +68,9 @@ AgreementMetaData microsoftCloudAgreement = agreements.Items.FirstOrDefault (agr
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+Microsoft Cloud Agreement のアグリーメントメタデータを取得するには:
 
-First call the **IAggregatePartner.getAgreementDetails** function and then call the **get** function. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+まず、 **iaggregatepartner.customers**関数を呼び出し、次に**get**関数を呼び出します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -88,25 +88,25 @@ for (AgreementMetaData metadata : agreements)
 }
 ```
 
-A complete sample can be found in the [GetAgreementDetails](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetAgreementDetails.java) class from the [console test app](https://github.com/Microsoft/Partner-Center-Java-Samples) project.
+完全なサンプルは、[コンソールテストアプリ](https://github.com/Microsoft/Partner-Center-Java-Samples)プロジェクトの[GetAgreementDetails](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetAgreementDetails.java)クラスにあります。
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+Microsoft Cloud Agreement のアグリーメントメタデータを取得するには:
 
-Use the [**Get-PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partneragreementdetail) command. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+[**PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partneragreementdetail)コマンドを使用します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
 
 ```powershell
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>REST 要求
 
-To retrieve agreement metadata for Microsoft Cloud Agreement, first create a REST Request to retrieve the **AgreementMetaData** collection. Then search for the item in the collection which corresponds to the Microsoft Cloud Agreement.
+Microsoft Cloud Agreement のアグリーメントメタデータを取得するには、まず REST 要求を作成して**AgreementMetaData** collection を取得します。 次に、Microsoft Cloud Agreement に対応するコレクション内の項目を検索します。
 
 #### <a name="request-syntax"></a>要求の構文
 
@@ -116,7 +116,7 @@ To retrieve agreement metadata for Microsoft Cloud Agreement, first create a RES
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-- See [Partner Center REST headers](headers.md) for more information.
+- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 #### <a name="request-body"></a>要求本文
 
@@ -132,13 +132,13 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, this method returns a collection of **AgreementMetaData** resources in the response body.
+成功した場合、このメソッドは応答本文で**AgreementMetaData**リソースのコレクションを返します。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 
@@ -171,6 +171,6 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-To identify the resource in the response which corresponds to the Microsoft Cloud Agreement, look for the resource whose **agreementType** property has value "MicrosoftCloudAgreement".
+応答で Microsoft Cloud アグリーメントに対応するリソースを特定するには、 **agreementType**プロパティの値が "Microsoft cloudagreement" であるリソースを探します。
 
 ---

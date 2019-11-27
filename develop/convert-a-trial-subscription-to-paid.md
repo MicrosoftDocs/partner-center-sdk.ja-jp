@@ -1,6 +1,6 @@
 ---
-title: Convert a trial subscription to paid
-description: How to convert a trial subscription to a paid one.
+title: 試用版サブスクリプションを有料に変換する
+description: 試用版のサブスクリプションを有料のサブスクリプションに変換する方法。
 ms.assetid: 06EB96D7-6260-47E0-ACAE-07D4213BEBB7
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,57 +13,57 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488892"
 ---
-# <a name="convert-a-trial-subscription-to-paid"></a>Convert a trial subscription to paid
+# <a name="convert-a-trial-subscription-to-paid"></a>試用版サブスクリプションを有料に変換する
 
 適用対象:
 
 - パートナー センター
 
-You can convert a trial subscription to paid.
+試用版のサブスクリプションを有料に変換することができます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A subscription ID for an active trial subscription.
-- An available conversion offer.
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- 顧客識別子。
+- アクティブな試用版サブスクリプションのサブスクリプション ID。
+- 使用可能な変換プラン。
 
-## <a name="convert-a-trial-subscription-to-paid-through-code"></a>Convert a trial subscription to paid through code
+## <a name="convert-a-trial-subscription-to-paid-through-code"></a>試用版サブスクリプションをコードによって有料に変換する
 
-To convert a trial subscription to a paid one, you must first obtain a collection of the trial conversions available. Then, you must choose the conversion offer that you want to purchase.
+試用版のサブスクリプションを有料のサブスクリプションに変換するには、最初に使用可能な試用変換のコレクションを取得する必要があります。 次に、購入する変換プランを選択する必要があります。
 
-The conversion offers will specify a quantity that defaults to the same number of licenses as the trial subscription. You can change this quantity by setting the [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) property to the number of licenses that you want to purchase.
+変換プランでは、既定で試用版のサブスクリプションと同じ数のライセンスを持つ数量が指定されます。 この数量を変更するには、 [**quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity)プロパティに購入するライセンス数を設定します。
 
 > [!NOTE]
-> Regardless of the number of licenses purchased, the subscription ID of the trial is reused for the purchased licenses. As a result, the trial in effect disappears and is replaced by the purchase.
+> 購入したライセンスの数に関係なく、購入したライセンスについては試用版のサブスクリプション ID が再利用されます。 結果として、有効な評価版は消え、購入によって置き換えられます。
 
-Use the following steps to convert a trial subscription through code:
+コードを使用して試用版のサブスクリプションを変換するには、次の手順に従います。
 
-1. Get an interface to the subscription operations available. You must identify the customer and specify the subscription identifier of the trial subscription.
+1. 利用可能なサブスクリプション操作へのインターフェイスを取得します。 顧客を特定し、試用版サブスクリプションのサブスクリプション識別子を指定する必要があります。
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
-2. Get a collection of the available conversion offers. For more information and details on the request/response for this method, see [Get a list of trial conversion offers](get-a-list-of-trial-conversion-offers.md).
+2. 使用可能な変換プランのコレクションを取得します。 このメソッドの要求/応答の詳細と詳細については、「[評価版変換プランの一覧を取得する](get-a-list-of-trial-conversion-offers.md)」を参照してください。
 
     ``` csharp
     var conversions = subscriptionOperations.Conversions.Get();
     ```
 
-3. Choose a conversion offer. The following code chooses the first conversion offer in the collection.
+3. 変換プランを選択します。 次のコードは、コレクション内の最初の変換プランを選択します。
 
     ``` csharp
     var selectedConversion = conversions.Items.ToList()[0];
     ```
 
-4. Optionally, specify the number of licenses to purchase. The default is the number of licenses in the trial subscription.
+4. 必要に応じて、購入するライセンス数を指定します。 既定値は、試用版サブスクリプションのライセンス数です。
 
     ``` csharp
     selectedConversion.Quantity = 10;
     ```
 
-5. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) method to convert the trial subscription to paid.
+5. [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync)メソッドを呼び出して、試用版サブスクリプションを有料に変換します。
 
     ``` csharp
     var convertResult = subscriptionOperations.Conversions.Create(selectedConversion);
@@ -71,15 +71,15 @@ Use the following steps to convert a trial subscription through code:
 
 ## <a name="c"></a>C\#
 
-To convert a trial subscription to a paid one:
+試用版のサブスクリプションを有料のサブスクリプションに変換するには、次のようにします。
 
-1. Use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer.
-2. Get an interface to subscription operations by calling the [**Subscriptions.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the trial subscription ID. Save a reference to the subscription operations interface in a local variable.
-3. Use the [**Conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) property to obtain an interface to the available operations on conversions, and then call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) method to retrieve a collection of available [**Conversion**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) offers. You must choose one. The following example defaults to the first conversion available.
-4. Use the reference to the subscription operations interface that you saved in a local variable and the [**Conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) property to obtain an interface to the available operations on conversions.
-5. Pass the selected conversion offer object to the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) method to attempt the trial conversion.
+1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用し、顧客を識別します。
+2. 試用版サブスクリプション ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 サブスクリプション操作インターフェイスへの参照をローカル変数に保存します。
+3. 変換に対して使用可能な操作へのインターフェイスを取得し、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync)メソッドを呼び出して、使用可能な[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion)の提供のコレクションを取得するには、[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)プロパティを使用します。 1つを選択する必要があります。 次の例では、使用可能な最初の変換が既定値に設定されています。
+4. ローカル変数に保存したサブスクリプション操作インターフェイスへの参照と[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)プロパティを使用して、変換で使用可能な操作へのインターフェイスを取得します。
+5. 選択した変換オファーオブジェクトを[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync)メソッドに渡して、試用変換を試行します。
 
-### <a name="c-example"></a>C# Example
+### <a name="c-example"></a>C#よう
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -108,30 +108,30 @@ else
 }
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
 | メソッド   | 要求 URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
+| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following path parameters to identify the customer and trial subscription.
+次のパスパラメーターを使用して、顧客と試用版のサブスクリプションを識別します。
 
-| 名前            | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                     |
+| 名前            | 種類   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | string | [はい]      | A GUID formatted string that identifies the customer.           |
-| subscription-id | string | [はい]      | A GUID formatted string that identifies the trial subscription. |
+| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。           |
+| サブスクリプション id | string | 〇      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-A populated [Conversion](conversions-resources.md#conversion) resource must be included in the request body.
+設定された[変換](conversions-resources.md#conversion)リソースが要求本文に含まれている必要があります。
 
 ### <a name="request-example"></a>要求の例
 
@@ -159,13 +159,13 @@ Expect: 100-continue
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>REST 応答
 
-If successful, the response body contains a [ConversionResult](conversions-resources.md#conversionresult) resource.
+成功した場合、応答本文には[ConversionResult](conversions-resources.md#conversionresult)リソースが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 
