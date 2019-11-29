@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: パートナー センター開発者向けドキュメント
+summary: マイクロソフトと協力して、パートナー機能を開発しましょう。
+metadata:
+  title: パートナー センター開発者向けドキュメント
+  description: マイクロソフトと協力して、パートナー機能を開発しましょう。
+  ms.service: partner-dashboard
+  ms.topic: landing-page
+  ms.collection: collection
+  author: lauradolan
+  ms.author: ladolan
+  ms.date: 11/05/2019
+  ms.openlocfilehash: df534dc5951ac155bde06044a55465d00df18ebe
+  ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 11/26/2019
+  ms.locfileid: "74485602"
+landingContent:
+- title: パートナー センターを使用して開発する
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 開発者アカウントと認証を構成する
+      url: partner-center-authentication.md
+    - text: 環境をセットアップする
+      url: get-started.md
+  - linkListType: whats-new
+    links:
+    - text: API を使用して Azure プランを作成する
+      url: create-azure-plan.md
+  - linkListType: concept
+    links:
+    - text: コード サンプル
+      url: partner-center-samples.md
+    - text: シナリオ例
+      url: scenarios.md
+- title: .NET SDK (v1.15.1) を使用する
+  linkLists:
+  - linkListType: download
+    links:
+    - text: パートナー センターの .NET SDK
+      url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
+    - text: パートナー センターの .NET のサンプル
+      url: https://github.com/Microsoft/Partner-Center-DotNet-Samples
+  - linkListType: reference
+    links:
+    - text: マネージド .NET API リファレンス
+      url: https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest
+- title: REST API を使用する
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: パートナー センター REST API リファレンス
+      url: https://docs.microsoft.com/en-us/partner-center/develop/partner-center-rest-api-reference
+- title: Java SDK (オープンソース) を使用する
+  linkLists:
+  - linkListType: download
+    links:
+    - text: パートナー センター Java SDK をダウンロードする
+      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter/1.8.1/jar
+    - text: Java SDK GitHub リポジトリ (質問、投稿、イシュー)
+      url: https://github.com/Microsoft/Partner-Center-Java
+  - linkListType: reference
+    links:
+    - text: Java API リファレンス
+      url: https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1
+- title: PowerShell モジュール (オープン ソース) を使用する
+  linkLists:
+  - linkListType: download
+    links:
+    - text: PowerShell モジュールをインストールする
+      url: https://www.powershellgallery.com/packages/PartnerCenter
+    - text: PowerShell モジュール GitHub リポジトリ (質問、投稿、イシュー)
+      url: https://github.com/Microsoft/Partner-Center-PowerShell
+  - linkListType: reference
+    links:
+    - text: PowerShell コマンド
+      url: https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5
+- title: CSP パートナー用の Swagger API を使用する
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: パートナー センター サービスの Swagger API リファレンス (CSP パートナー向け)
+      url: https://apidocs.microsoft.com/services/partnercenter

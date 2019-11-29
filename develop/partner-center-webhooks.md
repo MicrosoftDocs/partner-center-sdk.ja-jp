@@ -5,12 +5,12 @@ ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6bb15fc4879bb735264ab45c4a84f6581cbf094a
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ead6d1da325534f2b58667365a509ef07ee295b1
+ms.sourcegitcommit: b9d44c881015065e2c375afa4deb05fe6bf3aeb8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488242"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559469"
 ---
 # <a name="partner-center-webhooks"></a>パートナーセンターの webhook
 
@@ -76,7 +76,7 @@ ms.locfileid: "74488242"
 POST /webhooks/callback
 Content-Type: application/json
 Authorization: Signature VOhcjRqA4f7u/4R29ohEzwRZibZdzfgG5/w4fHUnu8FHauBEVch8m2+5OgjLZRL33CIQpmqr2t0FsGF0UdmCR2OdY7rrAh/6QUW+u+jRUCV1s62M76jbVpTTGShmrANxnl8gz4LsbY260LAsDHufd6ab4oejerx1Ey9sFC+xwVTa+J4qGgeyIepeu4YCM0oB2RFS9rRB2F1s1OeAAPEhG7olp8B00Jss3PQrpLGOoAr5+fnQp8GOK8IdKF1/abUIyyvHxEjL76l7DVQN58pIJg4YC+pLs8pi6sTKvOdSVyCnjf+uYQWwmmWujSHfyU37j2Fzz16PJyWH41K8ZXJJkw==
-X-MS-Certificate-Url: https://3psostorageacct.blob.core.windows.net/cert/pcnotifications.microsoft.com.cer
+X-MS-Certificate-Url: https://3psostorageacct.blob.core.windows.net/cert/pcnotifications-dispatch.microsoft.com.cer
 X-MS-Signature-Algorithm: rsa-sha256
 Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
@@ -120,7 +120,7 @@ Content-Length: 195
 
 | 名前                      | 説明                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
-| **EventName**             | イベントの名前です。 {Resource}-{action} の形式で。 たとえば、"テスト作成" などです。  |
+| **EventName**             | イベントの名前。 {Resource}-{action} の形式で。 たとえば、"テスト作成" などです。  |
 | **ResourceUri**           | 変更されたリソースの URI。                                                 |
 | **ResourceName**          | 変更されたリソースの名前。                                                |
 | **AuditUrl**              | (省略可能)。 監査レコードの URI。                                                |
@@ -147,7 +147,7 @@ Content-Length: 195
 
 **[認証]**   
 
-Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 https://api.partnercenter.microsoft.comにアクセスするには、アクセストークンを取得する必要があります。 これは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
+Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 https://api.partnercenter.microsoft.com にアクセスするには、アクセストークンを取得する必要があります。 これは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
 
 
  
@@ -422,7 +422,6 @@ namespace Webhooks.Security
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.IO;
     using System.Linq;
     using System.Net;
@@ -442,8 +441,11 @@ namespace Webhooks.Security
     /// </summary>
     public class AuthorizeSignatureAttribute : AuthorizeAttribute
     {
+        private const string MsSignatureHeader = "x-ms-signature";
         private const string CertificateUrlHeader = "x-ms-certificate-url";
         private const string SignatureAlgorithmHeader = "x-ms-signature-algorithm";
+        private const string MicrosoftCorporationIssuer = "O=Microsoft Corporation";
+        private const string SignatureScheme = "Signature";
 
         /// <inheritdoc/>
         public override async Task OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
@@ -475,71 +477,75 @@ namespace Webhooks.Security
         private static void ValidateAuthorizationHeaders(HttpRequestMessage request)
         {
             var authHeader = request.Headers.Authorization;
-            if (authHeader == null || string.IsNullOrEmpty(authHeader.Parameter))
+            if (string.IsNullOrWhiteSpace(authHeader?.Parameter) && string.IsNullOrWhiteSpace(GetHeaderValue(request.Headers, MsSignatureHeader)))
             {
-                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Authorization Header missing"));
+                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Authorization header missing."));
             }
 
-            if (authHeader.Scheme != "Signature")
+            var signatureHeaderValue = GetHeaderValue(request.Headers, MsSignatureHeader);
+            if (authHeader != null
+                && !string.Equals(authHeader.Scheme, SignatureScheme, StringComparison.OrdinalIgnoreCase)
+                && !string.IsNullOrWhiteSpace(signatureHeaderValue)
+                && !signatureHeaderValue.StartsWith(SignatureScheme, StringComparison.OrdinalIgnoreCase))
             {
-                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Authorization Scheme needs to be 'Signature'"));
+                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.Unauthorized, $"Authorization scheme needs to be '{SignatureScheme}'."));
             }
 
-            if (string.IsNullOrEmpty(GetHeaderValue(request.Headers, CertificateUrlHeader)))
+            if (string.IsNullOrWhiteSpace(GetHeaderValue(request.Headers, CertificateUrlHeader)))
             {
-                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.BadRequest, $"Request header {CertificateUrlHeader} missing"));
+                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.BadRequest, $"Request header {CertificateUrlHeader} missing."));
             }
 
-            if (string.IsNullOrEmpty(GetHeaderValue(request.Headers, SignatureAlgorithmHeader)))
+            if (string.IsNullOrWhiteSpace(GetHeaderValue(request.Headers, SignatureAlgorithmHeader)))
             {
-                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.BadRequest, $"Request header {SignatureAlgorithmHeader} missing"));
+                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.BadRequest, $"Request header {SignatureAlgorithmHeader} missing."));
             }
         }
 
-        private static string GetHeaderValue(HttpRequestHeaders headers, string key)
+        private static string GetHeaderValue(HttpHeaders headers, string key)
         {
-            headers.TryGetValues(key, out IEnumerable<string> headerValues);
+            headers.TryGetValues(key, out var headerValues);
 
             return headerValues?.FirstOrDefault();
         }
 
         private static async Task VerifySignature(HttpRequestMessage request)
         {
-            var base64Signture = request.Headers.Authorization?.Parameter;
+            // Get signature value from either authorization header or x-ms-signature header.
+            var base64Signature = request.Headers.Authorization?.Parameter ?? GetHeaderValue(request.Headers, MsSignatureHeader).Split(' ')[1];
             var signatureAlgorithm = GetHeaderValue(request.Headers, SignatureAlgorithmHeader);
             var certificateUrl = GetHeaderValue(request.Headers, CertificateUrlHeader);
             var certificate = await GetCertificate(certificateUrl);
             var content = await GetContentAsync(request);
-            var alg = signatureAlgorithm.Split('-');    // e.g. RSA-SHA1
+            var alg = signatureAlgorithm.Split('-'); // e.g. RSA-SHA1
             var isValid = false;
 
+            var logger = GetLoggerIfAvailable(request);
+
             // Validate the certificate
-            if (VerifyCertificate(certificate))
+            VerifyCertificate(certificate, request, logger);
+
+            if (alg.Length == 2 && alg[0].Equals("RSA", StringComparison.OrdinalIgnoreCase))
             {
-                if (alg.Length == 2 && alg[0].Equals("RSA", StringComparison.OrdinalIgnoreCase))
-                {
-                    byte[] signature = Convert.FromBase64String(base64Signture);
+                var signature = Convert.FromBase64String(base64Signature);
+                var csp = (RSACryptoServiceProvider)certificate.PublicKey.Key;
 
-                    RSACryptoServiceProvider csp = (RSACryptoServiceProvider)certificate.PublicKey.Key;
+                var encoding = new UTF8Encoding();
+                var data = encoding.GetBytes(content);
 
-                    var encoding = new UTF8Encoding();
-                    byte[] data = encoding.GetBytes(content);
+                var hashAlgorithm = alg[1].ToUpper();
 
-                    string hashAlgorithm = alg[1].ToUpper();
+                isValid = csp.VerifyData(data, CryptoConfig.MapNameToOID(hashAlgorithm), signature);
+            }
 
-                    isValid = csp.VerifyData(data, CryptoConfig.MapNameToOID(hashAlgorithm), signature);
-                }
+            if (!isValid)
+            {
+                // log that we were not able to validate the signature
+                logger?.TrackTrace(
+                    "Failed to validate signature for webhook callback",
+                    new Dictionary<string, string> { { "base64Signature", base64Signature }, { "certificateUrl", certificateUrl }, { "signatureAlgorithm", signatureAlgorithm }, { "content", content } });
 
-                if (!isValid)
-                {
-                    // log that we were not able to validate the signature
-                    Trace.WriteLine($"Failed to validate signature for webhook callback. base64Signature: {base64Signture}, certificateUrl: {certificateUrl}, signatureAlgorithm: {signatureAlgorithm}");
-
-                    var logger = GetLoggerIfAvailable(request);
-                    logger?.TrackTrace("Failed to validate Signature for webhook callback", new Dictionary<string, string> { { "base64Signature", base64Signture }, { "certificateUrl", certificateUrl }, { "signatureAlgorithm", signatureAlgorithm }, { "content", content } });
-
-                    throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Signature verification failed"));
-                }
+                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Signature verification failed"));
             }
         }
 
@@ -559,9 +565,21 @@ namespace Webhooks.Security
             return new X509Certificate2(certBytes);
         }
 
-        private static bool VerifyCertificate(X509Certificate2 certificate)
+        private static void VerifyCertificate(X509Certificate2 certificate, HttpRequestMessage request, ILogger logger)
         {
-            return certificate.Verify() && certificate.Issuer.Contains("O=Microsoft Corporation");
+            if (!certificate.Verify())
+            {
+                logger?.TrackTrace("Failed to verify certificate for webhook callback.", new Dictionary<string, string> { { "Subject", certificate.Subject }, { "Issuer", certificate.Issuer } });
+
+                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Certificate verification failed."));
+            }
+
+            if (!certificate.Issuer.Contains(MicrosoftCorporationIssuer))
+            {
+                logger?.TrackTrace($"Certificate not issued by {MicrosoftCorporationIssuer}.", new Dictionary<string, string> { { "Issuer", certificate.Issuer } });
+
+                throw new HttpResponseException(request.CreateErrorResponse(HttpStatusCode.Unauthorized, $"Certificate not issued by {MicrosoftCorporationIssuer}."));
+            }
         }
     }
 }

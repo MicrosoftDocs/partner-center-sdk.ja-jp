@@ -1,6 +1,6 @@
 ---
-title: Partner Center supported languages and locales
-description: List of ISO2 and ISO3 supported locales for Partner Center.
+title: パートナーセンターでサポートされている言語とロケール
+description: パートナーセンターでサポートされている ISO2 と ISO3 のロケールの一覧。
 ms.date: 12/03/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,271 +12,271 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488292"
 ---
-# <a name="partner-center-supported-languages-and-locales"></a>Partner Center supported languages and locales
+# <a name="partner-center-supported-languages-and-locales"></a>パートナーセンターでサポートされている言語とロケール
 
 
-**Applies To**
+**適用対象**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Some Partner Center APIs require a value indicating a locale, country or region. For example, the [Partner Center REST header](headers.md) X-Locale requires a value often in the format "language-country" ("en-US" indicates "English - United States").
+一部のパートナーセンター Api では、ロケール、国、または地域を示す値が必要です。 たとえば、[パートナーセンターの REST ヘッダー](headers.md)の X ロケールでは、"言語-国" という形式の値が必要です ("en-us" は "English-米国" を示します)。
 
-In the Partner Center managed APIs, the [CountryValidationRules](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.countryvalidationrules.countryvalidationrules) class and the [OfferCategory.Locale](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.offercategory.locale), [ServiceRequest.CountryCode](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.countrycode), or [CustomerBillingProfile.Culture](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile.culture) properties require string values that indicate a language or country/region (in the form of an ISO2 language code or ISO3 country/region code), a locale, or a culture (a language ID combined with a country/region code).
+パートナーセンターマネージ Api では、 [CountryValidationRules](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.countryvalidationrules.countryvalidationrules)クラスと OfferCategory、 [ServiceRequest、CountryCode](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.countrycode)、または[](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.offercategory.locale)の各プロパティに、言語、国/地域 (ISO2 言語コードまたは ISO3 country/region コードの形式)、ロケール、またはカルチャ (国/地域コードと組み合わせた言語 ID) を示す文字列値が必要[です](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile.culture)。
 
-The following table lists the cultures and International Standards Organization (ISO) country codes that are supported in the Partner Center APIs. 
+次の表は、パートナーセンターの Api でサポートされているカルチャと国際標準化機構 (ISO) の国コードを示しています。 
 
 
-| 国/地域                           | ISO Alpha 2 Country Code | ISO Alpha 3 Country Code | Supported Culture(s)                  |
+| 国/地域                           | ISO Alpha 2 国コード | ISO Alpha 3 国コード | サポートされているカルチャ                  |
 |------------------------------------------|--------------------------|--------------------------|---------------------------------------|
-| アフガニスタン                              | AF                       | AFG                      | ps-AF / en-US                         |
-| オーランド諸島                            | AX                       | ALA                      | sv-SE / en-US                         |
-| アルバニア                                  | AL                       | ALB                      | sq-AL / en-US                         |
-| アルジェリア                                  | DZ                       | DZA                      | ar-DZ / en-US                         |
-| 米領サモア                           | AS                       | ASM                      | ja-JP                                 |
-| アンドラ                                  | AD                       | および                      | ca-ES / en-US                         |
-| アンゴラ                                   | AO                       | AGO                      | pt-PT / en-US                         |
-| アンギラ                                 | AI                       | AIA                      | ja-JP                                 |
-| 南極                               | AQ                       | ATA                      | ja-JP                                 |
-| アンティグア・バーブーダ                      | AG                       | ATG                      | ja-JP                                 |
-| アルゼンチン                                | AR                       | ARG                      | es-AR / en-US                         |
-| アルメニア                                  | AM                       | ARM                      | hy-AM / en-US                         |
-| アルバ                                    | AW                       | ABW                      | nl-NL / en-US                         |
-| オーストラリア                                | AU                       | AUS                      | en-AU / en-US                         |
-| オーストリア                                  | AT                       | AUT                      | de-AT / en-US                         |
-| アゼルバイジャン                               | AZ                       | AZE                      | az-Latn-AZ / en-US                    |
-| バハマ                                  | BS                       | BHS                      | en-GB / en-US                         |
-| バーレーン                                  | BH                       | BHR                      | ar-BH / en-US                         |
-| バングラデシュ                               | BD                       | BGD                      | bn-BD / en-US                         |
-| バルバドス                                 | BB                       | BRB                      | en-GB / en-US                         |
-| ベラルーシ                                  | BY                       | BLR                      | be-BY / en-US                         |
-| ベルギー                                  | BE                       | BEL                      | fr-BE / nl-BE / en-US                 |
-| ベリーズ                                   | BZ                       | BLZ                      | en-BZ / en-US                         |
-| ベナン                                    | BJ                       | BEN                      | fr-FR / en-US                         |
-| バミューダ諸島                                  | BM                       | BMU                      | en-GB / en-US                         |
-| ブータン                                   | BT                       | BTN                      | ja-JP                                 |
-| ボリビア                                  | BO                       | BOL                      | es-BO / en-US                         |
-| ボネール島                                  | BQ                       | BES                      | nl-NL / en-US                         |
-| ボスニア・ヘルツェゴビナ                   | BA                       | BIH                      | bs-Latn-BA / en-US                    |
-| ボツワナ                                 | BW                       | BWA                      | en-GB / en-US                         |
-| ブーベ島                            | BV                       | BVT                      | nb-NO / en-US                         |
-| ブラジル                                   | BR                       | BRA                      | pt-BR / en-US                         |
-| 英領インド洋地域           | IO                       | IOT                      | ja-JP                                 |
-| 英領バージン諸島                   | VG                       | VGB                      | ja-JP                                 |
-| ブルネイ                                   | BN                       | BRN                      | ms-BN / en-US                         |
-| ブルガリア                                 | BG                       | BGR                      | bg-BG / en-US                         |
-| ブルキナファソ                             | BF                       | BFA                      | fr-FR / en-US                         |
-| ブルンジ                                  | BI                       | BDI                      | fr-FR / en-US                         |
-| カーボベルデ                               | CV                       | CPV                      | pt-CV / en-US                         |
-| カンボジア                                 | KH                       | KHM                      | km-KH / en-US                         |
-| カメルーン                                 | CM                       | CMR                      | fr-FR / en-US                         |
-| カナダ                                   | CA                       | CAN                      | fr-CA / en-US                         |
-| ケイマン諸島                           | KY                       | CYM                      | en-GB / en-US                         |
-| 中央アフリカ共和国                 | CF                       | CAF                      | fr-FR / en-US                         |
-| チャド                                     | TD                       | TCD                      | fr-FR / en-US                         |
-| チリ                                    | CL                       | CHL                      | es-CL / en-US                         |
-| 中国                                    | CN                       | CHN                      | zh-CN / en-US                         |
-| クリスマス島                         | CX                       | CXR                      | ja-JP                                 |
-| ココス諸島                  | CC                       | CCK                      | ja-JP                                 |
-| コロンビア                                 | CO                       | COL                      | es-CO / en-US                         |
-| コモロ                                  | KM                       | COM                      | fr-FR / en-US                         |
-| コンゴ共和国                                    | CG                       | COG                      | fr-FR / en-US                         |
-| コンゴ民主共和国                              | CD                       | COD                      | fr-FR / en-US                         |
-| クック諸島                             | CK                       | COK                      | ja-JP                                 |
-| コスタリカ                               | CR                       | CRI                      | es-CR / en-US                         |
-| コートジボワール                            | CI                       | CIV                      | fr-FR / en-US                         |
-| クロアチア                                  | HR                       | HRV                      | hr-HR / en-US                         |
-| キュラソー島                                  | CW                       | CUW                      | nl-NL / en-US                         |
-| キプロス                                   | CY                       | CYP                      | el-GR / en-US                         |
-| Czechia                                  | CZ                       | CZE                      | cs-CZ / en-US                         |
-| デンマーク                                  | DK                       | DNK                      | da-DK / en-US                         |
-| ジブチ                                 | DJ                       | DJI                      | fr-FR / en-US                         |
-| ドミニカ国                                 | DM                       | DMA                      | ja-JP                                 |
-| ドミニカ共和国                       | DO                       | DOM                      | es-DO / en-US                         |
-| エクアドル                                  | EC                       | ECU                      | es-EC / en-US                         |
-| エジプト                                    | EG                       | EGY                      | ar-EG / en-US                         |
-| エルサルバドル                              | SV                       | SLV                      | es-SV / en-US                         |
-| 赤道ギニア                        | GQ                       | GNQ                      | es-ES / en-US                         |
-| エリトリア                                  | ER                       | ERI                      | ar-SA / en-US                         |
-| エストニア                                  | EE                       | EST                      | et-EE / en-US                         |
-| eSwatini                                 | SZ                       | SWZ                      | ja-JP                                 |
-| エチオピア                                 | ET                       | ETH                      | am-ET / en-US                         |
-| フォークランド諸島                         | FK                       | FLK                      | ja-JP                                 |
-| フェロー諸島                            | FO                       | FRO                      | fo-FO / en-US                         |
-| フィジー諸島                                     | FJ                       | FJI                      | en-GB / en-US                         |
-| フィンランド                                  | FI                       | FIN                      | fi-FI / sv-FI / en-US                 |
-| フランス                                   | FR                       | FRA                      | fr-FR / en-US                         |
-| フランス領ギアナ                            | GF                       | GUF                      | fr-FR / en-US                         |
-| フランス領ポリネシア                         | PF                       | PYF                      | fr-FR / en-US                         |
-| 仏領極南諸島              | TF                       | ATF                      | fr-FR / en-US                         |
-| ガボン                                    | GA                       | GAB                      | fr-FR / en-US                         |
-| ガンビア                                   | GM                       | GMB                      | ja-JP                                 |
-| ジョージア                                  | GE                       | GEO                      | ka-GE / en-US                         |
-| ドイツ                                  | DE                       | DEU                      | de-DE / en-US                         |
-| ガーナ                                    | GH                       | GHA                      | en-GB / en-US                         |
-| ジブラルタル                                | GI                       | GIB                      | ja-JP                                 |
-| ギリシャ                                   | GR                       | GRC                      | el-GR / en-US                         |
-| グリーンランド                                | GL                       | GRL                      | da-DK / en-US                         |
-| グレナダ                                  | GD                       | GRD                      | ja-JP                                 |
-| グアドループ                               | GP                       | GLP                      | fr-FR / en-US                         |
-| グアム                                     | GU                       | GUM                      | ja-JP                                 |
-| グアテマラ                                | GT                       | GTM                      | es-GT / en-US                         |
-| ガーンジー島                                 | GG                       | GGY                      | ja-JP                                 |
-| ギニア                                   | GN                       | GIN                      | fr-FR / en-US                         |
-| ギニアビサウ                            | GW                       | GNB                      | pt-PT / en-US                         |
-| ガイアナ                                   | GY                       | GUY                      | ja-JP                                 |
-| ハイチ                                    | HT                       | HTI                      | fr-FR / en-US                         |
-| ハード・マクドナルド諸島        | HM                       | HMD                      | ja-JP                                 |
-| ホンジュラス                                 | HN                       | HND                      | es-HN / en-US                         |
-| 香港特別行政区                            | HK                       | HKG                      | zh-HK / en-US                         |
-| ハンガリー                                  | HU                       | HUN                      | hu-HU / en-US                         |
-| アイスランド                                  | IS                       | ISL                      | is-IS / en-US                         |
-| インド                                    | IN                       | IND                      | en-IN / hi-IN / en-US                 |
-| インドネシア                                | ID                       | IDN                      | id-ID / en-US                         |
-| イラク                                     | IQ                       | IRQ                      | ar-IQ / en-US                         |
-| アイルランド                                  | Internet Explorer                       | IRL                      | en-IE / en-US                         |
-| マン島                              | IM                       | IMN                      | ja-JP                                 |
-| イスラエル                                   | IL                       | ISR                      | he-IL / en-US                         |
-| イタリア                                    | IT                       | ITA                      | it-IT / en-US                         |
-| ジャマイカ                                  | JM                       | JAM                      | en-JM / en-US                         |
-| ヤンマイエン島                                | XJ                       | XJA                      | nb-NO / en-US                         |
-| 日本                                    | JP                       | JPN                      | ja-JP / en-US                         |
-| ジャージー島                                   | JE                       | JEY                      | ja-JP                                 |
-| ヨルダン                                   | JO                       | JOR                      | ar-JO / en-US                         |
-| カザフスタン                               | KZ                       | KAZ                      | kk-KZ / en-US                         |
-| ケニア                                    | KE                       | KEN                      | sw-KE / en-US                         |
-| キリバス                                 | KI                       | KIR                      | ja-JP                                 |
-| 韓国                                    | KR                       | KOR                      | ko-KR / en-US                         |
-| コソボ                                   | XK                       | XKS                      | ja-JP                                 |
-| クウェート                                   | KW                       | KWT                      | ar-KW / en-US                         |
-| キルギス                               | KG                       | KGZ                      | ky-KG / en-US                         |
-| ラオス                                     | LA                       | LAO                      | lo-LA / en-US                         |
-| ラトビア                                   | LV                       | LVA                      | lv-LV / en-US                         |
-| レバノン                                  | LB                       | LBN                      | ar-LB / en-US                         |
-| レソト                                  | LS                       | LSO                      | ja-JP                                 |
-| リベリア                                  | LR                       | LBR                      | ja-JP                                 |
-| リビア                                    | LY                       | LBY                      | ar-LY / en-US                         |
-| リヒテンシュタイン                            | LI                       | LIE                      | de-LI / en-US                         |
-| リトアニア                                | LT                       | LTU                      | lt-LT / en-US                         |
-| ルクセンブルク                               | LU                       | LUX                      | de-LU / fr-LU / en-US                 |
-| マカオ                                | MO                       | MAC                      | zh-MO / en-US                         |
-| マケドニア (旧ユーゴスラビア共和国)                          | MK                       | MKD                      | mk-MK / en-US                         |
-| マダガスカル                               | MG                       | MDG                      | fr-FR / en-US                         |
-| マラウイ                                   | MW                       | MWI                      | ja-JP                                 |
-| マレーシア                                 | MY                       | MYS                      | en-MY / en-US                         |
-| モルディブ                                 | MV                       | MDV                      | dv-MV / en-US                         |
-| マリ                                     | ML                       | MLI                      | fr-FR / en-US                         |
-| マルタ                                    | MT                       | MLT                      | mt-MT / en-US                         |
-| マーシャル諸島                         | MH                       | MHL                      | ja-JP                                 |
-| マルチニーク島                               | MQ                       | MTQ                      | fr-FR / en-US                         |
-| モーリタニア                               | [MR]                       | MRT                      | ar-SA / en-US                         |
-| モーリシャス                                | MU                       | MUS                      | en-GB / en-US                         |
-| マイヨット島                                  | YT                       | MYT                      | fr-FR / en-US                         |
-| メキシコ                                   | MX                       | MEX                      | es-MX / en-US                         |
-| ミクロネシア                               | FM                       | FSM                      | ja-JP                                 |
-| モルドバ                                  | MD                       | MDA                      | ro-RO / en-US                         |
-| モナコ                                   | [MC]                       | MCO                      | fr-MC / en-US                         |
-| モンゴル国                                 | MN                       | MNG                      | mn-MN / en-US                         |
-| モンテネグロ                               | ME                       | MNE                      | sr-Latn-ME / en-US                    |
-| モンセラット                               | [MS]                       | MSR                      | ja-JP                                 |
-| モロッコ                                  | MA                       | MAR                      | ar-MA / en-US                         |
-| モザンビーク                               | MZ                       | MOZ                      | pt-PT / en-US                         |
-| ミャンマー                                  | MM                       | MMR                      | ja-JP                                 |
-| ナミビア                                  | 該当なし                       | NAM                      | en-GB / en-US                         |
-| ナウル                                    | NR                       | NRU                      | ja-JP                                 |
-| ネパール                                    | NP                       | NPL                      | ne-NP / en-US                         |
-| オランダ領アンティル                     | AN                       | ANT                      | ja-JP                                 |
-| Netherlands, The                         | NL                       | NLD                      | nl-NL / en-US                         |
-| ニューカレドニア                            | NC                       | NCL                      | fr-FR / en-US                         |
-| ニュージーランド                              | NZ                       | NZL                      | en-NZ / en-US                         |
-| ニカラグア                                | NI                       | NIC                      | es-NI / en-US                         |
-| ニジェール                                    | NE                       | NER                      | fr-FR / en-US                         |
-| ナイジェリア                                  | NG                       | NGA                      | ha-Latn-NG / en-US                    |
-| ニウエ                                     | NU                       | NIU                      | ja-JP                                 |
-| ノーフォーク島                           | NF                       | NFK                      | ja-JP                                 |
-| 北マリアナ諸島                 | MP                       | MNP                      | ja-JP                                 |
-| ノルウェー                                   | 使用不可                       | NOR                      | nb-NO / en-US                         |
-| オマーン                                     | OM                       | OMN                      | ar-OM / en-US                         |
-| パキスタン                                 | PK                       | PAK                      | ur-PK / en-US                         |
-| パラオ                                    | PW                       | PLW                      | ja-JP                                 |
-| パレスチナ自治政府                    | PS                       | PSE                      | ar-SA / en-US                         |
-| パナマ                                   | PA                       | PAN                      | es-PA / en-US                         |
-| パプアニューギニア                         | PG                       | PNG                      | ja-JP                                 |
-| パラグアイ                                 | PY                       | PRY                      | es-PY / en-US                         |
-| ペルー                                     | PE                       | PER                      | es-PE / en-US                         |
-| フィリピン                              | PH                       | PHL                      | en-PH / en-US                         |
-| ピトケアン島                         | PN                       | PCN                      | ja-JP                                 |
-| ポーランド                                   | PL                       | POL                      | pl-PL / en-US                         |
-| ポルトガル                                 | PT                       | PRT                      | pt-PT / en-US                         |
-| プエルトリコ                              | PR                       | PRI                      | es-PR / en-US                         |
-| カタール                                    | QA                       | QAT                      | ar-QA / en-US                         |
-| レユニオン                                  | RE                       | REU                      | fr-FR / en-US                         |
-| ルーマニア                                  | RO                       | ROU                      | ro-RO / en-US                         |
-| ロシア連邦                                   | RU                       | RUS                      | ru-RU / en-US                         |
-| ルワンダ                                   | RW                       | RWA                      | rw-RW / en-US                         |
-| サバ島                                     | XS                       | XSA                      | nl-NL / en-US                         |
-| セントクリストファー・ネイビス                    | KN                       | KNA                      | en-GB / en-US                         |
-| セントルシア                              | LC                       | LCA                      | ja-JP                                 |
-| サンマルタン島                             | MF                       | MAF                      | fr-FR / en-US                         |
-| サンピエール・ミクロン                | PM                       | SPM                      | fr-FR / en-US                         |
-| セントビンセントおよびグレナディーン諸島         | VC                       | VCT                      | ja-JP                                 |
-| Saint-Barthélemy                         | BL                       | BLM                      | fr-FR / en-US                         |
-| サモア                                    | WS                       | WSM                      | ja-JP                                 |
-| サンマリノ                               | SM                       | SMR                      | it-IT / en-US                         |
-| サントメ・プリンシペ                    | ST                       | STP                      | pt-PT / en-US                         |
-| サウジアラビア                             | SA                       | SAU                      | ar-SA / en-US                         |
-| セネガル                                  | SN                       | SEN                      | wo-SN / en-US                         |
-| セルビア                                   | RS                       | SRB                      | sr-Latn-RS / sr-Cyrl-RS / en-US       |
-| セーシェル                               | SC                       | SYC                      | ja-JP                                 |
-| シエラレオネ                             | SL                       | SLE                      | ja-JP                                 |
-| シンガポール                                | SG                       | SGP                      | en-SG / zh-SG / en-US                 |
-| シント・ユースタティウス島                           | XE                       | XSE                      | nl-NL / en-US                         |
-| シント・マールテン島                             | SX                       | SXM                      | ja-JP                                 |
-| スロバキア                                 | SK                       | SVK                      | sk-SK / en-US                         |
-| スロベニア                                 | SI                       | SVN                      | sl-SI / en-US                         |
-| ソロモン諸島                          | SB                       | SLB                      | ja-JP                                 |
-| ソマリア                                  | SO                       | SOM                      | ar-SA / en-US                         |
-| 南アフリカ                             | ZA                       | ZAF                      | en-ZA / en-US                         |
-| サウスジョージア・サウスサンドウィッチ諸島 | GS                       | SGS                      | ja-JP                                 |
-| 南スーダン                              | SS                       | SSD                      | ja-JP                                 |
-| スペイン                                    | ES                       | ESP                      | es-ES / ca-ES / eu-ES / gl-ES / en-US |
-| スリランカ                                | LK                       | LKA                      | si-LK / en-US                         |
-| セントヘレナ、アセンションおよびトリスタンダクーニャ   | SH                       | SHN                      | ja-JP                                 |
-| スリナム                                 | SR                       | SUR                      | nl-NL                                 |
-| スバールバル諸島                                 | SJ                       | SJM                      | nb-NO / en-US                         |
-| スウェーデン                                   | SE                       | SWE                      | sv-SE / en-US                         |
-| スイス                              | CH                       | CHE                      | de-CH / fr-CH / it-CH / en-US         |
-| 台湾                                   | TW                       | TWN                      | zh-TW / en-US                         |
-| タジキスタン                               | TJ                       | TJK                      | tg-Cyrl-TJ / en-US                    |
-| タンザニア                                 | TZ                       | TZA                      | en-GB / en-US                         |
-| タイ                                 | TH                       | THA                      | th-TH / en-US                         |
-| ティモール・レステ                              | TL                       | TLS                      | pt-PT / en-US                         |
-| トーゴ                                     | TG                       | TGO                      | fr-FR / en-US                         |
-| トケラウ諸島                                  | TK                       | TKL                      | ja-JP                                 |
-| トンガ                                    | TO                       | TON                      | ja-JP                                 |
-| トリニダードトバゴ                      | TT                       | TTO                      | en-TT / en-US                         |
-| チュニジア                                  | TN                       | TUN                      | ar-TN / en-US                         |
-| トルコ                                   | TR                       | TUR                      | tr-TR / en-US                         |
-| トルクメニスタン                             | TM                       | TKM                      | tk-TM / en-US                         |
-| タークス・カイコス諸島                 | TC                       | TCA                      | ja-JP                                 |
-| ツバル                                   | TV                       | TUV                      | ja-JP                                 |
-| ウガンダ                                   | UG                       | UGA                      | en-GB / en-US                         |
-| ウクライナ                                  | UA                       | UKR                      | uk-UA / en-US                         |
-| アラブ首長国連邦                     | AE                       | ARE                      | ar-AE / en-US                         |
-| 英国                           | GB                       | GBR                      | en-GB / en-US                         |
-| 合衆国領有小離島                    | UM                       | UMI                      | ja-JP                                 |
-| 米領バージン諸島                      | VI                       | VIR                      | ja-JP                                 |
-| 米国                            | US                       | USA                      | en-US / es-US                         |
-| ウルグアイ                                  | UY                       | URY                      | es-UY / en-US                         |
-| ウズベキスタン                               | UZ                       | UZB                      | uz-Latn-UZ / en-US                    |
-| バヌアツ                                  | VU                       | VUT                      | ja-JP                                 |
-| バチカン市国                             | VA                       | VAT                      | it-IT / en-US                         |
-| ベネズエラ                                | VE                       | VEN                      | es-VE / en-US                         |
-| ベトナム                                  | VN                       | VNM                      | vi-VN / en-US                         |
-| ワリス・フテュナ諸島                        | WF                       | WLF                      | fr-FR / en-US                         |
-| イエメン                                    | YE                       | YEM                      | ar-YE / en-US                         |
-| ザンビア                                   | ZM                       | ZMB                      | en-GB / en-US                         |
-| ジンバブエ                                 | ZW                       | ZWE                      | en-ZW / en-US                         |
+| アフガニスタン                              | AF                       | AFG                      | ps-AF/en-us                         |
+| オーランド諸島                            | AX                       | より                      | sv-SE/en-us-US                         |
+| アルバニア                                  | AL                       | ALB                      | sq-AL/en-us-US                         |
+| アルジェリア                                  | DZ                       | DZA                      | ar-DZ/en-us-US                         |
+| 米領サモア                           | AS                       | ASM                      | en-US                                 |
+| アンドラ                                  | AD                       | および                      | ca-ES/en-us                         |
+| アンゴラ                                   | AO                       | 前                      | pt-PT/en-us-US                         |
+| アンギラ                                 | AI                       | AIA                      | en-US                                 |
+| 南極                               | 以降                       | ATA                      | en-US                                 |
+| アンティグア・バーブーダ                      | AG                       | ATG                      | en-US                                 |
+| アルゼンチン                                | AR                       | ARG                      | es-AR/en-us                         |
+| アルメニア                                  | AM                       | ARM                      | hy-AM/en-us                         |
+| アルバ                                    | AW                       | ABW                      | nl-NL/en-us                         |
+| オーストラリア                                | AU                       | オーストラリア                      | en-us/en-us                         |
+| オーストリア                                  | AT                       | 自動                      | de/en-us                         |
+| アゼルバイジャン                               | AZ                       | AZE                      | az-Latn-AZ/en-US                    |
+| バハマ                                  | BS                       | BHS                      | en GB/en-us                         |
+| バーレーン                                  | BH                       | BHR                      | ar-BH/en-us                         |
+| バングラデシュ                               | BD                       | BGD                      | bn-BD/en-us                         |
+| バルバドス                                 | BB                       | BRB                      | en GB/en-us                         |
+| ベラルーシ                                  | BY                       | BLR                      | 使用者/en-us                         |
+| ベルギー                                  | BE                       | BEL                      | fr-fr/nl-BE/en-us                 |
+| ベリーズ                                   | BZ                       | BLZ                      | en-BZ/en-us                         |
+| ベナン                                    | BJ                       | BEN                      | fr-fr/en-us                         |
+| バミューダ諸島                                  | BM.EXE                       | BMU                      | en GB/en-us                         |
+| ブータン                                   | BT                       | BTN                      | en-US                                 |
+| ボリビア                                  | BO                       | BOL                      | es-BO/en-us                         |
+| ボネール島                                  | BQ                       | BES                      | nl-NL/en-us                         |
+| ボスニア・ヘルツェゴビナ                   | BA                       | BIH                      | Latn-BA/en-us-US                    |
+| ボツワナ                                 | BW                       | BWA                      | en GB/en-us                         |
+| ブーベ島                            | BV                       | BVT                      | nb-いいえ/en-us                         |
+| ブラジル                                   | BR                       | BRA                      | pt-BR/en-us-US                         |
+| 英領インド洋地域           | IO                       | IOT                      | en-US                                 |
+| 英領バージン諸島                   | VG                       | VGB                      | en-US                                 |
+| ブルネイ                                   | BN                       | BRN                      | BN/en-us                         |
+| ブルガリア                                 | BG                       | BGR                      | bg-BG/en-us                         |
+| ブルキナファソ                             | BF                       | BFA                      | fr-fr/en-us                         |
+| ブルンジ                                  | POWER                       | BDI                      | fr-fr/en-us                         |
+| カーボベルデ                               | CV                       | CPV                      | pt-CV/en-us-US                         |
+| カンボジア                                 | KH                       | KHM                      | km-KH/en-us                         |
+| カメルーン                                 | CM                       | CMR                      | fr-fr/en-us                         |
+| カナダ                                   | CA                       | より                      | fr-fr/en-us                         |
+| ケイマン諸島                           | アヒル                       | CYM                      | en GB/en-us                         |
+| 中央アフリカ共和国                 | CF                       | CAF                      | fr-fr/en-us                         |
+| チャド                                     | TD                       | TCD                      | fr-fr/en-us                         |
+| チリ                                    | CL                       | CHL                      | es-CL/en-us                         |
+| 中国                                    | CN                       | CHN                      | zh-tw-CN/en-US                         |
+| クリスマス島                         | シリーズ                       | .CXR                      | en-US                                 |
+| ココス諸島                  | CC                       | CCK                      | en-US                                 |
+| コロンビア                                 | CO                       | 行列                      | es-CO/en-us-US                         |
+| コモロ                                  | KM                       | COM                      | fr-fr/en-us                         |
+| コンゴ共和国                                    | 抗力                       | 歯車                      | fr-fr/en-us                         |
+| コンゴ民主共和国                              | CD                       | 払い                      | fr-fr/en-us                         |
+| クック諸島                             | CK                       | COK                      | en-US                                 |
+| コスタリカ                               | CR                       | CRI                      | es-CR/en-us                         |
+| コートジボワール                            | CI                       | CIV                      | fr-fr/en-us                         |
+| クロアチア                                  | HR                       | HRV                      | hr-HR/en-us-US                         |
+| キュラソー島                                  | 数量                       | CUW                      | nl-NL/en-us                         |
+| キプロス                                   | CY                       | CYP                      | el-GR/en-us                         |
+| Czechia                                  | CZ                       | CZE                      | cs-CS-CZ/en-us                         |
+| デンマーク                                  | DK                       | DNK                      | da-DK/en-us                         |
+| ジブチ                                 | DJ                       | DJI                      | fr-fr/en-us                         |
+| ドミニカ国                                 | DATA                       | DMA                      | en-US                                 |
+| ドミニカ共和国                       | DO                       | DOM                      | es-DO/en-us                         |
+| エクアドル                                  | EC                       | ECU                      | es-EC/en-us-US                         |
+| エジプト                                    | EG                       | ○                      | ar-例/en-us                         |
+| エルサルバドル                              | SV                       | SLV                      | es-SV/en-us                         |
+| 赤道ギニア                        | GQ                       | GNQ                      | es-ES/en-us                         |
+| エリトリア                                  | 壁紙                       | ERI                      | ar-SA/en-us-US                         |
+| エストニア                                  | EE                       | 最も                      | et-EE/en-us                         |
+| eSwatini                                 | SZ                       | SWZ                      | en-US                                 |
+| エチオピア                                 | ET                       | ETH                      | am-ET/en-us                         |
+| フォークランド諸島                         | FK (FK)                       | FLK                      | en-US                                 |
+| フェロー諸島                            | FO                       | から                      | fo-FO/en-us                         |
+| フィジー諸島                                     | FJ                       | FJI                      | en GB/en-us                         |
+| フィンランド                                  | FI                       | FIN                      | fi fi/sv-FI/en-us                 |
+| フランス                                   | FR                       | FRA                      | fr-fr/en-us                         |
+| フランス領ギアナ                            | GF                       | GUF                      | fr-fr/en-us                         |
+| フランス領ポリネシア                         | PF                       | PYF                      | fr-fr/en-us                         |
+| 仏領極南諸島              | WORKSPACES                       | ATF                      | fr-fr/en-us                         |
+| ガボン                                    | GA                       | GAB                      | fr-fr/en-us                         |
+| ガンビア                                   | GM                       | GMB                      | en-US                                 |
+| ジョージア                                  | GE                       | 地理的                      | ka-GE/en-us                         |
+| ドイツ                                  | DE                       | DEU                      | de/en-us                         |
+| ガーナ                                    | GH                       | GHA                      | en GB/en-us                         |
+| ジブラルタル                                | GI                       | GIB                      | en-US                                 |
+| ギリシャ                                   | GR                       | GRC                      | el-GR/en-us                         |
+| グリーンランド                                | GL                       | GRL                      | da-DK/en-us                         |
+| グレナダ                                  | GD                       | GRD                      | en-US                                 |
+| グアドループ                               | GP                       | GLP                      | fr-fr/en-us                         |
+| グアム                                     | GU                       | ガム                      | en-US                                 |
+| グアテマラ                                | GT                       | GTM                      | es-GT/en-us                         |
+| ガーンジー島                                 | GG                       | GGY                      | en-US                                 |
+| ギニア                                   | GN                       | GIN                      | fr-fr/en-us                         |
+| ギニアビサウ                            | GW                       | GNB                      | pt-PT/en-us-US                         |
+| ガイアナ                                   | GY                       | やつ                      | en-US                                 |
+| ハイチ                                    | HT                       | HTI                      | fr-fr/en-us                         |
+| ハード・マクドナルド諸島        | HM                       | HMD                      | en-US                                 |
+| ホンジュラス                                 | HN                       | HND                      | es-HN/en-us                         |
+| 香港特別行政区                            | HK                       | HKG                      | zh-tw-HK/en-us                         |
+| ハンガリー                                  | HU                       | HUN                      | hu-HU/en-us                         |
+| アイスランド                                  | IS                       | ISL                      | is-IS/en-us                         |
+| インド                                    | IN                       | IND                      | en-us/hi IN/en-us-米国                 |
+| インドネシア                                | ID                       | IDN                      | id-ID/en-us                         |
+| イラク                                     | IQ                       | しかし                      | ar-IQ/en-us                         |
+| アイルランド                                  | Internet Explorer                       | IRL                      | en-IE/en-us                         |
+| マン島                              | IM                       | IMN                      | en-US                                 |
+| イスラエル                                   | IL                       | ISR                      | he-IL/en-us                         |
+| イタリア                                    | IT                       | ITA                      | it/en-us                         |
+| ジャマイカ                                  | JM                       | 紙                      | en-JM/en-us-US                         |
+| ヤンマイエン島                                | XJ                       | XJA                      | nb-いいえ/en-us                         |
+| 日本                                    | JP                       | JPN                      | ja-jp/en-us                         |
+| ジャージー島                                   | JE                       | JEY                      | en-US                                 |
+| ヨルダン                                   | JO                       | JOR                      | ar-JO/en-us                         |
+| カザフスタン                               | KZ                       | KAZ                      | kk-KZ/en-us-US                         |
+| ケニア                                    | KE                       | たとえる                      | sw-KE/en-us                         |
+| キリバス                                 | KI                       | KIR                      | en-US                                 |
+| 韓国                                    | KR                       | KOR                      | ko-韓国/en-us                         |
+| コソボ                                   | XK                       | XKS                      | en-US                                 |
+| クウェート                                   | KW                       | KWT                      | ar-KW/en-us                         |
+| キルギス                               | KG                       | KGZ                      | 中-KG/en-us                         |
+| ラオス                                     | LA                       | ラオス人民                      | lo-LA/en-us-US                         |
+| ラトビア                                   | LV                       | LVA                      | lv-LV/en-us                         |
+| レバノン                                  | LB                       | LBN                      | ar-LB/en-us-US                         |
+| レソト                                  | AVL                       | LSO                      | en-US                                 |
+| リベリア                                  | LR                       | LBR                      | en-US                                 |
+| リビア                                    | LY                       | LBY                      | ar-かなり/en-us-米国                         |
+| リヒテンシュタイン                            | &                       | 任意                      | LI/en-us                         |
+| リトアニア                                | LT                       | LTU                      | lt-LT/en-us                         |
+| ルクセンブルク                               | LU                       | LUX                      | 逆 LU/fr-LU/en-us                 |
+| マカオ                                | 月                       | MAC                      | zh-tw-MO/en-us                         |
+| マケドニア (旧ユーゴスラビア共和国)                          | MK                       | MKD                      | mk-MK/en-us                         |
+| マダガスカル                               | MG                       | MDG                      | fr-fr/en-us                         |
+| マラウイ                                   | MW                       | MWI                      | en-US                                 |
+| マレーシア                                 | MY                       | MYS                      | en-us/en-us                         |
+| モルディブ                                 | MV                       | MDV                      | dv-MV/en-us                         |
+| マリ                                     | ML                       | .MLI                      | fr-fr/en-us                         |
+| マルタ                                    | MT                       | MLT                      | mt-MT/en-us                         |
+| マーシャル諸島                         | MH                       | MHL                      | en-US                                 |
+| マルチニーク島                               | MQ                       | MTQ                      | fr-fr/en-us                         |
+| モーリタニア                               | MR                       | MRT.DLL                      | ar-SA/en-us-US                         |
+| モーリシャス                                | MU                       | メモリ                      | en GB/en-us                         |
+| マイヨット島                                  | YT                       | MYT                      | fr-fr/en-us                         |
+| メキシコ                                   | MX                       | MEX                      | es-MX/en-us                         |
+| ミクロネシア                               | 今                       | FSM                      | en-US                                 |
+| モルドバ                                  | MD                       | MDA                      | ro-RO/en-us-US                         |
+| モナコ                                   | [MC]                       | MCO                      | fr-MC/en-us                         |
+| モンゴル                                 | MN                       | MNG                      | 最新-米国中/en-us                         |
+| モンテネグロ                               | ME                       | MNE                      | Latn-ME/en-us                    |
+| モンセラット                               | MS                       | MSR                      | en-US                                 |
+| モロッコ                                  | MA                       | 月                      | ar-MA/en-us                         |
+| モザンビーク                               | MZ                       | MOZ                      | pt-PT/en-us-US                         |
+| ミャンマー                                  | MM                       | MMR                      | en-US                                 |
+| ナミビア                                  | 該当なし                       | ベトナム                      | en GB/en-us                         |
+| ナウル                                    | NR                       | NRU                      | en-US                                 |
+| ネパール                                    | NP                       | NPL                      | ne-NP/en-us                         |
+| オランダ領アンティル                     | 込み                       | あ                      | en-US                                 |
+| オランダ、                         | NL                       | NLD                      | nl-NL/en-us                         |
+| ニューカレドニア                            | 加工                       | NCL                      | fr-fr/en-us                         |
+| ニュージーランド                              | NZ                       | NZL                      | en-us/en-us                         |
+| ニカラグア                                | NI                       | NIC                      | es-NI/en-us                         |
+| ニジェール                                    | NE                       | デザイナー                      | fr-fr/en-us                         |
+| ナイジェリア                                  | NG                       | NGA                      | ha-Latn/en-us                    |
+| ニウエ                                     | ニュー                       | この                      | en-US                                 |
+| ノーフォーク島                           | ユーティリティー                       | (KB)                      | en-US                                 |
+| 北マリアナ諸島                 | MP                       | MNP                      | en-US                                 |
+| ノルウェー                                   | 使用不可                       | NOR                      | nb-いいえ/en-us                         |
+| オマーン                                     | OM                       | OMN                      | ar-OM/en-us-US                         |
+| パキスタン                                 | PK                       | パック                      | お客様-PK/en-us                         |
+| パラオ                                    | PW                       | PLW                      | en-US                                 |
+| パレスチナ自治政府                    | PS                       | P                      | ar-SA/en-us-US                         |
+| パナマ                                   | PA                       | PAN                      | es-PA/en-us                         |
+| パプアニューギニア                         | 画面                       | PNG                      | en-US                                 |
+| パラグアイ                                 | PY                       | 慎重                      | es-.PY/en-us                         |
+| ペルー                                     | PE                       | 各行                      | es-PE/en-us                         |
+| フィリピン                              | PH                       | PHL                      | en PH/en-us                         |
+| ピトケアン島                         | PN                       | PCN                      | en-US                                 |
+| ポーランド                                   | PL                       | REGISTRY.POL                      | pl-PL/en-us                         |
+| ポルトガル                                 | PT                       | PRT                      | pt-PT/en-us-US                         |
+| プエルトリコ                              | PR                       | PRI                      | es-PR/en-us                         |
+| カタール                                    | QA                       | QAT                      | ar-QA/en-us                         |
+| レユニオン                                  | RE                       | REU                      | fr-fr/en-us                         |
+| ルーマニア                                  | RO                       | ROU                      | ro-RO/en-us-US                         |
+| ロシア                                   | RU                       | RUS                      | ru-RU/en-us                         |
+| ルワンダ                                   | RW                       | RWA                      | rw-RW/en-us                         |
+| サバ島                                     | XS                       | XSA                      | nl-NL/en-us                         |
+| セントクリストファー・ネイビス                    | KN                       | KNA                      | en GB/en-us                         |
+| セントルシア                              | 小                       | LCA                      | en-US                                 |
+| サンマルタン島                             | メイン                       | MAF                      | fr-fr/en-us                         |
+| サンピエール・ミクロン                | PM                       | SPM                      | fr-fr/en-us                         |
+| セントビンセントおよびグレナディーン諸島         | VC-1                       | VCT                      | en-US                                 |
+| サン・バルテルミー                         | BL                       | BLM                      | fr-fr/en-us                         |
+| サモア                                    | WS                       | WSM が                      | en-US                                 |
+| サンマリノ                               | MANAGER                       | SMR                      | it/en-us                         |
+| サントメ・プリンシペ                    | ST                       | .STP                      | pt-PT/en-us-US                         |
+| サウジアラビア                             | SA                       | SAU                      | ar-SA/en-us-US                         |
+| セネガル                                  | SN                       | SEN                      | wo-SN/en-us-US                         |
+| セルビア                                   | RS                       | SRB                      | Latn-RS/sr-Cyrl-RS/en-us       |
+| セーシェル                               | SC                       | SYC                      | en-US                                 |
+| シエラレオネ                             | SL                       | SLE                      | en-US                                 |
+| シンガポール                                | SG                       | SGP                      | en SG/zh-tw/en-us/en-us                 |
+| シント・ユースタティウス島                           | XE                       | XSE                      | nl-NL/en-us                         |
+| シント・マールテン島                             | SX                       | SXM                      | en-US                                 |
+| スロバキア                                 | SK                       | SVK                      | sk-SK/en-us-US                         |
+| スロベニア                                 | SI                       | SVN                      | sl-SI/en-us                         |
+| ソロモン諸島                          | SB                       | SLB                      | en-US                                 |
+| ソマリア                                  | だから                       | SOM                      | ar-SA/en-us-US                         |
+| 南アフリカ                             | ZA                       | ZAF                      | ZA/en-us                         |
+| サウスジョージア・サウスサンドウィッチ諸島 | GS                       | SGS-THOMSON                      | en-US                                 |
+| 南スーダン                              | 秒                       | SSD                      | en-US                                 |
+| スペイン                                    | ES                       | ESP                      | es-es/ca-es/eu-es/gl-es/en-us |
+| スリランカ                                | LK                       | LKA                      | si-LK/en-us                         |
+| セントヘレナ、アセンションおよびトリスタンダクーニャ   | 悪夢                       | SHN                      | en-US                                 |
+| スリナム                                 | SR                       | .SUR                      | nl-NL                                 |
+| スバールバル諸島                                 | SJ                       | SJM                      | nb-いいえ/en-us                         |
+| スウェーデン                                   | SE                       | SWE                      | sv-SE/en-us-US                         |
+| スイス                              | CH                       | CHE                      | de-ch/fr/it-CH/en-us         |
+| 台湾                                   | TW                       | TWN                      | zh-tw-TW/en-us-US                         |
+| タジキスタン                               | TJ                       | TJK                      | tg-Cyrl-TJ/en-US                    |
+| タンザニア                                 | TZ                       | TZA                      | en GB/en-us                         |
+| タイ                                 | TH                       | THA                      | th-TH/en-us                         |
+| ティモール・レステ                              | TL                       | TLS                      | pt-PT/en-us-US                         |
+| トーゴ                                     | TG                       | TGO                      | fr-fr/en-us                         |
+| トケラウ諸島                                  | TK                       | TKL                      | en-US                                 |
+| トンガ                                    | TO                       | ITEMS                      | en-US                                 |
+| トリニダードトバゴ                      | TT                       | する                      | en-us/en-us                         |
+| チュニジア                                  | TN                       | TUN                      | ar-TN/en-us                         |
+| トルコ                                   | TR                       | TUR                      | tr-TR/en-us-US                         |
+| トルクメニスタン                             | メモリ                       | TKM                      | tk-TM/en-us                         |
+| タークス・カイコス諸島                 | フィールド                       | TCA                      | en-US                                 |
+| ツバル                                   | TV                       | TUV                      | en-US                                 |
+| ウガンダ                                   | UG                       | UGA                      | en GB/en-us                         |
+| ウクライナ                                  | UA                       | UKR                      | uk-UA/en-us                         |
+| アラブ首長国連邦                     | AE                       | は                      | ar-AE/en-us-US                         |
+| イギリス                           | GB                       | GBR                      | en GB/en-us                         |
+| 合衆国領有小離島                    | UM                       | UMI                      | en-US                                 |
+| 米領バージン諸島                      | VI                       | PR1-DBMS-VIR                      | en-US                                 |
+| 米国                            | US                       | 海岸                      | en-us/es-US                         |
+| ウルグアイ                                  | UY                       | URY                      | es-UY/en-us-US                         |
+| ウズベキスタン                               | UZ                       | UZB                      | uz-Latn-UZ/en-us                    |
+| バヌアツ                                  | VU                       | VUT                      | en-US                                 |
+| バチカン市国                             | VA                       | VAT                      | it/en-us                         |
+| ベネズエラ                                | VE                       | VEN                      | es-VE/en-us                         |
+| ベトナム                                  | VN                       | VNM                      | vi-VN/en-us                         |
+| ワリス・フテュナ諸島                        | WF                       | WLF                      | fr-fr/en-us                         |
+| イエメン                                    | なん信仰                       | YEM                      | ar/en-us-US                         |
+| ザンビア                                   | ZM                       | ZMB                      | en GB/en-us                         |
+| ジンバブエ                                 | ZW                       | ZWE                      | ZW/en-us                         |
 
