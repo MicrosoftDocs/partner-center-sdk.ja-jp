@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: cf5949069ef7eb79c75d91448dd28e0d4ab7e94c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 8a134988ed2e9015e9c044ee537a1631679c0e92
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486792"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995217"
 ---
 # <a name="partner-center-samples"></a>パートナーセンターのサンプル
 
@@ -43,11 +43,11 @@ ms.locfileid: "74486792"
       <td>パートナーセンターの REST API を使用して顧客アカウントを管理する方法、分析の取得、注文の配置、請求とサブスクリプションの管理、サポートの提供、アカウントとプロファイルの管理の方法を示すサンプル要求と応答については、「<a href="scenarios.md">シナリオ</a>」を参照してください。</td>
     </tr>
     <tr>
-      <td><a href="console-test-app.md">コンソールテストアプリ</a></td>
+      <td><a href="console-test-app.md">コンソール テスト アプリ</a></td>
       <td>このアプリは、とC# Java で使用できます。また、「シナリオ」セクションに記載されているすべてのシナリオに対してコードとエラー処理を提供します。</td>
     </tr>
     <tr>
-      <td><a href="csp-customer-web-storefront.md">CSP カスタマー web ネットショップ</a></td>
+      <td><a href="csp-customer-web-storefront.md">CSP 顧客 Web ネットショップ</a></td>
       <td>このサイトでは、お客様が Microsoft 製品のサブスクリプションを購入するために使用できる、作業中のオンラインストアを示します。 <a href="csp-customer-storefront-builder-quick-start-guide-.md">CSP カスタマーストアビルダーのクイックスタートガイド</a>を使用して、会社用の web サイトを簡単に作成できます。</td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@ ms.locfileid: "74486792"
       <td><p><strong>説明 :</strong></p>
           <p>このアプリケーションは、クラウドソリューションプロバイダーパートナーが利用できるオファーのカタログに基づいて web ストアを構築する方法を示しています。 お客様は、ストアアカウントを作成し、サイトを通じてソフトウェアサブスクリプションを注文することができます。</p>
         <p><strong>コードを取得します。</strong></p>
-        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">サンプルコードをダウンロードする</a></p>
+        <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=746683">サンプルコードをダウンロードする</a></p>
         <p><strong>リリース前に構成する内容:</strong></p>
         <ul>
           <li><p>認証: アプリ ID & シークレット。</p></li>

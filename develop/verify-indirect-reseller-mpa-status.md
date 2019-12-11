@@ -5,12 +5,12 @@ ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b7785aa3b419ff5160031fb338e78f7130d5b9f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 14a66334793bfe6a1b87f0976a4084e76c331b65
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487712"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995179"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>間接リセラーの Microsoft パートナーアグリーメント署名の状態を確認する
 
@@ -26,7 +26,26 @@ ms.locfileid: "74487712"
 * 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 * 間接リセラーの MPN ID または CSP テナント ID (Microsoft ID)。 *これら2つの識別子のいずれかを使用する必要があります。*
 
-## <a name="rest"></a>休息
+## <a name="c"></a>C\#
+
+間接リセラーの Microsoft パートナー契約署名の状態を取得するには、次のようにします。
+
+ 1. **Iaggregatepartner.customers**コレクションを使用して、 **AgreementSignatureStatus**プロパティを呼び出します。 
+ 2. [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get)または[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync)メソッドを呼び出します。
+
+``` csharp
+// IAggregatePartner partnerOperations;
+
+var agreementSignatureStatusByMpnId = partnerOperations.Compliance.AgreementSignatureStatus.Get(mpnId:"Enter MPN Id");
+
+var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementSignatureStatus.Get(tenantId: "Enter Tenant Id");
+```
+
+- サンプル: **[コンソールテストアプリ](console-test-app.md)**
+- プロジェクト: **Partnerセンター sdk. 特長サンプル**
+- クラス: **GetAgreementSignatureStatus.cs**
+
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -34,20 +53,20 @@ ms.locfileid: "74487712"
 
 | メソッド | 要求 URI |
 | ------ | ----------- |
-| **取得** | *[{baseURL}](partner-center-rest-urls.md)* /V1/compliance/{ProgramName}/agreementstatus? mpnid = {mpnid} & tenantid = {tenantid} |
+| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /V1/compliance/{ProgramName}/agreementstatus? mpnid = {mpnid} & tenantid = {tenantid} |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
 パートナーを識別するには、次の2つのクエリパラメーターのいずれかを指定する必要があります。 これら2つのクエリパラメーターのいずれかを指定しない場合は、 **400 (Bad request)** エラーが発生します。
 
-| 名前 | 種類 | 必須 | 説明 |
+| 名前 | タスクバーの検索ボックスに | 必須かどうか | 説明 |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | int | X | 間接リセラーを識別する Microsoft Partner Network ID。 |
-| **テナント** | GUID | X | 間接リセラーの CSP アカウントを識別する Microsoft ID。 |
+| **MpnId** | 整数 | 必須ではない | 間接リセラーを識別する Microsoft Partner Network ID。 |
+| **TenantId** | GUID | 必須ではない | 間接リセラーの CSP アカウントを識別する Microsoft ID。 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](https://docs.microsoft.com/en-us/partner-center/develop/headers)」を参照してください。
+詳細については、「[パートナーセンターの REST ヘッダー](https://docs.microsoft.com/partner-center/develop/headers)」を参照してください。
 
 #### <a name="request-examples"></a>要求の例
 
@@ -81,9 +100,9 @@ Host: api.partnercenter.microsoft.com
 
 ### <a name="rest-response"></a>REST 応答
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](https://docs.microsoft.com/en-us/partner-center/develop/error-codes)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](https://docs.microsoft.com/partner-center/develop/error-codes)」を参照してください。
 
 #### <a name="response-example-success"></a>応答の例 (成功)
 

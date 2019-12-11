@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 51de7cc8b6a721c3c0d04f57d20e4d9afef50283
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0a23e83ef38632b9127b0ecdf99eb7f1860661ec
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488922"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995187"
 ---
 # <a name="console-test-app"></a>コンソールテストアプリ
 
@@ -28,9 +28,9 @@ ms.locfileid: "74488922"
 
 コンソールテストアプリのサンプルコードをダウンロードします。
 
-## <a name="net"></a>.NET
+## <a name="net"></a>.NET の場合
 
-[サンプルコードをダウンロード](http://go.microsoft.com/fwlink/p/?LinkId=746682)し、必要に応じて変更します。
+[サンプルコードをダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=746682)し、必要に応じて変更します。
 
 > [!IMPORTANT]
 > アプリケーションをビルドする前に、 *app.config*ファイルの値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 具体的には、開発の初期段階で、または実稼働環境でのテストの際に、統合サンドボックスアカウントの設定を使用する必要があります。
@@ -43,7 +43,7 @@ ms.locfileid: "74488922"
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-[サンプルコードをダウンロード](http://go.microsoft.com/fwlink/p/?LinkId=2026887)し、必要に応じて変更します。
+[サンプルコードをダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=2026887)し、必要に応じて変更します。
 
 > [!IMPORTANT]
 > アプリケーションをビルドする前に、 *SamplesConfigurations*ファイルの値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 具体的には、開発の初期段階で、または実稼働環境でのテストの際に、統合サンドボックスアカウントの設定を使用する必要があります。
@@ -52,7 +52,7 @@ ms.locfileid: "74488922"
 
 実行されるシナリオの一覧を変更するには、 **Ipartnerscenario\[\] Mainscenarios**にコメントアウトするか、または*java*ファイルに含まれる個々の**Get** scenario メソッドにコメントアウトします。
 
-## <a name="what-to-change"></a>変更する内容
+## <a name="what-to-change"></a>変更いただく内容
 
 次の一覧を使用して、サンプルコードで変更または変更しない内容を決定します。
 

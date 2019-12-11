@@ -5,12 +5,12 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: c4bb015d4e8369643bd0bc46e03c8960098369ee
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 02706cb17462105749116a232837a37cce14f2e6
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489292"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995247"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>請求書に請求される商用消費量の品目を取得する
 
@@ -43,7 +43,7 @@ ms.locfileid: "74489292"
 **InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
 1. インスタンスの**プロバイダー**と**InvoiceLineItemType**を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)メソッドに渡します。
-2. [**Get**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
+2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
 3. 次の例に示すように、列挙子を作成してコレクションを走査します。
 
 ``` csharp
@@ -109,33 +109,33 @@ while (fetchNext)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetBilledConsumptionReconLineItemsPaging.cs**
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
 #### <a name="request-syntax"></a>要求の構文
 
-最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 大規模な請求書の場合は、2番目の構文でサイズを指定し、0から始まるオフセットを使用して、行項目のページ化されたリストを返します。 3番目の構文を使用して、`seekOperation = "Next"`を使用して行項目の次のページを取得します。
+最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 請求書が大きい場合に、サイズと 0 ベースのオフセットを指定して品目のリストをページ単位で取得するには、2 つ目の構文を使用します。 3番目の構文を使用して、`seekOperation = "Next"`を使用して行項目の次のページを取得します。
 
 | メソッド  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {CURRENCYCODE} HTTP/1.1                              |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {SIZE} HTTP/1.1  |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {size} & Seekoperation = Next                               |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {CURRENCYCODE} HTTP/1.1                              |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {SIZE} HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {size} & Seekoperation = Next                               |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | 種類   | 必須 | 説明                                                       |
+| 名前                   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| 請求書-id             | string | 〇      | 請求書を識別する文字列。                             |
-| provider               | string | 〇      | プロバイダー: "OneTime"。                                  |
-| 請求書-品目-種類 | string | 〇      | 請求書の詳細の種類: "UsageLineItems"。 |
-| currencyCode           | string | 〇      | 請求明細項目の通貨コード。                    |
-| 前期                 | string | 〇      | 課金対象の期間。 例: current、previous。        |
-| size                   | number | X       | 返される項目の最大数。 既定のサイズは2000       |
-| seekOperation          | string | X       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
+| 請求書-id             | string | [はい]      | 請求書を識別する文字列。                             |
+| provider               | string | [はい]      | プロバイダー: "OneTime"。                                  |
+| 請求書-品目-種類 | string | [はい]      | 請求書の詳細の種類: "UsageLineItems"。 |
+| currencyCode           | string | [はい]      | 請求明細項目の通貨コード。                    |
+| 前期                 | string | [はい]      | 課金対象の期間。 例: current、previous。        |
+| size                   | number | 必須ではない       | 返される項目の最大数。 既定のサイズは2000       |
+| seekOperation          | string | 必須ではない       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
@@ -151,9 +151,9 @@ while (fetchNext)
 
 行項目**ChargeType**の場合、**購入**した値は**新規**にマップされます。 値の**返金**は**キャンセル**にマップされます。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="rest-examples"></a>REST の例
 

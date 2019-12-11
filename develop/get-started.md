@@ -1,19 +1,19 @@
 ---
-title: はじめに
+title: 、
 description: パートナーセンター SDK には、顧客、サブスクリプション、および注文データを管理するために使用する、管理された API と REST API が含まれています。
 ms.assetid: D9A91032-CA5B-4CD2-ADBA-6C5513E05D32
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 945b8df7d26f8d14386870979f69e3fdbe18d04f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3d47c3c41a7f6a23d8be6e9c20c16e6f7c01f275
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487282"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995227"
 ---
-# <a name="get-started"></a>はじめに
+# <a name="get-started"></a>、
 
 **適用対象**
 
@@ -26,7 +26,7 @@ ms.locfileid: "74487282"
 
 ## <a name="span-idget_the_codespan-idget_the_codespan-idget_the_codeget-the-code"></a>コードの取得 <span id="GET_THE_CODE"/><span id="get_the_code"/>の <span id="Get_the_code"/>
 
-[パートナーセンター SDK をダウンロードする](http://go.microsoft.com/fwlink/p/?LinkId=746681)  
+[パートナーセンター SDK をダウンロードする](https://go.microsoft.com/fwlink/p/?LinkId=746681)  
 
 > [!NOTE]  
 > 間接リセラーのパートナーセンターへの API アクセスは、サポートされているシナリオではありません。
@@ -59,7 +59,7 @@ C#スニペット、REST サンプル、サンプルアプリの詳細につい�
 
 ## <a name="span-idget_helpspan-idget_helpspan-idget_helpget-help"></a><span id="get_help"/>の <span id="Get_help"/><span id="GET_HELP"/>ヘルプの表示
 
-パートナーは、[パートナーセンター SDK Yammer グループ](http://go.microsoft.com/fwlink/p/?LinkID=717360)でサポートを受けることができます。 パーソナライズされたヘルプを表示するために、開発者は MPN サポートの特典や Premier サポートを使用できます。
+パートナーは、[パートナーセンター SDK Yammer グループ](https://go.microsoft.com/fwlink/p/?LinkID=717360)でサポートを受けることができます。 パーソナライズされたヘルプを表示するために、開発者は MPN サポートの特典や Premier サポートを使用できます。
 
 ## <a name="span-idearly_adopter_programspan-idearly_adopter_programspan-idearly_adopter_programjoin-the-partner-center-api-and-sdk-early-adopter-program"></a>パートナーセンター API および SDK 早期導入プログラムに参加 <span id="EARLY_ADOPTER_PROGRAM"/><span id="early_adopter_program"/><span id="Early_adopter_program"/>
 

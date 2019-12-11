@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: aaa7e7ecb10b73a27ce6e406df95f1fe073d8f28
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 79a4abf7c9aaf791421f008221d32a89c18f5867
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487752"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995207"
 ---
 # <a name="validate-an-address"></a>アドレスを検証する
 
@@ -129,11 +129,11 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 ## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
-**要求の構文**
+**要求構文**
 
 | メソッド   | 要求 URI                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
 
 **要求ヘッダー**
 
@@ -143,14 +143,14 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前         | 種類   | 必須 | 説明                                                |
+| 名前         | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                |
 |--------------|--------|----------|------------------------------------------------------------|
-| addressline1 | string | Y        | 住所の1行目。                             |
-| addressline2 | string | N        | アドレスの2番目の行。 このプロパティは省略可能です。 |
+| addressline1 | string | Y        | 所在地の 1 行目。                             |
+| addressline2 | string | N        | 所在地の 2 行目。 このプロパティは省略可能です。 |
 | city         | string | Y        | 市区町村。                                                  |
-| state        | string | Y        | 状態。                                                 |
+| state        | string | Y        | 都道府県。                                                 |
 | postalcode   | string | Y        | 郵便番号。                                           |
-| country      | string | Y        | 2文字の ISO alpha 2 国コード。                |
+| country      | string | Y        | 2 文字の ISO alpha-2 国別コード。                |
 
 **要求の例**
 
@@ -166,11 +166,11 @@ Host: api.partnercenter.microsoft.com
 Content-Length: 129
 
 {
-    AddressLine1: "One Microsoft Way",
-    City: "Redmond",
-    State: "WA",
-    PostalCode: "98052",
-    Country: "US"
+    "AddressLine1": "One Microsoft Way",
+    "City": "Redmond",
+    "State": "WA",
+    "PostalCode": "98052",
+    "Country": "US"
 }
 ```
 
@@ -182,7 +182,7 @@ Content-Length: 129
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 **応答-検証成功の例**
 

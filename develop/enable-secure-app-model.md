@@ -5,12 +5,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 248de75fd97405a5386628ee47ae16661cdef9f8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c8700ecdf42b0a5e156d68854674c904d8da1d4c
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490102"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995137"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>セキュリティで保護されたアプリケーションモデルフレームワークを有効にする
 
@@ -22,7 +22,7 @@ Microsoft では、Microsoft Azure multi-factor authentication (MFA) アーキ�
 
 新しいモデルを使用して、パートナーセンターの API 統合呼び出しのセキュリティを昇格させることができます。 これにより、すべてのパーティ (Microsoft、CSP パートナー、CPVs など) がセキュリティ上のリスクからインフラストラクチャと顧客データを保護するのに役立ちます。
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>適用範囲
 
 このトピックでは、次のアクターについて説明します。
 
@@ -39,14 +39,14 @@ Microsoft では、Microsoft Azure multi-factor authentication (MFA) アーキ�
 
 Marketplace アプリケーションでは、Microsoft Api を呼び出すために CSP パートナーの特権を借用する必要があります。 これらの機密性の高いアプリケーションに対するセキュリティ攻撃によって、顧客データが侵害される可能性があります。
 
-新しい認証フレームワークの概要と詳細については、[セキュリティで保護されたアプリケーションモデルフレームワーク](http://assetsprod.microsoft.com/secure-application-model-guide.pdf)に関するドキュメントをダウンロードしてください。 このドキュメントでは、marketplace アプリケーションをセキュリティ侵害から確実かつ堅牢にするための原則とベストプラクティスについて説明します。
+新しい認証フレームワークの概要と詳細については、[セキュリティで保護されたアプリケーションモデルフレームワーク](https://assetsprod.microsoft.com/secure-application-model-guide.pdf)に関するドキュメントをダウンロードしてください。 このドキュメントでは、marketplace アプリケーションをセキュリティ侵害から確実かつ堅牢にするための原則とベストプラクティスについて説明します。
 
 ## <a name="samples"></a>サンプル
 
 次の概要ドキュメントとサンプルコードでは、パートナーがセキュリティで保護されたアプリケーションモデルフレームワークを実装する方法について説明します。
 
-- [CPV の概要ドキュメント](http://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
-- [CSP の概要ドキュメント](http://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
+- [CPV の概要ドキュメント](https://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
+- [CSP の概要ドキュメント](https://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
 - [.NET のサンプル](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
 - [Java のサンプル](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
 
@@ -55,11 +55,11 @@ Marketplace アプリケーションでは、Microsoft Api を呼び出すため
 - [REST の手順とサンプル](#rest)
 - [PowerShell の手順とサンプル](#powershell)
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 サンプルコードを使用して、セキュリティで保護されたアプリケーションモデルフレームワークで REST 呼び出しを行うには、次の操作を行う必要があります。
 
-1. [Web アプリを作成する](#create-a-web-app)
+1. [Web アプリの作成](#create-a-web-app)
 2. [認証コードを取得する](#get-authorization-code)
 3. [更新トークンを取得する](#get-refresh-token)
 4. [アクセストークンを取得する](#get-access-token)
@@ -72,7 +72,7 @@ Marketplace アプリケーションでは、Microsoft Api を呼び出すため
 
 REST 呼び出しを行う前に、パートナーセンターで web アプリを作成して登録する必要があります。
 
-1. [Azure portal](https://portal.azure.com)にサインインします。
+1. [Azure portal](https://portal.azure.com) にサインインします。
 2. Azure Active Directory (Azure AD) アプリを作成します。
 3. *アプリケーションの要件に応じて*、次のリソースへの委任されたアプリケーションアクセス許可を付与します。 必要に応じて、アプリケーションリソースに対して委任されたアクセス許可をさらに追加することができます。
     1. **Microsoft パートナーセンター** (一部のテナントはこれを**sampleて app**として示しています)
@@ -81,12 +81,12 @@ REST 呼び出しを行う前に、パートナーセンターで web アプリ�
 4. アプリのホーム URL が、ライブ web アプリが実行されているエンドポイントに設定されていることを確認します。 このアプリは、Azure AD ログイン呼び出しからの[認証コード](#get-authorization-code)を受け入れる必要があります。 たとえば、[次のセクション](#get-authorization-code)のコード例では、web アプリが `https://localhost:44395/`で実行されています。
 5. Azure AD の web アプリの設定から次の情報を確認してください。
     - アプリケーション ID
-    - アプリケーションシークレット
+    - アプリケーション シークレット
 
 > [!NOTE]
-> [アプリケーションシークレットとして証明書を使用](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials)することをお勧めします。 ただし、Azure portal でアプリケーションキーを作成することもできます。 [次のセクション](#get-authorization-code)のサンプルコードでは、アプリケーションキーを使用します。
+> [アプリケーションシークレットとして証明書を使用](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)することをお勧めします。 ただし、Azure portal でアプリケーションキーを作成することもできます。 [次のセクション](#get-authorization-code)のサンプルコードでは、アプリケーションキーを使用します。
 
-### <a name="get-authorization-code"></a>認証コードの取得
+### <a name="get-authorization-code"></a>認証コードを取得する
 
 Web アプリが Azure AD ログイン呼び出しから同意するには、次の認証コードを取得する必要があります。
 
@@ -118,10 +118,10 @@ code=AuthorizationCodeValue&id_token=IdTokenValue&<rest of properties for state>
 
 1. 認証コードを使用して `https://login.microsoftonline.com/CSPTenantID/oauth2/token` Azure AD ログインエンドポイントへの POST 呼び出しを行います。 例については、次の[サンプル呼び出し](#sample-refresh-call)を参照してください。
 2. 返される更新トークンに注意してください。
-3. 更新トークンを Azure Key Vault に格納します。 詳細については、 [KEY VAULT API のドキュメント](https://docs.microsoft.com/en-us/rest/api/keyvault/)を参照してください。
+3. 更新トークンを Azure Key Vault に格納します。 詳細については、 [KEY VAULT API のドキュメント](https://docs.microsoft.com/rest/api/keyvault/)を参照してください。
 
 > [!IMPORTANT]
-> 更新トークンは、Key Vault に[シークレットとして格納されて](https://docs.microsoft.com/en-us/rest/api/keyvault/setsecret/setsecret)いる必要があります。
+> 更新トークンは、Key Vault に[シークレットとして格納されて](https://docs.microsoft.com/rest/api/keyvault/setsecret/setsecret)いる必要があります。
 
 #### <a name="sample-refresh-call"></a>更新呼び出しのサンプル
 
@@ -209,7 +209,7 @@ Host: api.partnercenter.microsoft.com
 
 [パートナーセンターの PowerShell モジュール](https://www.powershellgallery.com/packages/PartnerCenter)を使用して、アクセストークンの認証コードを交換するために必要なインフラストラクチャを減らすことができます。 [パートナーセンターの REST 呼び出し](#rest)を行う場合、この方法は省略可能です。
 
-このプロセスの詳細については、「[セキュリティで保護されたアプリモデル](https://docs.microsoft.com/en-us/powershell/partnercenter/secure-app-model)の PowerShell ドキュメント」を参照してください。
+このプロセスの詳細については、「[セキュリティで保護されたアプリモデル](https://docs.microsoft.com/powershell/partnercenter/secure-app-model)の PowerShell ドキュメント」を参照してください。
 
 1. Azure AD とパートナーセンターの PowerShell モジュールをインストールします。
 

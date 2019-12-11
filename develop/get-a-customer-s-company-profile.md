@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: a9e9e4182a1350f9e28c5c2c00bf1e57d8170384
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a670cdd82528d2017550cef7484a1e676f73bb3d
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488742"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995107"
 ---
 # <a name="get-a-customers-company-profile"></a>顧客の会社のプロファイルを取得する
 
@@ -42,7 +42,7 @@ ms.locfileid: "74488742"
 var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Company.Get();
 ```
 
-**サンプル**:[パートナーセンター SDK をダウンロード](http://go.microsoft.com/fwlink/p/?LinkId=746681)します。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: GetCustomerCompanyProfile.cs
+**サンプル**:[パートナーセンター SDK をダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=746681)します。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: GetCustomerCompanyProfile.cs
 
 ### <a name="java"></a>Java
 
@@ -59,19 +59,19 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
 
-**要求の構文**
+**要求構文**
 
 | メソッド  | 要求 URI                                                             |
 |---------|-------------------------------------------------------------------------|
-| **取得** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
+| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
 
 **URI パラメーター**
 
 次のクエリパラメーターを使用して、会社のプロファイルを取得します。
 
-| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
+| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 
 
 **要求ヘッダー**
@@ -102,7 +102,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 
