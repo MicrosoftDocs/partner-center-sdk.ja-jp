@@ -10,12 +10,12 @@ metadata:
   author: lauradolan
   ms.author: ladolan
   ms.date: 11/05/2019
-  ms.openlocfilehash: df534dc5951ac155bde06044a55465d00df18ebe
-  ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+  ms.openlocfilehash: fdc4b89eca5f3530bd3fcda0dc063277dc4b0488
+  ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 11/26/2019
-  ms.locfileid: "74485602"
+  ms.lasthandoff: 12/10/2019
+  ms.locfileid: "74995237"
 landingContent:
 - title: パートナー センターを使用して開発する
   linkLists:
@@ -23,7 +23,7 @@ landingContent:
     links:
     - text: 開発者アカウントと認証を構成する
       url: partner-center-authentication.md
-    - text: 環境をセットアップする
+    - text: 環境を設定する
       url: get-started.md
   - linkListType: whats-new
     links:
@@ -35,7 +35,7 @@ landingContent:
       url: partner-center-samples.md
     - text: シナリオ例
       url: scenarios.md
-- title: .NET SDK (v1.15.1) を使用する
+- title: .NET SDK (v1.15.2) を使用する
   linkLists:
   - linkListType: download
     links:
@@ -47,6 +47,8 @@ landingContent:
     links:
     - text: マネージド .NET API リファレンス
       url: https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest
+    - text: .NET SDK バージョンのリリース ノート
+      url: dotnet-release-notes.md
 - title: REST API を使用する
   linkLists:
   - linkListType: reference
