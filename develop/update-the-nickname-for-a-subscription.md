@@ -6,12 +6,12 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: efee3cb912dbe29688b08b6cfc4d684a10bba8be
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 83657fbe507215905a950f16ede31b9a7d6f2d6c
+ms.sourcegitcommit: 41d6e1fe826a51fa43825de6d481663d3d34f290
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486302"
+ms.lasthandoff: 12/14/2019
+ms.locfileid: "75032123"
 ---
 # <a name="update-the-nickname-for-a-subscription"></a>サブスクリプションのニックネームを更新する
 
@@ -56,11 +56,11 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 ## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
 
 
-**要求の構文**
+**要求構文**
 
 | メソッド    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
  
 
@@ -68,10 +68,10 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションのニックネームを更新するために必要なクエリパラメーターを示します。
 
-| 名前                    | 種類     | 必須 | 説明                          |
+| 名前                    | タスクバーの検索ボックスに     | 必須かどうか | 説明                          |
 |-------------------------|----------|----------|--------------------------------------|
-| **顧客-テナント id**  | **guid** | Y        | **顧客テナント id** (GUID)。 |
-| **id-サブスクリプション** | **guid** | Y        | サブスクリプション ID (GUID)。        |
+| **customer-tenant-id**  | **guid** | Y        | **顧客テナント id** (GUID)。 |
+| **id-for-subscription** | **guid** | Y        | サブスクリプション ID (GUID)。        |
 
  
 
@@ -81,7 +81,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 **要求本文**
 
-要求本文には、完全な**サブスクリプション**リソースが必要です。 **FriendlyName**プロパティが更新されていることを確認します。
+要求本文には完全な **Subscription** リソースが必要です。 **FriendlyName**プロパティが更新されていることを確認します。
 
 **要求の例**
 
@@ -125,12 +125,12 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 
 ```http
-PATCH http://partnerapi.store.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-Contract-Version: v1
