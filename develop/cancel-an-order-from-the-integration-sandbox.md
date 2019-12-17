@@ -5,12 +5,12 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: b5aa51983820e33b8a1f6d45f14bd49063ffcd5c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 960d35e71dda4ee30d6fc775299bd8954dcd1a6e
+ms.sourcegitcommit: 9a8a501481f8bdf15bf464bce6c21d25d383aca5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489092"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033458"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>統合サンドボックスから注文をキャンセルする
 
@@ -59,24 +59,28 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 | メソッド     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 顧客を削除するには、次のクエリパラメーターを使用します。
 
-| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
+| 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
-| **注文-id** | **文字列** | Y        | 値は、キャンセルする必要がある注文 id を示す文字列です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **注文-id** | **string** | Y        | 値は、キャンセルする必要がある注文 id を示す文字列です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
 ### <a name="request-body"></a>要求本文
-
-なし。
+```http
+{  
+    "id": "UKXASSO1dezh3HdxClHxSp5UEFXGbAnt1",  
+    "status": "cancelled",  
+}
+```
 
 ### <a name="request-example"></a>要求の例
 
@@ -96,9 +100,9 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 成功した場合、このメソッドは取り消された順序を返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 
