@@ -1,24 +1,22 @@
 ---
 title: ソフトウェアの購入の取り消し
 description: パートナーセンター Api を使用して、ソフトウェアサブスクリプションと永続的なソフトウェアの購入をキャンセルするセルフサービスオプション。
-ms.date: 12/11/2019
+ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 214e01588559845ee2b8e4ed072e17d8e3ac4309
-ms.sourcegitcommit: 9a8a501481f8bdf15bf464bce6c21d25d383aca5
+ms.openlocfilehash: 17850452b3789fed861dc7855acd40cac186d5fb
+ms.sourcegitcommit: 9b98bc43ccf70e7f49917292de4b70316c215e0c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033528"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75302390"
 ---
 # <a name="cancel-software-purchases"></a>ソフトウェアの購入の取り消し
 
 適用対象:
 
 - パートナー センター
-- Microsoft Cloud ドイツのパートナー センター
-- 米国政府機関向け Microsoft Cloud のパートナー センター
 
 パートナーセンター Api を使用して、購入日からキャンセル期間内にあるソフトウェアのサブスクリプションと永続的なソフトウェアの購入を取り消すことができます。 このようなキャンセルを行うためのサポートチケットを作成する必要はありません。代わりに、次のセルフサービスメソッドを使用できます。
 
@@ -32,7 +30,7 @@ ms.locfileid: "75033528"
 
 1. パートナー操作を取得するために[**ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)インターフェイスを取得するには、アカウントの資格情報を[**createpartneroperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡します。
 
-2. 取り消したい特定の[順序](order-resources.md#order)を選択します。 顧客識別子を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、その後に注文 id を付けて**ById ()** を呼び出します。
+2. 取り消したい特定の[順序](order-resources.md#order)を選択します。 顧客識別子を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、その後に注文 id を付けて**ById ()** を呼び出します。
 
 3. 注文を取得するには、 **Get**または**GetAsync**メソッドを呼び出します。
 
@@ -65,7 +63,7 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 | メソッド     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **KB830347** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
@@ -73,7 +71,7 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 | 名前                   | タスクバーの検索ボックスに     | 必須かどうか | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする、GUID 形式の顧客テナント識別子です。 |
+| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする、GUID 形式の顧客テナント識別子です。 |
 | **注文-id** | **string** | Y        | 値は、キャンセルする順序の識別子を表す文字列です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
