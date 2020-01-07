@@ -31,7 +31,12 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "disable_contribution_on_translation_quality": ["MT"],
+      "disable_contribution_on_translation_quality": [
+        "MT",
+        "MTE75",
+        "MTE95",
+        "Blank"
+      ],
       "uhfHeaderId": "MSDocsHeader-Partner-Center",
       "titleSuffix": "Partner Center app developer",
       "breadcrumb_path": "/partner-center/develop/breadcrumb/toc.json",
@@ -45,7 +50,7 @@
       "ms.technology": "partner-center-sdk",
       "_op_documentIdPathDepotMapping": {
         "./": {
-          "depot_name": "MSDN.partner-center-sdk", 
+          "depot_name": "MSDN.partner-center-sdk",
           "folder_relative_path_in_docset": "./"
         }
       }
