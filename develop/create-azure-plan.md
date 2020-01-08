@@ -2,26 +2,26 @@
 title: Azure プランを作成する
 description: 開発者は、パートナーセンター Api を使用して、Azure プランをプログラムによって購入、作成、管理できます。
 ms.assetid: ''
-ms.date: 11/01/2019
+ms.date: 01/02/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 572d5c64343c360f3daf0fb8fef7551da7bdcb2f
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 65d7e33d5a05cbf0b6ca938ea45f0ba03dfefd2e
+ms.sourcegitcommit: efffee16923d06f37d24cd50cbce9bdc82a56a5e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995197"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75621656"
 ---
 # <a name="create-an-azure-plan"></a>Azure プランを作成する
 
-適用対象:
+適用先:
 
 * パートナー センター
 
 パートナーセンター Api を使用して、Azure プランの購入、作成、管理を行うことができます。 このプロセスは、Microsoft Azure (0145P) サブスクリプションの作成と似ています。 [Azure プランのカタログアイテムを取得](#get-the-catalog-item-for-azure-plan)し、[注文を作成して送信](#create-and-submit-an-order)する必要があります。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 * [パートナーセンターの認証](partner-center-authentication.md)資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 * 顧客 ID。 顧客の識別子がない場合は、「[顧客の一覧を取得する](get-a-list-of-customers.md)」または「パートナーセンターにサインインする」の手順に従って、顧客 の一覧から顧客を選択し、 **[アカウント]** を選択して、 **Microsoft ID**を保存します。
@@ -63,7 +63,7 @@ Azure プランの注文を送信するには、次の手順を実行します�
 注文が正常に処理されると、Azure プランのパートナーセンターの**サブスクリプション**リソースが作成されます。 パートナーセンターの**サブスクリプション**リソースを管理して Azure プランを管理するには、次の方法を使用できます。
 
 * [顧客のサブスクリプションを取得する](get-all-of-a-customer-s-subscriptions.md)
-* [注文別のサブスクリプションの一覧を取得する](get-a-list-of-subscriptions-by-order.md)
+* [注文ごとにサブスクリプションの一覧を取得する](get-a-list-of-subscriptions-by-order.md)
 
 Azure プランがパートナーセンターで作成されると、対応する Azure usage サブスクリプションも Azure に作成されます。 Azure Portal と Azure Api を使用して、同じ Azure プランで追加の Azure 使用サブスクリプションを作成することもできます。 Azure プランに関連付けられているすべての Azure 使用サブスクリプションの id を取得するには、「[パートナーセンターのサブスクリプションに対する azure の権利の一覧を取得](get-a-list-of-azure-entitlements-for-subscription.md)する」の手順に従ってください。
 
@@ -75,7 +75,10 @@ Azure プランがパートナーセンターで作成されると、対応す�
 
 Azure の使用サブスクリプションを無効にする方法の詳細については、「[サブスクリプションライフサイクル管理での AZURE API](https://docs.microsoft.com/rest/api/resources/subscriptions)」を参照してください。
 
-既存の Azure 予約を削除するには、[キャンセル要求](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)を送信する必要があります。 Azure プランが中断されたら、再アクティブ化することはできません。
+既存の Azure 予約を削除するには、[予約を取り消す](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation)必要があります。  
+Azure プランを中断した後、再アクティブ化することができます。
+
+Azure プランを再アクティブ化する方法の詳細については、「中断され[たサブスクリプションの再アクティブ化](reactivate-a-suspended-a-subscription.md)」を参照してください。
 
 ## <a name="transition-existing-csp-offers-to-azure-plan"></a>既存の CSP オファーを Azure プランに移行する
 
