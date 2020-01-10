@@ -242,5 +242,5 @@
 ### [パートナー センター Webhook](partner-center-webhooks.md) 
 ## [パートナー センターのマネージド .NET API リファレンス](https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest)
 ### [パートナー センターの .NET API バージョンのリリース ノート](dotnet-release-notes.md)
-## [パートナー センターの Java API リファレンス](https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1)
-## [パートナー センターの PowerShell コマンド](https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5)
+## [パートナー センターの Java API リファレンス](https://docs.microsoft.com/java/partnercenter)
+## [パートナー センターの PowerShell コマンド](https://docs.microsoft.com/powershell/partnercenter)
