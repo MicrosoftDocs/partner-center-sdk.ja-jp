@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: lauradolan
   ms.author: ladolan
-  ms.date: 11/05/2019
-  ms.openlocfilehash: fdc4b89eca5f3530bd3fcda0dc063277dc4b0488
-  ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+  ms.date: 01/08/2020
+  ms.openlocfilehash: ab73e95835c04806e25cb3cbbd46cecd31e3b86d
+  ms.sourcegitcommit: c6a3508ff9b5d97f6ec2bb232999386444933399
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 12/10/2019
-  ms.locfileid: "74995237"
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75780841"
 landingContent:
 - title: パートナー センターを使用して開発する
   linkLists:
@@ -42,7 +42,7 @@ landingContent:
     - text: パートナー センターの .NET SDK
       url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
     - text: パートナー センターの .NET のサンプル
-      url: https://github.com/Microsoft/Partner-Center-DotNet-Samples
+      url: https://github.com/microsoft/Partner-Center-DotNet-Samples
   - linkListType: reference
     links:
     - text: マネージド .NET API リファレンス
@@ -54,19 +54,19 @@ landingContent:
   - linkListType: reference
     links:
     - text: パートナー センター REST API リファレンス
-      url: https://docs.microsoft.com/en-us/partner-center/develop/partner-center-rest-api-reference
+      url: https://docs.microsoft.com/partner-center/develop/partner-center-rest-api-reference
 - title: Java SDK (オープンソース) を使用する
   linkLists:
   - linkListType: download
     links:
     - text: パートナー センター Java SDK をダウンロードする
-      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter/1.8.1/jar
+      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter
     - text: Java SDK GitHub リポジトリ (質問、投稿、イシュー)
-      url: https://github.com/Microsoft/Partner-Center-Java
+      url: https://github.com/microsoft/Partner-Center-Java
   - linkListType: reference
     links:
     - text: Java API リファレンス
-      url: https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1
+      url: https://docs.microsoft.com/java/partnercenter/overview
 - title: PowerShell モジュール (オープン ソース) を使用する
   linkLists:
   - linkListType: download
@@ -74,11 +74,11 @@ landingContent:
     - text: PowerShell モジュールをインストールする
       url: https://www.powershellgallery.com/packages/PartnerCenter
     - text: PowerShell モジュール GitHub リポジトリ (質問、投稿、イシュー)
-      url: https://github.com/Microsoft/Partner-Center-PowerShell
+      url: https://github.com/microsoft/Partner-Center-PowerShell
   - linkListType: reference
     links:
     - text: PowerShell コマンド
-      url: https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5
+      url: https://docs.microsoft.com/powershell/partnercenter
 - title: CSP パートナー用の Swagger API を使用する
   linkLists:
   - linkListType: reference
