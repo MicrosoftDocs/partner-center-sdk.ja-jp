@@ -1,30 +1,28 @@
 ---
 title: 請求書に請求される商用消費量の品目を取得する
 description: パートナーセンター Api を使用して、指定された請求書の商用消費請求書の明細項目 (終了日の評価済みの使用状況の行項目) の詳細を取得できます。
-ms.date: 11/01/2019
+ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 02706cb17462105749116a232837a37cce14f2e6
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 09f2c36c2b1d3adfa57eda687572533ffd0fde78
+ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995247"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923505"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>請求書に請求される商用消費量の品目を取得する
 
-適用対象:
+適用先:
  
 - パートナー センター
 
 次の方法を使用すると、指定された請求書について、商用消費請求書の明細品目 (終了日の評価済みの使用明細項目とも呼ばれます) の詳細のコレクションを取得できます。
 
-[!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
-
 この API は、Microsoft Azure (0145P) サブスクリプション用の**azure**プロバイダーの種類もサポートしています。 これは、この API が下位互換性のある機能であることを意味します。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 - 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
@@ -117,7 +115,7 @@ while (fetchNext)
 
 最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 請求書が大きい場合に、サイズと 0 ベースのオフセットを指定して品目のリストをページ単位で取得するには、2 つ目の構文を使用します。 3番目の構文を使用して、`seekOperation = "Next"`を使用して行項目の次のページを取得します。
 
-| メソッド  | 要求 URI                                                                                                                                                     |
+| 認証方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {CURRENCYCODE} HTTP/1.1                              |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {SIZE} HTTP/1.1  |
@@ -141,7 +139,7 @@ while (fetchNext)
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
 なし。
 

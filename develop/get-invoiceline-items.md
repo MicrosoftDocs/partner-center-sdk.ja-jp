@@ -2,20 +2,20 @@
 title: 請求書の品目を取得する
 description: パートナーセンター Api を使用して、指定した請求書の請求書明細項目 (クローズされた請求明細項目) の詳細のコレクションを取得できます。
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
-ms.date: 11/01/2019
+ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: e6849e40198829c25282ede9b286ab6844ae6359
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 37f9773cde315ea3f37bf1e6c7551666463aa44c
+ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490322"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923525"
 ---
 # <a name="get-invoice-line-items"></a>請求書の品目を取得する
 
-適用対象:
+適用先:
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
@@ -24,11 +24,13 @@ ms.locfileid: "74490322"
 
 次のメソッドを使用すると、指定した請求書の請求書明細項目 (クローズ請求明細項目とも呼ばれます) のコレクションの詳細を取得できます。
 
-[!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
+*バグの修正を除き、この API は更新されなくなりました。* **Marketplace**ではなく**onetime** API を呼び出すようにアプリケーションを更新する必要があります。 **Onetime** API には追加機能が用意されており、引き続き更新されます。
+
+**Onetime**を使用して、 **marketplace**ではなく、すべての商用消費明細項目に対してクエリを実行する必要があります。 または、[推定リンク] の呼び出しのリンクを使用することもできます。
 
 この API では、 **azure**と**office**の**プロバイダー**の種類 Microsoft Azure (0145p) サブスクリプションと office プランもサポートされており、API 機能の下位互換性が確保されています。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 - 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
@@ -102,7 +104,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetInvoiceLineItems.cs**
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -114,35 +116,37 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 次の構文は、課金プロバイダーが**Office**の場合に適用されます。
 
-| メソッド  | 要求 URI                                                                                                                                                     |
+| 認証方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = office & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1.1                               |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = office & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1.1                               |
 
 ##### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure (MS-AZR-0145P) サブスクリプション
 
 次の構文は、課金プロバイダーに Microsoft Azure (0145P) サブスクリプションがある場合に適用されます。
 
-| メソッド  | 要求 URI                                                                                                                                                     |
+| 認証方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1.1  |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure & invoicelineitemtype = usagelineitems & size = {size} & offset = {OFFSET} HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure & invoicelineitemtype = usagelineitems & size = {size} & offset = {OFFSET} HTTP/1.1  |
 
 ##### <a name="onetime"></a>OneTime
 
 次の構文は、課金プロバイダーが**OneTime**の場合に適用されます。 これには、Azure の予約、ソフトウェア、Azure プラン、および商用 marketplace 製品の料金が含まれます。
 
-| メソッド  | 要求 URI                                                                                                                                                     |
+| 認証方法  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & size = {SIZE} HTTP/1.1  |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems & size = {size}? Seekoperation = 次へ                           |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & size = {SIZE} HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems & size = {size}? Seekoperation = 次へ                           |
 
 ##### <a name="previous-syntaxes"></a>前の構文
 
 次の構文を使用する場合は、ユースケースに適した構文を使用するようにしてください。
 
-[!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
+*バグの修正を除き、この API は更新されなくなりました。* **Marketplace**ではなく**onetime** API を呼び出すようにアプリケーションを更新する必要があります。 **Onetime** API には追加機能が用意されており、引き続き更新されます。
 
-| メソッド | 要求 URI | 構文のユースケースの説明 |
+**Onetime**を使用して、 **marketplace**ではなく、すべての商用消費明細項目に対してクエリを実行する必要があります。 または、[推定リンク] の呼び出しのリンクを使用することもできます。
+
+| 認証方法 | 要求 URI | 構文のユースケースの説明 |
 | ------ | ----------- | -------------------------------- |
 | GET | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1.1                              | この構文を使用すると、指定された請求書のすべての品目の完全な一覧を返すことができます。 |
 | GET | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}? size = {size} & オフセット = {OFFSET} HTTP/1.1  | 大規模な請求書の場合は、この構文を指定したサイズと0ベースのオフセットを使用して、行項目のページ化されたリストを返すことができます。 |
@@ -152,15 +156,15 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | 種類   | 必須 | 説明                                                       |
+| 名前                   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| 請求書-id             | string | 〇      | 請求書を識別する文字列。                             |
-| 課金-プロバイダ       | string | 〇      | 課金プロバイダー: "Office"、"Azure"、"OneTime"。               |
-| 請求書-品目-種類 | string | 〇      | 請求書の詳細の種類: "BillingLineItems"、"UsageLineItems"。 |
-| size                   | number | X       | 返される項目の最大数。                            |
-| offset                 | number | X       | 返される最初の行項目の0から始まるインデックス。            |
-| seekOperation          | string | X       | 請求**プロバイダー**が**OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation**を**next**に等しく設定します。 |
-| hasPartnerEarnedCredit | bool | X | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
+| 請求書-id             | string | [はい]      | 請求書を識別する文字列。                             |
+| 課金-プロバイダ       | string | [はい]      | 課金プロバイダー: "Office"、"Azure"、"OneTime"。               |
+| 請求書-品目-種類 | string | [はい]      | 請求書の詳細の種類: "BillingLineItems"、"UsageLineItems"。 |
+| size                   | number | 必須ではない       | 返される項目の最大数。                            |
+| offset                 | number | 必須ではない       | 返される最初の行項目の0から始まるインデックス。            |
+| seekOperation          | string | 必須ではない       | 請求**プロバイダー**が**OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation**を**next**に等しく設定します。 |
+| hasPartnerEarnedCredit | ブール | 必須ではない | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
 
  
 
@@ -168,7 +172,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
 なし。
 
@@ -178,9 +182,9 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 *行項目**ChargeType**の場合、**購入**した値は**新規**にマップされます。値の**返金**は**キャンセル**にマップされます。*
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="rest-request-response-examples"></a>REST 要求-応答の例
 

@@ -1,20 +1,20 @@
 ---
 title: Invoice 未請求の商業消費明細項目を取得する
 description: パートナーセンター Api を使用して、指定された請求書の未請求商業消費明細項目の詳細のコレクションを取得できます。
-ms.date: 11/01/2019
+ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 45535b246d9eee1b5f969732b86ea6c25f0fd2fe
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b0be2c6f27e208fe9e212363a60085c46ef34f12
+ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489352"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923546"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Invoice 未請求の商業消費明細項目を取得する
 
-適用対象:
+適用先:
 
 - パートナー センター
 
@@ -22,9 +22,7 @@ ms.locfileid: "74489352"
 
 次のメソッドを使用して、未請求商業消費明細行項目 (オープンな使用状況の行項目とも呼ばれます) のコレクションをプログラムで取得できます。
 
-[!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
-
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必要条件
 
 - 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
@@ -108,7 +106,7 @@ while (fetchNext)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetUnBilledConsumptionReconLineItemsPaging.cs**
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -116,30 +114,30 @@ while (fetchNext)
 
 お使いのユースケースに応じて、REST 要求に対して次の構文を使用できます。 詳細については、各構文の説明を参照してください。
 
- | メソッド  | 要求 URI         | 構文のユースケースの説明 |                                                                                                                                            |
+ | 認証方法  | 要求 URI         | 構文のユースケースの説明 |                                                                                                                                            |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & period = {PERIOD} HTTP/1.1                              | この構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & period = {period} & size = {SIZE} HTTP/1.1  | この構文は、大きな請求書に使用します。 この構文を指定したサイズと0から始まるオフセットを使用して、行項目のページ化されたリストを返します。 |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & period = {period} & size = {size} & Seekoperation = Next                               | この構文を使用すると、`seekOperation = "Next"`を使用して、調整行項目の次のページを取得できます。 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & period = {PERIOD} HTTP/1.1                              | この構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & period = {period} & size = {SIZE} HTTP/1.1  | この構文は、大きな請求書に使用します。 この構文を指定したサイズと0から始まるオフセットを使用して、行項目のページ化されたリストを返します。 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & period = {period} & size = {size} & Seekoperation = Next                               | この構文を使用すると、`seekOperation = "Next"`を使用して、調整行項目の次のページを取得できます。 |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | 種類   | 必須 | 説明                                                                     |
+| 名前                   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| provider               | string | 〇      | プロバイダー: "**OneTime**"。                                                |
-| 請求書-品目-種類 | string | 〇      | 請求書の詳細の種類: "**UsageLineItems**"、"**UsageLineItems**"。               |
-| currencyCode           | string | 〇      | 未請求の品目の通貨コード。                                  |
-| 前期                 | string | 〇      | 未請求偵察の期間 (例: **current**, **previous**)。                      |
-| size                   | number | X       | 返される項目の最大数。 既定のサイズは2000です。                    |
-| seekOperation          | string | X       | [`seekOperation=Next`] を設定して、調整線の項目の次のページを取得します。                |
+| provider               | string | [はい]      | プロバイダー: "**OneTime**"。                                                |
+| 請求書-品目-種類 | string | [はい]      | 請求書の詳細の種類: "**UsageLineItems**"、"**UsageLineItems**"。               |
+| currencyCode           | string | [はい]      | 未請求の品目の通貨コード。                                  |
+| 前期                 | string | [はい]      | 未請求偵察の期間 (例: **current**, **previous**)。                      |
+| size                   | number | 必須ではない       | 返される項目の最大数。 既定のサイズは2000です。                    |
+| seekOperation          | string | 必須ではない       | [`seekOperation=Next`] を設定して、調整線の項目の次のページを取得します。                |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
 なし。
 
@@ -149,9 +147,9 @@ while (fetchNext)
 
 *行項目**ChargeType**の場合、**購入**した値は**新規**にマップされ、値の**返金**は**キャンセル**にマップされます。*
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="request-response-examples"></a>要求-応答の例
 
