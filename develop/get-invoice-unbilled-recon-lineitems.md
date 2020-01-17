@@ -5,12 +5,12 @@ ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 20de08a57888fa1ca701552f2d729c7580d1f740
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.openlocfilehash: 6504d612118daabb7d30e64a7b7e0c15d1c90265
+ms.sourcegitcommit: bc0f589e61bc4248f4d98b1849697e9f699ca766
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923514"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146724"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>請求書の未請求調整の品目を取得する
 
@@ -234,7 +234,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "billableQuantity": 3.1618,
-            "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+        "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
@@ -278,7 +278,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "billableQuantity": 0.737083,
-            "meterDescription": "",
+        "meterDescription": "",
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
@@ -395,8 +395,9 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
         "objectType": "Collection"
     }
 }
+```
 
-#### Request example 3
+#### <a name="request-example-3"></a>要求の例3
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/unbilled/lineitems?provider=OneTime&invoiceLineItemType=UsageLineItems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -465,7 +466,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "discountDetails": "",
             "providerSource": "All",
             "RateOfPartnerEarnedCredit": 0.15,
-            "IsPartnerEarnedCreditApplied": true
+            "IsPartnerEarnedCreditApplied": true,
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
