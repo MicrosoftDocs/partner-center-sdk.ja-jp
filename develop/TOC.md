@@ -11,7 +11,6 @@
 ### [セキュリティで保護されたアプリケーション モデルを有効にする](enable-secure-app-model.md)
 ### [テストとデバッグ](test-and-debug.md) 
 ### [早期導入者プログラム](early-adopter-program.md) 
-### [パートナー センター SDK EULA](EULA-Partner-Center-SDK.md)
 ## [シナリオ](scenarios.md)
 ### [Analytics](usage-analytics.md)
 #### [パートナー センターの分析 - リソース](partner-center-analytics-resources.md)

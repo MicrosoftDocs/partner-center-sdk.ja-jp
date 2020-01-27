@@ -1,20 +1,20 @@
 ---
 title: セキュリティで保護されたアプリケーションモデルを有効にする
 description: パートナーセンターとコントロールパネルアプリをセキュリティで保護します。
-ms.date: 09/17/2019
+ms.date: 01/20/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: c8700ecdf42b0a5e156d68854674c904d8da1d4c
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 0a6c3d14ca55350db832c10956b0751acb8f8a0c
+ms.sourcegitcommit: 0dea06cd7f95026d93f970d3c294370a58dfcb6b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995137"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76723184"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>セキュリティで保護されたアプリケーションモデルフレームワークを有効にする
 
-適用対象:
+適用先:
 
 - パートナー センター
 
@@ -22,7 +22,7 @@ Microsoft では、Microsoft Azure multi-factor authentication (MFA) アーキ�
 
 新しいモデルを使用して、パートナーセンターの API 統合呼び出しのセキュリティを昇格させることができます。 これにより、すべてのパーティ (Microsoft、CSP パートナー、CPVs など) がセキュリティ上のリスクからインフラストラクチャと顧客データを保護するのに役立ちます。
 
-## <a name="scope"></a>適用範囲
+## <a name="scope"></a>Scope
 
 このトピックでは、次のアクターについて説明します。
 
@@ -55,11 +55,11 @@ Marketplace アプリケーションでは、Microsoft Api を呼び出すため
 - [REST の手順とサンプル](#rest)
 - [PowerShell の手順とサンプル](#powershell)
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
 サンプルコードを使用して、セキュリティで保護されたアプリケーションモデルフレームワークで REST 呼び出しを行うには、次の操作を行う必要があります。
 
-1. [Web アプリの作成](#create-a-web-app)
+1. [Web アプリを作成する](#create-a-web-app)
 2. [認証コードを取得する](#get-authorization-code)
 3. [更新トークンを取得する](#get-refresh-token)
 4. [アクセストークンを取得する](#get-access-token)
@@ -81,16 +81,16 @@ REST 呼び出しを行う前に、パートナーセンターで web アプリ�
 4. アプリのホーム URL が、ライブ web アプリが実行されているエンドポイントに設定されていることを確認します。 このアプリは、Azure AD ログイン呼び出しからの[認証コード](#get-authorization-code)を受け入れる必要があります。 たとえば、[次のセクション](#get-authorization-code)のコード例では、web アプリが `https://localhost:44395/`で実行されています。
 5. Azure AD の web アプリの設定から次の情報を確認してください。
     - アプリケーション ID
-    - アプリケーション シークレット
+    - アプリケーションシークレット
 
 > [!NOTE]
 > [アプリケーションシークレットとして証明書を使用](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)することをお勧めします。 ただし、Azure portal でアプリケーションキーを作成することもできます。 [次のセクション](#get-authorization-code)のサンプルコードでは、アプリケーションキーを使用します。
 
-### <a name="get-authorization-code"></a>認証コードを取得する
+### <a name="get-authorization-code"></a>認証コードの取得
 
 Web アプリが Azure AD ログイン呼び出しから同意するには、次の認証コードを取得する必要があります。
 
-1. 次の URL で Azure AD にログインします: <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>。 パートナーセンターの API 呼び出しを行うユーザーアカウント (管理エージェントや販売エージェントアカウントなど) を使用してログインしてください。
+1. 次の URL で Azure AD にログインします: <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1>。 パートナーセンターの API 呼び出しを行うユーザーアカウント (管理エージェントや販売エージェントアカウントなど) を使用してログインしてください。
 2. **アプリケーション id**を AZURE AD アプリ ID (GUID) に置き換えます。
 3. プロンプトが表示されたら、MFA が構成されたユーザーアカウントでログインします。
 4. プロンプトが表示されたら、追加の MFA 情報 (電話番号または電子メールアドレス) を入力して、ログインを確認します。
@@ -221,37 +221,21 @@ Host: api.partnercenter.microsoft.com
     Install-Module PartnerCenter
     ```
 
-2. PowerShell を使用して、Azure AD アプリケーションの応答 URL として `urn:ietf:wg:oauth:2.0:oob` を追加します。 オブジェクト識別子パラメーターの値は、Azure AD アプリケーションのオブジェクト識別子に置き換えるようにしてください。 この値は、Azure 管理ポータルで確認できます。
-
-    ```powershell
-    Connect-AzureAD
-    ```
-
-    ```powershell
-    Set-AzureADApplication -ObjectId 659dd68d-3414-4254-a48b-c081b5631b86 -ReplyUrls @("urn:ietf:wg:oauth:2.0:oob")
-    ```
-
-3. **[PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** コマンドを使用して同意プロセスを実行し、必要な更新トークンをキャプチャします。
+2. **[PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** コマンドを使用して同意プロセスを実行し、必要な更新トークンをキャプチャします。
 
     ```powershell
     $credential = Get-Credential
-    ```
 
-    ```powershell
-    $token = New-PartnerAccessToken -Consent -Credential $credential -Resource https://api.partnercenter.microsoft.com -ServicePrincipal
+    New-PartnerAccessToken -ApplicationId 'xxxx-xxxx-xxxx-xxxx' -Scopes 'https://api.partnercenter.microsoft.com/user_impersonation' -ServicePrincipal -Credential $credential -Tenant 'yyyy-yyyy-yyyy-yyyy' -UseAuthorizationCode
     ```
 
     > [!NOTE]
-    > **PartnerAccessToken**コマンドで**serviceprincipal**パラメーターを使用しているのは、種類が**web/API**の Azure AD アプリが使用されているためです。 この種類のアプリでは、アクセストークン要求にクライアント識別子とシークレットが含まれている必要があります。
+    > **PartnerAccessToken**コマンドで**serviceprincipal**パラメーターを使用しているのは、種類が**Web/API**の Azure AD アプリが使用されているためです。 この種類のアプリでは、アクセストークン要求にクライアント識別子とシークレットが含まれている必要があります。 **Get Credential**コマンドが呼び出されると、ユーザー名とパスワードを入力するように求められます。 アプリケーション識別子をユーザー名として入力します。 アプリケーションシークレットをパスワードとして入力します。 **PartnerAccessToken**コマンドが呼び出されると、資格情報をもう一度入力するように求められます。 使用しているサービスアカウントの資格情報を入力します。 このサービスアカウントは、適切なアクセス許可を持つパートナーアカウントである必要があります。
 
-4. 更新トークンの値をコピーします。
+3. 更新トークンの値をコピーします。
 
     ```powershell
     $token.RefreshToken | clip
     ```
 
-5. **Get Credential**コマンドが呼び出されると、ユーザー名とパスワードを入力するように求められます。 アプリケーション識別子をユーザー名として入力します。 アプリケーションシークレットをパスワードとして入力します。
-
-6. **PartnerAccessToken**コマンドが呼び出されると、資格情報をもう一度入力するように求められます。 使用しているサービスアカウントの資格情報を入力します。 このサービスアカウントは、apppropriate アクセス許可を持つパートナーアカウントである必要があります。
-
-7. **PartnerAccessToken**が正常に実行されると、 **$token**変数に Azure AD からの応答が含まれるようになります。 更新トークンの値は、必ず、Azure Key Vault などのセキュリティで保護されたリポジトリに保存してください。
+更新トークンの値は、Azure Key Vault などのセキュリティで保護されたリポジトリに格納する必要があります。 PowerShell で secure application モジュールを活用する方法の詳細については、 [multi-factor authentication](https://docs.microsoft.com/powershell/partnercenter/multi-factor-auth)に関する記事を参照してください。
