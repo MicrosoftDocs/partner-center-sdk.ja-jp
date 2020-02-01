@@ -2,20 +2,20 @@
 title: 請求書のリソース
 description: 複数の請求書関連リソースは、パートナーセンター Api を通じて利用できます。 これらのリソースは、請求書と品目の詳細に関連しています。
 ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
-ms.date: 11/01/2019
+ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1eb6175538bd4175e4ba1ff8a5641bdce3b0fa36
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6540af51e462974592ec18d7dd9ede8517ba1725
+ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486942"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76923081"
 ---
 # <a name="invoice-resources"></a>請求書のリソース
 
-適用対象:
+適用先:
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
@@ -26,7 +26,7 @@ ms.locfileid: "74486942"
 
 ## <a name="invoice"></a>請求書
 
-| プロパティ | 種類 | 説明 |
+| プロパティ | タスクバーの検索ボックスに | 説明 |
 | -------- | ---- | ----------- |
 | id | string | 請求書の識別子。 |
 | invoiceDate | UTC 日時形式の文字列 | 請求書が生成された日付。 |
@@ -49,7 +49,7 @@ ms.locfileid: "74486942"
 
 請求書には請求された項目のコレクションが含まれ、各項目は InvoiceDetail リソースによって表されます。
 
-| プロパティ            | 種類                                                           | 説明                                                                       |
+| プロパティ            | タスクバーの検索ボックスに                                                           | 説明                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | invoiceLineItemType | string                                                         | 請求書の詳細の種類は、"none"、"usage\_line\_items"、"billing\_line\_items" です。 |
 | プロバイダ     | string                                                         | 課金プロバイダー: "none"、"office"、"azure"、または "azure\_data\_market"。         |
@@ -60,7 +60,7 @@ ms.locfileid: "74486942"
 
 請求書内の個々の料金は、InvoiceLineItem として表されます。
 
-| プロパティ            | 種類                                                           | 説明                                                                          |
+| プロパティ            | タスクバーの検索ボックスに                                                           | 説明                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | invoiceLineItemType | string                                                         | 請求書の品目の種類。 "none"、"usage\_line\_items"、"billing\_line\_items" と入力します。 |
 | プロバイダ     | string                                                         | 課金プロバイダー: "none"、"office"、"azure"、または "azure\_data\_market"。            |
@@ -70,7 +70,7 @@ ms.locfileid: "74486942"
 
 請求書の残高と合計料金の概要について説明します。
 
-| プロパティ                 | 種類                                                           | 説明                                                           |
+| プロパティ                 | タスクバーの検索ボックスに                                                           | 説明                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | 定率額            | number                                                         | 請求書の残高。 これは、未払いの請求額の合計です。 |
 | currencyCode             | string                                                         | 残高の金額に使用する通貨を示すコード。       |
@@ -88,7 +88,7 @@ ms.locfileid: "74486942"
 
 請求書の種類に関する個別の詳細の概要を表します (たとえば、定期的、1回の\_時間)。
 
-| プロパティ            | 種類                                                           | 説明                                                                          |
+| プロパティ            | タスクバーの検索ボックスに                                                           | 説明                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | invoiceType         | string                                                         | 請求書の種類。 "定期的に"、"1\_時間"。                                       |
 | summary             | [InvoiceSummary](#invoicesummary)オブジェクト                       | 請求書の種類ごとの請求書の概要。                                         |
@@ -97,7 +97,7 @@ ms.locfileid: "74486942"
 
 通貨ごとの請求書の種類の個別の詳細を含む[InvoiceSummary](#invoicesummary)型のコレクションを表します。  
 
-| プロパティ            | 種類                                                           | 説明                                                                          |
+| プロパティ            | タスクバーの検索ボックスに                                                           | 説明                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | collectionOfSummary | [InvoiceSummary](#invoicesummary)オブジェクトの配列             | 通貨ごとの請求書の種類ごとの請求書の概要。                            |
 
@@ -105,7 +105,7 @@ ms.locfileid: "74486942"
 
 ライセンスベースのサブスクリプションの請求書請求明細項目を表します。
 
-| プロパティ                 | 種類                                                           | 説明                                                           |
+| プロパティ                 | タスクバーの検索ボックスに                                                           | 説明                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | 時間                   | string                                                         | 合計金額を取得または設定します。 合計金額 = 単価 * 数量。  |
 | 属性               | string                                                         | 属性を取得します。                                                  |
@@ -134,7 +134,7 @@ ms.locfileid: "74486942"
 | 小計                 | number                                                         | 割引後の金額を取得または設定します。                               |
 | syndicationPartnerSubscriptionNumber | string                                             | 配信パートナーのサブスクリプション番号を取得します。値の設定もできます。             |
 | 税金                      | number                                                         | 課金される税金を取得または設定します。                                       |
-| tier2MpnId               | number                                                         | この品目に関連付けられている Tier 2 パートナーの MPN ID を取得します。値の設定もできます。 |
+| Tier2MpnId               | number                                                         | この品目に関連付けられている Tier 2 パートナーの MPN ID を取得します。値の設定もできます。 |
 | totalForCustomer         | number                                                         | 割引と税金の後の合計金額を取得または設定します。                 |
 | 割引率       | number                                                         | この購入に関連付けられている割引を取得または設定します。              |
 | unitPrice                | number                                                         | 単価を取得または設定します。                                          |
@@ -143,7 +143,7 @@ ms.locfileid: "74486942"
 
 使用状況に基づくサブスクリプションの請求書請求明細項目を表します。
 
-| プロパティ                 | 種類                                                           | 説明                                                           |
+| プロパティ                 | タスクバーの検索ボックスに                                                           | 説明                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | 属性               | string                                                         | 属性を取得します。                                                  |
 | billingCycleType         | string                                                         | 請求サイクルの種類を取得または設定します。                                  |
@@ -183,14 +183,14 @@ ms.locfileid: "74486942"
 | subscriptionId           | string                                                         | サブスクリプションの一意の識別子を取得します。値の設定もできます。                      |
 | subscriptionName         | string                                                         | サブスクリプション名を取得または設定します。                                   |
 | taxAmount                | number                                                         | 課金される税金の量を取得または設定します。                               |
-| tier2MpnId               | number                                                         | この品目に関連付けられている Tier 2 パートナーの MPN ID を取得します。値の設定もできます。 |
+| Tier2MpnId               | number                                                         | この品目に関連付けられている Tier 2 パートナーの MPN ID を取得します。値の設定もできます。 |
 | ユニット                     | string                                                         | Azure の使用量の測定単位を取得または設定します。                     |
 
 ## <a name="invoicestatement"></a>InvoiceStatement
 
 Application/pdf の invoice ステートメントで使用可能な操作を表します。
 
-| プロパティ                 | 種類                                                           | 説明                                                           |
+| プロパティ                 | タスクバーの検索ボックスに                                                           | 説明                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | httpResponseMessage      | オブジェクト                                                         | ByteArrayContent と contentType = application/pdf。                  |
 
@@ -198,7 +198,7 @@ Application/pdf の invoice ステートメントで使用可能な操作を表�
 
 ライセンスベースのサブスクリプションの請求書請求明細項目を表します。
 
-| プロパティ | 種類 | 説明 |
+| プロパティ | タスクバーの検索ボックスに | 説明 |
 | --- | --- | --- |
 | PartnerId | string | パートナーのテナント ID を取得または設定します。 |
 | CustomerId | string | 顧客のテナント ID を取得または設定します。 |
@@ -207,7 +207,7 @@ Application/pdf の invoice ステートメントで使用可能な操作を表�
 | CustomerCountry | string | 顧客の国を取得または設定します。 |
 | InvoiceNumber | string | 請求書番号を取得または設定します。 |
 | MpnId | string | この行項目に関連付けられている MPN ID を取得または設定します。 |
-| ResellerMpnId | int | 順序の一意識別子を取得または設定します。 |
+| ResellerMpnId | 整数 | 順序の一意識別子を取得または設定します。 |
 | OrderDate | DateTime | 注文が作成された日付を取得します。値の設定もできます。 |
 | ProductId | string | 製品の一意識別子を取得します。値の設定もできます。 |
 | SkuId | string | SKU の一意識別子を取得または設定します。 |
@@ -215,13 +215,13 @@ Application/pdf の invoice ステートメントで使用可能な操作を表�
 | ProductName | string | 製品名を取得または設定します。 |
 | SkuName | string | SKU 名を取得または設定します。 |
 | ChargeType | string | 課金の種類を取得します。値の設定もできます。 |
-| UnitPrice | decimal | 単価を取得または設定します。 |
-| EffectiveUnitPrice | decimal | 有効な単価を取得または設定します。 |
+| UnitPrice | 10 進数 | 単価を取得または設定します。 |
+| EffectiveUnitPrice | 10 進数 | 有効な単価を取得または設定します。 |
 | Unittype.pixel 単位 | string | 単位の種類を取得または設定します。 |
-| 数量 | int | この行項目に関連付けられている単位の数を取得または設定します。 |
-| Subtotal | decimal | 割引後の金額を取得または設定します。 |
-| TaxTotal | decimal | 課金される税金を取得または設定します。 |
-| TotalForCustomer | decimal | 割引と税金の後の合計金額を取得または設定します。 |
+| 数量 | 整数 | この行項目に関連付けられている単位の数を取得または設定します。 |
+| Subtotal | 10 進数 | 割引後の金額を取得または設定します。 |
+| TaxTotal | 10 進数 | 課金される税金を取得または設定します。 |
+| TotalForCustomer | 10 進数 | 割引と税金の後の合計金額を取得または設定します。 |
 | 通貨 | string | この品目に使用する通貨を取得または設定します。 |
 | PublisherName | string | この購入に関連付けられている発行元の名前を取得または設定します。 |
 | PublisherId | string | この購入に関連付けられている発行者 ID を取得または設定します。 |
@@ -234,10 +234,11 @@ Application/pdf の invoice ステートメントで使用可能な操作を表�
 | PriceAdjustmentDescription | string | 価格調整の説明を取得または設定します。 |
 | DiscountDetails | string |  **推奨されなくなった値**です。 この購入に関連付けられている割引の詳細を取得または設定します。 |
 | PricingCurrency | string | 価格の通貨コードを取得または設定します。 |
-| PCToBCExchangeRate | decimal | 請求通貨換算率の価格の通貨を取得または設定します。 |
+| PCToBCExchangeRate | 10 進数 | 請求通貨換算率の価格の通貨を取得または設定します。 |
 | PCToBCExchangeRateDate | DateTime | 請求通貨換算レートの価格の通貨が決定された換算レートの日付を取得または設定します。 |
-| 各販売数量 | decimal | 購入したユニットを取得します。値の設定もできます。 という名前の各デザイン列に対して、"/" という名前の列**があります**。 |
+| 各販売数量 | 10 進数 | 購入したユニットを取得します。値の設定もできます。 という名前の各デザイン列に対して、"/" という名前の列**があります**。 |
 | MeterDescription | string | 消費明細項目のメーターの説明を取得または設定します。 |
+| ReservationOrderId | string | Azure RI 購入の予約注文 id を取得します。値の設定もできます。 |
 | Ic 周波数 | string | 請求頻度を取得または設定します。 |
 | InvoiceLineItemType | InvoiceLineItemType | 請求書の品目の種類を返します。 |
 | プロバイダ | プロバイダ | 課金プロバイダーを返します。 |
@@ -246,7 +247,7 @@ Application/pdf の invoice ステートメントで使用可能な操作を表�
 
 日単位で評価された未請求を表します。
 
-| プロパティ | 種類 | 説明 |
+| プロパティ | タスクバーの検索ボックスに | 説明 |
 | --- | --- | --- |
 | PartnerId | string | パートナーのテナント ID を取得または設定します。 |
 | PartnerName | string | パートナー名を取得または設定します。 |
@@ -285,19 +286,19 @@ Application/pdf の invoice ステートメントで使用可能な操作を表�
 | MpnId | string | この行項目に関連付けられている MPN ID を取得または設定します。 |
 | ResellerMpnId | string | この品目に関連付けられている Tier 2 パートナーの再販業者 MPN ID を取得します。値の設定もできます。 |
 | ChargeType | string | 課金の種類を取得します。値の設定もできます。 |
-| UnitPrice | decimal | ユニットの価格を取得します。値の設定もできます。 |
-| 数量 | decimal | 使用量を取得または設定します。 |
+| UnitPrice | 10 進数 | ユニットの価格を取得します。値の設定もできます。 |
+| 数量 | 10 進数 | 使用量を取得または設定します。 |
 | Unittype.pixel 単位 | string | 単位の種類 (1 時間など) を取得または設定します。 |
-| すべての Lingpretaxtotal | decimal | 顧客または請求通貨の現地通貨での、税金前の延長コストまたは合計コストを取得または設定します。 |
+| すべての Lingpretaxtotal | 10 進数 | 顧客または請求通貨の現地通貨での、税金前の延長コストまたは合計コストを取得または設定します。 |
 | 通貨 | string | メートルが顧客または請求通貨の現地通貨で請求される ISO 通貨を取得または設定します。 |
-| PricingPreTaxTotal | decimal | 評価に使用される米国ドルまたはカタログ通貨の税の前に、延長コストまたは合計コストを取得します。値の設定もできます。 |
+| PricingPreTaxTotal | 10 進数 | 評価に使用される米国ドルまたはカタログ通貨の税の前に、延長コストまたは合計コストを取得します。値の設定もできます。 |
 | PricingCurrency | string | 測定に使用される米国ドルまたはカタログの通貨で測定される ISO 通貨を取得または設定します。 |
 | EntitlementId | string | 権利 (Azure サブスクリプション) ID を取得または設定します。 |
 | EntitlementDescription | string | 権利 (Azure サブスクリプション) の説明を取得または設定します。 |
 | PCToBCExchangeRate | string | 請求通貨換算率の価格の通貨を取得または設定します。 |
 | PCToBCExchangeRateDate | DateTime | 請求通貨換算率の価格の通貨を取得または設定します。 |
-| EffectiveUnitPrice | decimal | 有効な単価を取得または設定します。 |
-| RateOfPartnerEarnedCredit | decimal | パートナー獲得クレジットの比率を取得または設定します。 |
-| hasPartnerEarnedCredit | bool | パートナーの獲得クレジットが適用されることを取得または設定します。 |
+| EffectiveUnitPrice | 10 進数 | 有効な単価を取得または設定します。 |
+| RateOfPartnerEarnedCredit | 10 進数 | パートナー獲得クレジットの比率を取得または設定します。 |
+| hasPartnerEarnedCredit | ブール | パートナーの獲得クレジットが適用されることを取得または設定します。 |
 | InvoiceLineItemType | InvoiceLineItemType | 請求書の品目の種類を返します。 |
 | プロバイダ | プロバイダ | 課金プロバイダーを返します。 |

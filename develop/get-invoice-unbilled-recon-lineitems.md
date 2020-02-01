@@ -1,16 +1,16 @@
 ---
 title: 請求書の未請求調整の品目を取得する
 description: パートナーセンター Api を使用して、指定した期間の未請求調整行項目の詳細のコレクションを取得できます。
-ms.date: 01/13/2020
+ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6504d612118daabb7d30e64a7b7e0c15d1c90265
-ms.sourcegitcommit: bc0f589e61bc4248f4d98b1849697e9f699ca766
+ms.openlocfilehash: 3f7bc17100c521aeaf7e0be371591942aab6aa21
+ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146724"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76923087"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>請求書の未請求調整の品目を取得する
 
@@ -110,7 +110,7 @@ while (fetchNext)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetUnBilledReconLineItemsPaging.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>休息
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -234,7 +234,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "billableQuantity": 3.1618,
-        "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "reservationOrderId": "883d475b-0000-1234-0000-8818752f1234",
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
@@ -278,7 +279,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "billableQuantity": 0.737083,
-        "meterDescription": "",
+            "meterDescription": "",
+            "reservationOrderId": "883d475b-0000-2222-0000-8818752f1234",
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
@@ -378,7 +380,14 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "chargeEndDate": "2019-03-03T09:22:34.6455294-08:00",
             "termAndBillingCycle": "1 Month Subscription",
             "alternateId": "123456ad566",
+            "priceAdjustmentDescription": "[\"15.0% Partner earned credit for services managed\",\"100.0% Tier 1 Discount\"]",
             "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": 1,
+            "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
+            "billableQuantity": 0.737083,
+            "meterDescription": "",
+            "reservationOrderId": ""
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
