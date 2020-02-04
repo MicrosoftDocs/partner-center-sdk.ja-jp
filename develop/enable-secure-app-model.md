@@ -14,15 +14,15 @@ ms.locfileid: "76723184"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>セキュリティで保護されたアプリケーションモデルフレームワークを有効にする
 
-適用先:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 Microsoft では、Microsoft Azure multi-factor authentication (MFA) アーキテクチャを使用して、クラウドソリューションプロバイダー (CSP) パートナーとコントロールパネルベンダー (CPV) を認証するための、セキュリティで保護されたスケーラブルなフレームワークを導入しています。
 
 新しいモデルを使用して、パートナーセンターの API 統合呼び出しのセキュリティを昇格させることができます。 これにより、すべてのパーティ (Microsoft、CSP パートナー、CPVs など) がセキュリティ上のリスクからインフラストラクチャと顧客データを保護するのに役立ちます。
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>スコープ
 
 このトピックでは、次のアクターについて説明します。
 
@@ -41,7 +41,7 @@ Marketplace アプリケーションでは、Microsoft Api を呼び出すため
 
 新しい認証フレームワークの概要と詳細については、[セキュリティで保護されたアプリケーションモデルフレームワーク](https://assetsprod.microsoft.com/secure-application-model-guide.pdf)に関するドキュメントをダウンロードしてください。 このドキュメントでは、marketplace アプリケーションをセキュリティ侵害から確実かつ堅牢にするための原則とベストプラクティスについて説明します。
 
-## <a name="samples"></a>サンプル
+## <a name="samples"></a>Samples
 
 次の概要ドキュメントとサンプルコードでは、パートナーがセキュリティで保護されたアプリケーションモデルフレームワークを実装する方法について説明します。
 
@@ -55,7 +55,7 @@ Marketplace アプリケーションでは、Microsoft Api を呼び出すため
 - [REST の手順とサンプル](#rest)
 - [PowerShell の手順とサンプル](#powershell)
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 サンプルコードを使用して、セキュリティで保護されたアプリケーションモデルフレームワークで REST 呼び出しを行うには、次の操作を行う必要があります。
 
@@ -80,7 +80,7 @@ REST 呼び出しを行う前に、パートナーセンターで web アプリ�
     3. **Windows Azure Active Directory**
 4. アプリのホーム URL が、ライブ web アプリが実行されているエンドポイントに設定されていることを確認します。 このアプリは、Azure AD ログイン呼び出しからの[認証コード](#get-authorization-code)を受け入れる必要があります。 たとえば、[次のセクション](#get-authorization-code)のコード例では、web アプリが `https://localhost:44395/`で実行されています。
 5. Azure AD の web アプリの設定から次の情報を確認してください。
-    - アプリケーション ID
+    - [アプリケーション ID]
     - アプリケーションシークレット
 
 > [!NOTE]
