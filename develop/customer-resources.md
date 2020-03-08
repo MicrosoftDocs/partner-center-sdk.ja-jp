@@ -7,11 +7,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 5afcf2a9bd673a903f7cc75072ec0c3f35cae5c5
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923532"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899909"
 ---
 # <a name="customer-resources"></a>お客様のリソース
 

@@ -7,17 +7,17 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: e91e79ce77ac020495c2d09a4bf33dd947231dec
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488902"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899642"
 ---
 # <a name="conversions-resources"></a>変換に関するリソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -43,7 +43,7 @@ ms.locfileid: "74488902"
 | プロパティ | 種類 | 説明 |
 | -------- | ---- | ----------- |
 | code | string | 問題に関連付けられているエラーコード。 使用可能な値: **Other** (一般エラー)、 **ConversionsNotFound** (変換先の評価版サブスクリプションの変換が見つかりません)。
-| 説明 | string | 問題を説明するフレンドリテキスト。 |
+| description | string | 問題を説明するフレンドリテキスト。 |
 
 ## <a name="conversionresult"></a>ConversionResult
 
@@ -54,4 +54,4 @@ ms.locfileid: "74488902"
 | subscriptionId | string                              | サブスクリプション識別子。                                           |
 | offerId        | string                              | 元のプラン識別子。                                         |
 | targetOfferId  | string                              | ターゲットプランのプラン識別子。                             |
-| error (エラー)          | [ConversionError](#conversionerror) | 変換の試行中にエラーが発生しました (該当する場合)。 |
+| エラー          | [ConversionError](#conversionerror) | 変換の試行中にエラーが発生しました (該当する場合)。 |
