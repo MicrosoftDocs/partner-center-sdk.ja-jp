@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: edce4bb1b13550445b49979dd59b2bce0486e7fd
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486262"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899689"
 ---
 # <a name="user-resources"></a>ユーザーリソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -37,13 +37,13 @@ ms.locfileid: "74486262"
 | firstName             | string                                                         | ユーザーの名。                                                                                                                                                                                                |
 | lastName              | string                                                         | ユーザーの姓。                                                                                                                                                                                                 |
 | displayName           | string                                                         | 表示されるユーザーの名前。                                                                                                                                                                                            |
-| PasswordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | ユーザーのパスワードプロファイル。                                                                                                                                                                                               |
+| passwordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | ユーザーのパスワードプロファイル。                                                                                                                                                                                               |
 | phoneNumber           | string                                                         | ユーザーの電話番号。                                                                                                                                                                                                   |
 | lastDirectorySyncTime | UTC 日時形式の文字列                                 | このユーザーの情報が Azure Active Directory とオンプレミス Active Directory の間で同期された最後の時刻。 日付と時刻の値は Azure AD Connect 同期が有効になっている場合にのみ表示されます。 それ以外の場合、値は null になります。 |
 | userDomainType        | string                                                         | ユーザードメインの種類: "none"、"managed"、または "フェデレーション"。                                                                                                                                                                   |
 | state                 | string                                                         | ユーザーの状態: "アクティブ"、"非アクティブ" (削除されたユーザーの場合)。                                                                                                                                                          |
 | softDeletionTime      | UTC 日時形式の文字列                                 | 削除されたユーザーに関連付けられたデータが完全に削除され、回復できなくなる30日間の期間の開始を表します。                                                                          |
-| links                 | [ResourceLinks](utility-resources.md#resourcelinks)           | リソースリンク。                                                                                                                                                                                                        |
+| リンク                 | [ResourceLinks](utility-resources.md#resourcelinks)           | リソースリンク。                                                                                                                                                                                                        |
 | 属性            | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                                                                                                                                                                                   |
 
  
@@ -62,13 +62,13 @@ ms.locfileid: "74486262"
 | lastName              | string                                                         | ユーザーの姓。                                                                                                                                                                                                 |
 | displayName           | string                                                         | 表示されるユーザーの名前。                                                                                                                                                                                            |
 | immutableId           | string                                                         | ユーザーの不変 id。                                                                                                                                                                                              |
-| PasswordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | ユーザーのパスワードプロファイル。                                                                                                                                                                                               |
+| passwordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | ユーザーのパスワードプロファイル。                                                                                                                                                                                               |
 | phoneNumber           | string                                                         | ユーザーの電話番号。                                                                                                                                                                                                   |
 | lastDirectorySyncTime | UTC 日時形式の文字列                                 | このユーザーの情報が Azure Active Directory とオンプレミス Active Directory の間で同期された最後の時刻。 日付と時刻の値は Azure AD Connect 同期が有効になっている場合にのみ表示されます。 それ以外の場合、値は null になります。 |
 | userDomainType        | string                                                         | ユーザードメインの種類: "none"、"managed"、または "フェデレーション"。                                                                                                                                                                   |
 | state                 | string                                                         | ユーザーの状態: "アクティブ"、"非アクティブ" (削除されたユーザーの場合)。                                                                                                                                                          |
 | softDeletionTime      | UTC 日時形式の文字列                                 | 削除されたユーザーに関連付けられたデータが完全に削除され、回復できなくなる30日間の期間の開始を表します。                                                                          |
-| links                 | [ResourceLinks](utility-resources.md#resourcelinks)           | リソースリンク。                                                                                                                                                                                                        |
+| リンク                 | [ResourceLinks](utility-resources.md#resourcelinks)           | リソースリンク。                                                                                                                                                                                                        |
 | 属性            | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                                                                                                                                                                                   |
 
  

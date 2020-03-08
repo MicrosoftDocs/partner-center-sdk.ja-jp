@@ -6,17 +6,17 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: a9fb1c81cae0e7efa0a5e84d2b4d93e44ce7efb9
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489082"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899735"
 ---
 # <a name="cart-resources"></a>カートのリソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -35,7 +35,7 @@ ms.locfileid: "74489082"
 | expirationTimeStamp   | DateTime         | カートの有効期限が切れる日付 (日付と時刻の形式)。 カートの作成が成功したときに適用されます。          |
 | lastModifiedUser      | string           | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                          |
 | lineItems             | オブジェクトの配列 | [CartLineItem](#cartlineitem)リソースの配列。                                                   |
-| status                | string           | カートの状態。 有効な値は、"Active" (更新/送信可能) と "Ordered" (既に送信済み) です。 |
+| 状態                | string           | カートの状態。 有効な値は、"Active" (更新/送信可能) と "Ordered" (既に送信済み) です。 |
 
 ## <a name="cartlineitem"></a>CartLineItem
 
@@ -45,16 +45,16 @@ ms.locfileid: "74489082"
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                   | string                           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                                   |
 | catalogItemId        | string                           | カタログ項目の識別子。                                                                                                                          |
-| friendlyName         | string                           | (省略可能)。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
+| friendlyName         | string                           | 省略可。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
 | quantity             | int                              | ライセンスまたはインスタンスの数。                                                                                                                  |
 | currencyCode         | string                           | 通貨コード。                                                                                                                                    |
 | 周期サイクル         | オブジェクト                           | 現在の期間に設定されている請求サイクルの種類。                                                                                                 |
 | termDuration         | string                           | 用語の期間の ISO 8601 表現。 現在サポートされている値は、P1M (1 か月)、P1Y (1 年)、および P3Y (3 年) です。                                |
-| 参加者         | オブジェクトの文字列ペアの一覧      | 購入時のレコードの PartnerId (MPNID) のコレクション。                                                                                          |
+| participants         | オブジェクトの文字列ペアの一覧      | 購入時のレコードの PartnerId (MPNID) のコレクション。                                                                                          |
 | provisioningContext  | Dictionary < string、string >       | 購入した項目をプロビジョニングするときに使用される追加のコンテキスト。 特定の項目に必要な値を判断するには、SKU の "プロビジョニング変数" プロパティを参照してください。 |
 | orderGroup           | string                           | 同じ順序で一緒に送信できる項目を示すグループ。                                                                          |
 | addonItems           | **CartLineItem**オブジェクトの一覧 | ルートカートの品目の購入から得られる基本サブスクリプションに対して購入されるアドオンのカート品目のコレクション。 |
-| error (エラー)                | オブジェクト                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
+| エラー                | オブジェクト                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
 | renewsTo             | オブジェクトの配列                 | [Renewsto](#renewsto)の配列。                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
@@ -63,7 +63,7 @@ ms.locfileid: "74489082"
 
 | プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | X              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
+| termDuration          | string           | いいえ              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 
 ## <a name="carterror"></a>CartError
 
@@ -78,9 +78,9 @@ ms.locfileid: "74489082"
 
 カートエラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
-| Value                                | 位置 | 説明                                             |
+| 値                                | [位置] | 説明                                             |
 |--------------------------------------|----------|---------------------------------------------------------|
-| Unknown                              | 0        | 既定値です。                                          |
+| 不明                              | 0        | 既定値。                                          |
 | CurrencyIsNotSupported               | 10000    | 指定された市場では、通貨はサポートされていません。 |
 | CatalogItemIdIsNotValid              | 10001    | カタログ項目 ID が無効です。                       |
 | QuotaNotAvailable                    | 10002    | 使用可能なクォータが不足しています。                    |
@@ -97,7 +97,7 @@ ms.locfileid: "74489082"
 
 | プロパティ    | 種類                                              | 説明                     |
 |-------------|---------------------------------------------------|---------------------------------|
-| 注文      | [Order](order-resources.md#order)オブジェクトのリスト。         | 注文のコレクションです。       |
+| orders      | [Order](order-resources.md#order)オブジェクトのリスト。         | 注文のコレクションです。       |
 | orderErrors | [Ordererror](#ordererror)オブジェクトの一覧。 | 注文エラーのコレクションです。 |
 
 ## <a name="ordererror"></a>OrderError
@@ -107,14 +107,14 @@ ms.locfileid: "74489082"
 | プロパティ     | 種類   | 説明                                     |
 |--------------|--------|-------------------------------------------------|
 | orderGroupId | string | 注文の注文グループ ID をエラーと共に使用します。 |
-| code         | int    | エラーコード。                                 |
-| 説明  | string | エラーの説明。                   |
+| code         | int    | エラー コードです。                                 |
+| description  | string | エラーの説明。                   |
 
 ## <a name="ordererrorcode"></a>OrderErrorCode
 
 注文エラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
-| Value | 位置 | 説明 |
+| 値 | [位置] | 説明 |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | 要求コンテキストにパートナートークンがありません。 |
 | InvalidInput | 800002 | 要求の入力が無効です。 |
@@ -149,7 +149,7 @@ ms.locfileid: "74489082"
 | ResellerProgramStatusNotActive | 800039 | リセラープログラムの状態がアクティブではありません。 |
 | AssetStatusChangeNotValid | 800040 | 資産の状態を **{1}** から **{0}** に変更することはできません。 |
 | 項目がアクティブになりました | 800041 | この項目は既にアクティブ化されています。 |
-| NotSupported | 800042 | サポートされません。 |
+| NotSupported | 800042 | サポートされていません。 |
 | PricingAccessForbidden | 800043 | 価格情報へのアクセス権は付与されません。 |
 | OrderInProgress | 800060 | 注文が進行中です。 数分で最近の注文の注文履歴を確認してください。 |
 | OrderCannotBeCancelled | 800061 | 注文を取り消すことはできません。 |

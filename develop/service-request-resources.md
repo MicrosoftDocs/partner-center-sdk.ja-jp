@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: e1fab576e69242a50549efc719f98eafad1ad9de
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488052"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899929"
 ---
 # <a name="service-request-resources"></a>サービスリクエストリソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -33,11 +33,11 @@ ms.locfileid: "74488052"
 |------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | タイトル            | string                                                        | サービス要求のタイトル。                                                           |
 | 説明      | string                                                        | 説明。                                                                     |
-| 重大度         | string                                                        | 重大度: "unknown"、"critical"、"中"、または "最小"。                       |
+| Severity         | string                                                        | 重大度: "unknown"、"critical"、"中"、または "最小"。                       |
 | サポートトピック Id   | string                                                        | サポートトピックの id。                                                         |
 | サポートトピック名 | string                                                        | サポートトピックの名前。                                                       |
-| ID               | string                                                        | サービス要求の id。                                                       |
-| 状況           | string                                                        | サービス要求の状態: "none"、"open"、"closed"、または "attention\_が必要"。 |
+| Id               | string                                                        | サービス要求の id。                                                       |
+| 状態           | string                                                        | サービス要求の状態: "none"、"open"、"closed"、または "attention\_が必要"。 |
 | 組織     | [ServiceRequestOrganization](#servicerequestorganization)     | サービス要求が作成される組織。                               |
 | primaryContact   | [ServiceRequestContact](#servicerequestcontact)               | サービスリクエストに関する主要連絡先。                                              |
 | LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | サービスリクエストの変更については、"最終更新者" に問い合わせます。                        |
@@ -90,8 +90,8 @@ ms.locfileid: "74488052"
 
 | プロパティ    | 種類   | 説明                           |
 |-------------|--------|---------------------------------------|
-| ID          | string | 組織の一意の id。    |
-| 名前        | string | 組織の名前。         |
+| Id          | string | 組織の一意の id。    |
+| Name        | string | 組織の名前。         |
 | PhoneNumber | string | 組織の電話番号。 |
 
  
@@ -103,9 +103,9 @@ ms.locfileid: "74488052"
 
 | プロパティ    | 種類               | 説明                                                   |
 |-------------|--------------------|---------------------------------------------------------------|
-| 名前        | string             | サポートトピックの名前。                                |
+| Name        | string             | サポートトピックの名前。                                |
 | 説明 | string             | サポートトピックの説明。                         |
-| ID          | string             | サポートトピックの一意の id。                           |
+| Id          | string             | サポートトピックの一意の id。                           |
 | 属性  | ResourceAttributes | サービス要求に対応するメタデータ属性。 |
 
  
