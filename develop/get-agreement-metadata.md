@@ -1,22 +1,22 @@
 ---
 title: Microsoft Cloud 契約の契約メタデータを取得する
 description: このトピックでは、Microsoft Cloud Agreement のアグリーメントメタデータを取得する方法について説明します。
-ms.date: 09/17/2019
+ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0608a735705e02fe70ceabfd60d33cda6a9e4d0e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a0bf235be9415b75cc4f766f4a92cb37a14a0d96
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486102"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899959"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Microsoft Cloud 契約の契約メタデータを取得する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 > [!NOTE]  
 > **AgreementMetaData**リソースは、現在、Microsoft パブリッククラウドのパートナーセンターでのみサポートされています。 以下には適用されません。
@@ -102,7 +102,7 @@ Microsoft Cloud Agreement のアグリーメントメタデータを取得する
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
 ```
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -118,9 +118,9 @@ Microsoft Cloud Agreement のアグリーメントメタデータを取得する
 
 - 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-example"></a>要求の例
 
@@ -136,9 +136,9 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 成功した場合、このメソッドは応答本文で**AgreementMetaData**リソースのコレクションを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

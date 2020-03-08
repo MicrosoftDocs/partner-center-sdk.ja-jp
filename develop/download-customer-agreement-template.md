@@ -1,22 +1,22 @@
 ---
 title: Microsoft カスタマーアグリーメントテンプレートのダウンロードリンクを取得する
 description: Microsoft カスタマーアグリーメントテンプレートのダウンロードリンクを取得します。
-ms.date: 09/19/2019
+ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 76b0b6ceb20504ad0f9903027ac61feca78c3970
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9cfce85865b41674955b7de5dcd57083a00935c0
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489962"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899939"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft カスタマーアグリーメントテンプレートのダウンロードリンクを取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 **AgreementDocument**リソースは、現在、 *Microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 このリソースはに適用されません:
 
@@ -36,7 +36,7 @@ ms.locfileid: "74489962"
 > [!IMPORTANT]
 > - Microsoft カスタマーアグリーメントは、国によって異なります。 Microsoft カスタマーアグリーメントテンプレートをダウンロードするためのリンクを要求する場合は、顧客の所在地に基づいて正しい国を指定するようにしてください。 サポートされている国の一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。
 > - 一部の国では、Microsoft カスタマー契約を複数の言語で利用できます。 最適なカスタマーエクスペリエンスを実現するには、お客様のニーズに最も合った言語を選択してください。 サポートされている言語の一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。
-> - この方法は、Microsoft カスタマーアグリーメントでのみサポートされています。 Microsoft Cloud アグリーメントテンプレートのダウンロードリンクを取得するために使用することはできません。
+> - この方法は、Microsoft カスタマーアグリーメントでのみサポートされています。
 
 ## <a name="net"></a>.NET
 
@@ -94,19 +94,19 @@ Microsoft カスタマーアグリーメントテンプレートをダウンロ�
 
 要求では、次の URI パラメーターを使用できます。
 
-| 名前                   | 種類   | 必須 | 説明                                 |
+| Name                   | 種類   | 必須 | 説明                                 |
 |------------------------|--------|----------|---------------------------------------------|
-| 契約テンプレート-id  | string | 〇      | 契約の種類を表す一意の識別子。 Microsoft Customer Agreement の契約メタデータを取得することによって、templateId for Microsoft Customer Agreement を取得できます。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](./get-customer-agreement-metadata.md)」を参照してください。 このパラメーターでは **、大文字と小文字が区別**されます。|
-| country                | string | X       | アグリーメントテンプレートを適用する国を指定します。 パラメーターが指定されていない場合、クエリの既定値は*US*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
-| 言語               | string | X       | アグリーメントテンプレートのローカライズに使用する言語を指定します。 パラメーターが指定されていない場合、または指定された国に対して指定された国コードがサポートされていない場合、クエリの既定値は*en-us*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
+| 契約テンプレート-id  | string | はい      | 契約の種類を表す一意の識別子。 Microsoft Customer Agreement の契約メタデータを取得することによって、templateId for Microsoft Customer Agreement を取得できます。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](./get-customer-agreement-metadata.md)」を参照してください。 このパラメーターでは **、大文字と小文字が区別**されます。|
+| country                | string | いいえ       | アグリーメントテンプレートを適用する国を指定します。 パラメーターが指定されていない場合、クエリの既定値は*US*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
+| language               | string | いいえ       | アグリーメントテンプレートのローカライズに使用する言語を指定します。 パラメーターが指定されていない場合、または指定された国に対して指定された国コードがサポートされていない場合、クエリの既定値は*en-us*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -124,11 +124,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 リソースには、ライセンステンプレートをダウンロードするために使用できる URL 文字列を含む**downloaduri**プロパティがあります。 クエリを作成するたびに、別のリンクが返されます。 このリンクは、5分後に有効期限が切れます。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。
 
-ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 
@@ -151,7 +151,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 > [!IMPORTANT]
 > 国コードプロパティでは、大文字と小文字が区別されます。 次の表で指定されている正しい文字種を使用してください。
 
-| Country                   | 国番号   | サポートされている言語コード |
+| 国                   | 国コード   | サポートされている言語コード |
 |------------------------|--------|----------|
 | オーランド諸島 | AX | en-US |
 | アフガニスタン | AF | en-US |
@@ -173,7 +173,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | バーレーン | BH | en-us、ar-SA |
 | バングラデシュ | BD | en-US |
 | バルバドス | BB | en-US |
-| ベラルーシ | BY | en-us、ru-RU |
+| ベラルーシ | BY | en-US、ru-RU |
 | ベルギー | BE | en-us、nl-NL |
 | ベリーズ | BZ | en-us、es |
 | ベナン | BJ | en-US |
@@ -191,17 +191,17 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | ブルガリア | BG | en-us、bg-BG |
 | ブルキナファソ | BF | en-US |
 | ブルンジ | POWER | en-US |
-| コートジボワール | CI | en-us、fr-fr |
+| コートジボワール | CI | en-US、fr-FR |
 | カーボベルデ | CV | en-us、pt-PT |
 | カンボジア | KH | en-US |
-| カメルーン | CM | en-us、fr-fr |
-| カナダ | CA | en-us、fr-fr |
+| カメルーン | CM | en-US、fr-FR |
+| カナダ | CA | en-US、fr-FR |
 | ケイマン諸島 | アヒル | en-us、en-us |
 | 中央アフリカ共和国 | CF | en-US |
 | チャド | TD | en-US |
 | チリ | CL | en-us、es |
 | クリスマス島 | シリーズ | en-US |
-| ココス諸島 | CC | en-US |
+| ココス諸島 | [CC] | en-US |
 | コロンビア | CO | en-us、es |
 | コモロ | KM | en-US |
 | コンゴ民主共和国 | CD | en-US |
@@ -214,7 +214,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Czechia | CZ | en-us, cs-CS-CZ |
 | デンマーク | DK | en-us、da-DK |
 | ジブチ | DJ | en-US |
-| ドミニカ国 | DATA | en-US |
+| ドミニカ国 | DM | en-US |
 | ドミニカ共和国 | DO | en-us、es |
 | エクアドル | EC | en-US |
 | エジプト | EG | en-us、ar-SA |
@@ -228,14 +228,14 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | フェロー諸島 | FO | en-US |
 | フィジー諸島 | FJ | en-US |
 | フィンランド | FI | en-us、fi FI |
-| フランス | FR | en-us、fr-fr |
-| フランス領ギアナ | GF | en-us、fr-fr  |
+| France | FR | en-US、fr-FR |
+| フランス領ギアナ | GF | en-US、fr-FR  |
 | フランス領ポリネシア | PF | en-US |
-| 仏領極南諸島 | WORKSPACES | en-US |
+| 仏領極南諸島 | TF | en-US |
 | ガボン | GA | en-US |
 | ガンビア | GM | en-US |
-| ジョージア | GE | en-US |
-| ドイツ | DE | en-us、de |
+| Georgia | GE | en-US |
+| Germany | DE | en-us、de |
 | ガーナ | GH | en-US |
 | ジブラルタル | GI | en-US |
 | ギリシャ | GR | en-us、el-GR |
@@ -251,37 +251,37 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | ハイチ | HT | en-US |
 | ハード・マクドナルド諸島 | HM | en-US |
 | ホンジュラス | HN | en-us、es |
-| 香港特別行政区 | HK | en-us、zh-tw-HK |
+| 香港 | HK | en-us、zh-tw-HK |
 | ハンガリー | HU | en-us、hu-HU |
 | アイスランド | IS | en-US |
 | インド | IN | en-us、こんにちは |
 | インドネシア | ID | en-us、id-ID |
 | イラク | IQ | en-us、ar-SA |
-| アイルランド | Internet Explorer | en-US |
+| アイルランド | IE | en-US |
 | マン島 | IM | en-US |
 | イスラエル | IL | en-us、he |
 | イタリア | IT | en-us、it |
 | ジャマイカ | JM | en-US |
 | ヤンマイエン島 | XJ | en-US |
-| 日本 | JP | en-us、ja-jp |
+| Japan | JP | en-us、ja-jp |
 | ジャージー島 | JE | en-US |
 | ヨルダン | JO | en-us、ar-SA |
 | カザフスタン | KZ | en-us、kk-KZ |
 | ケニア | KE | en-US |
 | キリバス | KI | en-US |
-| 韓国 | KR | en-us、ko-韓国 |
+| Korea | KR | en-us、ko-韓国 |
 | コソボ | XK | en-US |
 | クウェート | KW | en-us、ar-SA |
-| キルギス | KG | en-us、ru-RU |
+| キルギス | KG | en-US、ru-RU |
 | ラオス | LA | en-US |
 | ラトビア | LV | en-us、lv-LV |
 | レバノン | LB | en-us、ar-SA |
 | レソト | AVL | en-US |
 | リベリア | LR | en-US |
 | リビア | LY | en-us、ar-SA |
-| リヒテンシュタイン | & | en-us、de |
+| リヒテンシュタイン | &AMP; | en-us、de |
 | リトアニア | LT | en-us、lt-LT |
-| ルクセンブルク | LU | en-us、fr-fr |
+| ルクセンブルク | LU | en-US、fr-FR |
 | マカオ | 月 | en-us、zh-tw-HK |
 | マケドニア (旧ユーゴスラビア共和国) | MK | en-US |
 | マダガスカル | MG | en-US |
@@ -298,7 +298,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | メキシコ | MX | en-us、es |
 | ミクロネシア | 今 | en-US |
 | モルドバ | MD | en-us、ro-RO |
-| モナコ | [MC] | en-us、fr-fr |
+| モナコ | MC | en-US、fr-FR |
 | モンゴル | MN | en-US |
 | モンテネグロ | ME | en-US |
 | モンセラット | MS | en-US |
@@ -331,23 +331,23 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | ポーランド | PL | en-us、pl-PL |
 | ポルトガル | PT | en-us、pt-PT |
 | プエルトリコ | PR | en-us、en-us |
-| カタール | QA | en-us、ar-SA |
+| カタール | 品質保証 | en-us、ar-SA |
 | レユニオン | RE | en-US |
 | ルーマニア | RO | en-us、ro-RO |
-| ロシア | RU | en-us、ru-RU |
-| ルワンダ | RW | en-us、fr-fr |
-| サントメ・プリンシペ | ST | en-us、fr-fr |
+| ロシア | RU | en-US、ru-RU |
+| ルワンダ | RW | en-US、fr-FR |
+| サントメ・プリンシペ | ST | en-US、fr-FR |
 | サバ島 | XS | en-US |
 | サン・バルテルミー | BL | en-US |
 | セントクリストファー・ネイビス | KN | en-US |
 | セントルシア | 小 | en-us、en-us |
 | サンマルタン島 | メイン | en-us、en-us |
 | サンピエール・ミクロン | PM | en-US |
-| セントビンセントおよびグレナディーン諸島 | VC-1 | en-US |
+| セントビンセントおよびグレナディーン諸島 | VC | en-US |
 | サモア | WS | en-US |
 | サンマリノ | MANAGER | en-US |
 | サウジアラビア | SA | en-US |
-| セネガル | SN | en-us、fr-fr |
+| セネガル | SN | en-US、fr-FR |
 | セルビア | RS | en-us、Latn、英語 (米国) |
 | セーシェル | SC | en-US |
 | シエラレオネ | SL | en-US |
@@ -357,7 +357,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | スロバキア | SK | en-us、sk-SK |
 | スロベニア | SI | en-us、sl-SI |
 | ソロモン諸島 | SB | en-US |
-| ソマリア | だから | en-US |
+| ソマリア | SO | en-US |
 | 南アフリカ | ZA | en-US |
 | サウスジョージア・サウスサンドウィッチ諸島 | GS | en-US |
 | 南スーダン | 秒 | en-US |
@@ -376,12 +376,12 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | トーゴ | TG | en-US |
 | トケラウ諸島 | TK | en-US |
 | トンガ | TO | en-US |
-| トリニダードトバゴ | TT | en-US |
+| トリニダード・トバゴ | TT | en-US |
 | チュニジア | TN | en-us, fr-fr, en-us, en-us |
 | トルコ | TR | en-us、tr-TR |
-| トルクメニスタン | メモリ | en-US |
+| トルクメニスタン | TM | en-US |
 | タークス・カイコス諸島 | フィールド | en-US |
-| ツバル | TV | en-US |
+| ツバル | テレビ | en-US |
 | 合衆国領有小離島 | UM | en-US |
 | 米領バージン諸島 | VI | en-US |
 | ウガンダ | UG | en-US |
@@ -390,7 +390,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | イギリス | GB | en-US |
 | 米国 | US | en-US |
 | ウルグアイ | UY | en-us、es |
-| ウズベキスタン | UZ | en-us、ru-RU |
+| ウズベキスタン | UZ | en-US、ru-RU |
 | バヌアツ | VU | en-US |
 | バチカン市国 | VA | en-US |
 | ベネズエラ | VE | en-us、es |

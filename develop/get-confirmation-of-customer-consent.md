@@ -1,22 +1,22 @@
 ---
 title: Microsoft Cloud 契約に対する顧客の同意を確認する
 description: このトピックでは、Microsoft Cloud 契約に対する顧客の同意を確認する方法について説明します。
-ms.date: 09/17/2019
+ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ae40cd3c9805ee8ddaae6d98fd0d6b61ede8d40
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d6282a82793f2bc9fa6f436ed9c7a6a31ad0969d
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485662"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899889"
 ---
-# <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Microsoft Cloud 契約に関するお客様の同意の確認を取得する
+# <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Microsoft Cloud 契約に対する顧客の同意を確認する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 > [!NOTE]  
 > **アグリーメント**リソースは、現在、Microsoft パブリッククラウドのパートナーセンターでのみサポートされています。 以下には適用されません。
@@ -92,7 +92,7 @@ ResourceCollection<Agreement> agreements = partnerOperations.getCustomers().byId
 Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 ```
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 以前に提供された顧客の受け入れの確認を取得するには、次の手順を参照してください。
 
@@ -110,7 +110,7 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 次のクエリパラメーターを使用して、確認する顧客を指定します。
 
-| 名前             | 種類 | 必須 | 説明                                                                               |
+| Name             | 種類 | 必須 | 説明                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
 | 顧客 Tenantid | GUID | Y        | 値は、顧客を指定できるようにする GUID 形式の顧客**tenantid**です。 |
 
@@ -118,9 +118,9 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 - 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-example"></a>要求の例
 
@@ -136,9 +136,9 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 成功した場合、このメソッドは応答本文で**アグリーメント**リソースのコレクションを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 
