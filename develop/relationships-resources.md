@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: b1d6d41256c081f3ef5ce7b27d89498839d8f5c8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488102"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899969"
 ---
 # <a name="relationships-resources"></a>リレーションシップのリソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 リレーションシップに関連するリソースについて説明します。
 
@@ -30,7 +30,7 @@ ms.locfileid: "74488102"
 | プロパティ         | 種類                                                           | 説明                                                                                                                                    |
 |------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | id               | string                                                         | パートナー識別子。 パートナー id は、リレーションシップの "受信者" (差出人) 側にあるパートナーのテナント id を指定します。 |
-| location         | string                                                         | パートナーの場所。                                                                                                                   |
+| 位置         | string                                                         | パートナーの場所。                                                                                                                   |
 | mpnId            | string                                                         | パートナーの Microsoft Partner Network (MPN) 識別子。                                                                                 |
 | name             | string                                                         | パートナーの名前。                                                                                                                       |
 | relationshipType | string                                                         | リレーションシップの種類。                                                                                                                      |
