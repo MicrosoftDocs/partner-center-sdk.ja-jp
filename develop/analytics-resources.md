@@ -7,17 +7,17 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 8098de53c3fc4632d17ef6cdba7fe983d9fffbbe
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489202"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899809"
 ---
 # <a name="analytics-resources"></a>分析リソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 ここで定義されているリソースには、使用状況、デプロイ、使用状況に関するレポートに使用されるデータが含まれています。
 
@@ -57,7 +57,7 @@ ms.locfileid: "74489202"
 | licensesSold      | number                                                         | 販売されたライセンスの数。                                                         |
 | deploymentPercent | number                                                         | 配置されたライセンスの調整された割合。                                        |
 | 顧客        | string                                                         | 顧客識別子。                                                             |
-| おける      | string                                                         | 顧客名。                                                                   |
+| customerName      | string                                                         | 顧客名。                                                                   |
 | productName       | string                                                         | 製品名。                                                                    |
 | serviceCode       | string                                                         | ライセンスのサービスコード。                                                     |
 | processedDateTime | UTC 日時形式の文字列                                 | データが集計された日付と時刻。                                      |
@@ -74,10 +74,10 @@ ms.locfileid: "74489202"
 | workloadCode      | string                                                         | ワークロードコード。                                                              |
 | workloadName      | number                                                         | ワークロード名 (例: Exchange)。                                              |
 | パーセント      | number                                                         | 使用するライセンスの調整された割合。                                       |
-| licensesActive    | number                                                         | アクティブなライセンスの数。                                                  |
+| licensesActive    | number                                                         | アクティブ ライセンスの数です。                                                  |
 | licensesQualified | number                                                         | 修飾されたライセンスの数。                                               |
 | 顧客        | string                                                         | 顧客識別子。                                                        |
-| おける      | string                                                         | 顧客名。                                                              |
+| customerName      | string                                                         | 顧客名。                                                              |
 | productName       | string                                                         | 製品名。                                                               |
 | serviceCode       | string                                                         | ライセンスのサービスコード。                                                |
 | processedDateTime | UTC 日時形式の文字列                                 | データが集計された日付と時刻。                                 |
