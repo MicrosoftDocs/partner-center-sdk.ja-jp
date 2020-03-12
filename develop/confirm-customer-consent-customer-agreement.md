@@ -1,48 +1,48 @@
 ---
-title: Microsoft カスタマーアグリーメントに同意するかどうかを確認する
-description: お客様による Microsoft カスタマーアグリーメントへの同意を確認します。
-ms.date: 09/19/2019
+title: Microsoft 顧客契約へのお客様の同意を確認する
+description: Microsoft 顧客契約に対するお客様の同意を確認します。
+ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c7c3acea0f2e45b53fde7372bbb1f33fcb9de13
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
-ms.translationtype: MT
+ms.openlocfilehash: 7a94a4025aefba230f1abf83bcbc681ca7d55ed8
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488952"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899899"
 ---
-# <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft カスタマーアグリーメントに同意するかどうかを確認する
+# <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft 顧客契約へのお客様の同意を確認する
 
-適用対象:
+適用先:
 
 - パートナー センター
 
-現在、パートナーセンターでは、microsoft*パブリッククラウド*でのみ、Microsoft カスタマー契約に対する顧客からの同意の確認をサポートしています。 現在、この機能は次の対象には適用されません。
+現在、パートナー センターでは、Microsoft 顧客契約に対するお客様の同意の確認を、*Microsoft パブリック クラウド*でのみサポートしています。 この機能は現在、以下には適用されません。
 
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-この記事では、Microsoft カスタマーアグリーメントに対する顧客の同意を確認または再確認する方法について説明します。
+この記事では、Microsoft 顧客契約に対する顧客の同意を確認または再確認する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- パートナーセンター .NET SDK を使用している場合は、バージョン1.14 以降が必要です。
-- 「[パートナーセンターの認証](./partner-center-authentication.md)」で説明されている資格情報。 *このシナリオでは、アプリとユーザー認証のみがサポートされます。*
-- 顧客識別子 (**顧客-テナント id**)。
-- 顧客が Microsoft カスタマーアグリーメントに同意した日付 (**dateagreed**)。
-- Microsoft カスタマーアグリーメントに同意した顧客組織のユーザーに関する情報。 たとえば、次のようなアニメーションや効果を作成できます。
+- パートナー センター .NET SDK を使用している場合、バージョン 1.14 以降が必要です。
+- [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 *このシナリオでは、アプリとユーザー認証のみがサポートされます。*
+- 顧客 ID (**customer-tenant-id**)。
+- 顧客が Microsoft 顧客契約に同意したときの日付 (**dateAgreed**)。
+- Microsoft 顧客契約に同意した顧客組織のユーザーに関する情報。 たとえば、次のようなアニメーションや効果を作成できます。
   - 名
   - 姓
-  - メール アドレス
+  - 電子メール アドレス
   - 電話番号 (オプション)
 
 ## <a name="net"></a>.NET
 
-Microsoft カスタマーアグリーメントに同意するかどうかを確認または再確認するには:
+Microsoft 顧客契約に対する顧客の同意を確認または再確認するには、次のようにします。
 
-1. Microsoft カスタマーアグリーメントの契約メタデータを取得します。 Microsoft カスタマーアグリーメントの**templateId**を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
+1. Microsoft 顧客契約の契約メタデータを取得します。 Microsoft 顧客契約の **templateId** を取得する必要があります。 詳細については、「[Microsoft 顧客契約の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -52,9 +52,9 @@ string agreementType = "MicrosoftCustomerAgreement";
 var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-2. 確認の詳細を含む新しい**アグリーメント**オブジェクトを作成します。
-3. **IAgreggatePartner**コレクションを使用し、指定された**顧客テナント id**を使用して**ById**メソッドを呼び出します。
-4. **[アグリーメント]** プロパティを使用し、次に**Create**または**createasync**を呼び出します。
+2. 確認の詳細を含む新しい **Agreement** オブジェクトを作成します。
+3. **IAgreggatePartner** コレクションを使用して、指定された **customer-tenant-id** で **ById** メソッドを呼び出します。
+4. **Agreements** プロパティを使用し、**Create** または **CreateAsync** を呼び出します。
 
 ```csharp
 // string selectedCustomerId;
@@ -75,52 +75,52 @@ var agreementToCreate = new Agreement
 Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
 ```
 
-完全なサンプルは、[コンソールテストアプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)プロジェクトの[CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs)クラスにあります。
+完全なサンプルについては、[コンソール テスト アプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) プロジェクトの [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) クラスを参照してください。
 
 
 ## <a name="rest-request"></a>REST 要求
 
-Microsoft カスタマーアグリーメントに同意するかどうかを確認または再確認するには:
+Microsoft 顧客契約に対する顧客の同意を確認または再確認するには、次のようにします。
 
-1. Microsoft カスタマーアグリーメントの契約メタデータを取得します。 Microsoft カスタマーアグリーメントの**templateId**を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
-2. 新しい[**契約**リソース](agreement-resources.md)を作成して、顧客が Microsoft カスタマーアグリーメントに同意したことを確認します。 次の[REST 要求構文](#request-syntax)を使用します。
+1. Microsoft 顧客契約の契約メタデータを取得します。 Microsoft 顧客契約の **templateId** を取得する必要があります。 詳細については、「[Microsoft 顧客契約の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
+2. 顧客が Microsoft 顧客契約に同意していることを確認するために新しい [**Agreement**リソース](agreement-resources.md)を作成します。 次の [REST 要求構文](#request-syntax)を使用します。
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI                                                                                        |
+| 認証方法 | 要求 URI                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
 | POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-次のクエリパラメーターを使用して、確認する顧客を指定します。
+次のクエリ パラメーターを使用して、確認する顧客を指定します。
 
 | 名前               | 種類 | 必須 | 説明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| 顧客-テナント id | GUID | 〇 | 値は、GUID 形式の**顧客テナント id**です。これは、顧客を指定するための識別子です。 |
+| customer-tenant-id | GUID | はい | この値は、顧客を指定できるようにする識別子である、GUID 形式の **customer-tenant-id** です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-次の表では、REST 要求本文の必須プロパティについて説明します。
+次の表では、REST 要求本文の必須プロパティについて説明しています。
 
 | 名前      | 種類   | 説明                                                                                  |  
 |-----------|--------|----------------------------------------------------------------------------------------------|  
-| 契約 | オブジェクト | パートナーによって提供される、Microsoft カスタマーアグリーメントに対する顧客の同意を確認するための詳細。 |  
+| 契約 | オブジェクト | Microsoft 顧客契約に対する顧客の同意を確認するためにパートナーにより指定される詳細。 |  
 
 #### <a name="agreement"></a>契約
 
-次の表では、 [**アグリーメント**リソース](agreement-resources.md)を作成するために必要な最小限のフィールドについて説明します。
+次の表では、[**Agreement** リソース](agreement-resources.md)を作成するために最低限必要なフィールドについて説明します。
 
 | プロパティ       | 種類   | 説明                              |
 |----------------|--------|------------------------------------------|
-| primaryContact | [Contact](./utility-resources.md#contact) | Microsoft Cloud 契約に同意したお客様の組織のユーザーに関する情報: **firstName**、 **lastName**、 **email** 、 **phoneNumber** (省略可能) |
-| dateAgreed     | UTC 日時形式の文字列 |顧客がアグリーメントに同意した日付。 |
-| templateId     | string | 顧客が受け入れるアグリーメントの種類を表す一意の識別子。 Microsoft Customer Agreement の契約メタデータを取得することによって、 **templateId** For Microsoft customer agreement を取得できます。 詳細については、「 [Microsoft Cloud agreement のアグリーメントメタデータの取得](./get-customer-agreement-metadata.md)」を参照してください。 |
-| type           | string | 顧客が受け入れる契約の種類。 お客様が Microsoft カスタマーアグリーメントに同意した場合は、"microsoft の顧客契約" を使用します。 |
+| primaryContact | [Contact](./utility-resources.md#contact) | Microsoft 顧客契約に同意した顧客組織のユーザーに関する情報 (**firstName**、**lastName**、**email**、**phoneNumber** (省略可能)) |
+| dateAgreed     | UTC 日時形式の文字列 |顧客が契約に同意した日付。 |
+| templateId     | string | 顧客が同意した契約の種類を表す一意の識別子。 Microsoft 顧客契約の契約メタデータを取得することで、Microsoft 顧客契約の **templateId** を取得できます。 詳細については、「[Microsoft 顧客契約の契約メタデータを取得する](./get-customer-agreement-metadata.md)」を参照してください。 |
+| 型           | string | 顧客が同意した契約の種類。 顧客が Microsoft 顧客契約に同意している場合には、"MicrosoftCustomerAgreement" を使用します。 |
   
 #### <a name="request-example"></a>要求の例
 
@@ -145,13 +145,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ### <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは[**アグリーメント**リソース](./agreement-resources.md)を返します。
+成功した場合、このメソッドは [**Agreement** リソース](./agreement-resources.md)を返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 
 
-ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 #### <a name="response-example"></a>応答の例
 
