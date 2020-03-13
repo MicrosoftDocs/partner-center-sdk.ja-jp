@@ -1,19 +1,19 @@
 ---
-title: 、
-description: パートナーセンター SDK には、顧客、サブスクリプション、および注文データを管理するために使用する、管理された API と REST API が含まれています。
+title: 開始
+description: Partner Center SDK には、パートナーが顧客、サブスクリプション、注文データを管理するために使用できるマネージド API と REST API が含まれています。
 ms.assetid: D9A91032-CA5B-4CD2-ADBA-6C5513E05D32
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 3d47c3c41a7f6a23d8be6e9c20c16e6f7c01f275
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
-ms.translationtype: MT
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/07/2020
 ms.locfileid: "74995227"
 ---
-# <a name="get-started"></a>、
+# <a name="get-started"></a>開始
 
 **適用対象**
 
@@ -22,45 +22,45 @@ ms.locfileid: "74995227"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-パートナーセンター SDK には、顧客、サブスクリプション、および注文データを管理するために使用する、管理された API と REST API が含まれています。
+Partner Center SDK には、パートナーが顧客、サブスクリプション、注文データを管理するために使用できるマネージド API と REST API が含まれています。
 
-## <a name="span-idget_the_codespan-idget_the_codespan-idget_the_codeget-the-code"></a>コードの取得 <span id="GET_THE_CODE"/><span id="get_the_code"/>の <span id="Get_the_code"/>
+## <a name="span-idget_the_codespan-idget_the_codespan-idget_the_codeget-the-code"></a><span id="Get_the_code"/><span id="get_the_code"/><span id="GET_THE_CODE"/>コードを入手する
 
-[パートナーセンター SDK をダウンロードする](https://go.microsoft.com/fwlink/p/?LinkId=746681)  
+[Partner Center SDK のダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=746681)  
 
 > [!NOTE]  
-> 間接リセラーのパートナーセンターへの API アクセスは、サポートされているシナリオではありません。
+> 間接リセラーのパートナー センターへの API アクセスは、サポートされているシナリオではありません。
 
-## <a name="span-iddetermine_your_version_of_partner_centerspan-iddetermine_your_version_of_partner_centerspan-iddetermine_your_version_of_partner_centerdetermine-your-version-of-partner-center"></a><span id="Determine_your_version_of_Partner_Center"/><span id="determine_your_version_of_partner_center"/><span id="DETERMINE_YOUR_VERSION_OF_PARTNER_CENTER"/>パートナーセンターのバージョンを確認する
+## <a name="span-iddetermine_your_version_of_partner_centerspan-iddetermine_your_version_of_partner_centerspan-iddetermine_your_version_of_partner_centerdetermine-your-version-of-partner-center"></a><span id="Determine_your_version_of_Partner_Center"/><span id="determine_your_version_of_partner_center"/><span id="DETERMINE_YOUR_VERSION_OF_PARTNER_CENTER"/>パートナー センターのバージョンを確認する
 
-一部のバージョンのパートナーセンターでは、SDK 全体を利用できません。 詳細については、「 [Microsoft National Cloud のパートナーセンター向けの開発](developing-for-partner-center-for-microsoft-national-cloud.md)」を参照してください。
+一部のバージョンのパートナー センターでは、SDK 全体を使用できません。 詳細については、「[Microsoft National クラウドのパートナーセンター向けの開発](developing-for-partner-center-for-microsoft-national-cloud.md)」を参照してください。
 
-## <a name="span-idget_the_samplesspan-idget_the_samplesspan-idget_the_samplesget-the-samples"></a>サンプルを取得 <span id="GET_THE_SAMPLES"/><span id="get_the_samples"/>の <span id="Get_the_samples"/>
+## <a name="span-idget_the_samplesspan-idget_the_samplesspan-idget_the_samplesget-the-samples"></a><span id="Get_the_samples"/><span id="get_the_samples"/><span id="GET_THE_SAMPLES"/>サンプルの入手
 
-C#スニペット、REST サンプル、サンプルアプリの詳細については、「[パートナーセンターのサンプル](partner-center-samples.md)」を参照してください。
+C# スニペット、REST サンプル、サンプル アプリの詳細については、「[パートナー センターのサンプル](partner-center-samples.md)」を参照してください。
 
-## <a name="span-idsdk_test_vs_prodspan-idsdk_test_vs_prodtest-vs-production"></a><span id="sdk_test_vs_prod"/><span id="SDK_TEST_VS_PROD"/>テストと実稼働
+## <a name="span-idsdk_test_vs_prodspan-idsdk_test_vs_prodtest-vs-production"></a><span id="sdk_test_vs_prod"/><span id="SDK_TEST_VS_PROD"/>テストと運用
 
-コードを記述してテストしている間は、統合サンドボックスアカウント (および対応するトークン) を使用して、会社が支払いを行う新しい料金が誤って発生するのを避ける必要があります。 このテスト環境の詳細については、「[パートナーセンターでの API アクセスの設定](set-up-api-access-in-partner-center.md)」を参照してください。
+最初のうちは、コードを書いてテストするときに、統合サンドボックス アカウント (および対応するトークン) を使用して、会社のコストとなる新しい料金が誤って生じないようにする必要があります。 このテスト環境の詳細については、「[パートナーセンターでの API アクセスの設定](set-up-api-access-in-partner-center.md)」を参照してください。
 
-ソリューションをテストし、実際の顧客アカウントで使用する準備ができたら、プライマリパートナーセンターアカウントに対応する Azure AD クライアントアプリとシークレットを使用するように、トークンを更新する必要があります。
+ソリューションをテストして実際の顧客アカウントで使用する準備ができたら、プライマリ パートナー センター アカウントに対応する Azure AD クライアント アプリとシークレットを使用するようにトークンを更新する必要があります。
 
-実稼働 (TiP) テストと統合サンドボックスの詳細など、テストとデバッグに関するヒントと提案については、「[テストおよびデバッグ](test-and-debug.md)」を参照してください。
+運用環境でのテスト (TiP) や統合サンドボックスの詳細など、テストとデバッグのヒントと提案については、「[テストとデバッグ](test-and-debug.md)」を参照してください。
 
-## <a name="span-idsdk_config_authspan-idsdk_config_authconfigure-your-authentication"></a>認証 <span id="SDK_CONFIG_AUTH"/>構成 <span id="sdk_config_auth"/>
+## <a name="span-idsdk_config_authspan-idsdk_config_authconfigure-your-authentication"></a><span id="sdk_config_auth"/><span id="SDK_CONFIG_AUTH"/>認証を構成する
 
-パートナーセンター Api を使用できるように Azure AD 認証を構成するには、「[パートナーセンターの認証](partner-center-authentication.md)」を参照してください。  
+Partner Center API を使用できるように Azure AD 認証を構成するには、「[パートナー センターの認証](partner-center-authentication.md)」を参照してください。  
 
 > [!IMPORTANT]
-> Microsoft では、Microsoft Azure multi-factor authentication (MFA) アーキテクチャを使用して、クラウドソリューションプロバイダー (CSP) パートナーとコントロールパネルベンダー (CPV) を認証するための、セキュリティで保護されたスケーラブルなフレームワークを導入しています。
-パートナーセンターは認証に Azure AD を使用し、パートナーセンター Api を使用するには、認証設定を正しく構成する必要があります。 
+> Microsoft では、Microsoft Azure 多要素認証 (MFA) アーキテクチャを介してクラウド ソリューション プロバイダー (CSP) パートナーとコントロール パネル ベンダー (CPV) を認証することができる、セキュリティで保護されたスケーラブルなフレームワークを導入しています。
+パートナー センターでは認証に Azure AD を使用するため、Partner Center API を使用するには、認証設定を正しく構成する必要があります。 
 > 
-> 詳細については、「[セキュリティ保護されたアプリケーションモデルの有効化](enable-secure-app-model.md)」を参照してください。
+> 詳細については、「[セキュリティで保護されたアプリケーション モデルを有効にする](enable-secure-app-model.md)」を参照してください。
 
-## <a name="span-idget_helpspan-idget_helpspan-idget_helpget-help"></a><span id="get_help"/>の <span id="Get_help"/><span id="GET_HELP"/>ヘルプの表示
+## <a name="span-idget_helpspan-idget_helpspan-idget_helpget-help"></a><span id="Get_help"/><span id="get_help"/><span id="GET_HELP"/>サポートを受ける
 
-パートナーは、[パートナーセンター SDK Yammer グループ](https://go.microsoft.com/fwlink/p/?LinkID=717360)でサポートを受けることができます。 パーソナライズされたヘルプを表示するために、開発者は MPN サポートの特典や Premier サポートを使用できます。
+パートナーは、[Partner Center SDK Yammer グループ](https://go.microsoft.com/fwlink/p/?LinkID=717360)でサポートを受けることができます。 よりパーソナル設定されたヘルプを表示するために、開発者は MPN サポートの特典や Premier サポートを使用できます。
 
-## <a name="span-idearly_adopter_programspan-idearly_adopter_programspan-idearly_adopter_programjoin-the-partner-center-api-and-sdk-early-adopter-program"></a>パートナーセンター API および SDK 早期導入プログラムに参加 <span id="EARLY_ADOPTER_PROGRAM"/><span id="early_adopter_program"/><span id="Early_adopter_program"/>
+## <a name="span-idearly_adopter_programspan-idearly_adopter_programspan-idearly_adopter_programjoin-the-partner-center-api-and-sdk-early-adopter-program"></a><span id="Early_adopter_program"/><span id="early_adopter_program"/><span id="EARLY_ADOPTER_PROGRAM"/>Partner Center API および SDK 早期導入者プログラムにご参加ください
 
-パートナーの機能の開発において Microsoft と協力する方法については、「[パートナーセンター API と SDK 早期導入プログラムに参加](early-adopter-program.md)する」を参照してください。
+Microsoft と協力してパートナー機能を開発する方法については、「[Partner Center API および SDK 早期導入者プログラムにご参加ください](early-adopter-program.md)」を参照してください。

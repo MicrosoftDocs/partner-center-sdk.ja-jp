@@ -1,37 +1,37 @@
 ---
-title: 間接リセラーの Microsoft パートナーアグリーメント署名の状態を確認する
+title: 間接リセラーの Microsoft Partner Agreement の署名状態を確認する
 description: AgreementStatus API を使用して、間接リセラーが Microsoft パートナー契約に署名したかどうかを確認できます。
 ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 14a66334793bfe6a1b87f0976a4084e76c331b65
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
-ms.translationtype: MT
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/07/2020
 ms.locfileid: "74995179"
 ---
-# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>間接リセラーの Microsoft パートナーアグリーメント署名の状態を確認する
+# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>間接リセラーの Microsoft Partner Agreement の署名状態を確認する
 
-適用対象:
+適用先:
 
 * パートナー センター
 * 米国政府機関向け Microsoft Cloud のパートナー センター
 
-間接リセラーが Microsoft Partner Network (MPN) ID またはクラウドソリューションプロバイダー (CSP) テナント ID (Microsoft ID) を使用して Microsoft パートナー契約に署名しているかどうかを確認できます。 これらの識別子のいずれかを使用して、 **AgreementStatus** API を使用して Microsoft パートナーアグリーメント署名の状態を確認できます。
+間接リセラーが Microsoft Partner Network (MPN) ID またはクラウド ソリューション プロバイダー (CSP) テナント ID (Microsoft ID) を使用して Microsoft パートナー契約に署名しているかどうかを確認できます。 これらの識別子のいずれかを使用して、**AgreementStatus** API を使って、Microsoft Partner Agreement の署名状態を確認できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-* 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
-* 間接リセラーの MPN ID または CSP テナント ID (Microsoft ID)。 *これら2つの識別子のいずれかを使用する必要があります。*
+* [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+* 間接リセラーの MPN ID または CSP テナント ID (Microsoft ID)。 "*これら 2 つの識別子のいずれかを使用する必要があります。* "
 
 ## <a name="c"></a>C\#
 
-間接リセラーの Microsoft パートナー契約署名の状態を取得するには、次のようにします。
+間接リセラーの Microsoft Partner Agreement の署名状態を確認するには、次の手順に従います。
 
- 1. **Iaggregatepartner.customers**コレクションを使用して、 **AgreementSignatureStatus**プロパティを呼び出します。 
- 2. [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get)または[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync)メソッドを呼び出します。
+ 1. **IAggregatePartner.Compliance** コレクションを使用して、**AgreementSignatureStatus** プロパティを呼び出します。 
+ 2. [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) または [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,9 +41,9 @@ var agreementSignatureStatusByMpnId = partnerOperations.Compliance.AgreementSign
 var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementSignatureStatus.Get(tenantId: "Enter Tenant Id");
 ```
 
-- サンプル: **[コンソールテストアプリ](console-test-app.md)**
-- プロジェクト: **Partnerセンター sdk. 特長サンプル**
-- クラス: **GetAgreementSignatureStatus.cs**
+- サンプル: **[コンソール テスト アプリ](console-test-app.md)**
+- プロジェクト:**PartnerCenterSDK.FeaturesSamples**
+- Class:**GetAgreementSignatureStatus.cs**
 
 ## <a name="rest"></a>REST
 
@@ -51,28 +51,28 @@ var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementS
 
 #### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI |
+| 認証方法 | 要求 URI |
 | ------ | ----------- |
-| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /V1/compliance/{ProgramName}/agreementstatus? mpnid = {mpnid} & tenantid = {tenantid} |
+| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId} |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
-パートナーを識別するには、次の2つのクエリパラメーターのいずれかを指定する必要があります。 これら2つのクエリパラメーターのいずれかを指定しない場合は、 **400 (Bad request)** エラーが発生します。
+パートナーを識別するには、次の 2 つのクエリ パラメーターのいずれかを指定する必要があります。 これら 2 つのクエリ パラメーターのいずれかを指定しなかった場合、**400 (無効な要求)** エラーが発生します。
 
-| 名前 | タスクバーの検索ボックスに | 必須かどうか | 説明 |
+| 名前 | 種類 | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | 整数 | 必須ではない | 間接リセラーを識別する Microsoft Partner Network ID。 |
-| **TenantId** | GUID | 必須ではない | 間接リセラーの CSP アカウントを識別する Microsoft ID。 |
+| **MpnId** | int | いいえ | 間接リセラーを識別する Microsoft Partner Network ID。 |
+| **TenantId** | GUID | いいえ | 間接リセラーの CSP アカウントを識別する Microsoft ID。 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](https://docs.microsoft.com/partner-center/develop/headers)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](https://docs.microsoft.com/partner-center/develop/headers)」を参照してください。
 
 #### <a name="request-examples"></a>要求の例
 
 ##### <a name="request-using-mpn-id"></a>MPN ID を使用した要求
 
-次の要求例では、間接リセラーの Microsoft Partner Network ID を使用して、間接リセラーの Microsoft パートナーアグリーメント署名の状態を取得します。
+次の要求例では、間接リセラーの Microsoft Partner Network ID を使用して、間接リセラーの Microsoft Partner Agreement の署名状態を取得します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?mpnid=1234567 HTTP/1.1
@@ -86,7 +86,7 @@ Host: api.partnercenter.microsoft.com
 
 ##### <a name="request-using-csp-tenant-id"></a>CSP テナント ID を使用した要求
 
-次の要求例では、間接リセラーの CSP テナント ID (Microsoft ID) を使用して、間接リセラーの Microsoft パートナーアグリーメント署名の状態を取得します。
+次の要求例では、間接リセラーの CSP テナント ID (Microsoft ID) を使用して、間接リセラーの Microsoft Partner Agreement の署名状態を取得します。
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?tenantId=a2898e3a-06ca-454e-a0d0-c73b0ee36bba HTTP/1.1
@@ -102,11 +102,11 @@ Host: api.partnercenter.microsoft.com
 
 #### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](https://docs.microsoft.com/partner-center/develop/error-codes)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](https://docs.microsoft.com/partner-center/develop/error-codes)に関する記事を参照してください。
 
 #### <a name="response-example-success"></a>応答の例 (成功)
 
-次の応答例では、間接リセラーが Microsoft パートナーアグリーメントに署名しているかどうかを正常に返します。
+次の応答例では、間接リセラーが Microsoft パートナー契約に署名しているかどうかが正常に返されます。
 
 ```http
 HTTP/1.1 200 OK
@@ -125,9 +125,9 @@ Connection: close
 
 #### <a name="response-examples-failure"></a>応答の例 (失敗)
 
-間接リセラーの Microsoft パートナーアグリーメントの署名の状態を返すことができない場合、次の例のような応答が返されることがあります。
+間接リセラーの Microsoft パートナー契約の署名状態を返すことができない場合、次の例のような応答が返されることがあります。
 
-##### <a name="non-guid-formatted-csp-tenant-id"></a>GUID 形式以外の CSP テナント ID
+##### <a name="non-guid-formatted-csp-tenant-id"></a>GUID ではないフォーマット済み CSP テナント ID
 
 API に渡された CSP テナント ID が GUID ではない場合、次の応答の例が返されます。
 
@@ -151,7 +151,7 @@ Connection: close
 
 ##### <a name="non-numeric-mpn-id"></a>数値以外の MPN ID
 
-次の応答例は、API に渡された MPN ID が非数値である場合に返されます。
+API に渡した MPN ID が数値ではない場合、次の応答の例が返されます。
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -171,9 +171,9 @@ Connection: close
 }
 ```
 
-##### <a name="no-mpn-id-or-csp-tenant-id"></a>MPN ID または CSP テナント ID がありません
+##### <a name="no-mpn-id-or-csp-tenant-id"></a>MPN ID または CSP テナント ID がない場合
 
-API に MPN ID または CSP テナント ID を渡さなかった場合に返される応答の例を次に示します。 2種類の ID のいずれかを API に渡す必要があります。
+MPN ID または CSP テナント ID を API に渡していない場合、次の応答の例が返されます。 2 つのいずれかの種類の ID を API に渡す必要があります。
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -193,9 +193,9 @@ Connection: close
 }
 ```
 
-##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>MPN ID と CSP テナント ID の両方が渡されました
+##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>MPN ID と CSP テナント ID の両方を渡した場合
 
-MPN ID と CSP テナント ID の両方を API に渡すと、次の応答の例が返されます。 API には、2つの識別子の型の*うち1つだけ*を渡す必要があります。
+MPN ID と CSP テナント ID の両方を API に渡した場合、次の応答の例が返されます。 2 つの種類の ID の "*いずれか 1 つのみ*" を API に渡す必要があります。
 
 ```http
 HTTP/1.1 400 Bad Request
