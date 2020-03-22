@@ -6,24 +6,24 @@ ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7393c3f4c200fa6f156b9a5fbc730b5bcb390dc7
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 67e6c803995759942748aac79473911b2aa2f9e7
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490152"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80070115"
 ---
 # <a name="get-a-customers-service-costs-line-items"></a>顧客のサービスコストの明細項目を取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 指定された請求期間の顧客のサービスコスト明細項目を取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。
+- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。
 - 顧客識別子。
 - 請求期間インジケーター (**最新**)。
 
@@ -49,24 +49,24 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | メソッド  | 要求 URI                                                                                                             |
 |---------|-------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period}/lineitems HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period}/lineitems HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客と請求期間を識別します。
 
-| 名前           | 種類   | 必須 | 説明                                                                                                                      |
+| Name           | 種類   | 必須 | 説明                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| 顧客 id    | guid   | 〇      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
-| 請求-期間 | string | 〇      | 請求期間を表すインジケーター。 唯一サポートされている値は、最新です。 文字列の大文字と小文字の区別は関係ありません。 |
+| 顧客 id    | guid   | はい      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
+| 請求-期間 | string | はい      | 請求期間を表すインジケーター。 唯一サポートされている値は、最新です。 文字列の大文字と小文字の区別は関係ありません。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -87,9 +87,9 @@ Host: api.partnercenter.microsoft.com
 > [!IMPORTANT]
 > 次のプロパティは、製品が1回だけ*購入*されるサービスコスト明細項目 ( **productId**、 **productName**、 **skuId**、 **skuname**、 **availabilityId**、 **publisherId**、 **publishername**、 **termandbil**、 **discountdetails**)*にのみ適用*されます。 これらのプロパティは、製品が*定期的に購入*されるサービスライン項目には適用され*ません*。 たとえば、これらのプロパティは、サブスクリプションベースの Office 365 および Azure には適用され*ません*。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 
@@ -164,7 +164,7 @@ Date: Fri, 02 Dec 2016 18: 54: 38 GMT
             "availabilityId": "DZH318Z0BTTTT",
             "productName": "NGINX Plus",
             "skuName": "NGINX Plus (Ubuntu 14.04)",
-            "publisherName": ""Nginx, Inc.",
+            "publisherName": "Nginx, Inc.",
             "publisherId": "212336222",
             "termAndBillingCycle": "30 Days Trial",
             "discountDetails": "20%"

@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: dc291e4d286e6eeeb1ce4ae6faeb965f59bb1c33
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490092"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80082859"
 ---
 # <a name="entitlement-resources"></a>権利リソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -59,8 +59,8 @@ ms.locfileid: "74490092"
 
 | プロパティ | 種類 | 説明 |
 |----------|------|-------------|
-| quantity | int | 項目の数。 |
-| status | string | 数量の状態。 |
+| quantity | int | 項目の数 |
+| 状態 | string | 数量の状態。 |
 
 
 ## <a name="span-identitlementtypespan-identitlementtypespan-identitlementtypeentitlementtype"></a><span id="EntitlementType"/><span id="entitlementtype"/><span id="ENTITLEMENTTYPE"/>EntitlementType
@@ -70,7 +70,7 @@ ms.locfileid: "74490092"
 
 権利の種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)型。
 
-| Value | 説明 |
+| 値 | 説明 |
 |-------|-------------|
 | ソフトウェア | ソフトウェアに関連する権利の種類を示します。 |
 | VirtualMachineReservedInstance | Azure Reserved Virtual Machine Instances に関連する権利の種類を示します。 |
@@ -82,7 +82,7 @@ ms.locfileid: "74490092"
 
 | プロパティ | 種類 | 説明 |
 |----------|------|-------------|
-| ArtifactType | string | 成果物の種類。 (SDK Version 1.8 では[Artifacttype](#artifacttype)から文字列に更新) |
+| artifactType | string | 成果物の種類。 (SDK Version 1.8 では[Artifacttype](#artifacttype)から文字列に更新) |
 | dynamicAttributes | Dictionary&lt;string、object&gt; | Artifacttype 固有の値を含む動的属性。 たとえば、artifactType = "reservedinstance" の場合、これには "reservationType" = "virtualmachines" または "reservationType" = "sqldatabases" が含まれます。これは、仮想マシンの予約インスタンスまたは Azure SQL の予約済みインスタンスを示します。 (SDK v1.0 以降で利用可能) |
 
 
@@ -93,7 +93,7 @@ ms.locfileid: "74490092"
 
 権利の成果物の種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
-| Value                          | 説明                                                                             |
+| 値                          | 説明                                                                             |
 |--------------------------------| ----------------------------------------------------------------------------------------|
 | VirtualMachineReservedInstance | アーティファクトが Azure Reserved Virtual Machine Instances の取得に役立つことを示します。 |
 
@@ -104,7 +104,7 @@ Azure 予約インスタンスに関連付けられている成果物。 [アー
 
 | プロパティ   | 種類                           | 説明                                        |
 |------------|--------------------------------|----------------------------------------------------|
-| リンク       | [Link](./utility-resources.md#link) | 関連付けられているすべての成果物の詳細を取得するためのリンク。   |
+| link       | [Link](./utility-resources.md#link) | 関連付けられているすべての成果物の詳細を取得するためのリンク。   |
 | resourceID | string                         | Azure 予約注文またはリソースの ID。 |
 
 
@@ -115,7 +115,7 @@ Azure 予約インスタンス成果物リンクの呼び出し時に返され�
 
 |   プロパティ   |           種類           |                          説明                          |
 |--------------|--------------------------|---------------------------------------------------------------|
-|     type     |          string          |                     成果物の種類。                     |
+|     型     |          string          |                     成果物の種類。                     |
 | 予約 | IEnumerable<Reservation> | Azure リソースまたは予約注文 id を示します。 |
 
 ## <a name="span-idreservationspan-idreservationspan-idreservationreservation"></a><span id="Reservation"/><span id="reservation"/><span id="RESERVATION"/>予約
@@ -143,7 +143,7 @@ Azure 予約仮想マシンインスタンスの権利に関連付けられて�
 
 | プロパティ   | 種類                              | 説明                                        |
 |------------|-----------------------------------|----------------------------------------------------|
-| リンク       | [Link](utility-resources.md#link) | 関連付けられているすべての成果物の詳細を取得するためのリンク。   |
+| link       | [Link](utility-resources.md#link) | 関連付けられているすべての成果物の詳細を取得するためのリンク。   |
 | resourceID | string                            | Azure 予約注文またはリソースの ID。 |
 
 
@@ -156,7 +156,7 @@ Azure 予約仮想マシンインスタンス成果物リンクの呼び出し�
 
 | プロパティ                    | 種類                                                                 | 説明           |
 |-----------------------------|----------------------------------------------------------------------|-----------------------|
-| type                        | [ArtifactType](#artifacttype)                                        | 成果物の種類。 |
+| 型                        | [ArtifactType](#artifacttype)                                        | 成果物の種類。 |
 | virtualMachineReservations  | IEnumerable <[VirtualMachineReservation](#virtualmachinereservation)> | Azure リソースまたは予約注文 id を示します。 |
 
 

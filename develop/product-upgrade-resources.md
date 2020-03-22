@@ -7,17 +7,17 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 3f891c3e7d25dfc6ec47ef861fa79345c32c1f9f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488202"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083069"
 ---
 # <a name="product-upgrade-resources"></a>製品のアップグレードに関するリソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 Microsoft Azure (0145P) サブスクリプションから Azure プランへのパートナーセンター製品のアップグレードに関する情報については、次のリソースを参照してください。
 
@@ -38,7 +38,7 @@ Microsoft Azure (0145P) サブスクリプションから Azure プランへの�
 | プロパティ | 種類 | 説明 |
 |----------------------|--------------------------------------------- |----------------------------------------------------------------|
 | 顧客           | string                                       | 顧客を識別する GUID 形式の文字列。 |          | productFamily        | string                                       | アップグレードが要求されている製品ファミリ。 |
-| IsEligible           | bool                                         | ブール値は、顧客が要求されたアップグレードの条件を満たしているかどうかを示します。 |
+| isEligible           | bool                                         | ブール値は、顧客が要求されたアップグレードの条件を満たしているかどうかを示します。 |
 | upgradeId            | string                                       | 指定されたファミリの製品のアップグレードが既に配置されている場合のアップグレード ID。 |
 | reason               | string                                       | 顧客が製品のアップグレードに適合していない理由。 |
 | productFamily        | string                                       | アップグレードが要求されている製品ファミリ。 |
@@ -50,9 +50,9 @@ Microsoft Azure (0145P) サブスクリプションから Azure プランへの�
 
 | プロパティ | 種類 | 説明 |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------|
-| ID                  | string                                                         | アップグレードを識別する GUID 形式の文字列。 |
+| Id                  | string                                                         | アップグレードを識別する GUID 形式の文字列。 |
 | productFamily       | string                                                         | アップグレードが要求されている製品ファミリ。
-| status              | string                                                         | 製品のアップグレードの状態。
+| 状態              | string                                                         | 製品のアップグレードの状態。
 | lineItems           | アップグレード時の[lineitem](#upgradeslineitem)リソースの配列       | 要求本文の一部であった各品目のアップグレードの詳細情報を提供するオブジェクトの配列。
 | errorDetails        | [Errordetails](#errordetails)リソース                         | アップグレードが要求された場合のエラーの詳細。
 | 属性          | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。 |
@@ -66,7 +66,7 @@ Microsoft Azure (0145P) サブスクリプションから Azure プランへの�
 | sourceProduct   | [Upgradeproduct](#upgradeproduct)オブジェクト            | アップグレードされるソース製品の情報。 |
 | targetProduct   | [Upgradeproduct](#upgradeproduct)オブジェクト            | ターゲット製品のアップグレード後の情報。 |
 | upgradedDate    | UTC 日時形式の文字列                      | サブスクリプションがアップグレードされた日付。 |
-| status          | string                                              | 製品のアップグレードの状態。 |
+| 状態          | string                                              | 製品のアップグレードの状態。 |
 | errorDetails    | [Errordetails](#errordetails)リソース              | アップグレードが要求された場合のエラーの詳細。 |
 | 属性      | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。  |
 
@@ -87,5 +87,5 @@ Microsoft Azure (0145P) サブスクリプションから Azure プランへの�
 | プロパティ | 種類 | 説明 |
 |-------------------------|----------------------------------------------|-------------------------------------------------------------|
 | code                    | string                                       | 製品のアップグレードに失敗した場合のエラーコード。 |
-| メッセージ                 | string                                       | 製品のアップグレードに失敗した場合のエラーメッセージ。 |
+| message                 | string                                       | 製品のアップグレードに失敗した場合のエラーメッセージ。 |
 | 属性              | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 |

@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 625209f834a7d89fbf288b7a1430624cb99485b1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486932"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083049"
 ---
 # <a name="license-resources"></a>ライセンスリソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -37,7 +37,7 @@ ms.locfileid: "74486932"
 | プロパティ     | 種類                                                           | 説明                                                    |
 |--------------|----------------------------------------------------------------|----------------------------------------------------------------|
 | servicePlans | ServicePlan リソースの配列                                 | ライセンスに対応するサービスプランのコレクション |
-| productSKU   | ProductSku                                                     | ライセンスに対応する製品の sku。        |
+| productSKU   | productSku                                                     | ライセンスに対応する製品の sku。        |
 | 属性   | [ResourceAttributes](utility-resources.md#resourceattributes) | ライセンスに対応するメタデータ属性。          |
 
  
@@ -76,7 +76,7 @@ ms.locfileid: "74486932"
 | プロパティ     | 種類             | 説明                                         |
 |--------------|------------------|-----------------------------------------------------|
 | code         | string           | 警告コード。                                   |
-| メッセージ      | string           | 警告メッセージ。                                |
+| message      | string           | 警告メッセージ。                                |
 | servicePlans | 文字列の配列 | 警告に関連付けられているサービスプラン名。 |
 
  
@@ -159,8 +159,8 @@ ms.locfileid: "74486932"
 | consumedUnits    | 整数                                                        | 消費された単位の数。                                                                     |
 | suspendedUnits   | 整数                                                        | 中断されたユニットの数。                                                                    |
 | totalUnits       | 整数                                                        | ユニットの合計数。 これは、アクティブおよび警告単位の合計として計算されます。         |
-| 警告ユニット     | 整数                                                        | 警告単位の数。                                                                      |
-| ProductSku       | ProductSku                                                     | 製品 sku。                                                                                  |
+| 警告ユニット     | 整数                                                        | 警告ユニットの数です。                                                                      |
+| productSku       | productSku                                                     | 製品 sku。                                                                                  |
 | servicePlans     | ServicePlan リソースの配列                                 | 製品のサービスプランのコレクション。                                                     |
 | capabilityStatus | string                                                         | 製品の sku の状態。                                                                      |
 | 属性       | [ResourceAttributes](utility-resources.md#resourceattributes) | リソースに対応するメタデータ属性。                                            |

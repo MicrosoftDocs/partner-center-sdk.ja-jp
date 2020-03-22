@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: b19eb80c5be2cc07bd325681f9870a1af7fed481
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486252"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083079"
 ---
 # <a name="utility-resources"></a>ユーティリティのリソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -32,13 +32,13 @@ ms.locfileid: "74486252"
 
 | プロパティ     | 種類   | 長さ (最小、最大) | 説明                                                                                      |
 |--------------|--------|-------------------|--------------------------------------------------------------------------------------------------|
-| AddressLine1 | string | (1, 200)          | 住所の1行目。                                                                   |
-| AddressLine2 | string | (0, 200)          | アドレスの2番目の行。 このプロパティは省略可能です。                                       |
-| 市区町村         | string | なし               | 市区町村。                                                                                        |
-| 状態        | string | (0, 2)            | 状態。                                                                                       |
+| AddressLine1 | string | (1, 200)          | 所在地の 1 行目。                                                                   |
+| AddressLine2 | string | (0, 200)          | 所在地の 2 行目。 このプロパティは省略可能です。                                       |
+| 市         | string | なし               | 市区町村。                                                                                        |
+| 状態        | string | (0, 2)            | 都道府県。                                                                                       |
 | PostalCode   | string | なし               | 郵便番号。                                                                     |
-| Country      | string | (2, 2)            | ISO 国コード形式の国/地域。                                                   |
-| Region       | string | なし               | 領域。                                                                                      |
+| 国      | string | (2, 2)            | ISO 国コード形式の国/地域。                                                   |
+| Region       | string | なし               | 地域。                                                                                      |
 | FirstName    | string | (1, 50)           | 顧客の会社/組織の連絡先の名。                              |
 | LastName     | string | (1, 50)           | 顧客の会社/組織の連絡先の姓。                               |
 | PhoneNumber  | string | なし               | 顧客の会社/組織の連絡先の電話番号。 このプロパティは省略可能です。 |
@@ -46,13 +46,13 @@ ms.locfileid: "74486252"
 
 ## <a name="span-idcontactspan-idcontactspan-idcontactcontact"></a><span id="Contact"/><span id="contact"/><span id="CONTACT"/>連絡先
 
-特定の個人の連絡先情報について説明します。
+特定の個人の連絡先情報の説明。
 
 | プロパティ    | 種類   | 説明                  |
 |-------------|--------|------------------------------|
-| FirstName   | string | 連絡先の名。    |
+| FirstName   | string | 連絡先の名前。    |
 | LastName    | string | 連絡先の姓。     |
-| Email       | string | 連絡先の電子メールアドレス。 |
+| Email       | string | 連絡先の電子メール アドレス。 |
 | PhoneNumber | string | 連絡先の電話番号。  |
  
 
@@ -71,11 +71,11 @@ ms.locfileid: "74486252"
 
 | プロパティ                 | 種類   | 説明                                   |
 |--------------------------|--------|-----------------------------------------------|
-| Comment                  | string | ファイルのアップロードに関連付けられているコメント。    |
+| コメント                  | string | ファイルのアップロードに関連付けられているコメント。    |
 | FileExtension            | string | ファイル拡張子。                           |
 | FileNameWithoutExtension | string | 拡張子が含まれていないファイルの名前。 |
 | FileSize                 | long   | ファイルのサイズ。                         |
-| ID                       | string | ファイルをアップロードするための一意の ID。            |
+| Id                       | string | ファイルをアップロードするための一意の ID。            |
  
 
 ## <a name="span-idlinkspan-idlinkspan-idlinklink"></a><span id="Link"/><span id="link"/><span id="LINK"/>リンク
@@ -98,7 +98,7 @@ URI リンクと関連情報が含まれています。
 
 | プロパティ            | 種類                          | 説明                                                            |
 |---------------------|-------------------------------|------------------------------------------------------------------------|
-| パスワード            | [SecureString](#securestring) | パスワード。                                                          |
+| Password            | [SecureString](#securestring) | パスワード。                                                          |
 | ForceChangePassword | boolean                       | 次回ログイン時にパスワードを強制的に変更する必要があるかどうかを決定します。 |
  
 
@@ -110,7 +110,7 @@ URI リンクと関連情報が含まれています。
 |------------|-------------------------------------------|----------------------------------------------------|
 | Self (自己)       | [Link](#link)                             | 自己 URI。                                      |
 | 次へ       | [Link](#link)                             | 項目の次のページ。                            |
-| 戻る   | [Link](#link)                             | 項目の前のページ。                        |
+| 前へ   | [Link](#link)                             | 項目の前のページ。                        |
 | 属性 | [ResourceAttributes](#resourceattributes) | ユーザーに対応するメタデータ属性。 |
  
 

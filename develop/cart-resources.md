@@ -6,11 +6,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: a9fb1c81cae0e7efa0a5e84d2b4d93e44ce7efb9
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899735"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80082979"
 ---
 # <a name="cart-resources"></a>カートのリソース
 
@@ -57,7 +57,7 @@ ms.locfileid: "78899735"
 | エラー                | オブジェクト                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
 | renewsTo             | オブジェクトの配列                 | [Renewsto](#renewsto)の配列。                                                                            |
 
-## <a name="renewsto"></a>RenewsTo
+## <a name="renewsto"></a>renewsTo
 
 カートの品目に含まれる1つのアイテムを表します。
 

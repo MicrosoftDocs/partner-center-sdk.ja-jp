@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: ef2677994f2a2af2171624d5a7c5f2ad5696fd70
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488252"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083149"
 ---
 # <a name="products-resources"></a>製品リソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 購入可能な商品またはサービスを表すリソース。 製品の種類と形状 (SKU) を説明し、在庫内の製品の可用性を確認するためのリソースが含まれています。   
 
@@ -32,11 +32,11 @@ ms.locfileid: "74488252"
 |--------------------|-------------------------------|--------------------------------------------------------------------------|
 | id                 | string                        | この製品の ID。                                                 |
 | title              | string                        | 製品タイトル。                                                       |
-| 説明        | string                        | 製品の説明。                                                 |
+| description        | string                        | 製品の説明。                                                 |
 | productType        | [ItemType](#itemtype)         | この製品の種類の分類を記述するオブジェクト。     |
 | Ismicrosoft 製品 | bool                          | これがマイクロ Swoft 製品であるかどうかを示します。                          |
 | publisherName      | string                        | 使用可能な場合は、製品の発行元の名前。                          |
-| links              | [ProductLinks](#productlinks) | 製品内に含まれるリソースリンク。                         |
+| リンク              | [ProductLinks](#productlinks) | 製品内に含まれるリソースリンク。                         |
 
 
 
@@ -49,7 +49,7 @@ ms.locfileid: "74488252"
 |-----------------|-------------------------------|--------------------------------------------------------------------------------------|
 | id              | string                        | 型識別子。                                                                 |
 | displayName     | string                        | この型の表示名。                                                      |
-| 内部         | [ItemType](#itemtype)         | (省略可能)。 この項目の種類のサブ型の分類を記述するオブジェクト。     |
+| 内部         | [ItemType](#itemtype)         | 省略可。 この項目の種類のサブ型の分類を記述するオブジェクト。     |
 
  
 
@@ -61,11 +61,11 @@ ms.locfileid: "74488252"
 | プロパティ        | 種類                                                          | 説明                                          |
 |-----------------|---------------------------------------------------------------|------------------------------------------------------|
 | sku            | [Link](utility-resources.md#link)                             | 基になる Sku にアクセスするためのリンク。          |
-| links           | [ResourceLinks](utility-resources.md#resourcelinks)           | このリソース内に含まれるリソースリンク。   |
+| リンク           | [ResourceLinks](utility-resources.md#resourcelinks)           | このリソース内に含まれるリソースリンク。   |
 
 
 
-## <a name="sku"></a>番
+## <a name="sku"></a>Sku
 
 
 製品の購入可能な在庫維持単位 (SKU) を表します。 これらは、製品のさまざまな形状を表します。 
@@ -74,7 +74,7 @@ ms.locfileid: "74488252"
 |------------------------|------------------|---------------------------------------------------------------------------------------|
 | id                     | string           | この SKU の ID。 この ID は、その親製品のコンテキスト内でのみ一意です。 |
 | title                  | string           | SKU のタイトル。                                                                 |
-| 説明            | string           | SKU の説明。                                                           |
+| description            | string           | SKU の説明。                                                           |
 | productId              | string           | この SKU を含む親[製品](#product)の ID。                      |
 | minimumQuantity        | int              | 購入に許容される最小数量。                                            |
 | maximumQuantity        | int              | 購入に許可される最大数量。                                            |
@@ -84,7 +84,7 @@ ms.locfileid: "74488252"
 | inventoryVariables     | 文字列の配列 | この項目の在庫チェックを実行するために必要な変数の一覧。 サポートされている値は次のとおりです。<br/> "CustomerId"-購入の対象となる顧客の ID。<br/> "AzureSubscriptionId"-Azure 予約購入に使用される Azure サブスクリプションの ID。</br> "ArmRegionName"-インベントリを確認するリージョン。 この値は、SKU の DynamicAttributes の "ArmRegionName" と一致している必要があります。 |
 | プロビジョニング変数  | 文字列の配列 | この項目を購入するときに[カート](cart-resources.md#cartlineitem)の品目のプロビジョニングコンテキストに提供する必要がある変数の一覧。 サポートされている値は次のとおりです。<br/> スコープ-Azure 予約購入のスコープ。 "Single"、"Shared"。<br/> "SubscriptionId"-Azure 予約購入に使用される Azure サブスクリプションの ID。<br/> "Duration"-Azure 予約の期間 ("1Year"、"3Year")。  |
 | dynamicAttributes      | キーと値のペア  | この項目に適用される動的プロパティのディクショナリ。 このディクショナリのプロパティは動的であり、予告なしに変更される可能性があることに注意してください。 このプロパティの値に存在する特定のキーに対しては、厳密な依存関係を作成しないでください。    |
-| links                  | [ResourceLinks](utility-resources.md#resourcelinks) | SKU 内に含まれるリソースリンク。                   |
+| リンク                  | [ResourceLinks](utility-resources.md#resourcelinks) | SKU 内に含まれるリソースリンク。                   |
 
 
 
@@ -99,14 +99,14 @@ SKU を購入できる構成 (国、通貨、業界セグメントなど) を表
 | skuId           | string                                              | この可用性を含む[SKU](#sku)の ID。                   |
 | catalogItemId   | string                                              | カタログ内のこのアイテムの一意の識別子です。 これは、親[SKU](#sku)を購入するときに、 [Orderlineitem. offerid](order-resources.md#orderlineitem)プロパティまたは[CartLineItem](cart-resources.md#cartlineitem)プロパティに値を設定する必要がある ID です。 **メモ**この ID は、時間の経過と共に変化することがあります。 この値は、取得後の短時間でのみ使用してください。 このファイルには、購入時にのみアクセスして使用する必要があります。  |
 | defaultCurrency | string                                              | この可用性に対してサポートされている既定の通貨です。                               |
-| 市場         | string                                              | この可用性の業界セグメント。 サポートされている値は、商用、教育、政府、非営利です。 |
+| セグメント         | string                                              | この可用性の業界セグメント。 サポートされている値は、商用、教育、政府、非営利です。 |
 | country         | string                                              | この可用性が適用される国または地域 (ISO 国コード形式)。 |
 | isPurchasable   | bool                                                | この可用性が購入可能なかどうかを示します。 |
 | isRenewable 可能     | bool                                                | この可用性が更新可能かどうかを示します。 |
-| 梱包         | [製品](#product)               | この可用性が対応する製品。 |
+| プロダクト         | [製品](#product)               | この可用性が対応する製品。 |
 | sku             | [番](#sku)                     | この可用性が対応する SKU。 |
-| 条項           | [用語](#term)リソースの配列  | この可用性に適用される用語のコレクション。 |
-| links           | [ResourceLinks](utility-resources.md#resourcelinks) | 可用性に含まれるリソースリンク。 |
+| terms           | [用語](#term)リソースの配列  | この可用性に適用される用語のコレクション。 |
+| リンク           | [ResourceLinks](utility-resources.md#resourcelinks) | 可用性に含まれるリソースリンク。 |
 
 
 ## <a name="term"></a>用語
@@ -116,7 +116,7 @@ SKU を購入できる構成 (国、通貨、業界セグメントなど) を表
 | プロパティ              | 種類                                                                              | 説明                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | 全              | string                                                                            | 用語の期間の ISO 8601 表現。 現在サポートされている値は、P1M (1 か月)、P1Y (1 年)、および P3Y (3 年) です。 |
-| 説明           | string                                                                            | 用語の説明。           |
+| description           | string                                                                            | 用語の説明。           |
 
 ## <a name="inventorycheckrequest"></a>InventoryCheckRequest
 
@@ -126,7 +126,7 @@ SKU を購入できる構成 (国、通貨、業界セグメントなど) を表
 |------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------|
 | targetItems      | [InventoryItem](#inventoryitem)の配列            | インベントリチェックで評価されるカタログアイテムの一覧です。                           |
 | inventoryContext | キーと値のペア                                     | 在庫チェックを実行するために必要なコンテキスト値のディクショナリ。 製品の各[SKU](#sku)は、この操作を実行するために必要な値 (存在する場合) を定義します。  |
-| links            | [ResourceLinks](utility-resources.md#resourcelinks) | インベントリチェック要求内に含まれるリソースリンク。                            |
+| リンク            | [ResourceLinks](utility-resources.md#resourcelinks) | インベントリチェック要求内に含まれるリソースリンク。                            |
 
 
 
@@ -139,7 +139,7 @@ SKU を購入できる構成 (国、通貨、業界セグメントなど) を表
 | productId        | string                                                            | 必要[製品](#product)の ID。                            |
 | skuId            | string                                                            | [SKU](#sku)の ID。 このリソースを在庫要求への入力として使用する場合、この値は省略可能です。 この値が指定されていない場合、製品のすべての Sku が在庫確認操作のターゲット項目と見なされます。      |
 | isRestricted     | bool                                                              | この項目が制限付きの在庫を持っていることが検出されたかどうかを示します。            |
-| おける     | [InventoryRestriction](#inventoryrestriction)の配列            | この項目に対して検出された制限の詳細。 このプロパティは、 **Isrestricted** = "true" の場合にのみ設定されます。 |
+| 制限事項     | [InventoryRestriction](#inventoryrestriction)の配列            | この項目に対して検出された制限の詳細。 このプロパティは、 **Isrestricted** = "true" の場合にのみ設定されます。 |
 
 
 
@@ -150,7 +150,7 @@ SKU を購入できる構成 (国、通貨、業界セグメントなど) を表
 | プロパティ         | 種類                  | 説明                                                                                 |
 |------------------|-----------------------|---------------------------------------------------------------------------------------------|
 | 理由コード       | string                | 制限の理由を示すコード。                                    |
-| 説明      | string                | 在庫制限の説明。                                               |
+| description      | string                | 在庫制限の説明。                                               |
 | プロパティ       | キーと値のペア       | 制限の詳細を提供する可能性のあるプロパティのディクショナリ。           |
 
 
@@ -159,11 +159,11 @@ SKU を購入できる構成 (国、通貨、業界セグメントなど) を表
 
 請求サイクルの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)型。
 
-| Value              | 位置     | 説明                                                                                |
+| 値              | [位置]     | 説明                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
-| Unknown            | 0            | 列挙型の初期化子です。                                                                          |
+| 不明            | 0            | 列挙型の初期化子です。                                                                          |
 | 毎月            | 1            | パートナーが月単位で課金されることを示します。                                        |
-| 定例             | 2            | パートナーが毎年課金されることを示します。                                       |
+| 年間             | 2            | パートナーが毎年課金されることを示します。                                       |
 | なし               | 3            | パートナーが課金されないことを示します。 この値は、試用版の項目に使用できます。    |
 | OneTime            | 4            | パートナーに1回だけ課金されることを示します。                                       |
 
