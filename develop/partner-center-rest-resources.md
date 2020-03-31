@@ -4,21 +4,21 @@ description: このセクションでは、パートナーセンター REST API 
 ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4be969f9bced111c3ba95f773920f4aecfc4942d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3e84ce1f55eedd94519582fc57ce75eed2fddee0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486822"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416407"
 ---
 # <a name="partner-center-rest-resources"></a>パートナーセンターの REST リソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -89,9 +89,9 @@ ms.locfileid: "74486822"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="customer-resources.md">お</a></td>
+<td><a href="customer-resources.md">顧客</a></td>
 <td><ul>
-<li>お客様</li>
+<li>顧客</li>
 <li>顧客企業プロファイル</li>
 <li>顧客のプロファイル</li>
 <li>顧客の Relationshiprequest</li>
@@ -107,13 +107,13 @@ ms.locfileid: "74486822"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="entitlement-resources.md">受ける</a></td>
+<td><a href="entitlement-resources.md">エンタイトルメント</a></td>
 <td><ul>
 <li>受ける</li>
 <li>referenceOrder</li>
 <li>entitlementType</li>
 <li>成果物</li>
-<li>ArtifactType</li>
+<li>artifactType</li>
 <li>VirtualMachineReservedInstanceArtifact</li>
 <li>VirtualMachineReservedInstanceArtifactDetails</li>
 <li>VirtualMachineReservation</li>
@@ -134,13 +134,13 @@ ms.locfileid: "74486822"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="license-resources.md">使用</a></td>
+<td><a href="license-resources.md">ライセンス</a></td>
 <td><ul>
 <li>ライセンス</li>
 <li>LicenseUpdate</li>
 <li>LicenseAssignment</li>
 <li>LicenseWarning</li>
-<li>ProductSku</li>
+<li>productSku</li>
 <li>ServicePlan</li>
 <li>SubscribedSku</li>
 </ul></td>
@@ -164,7 +164,7 @@ ms.locfileid: "74486822"
 <tr class="odd">
 <td><a href="order-resources.md">Order</a></td>
 <td><ul>
-<li>[オーダー]</li>
+<li>Order</li>
 <li>OrderLineItem</li>
 <li>OrderLinks</li>
 <li>OrderLineItemLinks</li>
@@ -182,12 +182,12 @@ ms.locfileid: "74486822"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="product-resources.md">Products</a></td>
+<td><a href="product-resources.md">製品</a></td>
 <td><ul>
 <li>製品</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
-<li>番</li>
+<li>Sku</li>
 <li>対象</li>
 <li>InventoryCheckRequest</li>
 <li>InventoryItem</li>
@@ -221,7 +221,7 @@ ms.locfileid: "74486822"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="subscription-resources.md">Web</a></td>
+<td><a href="subscription-resources.md">サブスクリプション</a></td>
 <td><ul>
 <li>サブスクリプション</li>
 <li>SubscriptionLinks</li>
@@ -261,7 +261,7 @@ ms.locfileid: "74486822"
 <td><a href="utility-resources.md">ユーティリティのリソース</a></td>
 <td><ul>
 <li>Address</li>
-<li>Contact</li>
+<li>連絡先</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>
 <li>リンク</li>

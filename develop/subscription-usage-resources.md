@@ -4,20 +4,20 @@ description: サブスクリプションの使用状況に関するリソース�
 ms.assetid: 61B98AB8-D802-4EC1-91FB-B7A2B95DE20C
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b6c1a10023b22214bab89473b867a36c5a1eb7f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6dbd55edd489cd6672842c81fc392333266b481e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488022"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415093"
 ---
 # <a name="subscription-usage-resources"></a>サブスクリプションの利用状況に関するリソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -32,7 +32,7 @@ ms.locfileid: "74488022"
 | プロパティ         | 種類               | 説明                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
 | 使用された日付         | string             | サブスクリプションが使用された日 (日付/時刻形式)。                                 |
-| ResourceId       | string             | GUID. リソースの一意の ID。                                                          |
+| ResourceId       | string             | GUID。 リソースの一意の ID。                                                          |
 | ResourceName     | string             | リソースの名前。                                                                     |
 | TotalCost        | decimal             | 指定した日にサブスクリプション内のリソースを使用した場合の推定総コスト。     |
 | CurrencyLocale   | string             | サブスクリプションが使用されたロケールによって、請求書で使用する通貨が決まります。 |
@@ -45,11 +45,11 @@ ms.locfileid: "74488022"
 
 | プロパティ         | 種類               | 説明                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| 状況           | string             | サブスクリプションの状態: "none"、"active"、"中断"、または "deleted"。                  |
+| 状態           | string             | サブスクリプションの状態: "none"、"active"、"中断"、または "deleted"。                  |
 | PartnerOnRecord  | string             | "レコード上のパートナーの MPN ID"                                                        |
-| OfferId          | string             | GUID. このサブスクリプションに関連付けられているオファーの id。                                       |
-| ID               | string             | GUID. サブスクリプションまたはリソースの id。                                                 |
-| 名前             | string             | サブスクリプションまたはリソースの名前。                                                     |
+| OfferId          | string             | GUID。 このサブスクリプションに関連付けられているオファーの id。                                       |
+| Id               | string             | GUID。 サブスクリプションまたはリソースの id。                                                 |
+| Name             | string             | サブスクリプションまたはリソースの名前。                                                     |
 | TotalCost        | decimal             | 指定した月にサブスクリプション内のリソースを使用した場合の推定総コスト。   |
 | CurrencyLocale   | string             | サブスクリプションが使用されたロケールによって、請求書で使用する通貨が決まります。 Microsoft Azure (0145P) サブスクリプションで使用できます。 |
 | CurrencyCode     | string             | 通貨コードを取得または設定します。 Azure プランサブスクリプションリソースで使用できます。                                         |
@@ -63,7 +63,7 @@ ms.locfileid: "74488022"
 
 | プロパティ         | 種類               | 説明                                                                                                            |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------------|
-| ResourceId       | string             | GUID. サブスクリプションまたはリソースの id。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
+| ResourceId       | string             | GUID。 サブスクリプションまたはリソースの id。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
 | ResourceName     | string             | サブスクリプションまたはリソースの名前。 CustomerMonthlyUsageRecord のコンテキストでは、この名前は顧客名です。 |
 | /日 | date               | 現在の請求期間の開始日 (日付と時刻の形式)。                                                     |
 | すべての日付   | date               | 現在の請求期間の終了日 (日付/時刻形式)。                                                       |

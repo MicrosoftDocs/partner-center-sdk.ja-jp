@@ -4,20 +4,20 @@ description: アドレス検証 API を使用してアドレスを検証する�
 ms.assetid: 38A136CD-5E42-46D2-85A4-ED08E30444B8
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 79a4abf7c9aaf791421f008221d32a89c18f5867
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 254fad11cbca2ea8e3c5068b67b7b3cbbcbccc9d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995207"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414385"
 ---
 # <a name="validate-an-address"></a>アドレスを検証する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ Address validation API は、顧客プロファイルの更新の事前検証に
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+[パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
 
@@ -129,7 +129,7 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 ## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
 
-**要求構文**
+**要求の構文**
 
 | メソッド   | 要求 URI                                                                 |
 |----------|-----------------------------------------------------------------------------|
@@ -143,14 +143,14 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前         | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                |
+| Name         | 種類   | 必須 | 説明                                                |
 |--------------|--------|----------|------------------------------------------------------------|
 | addressline1 | string | Y        | 所在地の 1 行目。                             |
 | addressline2 | string | N        | 所在地の 2 行目。 このプロパティは省略可能です。 |
 | city         | string | Y        | 市区町村。                                                  |
 | state        | string | Y        | 都道府県。                                                 |
 | postalcode   | string | Y        | 郵便番号。                                           |
-| country      | string | Y        | 2 文字の ISO alpha-2 国別コード。                |
+| country      | string | Y        | 2文字の ISO alpha 2 国コード。                |
 
 **要求の例**
 
@@ -182,7 +182,7 @@ Content-Length: 129
 
 **応答成功およびエラーコード**
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答-検証成功の例**
 

@@ -4,20 +4,20 @@ description: 顧客、製品、SKU の識別子を使用して、顧客によっ
 ms.assetid: ''
 ms.date: 10/23/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 33c65f49a0f0425e12e40e202a7b0a6cebb7def6
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0c9b834899c74e8f21736dc5d6837e9c99ed6ba7
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487482"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416771"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-customer"></a>SKU に使用できる機能の一覧を取得する (顧客別)
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,12 +26,12 @@ ms.locfileid: "74487482"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子 (**顧客-テナント id**)。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (**customer-tenant-id**)。
 - 製品識別子 (**製品 id**)。
 - SKU 識別子 (**sku id**)。
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -43,19 +43,19 @@ ms.locfileid: "74487482"
 
 #### <a name="request-uri-parameters"></a>要求 URI パラメーター
 
-| 名前               | 種類 | 必須 | 説明                                                                                 |
+| Name               | 種類 | 必須 | 説明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| 顧客-テナント id | GUID | 〇 | 値は、GUID 形式の**顧客テナント id**です。これは、顧客を指定するための識別子です。 |
-| 製品 id | string | 〇 | 製品を識別する文字列。 |
-| sku-id | string | 〇 | SKU を識別するための。 |
+| customer-tenant-id | GUID | はい | この値は、顧客を指定できるようにする識別子である、GUID 形式の **customer-tenant-id** です。 |
+| 製品 id | string | はい | 製品を識別する文字列。 |
+| sku-id | string | はい | SKU を識別するための。 |
 
 #### <a name="request-header"></a>要求ヘッダー
 
 - 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-example"></a>要求の例
 
@@ -69,9 +69,9 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 
 ### <a name="rest-response"></a>REST 応答
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 このメソッドは、次のエラーコードを返します。
 

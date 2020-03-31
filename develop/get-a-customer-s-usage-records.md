@@ -4,20 +4,20 @@ description: CustomerMonthlyUsageRecord リソースコレクションを使用�
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dac77bab8210a5aa63994e99d9f4b09fa4d90298
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a286dfbef4c7e77c893c3410a982e53ff58a2106
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490172"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412311"
 ---
 # <a name="get-usage-records-for-all-customers"></a>すべての顧客の使用状況レコードを取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -25,8 +25,8 @@ ms.locfileid: "74490172"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
-- 顧客識別子 (**顧客-テナント id**)。 顧客の識別子がない場合は、顧客 リストから顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで識別子を検索できます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+- 顧客 ID (**customer-tenant-id**)。 顧客の識別子がない場合は、顧客 リストから顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで識別子を検索できます。
 
 ## <a name="c"></a>C\#
 
@@ -46,7 +46,7 @@ ms.locfileid: "74490172"
 - プロジェクト: **Partnersdk. FeatureSamples**
 - クラス: **GetCustomerUsageRecords.cs**
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -54,15 +54,15 @@ ms.locfileid: "74490172"
 
 | メソッド  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/usagerecords HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/usagerecords HTTP/1.1 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-example"></a>要求の例
 
@@ -78,9 +78,9 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 成功した場合、このメソッドは応答本文で**CustomerMonthlyUsageRecord**リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、および追加のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

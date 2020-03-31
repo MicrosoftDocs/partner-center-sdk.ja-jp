@@ -3,14 +3,14 @@ title: 契約リソース
 description: アグリーメントリソースは、Microsoft cloud customer Agreement を表します。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e0d1aaeab4d603db37c879e454fd61cc75f4015
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 105855b5e0881abd3e44ba784182ecb606b95093
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899879"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413290"
 ---
 # <a name="agreement-resources"></a>契約リソース
 
@@ -34,7 +34,7 @@ ms.locfileid: "78899879"
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | userId         | string                         | パートナー組織の代わりに確認を提供する、パートナーテナント内のログインユーザーのオブジェクト識別子。 アプリ + ユーザー認証を使用してアグリーメントリソースを作成する場合、パートナーセンターは自動的に、アプリ + ユーザートークンから**userId**属性の値を取得します。                                                                             |
 | primaryContact | [Contact](./utility-resources.md#contact) | 契約に同意した顧客組織からのユーザーに関する情報。たとえば、 **firstName**、 **lastName**、 **email**、 **phoneNumber** (省略可能) です。 |
-| dateAgreed     | UTC 日時形式の文字列 | 顧客がアグリーメントに同意した日付。                                 |
+| dateAgreed     | UTC 日時形式の文字列 | 顧客が契約に同意した日付。                                 |
 | templateId     |string                          | 顧客が同意したアグリーメントの一意識別子。 |
 | 型           |string                          | 契約の種類。 現在サポートされている値は、 **microsoft の cloudagreement**と**Microsoft の顧客契約**です。|
 | agreementLink  | string                         | アグリーメントテンプレートの URL。                                                    |

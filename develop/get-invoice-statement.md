@@ -4,20 +4,20 @@ description: 請求書 ID を使用して請求書明細書を取得します。
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 754db08297e7a3205441705ff24a23fc0de3e240
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4c93415e0722963dd881b03dcf9016be55edd212
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489372"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415875"
 ---
 # <a name="get-invoice-statement"></a>請求書明細書の取得
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,7 +27,7 @@ ms.locfileid: "74489372"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 有効な請求書 ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -51,16 +51,16 @@ var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).
 
 | メソッド  | 要求 URI                                                                                       |
 |---------|---------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/documents/statement HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/documents/statement HTTP/1.1  |
 
 
 **URI パラメーター**
 
 次のクエリパラメーターを使用して、invoice ステートメントを取得します。
 
-| 名前       | 種類       | 必須 | 説明                                                                                        |
+| Name       | 種類       | 必須 | 説明                                                                                        |
 |------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| 請求書-id | string     | 〇      | 値は請求書 id で、リセラーは特定の請求書の結果をフィルター処理できます。 |
+| 請求書-id | string     | はい      | 値は請求書 id で、リセラーは特定の請求書の結果をフィルター処理できます。 |
 
  
 
@@ -89,7 +89,7 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

@@ -3,26 +3,26 @@ title: Azure プランへのアップグレードについてお客様の資格�
 description: ProductProductUpgradesEligibility リソースを使用して、顧客が Microsoft Azure (MS AZR-0145P) サブスクリプションから Azure プランにアップグレードできるかどうかを判断することができます。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 71a9cc393b9273a156e0fd3cc434ee668cdaa324
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b94aa50364ef770a843624d397240e35eaa8cecf
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490302"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415937"
 ---
 # <a name="check-a-customers-eligibility-for-upgrading-to-an-azure-plan"></a>Azure プランへのアップグレードについてお客様の資格を確認する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
-[**Productupgraderequest**](product-upgrade-resources.md#productupgraderequest)リソースを使用して、顧客が Microsoft Azure (ProductUpgradesEligibility 5p) サブスクリプションから Azure プランにアップグレードできるかどうかを確認できます。この方法では、お客様の製品のアップグレード資格を持つ[](product-upgrade-resources.md#productupgradeseligibility)リソースが返されます。
+[**Productupgraderequest**](product-upgrade-resources.md#productupgraderequest)リソースを使用して、顧客が Microsoft Azure (ProductUpgradesEligibility 5p) サブスクリプションから Azure プランにアップグレードできるかどうかを確認できます。この方法では、お客様の製品のアップグレード資格を持つ[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)リソースが返されます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、[セキュリティで保護されたアプリモデル](enable-secure-app-model.md)に従います。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、[セキュリティで保護されたアプリモデル](enable-secure-app-model.md)に従います。
 - 顧客識別子。
 - 製品ファミリ。
 
@@ -56,7 +56,7 @@ if (productUpgradeEligibility.IsEligibile)
 
 ```
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -64,13 +64,13 @@ if (productUpgradeEligibility.IsEligibile)
 
 | メソッド   | 要求 URI                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productUpgrades/eligibility HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productUpgrades/eligibility HTTP/1.1 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
 要求本文には、 [**Productアップグレード**](product-upgrade-resources.md#productupgraderequest)のためのリソースが含まれている必要があります。
 
@@ -104,9 +104,9 @@ Connection: Keep-Alive
 
 成功した場合、このメソッドは本文で[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

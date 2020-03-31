@@ -4,20 +4,20 @@ description: 顧客が購入したサービスに関連するリソースにつ�
 ms.assetid: 2916B7F3-06D5-4DC1-A137-CD8270258CDB
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a7d08c740e0a338e1c8b09908b346257f60fe444
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 58ec7fc5806a86c3d4f3aad00c4aaef418b753ca
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488082"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415320"
 ---
 # <a name="service-costs-resources"></a>サービスコストリソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 顧客が購入したサービスに関連するリソースについて説明します。
 
@@ -27,8 +27,8 @@ ms.locfileid: "74488082"
 
 | プロパティ | 種類 | 説明 |
 | -------- | ---- | ----------- |
-| details | [ServiceCostsSummaryDetail](#servicecostssummarydetail)オブジェクトの配列 | 請求書の種類別に識別されるサービスコストの概要の詳細一覧。|
-| links | [ResourceLinks](utility-resources.md#resourcelinks) | リソースリンク。 |
+| 詳細 | [ServiceCostsSummaryDetail](#servicecostssummarydetail)オブジェクトの配列 | 請求書の種類別に識別されるサービスコストの概要の詳細一覧。|
+| リンク | [ResourceLinks](utility-resources.md#resourcelinks) | リソースリンク。 |
 | 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 |
 
 > [!IMPORTANT]
@@ -80,7 +80,7 @@ ms.locfileid: "74488082"
 | currencyCode             | string                         | コストに使用する通貨を表します。                          |
 | currencySymbol           | string                         | コストに使用される通貨記号。                              |
 | 顧客               | string                         | 購入を行っている顧客の ID。                          |
-| おける             | string                         | 購入を行っている顧客の名前。                        |
+| customerName             | string                         | 購入を行っている顧客の名前。                        |
 | invoiceNumber            | string                         | この行項目が属する請求書番号。                   |
 | productId                | string                         | 製品識別子。                                              |
 | skuId                    | string                         | Sku 識別子。                                                  |

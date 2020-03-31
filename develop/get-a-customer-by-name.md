@@ -4,21 +4,21 @@ description: フィルターに一致する顧客リソースのコレクショ�
 ms.assetid: 7D5D8C83-1DBD-4C54-8CDA-FE0CAC911D14
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cd050514f49fbb867df117d2220d4f60f94e32b8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f99a91139a1341dcd82efe3727a9603beb3f1622
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490122"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413358"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>検索フィールドによってフィルター処理された顧客の一覧を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74490122"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - ユーザーが作成したフィルター。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -68,7 +68,7 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 | メソッド  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers? size = {size} & フィルター = {FILTER} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers? size = {size} & フィルター = {FILTER} HTTP/1.1 |
 
  
 
@@ -76,10 +76,10 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 次のクエリパラメーターを使用します。
 
-| 名前   | 種類   | 必須 | 説明                                                                    |
+| Name   | 種類   | 必須 | 説明                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| size   | int    | X       | 一度に表示される結果の数。 このパラメーターは省略可能です。 |
-| filter | filter | 〇      | 顧客に適用するフィルター。 これは、エンコードされた文字列である必要があります。              |
+| size   | int    | いいえ       | 一度に表示される結果の数。 このパラメーターはオプションです。 |
+| フィルター | フィルター | はい      | 顧客に適用するフィルター。 これは、エンコードされた文字列である必要があります。              |
 
  
 
@@ -95,10 +95,10 @@ var customers = partnerOperations.Customers.Query(myQuery);
   
 次の表では、必要なキーと値のペアについて説明します。
 
-| Key      | Value                                                                                                                    |
+| Key      | 値                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
 | フィールド    | フィルター処理するフィールド。 有効な値は、 [ **"顧客の searchfield"** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)にあります。 |
-| Value    | フィルター処理の対象となる値。 値の大文字と小文字の区別は無視されます。                                                                |
+| 値    | フィルター処理の対象となる値。 値の大文字と小文字の区別は無視されます。                                                                |
 | 演算子 | 適用する演算子。 このお客様のシナリオでサポートされている唯一の値は、"開始\_" です。                            |
 
  
@@ -109,7 +109,7 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -131,7 +131,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

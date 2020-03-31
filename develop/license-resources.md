@@ -4,14 +4,14 @@ description: ライセンスに関連するリソースについて説明しま�
 ms.assetid: 20592E06-8A87-41F4-B8B0-6F9200556FDA
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 625209f834a7d89fbf288b7a1430624cb99485b1
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: b582f3d0ea32a7d0977cb983798e3ff8debf52e5
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083049"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416525"
 ---
 # <a name="license-resources"></a>ライセンスリソース
 

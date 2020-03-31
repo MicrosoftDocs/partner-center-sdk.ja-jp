@@ -4,20 +4,20 @@ description: オファー ID と一致するオファーリソースを取得し
 ms.assetid: F5165C5A-7C93-4F8E-A733-641511BC8FB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 850c498578f69bdbcbad69ef8185c9ce9bad01ea
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 51d5ad603dc813225ace49b90abf7af5c1d36479
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485742"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416039"
 ---
 # <a name="get-an-offer-by-id"></a>ID でプランを取得する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,7 @@ ms.locfileid: "74485742"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - プラン ID。
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
@@ -80,11 +80,11 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 | メソッド  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}? country = {country-ID} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}? country = {country-ID} HTTP/1.1 |
 
 **URI パラメーター**
 
-| 名前           | 種類       | 必須 | 説明                           |
+| Name           | 種類       | 必須 | 説明                           |
 |----------------|------------|----------|---------------------------------------|
 | **プラン id**   | **guid**   | Y        | オファーに対応する GUID。 |
 | **国-id** | **文字列** | Y        | 国/地域 ID。                |
@@ -96,7 +96,7 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -116,7 +116,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

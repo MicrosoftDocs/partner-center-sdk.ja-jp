@@ -4,20 +4,20 @@ description: パートナーの請求プロファイルを表すオブジェク�
 ms.assetid: E5BAC2C4-8C58-4B5D-8FA9-C445896EEC4A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 87aefe43f754325ef410344713204df6a1a2c0d1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7b738384bfbd32f9f8fff9054012aa999c9dec33
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488552"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415710"
 ---
 # <a name="get-partner-billing-profile"></a>パートナーの請求プロファイルを取得する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,12 +27,12 @@ ms.locfileid: "74488552"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-パートナーの請求プロファイルを取得するには、Iaggregatepartner.customers コレクションを使用して、" "**プロファイル**プロパティを呼び出します。 最後に、 [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get)メソッドまたは[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync)メソッドを呼び出します。
+パートナーの請求プロファイルを取得するには、Iaggregatepartner.customers コレクションを使用して、" **IAggregatePartner.Profiles** "**プロファイル**プロパティを呼び出します。 最後に、 [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get)メソッドまたは[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync)メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ BillingProfile billingProfile = partnerOperations.Profiles.BillingProfile.Get();
 
 | メソッド  | 要求 URI                                                              |
 |---------|--------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/billing HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/billing HTTP/1.1 |
 
  
 
@@ -59,7 +59,7 @@ BillingProfile billingProfile = partnerOperations.Profiles.BillingProfile.Get();
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -78,7 +78,7 @@ MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

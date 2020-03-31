@@ -4,20 +4,20 @@ description: このコンソールテストアプリは、パートナーセン�
 ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a23e83ef38632b9127b0ecdf99eb7f1860661ec
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 35ebb92e8e9705cbce8c629d0a862613cc2f50b6
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995187"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412847"
 ---
 # <a name="console-test-app"></a>コンソールテストアプリ
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74995187"
 
 コンソールテストアプリのサンプルコードをダウンロードします。
 
-## <a name="net"></a>.NET の場合
+## <a name="net"></a>.NET
 
 [サンプルコードをダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=746682)し、必要に応じて変更します。
 
@@ -52,7 +52,7 @@ ms.locfileid: "74995187"
 
 実行されるシナリオの一覧を変更するには、 **Ipartnerscenario\[\] Mainscenarios**にコメントアウトするか、または*java*ファイルに含まれる個々の**Get** scenario メソッドにコメントアウトします。
 
-## <a name="what-to-change"></a>変更いただく内容
+## <a name="what-to-change"></a>変更する内容
 
 次の一覧を使用して、サンプルコードで変更または変更しない内容を決定します。
 

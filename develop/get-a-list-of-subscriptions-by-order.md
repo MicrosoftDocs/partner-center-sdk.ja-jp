@@ -4,21 +4,21 @@ description: 指定された順序に対応するサブスクリプションリ�
 ms.assetid: C6DCE351-8C02-42CD-9A80-8156BC6BF1B8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b94c8069ce38e94e9e30f79a8fc6114aad5ee850
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4fa77a9c3bd99188e57f4c3c3d72fadc99b441ac
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488492"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413822"
 ---
 # <a name="get-a-list-of-subscriptions-by-order"></a>注文別のサブスクリプションの一覧を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74488492"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - 注文 ID。
 
@@ -54,7 +54,7 @@ ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Custo
 
 | メソッド  | 要求 URI                                                                                                                   |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions? order\_id = {id-順序} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions? order\_id = {id-順序} HTTP/1.1 |
 
 
 
@@ -62,7 +62,7 @@ ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Custo
 
 次の表に、すべてのサブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| 名前                   | 種類     | 必須 | 説明                           |
+| Name                   | 種類     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
 | **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。 |
 | **id (順序)**       | **guid** | Y        | 注文に対応する GUID。    |
@@ -75,7 +75,7 @@ ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Custo
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -95,7 +95,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

@@ -4,28 +4,28 @@ description: 顧客 ID によって顧客の削除されたユーザーリソー
 ms.assetid: B2248C7D-0F68-4F52-9249-D3168C2F6E83
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: bce2fd22e301e7a8cdfe25afcbe2078ff811f7bc
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cab6b1cd309757f0754610eca362bcf205d199fb
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486232"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414253"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>顧客の削除されたユーザーを表示する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 顧客 ID によって顧客の削除されたユーザーリソースの一覧を取得します。 必要に応じてページサイズを設定することもできます。 フィルターを指定する必要があります。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。
 
 ## <a name="span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_what-happens-when-you-delete-a-user-account"></a>ユーザーアカウントを削除するとどうなるか <span id="WHAT_HAPPENS_WHEN_YOU_DELETE_A_USER_ACCOUNT_"/><span id="what_happens_when_you_delete_a_user_account_"/><span id="What_happens_when_you_delete_a_user_account_"/>ますか?
@@ -61,7 +61,7 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 | メソッド  | 要求 URI                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users? size = {size} & フィルター = {FILTER} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users? size = {size} & フィルター = {FILTER} HTTP/1.1 |
 
  
 
@@ -69,11 +69,11 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 要求の作成時には、次のパスとクエリパラメーターを使用します。
 
-| 名前        | 種類   | 必須 | 説明                                                                                                                                                                        |
+| Name        | 種類   | 必須 | 説明                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 顧客 id | guid   | 〇      | 値は、顧客を識別する GUID 形式の顧客 id です。                                                                                                            |
-| size        | int    | X       | 一度に表示される結果の数。 このパラメーターは省略可能です。                                                                                                     |
-| filter      | filter | 〇      | ユーザー検索をフィルター処理するクエリ。 削除されたユーザーを取得するには、次の文字列を含めてエンコードする必要があります: {"Field": "UserState", "Value": "Inactive", "Operator": "equals"}。 |
+| 顧客 id | guid   | はい      | 値は、顧客を識別する GUID 形式の顧客 id です。                                                                                                            |
+| size        | int    | いいえ       | 一度に表示される結果の数。 このパラメーターはオプションです。                                                                                                     |
+| フィルター      | フィルター | はい      | ユーザー検索をフィルター処理するクエリ。 削除されたユーザーを取得するには、次の文字列を含めてエンコードする必要があります: {"Field": "UserState", "Value": "Inactive", "Operator": "equals"}。 |
 
  
 
@@ -83,7 +83,7 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -104,7 +104,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

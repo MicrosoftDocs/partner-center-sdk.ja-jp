@@ -4,21 +4,21 @@ description: 管理されたサービスとは、パートナーが管理者特�
 ms.assetid: B05E9585-72E4-4330-8721-A88EC4C193D7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 32cc11190425c2cdfdbf6c793ef75091915e5d69
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 5b25e0f82c25d5af3bbad4c989e0bb1310af1a40
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486902"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416466"
 ---
 # <a name="managed-service-resources"></a>管理されたサービスリソース
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -32,8 +32,8 @@ ms.locfileid: "74486902"
 
 | プロパティ   | 種類                | 説明                                              |
 |------------|---------------------|----------------------------------------------------------|
-| ID         | string              | マネージドサービス id。                                  |
-| 名前       | string              | 管理されたサービスの名前。                         |
+| Id         | string              | マネージドサービス id。                                  |
+| Name       | string              | 管理されたサービスの名前。                         |
 | GroupName  | string              | サービスが属しているグループの名前。      |
 | Links      | ManagedServiceLinks | マネージサービスに対応するリソースリンク。 |
 | 属性 | ResourceAttributes  | アグリーメントに対応するメタデータ属性。  |
@@ -52,7 +52,7 @@ ms.locfileid: "74486902"
 | ServiceTicket | リンク | サービスチケットの URI。     |
 | Self (自己)          | リンク | 自己 URI。               |
 | 次へ          | リンク | 項目の次のページ。     |
-| 戻る      | リンク | 項目の前のページ。 |
+| 前へ      | リンク | 項目の前のページ。 |
 
  
 

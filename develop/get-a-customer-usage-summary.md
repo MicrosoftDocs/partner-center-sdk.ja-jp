@@ -4,20 +4,20 @@ description: CustomerUsageSummary リソースを使用して、現在の請求�
 ms.assetid: 58FA3CBD-27CF-46C5-9EB2-188D83896F7D
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5733773e011701d13ce5aee5bbcd37417dfedaab
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: afa4b40d18b104270ea047eab383a917d6bc7a0a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487662"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415670"
 ---
 # <a name="get-a-usage-summary-for-all-of-a-customers-subscriptions"></a>すべての顧客のサブスクリプションの使用状況の概要を取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -25,8 +25,8 @@ ms.locfileid: "74487662"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
-- 顧客識別子 (**顧客-テナント id**)。 顧客の識別子がない場合は、顧客 リストから顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで識別子を検索できます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+- 顧客 ID (**customer-tenant-id**)。 顧客の識別子がない場合は、顧客 リストから顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで識別子を検索できます。
 
 ## <a name="c"></a>C\#
 
@@ -48,7 +48,7 @@ ms.locfileid: "74487662"
 - プロジェクト: **Partnersdk. FeatureSamples**
 - クラス: **GetCustomerUsageSummary.cs**
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -56,13 +56,13 @@ ms.locfileid: "74487662"
 
 | メソッド  | 要求 URI                                                                                         |
 |---------|-----------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagesummary HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagesummary HTTP/1.1 |
 
 ##### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、顧客の評価された使用状況情報を取得するために必要なクエリパラメーターを示します。
 
-| 名前                   | 種類     | 必須 | 説明                           |
+| Name                   | 種類     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
 | **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。 |
 
@@ -70,9 +70,9 @@ ms.locfileid: "74487662"
 
 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-example"></a>要求の例
 
@@ -88,9 +88,9 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 成功した場合、このメソッドは応答本文で**CustomerUsageSummary**リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、および追加のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure (0145P) サブスクリプションの応答の例
 

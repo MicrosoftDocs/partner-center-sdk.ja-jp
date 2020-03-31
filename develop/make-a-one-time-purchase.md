@@ -1,22 +1,22 @@
 ---
-title: 1回限りの購入を行う
+title: 1 回限りの購入を行う
 description: パートナーセンター API を使用して、ソフトウェアサブスクリプション、永続ソフトウェア、Azure 予約仮想マシン (VM) インスタンスなどのソフトウェアおよび予約製品を1回限り購入する方法について説明します。
 ms.date: 10/09/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 088f60bb249985a01d955aa53fc1ab7fb995f759
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c94afb2a8e1167bfad0dca8ab750fe209ad97436
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488372"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416516"
 ---
-# <a name="make-a-one-time-purchase"></a>1回限りの購入を行う
+# <a name="make-a-one-time-purchase"></a>1 回限りの購入を行う
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 パートナーセンター API を使用して、ソフトウェアサブスクリプション、永続ソフトウェア、Azure 予約仮想マシン (VM) インスタンスなどのソフトウェアおよび予約製品を1回限り購入する方法について説明します。
@@ -70,7 +70,7 @@ ms.locfileid: "74488372"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="making-a-one-time-purchase"></a>1回限りの購入を行う
@@ -93,7 +93,7 @@ Azure 予約 VM インスタンスを追加するアクティブなサブスク�
 
 サブスクリプションを登録した後、登録の状態を確認して、登録プロセスが完了したことを確認する必要があります。 これを行うには、「[サブスクリプションの登録状態を取得](get-subscription-registration-status.md)する」を参照してください。
 
-## <a name="discovery"></a>情報表示
+## <a name="discovery"></a>探索
 
 サブスクリプションが有効になったら、次のパートナーセンター API モデルを使用して、製品と Sku を選択し、可用性を確認する準備ができました。
 
@@ -107,16 +107,16 @@ Azure 予約 VM インスタンスを追加するアクティブなサブスク�
 
     - [製品の一覧を取得する](get-a-list-of-products.md)
     - [製品 ID を使用して製品を取得する](get-a-product-by-id.md)
-    - [製品の Sku の一覧を取得する](get-a-list-of-skus-for-a-product.md)
+    - [製品の SKU の一覧を取得する](get-a-list-of-skus-for-a-product.md)
     - [SKU ID を使用して SKU を取得する](get-a-sku-by-id.md)
 
 2. SKU のインベントリを確認します。 この手順は、 **InventoryCheck**の前提条件でタグ付けされている sku にのみ必要です。
 
-    - [インベントリの確認](check-inventory.md)
+    - [在庫を確認する](check-inventory.md)
 
 3. [SKU](product-resources.md#sku)の[可用性](product-resources.md#availability)を取得します。 注文を配置するときに、可用性の**Catalogitemid**が必要になります。 この値を取得するには、次の Api のいずれかを使用します。
 
-    - [SKU に使用できる機能の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
+    - [SKU の空き状況の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
     - [可用性 ID を使用して可用性を取得する](get-an-availability-by-id.md)  
 
 ## <a name="order-submission"></a>注文の送信

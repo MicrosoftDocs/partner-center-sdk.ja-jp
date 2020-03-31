@@ -4,26 +4,26 @@ description: 試用版のサブスクリプションを有料のサブスクリ�
 ms.assetid: 06EB96D7-6260-47E0-ACAE-07D4213BEBB7
 ms.date: 05/23/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 593b995c8d17ff5bc2425cb9b2672ad1fc125944
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d41fa94a78d49a6537834ddaf9d4c62c54d8f911
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488892"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413560"
 ---
 # <a name="convert-a-trial-subscription-to-paid"></a>試用版サブスクリプションを有料に変換する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 試用版のサブスクリプションを有料に変換することができます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。
 - アクティブな試用版サブスクリプションのサブスクリプション ID。
 - 使用可能な変換プラン。
@@ -114,22 +114,22 @@ else
 
 | メソッド   | 要求 URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客と試用版のサブスクリプションを識別します。
 
-| 名前            | 種類   | 必須 | 説明                                                     |
+| Name            | 種類   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。           |
-| サブスクリプション id | string | 〇      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
+| 顧客 id     | string | はい      | 顧客を識別する GUID 形式の文字列。           |
+| サブスクリプション id | string | はい      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 設定された[変換](conversions-resources.md#conversion)リソースが要求本文に含まれている必要があります。
 
@@ -163,9 +163,9 @@ Expect: 100-continue
 
 成功した場合、応答本文には[ConversionResult](conversions-resources.md#conversionresult)リソースが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

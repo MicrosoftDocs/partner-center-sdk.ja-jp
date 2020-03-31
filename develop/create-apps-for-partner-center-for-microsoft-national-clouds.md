@@ -7,18 +7,18 @@ MS-HAID:
 ms.assetid: 73C5926A-0DEB-42E5-8982-7E44A2031F0B
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ede0ba85851e4d450d4f28832cd46064d2786d2d
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: fd6f3ccee577c12af473a5c4f821d73cc625e10f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995257"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414077"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Microsoft National Cloud のパートナーセンターのアプリの詳細を登録する
 
-適用対象:
+適用対象
 
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -31,7 +31,7 @@ ms.locfileid: "74995257"
 
 米国政府機関向け Microsoft Cloud のパートナーセンター向けのアプリを作成する場合は、次の追加要件に注意してください。 Microsoft Cloud ドイツまたはパートナーセンターを対象としています。
 
-## <a name="web-apps"></a>Web アプリ
+## <a name="web-apps"></a>Web apps
 
 Web アプリの場合は、次の手順を使用してアプリケーション ID を登録します。
 
@@ -43,7 +43,7 @@ Web アプリの場合は、次の手順を使用してアプリケーション 
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>Web アプリの API アクセス許可を構成する
 
-1. アプリを選びます。 Web アプリの **[設定]** にアクセスします。
+1. アプリを選択します。 Web アプリの **[設定]** にアクセスします。
 2. **[API アクセス]** セクションで、 **[必要なアクセス許可]** を選択します。
 3. Windows Azure Active directory のアクセス許可の場合:
     1. **Windows Azure Active Directory のアクセス許可**を選択します。
@@ -59,18 +59,18 @@ Web アプリの場合は、次の手順を使用してアプリケーション 
 
 Web アプリの構成の詳細は次のとおりです。
 
-- アプリケーション ID
+- [アプリケーション ID]
 - アプリケーション シークレット
 
 ### <a name="register-the-web-app-in-partner-center"></a>パートナーセンターで Web アプリを登録する
 
-1. <https://partnercenter.microsoft.com> にログインします。
+1. <https://partnercenter.microsoft.com>にログインします。
 2. **[ダッシュボード]** を選択し、 **[アカウントの設定]** 、 **[アプリの管理]** の順に選択します。
 3. **[Web アプリ]** セクションで、 **[既存のアプリの登録]** を選択します。
 4. Microsoft Azure 管理ポータルで作成した web アプリを選択します。
 5. **[アプリの登録]** を選択します。
 
-## <a name="native-apps"></a>ネイティブ アプリ
+## <a name="native-apps"></a>ネイティブアプリ
 
 ネイティブアプリをパートナーセンターに登録する必要はありません。 ただし、これらのアプリは、パートナーセンター Api へのアクセスを提供するように構成する必要があります。
 
@@ -85,7 +85,7 @@ Web アプリの構成の詳細は次のとおりです。
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>ネイティブアプリの API アクセス許可を構成する
 
-1. アプリを選びます。 **[設定]** に移動します。
+1. アプリを選択します。 **[設定]** に移動します。
 2. API アクセス で、**必要なアクセス許可** を選択します。
 3. **Windows Azure Active Directory のアクセス許可**を選択します。 [委任された**アクセス許可**] で、次のアクセス許可を選択します。
     - **サインインとユーザープロファイルの読み取り**
@@ -94,10 +94,10 @@ Web アプリの構成の詳細は次のとおりです。
     - **すべてのグループの読み取り**
 4. アクセス許可を保存します。
 5. **[必要なアクセス許可]** で **[追加]** を選択します。
-6. **[API を選択します]** を選びます。
+6. [ **API の選択]** を選択します。
     1. 検索ボックスに「 **Microsoft パートナーセンター** 」と入力し、結果の一覧から選択します。
     2. **[選択]** を選択します。
-7. **[アクセス許可の選択]** を選択します。
+7. **[アクセス許可の選択**] を選択します。
     1. **[アクセスパートナーセンターの PPE]** を選択します。
     2. **[選択]** を選択します。
 8. **[完了]** を選択します。

@@ -4,20 +4,20 @@ description: パートナーセンター Api を使用して、指定した請�
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/27/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 758ccbeff877973f9b317ef4008fd7cf8b962939
-ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
+ms.openlocfilehash: 9232e27755f253d4ef017765f8f58e9a04f38b59
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76923101"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415837"
 ---
 # <a name="get-invoice-line-items"></a>請求書の品目を取得する
 
-適用先:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -30,9 +30,9 @@ ms.locfileid: "76923101"
 
 この API では、 **azure**と**office**の**プロバイダー**の種類 Microsoft Azure (0145p) サブスクリプションと office プランもサポートされており、API 機能の下位互換性が確保されています。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
 
 ## <a name="c"></a>C\#
@@ -104,7 +104,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetInvoiceLineItems.cs**
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -116,7 +116,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 次の構文は、課金プロバイダーが**Office**の場合に適用されます。
 
-| 認証方法  | 要求 URI                                                                                                                                                     |
+| メソッド  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = office & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1.1                               |
 
@@ -124,7 +124,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 次の構文は、課金プロバイダーに Microsoft Azure (0145P) サブスクリプションがある場合に適用されます。
 
-| 認証方法  | 要求 URI                                                                                                                                                     |
+| メソッド  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1.1  |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure & invoicelineitemtype = usagelineitems & size = {size} & offset = {OFFSET} HTTP/1.1  |
@@ -133,7 +133,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 次の構文は、課金プロバイダーが**OneTime**の場合に適用されます。 これには、Azure の予約、ソフトウェア、Azure プラン、および商用 marketplace 製品の料金が含まれます。
 
-| 認証方法  | 要求 URI                                                                                                                                                     |
+| メソッド  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & size = {SIZE} HTTP/1.1  |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems & size = {size}? Seekoperation = 次へ                           |
@@ -146,7 +146,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 **Onetime**を使用して、 **marketplace**ではなく、すべての商用消費明細項目に対してクエリを実行する必要があります。 または、[推定リンク] の呼び出しのリンクを使用することもできます。
 
-| 認証方法 | 要求 URI | 構文のユースケースの説明 |
+| メソッド | 要求 URI | 構文のユースケースの説明 |
 | ------ | ----------- | -------------------------------- |
 | GET | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1.1                              | この構文を使用すると、指定された請求書のすべての品目の完全な一覧を返すことができます。 |
 | GET | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}? size = {size} & オフセット = {OFFSET} HTTP/1.1  | 大規模な請求書の場合は、この構文を指定したサイズと0ベースのオフセットを使用して、行項目のページ化されたリストを返すことができます。 |
@@ -156,25 +156,25 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                       |
+| Name                   | 種類   | 必須 | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| 請求書-id             | string | [はい]      | 請求書を識別する文字列。                             |
-| 課金-プロバイダ       | string | [はい]      | 課金プロバイダー: "Office"、"Azure"、"OneTime"。               |
-| 請求書-品目-種類 | string | [はい]      | 請求書の詳細の種類: "BillingLineItems"、"UsageLineItems"。 |
-| size                   | number | 必須ではない       | 返される項目の最大数。                            |
-| offset                 | number | 必須ではない       | 返される最初の行項目の0から始まるインデックス。            |
-| seekOperation          | string | 必須ではない       | 請求**プロバイダー**が**OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation**を**next**に等しく設定します。 |
-| hasPartnerEarnedCredit | ブール | 必須ではない | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
+| 請求書-id             | string | はい      | 請求書を識別する文字列。                             |
+| 課金-プロバイダ       | string | はい      | 課金プロバイダー: "Office"、"Azure"、"OneTime"。               |
+| 請求書-品目-種類 | string | はい      | 請求書の詳細の種類: "BillingLineItems"、"UsageLineItems"。 |
+| size                   | number | いいえ       | 返される項目の最大数。                            |
+| offset                 | number | いいえ       | 返される最初の行項目の0から始まるインデックス。            |
+| seekOperation          | string | いいえ       | 請求**プロバイダー**が**OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation**を**next**に等しく設定します。 |
+| hasPartnerEarnedCredit | bool | いいえ | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
 
  
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="rest-response"></a>REST 応答
 
@@ -184,7 +184,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 #### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="rest-request-response-examples"></a>REST 要求-応答の例
 

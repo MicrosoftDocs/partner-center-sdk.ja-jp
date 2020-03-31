@@ -4,20 +4,20 @@ description: 開発者は、パートナーセンター Api を使用して、�
 ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9bdc918387af62eec6abdaf5656e0d8bafb7f2b3
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1db279b2e377ee5e24bf80709a7e84755fc2f132
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488652"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412229"
 ---
 # <a name="create-a-subscription-for-commercial-marketplace-products"></a>商用 marketplace 製品のサブスクリプションを作成する
 
-適用対象:
+適用対象
 
-* パートナー センター
+* Partner Center
 
 パートナーセンター API を使用して、商用マーケットプレース製品のサブスクリプションを作成できます。 [市場向けのオファーの一覧を取得](#get-a-list-of-offers-for-a-market)し、商業市場向けサブスクリプションの[注文を作成および送信](#create-and-submit-an-order)してから、[ライセンス認証リンクを取得](#get-activation-link)する必要があります。
 
@@ -42,7 +42,7 @@ Azure 予約を購入する前に、次の手順を実行します。
 
     * [製品の一覧を取得する](get-a-list-of-products.md)
     * [製品 ID を使用して製品を取得する](get-a-product-by-id.md)
-    * [製品の Sku の一覧を取得する](get-a-list-of-skus-for-a-product.md)
+    * [製品の SKU の一覧を取得する](get-a-list-of-skus-for-a-product.md)
     * [SKU ID を使用して SKU を取得する](get-a-sku-by-id.md)
 
     > [!NOTE]
@@ -55,7 +55,7 @@ Azure 予約を購入する前に、次の手順を実行します。
 
 3. SKU の可用性を取得します。 注文を配置するときに、可用性の**Catalogitemid**が必要になります。この場合、次の api を使用して取得できます。
 
-    * [SKU に使用できる機能の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
+    * [SKU の空き状況の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
     * [可用性 ID を使用して可用性を取得する](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>注文を作成して送信する
@@ -80,7 +80,7 @@ Azure 予約注文を送信するには、次の手順を実行します。
 
 次の方法を使用して、商用 marketplace 製品に対するサブスクリプションのライフサイクルを管理できます。
 
-* [商用 marketplace サブスクリプションをキャンセルする](cancel-an-azure-marketplace-subscription.md)
+* [商用マーケットプレース サブスクリプションをキャンセルする](cancel-an-azure-marketplace-subscription.md)
 * [商用 marketplace サブスクリプションの autorenew を有効または無効にする](update-autorenew-for-an-azure-marketplace-subscription.md)
 
 ## <a name="quantity-management"></a>数量管理
@@ -93,9 +93,9 @@ Azure 予約注文を送信するには、次の手順を実行します。
 
 次の方法を使用して、顧客の[請求書](invoice-resources.md)(商用 marketplace 製品へのサブスクリプションの請求を含む) を管理できます。
 
-* [請求書を取得する商用マーケットプレースの従量課金明細項目](get-invoice-billed-consumption-lineitems.md)
-* [請求書の推定リンクの取得](get-invoice-estimate-links.md)
-* [Invoice 未請求商業市場消費量の品目を取得する](get-invoice-unbilled-consumption-lineitems.md)
+* [請求書の課金されているコマーシャル マーケットプレース使用明細を取得する](get-invoice-billed-consumption-lineitems.md)
+* [請求書の推定リンクを取得する](get-invoice-estimate-links.md)
+* [請求書の課金されていないコマーシャル マーケットプレース使用明細を取得する](get-invoice-unbilled-consumption-lineitems.md)
 * [Invoice 未請求調整の品目を取得する](get-invoice-unbilled-recon-lineitems.md)
 
 ## <a name="test-using-integration-sandbox-account"></a>統合サンドボックスアカウントを使用してテストする
@@ -104,5 +104,5 @@ Azure 予約注文を送信するには、次の手順を実行します。
 
 CSP サンドボックス環境では、Isv との統合はありません。 パートナーセンターからライセンス認証リンクを取得しようとすると、ダミーリンクが返されます。 このダミーリンクを使用して、発行元のサイトでセットアッププロセスを完了することはできません。 統合サンドボックスアカウントを使用して、商用 marketplace SaaS 製品へのサブスクリプションの課金をテストするには、次の方法を使用してサブスクリプションをアクティブ化します。 アクティブ化が成功すると、サブスクリプションの課金が開始されます。
 
-* [商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化する](activate-sandbox-subscription-azure-marketplace-products.md)
+* [商用マーケットプレース製品のサンドボックス サブスクリプションをアクティブ化する](activate-sandbox-subscription-azure-marketplace-products.md)
 

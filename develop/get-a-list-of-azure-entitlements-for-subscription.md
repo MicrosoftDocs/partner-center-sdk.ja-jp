@@ -3,27 +3,27 @@ title: サブスクリプションの Azure の権利の一覧を取得する
 description: AzureEntitlement リソースを使用して、サブスクリプションに属している Azure の権利リソースのコレクションを取得できます。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 788ad84ca128995067886f67fa70c17239cfd95a
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d2aaaed8fd4455cc2e7b57281ea1e104fdbe030c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487502"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412295"
 ---
 # <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>サブスクリプションの Azure の権利の一覧を取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 [Azure の権利リソース](subscription-resources.md#azureentitlement)(**azureentitlement**) を使用して、サブスクリプションに属するリソースのコレクションを取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子 (**顧客-テナント id**)。 顧客の id を持っていない場合は、顧客 一覧から顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで検索できます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- 顧客 ID (**customer-tenant-id**)。 顧客の id を持っていない場合は、顧客 一覧から顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで検索できます。
 - サブスクリプション識別子。
 
 ## <a name="rest-request"></a>REST 要求
@@ -32,13 +32,13 @@ ms.locfileid: "74487502"
 
 | メソッド  | 要求 URI                                                                                                                   |
 |---------|---------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次の表に、サブスクリプションのすべての Azure 権限を取得するために必要なクエリパラメーターを示します。
 
-| 名前                   | 種類     | 必須 | 説明                           |
+| Name                   | 種類     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
 | **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。 |
 | **サブスクリプション id**       | **guid** | Y        | サブスクリプションに対応する GUID。    |
@@ -47,9 +47,9 @@ ms.locfileid: "74487502"
 
 詳細については、「[ヘッダー](headers.md)」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -66,9 +66,9 @@ Connection: Keep-Alive
 
 成功した場合、このメソッドは応答本文で[**Azureentitlement**](subscription-resources.md#azureentitlement)リソースのコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 ### <a name="response-example"></a>応答の例
 

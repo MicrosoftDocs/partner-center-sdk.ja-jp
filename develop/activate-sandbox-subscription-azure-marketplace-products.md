@@ -3,20 +3,20 @@ title: 商用 marketplace 製品のサンドボックスサブスクリプショ
 description: 商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化します。
 ms.date: 09/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ec5046131369b68eb958b8143982abb65addbd09
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9e4641f5a623a1c3cf42634b409d4c2c0514cc0c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488752"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412477"
 ---
 # <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 統合サンドボックスアカウントから、商用 marketplace のサービスとしてのソフトウェア (SaaS) 製品のサブスクリプションをアクティブ化して課金を有効にする方法について説明します。
 
@@ -25,7 +25,7 @@ ms.locfileid: "74488752"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 統合サンドボックスパートナーアカウント。お客様は、商用 marketplace SaaS 製品のアクティブなサブスクリプションを持っています。
 - パートナーセンター .NET SDK を使用しているパートナーの場合、この機能にアクセスするには、SDK バージョン1.14.0 以上を使用する必要があります。
 
@@ -80,9 +80,9 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 このメソッドは、**サブスクリプション id**と**ステータス**プロパティを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

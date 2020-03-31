@@ -4,26 +4,26 @@ description: 顧客とサブスクリプション ID に一致する商用 marke
 ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fa6bb5e206989a8b267861a83d9e01b2571a2dcd
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ccca3d2e0ef9a57acc59400cc2fc46ed1910fc4e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489312"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413105"
 ---
 # <a name="cancel-a-commercial-marketplace-subscription"></a>商用 marketplace サブスクリプションをキャンセルする
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 顧客とサブスクリプション ID に一致する商用 marketplace[サブスクリプション](subscription-resources.md)リソースを取り消すことができます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (**顧客-テナント id**)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - サブスクリプション ID。
 
@@ -70,7 +70,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションを中断するために必要なクエリパラメーターを示します。
 
-| 名前                    | 種類     | 必須 | 説明                               |
+| Name                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **id-サブスクリプション** | **guid** | Y        | サブスクリプションに対応する GUID。 |
@@ -79,7 +79,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 - 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 要求本文には、完全な**サブスクリプション**リソースが必要です。 **Status**プロパティが更新されていることを確認します。
 
@@ -131,9 +131,9 @@ Connection: Keep-Alive
 
 成功した場合、このメソッドは応答本文で削除された[サブスクリプション](subscription-resources.md)リソースプロパティを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 ### <a name="response-example"></a>応答の例
 

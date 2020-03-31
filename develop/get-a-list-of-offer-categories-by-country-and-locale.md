@@ -4,20 +4,20 @@ description: 特定の国/地域およびロケールのすべてのオファー
 ms.assetid: 69174433-74C6-4294-ACAA-C2CE3D69CFEE
 ms.date: 07/25/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fd4f2b311d5bded4165c702510290360e9efdfaa
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: e04fb68aa3e75ddd0171386b3f9eab7064e7d2ab
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487462"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416787"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>市場別のオファーカテゴリの一覧を取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,7 @@ ms.locfileid: "74487462"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="c"></a>C\#
 
@@ -53,13 +53,13 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 | メソッド  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offercategories? country = {country-ID} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offercategories? country = {country-ID} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、プランのカテゴリを取得するために必要なクエリパラメーターを示します。
 
-| 名前           | 種類       | 必須 | 説明            |
+| Name           | 種類       | 必須 | 説明            |
 |----------------|------------|----------|------------------------|
 | **国-id** | **文字列** | Y        | 国/地域 ID。 |
 
@@ -69,9 +69,9 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -89,9 +89,9 @@ Connection: Keep-Alive
 
 成功した場合、このメソッドは応答本文で**OfferCategory**リソースのコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

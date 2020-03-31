@@ -4,21 +4,21 @@ description: 顧客のサブスクリプションのコレクションを取得�
 ms.assetid: 1C9E986B-2887-460B-9D71-4520BB18C32A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cdedd6231209f75aceef6f80468e7b457640709c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 502b86fb4b9544f852e94b9f1eb54294bd222341
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485912"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416111"
 ---
 # <a name="get-a-customers-subscriptions"></a>顧客のサブスクリプションを取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74485912"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -52,7 +52,7 @@ var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscri
 
 | メソッド  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1.1 |
 
  
 
@@ -60,9 +60,9 @@ var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscri
 
 次の表に、すべてのサブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| 名前               | 種類   | 必須 | 説明                                           |
+| Name               | 種類   | 必須 | 説明                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| 顧客-テナント id | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
+| customer-tenant-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
  
 
@@ -72,7 +72,7 @@ var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscri
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -92,7 +92,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

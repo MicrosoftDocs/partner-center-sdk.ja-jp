@@ -3,14 +3,14 @@ title: Microsoft カスタマーアグリーメントテンプレートのダウ
 description: Microsoft カスタマーアグリーメントテンプレートのダウンロードリンクを取得します。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cfce85865b41674955b7de5dcd57083a00935c0
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: a84f1d2e5d6c156cba10284a5718bdaee3c9fe93
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899939"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414164"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft カスタマーアグリーメントテンプレートのダウンロードリンクを取得する
 
@@ -28,8 +28,8 @@ ms.locfileid: "78899939"
 
 ## <a name="prerequisites"></a>前提条件
 
-- パートナーセンター .NET SDK を使用している場合は、バージョン1.14 以降が必要です。
-- 「[パートナーセンターの認証](./partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
+- パートナー センター .NET SDK を使用している場合、バージョン 1.14 以降が必要です。
+- [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
 - Microsoft カスタマーアグリーメントテンプレートが適用される顧客の国。
 - Microsoft カスタマーアグリーメントテンプレートをローカライズする言語。
 
@@ -42,7 +42,7 @@ ms.locfileid: "78899939"
 
 Microsoft カスタマーアグリーメントテンプレートをダウンロードするためのリンクを取得するには、次のようにします。
 
-1. Microsoft カスタマーアグリーメントの契約メタデータを取得します。 Microsoft カスタマーアグリーメントの**templateId**を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
+1. Microsoft 顧客契約の契約メタデータを取得します。 Microsoft 顧客契約の **templateId** を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -76,7 +76,7 @@ var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCusto
 
 Microsoft カスタマーアグリーメントテンプレートをダウンロードするためのリンクを取得するには、次のようにします。
 
-1. Microsoft カスタマーアグリーメントの契約メタデータを取得します。 Microsoft カスタマーアグリーメントの**templateId**を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
+1. Microsoft 顧客契約の契約メタデータを取得します。 Microsoft 顧客契約の **templateId** を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
 2. REST 要求を作成して、 [ **AgreementDocument**リソース](./agreement-document-resources.md)をフェッチします。 例については、「[要求構文](#request-syntax)の例」を参照してください。 次の情報を指定する必要があります。
     - Microsoft カスタマーアグリーメントの**templateId** 。
     - Microsoft カスタマー契約テンプレートが適用される国。
@@ -102,7 +102,7 @@ Microsoft カスタマーアグリーメントテンプレートをダウンロ�
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
@@ -128,7 +128,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。
 
-このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

@@ -3,20 +3,20 @@ title: パートナーセンターの webhook イベント
 description: パートナーセンターでサポートされているすべての Webhook イベントに関するドキュメント。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c06f109132ba147baa2c243414ed1512998682ed
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a1ff31e3aeed4ebc57cbab6717e724a15613ee6a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486972"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416366"
 ---
 # <a name="partner-center-webhook-events"></a>パートナーセンターの webhook イベント
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -41,7 +41,7 @@ ms.locfileid: "74486972"
 
 | プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "テスト作成済み" です。                                          |
+| EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "テスト作成済み" です。                                          |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" を使用します。 |
 | ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "test" です。                                  |
 | AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
@@ -73,7 +73,7 @@ ms.locfileid: "74486972"
 
 | プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "subscription-updated" です。                                  |
+| EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "subscription-updated" です。                                  |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" を使用します。 |
 | ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "subscription" です。                          |
 | AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
@@ -102,7 +102,7 @@ ms.locfileid: "74486972"
 
 | プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "usagerecords-thresholdExceeded" です。                                  |
+| EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "usagerecords-thresholdExceeded" です。                                  |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" を使用します。 |
 | ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "usagerecords" です。                          |
 | AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
@@ -130,7 +130,7 @@ ms.locfileid: "74486972"
 
 | プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "参照作成" です。                                  |
+| EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "参照作成" です。                                  |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" を使用します。 |
 | ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "参照" です。                          |
 | AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
@@ -158,7 +158,7 @@ ms.locfileid: "74486972"
 
 | プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| eventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "参照-更新" です。                                  |
+| EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "参照-更新" です。                                  |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" を使用します。 |
 | ResourceName              | string                             | イベントを発生させるリソースの名前。 このイベントでは、値は "参照" です。                          |
 | AuditUri                  | URI                                | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" を使用します。 |
@@ -184,7 +184,7 @@ ms.locfileid: "74486972"
 
 | プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| eventName | string | イベントの名前です。 {Resource}-{action} の形式で。 このイベントの場合、値は "invoice ready" です。 |
+| EventName | string | イベントの名前です。 {Resource}-{action} の形式で。 このイベントの場合、値は "invoice ready" です。 |
 | ResourceUri | URI | リソースを取得する URI。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" を使用します。 |
 | ResourceName | string | イベントを発生させるリソースの名前。 このイベントでは、値は "invoice" です。 |
 | AuditUri |  URI | Optional監査レコードを取得する URI (存在する場合)。 構文 "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}") を使用します。 |

@@ -4,26 +4,26 @@ description: 指定された請求期間の顧客のサービスコストを取�
 ms.assetid: 99B250F7-6C29-4BC3-8427-0DF178D7BE68
 ms.date: 06/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b093722f8b3126f1dedfbfa5f401b8409431dcb8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 353fc5b0ba0d24306195906b68847ee2899c484e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490162"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416254"
 ---
 # <a name="get-a-customers-service-costs-summary"></a>顧客のサービスコストの概要を取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 指定された請求期間の顧客のサービスコストを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。
 - 顧客識別子。
 - 請求期間インジケーター (**最新**)。
 
@@ -49,24 +49,24 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | メソッド  | 要求 URI                                                                                                   |
 |---------|---------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客と請求期間を識別します。
 
-| 名前           | 種類   | 必須 | 説明                                                                                                                      |
+| Name           | 種類   | 必須 | 説明                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| 顧客 id    | guid   | 〇      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
-| 請求-期間 | string | 〇      | 請求期間を表すインジケーター。 唯一サポートされている値は、最新です。 文字列の大文字と小文字の区別は関係ありません。 |
+| 顧客 id    | guid   | はい      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
+| 請求-期間 | string | はい      | 請求期間を表すインジケーター。 唯一サポートされている値は、最新です。 文字列の大文字と小文字の区別は関係ありません。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -84,9 +84,9 @@ Host: api.partnercenter.microsoft.com
 
 成功した場合、応答本文には、サービスのコストに関する情報を提供する[ServiceCostsSummary](service-costs-resources.md)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

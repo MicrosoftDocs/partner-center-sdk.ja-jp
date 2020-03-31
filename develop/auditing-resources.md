@@ -4,20 +4,20 @@ description: パートナーセンターの監査操作で使用されるリソ�
 ms.assetid: FEF0BED4-2CEB-46D2-9365-D7D3C50AF0E3
 ms.date: 05/21/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 53b9f879177f5d891c1a7969f6ef108cb7c3624a
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 719ddd1b2e5003842ea85e0f4710c2cf01970564
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489152"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413649"
 ---
 # <a name="auditing-resources"></a>リソースの監査
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 監査操作には、次のリソースを使用できます。
 
@@ -28,7 +28,7 @@ ms.locfileid: "74489152"
 | プロパティ | 種類 | 説明 |
 | --- | --- | ---|
 | 顧客 | string | 顧客を識別する GUID 形式の文字列。 |
-| おける | string | 顧客名。 |
+| customerName | string | 顧客名。 |
 | userPrincipalName | string | ユーザープリンシパル名またはユーザー識別子。 通常、これはインターネット標準 RFC 822 に基づく電子メールアドレス形式のユーザーのインターネットスタイルのログイン名です。 |
 | applicationId | string | 操作を実行したアプリケーションを識別する文字列。 |
 | リソース | string | 操作によって処理されたリソースの種類。 使用可能な値: &quot;カスタマー&quot;、&quot;customer_user&quot;、&quot;順序&quot;、&quot;サブスクリプション&quot;、&quot;ライセンス&quot;、&quot;third_party_add_on&quot;、&quot;mpn_association&quot;、&quot;転送&quot;、&quot;アプリケーション&quot;、&quot;application_credential&quot;、&quot;partner_user&quot;、&quot;partner_relationship&quot;。 |

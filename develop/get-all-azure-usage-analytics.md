@@ -4,20 +4,20 @@ description: Azure usage analytics のすべての情報を取得する方法に
 ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 49df0ac0741ed486ab34015b409eced7fde59afd
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4e15830afba475e7de694151f67e1731e56c286e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486002"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416158"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>Azure usage analytics のすべての情報を取得する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74486002"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。 
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
 
@@ -37,7 +37,7 @@ ms.locfileid: "74486002"
 
 | メソッド  | 要求 URI |
 |---------|-------------|
-| **取得** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1.1 |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1.1 |
 
  
 
@@ -58,7 +58,7 @@ ms.locfileid: "74486002"
   <tbody>
     <tr>
       <td>
-        <p>top</p>
+        <p>[top]</p>
       </td>
       <td>
         <p>string</p>
@@ -80,7 +80,7 @@ ms.locfileid: "74486002"
     </tr>
     <tr>
       <td>
-        <p>filter</p>
+        <p>フィルター</p>
       </td>
       <td>
         <p>string</p>
@@ -193,7 +193,7 @@ ms.locfileid: "74486002"
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -212,7 +212,7 @@ Content-Length: 0
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 
@@ -237,5 +237,5 @@ Content-Length: 0
 
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>関連項目
-  - [パートナーセンター分析-リソース](partner-center-analytics-resources.md)
+  - [パートナー センターの分析 - リソース](partner-center-analytics-resources.md)
 

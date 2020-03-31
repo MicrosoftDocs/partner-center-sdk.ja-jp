@@ -4,27 +4,27 @@ description: 顧客に対して指定されたデバイスバッチ内のデバ�
 ms.assetid: 13FD2D2D-1EF3-4BE2-977D-83577DA57F51
 ms.date: 07/25/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c0cb3aef6817d94b0fcb4fafaa7cdfefcc6bcb1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b6e1c06ede7c240b9bd86179e35402cc956a7bd4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489772"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415605"
 ---
 # <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>指定されたバッチと顧客のデバイスの一覧を取得します。
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 
 このトピックでは、指定した顧客について、指定したデバイスバッチ内のデバイスのコレクションを取得する方法について説明します。 各デバイスリソースには、デバイスに関する詳細が含まれています。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。
 - デバイスバッチ識別子。
 
@@ -58,22 +58,22 @@ var devices =
 
 | メソッド  | 要求 URI                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前           | 種類   | 必須 | 説明                                           |
+| Name           | 種類   | 必須 | 説明                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| 顧客 id    | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
-| devicebatch-id | string | 〇      | デバイスバッチを識別する文字列識別子。 |
+| 顧客 id    | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| devicebatch-id | string | はい      | デバイスバッチを識別する文字列識別子。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 なし
 
@@ -93,9 +93,9 @@ Host: api.partnercenter.microsoft.com
 
 成功した場合、応答本文には、[デバイス](device-deployment-resources.md#device)リソースのページングされたコレクションが含まれます。 コレクションには、ページ内の100デバイスが含まれます。 100デバイスの次のページを取得するには、応答本文の continuationToken を ContinuationToken ヘッダーとして後続の要求に含める必要があります。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

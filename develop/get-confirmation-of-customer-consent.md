@@ -3,14 +3,14 @@ title: Microsoft Cloud 契約に対する顧客の同意を確認する
 description: このトピックでは、Microsoft Cloud 契約に対する顧客の同意を確認する方法について説明します。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d6282a82793f2bc9fa6f436ed9c7a6a31ad0969d
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 3151eb851a3ae3204fd2a9b6004d6ae31ddb9174
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899889"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415998"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Microsoft Cloud 契約に対する顧客の同意を確認する
 
@@ -28,7 +28,7 @@ ms.locfileid: "78899889"
 
 - パートナーセンター .NET SDK を使用している場合は、バージョン1.9 以降が必要です。
 - パートナーセンターの Java SDK を使用している場合は、バージョン1.8 以降が必要です。
-- 「[パートナーセンターの認証](./partner-center-authentication.md)」で説明されている資格情報。 このシナリオでサポートされるのは、アプリとユーザー認証のみです。
+- [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでサポートされるのは、アプリとユーザー認証のみです。
 - 顧客 ID (顧客-テナント id)。
 
 ## <a name="net-version-14-or-newer"></a>.NET (バージョン1.4 以降)
@@ -138,7 +138,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 #### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

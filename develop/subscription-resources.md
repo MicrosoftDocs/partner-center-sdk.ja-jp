@@ -4,14 +4,14 @@ description: サブスクリプションリソースでは、サポート、返�
 ms.assetid: E99B5EC3-2247-4CAD-B651-3000E36AF6B6
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dc771fcbc8cb03e95684dd32ff0f1f29076bba49
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: e817762b2e058614a1fe594a9e2ee74f001cbfb9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082919"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415124"
 ---
 # <a name="subscription-resources"></a>サブスクリプションのリソース
 

@@ -4,26 +4,26 @@ description: 間接リセラーの顧客の注文を作成する方法。
 ms.assetid: 3B89F8CE-96A8-443F-927E-6351E24FDBFF
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 08926408e8cc6cab62a3edf5885724f943f1ccc8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 126c90e936daa50fcf84b8ec97a8f3e4db0f5321
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489542"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413905"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>間接リセラーの顧客の注文を作成する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 間接リセラーの顧客の注文を作成する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。
 - 購入する品目のプラン識別子。
 - 間接リセラーのテナント識別子。
@@ -83,49 +83,49 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 | メソッド   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 顧客を識別するには、次のパスパラメーターを使用します。
 
-| 名前        | 種類   | 必須 | 説明                                           |
+| Name        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
+| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-#### <a name="order"></a>[オーダー]
+#### <a name="order"></a>Order
 
 次の表では、要求本文の**Order**プロパティについて説明します。
 
-| 名前 | 種類 | 必須 | 説明 |
+| Name | 種類 | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
-| id | string | X | 注文が正常に作成されたときに提供される注文 id。 |
-| ReferenceCustomerId | string | 〇 | 顧客識別子。 |
-| 周期サイクル | string | X | パートナーがこの注文に対して課金される頻度。 既定値は &quot;毎月の&quot; で、注文が正常に作成されたときに適用されます。 サポートされている値は、 [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)で見つかったメンバー名です。 注: 年間請求機能は、まだ一般公開されていません。 年次請求のサポートは、間もなくご利用可能になります。 |
-| lineItems | オブジェクトの配列 | 〇 | [**Orderlineitem**](#orderlineitem)リソースの配列。 |
-| CreationDate | string | X | 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。 |
-| 属性 | オブジェクト | X | "ObjectType": "Order" を格納します。 |
+| id | string | いいえ | 注文が正常に作成されたときに提供される注文 id。 |
+| referenceCustomerId | string | はい | 顧客識別子。 |
+| 周期サイクル | string | いいえ | パートナーがこの注文に対して課金される頻度。 既定値は &quot;毎月の&quot; で、注文が正常に作成されたときに適用されます。 サポートされている値は、 [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)で見つかったメンバー名です。 注: 年間請求機能は、まだ一般公開されていません。 年次請求のサポートは、間もなくご利用可能になります。 |
+| lineItems | オブジェクトの配列 | はい | [**Orderlineitem**](#orderlineitem)リソースの配列。 |
+| creationDate | string | いいえ | 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。 |
+| 属性 | object | いいえ | "ObjectType": "Order" を格納します。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
 次の表では、要求本文の**Orderlineitem**プロパティについて説明します。
 
-| 名前 | 種類 | 必須 | 説明 |
+| Name | 種類 | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
-| LineItemNumber | int | 〇 | コレクション内の各行項目は、0からカウント-1 までカウントされる一意の行番号を取得します。 |
-| offerId | string | 〇 | プランの識別子。 |
-| subscriptionId | string | X | サブスクリプション識別子。 |
-| ParentSubscriptionId | string | X | (省略可能)。 アドオンプランの親サブスクリプションの ID。 PATCH にのみ適用されます。 |
-| friendlyName | string | X | (省略可能)。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。 |
-| quantity | int | 〇 | ライセンスベースのサブスクリプションのライセンス数。 |
-| PartnerIdOnRecord | string | X | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを適切にアカウンティングできます。 **リセラーの MPN ID を指定しないと、注文は失敗しません。ただし、リセラーは記録されません。結果として、インセンティブの計算には売上が含まれない場合があります。** |
-| 属性 | オブジェクト | X | "ObjectType": "OrderLineItem" が含まれています。 |
+| lineItemNumber | int | はい | コレクション内の各行項目は、0からカウント-1 までカウントされる一意の行番号を取得します。 |
+| offerId | string | はい | プランの識別子。 |
+| subscriptionId | string | いいえ | サブスクリプション識別子。 |
+| parentSubscriptionId | string | いいえ | 省略可。 アドオンプランの親サブスクリプションの ID。 PATCH にのみ適用されます。 |
+| friendlyName | string | いいえ | 省略可。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。 |
+| quantity | int | はい | ライセンスベースのサブスクリプションのライセンス数。 |
+| partnerIdOnRecord | string | いいえ | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを適切にアカウンティングできます。 **リセラーの MPN ID を指定しないと、注文は失敗しません。ただし、リセラーは記録されません。結果として、インセンティブの計算には売上が含まれない場合があります。** |
+| 属性 | object | いいえ | "ObjectType": "OrderLineItem" が含まれています。 |
 
 ### <a name="request-example"></a>要求の例
 
@@ -169,9 +169,9 @@ Expect: 100-continue
 
 成功した場合、応答本文には、設定された[注文](order-resources.md)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

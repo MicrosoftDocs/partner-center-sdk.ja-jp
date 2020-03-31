@@ -4,21 +4,21 @@ description: 指定されたターゲットサブスクリプションに顧客�
 ms.assetid: 54618BC1-6AF7-4518-925B-8A6A4C926CE7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e2a99da4b9171d78ac38f3537465e6c78f928ac8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a81a7b8bca0e61b128a22cb960a3905800f1acd2
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486502"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415040"
 ---
 # <a name="transition-a-subscription"></a>サブスクリプションを移行する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74486502"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - 2つのサブスクリプション Id (最初のサブスクリプションに1つ、ターゲットサブスクリプションに1つ)。
 
@@ -55,8 +55,8 @@ UpgradeResult upgradeResult = partnerOperations.Customers.ById(selectedCustomerI
 
 | メソッド   | 要求 URI                                                                                                                         |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **取得**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1 |
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-target}/upgrades HTTP/1.1       |
+| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-target}/upgrades HTTP/1.1       |
 
  
 
@@ -64,7 +64,7 @@ UpgradeResult upgradeResult = partnerOperations.Customers.ById(selectedCustomerI
 
 サブスクリプションを移行するには、次のクエリパラメーターを使用します。
 
-| 名前                    | 種類     | 必須 | 説明                                       |
+| Name                    | 種類     | 必須 | 説明                                       |
 |-------------------------|----------|----------|---------------------------------------------------|
 | **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。             |
 | **id-サブスクリプション** | **guid** | Y        | 初期サブスクリプションに対応する GUID。 |
@@ -160,7 +160,7 @@ Expect: 100-continue
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

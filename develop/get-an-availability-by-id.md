@@ -4,26 +4,26 @@ description: 可用性 ID を使用して、指定された製品および SKU �
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2a70709b650d16d8c90407eddfbda69a609fcc35
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cff15d30a7fc218a2b6a12e50cc016dec3c8fe98
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485772"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416049"
 ---
 # <a name="get-an-availability-by-id"></a>ID で可用性を取得する 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 可用性 ID を使用して、指定された製品および SKU の可用性を取得します。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 製品 ID。 
 - SKU ID。 
 - 可用性 ID。 
@@ -78,18 +78,18 @@ Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId
 
 | メソッド  | 要求 URI |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}? country = {country-CODE} HTTP/1.1         |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}? country = {country-CODE} HTTP/1.1         |
 
 **URI パラメーター**
 
 可用性 ID を使用して特定の可用性を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | 種類     | 必須 | 説明                                                     |
+| Name                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 製品 id             | string   | 〇      | 製品を識別する GUID 形式の文字列。            |
-| sku-id                 | string   | 〇      | SKU を識別する GUID 形式の文字列。                |
-| 可用性-id        | string   | 〇      | 可用性を識別する GUID 形式の文字列。       |
-| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
+| 製品 id             | string   | はい      | 製品を識別する GUID 形式の文字列。            |
+| sku-id                 | string   | はい      | SKU を識別する GUID 形式の文字列。                |
+| 可用性-id        | string   | はい      | 可用性を識別する GUID 形式の文字列。       |
+| 国-コード           | string   | はい      | 国/地域 ID。                                            |
 
  
 **要求ヘッダー**
@@ -98,7 +98,7 @@ Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -119,7 +119,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 このメソッドは、次のエラーコードを返します。
 

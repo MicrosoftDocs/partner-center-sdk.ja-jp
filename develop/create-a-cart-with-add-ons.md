@@ -3,26 +3,26 @@ title: アドオンを含むカートを作成する
 description: カート内の顧客のアドオンを含む注文を追加する方法。
 ms.date: 05/23/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c0f4d16821a49f3ee256ecc2111c4d7a5626d01a
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 99556ccb26dfe8ce8a43e62bc4a24ea5e7760ef0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488802"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413527"
 ---
 # <a name="create-a-cart-with-add-ons"></a>アドオンを含むカートを作成する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 カートを通じてアドオンを購入できます。 現在販売可能なものの詳細については、 [Cloud Solution Provider プログラムのパートナープランに](https://docs.microsoft.com/partner-center/csp-offers)関する情報を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="c"></a>C\#
@@ -114,32 +114,32 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 | メソッド   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 顧客を識別するには、次のパスパラメーターを使用します。
 
-| 名前            | 種類     | 必須 | 説明                                                            |
+| Name            | 種類     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **顧客 id** | string   | 〇      | 顧客を識別する GUID 形式の顧客 id。             |
+| **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文に含まれる[カート](cart-resources.md)のプロパティについて説明します。
 
 | プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | string           | X              | カートが正常に作成されたときに提供されるカート識別子。                                  |
-| 前のタイムスタンプ     | DateTime         | X              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。         |
-| lastModifiedTimeStamp | DateTime         | X              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
-| expirationTimeStamp   | DateTime         | X              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
-| lastModifiedUser      | string           | X              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
-| lineItems             | オブジェクトの配列 | 〇             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                             |
+| id                    | string           | いいえ              | カートが正常に作成されたときに提供されるカート識別子。                                  |
+| 前のタイムスタンプ     | DateTime         | いいえ              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。         |
+| lastModifiedTimeStamp | DateTime         | いいえ              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
+| expirationTimeStamp   | DateTime         | いいえ              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
+| lastModifiedUser      | string           | いいえ              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
+| lineItems             | オブジェクトの配列 | はい             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                             |
 
 次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
 
@@ -147,15 +147,15 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                   | string                           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                                   |
 | catalogId            | string                           | カタログ項目の識別子。                                                                                                                          |
-| friendlyName         | string                           | (省略可能)。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
+| friendlyName         | string                           | 省略可。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
 | quantity             | int                              | ライセンスまたはインスタンスの数。                                                                                                                  |
 | currencyCode         | string                           | 通貨コード。                                                                                                                                    |
 | 周期サイクル         | オブジェクト                           | 現在の期間に設定されている請求サイクルの種類。                                                                                                 |
-| 参加者         | オブジェクトの文字列ペアの一覧      | 購入時のレコードの PartnerId (MPNID) のコレクション。                                                                                          |
+| participants         | オブジェクトの文字列ペアの一覧      | 購入時のレコードの PartnerId (MPNID) のコレクション。                                                                                          |
 | provisioningContext  | Dictionary < string、string >       | プランのプロビジョニングに使用されるコンテキスト。                                                                                                             |
 | orderGroup           | string                           | 一緒に配置できる項目を示すグループ。                                                                                               |
 | addonItems           | **CartLineItem**オブジェクトの一覧 | 親のカートの品目の購入から得られる基本サブスクリプションに対して購入されるアドオンのカート品目のコレクション。 |
-| error (エラー)                | オブジェクト                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
+| エラー                | オブジェクト                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>要求の例 (新しい基本サブスクリプション)
 
@@ -223,9 +223,9 @@ MS-CorrelationId: 182474ba-7303-4d0f-870a-8c7fba5ccc4b
 
 成功した場合、このメソッドは、応答本文で設定された[カート](cart-resources.md)リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 #### <a name="response-example-new-base-subscription"></a>応答の例 (新しい基本サブスクリプション)
 

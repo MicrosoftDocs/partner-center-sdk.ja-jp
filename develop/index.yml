@@ -5,17 +5,18 @@ metadata:
   title: パートナー センター開発者向けドキュメント
   description: マイクロソフトと協力して、パートナー機能を開発しましょう。
   ms.service: partner-dashboard
+  ms.subservice: partner-center-sdk
   ms.topic: landing-page
   ms.collection: collection
-  author: lauradolan
-  ms.author: ladolan
+  author: jasonwhowell
+  ms.author: jasonh
   ms.date: 01/08/2020
-  ms.openlocfilehash: ab73e95835c04806e25cb3cbbd46cecd31e3b86d
-  ms.sourcegitcommit: c6a3508ff9b5d97f6ec2bb232999386444933399
+  ms.openlocfilehash: a9e633c8e7006850d5f79471a6e60f097be17bd1
+  ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 01/09/2020
-  ms.locfileid: "75780841"
+  ms.lasthandoff: 03/31/2020
+  ms.locfileid: "80416542"
 landingContent:
 - title: パートナー センターを使用して開発する
   linkLists:

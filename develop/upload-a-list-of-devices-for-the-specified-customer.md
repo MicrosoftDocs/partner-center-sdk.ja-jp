@@ -4,21 +4,21 @@ description: 指定された顧客の既存のバッチに、デバイスに関�
 ms.assetid: 5EC2895C-1361-4EBA-9D86-7125D4FE10D3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 050915fb729b4e9cc0e8a9144254ad2313244cfc
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 849f88b43737cbb61908a45b2e53213099e89871
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487822"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414480"
 ---
 # <a name="upload-a-list-of-devices-to-an-existing-batch-for-the-specified-customer"></a>指定された顧客の既存のバッチにデバイスの一覧をアップロードする
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 
 指定された顧客の既存のバッチに、デバイスに関する情報の一覧をアップロードする方法。 これにより、既に作成されているデバイスバッチにデバイスが関連付けられます。
@@ -26,7 +26,7 @@ ms.locfileid: "74487822"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。
 - デバイスのバッチ識別子。
 - 個々のデバイスに関する情報を提供するデバイスリソースの一覧。
@@ -80,7 +80,7 @@ var trackingLocation =
 
 | メソッド   | 要求 URI                                                                                                            |
 |----------|------------------------------------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
 
  
 
@@ -88,10 +88,10 @@ var trackingLocation =
 
 要求の作成時には、次のパスとクエリパラメーターを使用します。
 
-| 名前           | 種類   | 必須 | 説明                                           |
+| Name           | 種類   | 必須 | 説明                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| 顧客 id    | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
-| devicebatch-id | string | 〇      | デバイスバッチを識別する文字列識別子。 |
+| 顧客 id    | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| devicebatch-id | string | はい      | デバイスバッチを識別する文字列識別子。 |
 
  
 
@@ -160,7 +160,7 @@ Expect: 100-continue
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

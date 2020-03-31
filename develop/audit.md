@@ -4,14 +4,14 @@ description: 監査操作を使用して、パートナーセンターのアク�
 ms.assetid: C6337A08-6009-4F12-A7A3-B1CA1AE016A1
 ms.date: 05/21/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 34da264b465a7b9634c18d4355d3b136dfcd0761
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 36b20d41d3313a1151c45177f4c74ed0b44b180d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489162"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413224"
 ---
 # <a name="audit-operations"></a>監査操作
 

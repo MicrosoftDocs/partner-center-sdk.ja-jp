@@ -4,20 +4,20 @@ description: MeterUsageRecord リソースコレクションを使用すると�
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 48aff5f8bde2dd9c51bb54e07c81715f18993597
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c99c10eda64964ca4b35a19aec400723e590b59b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487702"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416287"
 ---
 # <a name="get-usage-data-for-subscription-by-meter"></a>メーターによるサブスクリプションの使用状況データの取得
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -25,7 +25,7 @@ ms.locfileid: "74487702"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客 ID (**顧客-テナント id**)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - サブスクリプション ID
 
@@ -52,7 +52,7 @@ ms.locfileid: "74487702"
 - プロジェクト: **Partnersdk. FeatureSamples**
 - クラス: **GetSubscriptionUsageRecordsByMeter.cs**
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -60,13 +60,13 @@ ms.locfileid: "74487702"
 
 | メソッド  | 要求 URI                                                                                                                             |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/meterusagerecords HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/meterusagerecords HTTP/1.1 |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
 次の表に、顧客の評価された使用状況情報を取得するために必要なクエリパラメーターを示します。
 
-| 名前                   | 種類     | 必須 | 説明                               |
+| Name                   | 種類     | 必須 | 説明                               |
 |------------------------|----------|----------|-------------------------------------------|
 | **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。     |
 | **サブスクリプション id**    | **guid** | Y        | パートナーセンターの[サブスクリプションリソース](subscription-resources.md#subscription)の識別子に対応する GUID。これは、Microsoft Azure (0145P) サブスクリプションまたは Azure プランを表します。 *Azure プランのサブスクリプションリソースについては、このルートの**サブスクリプション id**として**プラン id**を指定します。* |
@@ -75,9 +75,9 @@ ms.locfileid: "74487702"
 
 詳細については、「[ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-example"></a>要求の例
 
@@ -93,9 +93,9 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 成功した場合、このメソッドは応答本文で**PagedResourceCollection\<MeterUsageRecord >** リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、および追加のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (0145P) サブスクリプションの応答の例
 

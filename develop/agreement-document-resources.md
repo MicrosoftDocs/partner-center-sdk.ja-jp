@@ -3,20 +3,20 @@ title: 契約ドキュメントのリソース
 description: AgreementDocument リソースは、アグリーメントドキュメントを表します。
 ms.date: 08/28/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ac079822a2ddb45310148c16101fa25a38ec492
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 917bb25ab5cb20b5148af056c5f433a8b62e9cc9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488932"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412677"
 ---
 # <a name="agreement-document-resources"></a>契約ドキュメントのリソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 **AgreementDocument**リソースは、現在、 *Microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 このリソースは、次には適用されません。
 
@@ -33,6 +33,6 @@ ms.locfileid: "74488932"
 | プロパティ       | 種類   | 説明                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | country | string | このドキュメントが適用される国または地域。 |
-| 言語 | string | このドキュメントがローカライズされる言語。 |
+| language | string | このドキュメントがローカライズされる言語。 |
 | displayUri | string | ブラウザーでアグリーメントドキュメントをプレビューするためのリンク。  |
 | downloadUri |string | 契約ドキュメントをダウンロードするためのリンク (Microsoft Word 形式)。 |

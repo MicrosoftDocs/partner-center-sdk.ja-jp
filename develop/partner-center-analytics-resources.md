@@ -4,20 +4,20 @@ description: パートナーセンター分析パブリック API ドキュメ�
 ms.assetid: B605C1CD-FC40-4393-8588-55C8F0CAA51A
 ms.date: 06/11/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ce7245e3a556b038b8f71ba5fef9ea96c13f4869
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6cb716010afa61f60f2eb5d7b3f56c4bc9f46adc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486882"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416430"
 ---
 # <a name="partner-center-analytics---resources"></a>パートナーセンター分析-リソース
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,14 +28,14 @@ Analytics API を使用すると、ユーザーエクスペリエンスに表示
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 これらのシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 これらのシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。
 
 
 ## <a name="span-idazure_usage_analyticsspan-idazure_usage_analyticsspan-idazure_usage_analyticscsp-program-azure-usage-analytics"></a><span id="Azure_Usage_Analytics"/><span id="azure_usage_analytics"/><span id="AZURE_USAGE_ANALYTICS"/>CSP プログラム: Azure usage analytics
 
 次のシナリオでは、Analytics API を使用して、パートナーセンターの Azure usage analytics のすべての情報を取得する方法について説明します。  
 
-- [Azure usage analytics のすべての情報を取得する](get-all-azure-usage-analytics.md)  
+- [Azure の使用量分析情報をすべて取得する](get-all-azure-usage-analytics.md)  
 
 このシナリオでは、 [Azure の使用](#azure_usage)リソースのコレクションに分析情報が返されます。 
 
@@ -46,7 +46,7 @@ Azure の使用に関するすべての分析データを表します。
 | プロパティ | 種類 | 説明 |
 |----------|------|-------------|
 | 顧客 Tenantid | string | 顧客のテナント識別子。 |
-| おける | string | 顧客名。 |
+| customerName | string | 顧客名。 |
 | subscriptionId | string | サブスクリプション識別子。 |
 | subscriptionName | string | サブスクリプション名。 |
 | 日付 | string | 使用日。 |
@@ -54,9 +54,9 @@ Azure の使用に関するすべての分析データを表します。
 | MeterCategory | string | 測定カテゴリ、データ管理など。 |
 | meterSubcategory カテゴリ | string | 測定サブカテゴリ (geo 冗長など)。 |
 | meterUnit | string | 測定単位 (ギガバイトや時間など)。 | 
-| reservationOrderId | string | Azure VM の予約済みインスタンスの予約順序。 |
+| ReservationOrderId | string | Azure VM の予約済みインスタンスの予約順序。 |
 | reservationId | string | 特定の RI 順序での予約インスタンス。 |
-| 与え | string | 仮想マシンの種類を示します。 たとえば、Standard_E4s_v3 のようにします。 |
+| serviceType | string | 仮想マシンの種類を示します。 たとえば、Standard_E4s_v3 のようにします。 |
 | quantity | long | メーター単位で使用される数値を示します。 |
 
 
@@ -64,7 +64,7 @@ Azure の使用に関するすべての分析データを表します。
 
 次のシナリオでは、Analytics API を使用して、すべてのパートナーセンターの間接リセラーの分析情報を取得する方法について説明します。  
 
-- [すべての間接リセラー分析情報を取得する](get-all-indirect-resellers-analytics.md)  
+- [間接顧客の分析情報をすべて取得する](get-all-indirect-resellers-analytics.md)  
 
 このシナリオでは、[間接リセラー](#indirect_resellers)リソースのコレクションに分析情報が返されます。 
 
@@ -96,9 +96,9 @@ Azure の使用に関するすべての分析データを表します。
 
 次のシナリオでは、Analytics API を使用して、すべてのパートナーセンターのサブスクリプション分析情報を取得したり、検索クエリでフィルター処理したり、日付や用語でグループ化したりする方法について説明します。  
 
-- [すべてのサブスクリプション分析情報を取得する](get-all-subscription-analytics.md)  
-- [検索クエリでフィルター処理されたサブスクリプション分析情報を取得する](get-subscription-analytics-by-search-query.md)  
-- [サブスクリプション分析情報を日付または使用条件でグループ化して取得する](get-subscription-analytics-grouped-by-dates-or-terms.md)  
+- [サブスクリプションの分析情報をすべて取得する](get-all-subscription-analytics.md)  
+- [検索クエリでフィルター処理されたサブスクリプションの分析情報を取得する](get-subscription-analytics-by-search-query.md)  
+- [日付またはご契約条件でグループ化されたサブスクリプションの分析情報を取得する](get-subscription-analytics-grouped-by-dates-or-terms.md)  
 
 これらすべてのシナリオでは、[サブスクリプション](#subscription)リソースのコレクションで分析情報が返されます。 
 
@@ -112,17 +112,17 @@ Azure の使用に関するすべての分析データを表します。
 |         プロパティ          |              種類              |                                                                      説明                                                                       |
 |---------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     顧客 Tenantid      |             string             |                                              顧客のテナントを識別する GUID 形式の文字列。                                              |
-|       おける        |             string             |                                                               顧客の名前。                                                                |
+|       customerName        |             string             |                                                               顧客の名前。                                                                |
 |      顧客市場       |             string             |                                                 顧客が事業を行っている国/地域。                                                 |
 |            id             |             string             |                                                              サブスクリプション識別子。                                                              |
-|          status           |             string             |                                          サブスクリプションの状態: "ACTIVE"、"中断"、または "プロビジョニング解除"。                                           |
+|          状態           |             string             |                                          サブスクリプションの状態: "ACTIVE"、"中断"、または "プロビジョニング解除"。                                           |
 |        productName        |             string             |                                                                製品の名前。                                                                |
 |     subscriptionType      |             string             |       サブスクリプションの種類。 **注**: このフィールドでは大文字と小文字が区別されます。 サポートされている値は、"Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS" です。       |
 |     autoRenewEnabled      |            boolean             |                                         サブスクリプションが自動的に更新されるかどうかを示す値です。                                          |
 |         パートナー         |             string             | MPN ID です。 ダイレクトリセラーの場合、これはパートナーの MPN ID になります。 間接リセラーの場合、これは間接リセラーの MPN ID になります。 |
-|       friendlyName        |             string             |                                                             サブスクリプションの名前。                                                              |
+|       friendlyName        |             string             |                                                             サブスクリプションの名前です。                                                              |
 |        partnerName        |             string             |                                              サブスクリプションが購入されたパートナーの名前                                               |
-|       プロバイダー        |             string             |            間接リセラーのサブスクリプショントランザクションの場合、プロバイダー名はサブスクリプションを購入した間接プロバイダーになります。             |
+|       providerName        |             string             |            間接リセラーのサブスクリプショントランザクションの場合、プロバイダー名はサブスクリプションを購入した間接プロバイダーになります。             |
 |    And rateplancharge.effectivestartdate     | UTC 日時形式の文字列 |                                                           サブスクリプションが開始された日付。                                                            |
 |     Commitの Enddate     | UTC 日時形式の文字列 |                                                            サブスクリプションが終了する日付。                                                             |
 |    currentStateEndDate    | UTC 日時形式の文字列 |                                           サブスクリプションの現在の状態が変更される日付。                                            |
@@ -142,7 +142,7 @@ Azure の使用に関するすべての分析データを表します。
 
 次のシナリオでは、Analytics API を使用して、すべてのパートナーセンター検索分析情報を取得する方法について説明します。  
 
-- [すべての検索分析情報を取得する](get-all-search-analytics.md)  
+- [検索の分析情報をすべて取得する](get-all-search-analytics.md)  
 
 このシナリオでは、[検索](#search_resource)リソースのコレクションに分析情報が返されます。 
 
@@ -177,7 +177,7 @@ Azure の使用に関するすべての分析データを表します。
 
 次のシナリオでは、Analytics API を使用して、すべてのパートナーセンターの紹介分析情報を取得する方法について説明します。  
 
-- [すべての紹介分析情報を取得する](get-all-referrals-analytics.md)  
+- [紹介の分析情報をすべて取得する](get-all-referrals-analytics.md)  
 
 このシナリオでは、[参照](#referrals)リソースのコレクションに分析情報が返されます。 
 
@@ -192,9 +192,9 @@ Azure の使用に関するすべての分析データを表します。
 | プロパティ | 種類 | 説明 |
 |----------|------|-------------|
 | id | string | 顧客のテナント識別子。  |
-| status | string | 紹介が顧客に対しているかどうかを示します。  |
+| 状態 | string | 紹介が顧客に対しているかどうかを示します。  |
 | 顧客市場 | string | 顧客が事業を行っている国/地域。 |
-| おける | string | 顧客の名前。 |
+| customerName | string | 顧客の名前。 |
 | 顧客 Orgsize | string | 顧客の組織内の従業員の数を示す範囲。 たとえば、"10to50employees" のようになります。 |
 | acceptedDate | UTC 日時形式の文字列 | 紹介が受け入れられた日付。 |
 | acknowledgedDate | UTC 日時形式の文字列 | 参照が確認された日付。 |

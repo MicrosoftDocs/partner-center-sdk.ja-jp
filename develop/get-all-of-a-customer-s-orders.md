@@ -4,20 +4,20 @@ description: 指定された顧客のすべての注文のコレクションを�
 ms.assetid: DF1E52F6-1A3D-4B26-8BCC-6E429410C662
 ms.date: 06/19/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a4e40634ef2f7477ca46be27b318cb4cc4711b65
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d307f747dcf487b2806970aa26d2bfa970dd48b4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485902"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416124"
 ---
 # <a name="get-all-of-a-customers-orders"></a>顧客の注文をすべて取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,7 @@ ms.locfileid: "74485902"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="c"></a>C\#
@@ -51,23 +51,23 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 
 | メソッド  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders HTTP/1.1  |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 すべての注文を取得するには、次のクエリパラメーターを使用します。
 
-| 名前                   | 種類     | 必須 | 説明                                               |
+| Name                   | 種類     | 必須 | 説明                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
-| 顧客-テナント id     | string   | 〇      | 顧客に対応する GUID 形式の文字列。    |
+| customer-tenant-id     | string   | はい      | 顧客に対応する GUID 形式の文字列。    |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -84,9 +84,9 @@ Connection: Keep-Alive
 
 成功した場合、このメソッドは応答本文で[注文](order-resources.md)リソースのコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 ### <a name="response-example"></a>応答の例
 

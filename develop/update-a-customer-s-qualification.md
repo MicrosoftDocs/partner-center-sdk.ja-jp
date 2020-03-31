@@ -3,21 +3,21 @@ title: 顧客の資格を更新する
 description: プロファイルに関連付けられているアドレスを含めて、顧客の資格を更新します。
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f1faf509f67fa5dbb370acb9e0985a36810ed439
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0896c44ab193ca564ee210f48f536382c8070305
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486442"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414956"
 ---
 # <a name="update-a-customers-qualification"></a>顧客の資格を更新する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 顧客の資格を更新します。
 
@@ -25,7 +25,7 @@ ms.locfileid: "74486442"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客 ID (顧客-テナント id)。
 
 
@@ -56,17 +56,17 @@ var gccCustomerQualification = partnerOperations.Customers.ById(existingCustomer
 
 | メソッド  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **投入** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer_id}/修飾? code = {VALIDATIONCODE} HTTP/1.1 |
+| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer_id}/修飾? code = {VALIDATIONCODE} HTTP/1.1 |
 
 
 **URI パラメーター**
 
 次のクエリパラメーターを使用して、修飾を更新します。
 
-| 名前                   | 種類 | 必須 | 説明                                                                                                                                            |
+| Name                   | 種類 | 必須 | 説明                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | GUID | 〇      | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
-| **validationCode**     | int  | X       | 政府コミュニティクラウドにのみ必要です。                                                                                                            |
+| **顧客-テナント id** | GUID | はい      | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **validationCode**     | int  | いいえ       | 政府コミュニティクラウドにのみ必要です。                                                                                                            |
 
 
 **要求ヘッダー**
@@ -95,7 +95,7 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

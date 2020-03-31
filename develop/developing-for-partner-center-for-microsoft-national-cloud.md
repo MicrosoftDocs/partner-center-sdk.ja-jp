@@ -7,18 +7,18 @@ MS-HAID:
 ms.assetid: 13D45776-4837-48F5-AB8B-605FD1D3D52D
 ms.date: 06/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cb94124a8ba12d8ab03a3215266fb351963da5d6
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7302b1a7f7c2fc498936708f48bbdb110b8b2d23
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488472"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415629"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Microsoft National クラウドのパートナーセンター向けの開発
 
-適用対象:
+適用対象
 
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
@@ -70,6 +70,6 @@ ms.locfileid: "74488472"
   - 米国政府向けのシナリオにおいて Microsoft Cloud 内の既存の顧客とのマルチチャネルおよびマルチパートナーおよび要求の関係は適用されません。 これは、Office 365 が現在使用できないためです。
 - パートナーは、顧客の組織のユーザーを作成したり、ロールを割り当てたりすることはできません。
   - パートナーはフィールドを読み取ることができますが、作成または更新することはできません。 パートナーは、Azure portal で顧客のユーザーを手動で作成または更新する必要があります。 [Azure Active Directory のドキュメント](https://docs.microsoft.com/azure/active-directory/)を参照してください。
-- 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Azure portal を使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal)」を参照してください。 手順 1. では、米国政府向け Microsoft Cloud の Azure portal にサインインする必要があります。
+- 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Azure ポータルを使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal)」を参照してください。 手順 1. では、米国政府向け Microsoft Cloud の Azure portal にサインインする必要があります。
 - 米国政府向け Microsoft Cloud のパートナーセンターの REST エンドポイントは、パートナーセンターの `https://api.partnercenter.microsoft.com`と同じです。
 - 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録して、米国政府向けの Microsoft Cloud を行う必要があります。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリ詳細の登録](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)」を参照してください。

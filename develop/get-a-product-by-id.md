@@ -4,26 +4,26 @@ description: 製品 ID を使用して、指定された製品リソースを取
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 752245d5a307da69fff105de09de6ae167b736fc
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1b71816ab1a682999704fceb1384518b84b52584
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489482"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413687"
 ---
 # <a name="get-a-product-by-id"></a>ID によって製品を取得します。
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 製品 ID を使用して、指定された製品リソースを取得します。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 製品 ID。
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
@@ -66,16 +66,16 @@ Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 
 | メソッド  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}? country = {COUNTRY} HTTP/1.1  | 
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}? country = {COUNTRY} HTTP/1.1  | 
 
 **URI パラメーター**
 
 次のパスパラメーターを使用して、指定された製品を取得します。
 
-| 名前                   | 種類     | 必須 | 説明                                                     |
+| Name                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 製品 id             | string   | 〇      | 製品を識別する文字列。                           |
-| country                | string   | 〇      | 国/地域 ID。                                            |
+| 製品 id             | string   | はい      | 製品を識別する文字列。                           |
+| country                | string   | はい      | 国/地域 ID。                                            |
 
 
 **要求ヘッダー**
@@ -84,7 +84,7 @@ Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -103,7 +103,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 このメソッドは、次のエラーコードを返します。
 

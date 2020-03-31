@@ -3,14 +3,14 @@ title: パートナーセンターの .NET SDK リリースノート
 description: パートナーセンター .NET SDK の最新バージョンのリリースノート。
 ms.date: 12/09/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b98c6ef23b08947a7dec219ba40b7e19a3e5026
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: c924f691f9d0315d58cf53630776d532ebf8c089
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995619"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415679"
 ---
 # <a name="net-sdk-release-notes"></a>.NET SDK のリリースノート
 
@@ -22,7 +22,7 @@ ms.locfileid: "74995619"
 
 * パートナーアグリーメント
   * 間接プロバイダー[が間接リセラーの Microsoft パートナーアグリーメントの状態を確認](verify-indirect-reseller-mpa-status.md)する機能が追加されました。
-* Products (製品)
+* Products
   * 次の2つのインターフェイスは、誤って、Microsoft. ストアの名前空間に配置されました。 次に、これらは、"Microsoft......" という名前空間に配置されています。
     * ICustomerProductByReservationScope
     * ICustomerSkuByReservationScope

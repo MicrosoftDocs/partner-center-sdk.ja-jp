@@ -4,20 +4,20 @@ description: パートナーの Microsoft Partner Network 識別子 (MPN ID) を
 ms.assetid: 95CBA254-0980-4519-B95D-1F906C321863
 ms.date: 09/29/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f2aa72aa00575e42ff0cb38640aeca78164f77f1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cc18ee559bd3ceafd7239ccb46e7d616d8fc5f13
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490052"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415699"
 ---
 # <a name="verify-a-partner-mpn-id"></a>パートナー MPN ID を確認する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74490052"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 確認するパートナー MPN ID。 この値を省略した場合、要求はサインインしているパートナーの MPN プロファイルを取得します。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -51,15 +51,15 @@ var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 
 | メソッド  | 要求 URI                                                                         |
 |---------|-------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/profiles/mpn? mpnid = {MPN} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/profiles/mpn? mpnid = {MPN} HTTP/1.1 |
 
 **URI パラメーター**
 
 次のクエリパラメーターを指定して、パートナーを識別します。 このクエリパラメーターを省略すると、要求によって、サインインしているパートナーの MPN プロファイルが返されます。
 
-| 名前   | 種類 | 必須 | 説明                                                 |
+| Name   | 種類 | 必須 | 説明                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| mpn-id | int  | X       | パートナーを識別する Microsoft Partner Network ID。 |
+| mpn-id | int  | いいえ       | パートナーを識別する Microsoft Partner Network ID。 |
 
 **要求ヘッダー**
 
@@ -67,7 +67,7 @@ var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -89,7 +89,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例 (成功)**
 

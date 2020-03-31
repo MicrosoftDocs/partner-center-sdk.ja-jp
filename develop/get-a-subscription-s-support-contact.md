@@ -4,21 +4,21 @@ description: サブスクリプションのサポート連絡先を取得する�
 ms.assetid: 328299D7-88A6-4CB5-BD94-2BB6E25D6563
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 12827fd3259ac6f4e8eb93f643cb0218ebc3b5d7
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 8d7814baf3b2e9e848707b9fe0ac772214adf65d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486092"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413951"
 ---
 # <a name="get-a-subscriptions-support-contact"></a>サブスクリプションのサポート連絡先を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -27,7 +27,7 @@ ms.locfileid: "74486092"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。
 - サブスクリプション識別子。
 
@@ -54,7 +54,7 @@ var supportContact = partnerOperations.Customers.ById(customerId).Subscriptions.
 
 | メソッド  | 要求 URI                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/supportcontact HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/supportcontact HTTP/1.1 |
 
  
 
@@ -62,10 +62,10 @@ var supportContact = partnerOperations.Customers.ById(customerId).Subscriptions.
 
 次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| 名前            | 種類   | 必須 | 説明                                                     |
+| Name            | 種類   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。           |
-| サブスクリプション id | string | 〇      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
+| 顧客 id     | string | はい      | 顧客を識別する GUID 形式の文字列。           |
+| サブスクリプション id | string | はい      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
 
  
 
@@ -75,7 +75,7 @@ var supportContact = partnerOperations.Customers.ById(customerId).Subscriptions.
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -96,7 +96,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 

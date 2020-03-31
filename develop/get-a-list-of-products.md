@@ -4,20 +4,20 @@ description: 製品リソースを使用して、顧客の国別に製品のコ�
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4f3f00db59fa06769a581fca6ea028bc94f61883
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: dbdeb5a9dec96f5b7f2c518167499523d5aecb45
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487322"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413999"
 ---
 # <a name="get-a-list-of-products-by-country"></a>製品の一覧を取得する (国別)
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,7 @@ ms.locfileid: "74487322"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 国。
 
 ## <a name="c"></a>C\#
@@ -91,7 +91,7 @@ ResourceCollection<Products> products = partnerOperations.getProducts().byCountr
 Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 ```
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>Rest 要求
 
@@ -99,26 +99,26 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 | メソッド  | 要求 URI                                                                                                                                    |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products? country = {country} & targetview = {targetview} & targetview = {TARGETVIEW} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products? country = {country} & targetview = {targetview} & targetview = {TARGETVIEW} HTTP/1.1 |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
 製品の一覧を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | 種類     | 必須 | 説明                                                             |
+| Name                   | 種類     | 必須 | 説明                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| country                | string   | 〇      | 国/地域 ID。                                                  |
-| targetView             | string   | 〇      | カタログのターゲットビューを識別します。 サポートされている値は次のとおりです。 <ul><li>**Azure (すべて**の azure 項目を含む)</li><li>**AzureReservations**(すべての Azure 予約項目を含む)</li><li>**AzureReservationsVM**(すべての仮想マシン (VM) 予約項目を含む)</li><li>**AzureReservationsSQL**(すべての SQL 予約項目を含む)</li><li>**AzureReservationsCosmosDb**。すべての Cosmos データベース予約項目が含まれます。</li><li>**Microsoftazure.mobileengagement**: Microsoft Azure サブスクリプション (**0145p**) と Azure プランの項目が含まれています</li><li>すべてのオンラインサービス項目 (商用 marketplace 製品を含む) を含む**Onlineservices**</li><li>**ソフトウェア**。すべてのソフトウェア項目が含まれます。</li><li>**SoftwareSUSELinux**(すべてのソフトウェア SUSE Linux 項目を含む)</li><li>すべての永続ソフトウェア項目を含む、**永続的**なソフトウェア</li><li>すべて**のソフトウェアサブスクリプション項目**を含む software subscription</li></ul> |
-| targetSegment          | string   | X       | ターゲットセグメントを識別します。 さまざまな対象ユーザーのビュー。 サポートされている値は次のとおりです。 <ul><li>**迷惑**</li><li>**知識**</li><li>**官公庁**</li><li>**非営利**</li></ul> |
-| reservationScope | string   | X | Azure Reservations の製品の一覧を照会する場合は、`reservationScope=AzurePlan` を指定して、Azure プランに適用可能な製品の一覧を取得します。 このパラメーターを除外すると、Microsoft Azure (**0145P**) サブスクリプションに適用される Azure 予約の製品の一覧を取得できます。  |
+| country                | string   | はい      | 国/地域 ID。                                                  |
+| targetView             | string   | はい      | カタログのターゲットビューを識別します。 サポートされている値は次のとおりです。 <ul><li>**Azure (すべて**の azure 項目を含む)</li><li>**AzureReservations**(すべての Azure 予約項目を含む)</li><li>**AzureReservationsVM**(すべての仮想マシン (VM) 予約項目を含む)</li><li>**AzureReservationsSQL**(すべての SQL 予約項目を含む)</li><li>**AzureReservationsCosmosDb**。すべての Cosmos データベース予約項目が含まれます。</li><li>**Microsoftazure.mobileengagement**: Microsoft Azure サブスクリプション (**0145p**) と Azure プランの項目が含まれています</li><li>すべてのオンラインサービス項目 (商用 marketplace 製品を含む) を含む**Onlineservices**</li><li>**ソフトウェア**。すべてのソフトウェア項目が含まれます。</li><li>**SoftwareSUSELinux**(すべてのソフトウェア SUSE Linux 項目を含む)</li><li>すべての永続ソフトウェア項目を含む、**永続的**なソフトウェア</li><li>すべて**のソフトウェアサブスクリプション項目**を含む software subscription</li></ul> |
+| targetSegment          | string   | いいえ       | ターゲットセグメントを識別します。 さまざまな対象ユーザーのビュー。 サポートされている値は次のとおりです。 <ul><li>**迷惑**</li><li>**知識**</li><li>**官公庁**</li><li>**非営利**</li></ul> |
+| reservationScope | string   | いいえ | Azure Reservations の製品の一覧を照会する場合は、`reservationScope=AzurePlan` を指定して、Azure プランに適用可能な製品の一覧を取得します。 このパラメーターを除外すると、Microsoft Azure (**0145P**) サブスクリプションに適用される Azure 予約の製品の一覧を取得できます。  |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-examples"></a>要求の例
 
@@ -162,9 +162,9 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 成功した場合、応答本文には[**製品**](product-resources.md#product)リソースのコレクションが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 このメソッドは、次のエラーコードを返します。
 

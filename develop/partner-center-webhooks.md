@@ -3,21 +3,21 @@ title: パートナーセンターの webhook
 description: Webhook を使用すると、パートナーはリソース変更イベントに登録できます。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ead6d1da325534f2b58667365a509ef07ee295b1
-ms.sourcegitcommit: b9d44c881015065e2c375afa4deb05fe6bf3aeb8
+ms.openlocfilehash: 9a470ad6e3ee049f2cea3bc71b8a26f47aba1601
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559469"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416356"
 ---
 # <a name="partner-center-webhooks"></a>パートナーセンターの webhook
 
 
 **適用対象**
 
-- パートナー センター   
+- Partner Center   
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター   
@@ -62,7 +62,7 @@ ms.locfileid: "74559469"
 ## <a name="prerequisites"></a>前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。   
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。   
 
 
 
@@ -118,12 +118,12 @@ Content-Length: 195
 
 **[プロパティ]**
 
-| 名前                      | 説明                                                                           |
+| Name                      | 説明                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
-| **EventName**             | イベントの名前。 {Resource}-{action} の形式で。 たとえば、"テスト作成" などです。  |
+| **EventName**             | イベントの名前です。 {Resource}-{action} の形式で。 たとえば、"テスト作成" などです。  |
 | **ResourceUri**           | 変更されたリソースの URI。                                                 |
 | **ResourceName**          | 変更されたリソースの名前。                                                |
-| **AuditUrl**              | (省略可能)。 監査レコードの URI。                                                |
+| **AuditUrl**              | 省略可。 監査レコードの URI。                                                |
 | **ResourceChangeUtcDate** | リソースの変更が発生した日時 (UTC 形式)。                  |
 
 
@@ -147,7 +147,7 @@ Content-Length: 195
 
 **[認証]**   
 
-Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 https://api.partnercenter.microsoft.com にアクセスするには、アクセストークンを取得する必要があります。 これは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
+Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 https://api.partnercenter.microsoft.comにアクセスするには、アクセストークンを取得する必要があります。 これは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
 
 
  

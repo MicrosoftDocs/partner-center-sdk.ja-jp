@@ -4,14 +4,14 @@ description: 顧客または再販業者を表す顧客リソース。
 ms.assetid: C7EC2657-62F2-43B3-B171-2F74498D45E0
 ms.date: 01/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5afcf2a9bd673a903f7cc75072ec0c3f35cae5c5
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 458c2a3d888cadb4d45dd059a3865c8f1f43cc2e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082899"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412279"
 ---
 # <a name="customer-resources"></a>お客様のリソース
 

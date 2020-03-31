@@ -4,21 +4,21 @@ description: パートナーセンター API を使用してカタログアイ�
 ms.assetid: B9B1B66A-D1AD-44E8-85AA-49D9C2A94BE5
 ms.date: 07/12/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ff4f04bc53f96e6e7670922093bca830456de921
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 083bb517f20c0a733f7d87bb7107bcface4f79ec
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486742"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416279"
 ---
 # <a name="purchase-catalog-items"></a>カタログアイテムを購入する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 
 次のシナリオでは、パートナーセンター API を使用して、カタログから商品を購入するための一般的なプロセスについて説明します。
@@ -38,16 +38,16 @@ ms.locfileid: "74486742"
 
     - [製品の一覧を取得する](get-a-list-of-products.md)
     - [製品 ID を使用して製品を取得する](get-a-product-by-id.md)
-    - [製品の Sku の一覧を取得する](get-a-list-of-skus-for-a-product.md)
+    - [製品の SKU の一覧を取得する](get-a-list-of-skus-for-a-product.md)
     - [SKU ID を使用して SKU を取得する](get-a-sku-by-id.md)
 
 2.  SKU のインベントリを確認します。 この手順は、 [purchasePrerequisites](product-resources.md#sku)プロパティで**InventoryCheck**値がタグ付けされている sku にのみ必要です。
 
-    - [インベントリの確認](check-inventory.md) 
+    - [在庫を確認する](check-inventory.md) 
 
 3.  [SKU](product-resources.md#sku)の[可用性](product-resources.md#availability)を取得します。 注文を配置するときに、可用性の**Catalogitemid**が必要になります。 この値を取得するには、次の Api のいずれかを使用します。 
 
-    - [SKU に使用できる機能の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
+    - [SKU の空き状況の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
     - [可用性 ID を使用して可用性を取得する](get-an-availability-by-id.md)
 
 

@@ -3,20 +3,20 @@ title: パートナー センターAPI および SDK 早期導入者プログラ
 description: パートナーは、パートナーの機能の開発に関して Microsoft と共同作業を行うことができます。
 ms.date: 06/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8bb07bd99e860e3b094908ab100f39f310ccf80f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 5e0a7a554efbcd519a5c06e82053e47c909a56bc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489932"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412191"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>パートナー センターAPI および SDK 早期導入者プログラムにご参加ください。
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター

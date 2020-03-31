@@ -4,20 +4,20 @@ description: 顧客サブスクリプションのサブスクリプションの�
 ms.assetid: CC3A13FE-D6D3-4A65-981F-0235A4A8382E
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e08342b3d712a38dee857b06095e41a6fe9df24
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 189ff5d3d452c27e248d4051cfb337c87d4c4d7d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487152"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416638"
 ---
 # <a name="get-subscription-provisioning-status"></a>サブスクリプションのプロビジョニング状態の取得
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,7 +27,7 @@ ms.locfileid: "74487152"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。
 - サブスクリプション識別子。
 - この操作を実行するには、サブスクリプションに対する委任された管理者権限が必要です。
@@ -53,7 +53,7 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 | メソッド  | 要求 URI                                                                                                                        |
 |---------|------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/provisioningstatus HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/provisioningstatus HTTP/1.1 |
 
  
 
@@ -61,10 +61,10 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| 名前            | 種類   | 必須 | 説明                                               |
+| Name            | 種類   | 必須 | 説明                                               |
 |-----------------|--------|----------|-----------------------------------------------------------|
-| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。     |
-| サブスクリプション id | string | 〇      | サブスクリプションを識別する GUID 形式の文字列。 |
+| 顧客 id     | string | はい      | 顧客を識別する GUID 形式の文字列。     |
+| サブスクリプション id | string | はい      | サブスクリプションを識別する GUID 形式の文字列。 |
 
  
 
@@ -74,7 +74,7 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -95,7 +95,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

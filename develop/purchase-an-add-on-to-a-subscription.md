@@ -4,21 +4,21 @@ description: 既存のサブスクリプションにアドオンを購入する�
 ms.assetid: 743520E5-0501-4403-B977-5E6D3E32DEC3
 ms.date: 11/29/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e90aa545e2e1b76ccdb9f8e812df73d3113dfd86
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f49685eb142945fc94e551e2113799c4c5b959e5
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486752"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416305"
 ---
 # <a name="span-idpc_apiv2purchase_an_add-on_to_a_subscriptionpurchase-an-add-on-to-a-subscription"></a>サブスクリプションにアドオンを購入 <span id="pc_apiv2.purchase_an_add-on_to_a_subscription"/>には
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -27,7 +27,7 @@ ms.locfileid: "74486752"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - サブスクリプション ID。 これは、アドオンプランを購入するための既存のサブスクリプションです。
 - 購入するアドオンプランを識別するプラン ID。
@@ -131,7 +131,7 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 顧客と注文を識別するには、次のパラメーターを使用します。
 
-| 名前                   | 種類     | 必須 | 説明                                                                        |
+| Name                   | 種類     | 必須 | 説明                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
 | **顧客-テナント id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の**顧客テナント id**です。 |
 | **注文-id**           | **guid** | Y        | 順序識別子。                                                              |
@@ -149,29 +149,29 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 ## <a name="span-idorderspan-idorderspan-idorderorder"></a><span id="Order"/><span id="order"/><span id="ORDER"/>の順序
 
 
-| 名前                | 種類             | 必須 | 説明                                          |
+| Name                | 種類             | 必須 | 説明                                          |
 |---------------------|------------------|----------|------------------------------------------------------|
-| ID                  | string           | N        | 注文 ID。                                        |
-| ReferenceCustomerId | string           | Y        | 顧客 ID。                                     |
+| Id                  | string           | N        | 注文 ID。                                        |
+| referenceCustomerId | string           | Y        | 顧客 ID。                                     |
 | lineItems           | オブジェクトの配列 | Y        | [Orderlineitem](#orderlineitem)オブジェクトの配列です。 |
 | CreationDate        | string           | N        | 注文が作成された日付 (日付/時刻形式)。 |
-| 属性          | オブジェクト           | N        | "ObjectType": "Order" を格納します。                      |
+| 属性          | object           | N        | "ObjectType": "Order" を格納します。                      |
 
  
 
 ## <a name="span-idorderlineitemspan-idorderlineitemspan-idorderlineitemorderlineitem"></a><span id="orderLineItem"/><span id="orderlineitem"/><span id="ORDERLINEITEM"/>OrderLineItem
 
 
-| 名前                 | 種類   | 必須 | 説明                                                  |
+| Name                 | 種類   | 必須 | 説明                                                  |
 |----------------------|--------|----------|--------------------------------------------------------------|
-| LineItemNumber       | number | Y        | 0から始まる行項目番号。                       |
+| lineItemNumber       | number | Y        | 0から始まる行項目番号。                       |
 | OfferId              | string | Y        | アドオンのプラン ID。                                  |
 | SubscriptionId       | string | N        | 購入したアドオンサブスクリプションの ID。                 |
-| ParentSubscriptionId | string | Y        | アドオンが用意されている親サブスクリプションの ID。 |
+| parentSubscriptionId | string | Y        | アドオンが用意されている親サブスクリプションの ID。 |
 | FriendlyName         | string | N        | この行項目の表示名。                        |
 | 数量             | number | Y        | ライセンスの数。                                      |
-| PartnerIdOnRecord    | string | N        | レコードのパートナーの MPN ID。                         |
-| 属性           | オブジェクト | N        | "ObjectType": "OrderLineItem" が含まれています。                      |
+| partnerIdOnRecord    | string | N        | レコードのパートナーの MPN ID。                         |
+| 属性           | object | N        | "ObjectType": "OrderLineItem" が含まれています。                      |
 
  
 
@@ -219,7 +219,7 @@ Expect: 100-continue
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 

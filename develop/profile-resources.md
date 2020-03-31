@@ -4,14 +4,14 @@ description: クラウドソリューションプロバイダーのプロファ�
 ms.assetid: 42F2959B-D70D-41A7-9A50-E22A2356A339
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3449aeb3695a9f286f37668d3f0862dc7b5cfa9f
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: e2f7813ef3e41c06b7575e4119a364cb4e037e9b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083039"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416329"
 ---
 # <a name="profile-resources"></a>プロファイルリソース
 

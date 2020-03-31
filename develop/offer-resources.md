@@ -4,20 +4,20 @@ description: リセラーのカタログに記載されている製品を顧客�
 ms.assetid: 702B18DB-D78A-4E3B-BC8F-EFD4092131DE
 ms.date: 03/15/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 287482a934fecd73bce7d455098b3ab8a39d527c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 338230497fdb780823c30c9542c26aa58e89c07a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486892"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416445"
 ---
 # <a name="offer-resources"></a>プランリソース
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -30,14 +30,14 @@ ms.locfileid: "74486892"
 |-----------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                          | string                    | プランの識別子。                                                                                           |
 | name                        | string                    | プラン名。                                                                                                 |
-| 説明                 | string                    | プランの説明。                                                                                     |
+| description                 | string                    | プランの説明。                                                                                     |
 | minimumQuantity             | int                       | 使用可能な最小数量。                                                                                 |
 | maximumQuantity             | int                       | 利用可能な最大数量。                                                                                 |
-| ランク                        | int                       | 同じ製品ライン内の他のカテゴリと比較したプランのランクまたは優先順位。 このプロパティは、特定の製品ラインに対して複数のプランがある場合にのみ設定する必要があります。  |
+| rank                        | int                       | 同じ製品ライン内の他のカテゴリと比較したプランのランクまたは優先順位。 このプロパティは、特定の製品ラインに対して複数のプランがある場合にのみ設定する必要があります。  |
 | uri                         | string                    | プランの URI。                                                                                                  |
 | locale                      | string                    | プランが適用されるロケール。                                                                          |
 | country                     | string                    | プランが適用される国/地域。                                                                    |
-| 別                    | [OfferCategory](#offercategory)           | オファーのカテゴリ。                                                                   |
+| category                    | [OfferCategory](#offercategory)           | オファーのカテゴリ。                                                                   |
 | limitUnitOfMeasure          | string                    | 購入制限の種類を示す値です。 表示される値は次のとおりです。<br/> "なし"-購入したプランに基づくサブスクリプションの数に制限はありません。<br/> "同時実行"-特定の時点で顧客のテナントに存在できるサブスクリプションの数。これには、アクティブまたは取り消されたサブスクリプションが含まれます。 この値は、ほとんどの場合、ライセンス数が300未満の小規模ビジネスプランに適用されます。 Provisionioned サブスクリプションはカウントされません。<br/> "有効期間"-顧客テナントの有効期間中に存在できるサブスクリプションの数。 この値は、試用版に最も適しています。 Provisionioned サブスクリプションはカウントされません。      |
 | limit                       | int                       | LimitUnitOfMeasure に基づいて、このプランの購入可能なサブスクリプションの量。                |
 | prerequisiteOffers          | string                    | 前提条件の提供。                                                                                        |
@@ -53,9 +53,9 @@ ms.locfileid: "74486892"
 | resellerQualifications      | 文字列の配列          | パートナーが顧客のオファーを購入するために必要な資格。                       |
 | salesGroupId                | string                    | プランを別の注文にグループ化するために使用される文字列。                                                             |
 | isTrial                     | boolean                   | 評価版であるかどうかを示す値です。                                                               |
-| 梱包                     | [OfferProduct](#offerproduct)           | オファー製品を取得します。                                                                           |
+| プロダクト                     | [OfferProduct](#offerproduct)           | オファー製品を取得します。                                                                           |
 | Unittype.pixel 単位                    | string                    | 単位の型。                                                                                      |
-| links                       | [OfferLinks](#offerlinks)               | プランの "詳細情報" リンク。                                                                    |
+| リンク                       | [OfferLinks](#offerlinks)               | プランの "詳細情報" リンク。                                                                    |
 | 属性                  | [ResourceAttributes](utility-resources.md#resourceattributes) | オファーに対応するメタデータ属性。                         |
 
 ## <a name="span-idoffercategoryspan-idoffercategoryspan-idoffercategoryoffercategory"></a><span id="OfferCategory"/><span id="offercategory"/><span id="OFFERCATEGORY"/>OfferCategory
@@ -66,10 +66,10 @@ ms.locfileid: "74486892"
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id         | string                                                         | カテゴリ識別子。                                                                                                                                                   |
 | name       | string                                                         | カテゴリ名。                                                                                                                                                         |
-| ランク       | int                                                            | 同じプラン内の他のカテゴリと比較したカテゴリのランクまたは優先順位。 このプロパティは、特定のプランに対して複数のプランカテゴリがある場合にのみ設定する必要があります。 |
+| rank       | int                                                            | 同じプラン内の他のカテゴリと比較したカテゴリのランクまたは優先順位。 このプロパティは、特定のプランに対して複数のプランカテゴリがある場合にのみ設定する必要があります。 |
 | locale     | string                                                         | プランが適用されるロケール。                                                                                                                        |
 | country    | string                                                         | プランが適用される国/地域。                                                                                                                   |
-| links      | [ResourceLinks](utility-resources.md#resourcelinks)           | OfferCategory に対応するリソースリンク。                                                                                                                     |
+| リンク      | [ResourceLinks](utility-resources.md#resourcelinks)           | OfferCategory に対応するリソースリンク。                                                                                                                     |
 | 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | OfferCategory に対応するメタデータ属性。                                                                                                                |
 
 ## <a name="span-idofferlinksspan-idofferlinksspan-idofferlinksofferlinks"></a><span id="OfferLinks"/><span id="offerlinks"/><span id="OFFERLINKS"/>OfferLinks
@@ -80,8 +80,8 @@ ms.locfileid: "74486892"
 |-----------|------|-----------------------------|
 | learnMore | リンク | [詳細情報] リンク      |
 | 自身      | リンク | 自己 URI                |
-| 次へ      | リンク | 項目の次のページ。     |
-| 先の  | リンク | 項目の前のページ。 |
+| next      | リンク | 項目の次のページ。     |
+| 前へ  | リンク | 項目の前のページ。 |
 
 ## <a name="span-idofferproductspan-idofferproductspan-idofferproductofferproduct"></a><span id="OfferProduct"/><span id="offerproduct"/><span id="OFFERPRODUCT"/>OfferProduct
 
@@ -89,6 +89,6 @@ ms.locfileid: "74486892"
 
 | プロパティ | 種類   | 説明              |
 |----------|--------|--------------------------|
-| ID       | string | カテゴリ識別子。 |
-| 名前     | string | カテゴリ名。       |
+| Id       | string | カテゴリ識別子。 |
+| Name     | string | カテゴリ名。       |
 | Unit     | string | 製品単位。        |

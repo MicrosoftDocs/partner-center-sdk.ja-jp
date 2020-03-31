@@ -4,21 +4,21 @@ description: コードをテストするには、パートナーセンター (�
 ms.assetid: 0A84F92F-CE66-42DF-B686-4D9E6FFECB16
 ms.date: 09/11/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4773474582c1eac17291c0021be1b4d085c57ed3
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6830803d450afb4ef6594324d6052fac783c89e8
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487982"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415146"
 ---
 # <a name="test-and-debug"></a>テストとデバッグ
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -59,7 +59,7 @@ CSP アカウントが Azure サブスクリプションのプランに対して
 
 サンドボックスアカウントを使用して[Azure 予約 VM インスタンスを購入](purchase-azure-reservations.md)している場合、お客様ごとに VM インスタンスは2つに制限されます。 また、次の Azure 予約 VM インスタンスの製品 Sku からのみ選択できます。 
 
-| 製品タイトル  | ［有効日］  | Sku のタイトル                                               | 領域 [ArmRegionName] | インスタンスキー [ArmSkuName] | Duration | 従量課金メーター Id       |
+| 製品タイトル  | 発効日  | Sku のタイトル                                               | 領域 [ArmRegionName] | インスタンスキー [ArmSkuName] | 継続期間 | 従量課金メーター Id       |
 |----------------|-----------------|---------------------------------------------------------|------------------------|--------------|----------|----------------------------|
 | B シリーズ       | 12/1/2017 0:00  | 予約 VM インスタンス、Standard_B1s、韓国南部、1年    | KoreaSouth             | Standard_B1s | 1年    | 3f913071-0dd7-4258-8ec4-6fad05bd976d |
 | B シリーズ       | 12/1/2017 0:00  | 予約 VM インスタンス、Standard_B1s、米国東部、1年     | eastus                 | Standard_B1s | 1年    | f4d7a5a5-1b67-45ea-b1a0-282fbdd34b05 |
@@ -87,7 +87,7 @@ CSP サンドボックス環境では、Isv との統合はありません。 �
 
 - ネットワークトレースツールを使用すると、要求、応答、および応答の HTTP 状態コードにエラーがあったかどうかを確認できます。 エラー処理の詳細については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-- パートナーセンター REST API に対する呼び出しごとに新しい関連付け ID を使用します。 これにより、ログ記録が向上し、デバッグ中に役立ちます。 詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+- パートナーセンター REST API に対する呼び出しごとに新しい関連付け ID を使用します。 これにより、ログ記録が向上し、デバッグ中に役立ちます。 詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ## <a name="span-idtroubleshooting_tips_for_common_rest_problemsspan-idtroubleshooting_tips_for_common_rest_problemsspan-idtroubleshooting_tips_for_common_rest_problemstroubleshooting-tips-for-common-rest-problems"></a>一般的な REST の問題に関するトラブルシューティングのヒントを <span id="Troubleshooting_tips_for_common_REST_problems"/><span id="troubleshooting_tips_for_common_rest_problems"/><span id="TROUBLESHOOTING_TIPS_FOR_COMMON_REST_PROBLEMS"/>
 

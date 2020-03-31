@@ -4,14 +4,14 @@ description: 権利に関連するリソースについて説明します。
 ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/28/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dc291e4d286e6eeeb1ce4ae6faeb965f59bb1c33
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 80afa2b8c0e9c4ad6c8c5ef68b78e9706abb04ed
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082859"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416246"
 ---
 # <a name="entitlement-resources"></a>権利リソース
 

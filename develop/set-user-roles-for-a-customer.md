@@ -4,28 +4,28 @@ description: 顧客アカウント内には、一連のディレクトリロー�
 ms.assetid: B7FA3599-9AE9-4494-90B4-F7C9A2EF2338
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6f48403b79b74834723c59f7a2ba4cb39abb993e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: edc706d791b12268cbd39ba356bee9199bdeaa54
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488032"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415225"
 ---
 # <a name="set-user-roles-for-a-customer"></a>顧客のユーザー ロールを設定する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 顧客アカウント内には、一連のディレクトリロールがあります。 これらのロールにユーザーアカウントを割り当てることができます。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -60,7 +60,7 @@ var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).Dire
 
 | メソッド   | 要求 URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1.1 |
 
  
 
@@ -68,7 +68,7 @@ var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).Dire
 
 次の URI パラメーターを使用して、適切な顧客とロールを識別します。 ロールを割り当てるユーザーを識別するには、要求本文に識別情報を指定します。
 
-| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
+| Name                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 | **ロール id**            | **guid** | Y        | 値は、ユーザーに割り当てるロールを識別する GUID 形式の**ロール id**です。                                                              |
@@ -83,7 +83,7 @@ var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).Dire
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                  | 種類       | 必須 | 説明                            |
+| Name                  | 種類       | 必須 | 説明                            |
 |-----------------------|------------|----------|----------------------------------------|
 | **番号**                | **文字列** | Y        | ロールに追加するユーザーの Id。 |
 | **DisplayName**       | **文字列** | Y        | ユーザーの表示名。 |
@@ -123,7 +123,7 @@ Expect: 100-continue
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

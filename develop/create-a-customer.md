@@ -4,20 +4,20 @@ description: 新しい顧客を作成する方法。
 ms.assetid: 7EA3E23F-0EA8-49CB-B98A-C4B74F559873
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 94ce486779ca53d27d7a53a5277060324b7acc23
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bf9007c4f3750b66326475e15479006c87e9f6a7
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489332"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413494"
 ---
 # <a name="create-a-customer"></a>顧客の作成
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -36,7 +36,7 @@ ms.locfileid: "74489332"
 
 ## <a name="prerequisites"></a>前提条件
 
-「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+[パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 > [!IMPORTANT]
 > 顧客テナントを作成するには、作成プロセス中に有効な物理アドレスを指定する必要があります。 アドレスを検証するには、「[アドレスの検証](validate-an-address.md)」の手順に従ってください。 サンドボックス環境で無効なアドレスを使用して顧客を作成した場合、その顧客のテナントを削除することはできません。
@@ -152,7 +152,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 | メソッド   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -160,32 +160,32 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 - 要求 ID と相関 ID が必要です。
 - 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                              | 種類   | 説明                                 |
+| Name                              | 種類   | 説明                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | オブジェクト | 顧客の請求プロファイル情報。 |
-| [会社のプロファイル](#company-profile) | オブジェクト | 顧客の会社のプロファイル情報。 |
+| [BillingProfile](#billing-profile) | object | 顧客の請求プロファイル情報。 |
+| [会社のプロファイル](#company-profile) | object | 顧客の会社のプロファイル情報。 |
 
 #### <a name="billing-profile"></a>課金プロファイル
 
 次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | 種類                                     | 説明                                                                                                                                                                                                     |
+| Name             | 種類                                     | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 電子メール            | string                                   | 顧客の電子メールアドレス。                                                                                                                                                                                   |
 | カルチャ          | string                                   | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
-| 言語         | string                                   | 既定の言語です。 2文字の言語コード (en、fr など) がサポートされています。                                                                                                                                |
+| language         | string                                   | 既定の言語です。 2文字の言語コード (en、fr など) がサポートされています。                                                                                                                                |
 | 会社の\_名    | string                                   | 登録されている会社名または組織名。                                                                                                                                                                       |
-| 既定の\_アドレス | [先](utility-resources.md#address) | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
+| 既定の\_アドレス | [Address](utility-resources.md#address) | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
 
 #### <a name="company-profile"></a>会社のプロファイル
 
 次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | 種類   | 説明                                                  |
+| Name   | 種類   | 説明                                                  |
 |--------|--------|--------------------------------------------------------------|
 | domain | string | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 
@@ -230,9 +230,9 @@ Connection: Keep-Alive
 
 成功した場合、この API は新しい顧客の[顧客](customer-resources.md#customer)リソースを返します。 パートナーセンター SDK で今後使用するために、顧客 ID と Azure AD の詳細を保存します。 たとえば、アカウント管理で使用するために必要になります。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

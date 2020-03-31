@@ -4,26 +4,26 @@ description: 顧客ユーザーにライセンスを割り当てる方法。
 ms.assetid: 872C7444-DF89-4EB5-8C1E-1D8E2934A40E
 ms.date: 10/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 615e2dba04556647c358d5b382047e37e70606f8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1f968ce90d4bbed3f3c9384b82c70a9ee7811f71
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489192"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413231"
 ---
 # <a name="assign-licenses-to-a-user"></a>ユーザーにライセンスを割り当てる
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 顧客ユーザーにライセンスを割り当てる方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。 お客様は、割り当てに使用できるライセンスを持つサブスクリプションを所有している必要があります。
 - 顧客のユーザー id。 これにより、ライセンスを割り当てるユーザーが識別されます。
 - ライセンスの製品を識別する製品 SKU 識別子。
@@ -117,22 +117,22 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 | メソッド   | 要求 URI                                                                                                    |
 |----------|----------------------------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客とユーザーを識別します。
 
-| 名前        | 種類   | 必須 | 説明                                       |
+| Name        | 種類   | 必須 | 説明                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の ID。 |
-| ユーザー id     | string | 〇      | ユーザーを識別する GUID 形式の ID。     |
+| 顧客 id | string | はい      | 顧客を識別する GUID 形式の ID。 |
+| ユーザー id     | string | はい      | ユーザーを識別する GUID 形式の ID。     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 割り当てるライセンスを指定する[Licenseupdate](license-resources.md#licenseupdate)リソースを要求本文に含める必要があります。
 
@@ -169,9 +169,9 @@ Expect: 100-continue
 
 成功すると、HTTP 応答ステータスコード201が返され、応答本文にはライセンス情報を含む[Licenseupdate](license-resources.md#licenseupdate)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example-success"></a>応答の例 (成功)
 

@@ -4,20 +4,20 @@ description: サブスクリプションを更新して、顧客のライセン�
 ms.assetid: 10535C45-63BF-4E75-A6E5-E03ADC1DF8DC
 ms.date: 06/05/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d4d94d244ca6d2f4c10054f9486e8fd04c514b1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7392b8846dcba6dc4d1a395601289655e05920d1
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489002"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412967"
 ---
 # <a name="change-the-quantity-of-a-subscription"></a>サブスクリプションの数量を変更する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74489002"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - サブスクリプション ID。
 
@@ -65,7 +65,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションの数量を変更するために必要なクエリパラメーターを示します。
 
-| 名前                    | 種類     | 必須 | 説明                               |
+| Name                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **id-サブスクリプション** | **guid** | Y        | サブスクリプションに対応する GUID。 |
@@ -74,7 +74,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 要求本文には、完全な**サブスクリプション**リソースが必要です。 **Quantity**プロパティが更新されていることを確認します。
 
@@ -117,9 +117,9 @@ Connection: Keep-Alive
 
 成功した場合、このメソッドは応答本文で**HTTP ステータス 200**状態コードおよび更新された[サブスクリプションリソース](subscription-resources.md)プロパティを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが返されます。 ネットワークトレースツールを使用して、状態コード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが返されます。 ネットワークトレースツールを使用して、状態コード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 修正プログラムの処理に予想される時間よりも時間がかかる場合、パートナーセンターは、 **HTTP 状態 202**状態コードと、サブスクリプションを取得する場所を指す location ヘッダーを送信します。 サブスクリプションを定期的に照会して、状態と数量の変化を監視することができます。
 

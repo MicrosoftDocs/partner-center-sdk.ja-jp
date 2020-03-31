@@ -4,14 +4,14 @@ description: 変換リソースでは、試用版サブスクリプションか�
 ms.assetid: 4AE796E3-47D9-428B-8267-A5247B573E0C
 ms.date: 05/23/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e91e79ce77ac020495c2d09a4bf33dd947231dec
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: e48531a59939d3af3210223db59bfad1bee9e761
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082849"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413593"
 ---
 # <a name="conversions-resources"></a>変換に関するリソース
 

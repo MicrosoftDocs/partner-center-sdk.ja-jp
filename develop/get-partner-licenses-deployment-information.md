@@ -4,20 +4,20 @@ description: すべての顧客を含むように、集計されたパートナ�
 ms.assetid: BC78F9EA-C07C-4FD5-B06D-C87E8330B6E2
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: af80831a4aef1fb68e91bdee6a99e2067ea3a86f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ec8023248f132d1a0cf0f40e784a243f7297a9c9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488542"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412369"
 ---
 # <a name="get-partner-licenses-deployment-information"></a>パートナーライセンスの展開情報の取得
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 すべての顧客を含むように、集計されたパートナーライセンスの展開情報を取得する方法。
 
@@ -28,7 +28,7 @@ ms.locfileid: "74488542"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報を使用した認証がサポートされます。
+[パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -48,7 +48,7 @@ var partnerLicensesDeploymentAnalytics = partnerOperations.Analytics.Licenses.De
 
 | メソッド  | 要求 URI                                                                           |
 |---------|---------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/analytics/licenses/deployment HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/analytics/licenses/deployment HTTP/1.1 |
 
  
 
@@ -58,7 +58,7 @@ var partnerLicensesDeploymentAnalytics = partnerOperations.Analytics.Licenses.De
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -78,7 +78,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

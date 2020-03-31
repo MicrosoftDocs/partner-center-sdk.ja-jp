@@ -4,28 +4,28 @@ description: 間接リセラーの顧客の一覧を取得する方法。
 ms.assetid: 2920F056-E6B8-4C66-9EEA-4577BEC034F9
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9d1cacd519cbe79157ab095ba7dbff036725ecef
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7237a2175ec6eb117b8fd1125aaa7fd28690667b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485712"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415955"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>間接リセラーの顧客を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 間接リセラーの顧客の一覧を取得する方法。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 間接リセラーのテナント識別子。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -81,7 +81,7 @@ while (customersEnumerator.HasValue)
 
 | メソッド  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers? size = {size}? filter = {FILTER} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers? size = {size}? filter = {FILTER} HTTP/1.1 |
 
  
 
@@ -89,10 +89,10 @@ while (customersEnumerator.HasValue)
 
 要求を作成するには、次のクエリパラメーターを使用します。
 
-| 名前   | 種類   | 必須 | 説明                                                                                                                                                                                                                                                                                   |
+| Name   | 種類   | 必須 | 説明                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| size   | int    | X       | 一度に表示される結果の数。 このパラメーターは省略可能です。                                                                                                                                                                                                                |
-| filter | filter | 〇      | 検索をフィルター処理するクエリ。 指定された間接リセラーの顧客を取得するには、間接リセラー識別子を挿入し、次の文字列を含めてエンコードする必要があります: {"Field": "IndirectReseller"、"Value": "{間接リセラー識別子}"、"Operator": "開始\_"}。 |
+| size   | int    | いいえ       | 一度に表示される結果の数。 このパラメーターはオプションです。                                                                                                                                                                                                                |
+| フィルター | フィルター | はい      | 検索をフィルター処理するクエリ。 指定された間接リセラーの顧客を取得するには、間接リセラー識別子を挿入し、次の文字列を含めてエンコードする必要があります: {"Field": "IndirectReseller"、"Value": "{間接リセラー識別子}"、"Operator": "開始\_"}。 |
 
  
 
@@ -102,7 +102,7 @@ while (customersEnumerator.HasValue)
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例 (エンコード済み)**
 
@@ -135,7 +135,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 

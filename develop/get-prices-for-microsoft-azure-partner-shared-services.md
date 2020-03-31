@@ -4,20 +4,20 @@ description: Microsoft Azure Partner Shared Services の価格で Azure 料金�
 ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a11731aedbe3014f6f9b4eb4c26207e3372d070
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d8e4fb8364c05a4e50524a1a75cb20a6755e0ba5
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490002"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416707"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Microsoft Azure パートナーの共有サービスの価格を取得する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -65,14 +65,14 @@ Get-PartnerAzureRateCard -SharedServices
 
 | メソッド  | 要求 URI                                                               |
 |---------|---------------------------------------------------------------------------|
-| **取得** | *{baseURL}* /v1/ratecards/azure-shared? currency = {currency} & region = {region} |
+| **GET** | *{baseURL}* /v1/ratecards/azure-shared? currency = {currency} & region = {region} |
 
 **URI パラメーター**
 
-| 名前     | 種類   | 必須 | 説明                                                                                                                                                                               |
+| Name     | 種類   | 必須 | 説明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 貨 | string | X       | リソースレートが提供される通貨に対して、省略可能な3文字の ISO コード (例: "EUR")。 既定値は、パートナープロファイルの市場に関連付けられている通貨です。 |
-| 領域 (region)   | string | X       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (例: "FR")。 既定値は、パートナープロファイルで設定されている国/地域コードです。        |
+| 貨 | string | いいえ       | リソースレートが提供される通貨に対して、省略可能な3文字の ISO コード (例: "EUR")。 既定値は、パートナープロファイルの市場に関連付けられている通貨です。 |
+| 領域 (region)   | string | いいえ       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (例: "FR")。 既定値は、パートナープロファイルで設定されている国/地域コードです。        |
 
 省略可能な X-Locale ヘッダーが要求に含まれている場合、その値によって、応答の詳細に使用される言語が決まります。
 
@@ -82,7 +82,7 @@ Get-PartnerAzureRateCard -SharedServices
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -103,7 +103,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

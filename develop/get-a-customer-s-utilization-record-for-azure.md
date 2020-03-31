@@ -4,20 +4,20 @@ description: Azure 使用率 API を使用して、指定した期間におけ�
 ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 825b5ea8c65d5ae52979ca5b412f36dfdff8ab59
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 07e915f769a0eda998a07333544424d912ea8629
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489592"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413719"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Azure の顧客の使用状況レコードを取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -25,7 +25,7 @@ Azure 使用率 API を使用して、指定した期間の顧客の Azure サ�
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。
 - サブスクリプション識別子。
 
@@ -126,7 +126,7 @@ Azure 使用率レコードを取得するには、まず顧客 id とサブス�
 Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -SubscriptionId $subscriptionId -StartDate (Get-Date).AddDays(-2).ToUniversalTime() -Granularity Hourly -ShowDetails
 ```
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -134,27 +134,27 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 
 | メソッド | 要求 URI |
 |------- | ----------- |
-| **取得** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure? 開始\_時刻 = {開始時刻} & 終了\_時間 = {終了時刻} & 粒度 = {粒度} & 詳細を表示\_詳細 = {True} |
+| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure? 開始\_時刻 = {開始時刻} & 終了\_時間 = {終了時刻} & 粒度 = {粒度} & 詳細を表示\_詳細 = {True} |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
 使用率レコードを取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前 | 種類 | 必須 | 説明 |
+| Name | 種類 | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
-| 顧客-テナント id | string | 〇 | 顧客を識別する GUID 形式の文字列。 |
-| サブスクリプション id | string | 〇 | サブスクリプションを識別する GUID 形式の文字列。 |
-| start_time | UTC 日時オフセット形式の文字列 | 〇 | 課金システムで使用率がレポートされた日時を表す時間範囲の開始。 |
-| end_time | UTC 日時オフセット形式の文字列 | 〇 | 課金システムで使用率がレポートされた日時を表す時間範囲の最後。 |
-| 粒度 (granularity) | string | X | 使用状況集計の粒度を定義します。 使用可能なオプションは、`daily` (既定) と `hourly`です。
-| show_details | boolean | X | インスタンスレベルの使用状況の詳細を取得するかどうかを指定します。 既定値は `true` です。 |
-| size | number | X | 1つの API 呼び出しによって返される集計の数を指定します。 既定値は 1000 です。 最大値は1000です。 |
+| customer-tenant-id | string | はい | 顧客を識別する GUID 形式の文字列。 |
+| サブスクリプション id | string | はい | サブスクリプションを識別する GUID 形式の文字列。 |
+| start_time | UTC 日時オフセット形式の文字列 | はい | 課金システムで使用率がレポートされた日時を表す時間範囲の開始。 |
+| end_time | UTC 日時オフセット形式の文字列 | はい | 課金システムで使用率がレポートされた日時を表す時間範囲の最後。 |
+| 粒度 (granularity) | string | いいえ | 使用状況集計の粒度を定義します。 使用可能なオプションは、`daily` (既定) と `hourly`です。
+| show_details | boolean | いいえ | インスタンスレベルの使用状況の詳細を取得するかどうかを指定します。 既定値は `true` です。 |
+| size | number | いいえ | 1つの API 呼び出しによって返される集計の数を指定します。 既定値は 1000 です。 最大値は1000です。 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
 なし
 
@@ -178,9 +178,9 @@ Host: api.partnercenter.microsoft.com
 
 成功した場合、このメソッドは、応答本文で[Azure 使用率レコード](azure-utilization-record-resources.md)リソースのコレクションを返します。 Azure 使用率データが依存システムでまだ準備されていない場合、このメソッドは、再試行ヘッダーを含む HTTP 状態コード204を返します。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、HTTP 状態コード、[エラーコードの種類](error-codes.md)、およびその他のパラメーターを読み取ります。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 ネットワークトレースツールを使用して、HTTP 状態コード、[エラーコードの種類](error-codes.md)、およびその他のパラメーターを読み取ります。
 
 #### <a name="response-example"></a>応答の例
 

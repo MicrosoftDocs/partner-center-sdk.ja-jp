@@ -4,21 +4,21 @@ description: 指定された顧客のデバイスバッチアップロードの�
 ms.assetid: 2965869E-824A-497E-9A77-6FC1BA18C55B
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: aaf4132b826046ee724c0aaca942694346185228
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0e60fad2247cf9e87f1b7e1b494e693c35d8fb8c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487092"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416575"
 ---
 # <a name="get-the-status-of-a-device-batch-upload"></a>デバイスバッチアップロードの状態を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 
 指定された顧客のデバイスバッチアップロードの状態を取得する方法。
@@ -26,7 +26,7 @@ ms.locfileid: "74487092"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。
 - デバイスバッチが送信されたときに Location ヘッダーで返されるバッチ追跡識別子。 詳細については、「[指定された顧客のデバイスの一覧をアップロードする](upload-a-list-of-devices-for-the-specified-customer.md)」を参照してください。
 
@@ -53,7 +53,7 @@ var status =
 
 | メソッド  | 要求 URI                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/batchJobStatus/{batchtracking-id} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/batchJobStatus/{batchtracking-id} HTTP/1.1 |
 
  
 
@@ -61,10 +61,10 @@ var status =
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前             | 種類   | 必須 | 説明                                                                                                                                                                    |
+| Name             | 種類   | 必須 | 説明                                                                                                                                                                    |
 |------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 顧客 id      | string | 〇      | 顧客を識別する GUID 形式の文字列。                                                                                                                          |
-| batchtracking-id | string | 〇      | デバイスバッチのアップロードステータスを取得するために使用される GUID 形式の識別子。 この ID は、デバイスのバッチが正常に送信されたときに Location ヘッダーに返されます。 |
+| 顧客 id      | string | はい      | 顧客を識別する GUID 形式の文字列。                                                                                                                          |
+| batchtracking-id | string | はい      | デバイスバッチのアップロードステータスを取得するために使用される GUID 形式の識別子。 この ID は、デバイスのバッチが正常に送信されたときに Location ヘッダーに返されます。 |
 
  
 
@@ -95,7 +95,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

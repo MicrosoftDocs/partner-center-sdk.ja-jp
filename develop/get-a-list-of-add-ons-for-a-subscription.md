@@ -4,20 +4,20 @@ description: 顧客がサブスクリプションに追加することを選択�
 ms.assetid: F10823A2-CA77-4F80-9ED4-CFB4E4343049
 ms.date: 07/25/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5a7b7510e1fb397b1054fd5e526ba17801341821
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6b10fd79c1e93ebc8d888c72433fe2ee86f48bbf
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487552"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416230"
 ---
 # <a name="get-a-list-of-add-ons-for-a-subscription"></a>サブスクリプションのアドオンの一覧を取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,7 @@ ms.locfileid: "74487552"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (**顧客-テナント id**)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - サブスクリプション ID。
 
@@ -60,13 +60,13 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | メソッド  | 要求 URI                                                                                                                       |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/addons HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/addons HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、サブスクリプションのアドオンの一覧を取得するために必要なクエリパラメーターを示します。
 
-| 名前                    | 種類     | 必須 | 説明                               |
+| Name                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **id-サブスクリプション** | **guid** | Y        | サブスクリプションに対応する GUID。 |
@@ -75,9 +75,9 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -93,9 +93,9 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 
 成功した場合、このメソッドは応答本文内のリソースのコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

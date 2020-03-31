@@ -4,26 +4,26 @@ description: パートナーセンター Api を使用して、製品の国別�
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c1bbc6defb67e7196139ce524af42c9c627786c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9613290c34cde57008247eeee05d71e99436d959
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489762"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416796"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>製品の Sku の一覧を取得する (国別)
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 パートナーセンター Api を使用して、特定の製品の国で利用可能な Sku のコレクションを取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 製品識別子。
 
 ## <a name="c"></a>C\#
@@ -97,13 +97,13 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 # $targetSegment
 
 # Get the available SKUs.
-Get-PartnerProductSku -ProudctId $productId
+Get-PartnerProductSku -ProductId $productId
 
 # Get the available SKUs, filtered by target segment.
 Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 ```
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -111,26 +111,26 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 | メソッド  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus? country = {country-code} & targetsegment = {target-SEGMENT} HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus? country = {country-code} & targetsegment = {target-SEGMENT} HTTP/1.1  |
 
 ##### <a name="uri-parameters"></a>URI パラメーター
 
 製品の Sku の一覧を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | 種類     | 必須 | 説明                                                     |
+| Name                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 製品 id             | string   | 〇      | 製品を識別する文字列。                           |
-| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
-| ターゲット-セグメント         | string   | X       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
-| reservationScope | string   | X | Azure 予約製品の Sku の一覧を照会するときに、`reservationScope=AzurePlan` を指定して、AzurePlan に適用できる Sku の一覧を取得します。 Microsoft Azure (0145P) サブスクリプションに適用される Azure 予約製品の Sku の一覧を取得するには、このパラメーターを除外します。  |
+| 製品 id             | string   | はい      | 製品を識別する文字列。                           |
+| 国-コード           | string   | はい      | 国/地域 ID。                                            |
+| ターゲット-セグメント         | string   | いいえ       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
+| reservationScope | string   | いいえ | Azure 予約製品の Sku の一覧を照会するときに、`reservationScope=AzurePlan` を指定して、AzurePlan に適用できる Sku の一覧を取得します。 Microsoft Azure (0145P) サブスクリプションに適用される Azure 予約製品の Sku の一覧を取得するには、このパラメーターを除外します。  |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-examples"></a>要求の例
 
@@ -168,9 +168,9 @@ MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 
 成功した場合、応答本文には[SKU](product-resources.md#sku)リソースのコレクションが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 このメソッドは、次のエラーコードを返します。
 

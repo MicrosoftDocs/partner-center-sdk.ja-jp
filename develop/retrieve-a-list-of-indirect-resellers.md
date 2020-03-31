@@ -4,28 +4,28 @@ description: サインインしているパートナーの間接リセラーの�
 ms.assetid: 1767BD6C-651A-4C14-930B-35D7EFD46C19
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e796312e76038174329967d106eefb4ac40d629f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a1ed1d4d3c0d105a489774d698d832f2e0212934
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486532"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415379"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>間接リセラーの一覧を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 サインインしているパートナーの間接リセラーの一覧を取得する方法。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -47,7 +47,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 | メソッド  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships? リレーションシップ\_Type = IsIndirectCloudSolutionProviderOf HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships? リレーションシップ\_Type = IsIndirectCloudSolutionProviderOf HTTP/1.1 |
 
  
 
@@ -64,7 +64,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 </colgroup>
 <thead>
 <tr class="header">
-<th>名前</th>
+<th>Name</th>
 <th>種類</th>
 <th>必須</th>
 <th>説明</th>
@@ -74,7 +74,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 <tr class="odd">
 <td>relationship_type</td>
 <td>string</td>
-<td>〇</td>
+<td>はい</td>
 <td>値は、 <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>Partnerrelationshiptype</strong></a>で見つかったいずれかのメンバー名の文字列表現です。
 <p>パートナーがプロバイダーとしてサインインしている場合に、関係を確立した間接リセラーの一覧を取得するには、IsIndirectCloudSolutionProviderOf を使用します。</p>
 <p>パートナーが再販業者としてサインインしている場合に、関係を確立した間接プロバイダーの一覧を取得するには、IsIndirectResellerOf を使用します。</p></td>
@@ -90,7 +90,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -111,7 +111,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 

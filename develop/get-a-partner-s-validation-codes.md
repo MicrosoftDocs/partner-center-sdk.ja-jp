@@ -3,20 +3,20 @@ title: パートナーの政府機関向けコミュニティクラウド検証�
 description: パートナーの政府機関向けコミュニティクラウド検証コードを取得する方法。
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 23753490ee5c88de5474cace45bec8039fa93150
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ea547798e591731bba2ec23ab3c125d00e758887
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489532"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412559"
 ---
 # <a name="get-a-partners-validation-codes"></a>パートナーの検証コードを取得する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 パートナーの政府機関向けコミュニティクラウド検証コードのコレクションを取得する方法。 政府コミュニティクラウドで顧客を作成するには、検証コードが必要です。
 
@@ -25,7 +25,7 @@ ms.locfileid: "74489532"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - フォームに入力した後に[検証を確認](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner)します。
 - 資格のない顧客。
 
@@ -48,7 +48,7 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 
 | メソッド  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1 |
 
 
 **要求ヘッダー**
@@ -57,7 +57,7 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -76,7 +76,7 @@ MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

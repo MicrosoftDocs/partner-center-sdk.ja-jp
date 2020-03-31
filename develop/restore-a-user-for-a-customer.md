@@ -4,28 +4,28 @@ description: 顧客 ID とユーザー ID を使って削除されたユーザ�
 ms.assetid: A48A4718-6EAF-4FC8-8B44-F3FDCA2B3298
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 95e74d1f7719efae7b04aba5dab3e1ad66dfa8ee
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cfedefd5b9b8547b79b817c06f44e9b21f12d51c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486572"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415397"
 ---
 # <a name="restore-a-deleted-user-for-a-customer"></a>顧客の削除されたユーザーを復元する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 顧客 ID とユーザー ID を使って削除された**ユーザー**を復元する方法。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - ユーザー ID。 ユーザー ID を持っていない場合は、「[顧客の削除されたユーザーの表示](view-a-deleted-user.md)」を参照してください。
 
@@ -70,7 +70,7 @@ var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomer
 
 次のクエリパラメーターを使用して、顧客 id とユーザー id を指定します。
 
-| 名前                   | 種類     | 必須 | 説明                                                                                                              |
+| Name                   | 種類     | 必須 | 説明                                                                                                              |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | **顧客-テナント id** | **guid** | Y        | この値は、リセラーが特定の顧客に対して結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 | **ユーザー id**            | **guid** | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                         |
@@ -85,10 +85,10 @@ var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomer
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前       | 種類   | 必須 | 説明                                                            |
+| Name       | 種類   | 必須 | 説明                                                            |
 |------------|--------|----------|------------------------------------------------------------------------|
 | 状態      | string | Y        | ユーザー状態。 削除されたユーザーを復元するには、これに "active" が含まれている必要があります。 |
-| 属性 | オブジェクト | N        | "ObjectType": "顧客ユーザー" が含まれています。                                 |
+| 属性 | object | N        | "ObjectType": "顧客ユーザー" が含まれています。                                 |
 
  
 
@@ -121,7 +121,7 @@ Expect: 100-continue
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 

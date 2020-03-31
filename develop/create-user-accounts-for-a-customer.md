@@ -4,26 +4,26 @@ description: 顧客の新しいユーザーアカウントを作成します。
 ms.assetid: E46AB186-F4E1-4A00-AE62-28A843F9C288
 ms.date: 05/28/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8aeb3d910f8495e552aa4e61fca1a250c5096210
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f0dd189d8eaba1f657543feb9acebda90521f0f1
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489712"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414198"
 ---
 # <a name="create-user-accounts-for-a-customer"></a>顧客のユーザー アカウントを作成する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 顧客の新しいユーザーアカウントを作成します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客 ID (**顧客-テナント id**)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 
 ## <a name="c"></a>C\#
@@ -60,13 +60,13 @@ User createdUser = partnerOperations.Customers.ById(selectedCustomerId).Users.Cr
 
 | メソッド   | 要求 URI                                                                                  |
 |----------|----------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、正しい顧客を特定します。
 
-| 名前 | 種類 | 必須 | 説明 |
+| Name | 種類 | 必須 | 説明 |
 |----- |----- | -------- |------------ |
 | **顧客-テナント id** | **guid** | Y | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 | **ユーザー id** | **guid** | N | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。 |
@@ -75,9 +75,9 @@ User createdUser = partnerOperations.Customers.ById(selectedCustomerId).Users.Cr
 
 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -108,9 +108,9 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 
 成功した場合、このメソッドは GUID を含むユーザーアカウントを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 ### <a name="response-example"></a>応答の例
 

@@ -4,26 +4,26 @@ description: 顧客アカウント内のユーザーに割り当てられてい�
 ms.assetid: 87DC74A1-92E2-4639-BC4C-168A677F5F52
 ms.date: 05/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 73997593b0997a0faca8d702b527e57266a45dfb
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c51a7b2bb03d21ed1a83c1773267772042d56e63
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488962"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412890"
 ---
 # <a name="get-licenses-assigned-to-a-user"></a>ユーザーに割り当てられているライセンスを取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 顧客アカウント内のユーザーに割り当てられたライセンスの一覧を取得する方法。 次に示す例では、group1 から割り当てられたライセンスが返されます。これは、Azure Active Directory によって管理されるライセンスを表す既定のライセンスグループです。 指定したライセンスグループから割り当てられたライセンスを取得するには、「[ライセンスグループ別にユーザーに割り当てられたライセンスを取得](get-licenses-assigned-to-a-user-by-license-group.md)する」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。
 - ユーザー識別子。
 
@@ -47,24 +47,24 @@ var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCust
 
 | メソッド  | 要求 URI                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客とユーザーを識別します。
 
-| 名前        | 種類   | 必須 | 説明                                           |
+| Name        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
-| ユーザー id     | string | 〇      | ユーザーを識別する GUID 形式の文字列。     |
+| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| ユーザー id     | string | はい      | ユーザーを識別する GUID 形式の文字列。     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -82,9 +82,9 @@ Host: api.partnercenter.microsoft.com
 
 成功した場合、応答本文には[ライセンス](license-resources.md#license)リソースのコレクションが含まれます。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

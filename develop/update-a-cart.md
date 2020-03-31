@@ -3,21 +3,21 @@ title: カートを更新する
 description: カート内の顧客の注文を更新する方法。
 ms.date: 10/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 70e20f1261f29468c5b0b7e017f29f6e64b91cf6
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f58aaef8f61deaa17e178b9196f644f9d45137ec
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487952"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415034"
 ---
 # <a name="update-a-cart"></a>カートを更新する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 
 カート内の顧客の注文を更新する方法。 
@@ -25,7 +25,7 @@ ms.locfileid: "74487952"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - 既存のカートのカート ID。
 
@@ -58,7 +58,7 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 
 | メソッド  | 要求 URI                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **投入** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1.1              |
+| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1.1              |
 
  
 
@@ -66,10 +66,10 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 
 次のパスパラメーターを使用して顧客を特定し、更新するカートを指定します。
 
-| 名前            | 種類     | 必須 | 説明                                                            |
+| Name            | 種類     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **顧客 id** | string   | 〇      | 顧客を識別する GUID 形式の顧客 id。             |
-| **カート-id**     | string   | 〇      | カートを識別する GUID 形式のカート id。                     |
+| **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
+| **カート-id**     | string   | はい      | カートを識別する GUID 形式のカート id。                     |
 
  
 
@@ -83,28 +83,28 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 
 | プロパティ              | 種類             | 必須        | 説明                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | string           | X              | カートが正常に作成されたときに提供されるカート識別子。                                  |
-| 前のタイムスタンプ     | DateTime         | X              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。        |
-| lastModifiedTimeStamp | DateTime         | X              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
-| expirationTimeStamp   | DateTime         | X              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
-| lastModifiedUser      | string           | X              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
-| lineItems             | オブジェクトの配列 | 〇             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                               |
+| id                    | string           | いいえ              | カートが正常に作成されたときに提供されるカート識別子。                                  |
+| 前のタイムスタンプ     | DateTime         | いいえ              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。        |
+| lastModifiedTimeStamp | DateTime         | いいえ              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
+| expirationTimeStamp   | DateTime         | いいえ              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
+| lastModifiedUser      | string           | いいえ              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
+| lineItems             | オブジェクトの配列 | はい             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                               |
 
 
 次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
 
 | プロパティ             | 種類                        | 必須     | 説明                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
-| id                   | string                      | X           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                |
-| catalogId            | string                      | 〇          | カタログ項目の識別子。                                                                       |
-| friendlyName         | string                      | X           | (省略可能)。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。              |
-| quantity             | int                         | 〇          | ライセンスまたはインスタンスの数。     |
-| currencyCode         | string                      | X           | 通貨コード。                                                                                 |
-| 周期サイクル         | オブジェクト                      | 〇          | 現在の期間に設定されている請求サイクルの種類。                                              |
-| 参加者         | オブジェクトの文字列ペアの一覧 | X           | 購入の参加者のコレクション。                                                      |
-| provisioningContext  | Dictionary < string、string >  | X           | プランのプロビジョニングに使用されるコンテキスト。                                                          |
-| orderGroup           | string                      | X           | 一緒に配置できる項目を示すグループ。                                            |
-| error (エラー)                | オブジェクト                      | X           | エラーが発生した場合にカートが作成された後に適用されます。                                                 |
+| id                   | string                      | いいえ           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                |
+| catalogId            | string                      | はい          | カタログ項目の識別子。                                                                       |
+| friendlyName         | string                      | いいえ           | 省略可。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。              |
+| quantity             | int                         | はい          | ライセンスまたはインスタンスの数。     |
+| currencyCode         | string                      | いいえ           | 通貨コード。                                                                                 |
+| 周期サイクル         | オブジェクト                      | はい          | 現在の期間に設定されている請求サイクルの種類。                                              |
+| participants         | オブジェクトの文字列ペアの一覧 | いいえ           | 購入の参加者のコレクション。                                                      |
+| provisioningContext  | Dictionary < string、string >  | いいえ           | プランのプロビジョニングに使用されるコンテキスト。                                                          |
+| orderGroup           | string                      | いいえ           | 一緒に配置できる項目を示すグループ。                                            |
+| エラー                | オブジェクト                      | いいえ           | エラーが発生した場合にカートが作成された後に適用されます。                                                 |
 
 
 **要求の例**
@@ -154,7 +154,7 @@ Expect: 100-continue
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

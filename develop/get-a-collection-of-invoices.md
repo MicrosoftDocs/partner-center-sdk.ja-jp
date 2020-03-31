@@ -4,21 +4,21 @@ description: パートナーの請求書のコレクションを取得する方�
 ms.assetid: B5392987-3D2E-493B-9F97-A20055D5D46A
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a0dd0d5814b85f6c0c8d687fddb8c0ab1cc41022
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1b6d7ee0a27bcbe0b897ed5588fb58d58d57f0ce
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489892"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416236"
 ---
 # <a name="get-a-collection-of-invoices"></a>請求書のコレクションを取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,7 @@ ms.locfileid: "74489892"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -87,7 +87,7 @@ while (invoicesEnumerator.HasValue)
 
 | メソッド  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices? size = {size} & オフセット = {OFFSET} HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices? size = {size} & オフセット = {OFFSET} HTTP/1.1  |
 
  
 
@@ -95,10 +95,10 @@ while (invoicesEnumerator.HasValue)
 
 要求の作成時には、次のクエリパラメーターを使用します。
 
-| 名前   | 種類 | 必須 | 説明                                                                            |
+| Name   | 種類 | 必須 | 説明                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| size   | int  | X       | 応答で返される請求リソースの数。 このパラメーターは省略可能です。 |
-| offset | int  | X       | 返される最初の請求書の0から始まるインデックス。                                   |
+| size   | int  | いいえ       | 応答で返される請求リソースの数。 このパラメーターはオプションです。 |
+| offset | int  | いいえ       | 返される最初の請求書の0から始まるインデックス。                                   |
 
  
 
@@ -130,7 +130,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

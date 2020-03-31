@@ -3,14 +3,14 @@ title: カートのリソース
 description: パートナーは、顧客がプランの一覧からサブスクリプションを購入することを希望する場合に注文を行います。
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a9fb1c81cae0e7efa0a5e84d2b4d93e44ce7efb9
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 22b9ec1799a9d8c5423fb9dea3db61d028ec6dba
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082979"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413018"
 ---
 # <a name="cart-resources"></a>カートのリソース
 

@@ -4,21 +4,21 @@ description: このセクションでは、クラウドソリューションプ�
 ms.assetid: 198D32A5-AA2C-49BB-A057-0EFFBA408753
 ms.date: 08/16/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 98e4280d3d151a2a030c4aa7357ddf06d114251e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: eb8dfcc9910b25028c453aa416b4627b48e08c28
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486922"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416508"
 ---
 # <a name="manage-billing"></a>請求書を管理する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -29,20 +29,20 @@ ms.locfileid: "74486922"
 - [請求サイクルを変更する](change-the-billing-cycle.md)
 
 **Azure の料金と使用率:**
-- [Azure の顧客の使用状況レコードを取得する](get-a-customer-s-utilization-record-for-azure.md)
+- [Azure に関する顧客の使用率レコードを取得する](get-a-customer-s-utilization-record-for-azure.md)
 - [Microsoft Azure の価格を取得する](get-prices-for-microsoft-azure.md)
 
 **請求書**
 - [請求書のコレクションを取得する](get-a-collection-of-invoices.md)
-- [請求書の推定リンクの取得](get-invoice-estimate-links.md)
-- [請求書を取得する商用マーケットプレースの従量課金明細項目](get-invoice-billed-consumption-lineitems.md)
+- [請求書の推定リンクを取得する](get-invoice-estimate-links.md)
+- [請求書の課金されているコマーシャル マーケットプレース使用明細を取得する](get-invoice-billed-consumption-lineitems.md)
 - [ID で請求書を取得する](get-invoice-by-id.md)
-- [請求書の品目を取得する](get-invoiceline-items.md)
-- [請求書の領収書の取得](get-invoice-receipt-statement.md)
-- [請求書明細書の取得](get-invoice-statement.md) 
+- [請求書の明細を取得する](get-invoiceline-items.md)
+- [請求書の領収書を取得する](get-invoice-receipt-statement.md)
+- [請求明細書を取得する](get-invoice-statement.md) 
 - [請求書の概要を取得する](get-invoice-summaries.md)
-- [Invoice 未請求商業市場消費量の品目を取得する](get-invoice-unbilled-consumption-lineitems.md)
-- [請求書未請求偵察の品目を取得する](get-invoice-unbilled-recon-lineitems.md)
+- [請求書の課金されていないコマーシャル マーケットプレース使用明細を取得する](get-invoice-unbilled-consumption-lineitems.md)
+- [請求書の未課金照合明細を取得する](get-invoice-unbilled-recon-lineitems.md)
 - [リセラーの現在のアカウント残高を取得する](get-the-reseller-s-current-account-balance.md)
 
 **Azure の支出予算:**

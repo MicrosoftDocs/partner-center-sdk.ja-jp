@@ -4,26 +4,26 @@ description: 特定のカタログ項目のセットの在庫を確認します�
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 05/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 347b131efccee318043c824984285fde9cd38a64
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1dfd831917689f8d06dfb5b30b4d07a899f6eee0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488972"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412912"
 ---
 # <a name="check-inventory"></a>インベントリの確認
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 特定のカタログアイテムのセットの在庫を確認する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 1つまたは複数の製品 Id。 必要に応じて、SKU Id を指定することもできます。
 - 指定された製品/SKU ID によって参照されている SKU のインベントリを確認するために必要な追加のコンテキスト。 これらの要件は、製品/SKU の種類によって異なる場合があり、 [sku の](product-resources.md#sku) **InventoryVariables**プロパティから決定できます。 
 
@@ -61,21 +61,21 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 | メソッド   | 要求 URI                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory? country = {country-CODE} HTTP/1.1                        |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory? country = {country-CODE} HTTP/1.1                        |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、インベントリを確認します。
 
-| 名前                   | 種類     | 必須 | 説明                                                     |
+| Name                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
+| 国-コード           | string   | はい      | 国/地域 ID。                                            |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 - 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 1つ以上の[InventoryItem](product-resources.md#inventoryitem)リソースを含む[InventoryCheckRequest](product-resources.md#inventorycheckrequest)リソースで構成される在庫要求の詳細。 
 
@@ -101,9 +101,9 @@ Content-Type: application/json
 >[!NOTE]
 >入力 InventoryItem がカタログに見つからなかった項目を表している場合、その項目は出力コレクションに含まれません。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 このメソッドは、次のエラーコードを返します。
 

@@ -4,20 +4,20 @@ description: Azure 料金カードでは、Azure プランのリアルタイム�
 ms.assetid: A42B4FFA-278E-41FF-B51E-E48C2CA70EEF
 ms.date: 05/21/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e81debb15c30ba024d897a00075bffe28be3acaf
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 993489f553e0353b7b53a5c707fc69fff169b08a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489142"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413197"
 ---
 # <a name="azure-rate-card-resources"></a>Azure 料金カードのリソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -51,12 +51,12 @@ Azure 料金カードリソースのプロパティについて説明します�
 |------------------|------------------|-----------------------------------------------------------------------------------------------|
 | id               | string           | メーターの一意の識別子。                                                                    |
 | name             | string           | メーターのフレンドリ名。                                                                   |
-| 料率            | オブジェクト           | メーターレート。 キーはメーターの数量 (文字列) で、値はメーターのレート (number) です。 |
+| 料率            | object           | メーターレート。 キーはメーターの数量 (文字列) で、値はメーターのレート (number) です。 |
 | tags             | 文字列の配列 | 測定タグ (省略可能)。 この配列は空にすることができます。                                                 |
-| 別         | string           | リソースのカテゴリ。                                                                     |
+| category         | string           | リソースのカテゴリ。                                                                     |
 | サブカテゴリ      | string           | リソースのサブカテゴリ。                                                                 |
 | 領域 (region)           | string           | Id のリージョン。                                                                             |
-| ユニット             | string           | 数量の種類 (時間、バイトなど)                                                     |
+| unit             | string           | 数量の種類 (時間、バイトなど)                                                     |
 | includedQuantity | number           | 無料で含まれているメーターの数量。                                               |
 | effectiveDate    | string           | このメーターが有効な日付。                                                             |
 

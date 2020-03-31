@@ -3,20 +3,20 @@ title: カートをチェックアウトする
 description: カート内の顧客の注文をチェックアウトする方法。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d5af4369e3a654d932c01a0428bbeb50a522da0e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 123ff771fad9982f6fb84484010456d38e785a74
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489412"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412903"
 ---
 # <a name="checkout-a-cart"></a>カートをチェックアウトする
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -25,7 +25,7 @@ ms.locfileid: "74489412"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - 既存のカートのカート ID。
 
@@ -76,24 +76,24 @@ Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 
 | メソッド   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスパラメーターを使用して顧客を特定し、チェックアウトするカートを指定します。
 
-| 名前            | 種類     | 必須 | 説明                                                            |
+| Name            | 種類     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **顧客 id** | string   | 〇      | 顧客を識別する GUID 形式の顧客 id。             |
-| **カート-id**     | string   | 〇      | カートを識別する GUID 形式のカート id。                     |
+| **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
+| **カート-id**     | string   | はい      | カートを識別する GUID 形式のカート id。                     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -117,9 +117,9 @@ No-Content-Body
 
 成功した場合、応答本文には、設定された[CartCheckoutResult](cart-resources.md#cartcheckoutresult)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 ### <a name="response-example"></a>応答の例
 

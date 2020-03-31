@@ -3,29 +3,29 @@ title: 請求書の未請求調整の品目を取得する
 description: パートナーセンター Api を使用して、指定した期間の未請求調整行項目の詳細のコレクションを取得できます。
 ms.date: 01/27/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f7bc17100c521aeaf7e0be371591942aab6aa21
-ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
+ms.openlocfilehash: 721bb88a7e3059dfa29529957a69534af1cb5cc7
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76923087"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415849"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>請求書の未請求調整の品目を取得する
 
-適用先:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 次のメソッドを使用すると、未請求 invoice 品目 (オープン請求明細項目とも呼ばれます) の詳細のコレクションを取得できます。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
 
 ## <a name="c"></a>C\#
@@ -110,7 +110,7 @@ while (fetchNext)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetUnBilledReconLineItemsPaging.cs**
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -118,7 +118,7 @@ while (fetchNext)
 
 お使いのユースケースに応じて、REST 要求に対して次の構文を使用できます。 詳細については、各構文の説明を参照してください。
 
- | 認証方法  | 要求 URI            | 構文のユースケースの説明                                                                                |
+ | メソッド  | 要求 URI            | 構文のユースケースの説明                                                                                |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & currencycode = {currencycode} & period = {PERIOD} HTTP/1.1                              | この構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & currencycode = {currencycode} & period = {period} & size = {SIZE} HTTP/1.1  | 大きな請求書の場合は、指定されたサイズと0ベースのオフセットでこの構文を使用して、行項目のページ化されたリストを返します。 |
@@ -128,24 +128,24 @@ while (fetchNext)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                                     |
+| Name                   | 種類   | 必須 | 説明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| 請求書-id             | string | [はい]      | 請求書を識別する文字列。 未請求の推定値を取得するには、' 未請求 ' を使用します。 |
-| provider               | string | [はい]      | プロバイダー: "OneTime"。                                                |
-| 請求書-品目-種類 | string | [はい]      | 請求書の詳細の種類: "BillingLineItems"。               |
-| hasPartnerEarnedCredit | ブール   | 必須ではない       | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。
-| currencyCode           | string | [はい]      | 未請求の品目の通貨コード。                                  |
-| 前期                 | string | [はい]      | 未請求 recon の期間。 例: current、previous。                      |
-| size                   | number | 必須ではない       | 返される項目の最大数。 既定のサイズは2000                     |
-| seekOperation          | string | 必須ではない       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。                |
+| 請求書-id             | string | はい      | 請求書を識別する文字列。 未請求の推定値を取得するには、' 未請求 ' を使用します。 |
+| プロバイダー               | string | はい      | プロバイダー: "OneTime"。                                                |
+| 請求書-品目-種類 | string | はい      | 請求書の詳細の種類: "BillingLineItems"。               |
+| hasPartnerEarnedCredit | bool   | いいえ       | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。
+| currencyCode           | string | はい      | 未請求の品目の通貨コード。                                  |
+| 前期                 | string | はい      | 未請求 recon の期間。 例: current、previous。                      |
+| size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000                     |
+| seekOperation          | string | いいえ       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。                |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="rest-response"></a>REST 応答
 
@@ -155,7 +155,7 @@ while (fetchNext)
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="request-response-examples"></a>要求-応答の例
 

@@ -3,20 +3,20 @@ title: 検索クエリでサブスクリプション分析を取得する
 description: 検索クエリでフィルター処理されたサブスクリプション分析情報を取得する方法。
 ms.date: 05/10/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d742dce1d9f3cb24da4da70281ca04b0030d87b2
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4cb71638c5ad2c3a708d2eaf874fe904803cd712
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487262"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416656"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>検索クエリでフィルター処理されたサブスクリプション分析情報を取得する
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,7 +27,7 @@ ms.locfileid: "74487262"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、ユーザー資格情報のみを使用した認証がサポートされます。
 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
@@ -37,7 +37,7 @@ ms.locfileid: "74487262"
 
 | メソッド | 要求 URI |
 |--------|-------------|
-| **取得** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions? filter = {filter_string} |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions? filter = {filter_string} |
 
  
 
@@ -45,9 +45,9 @@ ms.locfileid: "74487262"
 
 組織を識別し、検索をフィルター処理するには、次の必須パスパラメーターを使用します。
 
-| 名前 | 種類 | 必須 | 説明 |
+| Name | 種類 | 必須 | 説明 |
 |------|------|----------|-------------|
-| filter_string | string | 〇 | サブスクリプション分析に適用するフィルター。 このパラメーターで使用する構文、フィールド、および演算子については、フィルター構文とフィルターフィールドに関するセクションを参照してください。 |
+| filter_string | string | はい | サブスクリプション分析に適用するフィルター。 このパラメーターで使用する構文、フィールド、および演算子については、フィルター構文とフィルターフィールドに関するセクションを参照してください。 |
  
 
 **フィルター構文**
@@ -77,17 +77,17 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 | パラメーター | サポートされている演算子 | 説明 |
 |-----------|---------------------|-------------|
 | 顧客 Tenantid | eq、ne | 顧客のテナントを識別する GUID 形式の文字列。 |
-| おける | は | 顧客の名前。 |
+| customerName | は | 顧客の名前。 |
 | 顧客市場 | eq、ne | 顧客が事業を行っている国/地域。 |
 | id | eq、ne | サブスクリプションを識別する GUID 形式の文字列。 |
-| status | eq、ne | サブスクリプションの状態。 サポートされている値は、"ACTIVE"、"中断"、または "プロビジョニング解除" です。 |
+| 状態 | eq、ne | サブスクリプションのステータス。 サポートされている値は、"ACTIVE"、"中断"、または "プロビジョニング解除" です。 |
 | productName | contains、eq、ne | 製品の名前。 |
 | subscriptionType | eq、ne | サブスクリプションの種類。 **注**: このフィールドでは大文字と小文字が区別されます。 サポートされている値は、"Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS" です。 |
 | autoRenewEnabled | eq、ne | サブスクリプションが自動的に更新されるかどうかを示す値です。 |
 | パートナー | eq、ne | MPN ID です。 ダイレクトリセラーの場合、これはパートナーの MPN ID になります。 間接リセラーの場合、これは間接リセラーの MPN ID になります。 |
-| friendlyName | は | サブスクリプションの名前。 |
+| friendlyName | は | サブスクリプションの名前です。 |
 | partnerName | string | サブスクリプションが購入されたパートナーの名前 |  
-| プロバイダー | string | 間接リセラーのサブスクリプショントランザクションの場合、プロバイダー名はサブスクリプションを購入した間接プロバイダーになります。
+| providerName | string | 間接リセラーのサブスクリプショントランザクションの場合、プロバイダー名はサブスクリプションを購入した間接プロバイダーになります。
 | creationDate | eq、ne、gt、lt、ge、le  | サブスクリプションが作成された日付。 |
 | And rateplancharge.effectivestartdate | eq、ne、gt、lt、ge、le | サブスクリプションが開始された日付。 |
 | Commitの Enddate | eq、ne、gt、lt、ge、le  | サブスクリプションが終了する日付。 |
@@ -105,7 +105,7 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -126,7 +126,7 @@ Content-Length: 0
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 
@@ -164,4 +164,4 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>関連項目
 
- - [パートナーセンター分析-リソース](partner-center-analytics-resources.md)
+ - [パートナー センターの分析 - リソース](partner-center-analytics-resources.md)

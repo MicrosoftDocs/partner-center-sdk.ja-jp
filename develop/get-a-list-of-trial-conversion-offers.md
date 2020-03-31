@@ -4,28 +4,28 @@ description: 評価版変換プランの一覧を取得する方法。
 ms.assetid: 7B97505F-10B9-4ACD-9307-111FC1E7D042
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 73e8a8752c0e4a754992ce8ccbbeffc9f9df7bca
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9d1f6e44fc8c6509b603444dc8588403483242cb
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490072"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413898"
 ---
 # <a name="get-a-list-of-trial-conversion-offers"></a>試用版変換プランの一覧を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 評価版変換プランの一覧を取得する方法。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。
 - アクティブな試用版サブスクリプションのサブスクリプション ID。
 
@@ -51,7 +51,7 @@ var conversions =
 
 | メソッド  | 要求 URI                                                                                                                 |
 |---------|-----------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
 
  
 
@@ -59,10 +59,10 @@ var conversions =
 
 次のパスパラメーターを使用して、顧客と試用版のサブスクリプションを識別します。
 
-| 名前            | 種類   | 必須 | 説明                                                     |
+| Name            | 種類   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。           |
-| サブスクリプション id | string | 〇      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
+| 顧客 id     | string | はい      | 顧客を識別する GUID 形式の文字列。           |
+| サブスクリプション id | string | はい      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
 
  
 
@@ -72,7 +72,7 @@ var conversions =
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -93,7 +93,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 

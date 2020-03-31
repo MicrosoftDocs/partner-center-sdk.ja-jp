@@ -4,14 +4,14 @@ description: このセクションでは、クラウドソリューションプ�
 ms.assetid: C8D81324-5D5A-4C42-933F-6C0552FB882D
 ms.date: 02/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b6f5a99d1a0a9ffe05337f1fa628318eb56dc83
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: b91125e313dcad0e582687354339ad885147e659
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899672"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416496"
 ---
 # <a name="manage-customers"></a>顧客の管理
 
@@ -49,7 +49,7 @@ ms.locfileid: "78899672"
 - [顧客の確認済みドメインを追加する](add-a-verified-domain-for-a-customer.md)   
 - [Microsoft Cloud 契約の契約メタデータを取得する](get-agreement-metadata.md)
 - [Microsoft Cloud 契約に関するお客様の同意の確認を取得する](get-confirmation-of-customer-consent.md)
-- [Microsoft カスタマーアグリーメントの直接署名 (直接受け入れ) の状態を取得します。](get-direct-sign-status-of-customer-agreement.md)
+- [Microsoft 顧客契約の直接署名 (直接受け入れ) の状態を取得する](get-direct-sign-status-of-customer-agreement.md)
 - [Microsoft 顧客契約へのお客様の同意を確認する](confirm-customer-consent-customer-agreement.md)
 - [パートナーの検証コードを取得する](get-a-partner-s-validation-codes.md)
 - [顧客の資格情報を取得する](get-a-customer-s-qualification.md)

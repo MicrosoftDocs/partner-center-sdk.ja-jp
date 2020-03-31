@@ -3,20 +3,20 @@ title: Microsoft カスタマーアグリーメントに対する顧客の同意
 description: このトピックでは、お客様が Microsoft カスタマーアグリーメントに同意したかどうかを確認する方法について説明します。
 ms.date: 09/19/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b25e48955ed8fb89934c5296492a9525154c264
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4cf76af611d05913f04d8c9268d61acf16334d76
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486592"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416007"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft カスタマーアグリーメントに対する顧客の同意を確認する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 現在、**アグリーメント**リソースは、 *Microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 このリソースはに適用されません:
 
@@ -28,9 +28,9 @@ ms.locfileid: "74486592"
 
 ## <a name="prerequisites"></a>前提条件
 
-- パートナーセンター .NET SDK を使用している場合は、バージョン1.14 以降が必要です。
-- 「[パートナーセンターの認証](./partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
-- 顧客識別子 (**顧客-テナント id**)。
+- パートナー センター .NET SDK を使用している場合、バージョン 1.14 以降が必要です。
+- [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
+- 顧客 ID (**customer-tenant-id**)。
 
 ## <a name="net"></a>.NET
 
@@ -71,18 +71,18 @@ var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Ag
 
 要求では、次の URI パラメーターを使用できます。
 
-| 名前             | 種類 | 必須 | 説明                                                                               |
+| Name             | 種類 | 必須 | 説明                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| 顧客-テナント id | GUID | 〇 | 値は、顧客を指定できるようにする GUID 形式の顧客**tenantid**です。 |
-| 契約タイプ | string | X | このパラメーターは、すべてのアグリーメントメタデータを返します。 このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされている値は次のとおりです。 <ul><li>Microsoft の**Cloudagreement**では、種類が " *microsoft*" の契約のメタデータのみが含まれています。</li><li>Microsoft の**顧客契約**では、種類が「 *Microsoft の顧客契約*」の契約メタデータのみが含まれています。</li><li>すべてのアグリーメントメタデータを返す **\*** 。 (予期しない契約の種類を処理するために必要なロジックがコードに含まれていない場合は、 **\*** を使用しないでください)。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。 Microsoft では、契約のメタデータをいつでも新しい契約の種類と共に導入する場合があります。  |
+| customer-tenant-id | GUID | はい | 値は、顧客を指定できるようにする GUID 形式の顧客**tenantid**です。 |
+| 契約タイプ | string | いいえ | このパラメーターは、すべてのアグリーメントメタデータを返します。 このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされている値は次のとおりです。 <ul><li>Microsoft の**Cloudagreement**では、種類が " *microsoft*" の契約のメタデータのみが含まれています。</li><li>Microsoft の**顧客契約**では、種類が「 *Microsoft の顧客契約*」の契約メタデータのみが含まれています。</li><li>すべてのアグリーメントメタデータを返す **\*** 。 (予期しない契約の種類を処理するために必要なロジックがコードに含まれていない場合は、 **\*** を使用しないでください)。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。 Microsoft では、契約のメタデータをいつでも新しい契約の種類と共に導入する場合があります。  |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -98,11 +98,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 成功した場合、このメソッドは応答本文で**アグリーメント**リソースのコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 
 
-ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

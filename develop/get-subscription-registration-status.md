@@ -3,20 +3,20 @@ title: サブスクリプション登録状態の取得
 description: Azure Reserved VM Instances で使用するように登録されているサブスクリプションの状態を取得します。
 ms.date: 03/19/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fe9ea6d21465996b28367ff2fe5d374ac551bfe2
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0671ab9bfc9bf254a9bc5472c4ed0f65153af1af
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487122"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416622"
 ---
 # <a name="get-subscription-registration-status"></a>サブスクリプション登録状態の取得 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 Azure Reserved VM Instances 購入が有効になっている顧客サブスクリプションのサブスクリプション登録状態を取得する方法。  
 
@@ -25,7 +25,7 @@ Azure Reserved VM Instances 購入が有効になっている顧客サブスク�
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - サブスクリプション ID。
 
@@ -49,16 +49,16 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 | メソッド    | 要求 URI                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **取得**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1.1 |
+| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1.1 |
 
 **URI パラメーター**
 
 次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。 
 
-| 名前                    | 種類       | 必須 | 説明                                                   |
+| Name                    | 種類       | 必須 | 説明                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| 顧客 id             | string     | 〇      | 顧客を識別する GUID 形式の文字列。         |
-| サブスクリプション id         | string     | 〇      | サブスクリプションを識別する GUID 形式の文字列。     |
+| 顧客 id             | string     | はい      | 顧客を識別する GUID 形式の文字列。         |
+| サブスクリプション id         | string     | はい      | サブスクリプションを識別する GUID 形式の文字列。     |
 
  
 **要求ヘッダー**
@@ -67,7 +67,7 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -89,7 +89,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

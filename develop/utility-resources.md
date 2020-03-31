@@ -4,14 +4,14 @@ description: パートナーセンター REST API には、SDK 全体で使用�
 ms.assetid: C77219B9-FFDD-4779-AE15-5B15BA7BA863
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b19eb80c5be2cc07bd325681f9870a1af7fed481
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 50f60dd17faca5f71e309bcc5c656a8ea3c4cf61
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083079"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414337"
 ---
 # <a name="utility-resources"></a>ユーティリティのリソース
 

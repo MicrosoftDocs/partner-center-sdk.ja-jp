@@ -4,26 +4,26 @@ description: 指定された製品および SKU の利用能力のコレクシ�
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c761e97d0a9302c9b42947552b67464d6a0b64f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b8474506ecb928785c274566eda393ccd96620f4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487532"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415621"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>SKU に使用できる機能の一覧を取得する (国別)
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 このトピックでは、指定された製品および SKU の特定の国で利用できる機能のコレクションを取得する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 製品識別子。
 - SKU 識別子。
 - 国。
@@ -60,7 +60,7 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 ```
 
-## <a name="rest"></a>休息
+## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>REST 要求
 
@@ -68,27 +68,27 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 | メソッド  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities? country = {country-code} & targetsegment = {target-SEGMENT} HTTP/1.1     |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities? country = {country-code} & targetsegment = {target-SEGMENT} HTTP/1.1     |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 SKU に利用できる機能の一覧を取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前                   | 種類     | 必須 | 説明                                                     |
+| Name                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| 製品 id             | string   | 〇      | 製品を識別する文字列。                           |
-| sku-id                 | string   | 〇      | SKU を識別する文字列。                               |
-| 国-コード           | string   | 〇      | 国/地域 ID。                                            |
-| ターゲット-セグメント         | string   | X       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
-| reservationScope | string   | X | Azure 予約 SKU の利用可能な機能の一覧を照会するときに、`reservationScope=AzurePlan` を指定して、AzurePlan に適用できる利用可能な機能の一覧を取得します。 Microsoft Azure (0145P) サブスクリプションに適用できる利用可能な機能の一覧を取得するには、このパラメーターを除外します。  |
+| 製品 id             | string   | はい      | 製品を識別する文字列。                           |
+| sku-id                 | string   | はい      | SKU を識別する文字列。                               |
+| 国-コード           | string   | はい      | 国/地域 ID。                                            |
+| ターゲット-セグメント         | string   | いいえ       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
+| reservationScope | string   | いいえ | Azure 予約 SKU の利用可能な機能の一覧を照会するときに、`reservationScope=AzurePlan` を指定して、AzurePlan に適用できる利用可能な機能の一覧を取得します。 Microsoft Azure (0145P) サブスクリプションに適用できる利用可能な機能の一覧を取得するには、このパラメーターを除外します。  |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>要求本文
+#### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 #### <a name="request-examples"></a>要求の例
 
@@ -132,9 +132,9 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 成功した場合、応答本文には[**可用性**](product-resources.md#availability)リソースのコレクションが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 このメソッドは、次のエラーコードを返します。
 

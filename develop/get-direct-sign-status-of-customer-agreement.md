@@ -3,14 +3,14 @@ title: Microsoft カスタマーアグリーメントの顧客の直接署名の
 description: DirectSignedCustomerAgreementStatus リソースを使用して、Microsoft カスタマーアグリーメントの顧客の直接署名 (直接承諾) の状態を取得できます。
 ms.date: 02/11/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f44e64061690603fb82088b03ebacb01ce5515f2
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 0d07630a23ad4d18f992f2fcd9db2d19c637df98
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78909068"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415949"
 ---
 # <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>Microsoft カスタマーアグリーメントの顧客の直接署名 (直接受け入れ) の状態を取得します。
 
@@ -46,11 +46,11 @@ ms.locfileid: "78909068"
 
 | Name             | 種類 | 必須 | 説明                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| 顧客-テナント id | GUID | はい | 値は、顧客のテナント ID を指定できるようにする GUID 形式の顧客**tenantid**です。 |
+| customer-tenant-id | GUID | はい | 値は、顧客のテナント ID を指定できるようにする GUID 形式の顧客**tenantid**です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
@@ -79,7 +79,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 
 
-このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

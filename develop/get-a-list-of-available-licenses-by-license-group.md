@@ -4,28 +4,28 @@ description: 指定された顧客のユーザーが使用できる、指定さ�
 ms.assetid: 1677A68C-0298-49C7-BAE1-5E74D8449C3F
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e28f6fee9a514c5bfa6bfd9395112a60ac11aae8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 81fa1d8cbffe4ccc3e5008ff8a4b8a5ec032e3cc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487522"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413343"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>ライセンスグループ別に使用可能なライセンスの一覧を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 指定された顧客のユーザーが使用できる、指定されたライセンスグループのライセンスの一覧を取得する方法。
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 顧客識別子。
 - 1つまたは複数のライセンスグループ識別子の一覧。
 
@@ -58,9 +58,9 @@ var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(s
 
 | メソッド  | 要求 URI                                                                                                                                  |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? licenseGroupIds = Group1 HTTP/1.1                        |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? licenseGroupIds = Group2 HTTP/1.1                        |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? Licensegroupids = Group1 & Licensegroupids = Group2 HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? licenseGroupIds = Group1 HTTP/1.1                        |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? licenseGroupIds = Group2 HTTP/1.1                        |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/customers/{customer-id}/subscribedskus? Licensegroupids = Group1 & Licensegroupids = Group2 HTTP/1.1 |
 
  
 
@@ -68,10 +68,10 @@ var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(s
 
 次のパスとクエリパラメーターを使用して、顧客とライセンスグループを識別します。
 
-| 名前            | 種類   | 必須 | 説明                                                                                                                                                                                                                                                           |
+| Name            | 種類   | 必須 | 説明                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 顧客 id     | string | 〇      | 顧客を識別する GUID 形式の文字列。                                                                                                                                                                                                                 |
-| licenseGroupIds | string | X       | 割り当てられたライセンスのライセンスグループを示す列挙値。 有効な値: Group1、Group2 Group1-このグループには、Azure Active Directory (AAD) で管理できるライセンスを持つすべての製品が含まれています。 Group2-このグループには、Minecraft 製品ライセンスのみが含まれています。 |
+| 顧客 id     | string | はい      | 顧客を識別する GUID 形式の文字列。                                                                                                                                                                                                                 |
+| licenseGroupIds | string | いいえ       | 割り当てられたライセンスのライセンスグループを示す列挙値。 有効な値: Group1、Group2 Group1-このグループには、Azure Active Directory (AAD) で管理できるライセンスを持つすべての製品が含まれています。 Group2-このグループには、Minecraft 製品ライセンスのみが含まれています。 |
 
  
 
@@ -81,7 +81,7 @@ var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(s
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -102,7 +102,7 @@ Host: api.partnercenter.microsoft.com
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 

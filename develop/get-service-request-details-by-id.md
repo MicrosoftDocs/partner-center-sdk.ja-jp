@@ -3,21 +3,21 @@ title: ID でサービス要求の詳細を取得します。
 description: ID によって既存の顧客サービス要求の詳細を取得する方法。
 ms.date: 02/06/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: da56411f223171a1d204a1dc7bccb19198759272
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b3885fd0076fc60ee6c07aba78e8c21590577503
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487302"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416689"
 ---
 # <a name="get-service-request-details-by-id"></a>ID でサービス要求の詳細を取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -26,7 +26,7 @@ ms.locfileid: "74487302"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - サービス要求 ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -54,7 +54,7 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 | メソッド    | 要求 URI                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1  |
 
  
 
@@ -62,7 +62,7 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 指定されたサービス要求を取得するには、次の URI パラメーターを使用します。 
 
-| 名前                  | 種類     | 必須 | 説明                                 |
+| Name                  | 種類     | 必須 | 説明                                 |
 |-----------------------|----------|----------|---------------------------------------------|
 | **servicerequest-id** | **guid** | Y        | サービス要求を識別する GUID。 |
 
@@ -74,7 +74,7 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -97,7 +97,7 @@ Content-Length: 0
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 **応答の例**
 

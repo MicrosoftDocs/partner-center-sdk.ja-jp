@@ -3,20 +3,20 @@ title: 請求サイクルを変更する
 description: サブスクリプションを毎月または年間請求に更新します。
 ms.date: 05/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3080ef40f71a043b4f02a7dc37178973d72aa09c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f3c040745ead22e92a7012155b0fcfc50fe97739
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489022"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412960"
 ---
 # <a name="change-the-billing-cycle"></a>請求サイクルを変更する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -34,7 +34,7 @@ ms.locfileid: "74489022"
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
 - 注文 ID。
 
@@ -79,7 +79,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 次の表に、サブスクリプションの数量を変更するために必要なクエリパラメーターを示します。
 
-| 名前                   | 種類 | 必須 | 説明                                                          |  
+| Name                   | 種類 | 必須 | 説明                                                          |  
 |------------------------|------|----------|----------------------------------------------------------------------|  
 | **顧客-テナント id** | GUID |    Y     | 顧客を識別する GUID 形式の**顧客テナント id** |  
 | **注文-id**           | GUID |    Y     | 順序識別子                                                 |  
@@ -88,18 +88,18 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 - 詳細については、「[ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文のプロパティについて説明します。
 
-## <a name="order"></a>[オーダー]
+## <a name="order"></a>Order
 
 | プロパティ           | 種類             | 必須 | 説明                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
-| ID                 | string           |    N     | 注文が正常に作成されたときに提供される注文 id |
-|ReferenceCustomerId | string           |    Y     | 顧客識別子                                                    |
-| 周期サイクル       | string           |    Y     | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [BillingCycleType](product-resources.md#billingcycletype)で見つかったメンバー名です。 |
-| LineItems          | オブジェクトの配列 |    Y     | [Orderlineitem](#orderlineitem)リソースの配列                      |
+| Id                 | string           |    N     | 注文が正常に作成されたときに提供される注文 id |
+|referenceCustomerId | string           |    Y     | 顧客識別子                                                    |
+| BillingCycle       | string           |    Y     | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [BillingCycleType](product-resources.md#billingcycletype)で見つかったメンバー名です。 |
+| lineItems          | オブジェクトの配列 |    Y     | [Orderlineitem](#orderlineitem)リソースの配列                      |
 | CreationDate       | datetime         |    N     | 注文が作成された日付 (日付/時刻形式)                        |
 | 属性         | オブジェクト           |    N     | "ObjectType": "OrderLineItem" が含まれています。                                     |
 
@@ -107,12 +107,12 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 | プロパティ             | 種類   | 必須 | 説明                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
-| LineItemNumber       | number |    Y     | 0から始まる行項目番号。                                              |
+| lineItemNumber       | number |    Y     | 0から始まる行項目番号。                                              |
 | OfferId              | string |    Y     | プランの ID                                                                |
 | SubscriptionId       | string |    Y     | サブスクリプションの ID                                                         |
 | FriendlyName         | string |    N     | 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名 |
 | 数量             | number |    Y     | ライセンスまたはインスタンスの数                                                |
-| PartnerIdOnRecord    | string |    N     | レコードのパートナーの MPN ID                                                |
+| partnerIdOnRecord    | string |    N     | レコードのパートナーの MPN ID                                                |
 | 属性           | オブジェクト |    N     | "ObjectType": "OrderLineItem" が含まれています。                                             |
 
 ### <a name="request-example"></a>要求の例
@@ -158,9 +158,9 @@ Expect: 100-continue
 
 成功した場合、このメソッドは応答本文で更新されたサブスクリプションの順序を返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 ### <a name="response-example"></a>応答の例
 

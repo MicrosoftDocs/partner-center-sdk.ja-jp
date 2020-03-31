@@ -3,28 +3,28 @@ title: 請求書に請求される商用消費量の品目を取得する
 description: パートナーセンター Api を使用して、指定された請求書の商用消費請求書の明細項目 (終了日の評価済みの使用状況の行項目) の詳細を取得できます。
 ms.date: 01/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 09f2c36c2b1d3adfa57eda687572533ffd0fde78
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.openlocfilehash: fb207223c99597402ca855ab91f985e891b92a0c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923505"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415923"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>請求書に請求される商用消費量の品目を取得する
 
-適用先:
+適用対象
  
-- パートナー センター
+- Partner Center
 
 次の方法を使用すると、指定された請求書について、商用消費請求書の明細品目 (終了日の評価済みの使用明細項目とも呼ばれます) の詳細のコレクションを取得できます。
 
 この API は、Microsoft Azure (0145P) サブスクリプション用の**azure**プロバイダーの種類もサポートしています。 これは、この API が下位互換性のある機能であることを意味します。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
 
 ## <a name="c"></a>C\#
@@ -113,9 +113,9 @@ while (fetchNext)
 
 #### <a name="request-syntax"></a>要求の構文
 
-最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 請求書が大きい場合に、サイズと 0 ベースのオフセットを指定して品目のリストをページ単位で取得するには、2 つ目の構文を使用します。 3番目の構文を使用して、`seekOperation = "Next"`を使用して行項目の次のページを取得します。
+最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 大規模な請求書の場合は、2番目の構文でサイズを指定し、0から始まるオフセットを使用して、行項目のページ化されたリストを返します。 3番目の構文を使用して、`seekOperation = "Next"`を使用して行項目の次のページを取得します。
 
-| 認証方法  | 要求 URI                                                                                                                                                     |
+| メソッド  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {CURRENCYCODE} HTTP/1.1                              |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {SIZE} HTTP/1.1  |
@@ -125,23 +125,23 @@ while (fetchNext)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | タスクバーの検索ボックスに   | 必須かどうか | 説明                                                       |
+| Name                   | 種類   | 必須 | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| 請求書-id             | string | [はい]      | 請求書を識別する文字列。                             |
-| provider               | string | [はい]      | プロバイダー: "OneTime"。                                  |
-| 請求書-品目-種類 | string | [はい]      | 請求書の詳細の種類: "UsageLineItems"。 |
-| currencyCode           | string | [はい]      | 請求明細項目の通貨コード。                    |
-| 前期                 | string | [はい]      | 課金対象の期間。 例: current、previous。        |
-| size                   | number | 必須ではない       | 返される項目の最大数。 既定のサイズは2000       |
-| seekOperation          | string | 必須ではない       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
+| 請求書-id             | string | はい      | 請求書を識別する文字列。                             |
+| プロバイダー               | string | はい      | プロバイダー: "OneTime"。                                  |
+| 請求書-品目-種類 | string | はい      | 請求書の詳細の種類: "UsageLineItems"。 |
+| currencyCode           | string | はい      | 請求明細項目の通貨コード。                    |
+| 前期                 | string | はい      | 課金対象の期間。 例: current、previous。        |
+| size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000       |
+| seekOperation          | string | いいえ       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 #### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="rest-response"></a>REST 応答
 
@@ -151,7 +151,7 @@ while (fetchNext)
 
 #### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="rest-examples"></a>REST の例
 

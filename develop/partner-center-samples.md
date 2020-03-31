@@ -4,20 +4,20 @@ description: パートナーセンター Api を使用して迅速に稼働さ�
 ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a134988ed2e9015e9c044ee537a1631679c0e92
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 9cc3605287da38cee9a67e4e7fe9ec5b5784b7dc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995217"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416384"
 ---
 # <a name="partner-center-samples"></a>パートナーセンターのサンプル
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター

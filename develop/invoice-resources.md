@@ -4,14 +4,14 @@ description: 複数の請求書関連リソースは、パートナーセンタ�
 ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/27/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6540af51e462974592ec18d7dd9ede8517ba1725
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 151c2c0bbd486790c472c4c65f163561c93d303e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083109"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416536"
 ---
 # <a name="invoice-resources"></a>請求書のリソース
 
@@ -51,7 +51,7 @@ ms.locfileid: "80083109"
 
 | プロパティ            | 種類                                                           | 説明                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| invoiceLineItemType | string                                                         | 請求書の詳細の種類は、"none"、"usage\_line\_items"、"billing\_line\_items" です。 |
+| InvoiceLineItemType | string                                                         | 請求書の詳細の種類は、"none"、"usage\_line\_items"、"billing\_line\_items" です。 |
 | プロバイダ     | string                                                         | 課金プロバイダー: "none"、"office"、"azure"、または "azure\_data\_market"。         |
 | リンク               | [ResourceLinks](utility-resources.md#resourcelinks)           | リソースリンク。                                                               |
 | 属性          | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                                          |
@@ -62,7 +62,7 @@ ms.locfileid: "80083109"
 
 | プロパティ            | 種類                                                           | 説明                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceLineItemType | string                                                         | 請求書の品目の種類。 "none"、"usage\_line\_items"、"billing\_line\_items" と入力します。 |
+| InvoiceLineItemType | string                                                         | 請求書の品目の種類。 "none"、"usage\_line\_items"、"billing\_line\_items" と入力します。 |
 | プロバイダ     | string                                                         | 課金プロバイダー: "none"、"office"、"azure"、または "azure\_data\_market"。            |
 | 属性          | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                                             |
 
@@ -119,7 +119,7 @@ ms.locfileid: "80083109"
 | customerName             | UTC 日時形式の文字列                                 | 顧客名を取得または設定します。                                       |
 | domainName               | string                                                         | ドメイン名を取得または設定します。                                             |
 | durableOfferId           | string                                                         | 永続性オファーの一意の識別子を取得または設定します。                     |
-| invoiceLineItemType      | string                                                         | 請求書の品目の種類を取得します。                                   |
+| InvoiceLineItemType      | string                                                         | 請求書の品目の種類を取得します。                                   |
 | mpnId                    | number                                                         | この行項目に関連付けられている MPN ID を取得または設定します。 ダイレクトリセラーの場合、これはリセラーの MPN Id です。 間接リセラーの場合、これは付加価値再販業者 (VAR) の MPN ID です。                                   |
 | offerId                  | string                                                         | オファーの一意の識別子を取得または設定します。                             |
 | Context.offername                | string                                                         | プラン名を取得または設定します。                                          |
@@ -160,7 +160,7 @@ ms.locfileid: "80083109"
 | すべての行の Itemid         | number                                                         | 詳細行項目 ID を取得または設定します。 使用された単位で計算が異なる場合に、行項目を一意に識別します。 例: 合計使用量 = 1338、1024は1つのレートで課金され、314は別のレートで課金されます。        |
 | domainName               | string                                                         | ドメイン名を取得または設定します。                                             |
 | includedQuantity         | number                                                         | 注文に含まれる単位を取得します。値の設定もできます。                         |
-| invoiceLineItemType      | string                                                         | 請求書の品目の種類を取得します。                                   |
+| InvoiceLineItemType      | string                                                         | 請求書の品目の種類を取得します。                                   |
 | invoiceNumber            | string                                                         | 請求書番号を取得または設定します。                                      |
 | listPrice                | number                                                         | 各単位の価格を取得または設定します。                                  |
 | mpnId                    | number                                                         | この行項目に関連付けられている MPN ID を取得または設定します。 ダイレクトリセラーの場合、これはリセラーの MPN ID です。 間接リセラーの場合、これは付加価値再販業者 (VAR) の MPN ID です。                                   |

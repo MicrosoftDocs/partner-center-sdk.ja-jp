@@ -3,20 +3,20 @@ title: Microsoft カスタマーアグリーメントの契約メタデータを
 description: このトピックでは、Microsoft カスタマーアグリーメントの契約メタデータを取得する方法について説明します。
 ms.date: 8/29/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 999c2c4cb6146dd62faffbd93f73e5721e019004
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 97dd5582b4903333c4ecd6418459fb557dd4a84b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485672"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415992"
 ---
 # <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>Microsoft カスタマーアグリーメントの契約メタデータを取得する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 Microsoft カスタマーアグリーメントの契約メタデータは、現在、 *microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 次の場合には適用されません。
 
@@ -31,8 +31,8 @@ Microsoft カスタマーアグリーメントの契約メタデータは、現�
 
 ## <a name="prerequisites"></a>前提条件
 
-- パートナーセンター .NET SDK を使用している場合は、バージョン1.14 以降が必要です。
-- 「[パートナーセンターの認証](./partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
+- パートナー センター .NET SDK を使用している場合、バージョン 1.14 以降が必要です。
+- [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
 
 
 ## <a name="net-version-114-or-newer"></a>.NET (バージョン1.14 以降)
@@ -71,17 +71,17 @@ Microsoft Customer Agreement の契約メタデータを取得するには:
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-| 名前                   | 種類     | 必須 | 説明                                                             |
+| Name                   | 種類     | 必須 | 説明                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| 契約タイプ | string | X | このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされている値は次のとおりです。 <ul><li>Microsoft の種類の**契約に含まれる契約**メタデータのみを含む Microsoft *cloudagreement*</li><li>Microsoft の**顧客契約**では、契約メタデータのみが含まれて*います。*</li><li>すべてのアグリーメントメタデータを返す **\*** 。 ( **\*** 使用しないでください。マイクロソフトでは、契約の種類を問わず、契約の種類に同意する必要があります。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。  |
+| 契約タイプ | string | いいえ | このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされている値は次のとおりです。 <ul><li>Microsoft の種類の**契約に含まれる契約**メタデータのみを含む Microsoft *cloudagreement*</li><li>Microsoft の**顧客契約**では、契約メタデータのみが含まれて*います。*</li><li>すべてのアグリーメントメタデータを返す **\*** 。 ( **\*** 使用しないでください。マイクロソフトでは、契約の種類を問わず、契約の種類に同意する必要があります。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。  |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし]。
 
 ### <a name="request-example"></a>要求の例
 
@@ -97,11 +97,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 成功した場合、このメソッドは応答本文で[ **AgreementMetaData**リソース](./agreement-metadata-resources.md)のコレクションを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。
 
-ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

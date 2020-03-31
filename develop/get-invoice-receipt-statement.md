@@ -3,20 +3,20 @@ title: 請求書の領収書の取得
 description: 請求書 ID と受信確認 ID を使用して、請求書の領収書を取得します。
 ms.date: 02/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 11549ad4de66d45f8375a6afb9956b2928c8045f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 17b31717ff8dde2364e1d5347113a799c08d1209
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489522"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415892"
 ---
 # <a name="get-invoice-receipt-statement"></a>請求書の領収書の取得
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 
 請求書 ID と受信確認 ID を使用して、請求書の領収書を取得します。 
 
@@ -25,7 +25,7 @@ ms.locfileid: "74489522"
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - 有効な請求書 ID と対応する受信 ID。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -47,16 +47,16 @@ var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).
 
 | メソッド  | 要求 URI                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/receipts/{receipt-id}/documents/statement HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/receipts/{receipt-id}/documents/statement HTTP/1.1 |
 
 **URI パラメーター**
 
 次のクエリパラメーターを使用して、請求書の受領書を取得します。
 
-| 名前       | 種類   | 必須 | 説明                                                                                    |
+| Name       | 種類   | 必須 | 説明                                                                                    |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|
-| 請求書-id | string | 〇      | 値は請求書 id で、リセラーは特定の請求書の結果をフィルター処理できます。 |
-| 受領-id | string | 〇      | 値は、再販業者が特定の請求書の領収書をフィルター処理できるようにするための、受信確認 id です。 |
+| 請求書-id | string | はい      | 値は請求書 id で、リセラーは特定の請求書の結果をフィルター処理できます。 |
+| 受領-id | string | はい      | 値は、再販業者が特定の請求書の領収書をフィルター処理できるようにするための、受信確認 id です。 |
  
 **要求ヘッダー**
 
@@ -82,7 +82,7 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
 **応答の例**
 

@@ -3,14 +3,14 @@ title: 顧客契約の直接の署名 (直接受け入れ) の状態。
 description: DirectSignedCustomerAgreementStatus リソースは、顧客契約の直接の署名 (直接受け入れ) の状態を表します。
 ms.date: 02/11/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 25c24a9ed444663901126feb13a909fd7f2709ea
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 539d395aa096632dd7e15edeb2b2c98035c191ca
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78909088"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412462"
 ---
 # <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>顧客契約の直接の署名 (直接受け入れ) の状態
 

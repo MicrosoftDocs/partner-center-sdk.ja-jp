@@ -4,20 +4,20 @@ description: このサンプル web サイトコードは、お客様が Microso
 ms.assetid: 0726B1CA-97A1-42E6-92AD-25787BFE0C67
 ms.date: 05/29/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b8e8a87e0ed22d1703b65085cf6eb9e1743c9f09
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1db077eb789146f945f6d507be84f948ae2cb0a9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489742"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415553"
 ---
 # <a name="csp-customer-web-storefront"></a>CSP カスタマー web ネットショップ
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 > [!NOTE]
 > このサンプルアプリは、パートナーセンターのグローバルインスタンスにのみ適用されます。 Microsoft Cloud ドイツのパートナーセンターや米国政府機関向けのパートナー Microsoft Cloud センターには適用されません。
@@ -50,7 +50,7 @@ GitHub から[パートナーセンターのサンプルコード](https://githu
 
 - 組織名
 - 組織のロゴ
-- ヘッダーイメージ
+- [ヘッダー イメージ]
 - プライバシーに関する契約
 - 連絡先の電子メール
 - 連絡先の電話番号

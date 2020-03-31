@@ -4,14 +4,14 @@ description: パートナーは、顧客がプランの一覧からサブスク�
 ms.assetid: 5CFA35FF-1C0D-461D-A942-309AFCD98395
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ef8305cd85e93c01b03610d592d4b28928814735
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 13ea0368e257f437494f97979be7dd0a48efe4fa
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083139"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416434"
 ---
 # <a name="order-resources"></a>リソースの注文
 

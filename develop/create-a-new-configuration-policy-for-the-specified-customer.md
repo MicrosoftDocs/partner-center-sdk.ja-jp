@@ -4,27 +4,27 @@ description: 指定された顧客の新しい構成ポリシーを作成する�
 ms.assetid: 95649991-A950-4F43-87E8-3EB1E7D06FCD
 ms.date: 05/23/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ad89c0fe5e6b3c182315bf5343d78941f7cdd2d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 101f9cda9d46e7dbd54cbef33b3191953c577503
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489502"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413762"
 ---
 # <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>指定された顧客の新しい構成ポリシーを作成します
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 
 指定された顧客の新しい構成ポリシーを作成する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。
 
 ## <a name="c"></a>C\#
@@ -62,30 +62,30 @@ var createdConfigurationPolicy =
 
 | メソッド   | 要求 URI                                                                              |
 |----------|------------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | 種類   | 必須 | 説明                                           |
+| Name        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の文字列。 |
+| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 要求本文には、次の表に示すように、構成ポリシー情報を持つオブジェクトが含まれている必要があります。
 
-| 名前           | 種類             | 必須 | 説明                      |
+| Name           | 種類             | 必須 | 説明                      |
 |----------------|------------------|----------|----------------------------------|
-| name           | string           | 〇      | ポリシーのフレンドリ名。 |
-| 別       | string           | 〇      | ポリシーカテゴリ。             |
-| 説明    | string           | X       | ポリシーの説明。          |
-| policySettings | 文字列の配列 | 〇      | ポリシー設定。             |
+| name           | string           | はい      | ポリシーのフレンドリ名。 |
+| category       | string           | はい      | ポリシーカテゴリ。             |
+| description    | string           | いいえ       | ポリシーの説明。          |
+| policySettings | 文字列の配列 | はい      | ポリシー設定。             |
 
 ### <a name="request-example"></a>要求の例
 
@@ -112,9 +112,9 @@ Host: api.partnercenter.microsoft.com
 
 成功した場合、応答本文には新しいポリシーの[Configurationpolicy](device-deployment-resources.md#configurationpolicy)リソースが含まれます。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

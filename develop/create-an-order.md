@@ -4,32 +4,32 @@ description: 顧客の注文を作成する方法。
 ms.assetid: FE4949FA-7C4D-462D-8F32-FAADCF166875
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7600ab546f7bcde0e8c01c3216949bcfef290b1d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7047da45ef14d7749abfadb0aee08147b7df67c2
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489662"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412263"
 ---
 # <a name="create-an-order"></a>注文を作成する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 **Azure 予約 VM インスタンス製品の注文の**作成は、次の*場合にのみ*適用されます。
 
-- パートナー センター
+- Partner Center
 
 現在販売可能なものの詳細については、 [Cloud Solution Provider プログラムのパートナープランに](https://docs.microsoft.com/partner-center/csp-offers)関する情報を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客識別子。
 - プラン識別子。
 
@@ -78,37 +78,37 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 | メソッド   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **投稿** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 顧客を識別するには、次のパスパラメーターを使用します。
 
-| 名前        | 種類   | 必須 | 説明                                                |
+| Name        | 種類   | 必須 | 説明                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| 顧客 id | string | 〇      | 顧客を識別する GUID 形式の顧客 id。 |
+| 顧客 id | string | はい      | 顧客を識別する GUID 形式の顧客 id。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
-#### <a name="order"></a>[オーダー]
+#### <a name="order"></a>Order
 
 次の表では、要求本文の[Order](order-resources.md)プロパティについて説明します。
 
 | プロパティ             | 種類                        | 必須                        | 説明                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| id                   | string                      | X                              | 注文が正常に作成されたときに提供される注文 id。   |
-| ReferenceCustomerId  | string                      | X                              | 顧客識別子。 |
-| 周期サイクル         | string                      | X                              | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [BillingCycleType](product-resources.md#billingcycletype)で見つかったメンバー名です。 既定値は、注文の作成時に "毎月" または "OneTime" です。 このフィールドは、注文が正常に作成されたときに適用されます。 |
-| lineItems            | [Orderlineitem](order-resources.md#orderlineitem)リソースの配列 | 〇      | 顧客が購入しているプランの一覧 (数量を含む)。        |
-| currencyCode         | string                      | X                              | 読み取り専用。 注文を配置するときに使用する通貨。 注文が正常に作成されたときに適用されます。           |
-| CreationDate         | datetime                    | X                              | 読み取り専用。 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。                                   |
-| status               | string                      | X                              | 読み取り専用。 注文の状態。  サポートされる値は、 [Orderstatus](order-resources.md#orderstatus)で見つかったメンバー名です。        |
-| links                | [OrderLinks](utility-resources.md#resourcelinks)              | X                              | 注文に対応するリソースリンク。 |
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | X                              | 順序に対応するメタデータ属性。 |
+| id                   | string                      | いいえ                              | 注文が正常に作成されたときに提供される注文 id。   |
+| referenceCustomerId  | string                      | いいえ                              | 顧客識別子。 |
+| 周期サイクル         | string                      | いいえ                              | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [BillingCycleType](product-resources.md#billingcycletype)で見つかったメンバー名です。 既定値は、注文の作成時に "毎月" または "OneTime" です。 このフィールドは、注文が正常に作成されたときに適用されます。 |
+| lineItems            | [Orderlineitem](order-resources.md#orderlineitem)リソースの配列 | はい      | 顧客が購入しているプランの一覧 (数量を含む)。        |
+| currencyCode         | string                      | いいえ                              | 読み取り専用。 注文を配置するときに使用する通貨。 注文が正常に作成されたときに適用されます。           |
+| creationDate         | datetime                    | いいえ                              | 読み取り専用。 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。                                   |
+| 状態               | string                      | いいえ                              | 読み取り専用。 注文の状態。  サポートされる値は、 [Orderstatus](order-resources.md#orderstatus)で見つかったメンバー名です。        |
+| リンク                | [OrderLinks](utility-resources.md#resourcelinks)              | いいえ                              | 注文に対応するリソースリンク。 |
+| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | いいえ                              | 順序に対応するメタデータ属性。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
@@ -117,27 +117,27 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 >[!NOTE]
 >PartnerIdOnRecord は、間接リセラーが間接リセラーの代わりに注文を行う場合にのみ指定する必要があります。 間接リセラーの Microsoft Partner Network ID のみを格納するために使用されます (間接プロバイダーの ID ではありません)。
 
-| 名前                 | 種類   | 必須 | 説明                                                                                                                                                                                                                                |
+| Name                 | 種類   | 必須 | 説明                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LineItemNumber       | int    | 〇      | コレクション内の各行項目は、0からカウント-1 までカウントされる一意の行番号を取得します。                                                                                                                                                 |
-| offerId              | string | 〇      | プランの識別子。                                                                                                                                                                                                                      |
-| subscriptionId       | string | X       | サブスクリプション識別子。                                                                                                                                                                                                               |
-| ParentSubscriptionId | string | X       | (省略可能)。 アドオンプランの親サブスクリプションの ID。 PATCH にのみ適用されます。                                                                                                                                                     |
-| friendlyName         | string | X       | (省略可能)。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。                                                                                                                                              |
-| quantity             | int    | 〇      | ライセンスベースのサブスクリプションのライセンス数。                                                                                                                                                                                   |
-| PartnerIdOnRecord    | string | X       | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを適切にアカウンティングできます。 |
-| provisioningContext  | Dictionary < string、string >                | X       |  カタログ内の一部の項目のプロビジョニングに必要な情報。 SKU の "プロビジョニング変数" プロパティは、カタログ内の特定のアイテムに必要なプロパティを示します。                  |
-| links                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | X       |  読み取り専用。 注文明細項目に対応するリソースリンク。  |
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | X       | OrderLineItem に対応するメタデータ属性。 |
-| RenewsTo             | オブジェクトの配列                          | X    |[Renewsto](order-resources.md#renewsto)の配列。                                                                            |
+| lineItemNumber       | int    | はい      | コレクション内の各行項目は、0からカウント-1 までカウントされる一意の行番号を取得します。                                                                                                                                                 |
+| offerId              | string | はい      | プランの識別子。                                                                                                                                                                                                                      |
+| subscriptionId       | string | いいえ       | サブスクリプション識別子。                                                                                                                                                                                                               |
+| parentSubscriptionId | string | いいえ       | 省略可。 アドオンプランの親サブスクリプションの ID。 PATCH にのみ適用されます。                                                                                                                                                     |
+| friendlyName         | string | いいえ       | 省略可。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。                                                                                                                                              |
+| quantity             | int    | はい      | ライセンスベースのサブスクリプションのライセンス数。                                                                                                                                                                                   |
+| partnerIdOnRecord    | string | いいえ       | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを適切にアカウンティングできます。 |
+| provisioningContext  | Dictionary < string、string >                | いいえ       |  カタログ内の一部の項目のプロビジョニングに必要な情報。 SKU の "プロビジョニング変数" プロパティは、カタログ内の特定のアイテムに必要なプロパティを示します。                  |
+| リンク                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | いいえ       |  読み取り専用。 注文明細項目に対応するリソースリンク。  |
+| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | いいえ       | OrderLineItem に対応するメタデータ属性。 |
+| renewsTo             | オブジェクトの配列                          | いいえ    |[Renewsto](order-resources.md#renewsto)の配列。                                                                            |
 
-##### <a name="renewsto"></a>RenewsTo
+##### <a name="renewsto"></a>renewsTo
 
 次の表では、要求本文の[renewsto](order-resources.md#renewsto)について説明します。
 
 | プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | X              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
+| termDuration          | string           | いいえ              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 
 ### <a name="request-example"></a>要求の例
 
@@ -171,9 +171,9 @@ Content-Type: application/json
 
 成功した場合、メソッドは応答本文で[注文](order-resources.md)リソースを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 このメソッドは、次のエラーコードを返します。
 

@@ -4,20 +4,20 @@ description: MeterUsageRecord リソースを使用して、現在の請求サ�
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 003db39c92e96b12863edebb46b3e3341ffae10e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 48ed74f0440a7743415368fd565e43b6f06b1771
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488312"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416458"
 ---
 # <a name="meter-usage-record-resource"></a>メーター使用状況レコードリソース
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 
 **MeterUsageRecord**リソースを使用して、現在の請求サイクルにおけるサブスクリプションのメータリングレベルの使用量の推定金銭的コストを示すことができます。
 
@@ -29,7 +29,7 @@ ms.locfileid: "74488312"
 | MeterId  | string             | メーター識別子を取得または設定します。                                                        |
 | MeterName          | string             | メーターの名前を取得または設定します。                                       |
 | カテゴリ               | string             | Azure リソースカテゴリを取得または設定します。                                                 |
-| サブカテゴリ             | string             |  Azure リソースのサブカテゴリを取得または設定します。                                                     |
+| Subcategory             | string             |  Azure リソースのサブカテゴリを取得または設定します。                                                     |
 | QuantityUsed        | decimal             | Azure リソースの使用量を取得または設定します。   |
 | Unit   | string             | Azure リソースの長さの単位を取得または設定します。 |
 | TotalCost   | decimal             | 使用率の推定総コストを取得または設定します。 |

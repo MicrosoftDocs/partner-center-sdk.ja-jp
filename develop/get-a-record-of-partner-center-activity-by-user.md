@@ -4,21 +4,21 @@ description: パートナーのユーザーまたはアプリケーションが�
 ms.assetid: C24054DA-3E31-4BCD-BEB5-085564C20C58
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ef53290570d3e1c4eb8c8db0418c8b0080d80151
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: aa140c4deb71e4660078ac4f9496da3a834b2f0e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490252"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416760"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>パートナーセンターアクティビティのレコードを取得する
 
 
 **適用対象**
 
-- パートナー センター
+- Partner Center
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -29,7 +29,7 @@ ms.locfileid: "74490252"
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
 
 
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -91,11 +91,11 @@ while (auditRecordEnumerator.HasValue)
 
 | メソッド  | 要求 URI                                                                                                                                                                                    |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {STARTDATE} HTTP/1.1                                                                                                     |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startDate} & endDate = {ENDDATE} HTTP/1.1                                                                                   |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "CompanyName", "Value": "{searchsubstring}", "Operator": "substring"} HTTP/1.1 |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "CustomerId", "Value": "{customerid}", "Operator": "equals"} HTTP/1.1          |
-| **取得** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "ResourceType", "Value": "{resourcetype}", "Operator": "equals"} HTTP/1.1      |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {STARTDATE} HTTP/1.1                                                                                                     |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startDate} & endDate = {ENDDATE} HTTP/1.1                                                                                   |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "CompanyName", "Value": "{searchsubstring}", "Operator": "substring"} HTTP/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "CustomerId", "Value": "{customerid}", "Operator": "equals"} HTTP/1.1          |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/auditrecords? startDate = {startdate} & endDate = {enddate} & filter = {"Field": "ResourceType", "Value": "{resourcetype}", "Operator": "equals"} HTTP/1.1      |
 
  
 
@@ -103,11 +103,11 @@ while (auditRecordEnumerator.HasValue)
 
 要求の作成時には、次のクエリパラメーターを使用します。
 
-| 名前      | 種類   | 必須 | 説明                                                                                                                                                                                                                |
+| Name      | 種類   | 必須 | 説明                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate | date   | X       | Yyyy-mm-dd 形式の開始日。 何も指定しない場合、結果セットの既定値は、要求日の30日前になります。 フィルターが指定されている場合、このパラメーターは省略可能です。                                          |
-| endDate   | date   | X       | Yyyy-mm-dd 形式の終了日。 フィルターが指定されている場合、このパラメーターは省略可能です。 終了日を省略した場合、または null に設定した場合、要求は max ウィンドウを返します。または、今日を終了日として使用します。 |
-| filter    | string | X       | 適用するフィルター。 これは、エンコードされた文字列である必要があります。 開始日または終了日が指定されている場合、このパラメーターは省略可能です。                                                                                              |
+| startDate | date   | いいえ       | Yyyy-mm-dd 形式の開始日。 何も指定しない場合、結果セットの既定値は、要求日の30日前になります。 フィルターが指定されている場合、このパラメーターは省略可能です。                                          |
+| endDate   | date   | いいえ       | Yyyy-mm-dd 形式の終了日。 フィルターが指定されている場合、このパラメーターは省略可能です。 終了日を省略した場合、または null に設定した場合、要求は max ウィンドウを返します。または、今日を終了日として使用します。 |
+| フィルター    | string | いいえ       | 適用するフィルター。 これは、エンコードされた文字列である必要があります。 開始日または終了日が指定されている場合、このパラメーターは省略可能です。                                                                                              |
 
  
 
@@ -129,7 +129,7 @@ while (auditRecordEnumerator.HasValue)
 <thead>
 <tr class="header">
 <th>Key</th>
-<th>Value</th>
+<th>値</th>
 </tr>
 </thead>
 <tbody>
@@ -138,7 +138,7 @@ while (auditRecordEnumerator.HasValue)
 <td>フィルター処理するフィールド。 サポートされている値については、「<a href="#request">要求の構文</a>」を参照してください。</td>
 </tr>
 <tr class="even">
-<td>Value</td>
+<td>値</td>
 <td>フィルター処理の対象となる値。 値の大文字と小文字の区別は無視されます。 次の値パラメーターは、<a href="#request">要求構文</a>に示すようにサポートされています。
 <ul>
 <li><p>searchSubstring-会社名で置き換えます。 会社名の一部と一致する部分文字列を入力することができます (たとえば、&quot;の bri&quot; は Fabrikam, Inc.&quot;) と &quot;一致します。</p>
@@ -164,7 +164,7 @@ while (auditRecordEnumerator.HasValue)
 
 **要求本文**
 
-なし。
+[なし]。
 
 **要求の例**
 
@@ -186,7 +186,7 @@ Connection: Keep-Alive
 
 **応答成功およびエラーコード**
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 **応答の例**
 

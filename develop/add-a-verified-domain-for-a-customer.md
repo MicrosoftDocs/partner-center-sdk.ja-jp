@@ -3,20 +3,20 @@ title: 顧客の確認済みドメインを追加する
 description: パートナーセンターで、お客様の承認済みドメインの一覧に検証済みドメインを追加します。
 ms.date: 05/21/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f5abd926389c1c81a178fe5cd2476929070657f6
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 89ff3dd9ad8d752f559f23a886d632f60b846eac
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486222"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412598"
 ---
 # <a name="add-a-verified-domain-for-a-customer"></a>顧客の確認済みドメインを追加する
 
-適用対象:
+適用対象
 
-- パートナー センター
+- Partner Center
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,7 @@ ms.locfileid: "74486222"
 ## <a name="prerequisites"></a>前提条件
 
 - ドメインレジストラーであるパートナーである必要があります。
-- 「[パートナーセンターの認証](partner-center-authentication.md)」で説明されている資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 - 顧客 ID (顧客**tenantid**)。 顧客の ID を持っていない場合、パートナーセンターで ID を検索するには、顧客 の一覧から顧客を選択し、**アカウント** を選択して、Microsoft id を保存します。
 
 ## <a name="adding-a-verified-domain"></a>検証済みドメインの追加
@@ -49,59 +49,59 @@ ms.locfileid: "74486222"
 
 次のクエリパラメーターを使用して、確認済みドメインを追加する顧客を指定します。
 
-| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
+| Name                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 顧客 Tenantid | guid | Y        | 値は、顧客を指定できるようにする GUID 形式の顧客**tenantid**です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                                                  | 種類   | 必須                                      | 説明                                                |
+| Name                                                  | 種類   | 必須                                      | 説明                                                |
 |-------------------------------------------------------|--------|-----------------------------------------------|--------------------------------------------------------|
-| VerifiedDomainName                                    | string | 〇                                           | 検証済みのドメイン名。 |
-| [Domain](#domain)                                     | オブジェクト | 〇                                           | ドメイン情報が含まれています。 |
-| [Microsoft.online.administration.domainfederationsettings](#domain-federation-settings) | オブジェクト | はい (AuthenticationType が "フェデレーション" の場合)     | ドメインが "フェデレーション" ドメインで、"管理された" ドメインではない場合に使用されるドメインフェデレーション設定。 |
+| VerifiedDomainName                                    | string | はい                                           | 検証済みのドメイン名。 |
+| [Domain](#domain)                                     | object | はい                                           | ドメイン情報が含まれています。 |
+| [Microsoft.online.administration.domainfederationsettings](#domain-federation-settings) | object | はい (AuthenticationType が "フェデレーション" の場合)     | ドメインが "フェデレーション" ドメインで、"管理された" ドメインではない場合に使用されるドメインフェデレーション設定。 |
 
 #### <a name="domain"></a>ドメイン
 
 次の表では、要求本文の必須のドメインプロパティと省略可能な**ドメイン**プロパティについて説明します。
 
-| 名前               | 種類                                     | 必須 | 説明                                                                                                                                                                                                     |
+| Name               | 種類                                     | 必須 | 説明                                                                                                                                                                                                     |
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AuthenticationType                                    | string           | 〇      | ドメインが "管理されている" ドメインであるか "フェデレーション" ドメインであるかを定義します。 サポートされる値: 管理、フェデレーション。|
-| 機能                                            | string           | 〇      | ドメインの機能を指定します。 たとえば、"Email" のようにします。                  |
-| IsDefault                                             | null 許容のブール値 | X       | ドメインがテナントの既定のドメインかどうかを示します。 サポートされる値: True、False、Null。        |
-| IsInitial                                             | null 許容のブール値 | X       | ドメインが初期ドメインであるかどうかを示します。 サポートされる値: True、False、Null。                       |
-| 名前                                                  | string           | 〇      | ドメイン名。                                                          |
-| RootDomain                                            | string           | X       | ルートドメインの名前。                                              |
-| 状況                                                | string           | 〇      | ドメインの状態。 たとえば、"確認済み" などです。 サポートされている値: 未確認、検証済み、PendingDeletion。                               |
-| VerificationMethod                                    | string           | 〇      | ドメインの確認方法の種類。 サポートされている値: なし、DnsRecord、Email。                                    |
+| AuthenticationType                                    | string           | はい      | ドメインが "管理されている" ドメインであるか "フェデレーション" ドメインであるかを定義します。 サポートされる値: 管理、フェデレーション。|
+| 機能                                            | string           | はい      | ドメインの機能を指定します。 たとえば、"Email" のようにします。                  |
+| IsDefault                                             | null 許容のブール値 | いいえ       | ドメインがテナントの既定のドメインかどうかを示します。 サポートされる値: True、False、Null。        |
+| IsInitial                                             | null 許容のブール値 | いいえ       | ドメインが初期ドメインであるかどうかを示します。 サポートされる値: True、False、Null。                       |
+| Name                                                  | string           | はい      | ドメイン名。                                                          |
+| RootDomain                                            | string           | いいえ       | ルートドメインの名前。                                              |
+| 状態                                                | string           | はい      | ドメインの状態。 たとえば、"確認済み" などです。 サポートされている値: 未確認、検証済み、PendingDeletion。                               |
+| VerificationMethod                                    | string           | はい      | ドメインの確認方法の種類。 サポートされている値: なし、DnsRecord、Email。                                    |
 
 ##### <a name="domain-federation-settings"></a>ドメインのフェデレーション設定
 
 次の表では、要求本文の必須プロパティとオプションの**microsoft.online.administration.domainfederationsettings**プロパティについて説明します。
 
-| 名前   | 種類   | 必須 | 説明                                                  |
+| Name   | 種類   | 必須 | 説明                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| ActiveLogOnUri                         | string           | X      | リッチクライアントによって使用されるログオン URI。 これは、パートナーの STS 認証 URL です。 |
-| DefaultInteractiveAuthenticationMethod | string           | X      | アプリケーションがユーザーに対話型ログインを要求するときに使用する、既定の認証方法を示します。 |
-| FederationBrandName                    | string           | X      | フェデレーションブランド名。        |
-| IssuerUri                              | string           | 〇     | 証明書の発行者の名前。                        |
-| LogOffUri                              | string           | 〇     | ログオフ URI。 フェデレーションドメインのサインアウト URI について説明します。        |
-| MetadataExchangeUri                    | string           | X      | リッチクライアントアプリケーションからの認証に使用されるメタデータ交換エンドポイントを指定する URL。 |
-| NextSigningCertificate                 | string           | X      | ADFS V2 STS によって要求に署名するために将来使用される証明書。 これは、証明書の base64 でエンコードされた表現です。 |
-| OpenIdConnectDiscoveryEndpoint         | string           | X      | フェデレーション IDP STS の OpenID Connect 検出エンドポイント。 |
-| "いいえ Velogonuri"                        | string           | 〇     | 古いパッシブクライアントによって使用されるログオン URI。 これは、フェデレーションサインイン要求を送信するためのアドレスです。 |
-| PreferredAuthenticationProtocol        | string           | 〇     | 認証トークンの形式。 たとえば、"WsFed" などです。 サポートされる値: WsFed、Samlp |
-| PromptLoginBehavior                    | string           | 〇     | プロンプトのログイン動作の種類です。  たとえば、"TranslateToFreshPasswordAuth" のようになります。 サポートされる値: TranslateToFreshPasswordAuth、NativeSupport、Disabled |
-| SigningCertificate                     | string           | 〇     | ADFS V2 STS が要求に署名するために現在使用している証明書。 これは、証明書の base64 でエンコードされた表現です。 |
-| SigningCertificateUpdateStatus         | string           | X      | 署名証明書の更新状態を示します。 |
-| SigningCertificateUpdateStatus         | null 許容のブール値 | X      | IDP STS が MFA をサポートするかどうかを示します。 サポートされる値: True、False、Null。|
+| ActiveLogOnUri                         | string           | いいえ      | リッチクライアントによって使用されるログオン URI。 これは、パートナーの STS 認証 URL です。 |
+| DefaultInteractiveAuthenticationMethod | string           | いいえ      | アプリケーションがユーザーに対話型ログインを要求するときに使用する、既定の認証方法を示します。 |
+| FederationBrandName                    | string           | いいえ      | フェデレーションブランド名。        |
+| IssuerUri                              | string           | はい     | 証明書の発行者の名前。                        |
+| LogOffUri                              | string           | はい     | ログオフ URI。 フェデレーションドメインのサインアウト URI について説明します。        |
+| MetadataExchangeUri                    | string           | いいえ      | リッチクライアントアプリケーションからの認証に使用されるメタデータ交換エンドポイントを指定する URL。 |
+| NextSigningCertificate                 | string           | いいえ      | ADFS V2 STS によって要求に署名するために将来使用される証明書。 これは、証明書の base64 でエンコードされた表現です。 |
+| OpenIdConnectDiscoveryEndpoint         | string           | いいえ      | フェデレーション IDP STS の OpenID Connect 検出エンドポイント。 |
+| PassiveLogOnUri                        | string           | はい     | 古いパッシブクライアントによって使用されるログオン URI。 これは、フェデレーションサインイン要求を送信するためのアドレスです。 |
+| PreferredAuthenticationProtocol        | string           | はい     | 認証トークンの形式。 たとえば、"WsFed" などです。 サポートされる値: WsFed、Samlp |
+| PromptLoginBehavior                    | string           | はい     | プロンプトのログイン動作の種類です。  たとえば、"TranslateToFreshPasswordAuth" のようになります。 サポートされる値: TranslateToFreshPasswordAuth、NativeSupport、Disabled |
+| SigningCertificate                     | string           | はい     | ADFS V2 STS が要求に署名するために現在使用している証明書。 これは、証明書の base64 でエンコードされた表現です。 |
+| SigningCertificateUpdateStatus         | string           | いいえ      | 署名証明書の更新状態を示します。 |
+| SigningCertificateUpdateStatus         | null 許容のブール値 | いいえ      | IDP STS が MFA をサポートするかどうかを示します。 サポートされる値: True、False、Null。|
 
 ### <a name="request-example"></a>要求の例
 
@@ -149,9 +149,9 @@ X-Locale: "en-US"
 
 成功した場合、この API は新しい検証済みドメインの[ドメイン](#domain)リソースを返します。
 
-### <a name="response-success-and-error-codes"></a>応答成功およびエラーコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが付属しています。 ネットワークトレースツールを使用して、このコード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="response-example"></a>応答の例
 
