@@ -6,6 +6,7 @@
       "build_output_subfolder": "partner-center-sdk",
       "locale": "ja-jp",
       "monikers": [],
+      "moniker_ranges": [],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
@@ -26,7 +27,8 @@
   "git_repository_branch_open_to_public_contributors": "live",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
-  "need_preview_pull_request": false,
+  "need_preview_pull_request": true,
+  "resolve_user_profile_using_github": true,
   "contribution_branch_mappings": {
     "live-sxs": "live"
   },
