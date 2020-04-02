@@ -42,13 +42,13 @@
       "breadcrumb_path": "/partner-center/develop/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "feedback_system": "GitHub",
-      "feedback_github_repo": "MicrosoftDocs/partner-center-sdk.de-de",
+      "feedback_github_repo": "MicrosoftDocs/partner-center-sdk.ja-jp",
       "author": "JasonWHowell",
       "manager": "jasonh",
       "ms.author": "jasonh",
       "ms.topic": "article",
-      "ms.prod": "partner-center",
-      "ms.technology": "partner-center-sdk",
+      "ms.service": "partner-dashboard",
+      "ms.subservice": "partnercenter-sdk",
       "searchScope": [ "Partner Center", "Partner Center developer resources" ],
       "_op_documentIdPathDepotMapping": {
         "./": {
