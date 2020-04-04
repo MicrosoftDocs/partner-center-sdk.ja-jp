@@ -4,14 +4,14 @@ description: パートナー センター SDK に対して開発を行うため�
 ms.assetid: 182A6831-6F00-4762-9A86-327BF87EA6AC
 ms.date: 05/29/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 55c7259943dae2cd34ead9583f95afc38df47a3f
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: f98541f22f905238bc374c6215edd8460cc34fc6
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "74488062"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415239"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>パートナー センターでの API アクセスの設定
 

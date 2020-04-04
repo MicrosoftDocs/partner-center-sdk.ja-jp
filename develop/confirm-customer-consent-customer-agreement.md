@@ -3,14 +3,14 @@ title: Microsoft 顧客契約へのお客様の同意を確認する
 description: Microsoft 顧客契約に対するお客様の同意を確認します。
 ms.date: 02/04/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a94a4025aefba230f1abf83bcbc681ca7d55ed8
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 8215fa2a39e269195d2b13d88561b6fbf61875e2
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899899"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412870"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft 顧客契約へのお客様の同意を確認する
 

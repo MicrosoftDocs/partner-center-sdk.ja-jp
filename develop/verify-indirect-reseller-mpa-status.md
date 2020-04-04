@@ -3,14 +3,14 @@ title: 間接リセラーの Microsoft Partner Agreement の署名状態を確�
 description: AgreementStatus API を使用して、間接リセラーが Microsoft パートナー契約に署名したかどうかを確認できます。
 ms.date: 10/30/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 14a66334793bfe6a1b87f0976a4084e76c331b65
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 4a687e104038b2e53e3d9b195ad05f01a40ac763
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "74995179"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414341"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>間接リセラーの Microsoft Partner Agreement の署名状態を確認する
 

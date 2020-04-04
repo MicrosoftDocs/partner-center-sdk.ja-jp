@@ -4,14 +4,14 @@ description: Partner Center SDK には、パートナーが顧客、サブスク
 ms.assetid: D9A91032-CA5B-4CD2-ADBA-6C5513E05D32
 ms.date: 09/29/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d47c3c41a7f6a23d8be6e9c20c16e6f7c01f275
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: f8ff1468afbab87ec2b62765f4340aebcc914bf3
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "74995227"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416666"
 ---
 # <a name="get-started"></a>開始
 
