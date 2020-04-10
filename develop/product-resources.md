@@ -6,12 +6,12 @@ ms.date: 04/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 780dad337c04627c30db4fd3c207c2fda0e3bb98
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 1e57514fd9782a525a1dc95009e9b5005339b886
+ms.sourcegitcommit: cd71c397f0bc8aeaefb1d9dfe8dc941c6b439004
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416346"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112651"
 ---
 # <a name="products-resources"></a>製品リソース
 
@@ -34,7 +34,7 @@ ms.locfileid: "80416346"
 | title              | string                        | 製品タイトル。                                                       |
 | description        | string                        | 製品の説明。                                                 |
 | productType        | [ItemType](#itemtype)         | この製品の種類の分類を記述するオブジェクト。     |
-| Ismicrosoft 製品 | bool                          | これがマイクロ Swoft 製品であるかどうかを示します。                          |
+| Ismicrosoft 製品 | bool                          | これが Microsoft 製品であるかどうかを示します。                          |
 | publisherName      | string                        | 使用可能な場合は、製品の発行元の名前。                          |
 | リンク              | [ProductLinks](#productlinks) | 製品内に含まれるリソースリンク。                         |
 
