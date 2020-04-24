@@ -5,16 +5,16 @@ ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8215fa2a39e269195d2b13d88561b6fbf61875e2
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 33a2dacc622c87feb3058931259ad7fbea7a0758
+ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412870"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82093814"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft 顧客契約へのお客様の同意を確認する
 
-適用先:
+**適用対象:**
 
 - パートナー センター
 
@@ -77,7 +77,6 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 
 完全なサンプルについては、[コンソール テスト アプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) プロジェクトの [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) クラスを参照してください。
 
-
 ## <a name="rest-request"></a>REST 要求
 
 Microsoft 顧客契約に対する顧客の同意を確認または再確認するには、次のようにします。
@@ -107,9 +106,9 @@ Microsoft 顧客契約に対する顧客の同意を確認または再確認す�
 
 次の表では、REST 要求本文の必須プロパティについて説明しています。
 
-| 名前      | 種類   | 説明                                                                                  |  
-|-----------|--------|----------------------------------------------------------------------------------------------|  
-| 契約 | オブジェクト | Microsoft 顧客契約に対する顧客の同意を確認するためにパートナーにより指定される詳細。 |  
+| 名前      | 種類   | 説明                                                                                  |
+|-----------|--------|----------------------------------------------------------------------------------------------|
+| 契約 | オブジェクト | Microsoft 顧客契約に対する顧客の同意を確認するためにパートナーにより指定される詳細。 |
 
 #### <a name="agreement"></a>契約
 
@@ -121,7 +120,7 @@ Microsoft 顧客契約に対する顧客の同意を確認または再確認す�
 | dateAgreed     | UTC 日時形式の文字列 |顧客が契約に同意した日付。 |
 | templateId     | string | 顧客が同意した契約の種類を表す一意の識別子。 Microsoft 顧客契約の契約メタデータを取得することで、Microsoft 顧客契約の **templateId** を取得できます。 詳細については、「[Microsoft 顧客契約の契約メタデータを取得する](./get-customer-agreement-metadata.md)」を参照してください。 |
 | 型           | string | 顧客が同意した契約の種類。 顧客が Microsoft 顧客契約に同意している場合には、"MicrosoftCustomerAgreement" を使用します。 |
-  
+
 #### <a name="request-example"></a>要求の例
 
 ```http
@@ -149,7 +148,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 #### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。
 
 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
