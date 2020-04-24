@@ -11,12 +11,12 @@ metadata:
   author: jasonwhowell
   ms.author: jasonh
   ms.date: 01/08/2020
-  ms.openlocfilehash: 88667705f343bc63393738f1b83ef787e6e0ab2d
-  ms.sourcegitcommit: cd71c397f0bc8aeaefb1d9dfe8dc941c6b439004
+  ms.openlocfilehash: d7213a6c4d63ad5b76723bed6b3166b7583cffe7
+  ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 04/10/2020
-  ms.locfileid: "81112661"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82089962"
 landingContent:
 - title: パートナー センターを使用して開発する
   linkLists:
