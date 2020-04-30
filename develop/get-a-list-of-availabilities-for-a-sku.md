@@ -1,31 +1,34 @@
 ---
-title: SKU に使用できる機能の一覧を取得する (国別)
+title: SKU の空き状況の一覧を取得する (国別)
 description: 指定された製品および SKU の利用能力のコレクションを顧客の国別に取得する方法。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b8474506ecb928785c274566eda393ccd96620f4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0ba3e0dcffbe709eac7d5885f72cf303c24b94d6
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415621"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155694"
 ---
-# <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>SKU に使用できる機能の一覧を取得する (国別)
+# <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>SKU の空き状況の一覧を取得する (国別)
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
-このトピックでは、指定された製品および SKU の特定の国で利用できる機能のコレクションを取得する方法について説明します。
+この記事では、指定された製品および SKU の特定の国で利用できる機能のコレクションを取得する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - 製品識別子。
+
 - SKU 識別子。
+
 - 国。
 
 ## <a name="c"></a>C\#
@@ -33,8 +36,11 @@ ms.locfileid: "80415621"
 [SKU](product-resources.md#sku)に使用できる機能の一覧を取得するには、[次のよう](product-resources.md#availability)にします。
 
 1. 「 [ID で sku を取得](get-a-sku-by-id.md)する」の手順に従って、特定の sku の操作のインターフェイスを取得します。
+
 2. SKU インターフェイスから、[利用**能力**] プロパティを選択して、利用できる操作を含むインターフェイスを取得します。
+
 3. Optional**Bytargetsegment ()** メソッドを使用して、ターゲットセグメントで可用性をフィルター処理します。
+
 4. **Get ()** または**GetAsync ()** を呼び出して、この SKU の利用能力のコレクションを取得します。
 
 ``` csharp
@@ -60,39 +66,37 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
-
-| メソッド  | 要求 URI                                                                                                                              |
+| 認証方法  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities? country = {country-code} & targetsegment = {target-SEGMENT} HTTP/1.1     |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities? country = {country-code} &targetsegment = {target-SEGMENT} HTTP/1.1     |
 
-#### <a name="uri-parameters"></a>URI パラメーター
+### <a name="uri-parameters"></a>URI パラメーター
 
 SKU に利用できる機能の一覧を取得するには、次のパスとクエリパラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                     |
+| 名前                   | Type     | 必須 | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 製品 id             | string   | はい      | 製品を識別する文字列。                           |
 | sku-id                 | string   | はい      | SKU を識別する文字列。                               |
 | 国-コード           | string   | はい      | 国/地域 ID。                                            |
 | ターゲット-セグメント         | string   | いいえ       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
-| reservationScope | string   | いいえ | Azure 予約 SKU の利用可能な機能の一覧を照会するときに、`reservationScope=AzurePlan` を指定して、AzurePlan に適用できる利用可能な機能の一覧を取得します。 Microsoft Azure (0145P) サブスクリプションに適用できる利用可能な機能の一覧を取得するには、このパラメーターを除外します。  |
+| reservationScope | string   | いいえ | Azure 予約 SKU の利用可能な機能の一覧を照会するときに`reservationScope=AzurePlan` 、AzurePlan に適用できる利用可能な機能の一覧を取得するように指定します。 Microsoft Azure (0145P) サブスクリプションに適用できる利用可能な機能の一覧を取得するには、このパラメーターを除外します。  |
 
-#### <a name="request-headers"></a>要求ヘッダー
+### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-#### <a name="request-examples"></a>要求の例
+### <a name="request-examples"></a>要求の例
 
-##### <a name="availabilities-for-sku-by-country"></a>国別の SKU の利用能力
+#### <a name="availabilities-for-sku-by-country"></a>国別の SKU の利用能力
 
 次の例に従って、特定の SKU の利用できる機能の一覧を国別に取得します。
 
@@ -104,7 +108,7 @@ MS-RequestId: 70324727-62d8-4195-8f99-70ea25058d02
 MS-CorrelationId: 83b644b5-e54a-4bdc-b354-f96c525b3c58
 ```
 
-##### <a name="availabilities-for-vm-reservations-azure-plan"></a>VM 予約の利用能力 (Azure プラン)
+#### <a name="availabilities-for-vm-reservations-azure-plan"></a>VM 予約の利用能力 (Azure プラン)
 
 次の例に従って、Azure VM 予約 Sku の国別利用できる機能の一覧を取得します。 この例は、Azure プランに適用される Sku を対象としています。
 
@@ -116,7 +120,7 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-##### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS AZR-0145P) サブスクリプションの VM 予約の可用性機能
+#### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS AZR-0145P) サブスクリプションの VM 予約の可用性機能
 
 次の例に従って、Microsoft Azure (0145P) サブスクリプションに適用される Azure VM 予約の国別の利用可能な機能の一覧を取得します。
 
@@ -128,11 +132,11 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[**可用性**](product-resources.md#availability)リソースのコレクションが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
@@ -142,7 +146,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | 403                  | 400030       | 要求された**Targetsegment**へのアクセスは許可されていません。                                                     |
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

@@ -5,25 +5,27 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 00e4f809518ef1e20220a496686627941f439650
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 45661cd259981ae7e737ee3d74cbc2dbfb285054
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414230"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155404"
 ---
 # <a name="create-a-product-upgrade-entity-for-a-customer"></a>顧客の製品アップグレードエンティティを作成する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 製品アップグレードエンティティを作成して、 **productupgrade**のリソースを使用して、顧客を特定の製品ファミリ (たとえば、Azure プラン) にアップグレードすることができます。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、[セキュリティで保護されたアプリモデル](enable-secure-app-model.md)に従います。
-- 顧客識別子。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 顧客のアップグレード先となる製品ファミリ。
 
 ## <a name="c"></a>C\#
@@ -31,8 +33,11 @@ ms.locfileid: "80414230"
 顧客を Azure プランにアップグレードするには:
 
 1. **Product・アップグレード Esrequest**オブジェクトを作成し、製品ファミリとして顧客識別子と "Azure" を指定します。
+
 2. **Iaggregatepartner.customers**コレクションを使用します。
+
 3. **Create**メソッドを呼び出し、 **productの要求**オブジェクトを渡します。これにより、**場所ヘッダー**文字列が返されます。
+
 4. [アップグレードの状態を照会](get-product-upgrade-status.md)するために使用できる場所ヘッダー文字列から**アップグレード id**を抽出します。
 
 ```csharp
@@ -54,15 +59,13 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
-
-| メソッド   | 要求 URI                                                                                   |
+| 認証方法   | 要求 URI                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1 |
 
 #### <a name="request-headers"></a>要求ヘッダー
 
@@ -93,15 +96,15 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答には、製品のアップグレード状態を取得するために使用できる URI を含む**Location**ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 202 Accepted

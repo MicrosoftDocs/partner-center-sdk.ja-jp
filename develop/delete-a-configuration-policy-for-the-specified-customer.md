@@ -1,23 +1,23 @@
 ---
-title: 指定された顧客の構成ポリシーを削除します
+title: 指定された顧客の構成ポリシーを削除する
 description: 指定された顧客とポリシー識別子の構成ポリシーを削除する方法。
 ms.assetid: DEFEC12E-3EA0-401B-B612-ACD1D71DB415
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1534b6b18bcc14789c8f6945243f9cd591e2eed4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 8741f036ce535e918b92552084ba84db6dff6899
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413397"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155294"
 ---
-# <a name="delete-a-configuration-policy-for-the-specified-customer"></a>指定された顧客の構成ポリシーを削除します
+# <a name="delete-a-configuration-policy-for-the-specified-customer"></a>指定された顧客の構成ポリシーを削除する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
 指定された顧客とポリシー識別子の構成ポリシーを削除する方法。
@@ -25,7 +25,9 @@ ms.locfileid: "80413397"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - ポリシー識別子。
 
 ## <a name="c"></a>C\#
@@ -33,7 +35,9 @@ ms.locfileid: "80413397"
 指定された顧客の構成ポリシーを削除するには:
 
 1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+
 2. ポリシー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)メソッドを呼び出し、指定したポリシーの構成ポリシー操作へのインターフェイスを取得します。
+
 3. [**削除**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete)または[**deleteasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync)メソッドを呼び出して、構成ポリシーを削除します。
 
 ``` csharp
@@ -50,22 +54,22 @@ partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド     | 要求 URI                                                                                          |
+| 認証方法     | 要求 URI                                                                                          |
 |------------|------------------------------------------------------------------------------------------------------|
-| **デリート** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
+| **DELETE** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies/{policy-id} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| Name        | 種類   | 必須 | 説明                                                   |
+| 名前        | Type   | 必須 | 説明                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。         |
+| customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。         |
 | ポリシー-id   | string | はい      | 削除するポリシーを識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 

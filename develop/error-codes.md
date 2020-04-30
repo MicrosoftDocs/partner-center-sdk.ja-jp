@@ -1,23 +1,23 @@
 ---
-title: パートナーセンターの REST エラーコード
+title: パートナー センター REST エラー コード
 description: パートナーセンターの Api からのエラーコードと成功応答の説明。
 ms.assetid: 08AC1F2E-5847-4AD8-AE5B-0173C5DB589A
 ms.date: 06/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2bb945de632b0bf18eea73db739ad0aa6085eecc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: d4f31783b94ed8cae85687b806624945bb185486
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415642"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155754"
 ---
-# <a name="partner-center-rest-error-codes"></a>パートナーセンターの REST エラーコード
+# <a name="partner-center-rest-error-codes"></a>パートナー センター REST エラー コード
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -53,12 +53,12 @@ ms.locfileid: "80415642"
 
 次の表とコードサンプルでは、エラー応答のスキーマについて説明します。
 
-| Name        | 種類   | 説明                                                                                                                                            |
+| 名前        | Type   | 説明                                                                                                                                            |
 |-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | code        | string | 常に返されます。 発生したエラーの種類を示します。 null 以外。                                                                                  |
 | description | string | 常に返されます。 エラーを詳しく説明し、追加のデバッグ情報を提供します。 null または空以外。 最大長は 1024 文字です。 |
 | data        | array  | 一部のエラーの種類に対してのみ返されます。 エラーオブジェクトの一覧。                                                                                           |
-| source      | string | 常に返されます。 エラーの発生元。                                                                                                              |
+| source      | string | 常に返されます。 エラーのソースです。                                                                                                              |
 
 ```json
 {
@@ -68,6 +68,6 @@ ms.locfileid: "80415642"
 
   ],
   "source": <string>
-## }
+}
 WWW-Authenticate: OAuth realm=urn:cpsvc:cpid:{some cid}
 ```

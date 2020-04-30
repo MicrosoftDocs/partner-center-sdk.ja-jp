@@ -1,22 +1,22 @@
 ---
-title: Microsoft カスタマーアグリーメントテンプレートのダウンロードリンクを取得する
+title: Microsoft 顧客契約テンプレートのダウンロード リンクを取得する
 description: Microsoft カスタマーアグリーメントテンプレートのダウンロードリンクを取得します。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a84f1d2e5d6c156cba10284a5718bdaee3c9fe93
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: dcc81acbab84e7f6ac9a495c00b2798c87075d89
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414164"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155582"
 ---
-# <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft カスタマーアグリーメントテンプレートのダウンロードリンクを取得する
+# <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft 顧客契約テンプレートのダウンロード リンクを取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 **AgreementDocument**リソースは、現在、 *Microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 このリソースはに適用されません:
 
@@ -29,12 +29,17 @@ ms.locfileid: "80414164"
 ## <a name="prerequisites"></a>前提条件
 
 - パートナー センター .NET SDK を使用している場合、バージョン 1.14 以降が必要です。
+
 - [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
+
 - Microsoft カスタマーアグリーメントテンプレートが適用される顧客の国。
+
 - Microsoft カスタマーアグリーメントテンプレートをローカライズする言語。
 
 > [!IMPORTANT]
+>
 > - Microsoft カスタマーアグリーメントは、国によって異なります。 Microsoft カスタマーアグリーメントテンプレートをダウンロードするためのリンクを要求する場合は、顧客の所在地に基づいて正しい国を指定するようにしてください。 サポートされている国の一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。
+>
 > - 一部の国では、Microsoft カスタマー契約を複数の言語で利用できます。 最適なカスタマーエクスペリエンスを実現するには、お客様のニーズに最も合った言語を選択してください。 サポートされている言語の一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。
 > - この方法は、Microsoft カスタマーアグリーメントでのみサポートされています。
 
@@ -44,40 +49,46 @@ Microsoft カスタマーアグリーメントテンプレートをダウンロ�
 
 1. Microsoft 顧客契約の契約メタデータを取得します。 Microsoft 顧客契約の **templateId** を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
 
-```csharp
-// IAggregatePartner partnerOperations;
+   ```csharp
+   // IAggregatePartner partnerOperations;
 
-string agreementType = "MicrosoftCustomerAgreement";
+   string agreementType = "MicrosoftCustomerAgreement";
 
-AgreementMetaData microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
-```
+   AgreementMetaData microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.   ByAgreementType(agreementType).Get().Items.Single();
+   ```
 
 2. AgreementTemplates コレクションを使用します。
+
 3. **ById**メソッドを呼び出し、Microsoft カスタマーアグリーメントの**templateId**を指定します。
+
 4. **ドキュメント**プロパティを取得します。
+
 5. **Bycountry**メソッドを呼び出し、契約テンプレートが適用される顧客の国を指定します。 メソッドが指定されていない場合、クエリの既定値は*US*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。 このメソッドでは **、大文字と小文字が区別**されます。
+
 6. **Bylanguage**メソッドを呼び出し、アグリーメントテンプレートのローカライズに使用する言語を指定します。 メソッドが指定されていない場合、または指定された国コードが指定された国でサポートされていない場合、クエリは既定で*en-us*に設定されます。 サポートされている言語コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。
+
 7. **Get**または**GetAsync**メソッドを呼び出します。
 
-```csharp
-// IAggregatePartner partnerOperations;
+   ```csharp
+   // IAggregatePartner partnerOperations;
 
-string customerCountry = "US";
+   string customerCountry = "US";
 
-string languageForLocalization = "en-US";
+   string languageForLocalization = "en-US";
 
-var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCustomerAgreementDetails.TemplateId).Document.ByCountry(customerCountry).ByLanguage(languageForLocalization).Get();
-```
+   var agreementDocument = partnerOperations.   AgreementTemplates.ById   (microsoftCustomerAgreementDetails.   TemplateId).Document.ByCountry   (customerCountry).ByLanguage   (languageForLocalization).Get();
+   ```
 
-完全なサンプルは、[コンソールテストアプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)プロジェクトの[GetAgreementDocument](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDocument.cs)クラスにあります。
-
+完全なサンプルは、[コンソールテストアプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)プロジェクトの[GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs)クラスにあります。
 
 ## <a name="rest-request"></a>REST 要求
 
 Microsoft カスタマーアグリーメントテンプレートをダウンロードするためのリンクを取得するには、次のようにします。
 
 1. Microsoft 顧客契約の契約メタデータを取得します。 Microsoft 顧客契約の **templateId** を取得する必要があります。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
+
 2. REST 要求を作成して、 [ **AgreementDocument**リソース](./agreement-document-resources.md)をフェッチします。 例については、「[要求構文](#request-syntax)の例」を参照してください。 次の情報を指定する必要があります。
+
     - Microsoft カスタマーアグリーメントの**templateId** 。
     - Microsoft カスタマー契約テンプレートが適用される国。
     - Microsoft カスタマーアグリーメントテンプレートをローカライズする言語。
@@ -86,17 +97,17 @@ Microsoft カスタマーアグリーメントテンプレートをダウンロ�
 
 このリソースには次の要求構文を使用します。
 
-| メソッド | 要求 URI |
+| Method | 要求 URI |
 |--------|---------------------------------------------------------------------|
-| GET | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreementtemplates/{agreement-template-id}/document? language = {language} & country = {COUNTRY} HTTP/1.1 |
+| GET | baseURL/v1/agreementtemplates/{agreement-template-id}/document? language = {language} &country = {country} HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
 要求では、次の URI パラメーターを使用できます。
 
-| Name                   | 種類   | 必須 | 説明                                 |
+| 名前                   | Type   | 必須 | 説明                                 |
 |------------------------|--------|----------|---------------------------------------------|
-| 契約テンプレート-id  | string | はい      | 契約の種類を表す一意の識別子。 Microsoft Customer Agreement の契約メタデータを取得することによって、templateId for Microsoft Customer Agreement を取得できます。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](./get-customer-agreement-metadata.md)」を参照してください。 このパラメーターでは **、大文字と小文字が区別**されます。|
+| 契約テンプレート-id  | string | はい      | 契約の種類を表す一意の識別子。 Microsoft 顧客契約の契約メタデータを取得することで、Microsoft 顧客契約の templateId を取得できます。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](./get-customer-agreement-metadata.md)」を参照してください。 このパラメーターでは **、大文字と小文字が区別**されます。|
 | country                | string | いいえ       | アグリーメントテンプレートを適用する国を指定します。 パラメーターが指定されていない場合、クエリの既定値は*US*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
 | language               | string | いいえ       | アグリーメントテンプレートのローカライズに使用する言語を指定します。 パラメーターが指定されていない場合、または指定された国に対して指定された国コードがサポートされていない場合、クエリの既定値は*en-us*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
 
@@ -106,7 +117,7 @@ Microsoft カスタマーアグリーメントテンプレートをダウンロ�
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 
@@ -151,253 +162,251 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 > [!IMPORTANT]
 > 国コードプロパティでは、大文字と小文字が区別されます。 次の表で指定されている正しい文字種を使用してください。
 
-| 国                   | 国コード   | サポートされている言語コード |
+| Country                   | 国番号   | サポートされている言語コード |
 |------------------------|--------|----------|
-| オーランド諸島 | AX | en-US |
-| アフガニスタン | AF | en-US |
-| アルバニア | AL | en-US |
+| オーランド諸島 | AX | ja-JP |
+| アフガニスタン | AF | ja-JP |
+| アルバニア | AL | ja-JP |
 | アルジェリア | DZ | en-us, fr-fr, en-us, en-us |
-| 米領サモア | AS | en-US |
-| アンドラ | AD | en-US |
+| アメリカ領サモア | AS | ja-JP |
+| アンドラ | AD | ja-JP |
 | アンゴラ | AO | en-us、pt-PT |
-| アンギラ | AI | en-US |
-| 南極 | 以降 | en-US |
-| アンティグア・バーブーダ | AG | en-US |
+| アンギラ | AI | ja-JP |
+| 南極 | AQ | ja-JP |
+| アンティグア・バーブーダ | AG | ja-JP |
 | アルゼンチン | AR | en-us、es |
-| アルメニア | AM | en-US |
-| アルバ | AW | en-US |
-| オーストラリア | AU | en-US |
+| アルメニア | AM | ja-JP |
+| アルバ | AW | ja-JP |
+| オーストラリア | AU | ja-JP |
 | オーストリア | AT | en-us、de |
-| アゼルバイジャン | AZ | en-US |
-| バハマ | BS | en-US |
+| アゼルバイジャン | AZ | ja-JP |
+| バハマ | BS | ja-JP |
 | バーレーン | BH | en-us、ar-SA |
-| バングラデシュ | BD | en-US |
-| バルバドス | BB | en-US |
+| バングラデシュ | BD | ja-JP |
+| バルバドス | BB | ja-JP |
 | ベラルーシ | BY | en-US、ru-RU |
 | ベルギー | BE | en-us、nl-NL |
 | ベリーズ | BZ | en-us、es |
-| ベナン | BJ | en-US |
-| バミューダ諸島 | BM.EXE | en-US |
-| ブータン | BT | en-US |
+| ベナン | BJ | ja-JP |
+| バミューダ | BM | ja-JP |
+| ブータン | BT | ja-JP |
 | ボリビア | BO | en-us、es |
-| ボネール島 | BQ | en-US |
-| ボスニア・ヘルツェゴビナ | BA | en-US |
-| ボツワナ | BW | en-US |
-| ブーベ島 | BV | en-US |
+| ボネール島 | BQ | ja-JP |
+| ボスニア・ヘルツェゴビナ | BA | ja-JP |
+| ボツワナ | BW | ja-JP |
+| ブーベ島 | BV | ja-JP |
 | ブラジル | BR | en-us、pt-BR |
-| 英領インド洋地域 | IO | en-US |
-| 英領バージン諸島 | VG | en-US |
-| ブルネイ | BN | en-US |
+| 英領インド洋地域 | IO | ja-JP |
+| 英領バージン諸島 | VG | ja-JP |
+| ブルネイ | BN | ja-JP |
 | ブルガリア | BG | en-us、bg-BG |
-| ブルキナファソ | BF | en-US |
-| ブルンジ | POWER | en-US |
+| ブルキナファソ | BF | ja-JP |
+| ブルンジ | BI | ja-JP |
 | コートジボワール | CI | en-US、fr-FR |
 | カーボベルデ | CV | en-us、pt-PT |
-| カンボジア | KH | en-US |
+| カンボジア | KH | ja-JP |
 | カメルーン | CM | en-US、fr-FR |
-| カナダ | CA | en-US、fr-FR |
-| ケイマン諸島 | アヒル | en-us、en-us |
-| 中央アフリカ共和国 | CF | en-US |
-| チャド | TD | en-US |
+| Canada | CA | en-US、fr-FR |
+| ケイマン諸島 | KY | en-us、en-us |
+| 中央アフリカ共和国 | CF | ja-JP |
+| チャド | TD | ja-JP |
 | チリ | CL | en-us、es |
-| クリスマス島 | シリーズ | en-US |
-| ココス諸島 | [CC] | en-US |
+| クリスマス島 | CX | ja-JP |
+| ココス諸島 | CC | ja-JP |
 | コロンビア | CO | en-us、es |
-| コモロ | KM | en-US |
-| コンゴ民主共和国 | CD | en-US |
-| コンゴ共和国 | 抗力 | en-US |
-| クック諸島 | CK | en-US |
+| コモロ | KM | ja-JP |
+| コンゴ民主共和国 | CD | ja-JP |
+| コンゴ共和国 | CG | ja-JP |
+| クック諸島 | CK | ja-JP |
 | コスタリカ | CR | en-us、es |
 | クロアチア | HR | en-us、hr-HR |
-| キュラソー島 | 数量 | en-US |
-| キプロス | CY | en-US |
-| Czechia | CZ | en-us, cs-CS-CZ |
+| キュラソー島 | CW | ja-JP |
+| キプロス | CY | ja-JP |
+| チェコ | CZ | en-us, cs-CS-CZ |
 | デンマーク | DK | en-us、da-DK |
-| ジブチ | DJ | en-US |
-| ドミニカ国 | DM | en-US |
+| ジブチ | DJ | ja-JP |
+| ドミニカ国 | DM | ja-JP |
 | ドミニカ共和国 | DO | en-us、es |
-| エクアドル | EC | en-US |
+| エクアドル | EC | ja-JP |
 | エジプト | EG | en-us、ar-SA |
 | エルサルバドル | SV | en-us、es |
-| 赤道ギニア | GQ | en-US |
-| エリトリア | 壁紙 | en-US |
+| 赤道ギニア | GQ | ja-JP |
+| エリトリア | ER | ja-JP |
 | エストニア | EE | en-us、et-EE |
-| eSwatini | SZ | en-US |
-| エチオピア | ET | en-US |
-| フォークランド諸島 | FK (FK) | en-US |
-| フェロー諸島 | FO | en-US |
-| フィジー諸島 | FJ | en-US |
+| スワジランド | SZ | ja-JP |
+| エチオピア | ET | ja-JP |
+| フォークランド諸島 | FK (FK) | ja-JP |
+| フェロー諸島 | FO | ja-JP |
+| フィジー | FJ | ja-JP |
 | フィンランド | FI | en-us、fi FI |
-| France | FR | en-US、fr-FR |
-| フランス領ギアナ | GF | en-US、fr-FR  |
-| フランス領ポリネシア | PF | en-US |
-| 仏領極南諸島 | TF | en-US |
-| ガボン | GA | en-US |
-| ガンビア | GM | en-US |
-| Georgia | GE | en-US |
-| Germany | DE | en-us、de |
-| ガーナ | GH | en-US |
-| ジブラルタル | GI | en-US |
+| フランス | FR | en-US、fr-FR |
+| 仏領ギアナ | GF | en-US、fr-FR  |
+| フランス領ポリネシア | PF | ja-JP |
+| 仏領極南諸島 | TF | ja-JP |
+| ガボン | GA | ja-JP |
+| ガンビア | GM | ja-JP |
+| ジョージア | GE | ja-JP |
+| ドイツ | DE | en-us、de |
+| ガーナ | GH | ja-JP |
+| ジブラルタル | GI | ja-JP |
 | ギリシャ | GR | en-us、el-GR |
-| グリーンランド | GL | en-US |
-| グレナダ | GD | en-US |
-| グアドループ | GP | en-US |
-| グアム | GU | en-US |
+| グリーンランド | GL | ja-JP |
+| グレナダ | GD | ja-JP |
+| グアドループ | GP | ja-JP |
+| グアム | GU | ja-JP |
 | グアテマラ | GT | en-us、es |
-| ガーンジー島 | GG | en-US |
-| ギニア | GN | en-US |
-| ギニアビサウ | GW | en-US |
-| ガイアナ | GY | en-US |
-| ハイチ | HT | en-US |
-| ハード・マクドナルド諸島 | HM | en-US |
+| ガーンジー島 | GG | ja-JP |
+| ギニア | GN | ja-JP |
+| ギニアビサウ | GW | ja-JP |
+| ガイアナ | GY | ja-JP |
+| ハイチ | HT | ja-JP |
+| ハード・マクドナルド諸島 | HM | ja-JP |
 | ホンジュラス | HN | en-us、es |
-| 香港 | HK | en-us、zh-tw-HK |
+| 香港特別行政区 | HK | en-us、zh-tw-HK |
 | ハンガリー | HU | en-us、hu-HU |
-| アイスランド | IS | en-US |
+| アイスランド | IS | ja-JP |
 | インド | IN | en-us、こんにちは |
-| インドネシア | ID | en-us、id-ID |
+| インドネシア | id | en-us、id-ID |
 | イラク | IQ | en-us、ar-SA |
-| アイルランド | IE | en-US |
-| マン島 | IM | en-US |
+| アイルランド | IE | ja-JP |
+| マン島 | IM | ja-JP |
 | イスラエル | IL | en-us、he |
 | イタリア | IT | en-us、it |
-| ジャマイカ | JM | en-US |
-| ヤンマイエン島 | XJ | en-US |
-| Japan | JP | en-us、ja-jp |
-| ジャージー島 | JE | en-US |
+| ジャマイカ | JM | ja-JP |
+| ヤンマイエン島 | XJ | ja-JP |
+| 日本 | JP | en-us、ja-jp |
+| ジャージー島 | JE | ja-JP |
 | ヨルダン | JO | en-us、ar-SA |
 | カザフスタン | KZ | en-us、kk-KZ |
-| ケニア | KE | en-US |
-| キリバス | KI | en-US |
-| Korea | KR | en-us、ko-韓国 |
-| コソボ | XK | en-US |
+| ケニア | KE | ja-JP |
+| キリバス | KI | ja-JP |
+| 韓国 | KR | en-us、ko-韓国 |
+| コソボ | XK | ja-JP |
 | クウェート | KW | en-us、ar-SA |
 | キルギス | KG | en-US、ru-RU |
-| ラオス | LA | en-US |
+| ラオス | LA | ja-JP |
 | ラトビア | LV | en-us、lv-LV |
 | レバノン | LB | en-us、ar-SA |
-| レソト | AVL | en-US |
-| リベリア | LR | en-US |
+| レソト | LS | ja-JP |
+| リベリア | LR | ja-JP |
 | リビア | LY | en-us、ar-SA |
-| リヒテンシュタイン | &AMP; | en-us、de |
+| リヒテンシュタイン | LI | en-us、de |
 | リトアニア | LT | en-us、lt-LT |
 | ルクセンブルク | LU | en-US、fr-FR |
-| マカオ | 月 | en-us、zh-tw-HK |
-| マケドニア (旧ユーゴスラビア共和国) | MK | en-US |
-| マダガスカル | MG | en-US |
-| マラウイ | MW | en-US |
+| 中華人民共和国マカオ特別行政区 | MO | en-us、zh-tw-HK |
+| マケドニア (旧ユーゴスラビア共和国) | MK | ja-JP |
+| マダガスカル | MG | ja-JP |
+| マラウイ | MW | ja-JP |
 | マレーシア | MY | en-us、ms-MY |
-| モルディブ | MV | en-US |
-| マリ | ML | en-US |
-| マルタ | MT | en-US |
-| マーシャル諸島 | MH | en-US |
-| マルチニーク島 | MQ | en-US |
-| モーリタニア | MR | en-US |
+| モルディブ | MV | ja-JP |
+| マリ | ML | ja-JP |
+| マルタ | MT | ja-JP |
+| マーシャル諸島 | MH | ja-JP |
+| マルティニーク | MQ | ja-JP |
+| モーリタニア | MR | ja-JP |
 | モーリシャス | MU | en-us、ar-SA |
-| マイヨット島 | YT | en-US |
+| マイヨット島 | YT | ja-JP |
 | メキシコ | MX | en-us、es |
-| ミクロネシア | 今 | en-US |
+| ミクロネシア | FM | ja-JP |
 | モルドバ | MD | en-us、ro-RO |
 | モナコ | MC | en-US、fr-FR |
-| モンゴル | MN | en-US |
-| モンテネグロ | ME | en-US |
-| モンセラット | MS | en-US |
+| モンゴル | MN | ja-JP |
+| モンテネグロ | ME | ja-JP |
+| モンセラット | MS | ja-JP |
 | モロッコ | MA | en-us, fr-fr, en-us, en-us |
-| モザンビーク | MZ | en-US |
-| ミャンマー | MM | en-US |
-| ナミビア | 該当なし | en-US |
-| ナウル | NR | en-US |
-| ネパール | NP | en-US |
+| モザンビーク | MZ | ja-JP |
+| ミャンマー | mm | ja-JP |
+| ナミビア | NA | ja-JP |
+| ナウル | NR | ja-JP |
+| ネパール | NP | ja-JP |
 | オランダ | NL | en-us、nl-NL |
-| ニューカレドニア | 加工 | en-US |
-| ニュージーランド | NZ | en-US |
+| ニューカレドニア | NC | ja-JP |
+| ニュージーランド | NZ | ja-JP |
 | ニカラグア | NI | en-us、es |
-| ニジェール | NE | en-US |
-| ナイジェリア | NG | en-US |
-| ニウエ | ニュー | en-US |
-| ノーフォーク島 | ユーティリティー | en-US |
-| 北マリアナ諸島 | MP | en-US |
-| ノルウェー | 使用不可 | en-us、nb-いいえ |
+| ニジェール | NE | ja-JP |
+| ナイジェリア | NG | ja-JP |
+| ニウエ | NU | ja-JP |
+| ノーフォーク島 | NF | ja-JP |
+| 北マリアナ諸島 | MP | ja-JP |
+| ノルウェー | NO | en-us、nb-いいえ |
 | オマーン | OM | en-us、ar-SA |
-| パキスタン | PK | en-US |
-| パラオ | PW | en-US |
-| パレスチナ自治政府 | PS | en-US |
+| パキスタン | PK | ja-JP |
+| パラオ | PW | ja-JP |
+| パレスチナ自治政府 | PS | ja-JP |
 | パナマ | PA | en-us、es |
-| パプアニューギニア | 画面 | en-US |
+| パプアニューギニア | PG | ja-JP |
 | パラグアイ | PY | en-us、es |
 | ペルー | PE | en-us、es |
-| フィリピン | PH | en-US |
-| ピトケアン島 | PN | en-US |
+| フィリピン | PH | ja-JP |
+| ピトケアン島 | PN | ja-JP |
 | ポーランド | PL | en-us、pl-PL |
 | ポルトガル | PT | en-us、pt-PT |
 | プエルトリコ | PR | en-us、en-us |
-| カタール | 品質保証 | en-us、ar-SA |
-| レユニオン | RE | en-US |
+| カタール | QA | en-us、ar-SA |
+| レユニオン | RE | ja-JP |
 | ルーマニア | RO | en-us、ro-RO |
 | ロシア | RU | en-US、ru-RU |
 | ルワンダ | RW | en-US、fr-FR |
 | サントメ・プリンシペ | ST | en-US、fr-FR |
-| サバ島 | XS | en-US |
-| サン・バルテルミー | BL | en-US |
-| セントクリストファー・ネイビス | KN | en-US |
-| セントルシア | 小 | en-us、en-us |
-| サンマルタン島 | メイン | en-us、en-us |
-| サンピエール・ミクロン | PM | en-US |
-| セントビンセントおよびグレナディーン諸島 | VC | en-US |
-| サモア | WS | en-US |
-| サンマリノ | MANAGER | en-US |
-| サウジアラビア | SA | en-US |
+| サバ島 | XS | ja-JP |
+| サン・バルテルミー | BL | ja-JP |
+| セントクリストファー・ネイビス | KN | ja-JP |
+| セントルシア | LC | en-us、en-us |
+| サンマルタン島 | MF | en-us、en-us |
+| サンピエール・ミクロン | PM | ja-JP |
+| セントビンセント及びグレナディーン諸島 | VC | ja-JP |
+| サモア | WS | ja-JP |
+| サンマリノ | SM | ja-JP |
+| サウジアラビア | SA | ja-JP |
 | セネガル | SN | en-US、fr-FR |
 | セルビア | RS | en-us、Latn、英語 (米国) |
-| セーシェル | SC | en-US |
-| シエラレオネ | SL | en-US |
+| セーシェル | SC | ja-JP |
+| シエラレオネ | SL | ja-JP |
 | シンガポール | SG | en-us、zh-tw |
-| シント・ユースタティウス島 | XE | en-US |
+| シント・ユースタティウス島 | XE | ja-JP |
 | シント・マールテン島 | SX | en-us、en-us |
 | スロバキア | SK | en-us、sk-SK |
 | スロベニア | SI | en-us、sl-SI |
-| ソロモン諸島 | SB | en-US |
-| ソマリア | SO | en-US |
-| 南アフリカ | ZA | en-US |
-| サウスジョージア・サウスサンドウィッチ諸島 | GS | en-US |
-| 南スーダン | 秒 | en-US |
+| ソロモン諸島 | SB | ja-JP |
+| ソマリア | SO | ja-JP |
+| 南アフリカ | ZA | ja-JP |
+| サウスジョージア・サウスサンドウィッチ諸島 | GS | ja-JP |
+| 南スーダン | SS | ja-JP |
 | スペイン | ES | en-us、es ES、en-us、en-us、en-us |
-| スリランカ | LK | en-US |
-| セントヘレナ、アセンションおよびトリスタンダクーニャ | 悪夢 | en-US |
-| スリナム | SR | en-US |
-| スバールバル諸島 | SJ | en-US |
+| スリランカ | LK | ja-JP |
+| セントヘレナ、アセンションおよびトリスタンダクーニャ | SH | ja-JP |
+| スリナム | SR | ja-JP |
+| スバールバル諸島 | SJ | ja-JP |
 | スウェーデン | SE | en-us、sv-SE |
 | スイス | CH | en-us、fr-fr、en-us、en-us (en-us) |
 | 台湾 | TW | en-us、zh-tw-HK |
-| タジキスタン | TJ | en-US |
-| タンザニア | TZ | en-US |
+| タジキスタン | TJ | ja-JP |
+| タンザニア | TZ | ja-JP |
 | タイ | TH | en-us、th |
-| ティモール・レステ | TL | en-US |
-| トーゴ | TG | en-US |
-| トケラウ諸島 | TK | en-US |
-| トンガ | TO | en-US |
-| トリニダード・トバゴ | TT | en-US |
+| ティモール・レステ | TL | ja-JP |
+| トーゴ | TG | ja-JP |
+| トケラウ諸島 | TK | ja-JP |
+| トンガ | TO | ja-JP |
+| トリニダード・トバゴ | TT | ja-JP |
 | チュニジア | TN | en-us, fr-fr, en-us, en-us |
 | トルコ | TR | en-us、tr-TR |
-| トルクメニスタン | TM | en-US |
-| タークス・カイコス諸島 | フィールド | en-US |
-| ツバル | テレビ | en-US |
-| 合衆国領有小離島 | UM | en-US |
-| 米領バージン諸島 | VI | en-US |
-| ウガンダ | UG | en-US |
+| トルクメニスタン | TM | ja-JP |
+| タークス・カイコス諸島 | TC | ja-JP |
+| ツバル | TV | ja-JP |
+| 米領小離島 | UM | ja-JP |
+| 米領バージン諸島 | VI | ja-JP |
+| ウガンダ | UG | ja-JP |
 | ウクライナ | UA | en-us、uk-UA |
 | アラブ首長国連邦 | AE | en-us、ar-SA |
-| イギリス | GB | en-US |
-| 米国 | US | en-US |
+| イギリス | GB | ja-JP |
+| United States | US | ja-JP |
 | ウルグアイ | UY | en-us、es |
 | ウズベキスタン | UZ | en-US、ru-RU |
-| バヌアツ | VU | en-US |
-| バチカン市国 | VA | en-US |
+| バヌアツ | VU | ja-JP |
+| バチカン市国 | VA | ja-JP |
 | ベネズエラ | VE | en-us、es |
 | ベトナム | VN | en-us、vi-VN |
-| ワリス・フテュナ諸島 | WF | en-US |
-| イエメン | なん信仰 | en-us、ar-SA |
-| ザンビア | ZM | en-US |
-| ジンバブエ | ZW | en-US |
-
-
+| ワリス・フテュナ諸島 | WF | ja-JP |
+| イエメン | YE | en-us、ar-SA |
+| ザンビア | ZM | ja-JP |
+| ジンバブエ | ZW | ja-JP |

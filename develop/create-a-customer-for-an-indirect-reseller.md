@@ -6,25 +6,27 @@ ms.date: 06/03/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b9780800b6278d1cfeef902793ef51b61d79982
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f67dcd1bfa2e3f896e2fb1e9ae777ef3974e22eb
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413481"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155214"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller"></a>間接リセラーの顧客を作成する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 間接プロバイダーは、間接リセラーの顧客を作成できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
 - 間接リセラーのテナント識別子。
+
 - 間接リセラーは、間接プロバイダとのパートナーシップを持っている必要があります。
 
 ## <a name="c"></a>C\#
@@ -32,10 +34,12 @@ ms.locfileid: "80413481"
 間接リセラーに新しい顧客を追加するには、次のようにします。
 
 1. 新しい[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)オブジェクトをインスタンス化し、そのインスタンスを作成して、その[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)と会社の[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)を作成します。 必ず間接リセラー ID を[**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid)プロパティに割り当ててください。
-2. 顧客コレクション操作へのインターフェイスを取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)プロパティを使用します。 
+
+2. 顧客コレクション操作へのインターフェイスを取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)プロパティを使用します。
+
 3. 顧客を作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)メソッドを呼び出します。
 
-### <a name="c-example"></a>C\# の例
+### <a name="c-example"></a>C\#の例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -79,41 +83,41 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                       |
+| 認証方法   | 要求 URI                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| Name                                          | 種類   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
+| 名前                                          | Type   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | object | はい      | 顧客の請求プロファイル情報。                                                                                                                                                                                                                                                                                                           |
-| [会社のプロファイル](#company-profile)             | object | はい      | 顧客の会社のプロファイル情報。                                                                                                                                                                                                                                                                                                           |
+| [BillingProfile](#billing-profile)             | object | はい      | 顧客の課金プロファイル情報。                                                                                                                                                                                                                                                                                                           |
+| [CompanyProfile](#company-profile)             | object | はい      | 顧客の会社プロファイル情報。                                                                                                                                                                                                                                                                                                           |
 | [AssociatedPartnerId](customer-resources.md#customer) | string | はい      | 間接リセラー ID。 ここで指定する ID によって示される間接リセラーは、間接プロバイダーとのパートナーシップを持つ必要があります。間接リセラーの場合、要求は失敗します。 また、AssociatedPartnerId 値が指定されていない場合、顧客は間接リセラーではなく間接プロバイダーの直接の顧客として作成されることに注意してください。 |
 
-#### <a name="billing-profile"></a>課金プロファイル
+#### <a name="billing-profile"></a>請求プロファイル
 
 次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
 
-| Name             | 種類                                     | 必須 | 説明                                                                                                                                                                                                     |
+| 名前             | Type                                     | 必須 | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 電子メール            | string                                   | はい      | 顧客の電子メールアドレス。                                                                                                                                                                                   |
-| カルチャ          | string                                   | はい      | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
-| language         | string                                   | はい      | 既定の言語です。 2文字の言語コード (en、fr など) がサポートされています。                                                                                                                                |
-| 会社の\_名    | string                                   | はい      | 登録されている会社名または組織名。                                                                                                                                                                       |
-| 既定の\_アドレス | [Address](utility-resources.md#address) | はい      | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
+| email            | string                                   | はい      | 顧客のメール アドレス。                                                                                                                                                                                   |
+| culture          | string                                   | はい      | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
+| language         | string                                   | はい      | 既定の言語です。 2文字の言語コード (や`en` `fr`など) がサポートされています。                                                                                                                                |
+| 会社\_名    | string                                   | はい      | 登録されている会社名または組織名。                                                                                                                                                                       |
+| 既定\_のアドレス | [アドレス](utility-resources.md#address) | はい      | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
 
-#### <a name="company-profile"></a>会社のプロファイル
+#### <a name="company-profile"></a>会社プロファイル
 
 次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
 
-| Name   | 種類   | 必須 | 説明                                                  |
+| 名前   | Type   | 必須 | 説明                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
 | domain | string | .うん     | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 

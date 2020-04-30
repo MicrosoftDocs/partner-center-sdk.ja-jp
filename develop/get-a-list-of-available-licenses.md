@@ -6,34 +6,37 @@ ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 15bdd66a248b33ef543fbd186ba897a4a7063db1
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e0ddb15b931f21aea535bbff25f64488e2a93907
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416266"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155784"
 ---
 # <a name="get-a-list-of-available-licenses"></a>利用可能なライセンスの一覧を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
-このトピックでは、指定された顧客のユーザーが使用できるライセンスの一覧を取得する方法について説明します。
+この記事では、指定された顧客のユーザーが使用できるライセンスの一覧を取得する方法について説明します。
 
 次の例では、Azure Active Directory (Azure AD) によって管理されるライセンスを表す既定のライセンスグループである**group1**から利用可能なライセンスが返されます。 指定したライセンスグループの使用可能なライセンスを取得するには、「[ライセンスグループ別の使用可能なライセンスの一覧を取得](get-a-list-of-available-licenses-by-license-group.md)する」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客識別子。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
 既定のライセンスグループから顧客のユーザーに利用可能なライセンスの一覧を取得するには、次のようにします。
 
 1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用し、顧客を識別します。
+
 2. [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)プロパティの値を取得して、顧客がサブスクライブしている SKU コレクション操作へのインターフェイスを取得します。
+
 3. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync)メソッドを呼び出して、ライセンスの一覧を取得します。
 
 ``` csharp
@@ -53,25 +56,25 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                    |
+| 認証方法  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-顧客を識別するには、次のパスパラメーターを使用します。
+次のパス パラメーターを使用して顧客を指定します。
 
-| Name        | 種類   | 必須 | 説明                                           |
+| 名前        | Type   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

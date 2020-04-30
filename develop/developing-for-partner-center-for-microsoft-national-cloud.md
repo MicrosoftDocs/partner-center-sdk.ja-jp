@@ -9,16 +9,16 @@ ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7302b1a7f7c2fc498936708f48bbdb110b8b2d23
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: c2f8e9e61c02b037b817305989bbad430c6fd579
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415629"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154234"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Microsoft National クラウドのパートナーセンター向けの開発
 
-適用対象
+**適用対象:**
 
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
@@ -32,15 +32,18 @@ ms.locfileid: "80415629"
 - [Microsoft Cloud ドイツのパートナー センター](#partner-center-for-microsoft-cloud-germany)
 - [Microsoft Cloud for US Government のパートナー センター](#partner-center-for-microsoft-cloud-for-us-government)
 
-各パートナーセンター SDK トピックには、該当するパートナーセンターのバージョンが一覧表示されます。 各管理リファレンストピックには、「**要件**」セクションで該当するパートナーセンターのバージョンの一覧も記載されています。
+各パートナーセンターの SDK 記事には、該当するパートナーセンターのバージョンが一覧表示されます。 各管理リファレンス記事には、「**要件**」セクションで該当するパートナーセンターのバージョンも記載されています。
 
 ## <a name="partner-center-operated-by-21vianet"></a>21Vianet が運営するパートナー センター
 
 21Vianet が運営するパートナー*センター*とパートナー*センター*間のパートナーの違いは、次のとおりです。
 
 - 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。
+
 - Azure に対するサブスクリプションは使用できません。
+
 - 顧客のユーザーのライセンスを管理することはできません。 代わりに、顧客は Office 365 管理センターを使用してライセンスを管理する必要があります。
+
 - すべてのサポートリクエストは、21Vianet が運営するパートナーセンターを通じて管理されます。 サービスリクエストとサービスの更新は適用されません。
 
 ## <a name="partner-center-for-microsoft-cloud-germany"></a>Microsoft Cloud ドイツのパートナー センター
@@ -55,21 +58,30 @@ ms.locfileid: "80415629"
 - パートナーは、顧客の組織のユーザーを作成したり、ロールを割り当てたりすることはできません。
   - パートナーはフィールドを読み取ることができますが、作成または更新することはできません。
   - パートナーは、Office 365 管理センターまたは Azure portal を使用して、顧客のユーザーを手動で作成または更新する必要があります。 [Azure Active Directory のドキュメント](https://docs.microsoft.com/azure/active-directory/)を参照してください。
+
 - Microsoft Cloud ドイツポータルまたは Api のパートナーセンターを使用して、顧客のユーザーのライセンスを管理することはできません。 代わりに、Office 365 管理センターまたは Azure Active (近日対応予定) のライセンス管理を使用してライセンスを管理する必要があります。
-  - (省略可能) Azure AD Graph API を使用できます。 「[ユーザーにライセンスを追加または削除する](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense)」を参照してください。 Microsoft Cloud ドイツのパートナーセンターでは、`https://graph.windows.net`ではなく、グラフエンドポイント `https://graph.cloudapi.de` を使用するようにしてください。
-- 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Office365 管理センターまたは Azure portal を使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/)」を参照してください。 手順1では、Microsoft Cloud ドイツの Azure portal にサインインする必要があります。
-- 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録する必要があります (Microsoft Cloud ドイツ)。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリ詳細の登録](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)」を参照してください。
+  - (省略可能) Azure AD Graph API を使用できます。 「[ユーザーにライセンスを追加または削除する](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense)」を参照してください。 Microsoft Cloud ドイツのパートナーセンターでは、ではなく、グラフエンド`https://graph.cloudapi.de`ポイントを`https://graph.windows.net`使用してください。
+
+- 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Office 365 管理センターまたは Azure portal を使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/)」を参照してください。 手順1では、Microsoft Cloud ドイツの Azure portal にサインインする必要があります。
+
+- 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録する必要があります (Microsoft Cloud ドイツ)。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリの詳細を登録](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)する」を参照してください。
 
 ## <a name="partner-center-for-microsoft-cloud-for-us-government"></a>米国政府機関向け Microsoft Cloud のパートナー センター
 
 パートナー*センター*とパートナーセンター間のパートナーが*米国政府向け Microsoft Cloud の*違いは次のとおりです。
 
 - Office 365 サブスクリプションは、現在、米国政府の Microsoft Cloud のパートナーセンターではご利用いただけません。
+
 - 米国政府向けの Microsoft Cloud をサポートしている既存のパートナーは、パートナーセンターで米国政府向け Microsoft Cloud の新しいアカウントを作成する必要があります。
+
 - 米国政府機関のお客様の Microsoft Cloud は、1つのパートナーを使用する必要があります。
-  - 米国政府向けのシナリオにおいて Microsoft Cloud 内の既存の顧客とのマルチチャネルおよびマルチパートナーおよび要求の関係は適用されません。 これは、Office 365 が現在使用できないためです。
+  - 米国政府向けのシナリオにおいて Microsoft Cloud 内の既存の顧客とのマルチチャネルおよびマルチパートナーおよび要求の関係は適用されません。 Office 365 は現在使用できないため、この制限があります。
+
 - パートナーは、顧客の組織のユーザーを作成したり、ロールを割り当てたりすることはできません。
   - パートナーはフィールドを読み取ることができますが、作成または更新することはできません。 パートナーは、Azure portal で顧客のユーザーを手動で作成または更新する必要があります。 [Azure Active Directory のドキュメント](https://docs.microsoft.com/azure/active-directory/)を参照してください。
+
 - 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Azure ポータルを使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal)」を参照してください。 手順 1. では、米国政府向け Microsoft Cloud の Azure portal にサインインする必要があります。
-- 米国政府向け Microsoft Cloud のパートナーセンターの REST エンドポイントは、パートナーセンターの `https://api.partnercenter.microsoft.com`と同じです。
-- 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録して、米国政府向けの Microsoft Cloud を行う必要があります。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリ詳細の登録](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)」を参照してください。
+
+- 米国政府向け Microsoft Cloud のパートナーセンターの REST エンドポイントは、パートナーセンターの場合と`https://api.partnercenter.microsoft.com`同じです。
+
+- 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録して、米国政府向けの Microsoft Cloud を行う必要があります。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリの詳細を登録](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)する」を参照してください。

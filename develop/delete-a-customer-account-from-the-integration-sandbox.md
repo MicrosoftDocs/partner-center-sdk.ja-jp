@@ -6,23 +6,23 @@ ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 31756f1ff4d4cc4a33e37ba2581cabeb8d5c438b
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: d81341f46d9131ac19ba5ae48e424423b4b761e5
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412508"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155444"
 ---
 # <a name="delete-a-customer-account-from-the-integration-sandbox"></a>統合サンドボックスから顧客アカウントを削除する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-このトピックでは、「運用環境でのテスト (Tip)」統合サンドボックスから顧客アカウントを削除する方法について説明します。
+この記事では、「運用環境でのテスト (Tip)」統合サンドボックスから顧客アカウントを削除する方法について説明します。
 
 > [!IMPORTANT]
 > 顧客アカウントを削除すると、その顧客テナントに関連付けられているすべてのリソースが削除されます。
@@ -30,7 +30,9 @@ ms.locfileid: "80412508"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (**顧客-テナント id**)。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - Tip 統合サンドボックスから顧客を削除する前に、Azure Reserved Virtual Machine Instances とソフトウェアのすべての注文書をキャンセルする必要があります。
 
 ## <a name="c"></a>C\#
@@ -38,14 +40,23 @@ ms.locfileid: "80412508"
 Tip 統合サンドボックスから顧客を削除するには、次のようにします。
 
 1. ヒントアカウントの資格情報を[**Createpartneroperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡して、パートナー操作への[**ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)インターフェイスを取得します。
+
 2. 次のように、パートナー操作インターフェイスを使用して、権利のコレクションを取得します。
-    1. 顧客識別子を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を指定します。
+
+    1. 顧客識別子を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を指定します。
+
     2. **権利**プロパティを呼び出します。
+
     3. **Get**または**GetAsync**メソッドを呼び出して、[**権利**](entitlement-resources.md)コレクションを取得します。
+
 3. その顧客に対するすべての Azure Reserved Virtual Machine Instances とソフトウェアの注文書が取り消されていることを確認します。 コレクション内の[**権利**](entitlement-resources.md)ごとに、次のようにします。
+
     1. 権利を使用[**します。ReferenceOrder.Id**](entitlement-resources.md#referenceorder)は、顧客の注文のコレクションから、対応する[注文](order-resources.md#order)のローカルコピーを取得します。
+
     2. [ [**Order. Status**](order-resources.md#order) ] プロパティを [取り消し済み] に設定します。
+
     3. **Patch ()** メソッドを使用して、順序を更新します。
+
 4. すべての注文を取り消します。 たとえば、次のコードサンプルでは、ループを使用して、その状態が "取り消されました" になるまで各注文をポーリングします。
 
     ``` csharp
@@ -96,25 +107,25 @@ Tip 統合サンドボックスから顧客を削除するには、次のよう�
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド     | 要求 URI                                                                            |
+| 認証方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id} HTTP/1.1 |
+| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 顧客を削除するには、次のクエリパラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                                         |
+| 名前                   | Type     | 必須 | 説明                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
 | customer-tenant-id     | GUID     | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

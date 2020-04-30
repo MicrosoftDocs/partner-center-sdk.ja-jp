@@ -6,18 +6,18 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2141de3cd52f4e270b6668321d7736f33b578b3c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 6252209dca0a2fada15ee5e44f2f65c4b4230eca
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412292"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156014"
 ---
 # <a name="get-a-list-of-products-by-customer"></a>製品の一覧を取得する (顧客別)
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,34 +27,33 @@ ms.locfileid: "80412292"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (**customer-tenant-id**)。
 
-## <a name="rest"></a>REST
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
-### <a name="rest-request"></a>Rest 要求
+## <a name="rest-request"></a>REST 要求
 
-#### <a name="request-syntax"></a>要求の構文
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI                                                                                                              |
+| 認証方法 | 要求 URI                                                                                                              |
 |--------|--------------------------------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/V1/customers/{customer-tenant-id}/products? targetview = {targetview} HTTP/1.1 |
+| POST   | baseURL/v1/customers/{customer-tenant-id}/products? targetview = {targetview} HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
-#### <a name="request-uri-parameters"></a>要求 URI パラメーター
+#### <a name="request-uri-parameters"></a>要求 URI のパラメーター
 
-| Name               | 種類 | 必須 | 説明                                                                                 |
+| 名前               | Type | 必須 | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | GUID | はい | この値は、顧客を指定できるようにする識別子である、GUID 形式の **customer-tenant-id** です。 |
-| **targetView** | string | はい | カタログのターゲットビューを識別します。 サポートされている値は次のとおりです。 <ul><li>**Azure (すべて**の azure 項目を含む)</li><li>**AzureReservations**(すべての Azure 予約項目を含む)</li><li>**AzureReservationsVM**(すべての仮想マシン (VM) 予約項目を含む)</li><li>**AzureReservationsSQL**(すべての SQL 予約項目を含む)</li><li>**AzureReservationsCosmosDb**。すべての Cosmos データベース予約項目が含まれます。</li><li>**Microsoftazure.mobileengagement**: Microsoft Azure サブスクリプション (**0145p**) と Azure プランの項目が含まれています</li><li>オンラインサービスのすべての項目 (商用 marketplace 製品を含む) を含む**Onlineservices**</li><li>**ソフトウェア**。すべてのソフトウェア項目が含まれます。</li><li>**SoftwareSUSELinux**(すべてのソフトウェア SUSE Linux 項目を含む)</li><li>すべての永続ソフトウェア項目を含む、**永続的**なソフトウェア</li><li>すべて**のソフトウェアサブスクリプション項目**を含む software subscription </ul> |
+| **customer-tenant-id** | GUID | はい | この値は、顧客を指定できるようにする識別子である、GUID 形式の **customer-tenant-id** です。 |
+| **targetView** | string | はい | カタログのターゲットビューを識別します。 サポートされる値は <ul><li>**Azure (すべて**の azure 項目を含む)</li><li>**AzureReservations**(すべての Azure 予約項目を含む)</li><li>**AzureReservationsVM**(すべての仮想マシン (VM) 予約項目を含む)</li><li>**AzureReservationsSQL**(すべての SQL 予約項目を含む)</li><li>**AzureReservationsCosmosDb**。すべての Cosmos データベース予約項目が含まれます。</li><li>**Microsoftazure.mobileengagement**: Microsoft Azure サブスクリプション (**0145p**) と Azure プランの項目が含まれています</li><li>オンラインサービスのすべての項目 (商用 marketplace 製品を含む) を含む**Onlineservices**</li><li>**ソフトウェア**。すべてのソフトウェア項目が含まれます。</li><li>**SoftwareSUSELinux**(すべてのソフトウェア SUSE Linux 項目を含む)</li><li>すべての永続ソフトウェア項目を含む、**永続的**なソフトウェア</li><li>すべて**のソフトウェアサブスクリプション項目**を含む software subscription </ul> |
 
-#### <a name="request-header"></a>要求ヘッダー
+### <a name="request-header"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-#### <a name="request-example"></a>要求の例
+### <a name="request-example"></a>要求の例
 
 特定の顧客が使用できる Azure 使用量ベースの製品の一覧を要求します。 パブリッククラウドのお客様については、Microsoft Azure (0145P) と Azure プランの両方の製品が返されます。
 
@@ -66,9 +65,9 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>Rest 応答
+## <a name="rest-response"></a>Rest 応答
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
@@ -76,9 +75,9 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 
 | HTTP 状態コード | エラー コード   | 説明                     |
 |------------------|--------------|---------------------------------|
-| 403 | 400036 | 要求された targetView へのアクセスは許可されていません。 | 
+| 403 | 400036 | 要求された targetView へのアクセスは許可されていません。 |
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -86,7 +85,7 @@ Content-Length: 1909
 Content-Type: application/json; charset=utf-8
 MS-CorrelationId: cad955c2-8efc-47fe-b112-548ff002ba18
 MS-RequestId: ae7288e2-2673-4ad4-8c12-7aad818d5949
- 
+
 {
     "totalCount": 2,
     "items": [

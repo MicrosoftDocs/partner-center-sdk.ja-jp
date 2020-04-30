@@ -5,18 +5,18 @@ ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e0a7a554efbcd519a5c06e82053e47c909a56bc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 486b2e9002c1b0130c96345c2b5ed296418be4da
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412191"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155594"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>パートナー センターAPI および SDK 早期導入者プログラムにご参加ください。
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -28,7 +28,9 @@ ms.locfileid: "80412191"
 パートナーセンター API と SDK 早期導入プログラムに参加しているパートナーは、次の機能を利用できます。
 
 - **パートナーセンターの api と SDK のプレリリース版へのアクセス**: プライベートパートナーセンターの早期導入プログラム Yammer グループに新機能が発表されます。
+
 - **毎月のウェビナー**: 早期導入のための毎月のウェビナーでは、質問に回答し、フィードバックを収集し、スケジュールとタイムラインを共有し、新機能のサポートを提供します。
+
 - **分野の専門家からのサポート**: 参加者は、フィードバックを提供し、個人の Yammer グループ内の専門家 (sme) とコミュニケーションを取ることができます。
 
 ## <a name="join-the-program"></a>プログラムに参加する
@@ -40,10 +42,10 @@ ms.locfileid: "80412191"
    > [!NOTE]
    > パートナーセンターの早期導入プログラム Yammer グループに参加する前に、Microsoft Cloud Yammer コミュニティネットワークに参加することが必要になる場合があります。
 
-2. Microsoft ID またはヒント (運用環境でのテスト) サンドボックスアカウントとプライマリドメインを使用して **[pctap@microsoft.com](mailto:pctap@microsoft.com)に電子メールを送信**します。
+2. Microsoft ID またはヒント (運用環境でのテスト) サンドボックスアカウントとプライマリドメインを使用して、**に電子メール[pctap@microsoft.com](mailto:pctap@microsoft.com)を送信**します。
 
    > [!TIP]
-   > Microsoft ID は、 **[アカウント設定]** メニューの **[組織のプロファイル]** ページで確認できます。
+   > Microsoft ID は、[**アカウント設定**] メニューの [**組織のプロファイル**] ページで確認できます。
 
 3. 新しい機能を早期に体験し、マイクロソフトと協力して、フィードバックを提供することで、プログラムに**積極的に参加**します。 早期導入者コミュニティで他のユーザーと協力してください。
 

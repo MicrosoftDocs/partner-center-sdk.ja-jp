@@ -6,32 +6,29 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b6d7ee0a27bcbe0b897ed5588fb58d58d57f0ce
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7199c03733c2bfdb496939af94e35c9aafa9931c
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416236"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155804"
 ---
 # <a name="get-a-collection-of-invoices"></a>請求書のコレクションを取得する
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 パートナーの請求書のコレクションを取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 使用可能なすべての請求書のコレクションを取得する[**には、invoice プロパティを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)使用して請求書操作へのインターフェイスを取得し、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync)メソッドを呼び出してコレクションを取得します。
 
@@ -47,8 +44,8 @@ ms.locfileid: "80416236"
 bool isUnpaged = (this.invoicePageSize <= 0);
 
 // If the scenario is unpaged, get all the invoices, otherwise get the first page.
-var invoicesPage = (isUnpaged) 
-                 ? partnerOperations.Invoices.Get() 
+var invoicesPage = (isUnpaged)
+                 ? partnerOperations.Invoices.Get()
                  : partnerOperations.Invoices.Query(QueryFactory.Instance.BuildIndexedQuery(this.invoicePageSize));
 
 // Create an invoice enumerator for traversing the invoice pages.
@@ -59,12 +56,12 @@ while (invoicesEnumerator.HasValue)
 {
     // Print the current invoice results page.
     var invoices = invoicesEnumerator.Current.Items;
-    
+
     foreach (var i in invoices)
     {
-        Console.WriteLine(String.Format("{0,3}. {1}  {2}  {3,16:C2}", 
-            lineCounter++, 
-            i.Id, 
+        Console.WriteLine(String.Format("{0,3}. {1}  {2}  {3,16:C2}",
+            lineCounter++,
+            i.Id,
             i.InvoiceDate.ToString("yyyy&#39;-&#39;MM&#39;-&#39;dd&#39;T&#39;HH&#39;:&#39;mm&#39;:&#39;ss&#39;Z&#39;"),
             i.TotalCharges));
     }
@@ -80,41 +77,36 @@ while (invoicesEnumerator.HasValue)
 
 少し異なる例については、「**サンプル**:[コンソールテストアプリ](console-test-app.md)」を参照してください。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetPagedInvoices.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                  |
+| 認証方法  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices? size = {size} & オフセット = {OFFSET} HTTP/1.1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices? size = {size} &オフセット = {OFFSET} HTTP/1.1  |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次のクエリパラメーターを使用します。
 
-| Name   | 種類 | 必須 | 説明                                                                            |
+| 名前   | Type | 必須 | 説明                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| size   | int  | いいえ       | 応答で返される請求リソースの数。 このパラメーターはオプションです。 |
-| offset | int  | いいえ       | 返される最初の請求書の0から始まるインデックス。                                   |
+| size   | INT  | いいえ       | 応答で返される請求リソースの数。 このパラメーターは省略可能です。 |
+| offset | INT  | いいえ       | 返される最初の請求書の0から始まるインデックス。                                   |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
-
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
 なし
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices?size=200&offset=0 HTTP/1.1
-Authorization: Bearer <token> 
+Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: e88d014d-ab70-41de-90a0-f7fd1797267d
 MS-CorrelationId: de894e18-f027-4ac0-8b5a-34f0c222af0c
@@ -123,16 +115,15 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[請求](invoice-resources.md#invoice)リソースのコレクションが含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -273,11 +264,3 @@ Date: Thu, 24 Mar 2016 05:21:01 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

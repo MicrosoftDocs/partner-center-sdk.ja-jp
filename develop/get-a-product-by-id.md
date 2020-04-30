@@ -1,36 +1,35 @@
 ---
-title: ID によって製品を取得します。
+title: ID で製品を取得する
 description: 製品 ID を使用して、指定された製品リソースを取得します。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b71816ab1a682999704fceb1384518b84b52584
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: d3a6a7714e318f0b9c23bbd59098d0a0188d8c20
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413687"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155474"
 ---
-# <a name="get-a-product-by-id"></a>ID によって製品を取得します。
+# <a name="get-a-product-by-id"></a>ID で製品を取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
 製品 ID を使用して、指定された製品リソースを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - 製品 ID。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
+## <a name="c"></a>C\#
 
-### <a name="c"></a>C#
-
-ID で特定の製品を検索するには、 **iaggregatepartner.customers**コレクションを使用し、 **bycountry ()** メソッドを使用して国を選択してから、 **ById ()** メソッドを呼び出します。 最後に、 **Get ()** または**GetAsync ()** メソッドを呼び出して、製品を返します。 
+ID で特定の製品を検索するには、 **iaggregatepartner.customers**コレクションを使用し、 **bycountry ()** メソッドを使用して国を選択してから、 **ById ()** メソッドを呼び出します。 最後に、 **Get ()** または**GetAsync ()** メソッドを呼び出して、製品を返します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -38,11 +37,11 @@ ID で特定の製品を検索するには、 **iaggregatepartner.customers**コ
 Product productDetail = partnerOperations.Products.ByCountry("US").ById("DZH318Z0BQ3Q").Get();
 ```
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
-ID で特定の製品を検索するには、 **iaggregatepartner.customers**関数を使用し、 **bycountry ()** 関数を使用して国を選択してから、 **byId ()** 関数を呼び出します。 最後に、 **get ()** 関数を呼び出して製品を返します。 
+ID で特定の製品を検索するには、 **iaggregatepartner.customers**関数を使用し、 **bycountry ()** 関数を使用して国を選択してから、 **byId ()** 関数を呼び出します。 最後に、 **get ()** 関数を呼び出して製品を返します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -50,58 +49,56 @@ ID で特定の製品を検索するには、 **iaggregatepartner.customers**関
 Product productDetail = partnerOperations.getProducts().byCountry("US").byId("DZH318Z0BQ3Q").get();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
-ID で特定の製品を検索するには、パラメーター [**product**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md)コマンドを実行し、 **ProductId**を指定します。 **CountryCode**パラメーターはオプションです。指定されていない場合は、リセラーに関連付けられている国が使用されます。
+ID で特定の製品を検索するには、 [**Get partnerproduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md)コマンドを実行し、 **ProductId**パラメーターを指定します。 **CountryCode**パラメーターが指定されていない場合は、販売店に関連付けられている国が使用されます。
 
 ```powershell
 Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
-**要求の構文**
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                   |
+| 認証方法  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}? country = {COUNTRY} HTTP/1.1  | 
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}? country = {COUNTRY} HTTP/1.1  |
 
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 次のパスパラメーターを使用して、指定された製品を取得します。
 
-| Name                   | 種類     | 必須 | 説明                                                     |
+| 名前                   | Type     | 必須 | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 製品 id             | string   | はい      | 製品を識別する文字列。                           |
 | country                | string   | はい      | 国/地域 ID。                                            |
 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+### <a name="request-body"></a>[要求本文]
 
-**要求本文**
+なし。
 
-[なし]。
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products/{product-id}?country=US HTTP/1.1
-Authorization: Bearer 
+Authorization: Bearer
 Accept: application/json
 MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[製品](product-resources.md#product)リソースが含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
@@ -111,7 +108,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 |----------------------|--------------|----------------------------------------------------------------------------|
 | 404                  | 400013       | 製品が見つかりませんでした。                                                     |
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

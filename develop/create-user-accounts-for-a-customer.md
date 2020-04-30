@@ -6,33 +6,36 @@ ms.date: 05/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f0dd189d8eaba1f657543feb9acebda90521f0f1
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0c4c6f41dd5bda3965aad4e1b68f339305f18e30
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414198"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155394"
 ---
 # <a name="create-user-accounts-for-a-customer"></a>顧客のユーザー アカウントを作成する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 顧客の新しいユーザーアカウントを作成します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客 ID (**顧客-テナント id**)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
 顧客の新しいユーザーアカウントを取得するには、次のようにします。
 
-1. 関連するユーザー情報を使用して、新しい**顧客ユーザー**オブジェクトを作成します。
-2. **Iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。
-3. **Users**プロパティを呼び出し、その後に**Create**メソッドを呼び出します。
+1. 関連するユーザー情報を使用して、新しい **CustomerUser** オブジェクトを作成します。
+
+2. **IAggregatePartner.Customers** コレクションを使用し、**ById()** メソッドを呼び出します。
+
+3. **Users** プロパティを呼び出した後、**Create** メソッドを呼び出します。
 
 ``` csharp
 // string selectedCustomerId;
@@ -58,26 +61,26 @@ User createdUser = partnerOperations.Customers.ById(selectedCustomerId).Users.Cr
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                                  |
+| 認証方法   | 要求 URI                                                                                  |
 |----------|----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-次のクエリパラメーターを使用して、正しい顧客を特定します。
+次のクエリ パラメーターを使用し、正しい顧客を特定します。
 
-| Name | 種類 | 必須 | 説明 |
+| 名前 | Type | 必須 | 説明 |
 |----- |----- | -------- |------------ |
-| **顧客-テナント id** | **guid** | Y | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y | 値は、GUID 形式の**顧客テナント id**です。これにより、リセラーは、リセラーに属する特定の顧客の結果をフィルター処理できます。 |
 | **ユーザー id** | **guid** | N | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 
@@ -92,7 +95,7 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
       "userPrincipalName": "userid@domain.onmicrosoft.com",
       "firstName": "First",
       "lastName": "Last",
-      "displayName": "User name",  
+      "displayName": "User name",
       "immutableId": "Some unique ID",
       "passwordProfile":{
                  password: "abCD123*",

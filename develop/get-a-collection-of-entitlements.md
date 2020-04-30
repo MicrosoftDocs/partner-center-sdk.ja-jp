@@ -1,37 +1,35 @@
 ---
-title: 権利のコレクションを取得する
+title: エンタイトルメントのコレクションを取得する
 description: 権利のコレクションを取得する方法。
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d3856e0e975099fc1cc72128f8f950968a10a352
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 13e2b33d030eb344616e5db40c94447851804b3d
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415559"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155774"
 ---
-# <a name="get-a-collection-of-entitlements"></a>権利のコレクションを取得する
-
+# <a name="get-a-collection-of-entitlements"></a>エンタイトルメントのコレクションを取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
 権利のコレクションを取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。
-- 顧客識別子。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
+## <a name="c"></a>C\#
 
-顧客の権利コレクションを取得するには、顧客 ID を指定して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別することによって、[**権利**](entitlement-resources.md#entitlement)操作へのインターフェイスを取得します。 次に、**権利**プロパティからインターフェイスを取得し、 **Get ()** または**GetAsync ()** メソッドを呼び出して権利のコレクションを取得します。
+顧客の権利コレクションを取得するには、顧客 ID を指定して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別することによって、[**権利**](entitlement-resources.md#entitlement)操作へのインターフェイスを取得します。 次に、**権利**プロパティからインターフェイスを取得し、 **Get ()** または**GetAsync ()** メソッドを呼び出して権利のコレクションを取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -40,43 +38,39 @@ string customerId;
 // Get the collection of entitlements.
 var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get();
 ```
+
 取得する権利の有効期限を設定するには、上記と同じメソッドを呼び出し、オプションのブール型パラメーター **showexpiry**を true **Get (true)** または**GetAsync (true)** に設定します。 これは、権利の有効期限 (該当する場合) が必要であることを示します。
 
 > [!IMPORTANT]
 > オンプレミスの権利の種類には、有効期限がありません。
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド | 要求 URI |
+| 認証方法 | 要求 URI |
 |--------|-------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1.1                            |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customerId}/entitlements HTTP/1.1                            |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次のパスとクエリパラメーターを使用します。
 
-| Name | 種類 | 必須 | 説明 |
+| 名前 | Type | 必須 | 説明 |
 |------|------|----------|-------------|
-| 顧客 | string | はい | 顧客を識別する GUID 形式の customerId。 |
+| customerId | string | はい | 顧客を識別する GUID 形式の customerId。 |
 | entitlementType | string | いいえ | 取得する権利の種類 (**software**または**reservedInstance** ) を指定するために使用できます。 設定されていない場合は、すべての型が取得されます。 |
-| showExpiry 期限 | boolean | いいえ | 権利 exipry の日付が必要かどうかを示す省略可能なフラグ。 |
+| showExpiry 期限 | boolean | いいえ | 資格の有効期限日が必要かどうかを示す省略可能なフラグです。 |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+### <a name="request-body"></a>[要求本文]
 
-**要求本文**
+なし。
 
-[なし]。
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/entitlements HTTP/1.1
@@ -88,16 +82,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[権利](entitlement-resources.md#entitlement)リソースのコレクションが含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -137,7 +130,7 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
       "dynamicAttributes": {
                "reservationType": "virtualmachines"
         }
-    },    
+    },
     {
       "includedEntitlements": [
         {
@@ -179,15 +172,14 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
   "attributes": {
     "objectType": "Collection"
   }
-}  
+}
 ```
 
-
-## <a name="span-idadditionalexamplesspan-idadditionalexamplesadditional-examples"></a><span id="AdditionalExamples"/><span id="additionalexamples"/>その他の例   
+## <a name="additional-examples"></a>その他の例
 
 次の例は、特定の種類の権利と有効期限 (該当する場合) を取得する方法を示しています。
 
-**C#よう**   
+### <a name="c-example"></a>C\#の例
 
 特定の種類の権利を取得するには、**権利**インターフェイスから**ByEntitlementType**インターフェイスを取得し、 **Get ()** または**GetAsync ()** の各メソッドを使用します。
 
@@ -195,7 +187,7 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("software").Get(true);
 ```
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/de3dcef9-9991-459c-ac71-2903d1127414/entitlements?entitlementtype=software&showExpiry=true
@@ -204,10 +196,10 @@ Accept: application/json
 MS-RequestId: 6517a410-67ce-4995-9bb7-116a52179f92
 MS-CorrelationId: d9eb8194-9b99-4057-a2fe-98bdf05f013c
 X-Locale: en-US
-Host: api.partnercenter.microsoft.com 
+Host: api.partnercenter.microsoft.com
 ```
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -311,23 +303,21 @@ Date: Mon, 28 Jan 2019 18:31:43 GMT
 }
 ```
 
-
 次の例は、製品と予約に関する情報を権利から取得する方法を示しています。
 
-### <a name="span-idvirtualmachinereservationexample_sdk_18span-idvirtualmachinereservationexample_sdk_18span-idvirtualmachinereservationexample_sdk_18retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>SDK Version 1.8 を使用して権利から仮想マシンの予約詳細を取得 <span id="VIRTUALMACHINERESERVATIONEXAMPLE_SDK_1.8"/><span id="virtualmachinereservationexample_sdk_1.8"/><span id="VirtualMachineReservationExample_SDK_1.8"/>
+### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>SDK Version 1.8 を使用して権利から仮想マシンの予約詳細を取得する
 
-**C#よう**   
+### <a name="c-example"></a>C\#の例
 
 権利からの仮想マシンの予約に関連する詳細情報を取得するには、entitledArtifacts の下に公開されている、artifactType = virtual_machine_reserved_instance で公開されている URI を呼び出します。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("VirtualMachineReservedInstance").Get();
 
-
 ((VirtualMachineReservedInstanceArtifact)entitlements.First().EntitledArtifacts.First(x => x.Type == ArtifactType.VirtualMachineReservedInstance)).Link.InvokeAsync<VirtualMachineReservedInstanceArtifactDetails>(partnerOperations)
 ```
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/artifacts/virtualmachinereservedinstance/groups/2caf524395724e638ef64e109f1f79ca/lineitems/03500b1b-f2d6-4e23-ab4b-9fd67b917012/resource/ebf2e74b-630e-4a09-857d-a1f6c6351336 HTTP/1.1
@@ -336,10 +326,10 @@ Accept: application/json
 MS-RequestId: cdc428d2-035b-41c4-9a32-e643c4471cbd
 MS-CorrelationId: 799eee8d-07d1-452a-a035-388259df137c
 X-Locale: en-US
-Host: api.partnercenter.microsoft.com 
+Host: api.partnercenter.microsoft.com
 ```
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -367,19 +357,19 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 }
 ```
 
-### <a name="span-idreservationexample_sdk_19span-idreservationexample_sdk_19span-idreservationexample_sdk_19retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>SDK Version 1.9 を使用して権利から予約の詳細を取得 <span id="RESERVATIONEXAMPLE_SDK_1.9"/>には <span id="ReservationExample_SDK_1.9"/><span id="reservationexample_sdk_1.9"/>  
+### <a name="retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>SDK Version 1.9 を使用して権利から予約の詳細を取得する
 
-**C#よう**  
+### <a name="c-example"></a>C\#の例
 
-予約インスタンスの権利から予約に関連する詳細情報を取得するには、```entitledArtifacts.link``` で公開されている URI を ```artifactType = reservedinstance```と共に呼び出します。
+予約インスタンスの権利から予約に関連する詳細情報を取得するには、で公開```entitledArtifacts.link```さ```artifactType = reservedinstance```れている URI をと共に呼び出します。
 
 ``` csharp
-ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();  
+ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();
 
 ((ReservedInstanceArtifact)entitlements.First().EntitledArtifacts.First(x => x.Type == ArtifactType.ReservedInstance)).Link.InvokeAsync<ReservedInstanceArtifactDetails>(partnerOperations);
 ```
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/artifacts/reservedinstance/groups/2caf524395724e638ef64e109f1f79ca/lineitems/03500b1b-f2d6-4e23-ab4b-9fd67b917012/resource/ebf2e74b-630e-4a09-857d-a1f6c6351336 HTTP/1.1
@@ -388,10 +378,10 @@ Accept: application/json
 MS-RequestId: cdc428d2-035b-41c4-9a32-e643c4471cbd
 MS-CorrelationId: 799eee8d-07d1-452a-a035-388259df137c
 X-Locale: en-US
-Host: api.partnercenter.microsoft.com 
+Host: api.partnercenter.microsoft.com
 ```
 
-**応答の例**  
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -419,7 +409,6 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 }
 ```
 
-### <a name="api-consumers"></a>API コンシューマー  
+### <a name="api-consumers"></a>API コンシューマー
+
 API を使用して仮想マシンの予約済みインスタンスの権利を照会するパートナー-旧バージョンとの互換性を維持するために、/顧客からの要求 URI を更新します。または、 **entitlementType = virtualmachinereservedinstance に**変更します。 Virtual machine または Azure SQL を enhanced contract で使用するには、要求 URI を **/顧客 id/entitlementType = reservedinstance**に更新します。
-
-

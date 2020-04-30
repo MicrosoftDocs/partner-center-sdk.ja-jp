@@ -6,40 +6,48 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 126c90e936daa50fcf84b8ec97a8f3e4db0f5321
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: bddc562c4c7f0288076c322859060bf1f1f98a34
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413905"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155284"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>間接リセラーの顧客の注文を作成する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 間接リセラーの顧客の注文を作成する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客識別子。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 購入する品目のプラン識別子。
+
 - 間接リセラーのテナント識別子。
 
 ## <a name="c"></a>C\#
 
 間接リセラーの顧客の注文を作成するには、次のようにします。
 
-1. サインインしているパートナーとの関係を持つ間接リセラーのコレクションを取得します。
+1. サインインしているパートナーとのリレーションシップを持つ間接リセラーのコレクションを取得します。
+
 2. 間接リセラー ID に一致するコレクション内の項目に対して、ローカル変数を取得します。 この手順は、注文を作成するときに、リセラーの[**Mpnid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid)プロパティにアクセスするのに役立ちます。
+
 3. 顧客を記録するために、 [**order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order)オブジェクトをインスタンス化し、 [**ReferenceCustomerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid)プロパティを顧客 id に設定します。
-4. [**Orderlineitem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem)オブジェクトの一覧を作成し、そのリストを注文の[**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems)プロパティに割り当てます。 各注文品目には、1つのオファーの購入情報が含まれています。 各品目の[**Partneridonrecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord)プロパティに間接リセラーの MPN ID を設定してください。 少なくとも1つの注文品目が必要です。
+
+4. [**Orderlineitem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem)オブジェクトの一覧を作成し、そのリストを注文の[**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems)プロパティに割り当てます。 各注文品目には 1 つのプランの購入情報が含まれています。 各品目の[**Partneridonrecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord)プロパティに間接リセラーの MPN ID を設定してください。 少なくとも 1 つの注文品目が必要です。
+
 5. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出して顧客を識別し、 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティからインターフェイスを取得することによって、注文操作のためのインターフェイスを取得します。
+
 6. 注文を作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync)メソッドを呼び出します。
 
-### <a name="c-example"></a>C\# の例
+### <a name="c-example"></a>C\#の例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -81,21 +89,21 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                            |
+| 認証方法   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-顧客を識別するには、次のパスパラメーターを使用します。
+次のパス パラメーターを使用して顧客を指定します。
 
-| Name        | 種類   | 必須 | 説明                                           |
+| 名前        | Type   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
@@ -103,29 +111,29 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 次の表では、要求本文の**Order**プロパティについて説明します。
 
-| Name | 種類 | 必須 | 説明 |
+| 名前 | Type | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
 | id | string | いいえ | 注文が正常に作成されたときに提供される注文 id。 |
-| referenceCustomerId | string | はい | 顧客識別子。 |
-| 周期サイクル | string | いいえ | パートナーがこの注文に対して課金される頻度。 既定値は &quot;毎月の&quot; で、注文が正常に作成されたときに適用されます。 サポートされている値は、 [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)で見つかったメンバー名です。 注: 年間請求機能は、まだ一般公開されていません。 年次請求のサポートは、間もなくご利用可能になります。 |
+| referenceCustomerId | string | はい | 顧客 ID。 |
+| billingCycle | string | いいえ | パートナーがこの注文に対して課金される頻度。 既定値は&quot;月&quot;単位であり、注文が正常に作成されたときに適用されます。 サポートされている値は、 [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)で見つかったメンバー名です。 注: 年間請求機能は、まだ一般公開されていません。 年次請求は、近日中にサポートされる予定です。 |
 | lineItems | オブジェクトの配列 | はい | [**Orderlineitem**](#orderlineitem)リソースの配列。 |
 | creationDate | string | いいえ | 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。 |
-| 属性 | object | いいえ | "ObjectType": "Order" を格納します。 |
+| attributes | object | いいえ | "ObjectType": "Order" を格納します。 |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
 次の表では、要求本文の**Orderlineitem**プロパティについて説明します。
 
-| Name | 種類 | 必須 | 説明 |
+| 名前 | Type | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
-| lineItemNumber | int | はい | コレクション内の各行項目は、0からカウント-1 までカウントされる一意の行番号を取得します。 |
-| offerId | string | はい | プランの識別子。 |
-| subscriptionId | string | いいえ | サブスクリプション識別子。 |
-| parentSubscriptionId | string | いいえ | 省略可。 アドオンプランの親サブスクリプションの ID。 PATCH にのみ適用されます。 |
-| friendlyName | string | いいえ | 省略可。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。 |
-| quantity | int | はい | ライセンスベースのサブスクリプションのライセンス数。 |
-| partnerIdOnRecord | string | いいえ | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを適切にアカウンティングできます。 **リセラーの MPN ID を指定しないと、注文は失敗しません。ただし、リセラーは記録されません。結果として、インセンティブの計算には売上が含まれない場合があります。** |
-| 属性 | object | いいえ | "ObjectType": "OrderLineItem" が含まれています。 |
+| lineItemNumber | INT | はい | コレクション内の各品目には、0 からカウント -1 までカウントする、一意の品目番号が与えられます。 |
+| offerId | string | はい | プラン ID。 |
+| subscriptionId | string | いいえ | サブスクリプションの識別子です。 |
+| parentSubscriptionId | string | いいえ | 省略可能。 アドオン オファーの親サブスクリプションの ID。 PATCH にのみ適用されます。 |
+| friendlyName | string | いいえ | 省略可能。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。 |
+| 数量 | INT | はい | ライセンス ベースのサブスクリプションのライセンス数。 |
+| partnerIdOnRecord | string | いいえ | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを正しく計算できます。 **リセラーの MPN ID を指定しないと、注文は失敗しません。ただし、リセラーは記録されません。結果として、インセンティブの計算には売上が含まれない場合があります。** |
+| attributes | object | いいえ | "ObjectType": "OrderLineItem" が含まれています。 |
 
 ### <a name="request-example"></a>要求の例
 

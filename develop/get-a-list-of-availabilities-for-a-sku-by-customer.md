@@ -1,23 +1,23 @@
 ---
-title: SKU に使用できる機能の一覧を取得する (顧客別)
+title: SKU の空き状況の一覧を取得する (顧客別)
 description: 顧客、製品、SKU の識別子を使用して、顧客によって指定された製品および SKU の利用可能な機能のコレクションを取得できます。
 ms.assetid: ''
 ms.date: 10/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c9b834899c74e8f21736dc5d6837e9c99ed6ba7
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 15d6e0d4454be657a750ba992af294607686e458
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416771"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155714"
 ---
-# <a name="get-a-list-of-availabilities-for-a-sku-by-customer"></a>SKU に使用できる機能の一覧を取得する (顧客別)
+# <a name="get-a-list-of-availabilities-for-a-sku-by-customer"></a>SKU の空き状況の一覧を取得する (顧客別)
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,37 +27,38 @@ ms.locfileid: "80416771"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (**customer-tenant-id**)。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 製品識別子 (**製品 id**)。
+
 - SKU 識別子 (**sku id**)。
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
-
-| メソッド | 要求 URI                                                                                                                 |
+| 認証方法 | 要求 URI                                                                                                                 |
 |--------|-----------------------------------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products/{product-id}/skus/{sku-id} HTTP/1.1 |
+| POST   | baseURL/v1/customers/{customer-tenant-id}/products/{product-id}/skus/{sku-id} HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
-#### <a name="request-uri-parameters"></a>要求 URI パラメーター
+### <a name="request-uri-parameters"></a>要求 URI のパラメーター
 
-| Name               | 種類 | 必須 | 説明                                                                                 |
+| 名前               | Type | 必須 | 説明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
 | customer-tenant-id | GUID | はい | この値は、顧客を指定できるようにする識別子である、GUID 形式の **customer-tenant-id** です。 |
 | 製品 id | string | はい | 製品を識別する文字列。 |
-| sku-id | string | はい | SKU を識別するための。 |
+| sku-id | string | はい | SKU を識別する文字列。 |
 
-#### <a name="request-header"></a>要求ヘッダー
+### <a name="request-header"></a>要求ヘッダー
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-#### <a name="request-example"></a>要求の例
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/65543400-f8b0-4783-8530-6d35ab8c6801/products/DZH318Z0BPS6/skus/0001/availabilities HTTP/1.1
@@ -67,9 +68,9 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
@@ -79,7 +80,7 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 |------------------|------------|-------------|
 | 404 | 400013 | 親製品が見つかりませんでした。 |
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

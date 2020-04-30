@@ -1,39 +1,38 @@
 ---
-title: 顧客の会社のプロファイルを取得する
+title: 顧客の会社プロファイルを取得する
 description: 顧客の会社プロファイルを取得します。
 ms.assetid: 762C0F38-2229-464D-9CD6-6AD82135A65C
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a2d011e425d4fac1eeb2efdd530c6bab312c63c6
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 2b65c17d9020dd3631b600aa6828532e5f95f8ba
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415603"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156124"
 ---
-# <a name="get-a-customers-company-profile"></a>顧客の会社のプロファイルを取得する
+# <a name="get-a-customers-company-profile"></a>顧客の会社プロファイルを取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 顧客の会社プロファイルを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
-### <a name="c"></a>C#
+## <a name="c"></a>C\#
 
-顧客の会社のプロファイルを取得するには、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。 その後、Company プロパティにアクセスするために、 [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles)プロパティから顧客の[**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection)インターフェイスを取得します。 次に、 [**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company)プロパティから[**ICustomerReadonlyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1)インターフェイスを取得し、その[**get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get)メソッドまたは[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync)メソッドを呼び出します。
+顧客の会社のプロファイルを取得するには、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。 その後、Company プロパティにアクセスするために、 [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles)プロパティから顧客の[**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection)インターフェイスを取得します。 次に、 [**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company)プロパティから[**ICustomerReadonlyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1)インターフェイスを取得し、その[**get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get)メソッドまたは[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync)メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,11 +43,11 @@ var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Compa
 
 **サンプル**:[パートナーセンター SDK をダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=746681)します。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: GetCustomerCompanyProfile.cs
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-顧客の会社プロファイルを取得するには、顧客識別子を使用して**iaggregatepartner.customers () byId**関数を呼び出し、顧客を識別します。 その後、会社のプロパティにアクセスするために、 **[Getprofiles]** 関数から顧客の**ICustomerProfileCollection**インターフェイスを取得します。 次に、 **ICustomerProfileCollection**関数から**ICustomerReadonlyProfile**インターフェイスを取得し、 **get**関数を呼び出します。
+顧客の会社プロファイルを取得するには、顧客識別子を使用して**iaggregatepartner.customers () byId**関数を呼び出し、顧客を識別します。 その後、会社のプロパティにアクセスするために、[**Getprofiles**] 関数から顧客の**ICustomerProfileCollection**インターフェイスを取得します。 次に、 **ICustomerProfileCollection**関数から**ICustomerReadonlyProfile**インターフェイスを取得し、 **get**関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -57,32 +56,31 @@ var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Compa
 CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(customerId).getProfiles().getCompany().get();
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
-**要求の構文**
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                             |
+| 認証方法  | 要求 URI                                                             |
 |---------|-------------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
+| **GET** | *{baseURL}*/v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
 
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、会社のプロファイルを取得します。
 
-| Name                   | 種類     | 必須 | 説明                                                                                                                                            |
+| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
-
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
 なし
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/profiles/company HTTP/1.1
@@ -95,16 +93,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で情報を返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
