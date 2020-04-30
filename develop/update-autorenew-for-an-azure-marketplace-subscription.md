@@ -1,40 +1,38 @@
 ---
-title: 商用 marketplace サブスクリプションの autorenew を更新する
+title: 商用マーケットプレース サブスクリプションの自動更新を更新する
 description: 顧客とサブスクリプション ID に一致するサブスクリプションリソースの autorenew プロパティを更新します。
-ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ead0ea160b642d1b06fb8d0234fdbd778766ec12
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 00a190aa5051e88a6e10cdfaf7595cb845539465
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414744"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157804"
 ---
-# <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>商用 marketplace サブスクリプションの autorenew を更新する
-
+# <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>商用マーケットプレース サブスクリプションの自動更新を更新する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
 顧客とサブスクリプション ID に一致する商用 marketplace[サブスクリプション](subscription-resources.md)リソースの autorenew プロパティを更新します。
 
-パートナーセンターのダッシュボードでは、最初に[顧客を選択する](get-a-customer-by-name.md)ことによって、この操作が実行されます。 次に、更新するサブスクリプションを選択します。 最後に、**自動更新**オプションを切り替え、 **[送信]** を選択します。
+パートナーセンターのダッシュボードでは、最初に[顧客を選択する](get-a-customer-by-name.md)ことによって、この操作が実行されます。 次に、更新するサブスクリプションを選択します。 最後に、**自動更新**オプションを切り替え、[**送信**] を選択します。
 
-
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - サブスクリプション ID。
 
+## <a name="c"></a>C\#
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
-顧客のサブスクリプションを更新するには、最初に[サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの[**autoRenewEnabled**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled)プロパティを設定します。 変更が完了したら、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを呼び出し、その後に[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。 次に、 **Patch ()** メソッドを呼び出して終了します。
+顧客のサブスクリプションを更新するには、最初に[サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの[**autoRenewEnabled**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled)プロパティを設定します。 変更が完了したら、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを呼び出し、その後に[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。 次に、 **Patch ()** メソッドを呼び出して終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -48,33 +46,32 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: UpdateSubscription.cs
 
+## <a name="rest-request"></a>REST 要求
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド    | 要求 URI                                                                                                                |
+| 認証方法    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
- 
-**URI パラメーター**
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+
+### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、サブスクリプションを中断するために必要なクエリパラメーターを示します。
 
-| Name                    | 種類     | 必須 | 説明                               |
+| 名前                    | Type     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **顧客-テナント id**  | **GUID** | Y        | 顧客に対応する GUID。     |
-| **id-サブスクリプション** | **GUID** | Y        | サブスクリプションに対応する GUID。 |
+| **customer-tenant-id**  | **GUID** | Y        | 顧客に対応する GUID。     |
+| **id-for-subscription** | **GUID** | Y        | サブスクリプションに対応する GUID。 |
 
-**要求ヘッダー**
+### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
 要求本文には、完全な商用 marketplace**サブスクリプション**リソースが必要です。 **AutoRenewEnabled**プロパティが更新されていることを確認します。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
@@ -118,16 +115,15 @@ Connection: Keep-Alive
 }
 ```
 
-
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは、応答本文で更新された[サブスクリプション](subscription-resources.md)リソースのプロパティを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

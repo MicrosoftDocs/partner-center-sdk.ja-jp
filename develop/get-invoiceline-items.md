@@ -6,18 +6,18 @@ ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9232e27755f253d4ef017765f8f58e9a04f38b59
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 1267a10bff9e428720bf16d6dcb53ade69d6a343
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415837"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157404"
 ---
 # <a name="get-invoice-line-items"></a>請求書の品目を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -33,6 +33,7 @@ ms.locfileid: "80415837"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
 
 ## <a name="c"></a>C\#
@@ -40,6 +41,7 @@ ms.locfileid: "80415837"
 指定した請求書の品目を取得するには、次のようにします。
 
 1. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
+
 2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、請求書オブジェクトを取得します。 Invoice オブジェクトには、指定した請求書のすべての情報が含まれています。
 3. Invoice オブジェクトの[**InvoiceDetails**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails)プロパティを使用して、 [**InvoiceDetail**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail)オブジェクトのコレクションにアクセスします。各オブジェクトには、個別の[**プロバイダー**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider)と[**InvoiceLineItemType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.invoicelineitemtype)が含まれています。 この**プロバイダー**は、請求書の詳細情報のソース ( **Office**、 **Azure**、 **OneTime**など) を識別し、 **InvoiceLineItemType**は種類 (**たとえば、"** 例") を指定します。
 
@@ -48,6 +50,7 @@ ms.locfileid: "80415837"
 **InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
 1. インスタンスの**プロバイダー**と**InvoiceLineItemType**を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)メソッドに渡します。
+
 2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
 3. 次の例に示すように、列挙子を作成してコレクションを走査します。
 
@@ -104,41 +107,39 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetInvoiceLineItems.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
-
-#### <a name="request-syntax"></a>要求の構文
+### <a name="request-syntax"></a>要求の構文
 
 お客様のシナリオで、課金プロバイダーに適した構文を使用して要求を行います。
 
-##### <a name="office"></a>Office
+#### <a name="office"></a>Office
 
 次の構文は、課金プロバイダーが**Office**の場合に適用されます。
 
-| メソッド  | 要求 URI                                                                                                                                                     |
+| Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = office & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1.1                               |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = office&invoicelineitemtype = billinglineitems&size = {size} &offset = {OFFSET} HTTP/1.1                               |
 
-##### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure (MS-AZR-0145P) サブスクリプション
+#### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure (MS-AZR-0145P) サブスクリプション
 
 次の構文は、課金プロバイダーに Microsoft Azure (0145P) サブスクリプションがある場合に適用されます。
 
-| メソッド  | 要求 URI                                                                                                                                                     |
+| Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure & invoicelineitemtype = billinglineitems & size = {size} & offset = {OFFSET} HTTP/1.1  |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure & invoicelineitemtype = usagelineitems & size = {size} & offset = {OFFSET} HTTP/1.1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure&invoicelineitemtype = billinglineitems&size = {size} &offset = {OFFSET} HTTP/1.1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure&invoicelineitemtype = usagelineitems&size = {size} &offset = {OFFSET} HTTP/1.1  |
 
 ##### <a name="onetime"></a>OneTime
 
 次の構文は、課金プロバイダーが**OneTime**の場合に適用されます。 これには、Azure の予約、ソフトウェア、Azure プラン、および商用 marketplace 製品の料金が含まれます。
 
-| メソッド  | 要求 URI                                                                                                                                                     |
+| Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = billinglineitems & size = {SIZE} HTTP/1.1  |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems & size = {size}? Seekoperation = 次へ                           |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = billinglineitems&size = {SIZE} HTTP/1.1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems&size = {size}? Seekoperation = 次へ                           |
 
-##### <a name="previous-syntaxes"></a>前の構文
+#### <a name="previous-syntaxes"></a>前の構文
 
 次の構文を使用する場合は、ユースケースに適した構文を使用するようにしてください。
 
@@ -146,56 +147,54 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 **Onetime**を使用して、 **marketplace**ではなく、すべての商用消費明細項目に対してクエリを実行する必要があります。 または、[推定リンク] の呼び出しのリンクを使用することもできます。
 
-| メソッド | 要求 URI | 構文のユースケースの説明 |
+| Method | 要求 URI | 構文のユースケースの説明 |
 | ------ | ----------- | -------------------------------- |
-| GET | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1.1                              | この構文を使用すると、指定された請求書のすべての品目の完全な一覧を返すことができます。 |
-| GET | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}? size = {size} & オフセット = {OFFSET} HTTP/1.1  | 大規模な請求書の場合は、この構文を指定したサイズと0ベースのオフセットを使用して、行項目のページ化されたリストを返すことができます。 |
-| GET | [ *{baseURL}* ](partner-center-rest-urls.md)/V1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}? seekoperation = Next                               | 請求プロバイダーの値が**OneTime**である請求書に対してこの構文を使用し、[次へ] を **[次**へ] に設定すると、請求書の品目の次の**ページを取得**できます。 |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1.1                              | この構文を使用すると、指定された請求書のすべての品目の完全な一覧を返すことができます。 |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}? size = {size} &オフセット = {OFFSET} HTTP/1.1  | 大規模な請求書の場合は、この構文を指定したサイズと0ベースのオフセットを使用して、行項目のページ化されたリストを返すことができます。 |
+| GET | [*{baseURL}*](partner-center-rest-urls.md)/V1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}? seekoperation = Next                               | 請求プロバイダーの値が**OneTime**である請求書に対してこの構文を使用し、[次へ] を **[次**へ] に設定すると、請求書の品目の次の**ページを取得**できます。 |
 
-###### <a name="uri-parameters"></a>URI パラメーター
+##### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| Name                   | 種類   | 必須 | 説明                                                       |
+| 名前                   | Type   | 必須 | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | 請求書-id             | string | はい      | 請求書を識別する文字列。                             |
-| 課金-プロバイダ       | string | はい      | 課金プロバイダー: "Office"、"Azure"、"OneTime"。               |
-| 請求書-品目-種類 | string | はい      | 請求書の詳細の種類: "BillingLineItems"、"UsageLineItems"。 |
+| billing-provider       | string | はい      | 課金プロバイダー: "Office"、"Azure"、"OneTime"。               |
+| invoice-line-item-type | string | はい      | 請求書の詳細の種類: "BillingLineItems"、"UsageLineItems"。 |
 | size                   | number | いいえ       | 返される項目の最大数。                            |
 | offset                 | number | いいえ       | 返される最初の行項目の0から始まるインデックス。            |
 | seekOperation          | string | いいえ       | 請求**プロバイダー**が**OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation**を**next**に等しく設定します。 |
-| hasPartnerEarnedCredit | bool | いいえ | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
+| hasPartnerEarnedCredit | [bool] | いいえ | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
 
- 
-
-#### <a name="request-headers"></a>要求ヘッダー
+### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答には行項目の詳細のコレクションが含まれます。
 
 *行項目**ChargeType**の場合、**購入**した値は**新規**にマップされます。値の**返金**は**キャンセル**にマップされます。*
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
 ### <a name="rest-request-response-examples"></a>REST 要求-応答の例
 
-#### <a name="request-response-example-1"></a>要求-応答の例1
+### <a name="request-response-example-1"></a>要求-応答の例1
 
 この例では、詳細は次のとおりです。
 
 - **プロバイダー**: **Office**
 - **InvoiceLineItemType**: **BillingLineItems**
 
-##### <a name="request-example-1"></a>要求の例1
+#### <a name="request-example-1"></a>要求の例1
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/1234000000/lineitems?provider=Office&nvoicelineitemtype=BillingLineItems&size=2&offset=0 HTTP/1.1
@@ -208,7 +207,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="response-example-1"></a>応答の例1
+#### <a name="response-example-1"></a>応答の例1
 
 ```http
 HTTP/1.1 200 OK
@@ -310,14 +309,14 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 }
 ```
 
-#### <a name="request-response-example-2"></a>要求-応答の例2
+### <a name="request-response-example-2"></a>要求-応答の例2
 
 次の例では、詳細は次のとおりです。
 
 - **プロバイダー**: **Azure**
 - **InvoiceLineItemType**: **BillingLineItems**
 
-##### <a name="request-example-2"></a>要求の例2
+#### <a name="request-example-2"></a>要求の例2
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/1234000000/lineitems?provider=Azure&invoicelineitemtype=BillingLineItems&size=2&offset=0 HTTP/1.1
@@ -330,7 +329,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="response-example-2"></a>応答の例2
+#### <a name="response-example-2"></a>応答の例2
 
 ```http
 HTTP/1.1 200 OK
@@ -448,14 +447,14 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 }
 ```
 
-#### <a name="request-response-example-3"></a>要求-応答の例3
+### <a name="request-response-example-3"></a>要求-応答の例3
 
 次の例では、詳細は次のとおりです。
 
 - **プロバイダー**: **Azure**
 - **InvoiceLineItemType**: **UsageLineItems**
 
-##### <a name="request-example-3"></a>要求の例3
+#### <a name="request-example-3"></a>要求の例3
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/1234000000/lineitems?provider=Azure&invoicelineitemtype=UsageLineItems&size=2&offset=0 HTTP/1.1
@@ -468,7 +467,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="response-example-3"></a>応答の例3
+#### <a name="response-example-3"></a>応答の例3
 
 ```http
 HTTP/1.1 200 OK
@@ -566,14 +565,14 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 }
 ```
 
-#### <a name="request-response-example-4"></a>要求-応答の例4
+### <a name="request-response-example-4"></a>要求-応答の例4
 
 次の例では、詳細は次のとおりです。
 
 - **プロバイダ**: **OneTime**
 - **InvoiceLineItemType**: **BillingLineItems**
 
-##### <a name="request-example-4"></a>要求の例4
+#### <a name="request-example-4"></a>要求の例4
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/G000024135/lineitems/OneTime/BillingLineItems?size=2&offset=0 HTTP/1.1
@@ -586,7 +585,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="response-example-4"></a>応答の例4
+#### <a name="response-example-4"></a>応答の例4
 
 ```http
 HTTP/1.1 200 OK
@@ -635,7 +634,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "subscriptionEndDate": "2019-02-02T19:53:55.1292512+00:00",
             "termAndBillingCycle": "1 Month Subscription",
             "alternateId": "1234278124b8",
-            "priceAdjustmentDescription": "[\"100.0% Tier 1 Discount\"]",            
+            "priceAdjustmentDescription": "[\"100.0% Tier 1 Discount\"]",
             "pricingCurrency": "USD",
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-09-30T23:59:59Z",
@@ -719,7 +718,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 }
 ```
 
-#### <a name="request-response-example-5"></a>要求-応答の例5
+### <a name="request-response-example-5"></a>要求-応答の例5
 
 次の例では、継続トークンを使用してページングが発生しています。 詳細は次のとおりです。
 
@@ -727,7 +726,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 - **InvoiceLineItemType**: **BillingLineItems**
 - **Seekoperation**:**次**
 
-##### <a name="request-example-5"></a>要求の例5
+#### <a name="request-example-5"></a>要求の例5
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/G000024135/lineitems/OneTime/BillingLineItems?seekOperation=Next HTTP/1.1
@@ -741,7 +740,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="response-example-5"></a>応答の例5
+#### <a name="response-example-5"></a>応答の例5
 
 ```http
 HTTP/1.1 200 OK

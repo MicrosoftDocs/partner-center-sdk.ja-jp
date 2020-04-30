@@ -6,33 +6,31 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0969ae1d347946fbbe9aa2fe1a14d5c582ef0dae
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 67b8a2c636ff56a1624635e5756782c067e2662f
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416184"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157574"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>プラン ID のアドオンを取得する
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 プラン ID のアドオンを取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - プラン ID。 プラン ID をお持ちでない場合は、「[市場向けのプランの一覧を取得する](get-a-list-of-offers-for-a-market.md)」を参照してください。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 ID でオファーのアドオンを取得するには、まず、国コードを使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry)メソッドを呼び出し、指定された国に基づいて操作を提供するインターフェイスを取得します。 次に、オファー ID を指定して[**ByID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)メソッドを呼び出し、アドオンを取得するオファーを識別します。 次に、[**アドオン**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons)プロパティを使用して、現在のプランのアドオン操作へのインターフェイスを取得します。 最後に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync)メソッドを呼び出して、指定されたオファーのすべてのアドオンのコレクションを取得します。
 
@@ -46,37 +44,32 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetOffer.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                             |
+| 認証方法  | 要求 URI                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons? country = {country-CODE} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons? country = {country-CODE} HTTP/1.1 |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameters"></a>URI パラメーター
 
 次のパラメーターを使用して、プラン ID と国コードを指定します。
 
-| Name         | 種類       | 必須 | 説明                       |
+| 名前         | Type       | 必須 | 説明                       |
 |--------------|------------|----------|-----------------------------------|
 | **プラン id** | **guid**   | Y        | オファーを識別する GUID。 |
-| **原産**  | **文字列** | Y        | 国コード (例: US)。       |
+| **country**  | **string** | Y        | 国コード (など`US`)。       |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+### <a name="request-body"></a>[要求本文]
 
-**要求本文**
+なし。
 
-[なし]。
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/195416C1-3447-423A-B37B-EE59A99A19C4/addons?country=us HTTP/1.1
@@ -88,16 +81,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で[オファー](offer-resources.md)オブジェクトのコレクションを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -211,11 +203,3 @@ Date: Wed, 01 Feb 2017 22:37:58 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

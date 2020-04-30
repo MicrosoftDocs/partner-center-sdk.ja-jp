@@ -1,39 +1,37 @@
 ---
-title: サービス要求の更新
+title: サービス リクエストを更新する
 description: お客様の代わりに、クラウドソリューションプロバイダーによって Microsoft に提出された既存のカスタマーサービスリクエストを更新する方法。
 ms.assetid: 09C13775-739B-4CB9-9442-456E17F91452
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ef53e0115ac1d37940cb528876977e76cefa0a09
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: ca618afa6e5dc2b6db141ec8a590554b9592eb94
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414806"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157944"
 ---
-# <a name="update-a-service-request"></a>サービス要求の更新
-
+# <a name="update-a-service-request"></a>サービス リクエストを更新する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 お客様の代わりに、クラウドソリューションプロバイダーによって Microsoft に提出された既存のカスタマーサービスリクエストを更新する方法。
 
-パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、左側のサイドバーで **[サービス管理]** を選択します。 **[サポート要求]** ヘッダーの下で、対象のサービス要求を選択します。 完了するには、サービス要求に必要な変更を行い、[送信] を選択し**ます。**
+パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、左側のサイドバーで [**サービス管理**] を選択します。 [**サポート要求**] ヘッダーの下で、対象のサービス要求を選択します。 完了するには、サービス要求に必要な変更を行い、[送信] を選択し**ます。**
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 - サービス要求 ID。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 顧客のサービス要求を更新するには、サービス要求 id を指定して[**IServiceRequestCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid)メソッドを呼び出し、サービス要求インターフェイスを特定して返します。 次に、 [**IServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch)または Patch [**async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync)メソッドを呼び出して、サービス要求を更新します。 更新された値を提供するには、新しい空の[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)オブジェクトを作成し、変更するプロパティ値のみを設定します。 次に、そのオブジェクトを Patch または Patch Async メソッドの呼び出しで渡します。
 
@@ -49,36 +47,31 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: UpdatePartnerServiceRequest.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド    | 要求 URI                                                                                 |
+| 認証方法    | 要求 URI                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1 |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 サービス要求を更新するには、次の URI パラメーターを使用します。
 
-| Name                  | 種類     | 必須 | 説明                                 |
+| 名前                  | Type     | 必須 | 説明                                 |
 |-----------------------|----------|----------|---------------------------------------------|
 | **servicerequest-id** | **guid** | Y        | サービス要求を識別する GUID。 |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
-
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
 要求本文には、 [ServiceRequest](service-request-resources.md)リソースが含まれている必要があります。 必要な値は、更新される値のみです。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/servicerequests/616122292874576 HTTP/1.1
@@ -122,16 +115,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で更新されたプロパティを含む**サービス要求**リソースを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -170,11 +162,3 @@ Date: Mon, 09 Jan 2017 23:31:15 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

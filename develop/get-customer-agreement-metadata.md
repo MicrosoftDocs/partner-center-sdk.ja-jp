@@ -1,22 +1,22 @@
 ---
-title: Microsoft カスタマーアグリーメントの契約メタデータを取得する
-description: このトピックでは、Microsoft カスタマーアグリーメントの契約メタデータを取得する方法について説明します。
+title: Microsoft 顧客契約の契約メタデータを取得する
+description: この記事では、Microsoft カスタマーアグリーメントの契約メタデータを取得する方法について説明します。
 ms.date: 8/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 97dd5582b4903333c4ecd6418459fb557dd4a84b
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 419be44e0dc82f931826dbf849c7122a98bc8646
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415992"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157704"
 ---
-# <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>Microsoft カスタマーアグリーメントの契約メタデータを取得する
+# <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>Microsoft 顧客契約の契約メタデータを取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 Microsoft カスタマーアグリーメントの契約メタデータは、現在、 *microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 次の場合には適用されません。
 
@@ -32,8 +32,8 @@ Microsoft カスタマーアグリーメントの契約メタデータは、現�
 ## <a name="prerequisites"></a>前提条件
 
 - パートナー センター .NET SDK を使用している場合、バージョン 1.14 以降が必要です。
-- [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
 
+- [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
 
 ## <a name="net-version-114-or-newer"></a>.NET (バージョン1.14 以降)
 
@@ -55,25 +55,25 @@ var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgr
 
 完全なサンプルは、[コンソールテストアプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)プロジェクトの[GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs)クラスにあります。
 
-
 ## <a name="rest-request"></a>REST 要求
 
 Microsoft Customer Agreement の契約メタデータを取得するには:
 
 1. [AgreementMetaData](./agreement-metadata-resources.md) collection を取得する REST 要求を作成します。
+
 2. **AgreementType**クエリパラメーターを使用して、結果の範囲を Microsoft Customer Agreement のみに限定します。
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI                                                         |
+| 認証方法 | 要求 URI                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/V1/agreements? agreementType = {agreement-TYPE} HTTP/1.1 |
+| GET    | baseURL/v1/agreements? agreementType = {agreement-type} HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
-| Name                   | 種類     | 必須 | 説明                                                             |
+| 名前                   | Type     | 必須 | 説明                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| 契約タイプ | string | いいえ | このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされている値は次のとおりです。 <ul><li>Microsoft の種類の**契約に含まれる契約**メタデータのみを含む Microsoft *cloudagreement*</li><li>Microsoft の**顧客契約**では、契約メタデータのみが含まれて*います。*</li><li>すべてのアグリーメントメタデータを返す **\*** 。 ( **\*** 使用しないでください。マイクロソフトでは、契約の種類を問わず、契約の種類に同意する必要があります。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。  |
+| 契約タイプ | string | いいえ | このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされる値は <ul><li>Microsoft の種類の**契約に含まれる契約**メタデータのみを含む Microsoft *cloudagreement*</li><li>Microsoft の**顧客契約**では、契約メタデータのみが含まれて*います。*</li><li>**\*** すべてのアグリーメントメタデータを返します。 (を使用**\*** しないでください。ただし、お使いのコードに、不明な契約の種類を処理するために必要なランタイムロジックがある場合を除きます)。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。  |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -81,7 +81,7 @@ Microsoft Customer Agreement の契約メタデータを取得するには:
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

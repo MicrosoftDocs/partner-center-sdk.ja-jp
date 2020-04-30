@@ -1,38 +1,38 @@
 ---
-title: サブスクリプション登録状態の取得
+title: サブスクリプションの登録状態を取得する
 description: Azure Reserved VM Instances で使用するように登録されているサブスクリプションの状態を取得します。
 ms.date: 03/19/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0671ab9bfc9bf254a9bc5472c4ed0f65153af1af
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 86c7254876110a5f5b03317c7cd79a23d1f63332
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416622"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157204"
 ---
-# <a name="get-subscription-registration-status"></a>サブスクリプション登録状態の取得 
+# <a name="get-subscription-registration-status"></a>サブスクリプションの登録状態を取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
-Azure Reserved VM Instances 購入が有効になっている顧客サブスクリプションのサブスクリプション登録状態を取得する方法。  
+Azure Reserved VM Instances 購入が有効になっている顧客サブスクリプションのサブスクリプション登録状態を取得する方法。
 
-パートナーセンター API を使用して Azure 予約 VM インスタンスを購入するには、少なくとも1つの既存の CSP Azure サブスクリプションが必要です。 [サブスクリプションの登録](register-a-subscription.md)方法を使用すると、既存の CSP Azure サブスクリプションを登録し、Azure Reserved VM Instances を購入できるようになります。 このメソッドを使用すると、その登録の状態を取得できます。 
+パートナーセンター API を使用して Azure 予約 VM インスタンスを購入するには、少なくとも1つの既存の CSP Azure サブスクリプションが必要です。 [サブスクリプションの登録](register-a-subscription.md)方法を使用すると、既存の CSP Azure サブスクリプションを登録し、Azure Reserved VM Instances を購入できるようになります。 このメソッドを使用すると、その登録の状態を取得できます。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - サブスクリプション ID。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+## <a name="c"></a>C\#
 
-
-サブスクリプションの登録状態を取得するには、まず、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、サブスクリプションを識別するためにサブスクリプション ID を指定して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、RegistrationStatus プロパティを使用して、現在のサブスクリプションの登録状態操作へのインターフェイスを取得し、 **Get**または**GetAsync**メソッドを呼び出して**subscriptionregistrationstatus**オブジェクトを取得します。
+サブスクリプションの登録状態を取得するには、まず、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、サブスクリプションを識別するためにサブスクリプション ID を指定して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、RegistrationStatus プロパティを使用して、現在のサブスクリプションの登録状態操作へのインターフェイスを取得し、 **Get**または**GetAsync**メソッドを呼び出して**subscriptionregistrationstatus**オブジェクトを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,33 +43,32 @@ Azure Reserved VM Instances 購入が有効になっている顧客サブスク�
 var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).RegistrationStatus.Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
-**要求の構文**
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド    | 要求 URI                                                                                                                        |
+| 認証方法    | 要求 URI                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1.1 |
+| **GET**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus HTTP/1.1 |
 
-**URI パラメーター**
+### <a name="uri-parameters"></a>URI パラメーター
 
-次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。 
+次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| Name                    | 種類       | 必須 | 説明                                                   |
+| 名前                    | Type       | 必須 | 説明                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| 顧客 id             | string     | はい      | 顧客を識別する GUID 形式の文字列。         |
-| サブスクリプション id         | string     | はい      | サブスクリプションを識別する GUID 形式の文字列。     |
+| customer-id             | string     | はい      | 顧客を識別する GUID 形式の文字列。         |
+| subscription-id         | string     | はい      | サブスクリプションを識別する GUID 形式の文字列。     |
 
- 
-**要求ヘッダー**
+### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-id>/subscriptions/<subscription-id>/registrationstatus HTTP/1.1
@@ -83,15 +82,15 @@ Expect: 100-continue
 Connection: Keep-Alive
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
+## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[Subscriptionregistrationstatus](subscription-resources.md#subscriptionregistrationstatus)リソースが含まれます。  
+成功した場合、応答本文には[Subscriptionregistrationstatus](subscription-resources.md#subscriptionregistrationstatus)リソースが含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

@@ -1,43 +1,44 @@
 ---
 title: ID で可用性を取得する
-description: 可用性 ID を使用して、指定された製品および SKU の可用性を取得します。
+description: 可用性 ID を使用して、指定された製品と SKU の可用性を取得します。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cff15d30a7fc218a2b6a12e50cc016dec3c8fe98
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 34c1dd0c40b4594142a239ccb81a884e3212cbdf
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416049"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157764"
 ---
-# <a name="get-an-availability-by-id"></a>ID で可用性を取得する 
+# <a name="get-the-availability-by-id"></a>ID で可用性を取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
-可用性 ID を使用して、指定された製品および SKU の可用性を取得します。
+可用性 ID を使用して、指定された製品と SKU の可用性を取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 製品 ID。 
-- SKU ID。 
-- 可用性 ID。 
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
+- 製品 ID。
 
-### <a name="c"></a>C# 
+- SKU ID。
+
+- 可用性 ID。
+
+## <a name="c"></a>C\#
 
 特定の[可用性](product-resources.md#availability)の詳細を取得するには、まず「 [ID で sku を取得](get-a-sku-by-id.md)する」の手順に従って、特定の[sku の](product-resources.md#sku)操作のインターフェイスを取得します。 生成されたインターフェイスから使用可能なプロパティを選択し**て、利用**可能な操作を持つインターフェイスを取得します。 その後、可用性 ID を**ById ()** メソッドに渡して、その特定の可用性に対する操作を取得し、 **get ()** または**GetAsync ()** を呼び出して可用性の詳細を取得します。
 
 ```csharp
 IAggregatePartner partnerOperations;
 string countryCode;
-string productId; 
+string productId;
 string skuId;
 string availabilityId;
 
@@ -45,16 +46,16 @@ string availabilityId;
 var availability = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Availabilities.ById(availabilityId).Get();
 ```
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 特定の[可用性](product-resources.md#availability)の詳細を取得するには、まず「 [ID で sku を取得](get-a-sku-by-id.md)する」の手順に従って、特定の[sku の](product-resources.md#sku)操作のインターフェイスを取得します。 生成されたインターフェイスから、 **Getavailability アビリティー**関数を選択して、利用可能な操作を持つインターフェイスを取得します。 その後、可用性 ID を**byId ()** 関数に渡して、その特定の可用性に対する操作を取得し、 **get ()** 関数を呼び出して可用性の詳細を取得します。
 
 ```java
 IAggregatePartner partnerOperations;
 String countryCode;
-String productId; 
+String productId;
 String skuId;
 String availabilityId;
 
@@ -62,9 +63,9 @@ String availabilityId;
 Availability availability = partnerOperations.getProducts().byCountry(countryCode).byId(productId).getSkus().byId(skuId).getAvailabilities().byId(availabilityId).get();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 特定の[可用性](product-resources.md#availability)の詳細を取得するには、 **AvailabilityId**、 **CountryCode**、 **ProductId**、および**SkuId**パラメーターを指定して、 [**get partnerproductavailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md)を実行し、可用性の詳細を取得します。
 
@@ -72,35 +73,34 @@ Availability availability = partnerOperations.getProducts().byCountry(countryCod
 Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId $availabilityId
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
-**要求の構文**
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI |
+| 認証方法  | 要求 URI |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}? country = {country-CODE} HTTP/1.1         |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}? country = {country-CODE} HTTP/1.1         |
 
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 可用性 ID を使用して特定の可用性を取得するには、次のパスとクエリパラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                     |
+| 名前                   | Type     | 必須 | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 製品 id             | string   | はい      | 製品を識別する GUID 形式の文字列。            |
 | sku-id                 | string   | はい      | SKU を識別する GUID 形式の文字列。                |
 | 可用性-id        | string   | はい      | 可用性を識別する GUID 形式の文字列。       |
 | 国-コード           | string   | はい      | 国/地域 ID。                                            |
 
- 
-**要求ヘッダー**
+### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities/DZH318XZXPHL?country=US HTTP/1.1
@@ -113,11 +113,11 @@ MS-PartnerCenter-Client: Partner Center .NET SDK
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[可用性](product-resources.md#availability)リソースが含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
@@ -129,7 +129,7 @@ Host: api.partnercenter.microsoft.com
 | 404                  | 400018       | Sku が見つかりませんでした。                                                                                        |
 | 404                  | 400019       | 可用性が見つかりません。                                                                                   |
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

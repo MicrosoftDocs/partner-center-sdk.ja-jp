@@ -5,50 +5,50 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d5b8d990747bdff0f1f83958138a5373a1310e9c
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: ca6804bddd4e19254d70b4bfc0626f31a087ebb0
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220738"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157824"
 ---
 # <a name="withdraw-a-transfer"></a>転送を取り消す
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 既存の転送の転送識別子。
 
 ## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド    | 要求 URI                                                                                                 |
+| 認証方法    | 要求 URI                                                                                                 |
 |-----------|-------------------------------------------------------------------------------------------------------------|
-| **デリート**| [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id} HTTP/1.1      |
+| **DELETE**| [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id} HTTP/1.1      |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-顧客を識別するには、次のパスパラメーターを使用します。
+次のパス パラメーターを使用して顧客を指定します。
 
-| Name            | 種類     | 必須 | 説明                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 | **転送 id** | string   | はい      | 転送を識別する GUID 形式の転送 id。             |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
-
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-example"></a>要求の例
 

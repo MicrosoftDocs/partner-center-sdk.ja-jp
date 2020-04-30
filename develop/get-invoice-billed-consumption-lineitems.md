@@ -5,18 +5,18 @@ ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fb207223c99597402ca855ab91f985e891b92a0c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0b1fce3f2d5eea5713fe87c4c1f60ac5e70551b4
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415923"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157484"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>請求書に請求される商用消費量の品目を取得する
 
-適用対象
- 
-- Partner Center
+**適用対象:**
+
+- パートナー センター
 
 次の方法を使用すると、指定された請求書について、商用消費請求書の明細品目 (終了日の評価済みの使用明細項目とも呼ばれます) の詳細のコレクションを取得できます。
 
@@ -25,6 +25,7 @@ ms.locfileid: "80415923"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - 請求書の識別子。 これにより、品目を取得する請求書が識別されます。
 
 ## <a name="c"></a>C\#
@@ -32,6 +33,7 @@ ms.locfileid: "80415923"
 指定された請求書の商用の品目を取得するには、請求書オブジェクトを取得する必要があります。
 
 1. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
+
 2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、請求書オブジェクトを取得します。 Invoice オブジェクトには、指定した請求書のすべての情報が含まれています。
 
 **プロバイダー**は、請求された詳細情報のソースを識別します (たとえば、 **onetime**)。 **InvoiceLineItemType**は、型 (たとえば、 **UsageLineItem**) を指定します。
@@ -41,6 +43,7 @@ ms.locfileid: "80415923"
 **InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
 1. インスタンスの**プロバイダー**と**InvoiceLineItemType**を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)メソッドに渡します。
+
 2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
 3. 次の例に示すように、列挙子を作成してコレクションを走査します。
 
@@ -98,7 +101,7 @@ while (fetchNext)
             seekBasedResourceCollection = scopedPartnerOperations.Invoices.ById(invoiceId).By("onetime", "usagelineitems", curencyCode, period, pageMaxSizeReconLineItems).Seek(seekBasedResourceCollection.ContinuationToken, SeekOperation.Next);
         }
     }
-}  
+}
 ```
 
 同様の例については、以下を参照してください。
@@ -107,55 +110,53 @@ while (fetchNext)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetBilledConsumptionReconLineItemsPaging.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
+最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 請求書が大きい場合に、サイズと 0 ベースのオフセットを指定して品目のリストをページ単位で取得するには、2 つ目の構文を使用します。 3番目の構文を使用して、を使用して`seekOperation = "Next"`行項目の次のページを取得します。
 
-最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 大規模な請求書の場合は、2番目の構文でサイズを指定し、0から始まるオフセットを使用して、行項目のページ化されたリストを返します。 3番目の構文を使用して、`seekOperation = "Next"`を使用して行項目の次のページを取得します。
-
-| メソッド  | 要求 URI                                                                                                                                                     |
+| Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {CURRENCYCODE} HTTP/1.1                              |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {SIZE} HTTP/1.1  |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime & invoicelineitemtype = usagelineitems & currencycode = {currencycode} & size = {size} & Seekoperation = Next                               |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {CURRENCYCODE} HTTP/1.1                              |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &size = {SIZE} HTTP/1.1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &size = {size} &Seekoperation = Next                               |
 
-##### <a name="uri-parameters"></a>URI パラメーター
+#### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| Name                   | 種類   | 必須 | 説明                                                       |
+| 名前                   | Type   | 必須 | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | 請求書-id             | string | はい      | 請求書を識別する文字列。                             |
-| プロバイダー               | string | はい      | プロバイダー: "OneTime"。                                  |
-| 請求書-品目-種類 | string | はい      | 請求書の詳細の種類: "UsageLineItems"。 |
+| provider               | string | はい      | プロバイダー: "OneTime"。                                  |
+| invoice-line-item-type | string | はい      | 請求書の詳細の種類: "UsageLineItems"。 |
 | currencyCode           | string | はい      | 請求明細項目の通貨コード。                    |
 | 前期                 | string | はい      | 課金対象の期間。 例: current、previous。        |
 | size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000       |
 | seekOperation          | string | いいえ       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
 
-#### <a name="request-headers"></a>要求ヘッダー
+### <a name="request-headers"></a>要求ヘッダー
 
 詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答には行項目の詳細のコレクションが含まれます。
 
 行項目**ChargeType**の場合、**購入**した値は**新規**にマップされます。 値の**返金**は**キャンセル**にマップされます。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-### <a name="rest-examples"></a>REST の例
+## <a name="rest-examples"></a>REST の例
 
-#### <a name="request-response-example-1"></a>要求-応答の例1
+### <a name="request-response-example-1"></a>要求-応答の例1
 
 この例の REST 要求と応答の詳細は次のとおりです。
 
@@ -163,7 +164,7 @@ while (fetchNext)
 - **InvoiceLineItemType**: **UsageLineItems**
 - **期間**:**前へ**
 
-##### <a name="request-example-1"></a>要求の例1
+#### <a name="request-example-1"></a>要求の例1
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/T000001234/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode=usd&period=previous&size=2000 HTTP/1.1
@@ -176,7 +177,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="response-example-1"></a>応答の例1
+#### <a name="response-example-1"></a>応答の例1
 
 ```http
 HTTP/1.1 200 OK
@@ -323,7 +324,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-#### <a name="request-response-example-2"></a>要求-応答の例2
+### <a name="request-response-example-2"></a>要求-応答の例2
 
 この例の REST 要求と応答の詳細は次のとおりです。
 
@@ -332,7 +333,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 - **期間**:**前へ**
 - **Seekoperation**:**次**
 
-##### <a name="request-example-2"></a>要求の例2
+#### <a name="request-example-2"></a>要求の例2
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/T000001234/lineitems?provider=onetime&invoiceLineItemType=usagelineitems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -346,7 +347,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="response-example-2"></a>応答の例2
+## <a name="response-example-2"></a>応答の例2
 
 ```http
 HTTP/1.1 200 OK

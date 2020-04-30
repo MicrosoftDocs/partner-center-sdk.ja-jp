@@ -1,25 +1,26 @@
 ---
-title: Microsoft Cloud 契約に対する顧客の同意を確認する
-description: このトピックでは、Microsoft Cloud 契約に対する顧客の同意を確認する方法について説明します。
+title: Microsoft Cloud 契約に関する顧客の同意の確認を取得する
+description: この記事では、Microsoft Cloud 契約に対する顧客の同意を確認する方法について説明します。
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3151eb851a3ae3204fd2a9b6004d6ae31ddb9174
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 03412538cc61d748edd3dea08558a3203b3e0f87
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415998"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157724"
 ---
-# <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Microsoft Cloud 契約に対する顧客の同意を確認する
+# <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Microsoft Cloud 契約に関する顧客の同意の確認を取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
-> [!NOTE]  
-> **アグリーメント**リソースは、現在、Microsoft パブリッククラウドのパートナーセンターでのみサポートされています。 以下には適用されません。
+> [!NOTE]
+> **アグリーメント**リソースは、現在、Microsoft パブリッククラウドのパートナーセンターでのみサポートされています。 次の場合には適用されません。
+>
 > - 21Vianet が運営するパートナー センター
 > - Microsoft Cloud ドイツのパートナー センター
 > - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,16 +28,21 @@ ms.locfileid: "80415998"
 ## <a name="prerequisites"></a>前提条件
 
 - パートナーセンター .NET SDK を使用している場合は、バージョン1.9 以降が必要です。
+
 - パートナーセンターの Java SDK を使用している場合は、バージョン1.8 以降が必要です。
+
 - [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでサポートされるのは、アプリとユーザー認証のみです。
-- 顧客 ID (顧客-テナント id)。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="net-version-14-or-newer"></a>.NET (バージョン1.4 以降)
 
 以前に提供された顧客の同意の確認を取得するには、次のようにします。
 
 - **Iaggregatepartner.customers**コレクションを使用し、指定された顧客識別子を使用して**ById**メソッドを呼び出します。
+
 - **ByAgreementType**メソッドを呼び出して、**アグリーメント**のプロパティを取得し、結果を Microsoft Cloud agreement にフィルター処理します。
+
 - **Get**または**GetAsync**メソッドを呼び出します。
 
 ```csharp
@@ -50,7 +56,7 @@ var cloudAgreements = partnerOperations.Customers.ById(selectedCustomerId).Agree
 
 完全なサンプルは、[コンソールテストアプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples)プロジェクトの[get顧客契約](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetCustomerAgreements.cs)クラスにあります。
 
-## <a name="net-version-19---113"></a>.NET (バージョン 1.9-1.13) 
+## <a name="net-version-19---113"></a>.NET (バージョン 1.9-1.13)
 
 以前に提供された顧客の受け入れの確認を取得するには:
 
@@ -65,7 +71,7 @@ var agreements = partnerOperations.Customers.ById(selectedCustomerId).Agreements
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 以前に提供された顧客の受け入れの確認を取得するには:
 
@@ -78,69 +84,67 @@ var agreements = partnerOperations.Customers.ById(selectedCustomerId).Agreements
 ResourceCollection<Agreement> agreements = partnerOperations.getCustomers().byId(selectedCustomerId).getAgreements().get();
 ```
 
-完全なサンプルは、[コンソールテストアプリ](https://github.com/Microsoft/Partner-Center-Java-Samples)プロジェクトの[get顧客契約](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetCustomerAgreements.java)クラスにあります。
+完全なサンプルは、[コンソールテストアプリ](https://github.com/Microsoft/Partner-Center-Java-Samples)プロジェクトの[get顧客契約](https://github.com/microsoft/Partner-Center-Java-Samples/blob/master/sdk/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetCustomerAgreements.java)クラスにあります。
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 以前に提供された顧客の受け入れの確認を取得するには:
 
-[**Get Partnerの顧客契約**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partnercustomeragreement)コマンドを使用します。
+[**Get Partnerの顧客契約**](https://docs.microsoft.com/powershell/module/partnercenter/get-partnercustomeragreement)コマンドを使用します。
 
 ```powershell
 Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
 以前に提供された顧客の受け入れの確認を取得するには、次の手順を参照してください。
 
-### <a name="rest-request"></a>REST 要求
+関連する証明**書**情報を使用して、新しい契約リソースを作成します。
 
-関連する証明**書**情報を使用して、新しい契約リソースを作成します。  
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
-
-| メソッド | 要求 URI                                                                                      |
+| 認証方法 | 要求 URI                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
 | GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
 
-##### <a name="uri-parameter"></a>URI パラメーター
+#### <a name="uri-parameter"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、確認する顧客を指定します。
 
-| Name             | 種類 | 必須 | 説明                                                                               |
+| 名前             | Type | 必須 | 説明                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
 | 顧客 Tenantid | GUID | Y        | 値は、顧客を指定できるようにする GUID 形式の顧客**tenantid**です。 |
 
-#### <a name="request-headers"></a>要求ヘッダー
+### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-#### <a name="request-example"></a>要求の例
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/14876998-c0dc-46e6-9d0c-65a57a6c32ec/agreements HTTP/1.1
-Authorization: Bearer <token> 
+Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で**アグリーメント**リソースのコレクションを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -151,7 +155,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 {
     "totalCount": 2,
     "items":
-    [ 
+    [
         {
             "primaryContact":
             {
@@ -181,5 +185,3 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
     ]
 }
 ```
-
----

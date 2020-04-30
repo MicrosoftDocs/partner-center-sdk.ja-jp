@@ -1,33 +1,33 @@
 ---
-title: Microsoft Azure パートナーの共有サービスの価格を取得する
+title: Microsoft Azure パートナー共有サービスの価格を取得する
 description: Microsoft Azure Partner Shared Services の価格で Azure 料金カードを取得する方法について説明します。
 ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d8e4fb8364c05a4e50524a1a75cb20a6755e0ba5
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f8da51f0f23e8a45aa4708d7cc6891483ebf46a7
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416707"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157294"
 ---
-# <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Microsoft Azure パートナーの共有サービスの価格を取得する
+# <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Microsoft Azure パートナー共有サービスの価格を取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 Microsoft Azure Partner Shared Services の価格で[Azure 料金カード](azure-rate-card-resources.md)を取得する方法について説明します。
 
-価格は市場と通貨によって異なります。この API は、場所を考慮します。 既定では、パートナーのプロファイル設定はパートナーセンターとブラウザーの言語で使用されますが、カスタマイズすることもできます。 これは、1つの集中管理されたオフィスから複数の市場で売上を管理する場合に特に関連します。
+価格は市場と通貨によって異なります。この API は、場所を考慮します。 既定では、API はパートナーセンターとブラウザーの言語でパートナーのプロファイル設定を使用します。これらの設定はカスタマイズできます。 拠点を認識することは、1つの集中管理されたオフィスから複数の市場で売上を管理する場合に特に重要です。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
+## <a name="example-code"></a>コード例
 
-### <a name="c"></a>C# 
+## <a name="c"></a>C\#
 
 Azure の料金カードを取得するには、 [**IAzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared)メソッドを呼び出して、azure の価格を含む[**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard)リソースを返します。
 
@@ -37,9 +37,9 @@ Azure の料金カードを取得するには、 [**IAzureRateCard**](https://do
 var azureRateCard = partner.RateCards.Azure.GetShared();
 ```
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 Azure の料金カードを取得するには、 **IAzureRateCard**関数を呼び出して、azure の価格を含む料金カードの詳細を返します。
 
@@ -49,42 +49,42 @@ Azure の料金カードを取得するには、 **IAzureRateCard**関数を呼�
 AzureRateCard azureRateCard = partner.getRateCards().getAzure().getShared();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Azure カードを取得するには、 [**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md)コマンドを実行し、 **sharedservices**パラメーターを指定して、azure の価格を含むカードの詳細を取得します。
+Azure カードを取得するには、 [**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md)コマンドを実行し、 **sharedservices**パラメーターを指定して、azure の価格を含む料金カードの詳細を返します。
 
 ```powershell
 Get-PartnerAzureRateCard -SharedServices
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
-**要求の構文**
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                               |
+| 認証方法  | 要求 URI                                                               |
 |---------|---------------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/ratecards/azure-shared? currency = {currency} & region = {region} |
+| **GET** | *{baseURL}*/v1/ratecards/azure-shared? currency = {currency} &region = {region} |
 
-**URI パラメーター**
+### <a name="uri-parameters"></a>URI パラメーター
 
-| Name     | 種類   | 必須 | 説明                                                                                                                                                                               |
+| 名前     | Type   | 必須 | 説明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 貨 | string | いいえ       | リソースレートが提供される通貨に対して、省略可能な3文字の ISO コード (例: "EUR")。 既定値は、パートナープロファイルの市場に関連付けられている通貨です。 |
-| 領域 (region)   | string | いいえ       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (例: "FR")。 既定値は、パートナープロファイルで設定されている国/地域コードです。        |
+| currency | string | いいえ       | リソースレートが提供される通貨の3文字の ISO コード (省略可能) (たとえば`EUR`、)。 既定値は、パートナー プロファイル内の市場に関連付けられている通貨です。 |
+| region   | string | いいえ       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (たとえば`FR`、)。 既定値は、パートナー プロファイルに設定された国/地域コードです。        |
 
 省略可能な X-Locale ヘッダーが要求に含まれている場合、その値によって、応答の詳細に使用される言語が決まります。
 
-**要求ヘッダー**
+### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/ratecards/azure-shared HTTP/1.1
@@ -97,15 +97,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
+## <a name="rest-response"></a>REST 応答
 
-成功した場合は、 [Azure 料金カード](azure-rate-card-resources.md)リソースが返されます。
+要求が成功すると、 [Azure 料金カード](azure-rate-card-resources.md)リソースが返されます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

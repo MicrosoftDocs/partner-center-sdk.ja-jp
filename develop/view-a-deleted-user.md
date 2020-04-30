@@ -6,35 +6,32 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cab6b1cd309757f0754610eca362bcf205d199fb
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cfa2b6a5b48f9120b6fe5d12f882d0d0f36a18bd
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414253"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157834"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>顧客の削除されたユーザーを表示する
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
 顧客 ID によって顧客の削除されたユーザーリソースの一覧を取得します。 必要に応じてページサイズを設定することもできます。 フィルターを指定する必要があります。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客識別子。
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
-## <a name="span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_what-happens-when-you-delete-a-user-account"></a>ユーザーアカウントを削除するとどうなるか <span id="WHAT_HAPPENS_WHEN_YOU_DELETE_A_USER_ACCOUNT_"/><span id="what_happens_when_you_delete_a_user_account_"/><span id="What_happens_when_you_delete_a_user_account_"/>ますか?
-
+## <a name="what-happens-when-you-delete-a-user-account"></a>ユーザーアカウントを削除するとどうなりますか。
 
 ユーザーアカウントを削除すると、ユーザーの状態が "非アクティブ" に設定されます。 30日間はそのままで、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。 30日の期間内に削除されたユーザーアカウントを復元する場合は、「[顧客に対して削除されたユーザーを復元](restore-a-user-for-a-customer.md)する」を参照してください。 削除され、"inactive" とマークされた場合、ユーザーアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、[[顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)する] を使用します)。 削除されていないユーザーの一覧を取得するには、非アクティブに設定されているユーザーアカウントを照会する必要があります。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 削除されたユーザーの一覧を取得するには、状態が非アクティブに設定されている顧客のユーザーをフィルター処理するクエリを作成します。 まず、次のコードスニペットに示すように、パラメーターを使用して[**Simplefieldfilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)オブジェクトをインスタンス化することで、フィルターを作成します。 次に、 [**Buildindexedquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery)メソッドを使用してクエリを作成します。 ページングされた結果が不要な場合は、代わりに[**Buildsimplequery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)メソッドを使用できます。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 最後に、[**クエリ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query)メソッドを呼び出して要求を送信します。
 
@@ -54,38 +51,33 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetCustomerInactiveUsers.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                                       |
+| 認証方法  | 要求 URI                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users? size = {size} & フィルター = {FILTER} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users? size = {size} &フィルター = {FILTER} HTTP/1.1 |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 要求の作成時には、次のパスとクエリパラメーターを使用します。
 
-| Name        | 種類   | 必須 | 説明                                                                                                                                                                        |
+| 名前        | Type   | 必須 | 説明                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 顧客 id | guid   | はい      | 値は、顧客を識別する GUID 形式の顧客 id です。                                                                                                            |
-| size        | int    | いいえ       | 一度に表示される結果の数。 このパラメーターはオプションです。                                                                                                     |
-| フィルター      | フィルター | はい      | ユーザー検索をフィルター処理するクエリ。 削除されたユーザーを取得するには、次の文字列を含めてエンコードする必要があります: {"Field": "UserState", "Value": "Inactive", "Operator": "equals"}。 |
+| customer-id | guid   | はい      | 値は、顧客を識別する GUID 形式の顧客 id です。                                                                                                            |
+| size        | INT    | いいえ       | 一度に表示される結果の数。 このパラメーターは省略可能です。                                                                                                     |
+| filter      | filter | はい      | ユーザーの検索をフィルター処理するクエリ。 削除されたユーザーを取得するには、文字列 {"Field":"UserState","Value":"Inactive","Operator":"equals"} を含めてエンコードする必要があります。 |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+### <a name="request-body"></a>[要求本文]
 
-**要求本文**
+なし。
 
-[なし]。
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/users?size=500&filter=%7B%22Field%22%3A%22UserState%22%2C%22Value%22%3A%22Inactive%22%2C%22Operator%22%3A%22equals%22%7D HTTP/1.1
@@ -97,16 +89,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST 応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは、応答本文内の[ユーザー](user-resources.md#customeruser)リソースのコレクションを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -154,11 +145,3 @@ Date: Fri, 20 Jan 2017 19:13:14 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

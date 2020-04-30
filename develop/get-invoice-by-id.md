@@ -1,23 +1,23 @@
 ---
-title: ID で請求書を取得する
+title: 請求書を ID で取得する
 description: 請求書 ID を使用して、指定された請求書を取得します。
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4045369991f37d3ef562f9966bb1206ad60aa677
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f0abd0abbf090b9ad6f06903c45a58d85f2168b1
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415910"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157454"
 ---
-# <a name="get-invoice-by-id"></a>ID で請求書を取得する
+# <a name="get-invoice-by-id"></a>請求書を ID で取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,8 @@ ms.locfileid: "80415910"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
 - 有効な請求書 ID。
 
 ## <a name="c"></a>C\#
@@ -34,6 +35,7 @@ ms.locfileid: "80415910"
 ID で請求書を取得するには:
 
 1. **Ipartner. 請求書**コレクションを使用して、 **ById ()** メソッドを呼び出します。
+
 2. **Get ()** または**GetAsync ()** メソッドを呼び出します。
 
 ``` csharp
@@ -49,21 +51,21 @@ var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                   |
+| 認証方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 次のクエリパラメーターを使用して請求書を取得します。
 
-| Name           | 種類       | 必須 | 説明                                                                                        |
+| 名前           | Type       | 必須 | 説明                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **請求書-id** | **文字列** | はい      | 値は**請求書 id**で、リセラーは特定の請求書の結果をフィルター処理できます。 |
+| **請求書-id** | **string** | はい      | 値は**請求書 id**で、リセラーは特定の請求書の結果をフィルター処理できます。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 

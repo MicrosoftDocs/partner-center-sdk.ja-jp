@@ -5,39 +5,34 @@ ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f58aaef8f61deaa17e178b9196f644f9d45137ec
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f6e0a54f088c3e1ecbc00338e67a143b655b708e
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415034"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157644"
 ---
 # <a name="update-a-cart"></a>カートを更新する
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
+カート内の顧客の注文を更新する方法。
 
-カート内の顧客の注文を更新する方法。 
-
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 既存のカートのカート ID。
 
-
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 顧客の注文を更新するには、 **ById ()** 関数を使用して customer および cart ID を渡すことによって、 **get ()** メソッドを使用してカートを取得します。 カートに必要な変更を加えます。 次に、 **ById ()** メソッドを使用して、customer および cart ID を使用して**Put**メソッドを呼び出します。
 
 最後に、 **Put ()** メソッドまたは**putasync ()** メソッドを呼び出して、注文を作成します。
-
-
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -51,37 +46,32 @@ cart.LineItems.ToArray()[0].Quantity++;
 var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Put(cart);
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                                 |
+| 認証方法  | 要求 URI                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1.1              |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1.1              |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスパラメーターを使用して顧客を特定し、更新するカートを指定します。
 
-| Name            | 種類     | 必須 | 説明                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 | **カート-id**     | string   | はい      | カートを識別する GUID 形式のカート id。                     |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
-
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文に含まれる[カート](cart-resources.md)のプロパティについて説明します。
 
-| プロパティ              | 種類             | 必須        | 説明                                                                                               |
+| プロパティ              | Type             | 必須        | 説明                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | id                    | string           | いいえ              | カートが正常に作成されたときに提供されるカート識別子。                                  |
 | 前のタイムスタンプ     | DateTime         | いいえ              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。        |
@@ -90,24 +80,22 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 | lastModifiedUser      | string           | いいえ              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
 | lineItems             | オブジェクトの配列 | はい             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                               |
 
-
 次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
 
-| プロパティ             | 種類                        | 必須     | 説明                                                                                        |
+| プロパティ             | Type                        | 必須     | 説明                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
 | id                   | string                      | いいえ           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                |
 | catalogId            | string                      | はい          | カタログ項目の識別子。                                                                       |
-| friendlyName         | string                      | いいえ           | 省略可。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。              |
-| quantity             | int                         | はい          | ライセンスまたはインスタンスの数。     |
+| friendlyName         | string                      | いいえ           | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。              |
+| 数量             | INT                         | はい          | ライセンスまたはインスタンスの数。     |
 | currencyCode         | string                      | いいえ           | 通貨コード。                                                                                 |
-| 周期サイクル         | オブジェクト                      | はい          | 現在の期間に設定されている請求サイクルの種類。                                              |
+| billingCycle         | Object                      | はい          | 現在の期間に設定されている請求サイクルの種類。                                              |
 | participants         | オブジェクトの文字列ペアの一覧 | いいえ           | 購入の参加者のコレクション。                                                      |
-| provisioningContext  | Dictionary < string、string >  | いいえ           | プランのプロビジョニングに使用されるコンテキスト。                                                          |
+| provisioningContext  | Dictionary<string、string>  | いいえ           | プランのプロビジョニングに使用されるコンテキスト。                                                          |
 | orderGroup           | string                      | いいえ           | 一緒に配置できる項目を示すグループ。                                            |
-| エラー                | オブジェクト                      | いいえ           | エラーが発生した場合にカートが作成された後に適用されます。                                                 |
+| error                | Object                      | いいえ           | エラーが発生した場合にカートが作成された後に適用されます。                                                 |
 
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 PUT /v1/customers/d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d/carts/65faf57b-0205-47ee-92b3-08dcf233ea73/ HTTP/1.1
@@ -118,19 +106,19 @@ MS-CorrelationId: 0e93c70c-977a-4a88-9580-7cf084c73286
 X-Locale: en-US
 MS-PartnerCenter-Client: Partner Center .NET SDK
 Content-Type: application/json
-Host: api.partnercenter.microsoft.com 
+Host: api.partnercenter.microsoft.com
 Content-Length: 496
 Expect: 100-continue
 
-{  
-    {  
+{
+    {
         "Id":"b4c8fdea-cbe4-4d17-9576-13fcacbf9605",
         "CreationTimestamp":"2018-03-15T17:15:02.3840528Z",
         "LastModifiedTimestamp":"2018-03-15T17:15:02.3840528Z",
         "ExpirationTimestamp":"0001-01-01T00:00:00",
         "LastModifiedUser":"2713ccd7-ea3b-470a-9cfb-451d5d0482cc",
-        "LineItems":[  
-            {  
+        "LineItems":[
+            {
                 "Id":0,
                 "CatalogItemId":"DG7GMGF0DWTL:0001:DG7GMGF0DSJB",
                 "FriendlyName":"A_sample_Azure_RI",
@@ -147,16 +135,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST 応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは、応答本文で設定された[カート](cart-resources.md)リソースを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 201 Created
@@ -185,7 +172,7 @@ Date: Thu, 15 Mar 2018 17:15:01 GMT
                 "subscriptionId": "3D5ECED6-1151-44C7-AEE6-70A4BB725666",
                 "scope": "shared",
                 "duration": "1Year"
-            }            
+            }
             "orderGroup": "0"
         }
     ],
@@ -201,11 +188,3 @@ Date: Thu, 15 Mar 2018 17:15:01 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

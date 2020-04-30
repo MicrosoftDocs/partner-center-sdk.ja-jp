@@ -5,26 +5,29 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c99b70f4046a0018d43f395fe7539f608cecf11f
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 98737e75c643cb9ca90572544173fe5000f475d9
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416701"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157274"
 ---
 # <a name="get-the-product-upgrade-status-for-a-customer"></a>顧客の製品のアップグレード状態を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 [**Productupgrade**](product-upgrade-resources.md#productupgraderequest)のリソースを使用して、新しい製品ファミリへのアップグレードの状態を取得できます。 このリソースは、Microsoft Azure (MS AZR-0145P) サブスクリプションから Azure プランに顧客をアップグレードするときに適用されます。 要求が成功すると、 [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)リソースが返されます。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、[セキュリティで保護されたアプリモデル](enable-secure-app-model.md)に従います。
-- 顧客識別子。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 製品ファミリ。
+
 - アップグレード要求のアップグレード id。
 
 ## <a name="c"></a>C\#
@@ -32,9 +35,12 @@ ms.locfileid: "80416701"
 顧客が Azure プランにアップグレードする資格があるかどうかを確認するには、次のようにします。
 
 1. **Product・アップグレード Esrequest**オブジェクトを作成し、製品ファミリとして顧客識別子と "Azure" を指定します。
+
 2. **Iaggregatepartner.customers**コレクションを使用します。
-2. **ById**メソッドを呼び出し、**アップグレード id**を渡します。
-3. **Checkstatus**メソッドを呼び出し、 **Productupgradesrequest**オブジェクトを渡します。これにより、 **productupgradestatus**オブジェクトが返されます。
+
+3. **ById**メソッドを呼び出し、**アップグレード id**を渡します。
+
+4. **Checkstatus**メソッドを呼び出し、 **Productupgradesrequest**オブジェクトを渡します。これにより、 **productupgradestatus**オブジェクトが返されます。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -57,35 +63,32 @@ if (productUpgradeEligibility.IsEligibile)
 }
 
 ```
-```
 
-## REST
+## <a name="rest-request"></a>REST 要求
 
-### REST request
+### <a name="request-syntax"></a>要求の構文
 
-#### Request syntax
-
-| Method   | Request URI |
+| 認証方法   | 要求 URI |
 |----------|-----------------------------------------------------------------------------------------------|
 | **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/{upgrade-id}/status HTTP/1.1 |
 
-#### URI parameter
+### <a name="uri-parameter"></a>URI パラメーター
 
-Use the following query parameter to specify the customer for whom you're getting a product upgrade status.
+次のクエリパラメーターを使用して、製品のアップグレード状態を取得している顧客を指定します。
 
-| Name               | Type | Required | Description                                                                                 |
+| 名前               | Type | 必須 | 説明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **upgrade-id** | GUID | Yes | The value is a GUID-formatted upgrade identifier. You can use this identifier to specify an upgrade to track. |
+| **アップグレード id** | GUID | はい | 値は、GUID 形式のアップグレード識別子です。 この識別子を使用して、追跡するアップグレードを指定できます。 |
 
-#### Request headers
+### <a name="request-headers"></a>要求ヘッダー
 
-For more information, see [Partner Center REST headers](headers.md).
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### Request body
+### <a name="request-body"></a>[要求本文]
 
-The request body must contain a [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) resource.
+要求本文には、 [**Productアップグレード**](product-upgrade-resources.md#productupgraderequest)のためのリソースが含まれている必要があります。
 
-#### Request example
+### <a name="request-example"></a>要求の例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/productupgrades/42d075a4-bfe7-43e7-af6d-7c68a57edcb4/status  HTTP/1.1
@@ -111,15 +114,15 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは本文で[**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility)リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 Ok

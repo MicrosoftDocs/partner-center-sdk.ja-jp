@@ -1,32 +1,30 @@
 ---
-title: パートナーセンターの REST リソース
+title: パートナー センター REST リソース
 description: このセクションでは、パートナーセンター REST API を使用して要求を作成し、応答を解析するために必要な JSON 要素の定義について説明します。
 ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e84ce1f55eedd94519582fc57ce75eed2fddee0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e452681406a717ef618808b4b699cda5f6684931
+ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416407"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559042"
 ---
-# <a name="partner-center-rest-resources"></a>パートナーセンターの REST リソース
-
+# <a name="partner-center-rest-resources"></a>パートナー センター REST リソース
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 このセクションでは、パートナーセンター REST API を使用して要求を作成し、応答を解析するために必要な JSON 要素の定義について説明します。 サンプルコードなど、これらの要素の使用方法の詳細については、「[シナリオ](scenarios.md)」と「[パートナーセンターのサンプル](partner-center-samples.md)」を参照してください。
 
-## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a>このセクションの <span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>
-
+## <a name="in-this-section"></a>このセクションの内容
 
 <table>
 <colgroup>
@@ -35,7 +33,7 @@ ms.locfileid: "80416407"
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><a href="analytics-resources.md">分析</a></td>
+<td><a href="analytics-resources.md">Analytics</a></td>
 <td><ul>
 <li>PartnerLicensesDeploymentInsights</li>
 <li>PartnerLicensesUsageInsights</li>
@@ -91,7 +89,7 @@ ms.locfileid: "80416407"
 <tr class="even">
 <td><a href="customer-resources.md">顧客</a></td>
 <td><ul>
-<li>顧客</li>
+<li>Customer</li>
 <li>顧客企業プロファイル</li>
 <li>顧客のプロファイル</li>
 <li>顧客の Relationshiprequest</li>
@@ -109,11 +107,11 @@ ms.locfileid: "80416407"
 <tr class="even">
 <td><a href="entitlement-resources.md">エンタイトルメント</a></td>
 <td><ul>
-<li>受ける</li>
-<li>referenceOrder</li>
-<li>entitlementType</li>
-<li>成果物</li>
-<li>artifactType</li>
+<li>Entitlement</li>
+<li>ReferenceOrder</li>
+<li>EntitlementType</li>
+<li>アーティファクト</li>
+<li>ArtifactType</li>
 <li>VirtualMachineReservedInstanceArtifact</li>
 <li>VirtualMachineReservedInstanceArtifactDetails</li>
 <li>VirtualMachineReservation</li>
@@ -140,7 +138,7 @@ ms.locfileid: "80416407"
 <li>LicenseUpdate</li>
 <li>LicenseAssignment</li>
 <li>LicenseWarning</li>
-<li>productSku</li>
+<li>ProductSku</li>
 <li>ServicePlan</li>
 <li>SubscribedSku</li>
 </ul></td>
@@ -162,7 +160,7 @@ ms.locfileid: "80416407"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="order-resources.md">Order</a></td>
+<td><a href="order-resources.md">注文</a></td>
 <td><ul>
 <li>Order</li>
 <li>OrderLineItem</li>
@@ -172,9 +170,9 @@ ms.locfileid: "80416407"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="profile-resources.md">Profile</a></td>
+<td><a href="profile-resources.md">プロファイル</a></td>
 <td><ul>
-<li>billingProfile</li>
+<li>BillingProfile</li>
 <li>LegalBusinessProfile</li>
 <li>MpnProfile</li>
 <li>組織のプロファイル</li>
@@ -184,11 +182,11 @@ ms.locfileid: "80416407"
 <tr class="odd">
 <td><a href="product-resources.md">製品</a></td>
 <td><ul>
-<li>製品</li>
+<li>Product</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
 <li>Sku</li>
-<li>対象</li>
+<li>可用性</li>
 <li>InventoryCheckRequest</li>
 <li>InventoryItem</li>
 <li>InventoryRestriction</li>
@@ -203,7 +201,7 @@ ms.locfileid: "80416407"
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="service-costs-resources.md">ServiceCosts</a></td>
+<td><a href="self-serve-policy-resources.md">SelfServePolicy</a></td>
 <td><ul>
 <li>ServiceCostsSummary</li>
 <li>ServiceCostsLineItem</li>
@@ -211,6 +209,14 @@ ms.locfileid: "80416407"
 </ul></td>
 </tr>
 <tr class="even">
+<td><a href="service-costs-resources.md">ServiceCosts</a></td>
+<td><ul>
+<li>ServiceCostsSummary</li>
+<li>ServiceCostsLineItem</li>
+<li>ServiceCostsSummaryLinks</li>
+</ul></td>
+</tr>
+<tr class="odd">
 <td><a href="service-request-resources.md">ServiceRequest</a></td>
 <td><ul>
 <li>ServiceRequest</li>
@@ -220,7 +226,7 @@ ms.locfileid: "80416407"
 <li>SupportTopic</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="subscription-resources.md">サブスクリプション</a></td>
 <td><ul>
 <li>サブスクリプション</li>
@@ -231,7 +237,7 @@ ms.locfileid: "80416407"
 <li>RegisterSubscription</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="subscription-usage-resources.md">サブスクリプションの使用状況</a></td>
 <td><ul>
 <li>SubscriptionDailyUsageRecord <em>(Obsolete)</em></li>
@@ -239,8 +245,8 @@ ms.locfileid: "80416407"
 <li>SubscriptionUsageSummary</li>
 </ul></td>
 </tr>
-<tr class="odd">
-<td><a href="upgrade-resources.md">Upgrade</a></td>
+<tr class="even">
+<td><a href="upgrade-resources.md">アップグレード</a></td>
 <td><ul>
 <li>アップグレード</li>
 <li>UpgradeError</li>
@@ -248,23 +254,23 @@ ms.locfileid: "80416407"
 <li>UserLicenseError</li>
 </ul></td>
 </tr>
-<tr class="even">
-<td><a href="user-resources.md">User</a></td>
+<tr class="odd">
+<td><a href="user-resources.md">ユーザー</a></td>
 <td><ul>
-<li>ユーザー</li>
+<li>User</li>
 <li>CustomerUser</li>
 <li>ユーザー</li>
 <li>UserMember</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="utility-resources.md">ユーティリティのリソース</a></td>
 <td><ul>
 <li>Address</li>
-<li>連絡先</li>
+<li>Contact</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>
-<li>リンク</li>
+<li>Link</li>
 <li>PasswordProfile</li>
 <li>ResourceLinks</li>
 <li>ResourceAttributes</li>

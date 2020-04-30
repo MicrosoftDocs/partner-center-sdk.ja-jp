@@ -6,18 +6,18 @@ ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9123104494523d158058ef55e7d6790f201012f3
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: ea3eedf7b19f3160cd9d1eee76d58f80700151a8
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415868"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157434"
 ---
 # <a name="get-invoice-summaries"></a>請求書の概要を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,8 @@ ms.locfileid: "80415868"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
 - 有効な請求書の識別子。
 
 ## <a name="c"></a>C\#
@@ -34,6 +35,7 @@ ms.locfileid: "80415868"
 通貨の種類ごとに[**InvoiceSummary**](invoice-resources.md#invoicesummary)を含む[**InvoiceSummaries**](invoice-resources.md#invoicesummaries) collection を取得するには、次のようにします。
 
 1. **Iaggregatepartner.customers**コレクションを使用して、**概要**プロパティを呼び出します。
+
 2. **Get ()** メソッドを呼び出します。
 3. 個々の[**InvoiceSummary**](invoice-resources.md#invoicesummary)のバランスを得るには、コレクションのそのメンバーの "均衡**金額**" プロパティにアクセスします。
 
@@ -53,29 +55,27 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 - プロジェクト: **Partnersdk. FeatureSample**
 - クラス: **GetInvoiceSummaries.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
-
-| メソッド  | 要求 URI                                                                   |
+| 認証方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/summaries HTTP/1.1     |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/summaries HTTP/1.1     |
 
-##### <a name="uri-parameter"></a>URI パラメーター
+#### <a name="uri-parameter"></a>URI パラメーター
 
-[なし]。
+なし。
 
-#### <a name="request-headers"></a>要求ヘッダー
+### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-#### <a name="request-example"></a>要求の例
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/summaries HTTP/1.1
@@ -86,15 +86,15 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 Connection: Keep-Alive
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で[**InvoiceSummaries**](invoice-resources.md#invoicesummaries)リソースを返します。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

@@ -6,32 +6,30 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 97c377d3a21fe6123a743ec1878f28b0fab719b2
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 13923a490cb29b6d5270bb66715ee49223284325
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416564"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157154"
 ---
 # <a name="get-user-roles-for-a-customer"></a>顧客のユーザー ロールを取得する
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
 ユーザーアカウントにアタッチされているすべてのロール/アクセス許可の一覧を取得します。 バリエーションには、顧客のすべてのユーザーアカウントのすべてのアクセス許可の一覧を取得し、特定のロールを持つユーザーの一覧を取得することが含まれます。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+## <a name="c"></a>C\#
 
-
-指定された顧客のすべてのディレクトリロールを取得するには、最初に指定された顧客 ID を取得します。 次に、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、 **Directoryroles**プロパティを呼び出し、その後に**Get ()** または<strong>GetAsync ()</strong>メソッドを呼び出します。
+指定された顧客のすべてのディレクトリロールを取得するには、最初に指定された顧客 ID を取得します。 次に、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、 **Directoryroles**プロパティを呼び出し、その後に**Get ()** または**GetAsync ()** メソッドを呼び出します。
 
 ``` csharp
 // string selectedCustomerId;
@@ -42,7 +40,7 @@ var directoryRoles = partnerOperations.Customers.ById(selectedCustomerId).Direct
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetCustomerDirectoryRoles.cs
 
-特定のロールを持つ顧客ユーザーの一覧を取得するには、まず、指定された顧客 ID とディレクトリロール ID を取得します。 次に、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、 **Directoryroles**プロパティ、 **ById ()** メソッド、 **usermembers**プロパティ、およびその後に**Get ()** または<strong>GetAsync ()</strong>メソッドを呼び出します。
+特定のロールを持つ顧客ユーザーの一覧を取得するには、まず、指定された顧客 ID とディレクトリロール ID を取得します。 次に、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、 **Directoryroles**プロパティ、 **ById ()** メソッド、 **usermembers**プロパティ、およびその後に**Get ()** または**GetAsync ()** メソッドを呼び出します。
 
 ``` csharp
 // string selectedCustomerId;
@@ -54,38 +52,33 @@ var userMembers = partnerOperations.Customers.ById(selectedCustomerId).Directory
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: GetCustomerDirectoryRoleUserMembers.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                                           |
+| 認証方法  | 要求 URI                                                                                                           |
 |---------|-----------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id}/directoryroles HTTP/1.1 |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles HTTP/1.1                 |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers    |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id}/directoryroles HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles HTTP/1.1                 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers    |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、正しい顧客を特定します。
 
-| Name                   | 種類     | 必須 | 説明                                                                                                                                                                                                 |
+| 名前                   | Type     | 必須 | 説明                                                                                                                                                                                                 |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。                                                      |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。                                                      |
 | **ユーザー id**            | **guid** | N        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                                                                                                            |
-| **ロール id**            | **guid** | N        | 値は、ロールの種類に属する GUID 形式の**ロール id**です。 これらの id を取得するには、すべてのユーザーアカウントで、顧客のすべてのディレクトリロールに対してクエリを実行します。 (上記の2番目のシナリオ)。 |
+| **ロール id**            | **guid** | N        | 値は、ロールの種類に属する GUID 形式の**ロール id**です。 すべてのユーザー アカウントを対象に、ある顧客のすべてのディレクトリ ロールを問い合わせることで、これらの ID を取得できます。 (上記の2番目のシナリオ)。 |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+### <a name="request-body"></a>[要求本文]
 
-**要求本文**
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/users/<user-id>/directoryroles HTTP/1.1
@@ -95,16 +88,15 @@ MS-RequestId: b1317092-f087-471e-a637-f66523b2b94c
 MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは、指定されたユーザーアカウントに関連付けられているロールの一覧を返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

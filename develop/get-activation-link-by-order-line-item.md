@@ -1,41 +1,40 @@
 ---
-title: 注文明細項目によるアクティブ化リンクの取得
+title: 注文明細でアクティブ化リンクを取得する
 description: 注文明細項目によってサブスクリプションのアクティブ化リンクを取得します。
 ms.assetid: ff1c1b59-f6c2-4f17-b0d6-00109761a1fd
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 99277cbc9eb9053c5b8b4c0e2747438cf188118f
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f35be68810cd270cb6564299399e5b7ad5480c6a
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416198"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157564"
 ---
-# <a name="get-activation-link-by-order-line-item"></a>注文明細項目によるアクティブ化リンクの取得
+# <a name="get-activation-link-by-order-line-item"></a>注文明細でアクティブ化リンクを取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 注文明細項目番号によって、コマーシャル marketplace のサブスクリプションアクティブ化リンクを取得します。
 
-パートナーセンターのダッシュボードでは、メインページで [サブスクリプション] の下にある**特定**の**サブスクリプション**を選択するか、 **[サブスクリプション] ページで**アクティブにするサブスクリプションの横にある **[パブリッシャーのサイトへのジャンプ]** リンクを選択することで、この操作を実行できます。
+この操作を行うには、パートナーセンターのダッシュボードで、メインページの [**サブスクリプション**] で**特定のサブスクリプション**を選択するか、 **[サブスクリプション] ページで**アクティブにするサブスクリプションの横にある [**パブリッシャーのサイトへのジャンプ**] リンクを選択します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - アクティブ化が必要な製品の完了した注文。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
+## <a name="c"></a>C\#
 
-### <a name="c"></a>C#
-
-行項目のアクティベーションリンクを取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用し、選択した顧客 ID を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティと、指定した[**OrderId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.id)を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)メソッドを呼び出します。 次に、行項目番号の識別子を指定して、 [**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) with **ById ()** メソッドを呼び出します。  最後に、 **ActivationLinks ()** メソッドを呼び出します。
+行項目のアクティベーションリンクを取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用し、選択した顧客 ID を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティと、指定した[**OrderId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.id)を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)メソッドを呼び出します。 次に、行項目番号の識別子を指定して、 [**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) with **ById ()** メソッドを呼び出します。  最後に、 **ActivationLinks ()** メソッドを呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -43,27 +42,27 @@ ms.locfileid: "80416198"
 // string orderId;
 // string lineItemNumber
 
-// get the activation link for the specific line item 
+// get the activation link for the specific line item
 var partnerOperations.Customers.ById(customerId).Orders.ById(orderId).OrderLineItems.ById(lineItemNumber).ActivationLinks();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
-**要求の構文**
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                                                               |
+| 認証方法  | 要求 URI                                                                                                                               |
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks HTTP/1.1 |
 
-**要求ヘッダー**
+### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/8c5b65fd-c725-4f50-8d9c-97ec9169fdd0/orders/03fb46b3-bf8c-49aa-b908-ca2e93bcc04a/lineitems/0/activationlinks HTTP/1.1
@@ -73,15 +72,15 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で[顧客](customer-resources.md#customer)リソースのコレクションを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -99,7 +98,7 @@ Date: Fri, 20 Nov 2015 01:08:23 GMT
         "uri": "<link populated here>",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     }
@@ -109,7 +108,7 @@ Date: Fri, 20 Nov 2015 01:08:23 GMT
       "uri": "/customers/8c5b65fd-c725-4f50-8d9c-97ec9169fdd0/orders/03fb46b3-bf8c-49aa-b908-ca2e93bcc04a/lineitems/0/activationlinks",
       "method": "GET",
       "headers": [
-        
+
       ]
     }
   },

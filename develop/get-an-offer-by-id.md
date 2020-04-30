@@ -6,49 +6,48 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 51d5ad603dc813225ace49b90abf7af5c1d36479
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0b3cb5856bb9b4259267c2284d8b00668f4427cf
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416039"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157754"
 ---
 # <a name="get-an-offer-by-id"></a>ID でプランを取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 オファー ID と一致する**オファー**リソースを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - プラン ID。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
+## <a name="c"></a>C\#
 
-### <a name="c"></a>C#
-
-ID で特定のプランを検索するには、 **iaggregatepartner.customers**コレクションを使用し、 **bycountry ()** の呼び出しで国を確立してから、 [**ByID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)メソッドを呼び出します。 次に、 [**get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get)メソッドまたは[**get Async ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync)メソッドを呼び出します。
+ID で特定のプランを検索するには、 **iaggregatepartner.customers**コレクションを使用し、 **bycountry ()** の呼び出しで国を確立してから、 [**ByID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)メソッドを呼び出します。 次に、 [**get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get)メソッドまたは[**get Async ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync)メソッドを呼び出します。
 
 ```csharp
 // IAggretagePartner partnerOperations;
 // string countryCode;
 // string offerId;
 
-// retrieve the offer 
+// retrieve the offer
 var offer = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).Get();
 ```
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: GetOffer.cs
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 ID で特定のプランを検索するには、 **iaggregatepartner.customers**関数を使用し、 **bycountry ()** 関数の呼び出しで国を確立してから、 **byID ()** 関数を呼び出します。 次に、 **get ()** 関数を呼び出します。
 
@@ -61,9 +60,9 @@ ID で特定のプランを検索するには、 **iaggregatepartner.customers**
 Offer offer = partnerOperations.getOffers().byCountry(countryCode).byId(offerId).get();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 特定のプランを ID で検索するには、 **CountryCode**パラメーターと**offerid**パラメーターを指定して、 [**Get partneroffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md)コマンドを実行します。
 
@@ -74,31 +73,31 @@ Offer offer = partnerOperations.getOffers().byCountry(countryCode).byId(offerId)
 Get-PartnerOffer -Country $countryCode -OfferId $offerId
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
-**要求の構文**
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                    |
+| 認証方法  | 要求 URI                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-id}? country = {country-ID} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}? country = {country-ID} HTTP/1.1 |
 
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
-| Name           | 種類       | 必須 | 説明                           |
+| 名前           | Type       | 必須 | 説明                           |
 |----------------|------------|----------|---------------------------------------|
-| **プラン id**   | **guid**   | Y        | オファーに対応する GUID。 |
-| **国-id** | **文字列** | Y        | 国/地域 ID。                |
+| **プラン id**   | **guid**   | Y        | プランに対応する GUID。 |
+| **country-id** | **string** | Y        | 国/地域 ID。                |
 
-**要求ヘッダー**
+### <a name="request-headers"></a>要求ヘッダー
 
 - 文字列として書式設定された**ロケール id**が必要です。
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/<offer-id>?country=<country-id> HTTP/1.1
@@ -110,15 +109,15 @@ X-Locale: <locale-id>
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で**オファー**リソースを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

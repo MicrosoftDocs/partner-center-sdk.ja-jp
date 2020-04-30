@@ -1,48 +1,45 @@
 ---
-title: パートナーの法的ビジネスプロファイルを更新する
+title: パートナーの法的ビジネス プロファイルを更新する
 description: パートナーの法的ビジネスプロファイルを更新する方法。
 ms.assetid: DEB60680-145D-47C5-BB19-374752D45236
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 102a84f385eb4e6229312fe890ab801b44dcabb1
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 1bc87737d74aee56dcfb25872b055d4a5653f202
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414730"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157784"
 ---
-# <a name="update-the-partner-legal-business-profile"></a>パートナーの法的ビジネスプロファイルを更新する
-
+# <a name="update-the-partner-legal-business-profile"></a>パートナーの法的ビジネス プロファイルを更新する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 パートナーの法的ビジネスプロファイルを更新する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+## <a name="c"></a>C\#
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+パートナーの法的ビジネス プロファイルを更新するには、最初に **LegalBusinessProfile** オブジェクトをインスタンス化し、それに既存のプロファイルを設定します。 詳細については、「[パートナー法務ビジネスプロファイルを取得する](get-legal-business-profile.md)」を参照してください。 その後、変更する必要があるプロパティを更新します。 次のコード例は、住所と主要連絡先電話番号の変更を示しています。
 
-
-パートナーの法的ビジネスプロファイルを更新するには、まず**LegalBusinessProfile**オブジェクトをインスタンス化し、既存のプロファイルを設定します。 詳細については、「[パートナー法務ビジネスプロファイルを取得する](get-legal-business-profile.md)」を参照してください。 次に、変更する必要があるプロパティを更新します。 次のコード例は、住所と主要連絡先の電話番号を変更する方法を示しています。
-
-次に、 **iaggregatepartner.customers**プロパティからパートナープロファイル操作コレクションへのインターフェイスを取得します。 次に、 **LegalBusinessProfile**プロパティの値を取得して、法的ビジネスプロファイル操作へのインターフェイスを取得します。 最後に、変更されたオブジェクトを使用して[**update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update)または[**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync)メソッドを呼び出し、プロファイルを更新します。
+次に、**IAggregatePartner.Profiles** プロパティからパートナーのプロファイル操作コレクションへのインターフェイスを取得します。 その後、**LegalBusinessProfile** プロパティの値を取得して、法的ビジネス プロファイル操作へのインターフェイスを取得します。 最後に、変更されたオブジェクトを使用して[**update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update)または[**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync)メソッドを呼び出し、プロファイルを更新します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
 
 var legalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 
-// Change the address and primary contact phone number. 
+// Change the address and primary contact phone number.
 legalBusinessProfile.Address.PhoneNumber = "4255550110";
 legalBusinessProfile.PrimaryContact.PhoneNumber = "4255550110";
 
@@ -50,26 +47,23 @@ legalBusinessProfile.PrimaryContact.PhoneNumber = "4255550110";
 var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfile.Update(legalBusinessProfile);
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                    |
+| 認証方法  | 要求 URI                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1 |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
-
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
 法的ビジネスプロファイルリソース。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/profiles/legalbusiness HTTP/1.1
@@ -131,16 +125,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には更新された**LegalBusinessProfile**が含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -195,11 +188,3 @@ Date: Tue, 21 Mar 2017 22:03:15 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-
