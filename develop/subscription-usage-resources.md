@@ -6,18 +6,18 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6dbd55edd489cd6672842c81fc392333266b481e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: b5317596f8fe77e06aabcda98268186550e7c355
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415093"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666094"
 ---
 # <a name="subscription-usage-resources"></a>サブスクリプションの利用状況に関するリソース
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -29,7 +29,7 @@ ms.locfileid: "80415093"
 
 **SubscriptionDailyUsageRecord**リソースは、1日に使用されるサブスクリプションの量を示します。
 
-| プロパティ         | 種類               | 説明                                                                                   |
+| プロパティ         | Type               | 説明                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
 | 使用された日付         | string             | サブスクリプションが使用された日 (日付/時刻形式)。                                 |
 | ResourceId       | string             | GUID。 リソースの一意の ID。                                                          |
@@ -43,13 +43,13 @@ ms.locfileid: "80415093"
 
 **SubscriptionMonthlyUsageRecord**リソースは、1か月に使用されるサブスクリプションの量を示します。
 
-| プロパティ         | 種類               | 説明                                                                                   |
+| プロパティ         | Type               | 説明                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| 状態           | string             | サブスクリプションの状態: "none"、"active"、"中断"、または "deleted"。                  |
+| Status           | string             | サブスクリプションの状態: "none"、"active"、"中断"、または "deleted"。                  |
 | PartnerOnRecord  | string             | "レコード上のパートナーの MPN ID"                                                        |
 | OfferId          | string             | GUID。 このサブスクリプションに関連付けられているオファーの id。                                       |
 | Id               | string             | GUID。 サブスクリプションまたはリソースの id。                                                 |
-| Name             | string             | サブスクリプションまたはリソースの名前。                                                     |
+| 名前             | string             | サブスクリプションまたはリソースの名前。                                                     |
 | TotalCost        | decimal             | 指定した月にサブスクリプション内のリソースを使用した場合の推定総コスト。   |
 | CurrencyLocale   | string             | サブスクリプションが使用されたロケールによって、請求書で使用する通貨が決まります。 Microsoft Azure (0145P) サブスクリプションで使用できます。 |
 | CurrencyCode     | string             | 通貨コードを取得または設定します。 Azure プランサブスクリプションリソースで使用できます。                                         |
@@ -61,7 +61,7 @@ ms.locfileid: "80415093"
 
 **SubscriptionUsageSummary**リソースは、現在の請求期間内に特定のサブスクリプションが使用された量を示します。
 
-| プロパティ         | 種類               | 説明                                                                                                            |
+| プロパティ         | Type               | 説明                                                                                                            |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------------|
 | ResourceId       | string             | GUID。 サブスクリプションまたはリソースの id。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
 | ResourceName     | string             | サブスクリプションまたはリソースの名前。 CustomerMonthlyUsageRecord のコンテキストでは、この名前は顧客名です。 |
@@ -72,5 +72,5 @@ ms.locfileid: "80415093"
 | CurrencyCode   | string             | 通貨コードを取得または設定します。 Azure プランで使用できます。                                         |
 | USDTotalCost   | decimal             | 推定合計コストを USD で取得または設定します。 Azure プランサブスクリプションリソースで使用できます。                                         |
 | LastModifiedDate | string             | このレコードが最後に変更された日 (日付/時刻形式)。                                                      |
-| Links            | ResourceLinks      | SubscriptionUsageSummary に対応するリソースリンク。                                                      |
+| リンク            | ResourceLinks      | SubscriptionUsageSummary に対応するリソースリンク。                                                      |
 | 属性       | ResourceAttributes | SubscriptionUsageSummary に対応するメタデータ属性。                                                 |

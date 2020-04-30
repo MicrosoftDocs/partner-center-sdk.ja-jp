@@ -6,19 +6,18 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f00233ff5bf1c1747ea919ff718a4fbf4a00dad
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 81f086ddb3efa83ea72060363eea288fd70d1ed9
+ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416476"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82089332"
 ---
 # <a name="manage-accounts-and-profiles"></a>アカウントとプロファイルの管理
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター

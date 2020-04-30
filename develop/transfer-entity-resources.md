@@ -5,18 +5,18 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 550c9cffdc7dd5c6fbf5b2aaf5051618106bd185
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: c9b891673fb933ae787f8231e36158ed69224a04
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220748"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666619"
 ---
 # <a name="transferentity-resources"></a>TransferEntity リソース
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,56 +27,56 @@ ms.locfileid: "81220748"
 
 TransferEntity について説明します。
 
-| プロパティ              | 種類             | 説明                                                                                            |
+| プロパティ              | Type             | 説明                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | id                    | string           | TransferEntity が正常に作成されたときに提供される transferEntity 識別子。                               |
 | createdTime           | DateTime         | TransferEntity が作成された日付 (日付/時刻形式)。 TransferEntity の作成が正常に完了したときに適用されます。      |
 | lastModifiedTime      | DateTime         | TransferEntity が最後に更新された日付 (日付/時刻形式)。 TransferEntity の作成が正常に完了したときに適用されます。 |
 | lastModifiedUser      | string           | TransferEntity を最後に更新したユーザー。 TransferEntity の作成が正常に完了したときに適用されます。                          |
-| customerName          | string           | 省略可。 サブスクリプションを転送する顧客の名前。                                              |
+| customerName          | string           | 省略可能。 サブスクリプションを転送する顧客の名前。                                              |
 | 顧客 Tenantid      | string           | 顧客を識別する GUID 形式の顧客 id。 TransferEntity の作成が正常に完了したときに適用されます。         |
 | partnertenantid       | string           | パートナーを識別する GUID 形式のパートナー id。                                                                   |
-| sourcePartnerName     | string           | 省略可。 譲渡を開始するパートナー組織の名前。                                           |
+| sourcePartnerName     | string           | 省略可能。 譲渡を開始するパートナー組織の名前。                                           |
 | sourcePartnerTenantId | string           | 転送を開始するパートナーを識別する GUID 形式のパートナー id。                                           |
-| targetPartnerName     | string           | 省略可。 譲渡の対象となるパートナーの組織の名前。                                         |
+| targetPartnerName     | string           | 省略可能。 譲渡の対象となるパートナーの組織の名前。                                         |
 | targetPartnerTenantId | string           | 転送の対象となるパートナーを識別する GUID 形式のパートナー id。                                  |
 | lineItems             | オブジェクトの配列 | [Transferlineitem](#transferlineitem)リソースの配列。                                                   |
-| 状態                | string           | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
+| status                | string           | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
 
 ## <a name="transferlineitem"></a>TransferLineItem
 
 TransferEntity に含まれる1つの項目を表します。
 
-| プロパティ             | 種類                             | 説明                                                                                             |
+| プロパティ             | Type                             | 説明                                                                                             |
 |----------------------|----------------------------------|---------------------------------------------------------------------------------------------------------|
 | id                   | string                           | 転送明細項目の一意の識別子。 TransferEntity の作成が正常に完了したときに適用されます。   |
-| subscriptionId       | string                           | サブスクリプション識別子。                                                                            |
-| quantity             | int                              | ライセンスまたはインスタンスの数。                                                                    |
-| 周期サイクル         | オブジェクト                           | 現在の期間に設定されている請求サイクルの種類。                                                   |
-| friendlyName         | string                           | 省略可。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                   |
+| subscriptionId       | string                           | サブスクリプションの識別子です。                                                                            |
+| 数量             | INT                              | ライセンスまたはインスタンスの数。                                                                    |
+| billingCycle         | Object                           | 現在の期間に設定されている請求サイクルの種類。                                                   |
+| friendlyName         | string                           | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                   |
 | partnerIdOnRecord    | string                           | 転送が受け入れられたときに発生する、購入時の PartnerId (MPNID)。                 |
-| offerId              | string                           | プランの識別子。    |
+| offerId              | string                           | プラン ID。    |
 | addonItems           | **Transferlineitem**オブジェクトの一覧 | 転送されるベースサブスクリプションと共に転送されるアドオンの transferEntity 行項目のコレクション。 TransferEntity の作成が正常に完了したときに適用されます。|
 | transferError        | string                           | エラーが発生した場合に transferEntity が受け入れられた後に適用されます。                |
-| 状態               | string           | TransferEntity 内の lineitem の状態。|
+| status               | string           | TransferEntity 内の lineitem の状態。|
 
 ## <a name="transfersubmitresult"></a>TransferSubmitResult
 
 転送の受け入れの結果を表します。
 
-| プロパティ          | 種類                                                  | 説明                        |
+| プロパティ          | Type                                                  | 説明                        |
 |-------------------|-------------------------------------------------------|------------------------------------|
-| orders            | [Order](order-resources.md#order)オブジェクトのリスト。    | 注文のコレクションです。          |
+| 注文            | [Order](order-resources.md#order)オブジェクトのリスト。    | 注文のコレクションです。          |
 | transferErrors    | [Transfererror](#transfererror)オブジェクトの一覧。      | 転送エラーのコレクションです。 |
 
 ## <a name="transfererror"></a>TransferError
 
 転送が受け入れられたときに発生するエラーを表します。
 
-| プロパティ          | 種類   | 説明                                     |
+| プロパティ          | Type   | 説明                                     |
 |-------------------|--------|-------------------------------------------------|
 | transferGroupId   | string | 注文の注文グループ ID をエラーと共に使用します。 |
-| code              | int    | エラー コードです。                                 |
+| code              | INT    | エラー コード。                                 |
 | description       | string | エラーの説明。                   |
 | lineItems         | **Transferlineitem**オブジェクトの一覧 | 転送エラーの一部である transferEntity の品目のコレクション。|
 

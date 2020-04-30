@@ -1,23 +1,23 @@
 ---
-title: CSP カスタマー web ネットショップ
+title: CSP 顧客 Web ネットショップ
 description: このサンプル web サイトコードは、お客様が Microsoft 製品へのサブスクリプションを購入するための作業オンラインストアを示しています。
 ms.assetid: 0726B1CA-97A1-42E6-92AD-25787BFE0C67
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1db077eb789146f945f6d507be84f948ae2cb0a9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: a85c5f4ab3050d0120a42389e906ab4502ef6a04
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415553"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81665922"
 ---
-# <a name="csp-customer-web-storefront"></a>CSP カスタマー web ネットショップ
+# <a name="csp-customer-web-storefront"></a>CSP 顧客 Web ネットショップ
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 > [!NOTE]
 > このサンプルアプリは、パートナーセンターのグローバルインスタンスにのみ適用されます。 Microsoft Cloud ドイツのパートナーセンターや米国政府機関向けのパートナー Microsoft Cloud センターには適用されません。
@@ -28,7 +28,7 @@ ms.locfileid: "80415553"
 
 GitHub から[パートナーセンターのサンプルコード](https://github.com/Microsoft/Partner-Center-Storefront)をダウンロードします。
 
-## <a name="configure-authentication"></a>認証設定の構成
+## <a name="configure-authentication"></a>認証を構成する。
 
 アプリケーションをビルドする前に、web.config ファイルの次の値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 統合サンドボックスアカウントの設定は、初期開発時または運用環境でのテスト (TiP) で使用する必要があります。
 
@@ -52,7 +52,7 @@ GitHub から[パートナーセンターのサンプルコード](https://githu
 - 組織のロゴ
 - [ヘッダー イメージ]
 - プライバシーに関する契約
-- 連絡先の電子メール
+- 連絡先のメール アドレス
 - 連絡先の電話番号
 - サポート電子メール
 - サポートの電話番号

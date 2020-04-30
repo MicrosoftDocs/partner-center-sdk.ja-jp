@@ -6,18 +6,18 @@ ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6842fdefd71a066e6b1be3a5ab302b24e445366d
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: eff3dcdc9a5717699152eaa4980f07aa48325bae
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412432"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666245"
 ---
 # <a name="device-deployment"></a>デバイスの展開
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
 パートナーセンター Api は、ゼロタッチ展開機能へのアクセスを提供します。これにより、顧客向けの安全なデバイスセットアップを簡略化できます。

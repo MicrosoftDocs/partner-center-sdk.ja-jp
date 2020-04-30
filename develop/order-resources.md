@@ -6,18 +6,18 @@ ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 13ea0368e257f437494f97979be7dd0a48efe4fa
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 27025e7e16afa2d560a9006ded98565d7d6e9697
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416434"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82124662"
 ---
 # <a name="order-resources"></a>リソースの注文
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -31,45 +31,45 @@ ms.locfileid: "80416434"
 
 パートナーの注文について説明します。
 
-| プロパティ           | 種類                                               | 説明                                                 |
+| プロパティ           | Type                                               | 説明                                                 |
 |--------------------|----------------------------------------------------|-------------------------------------------------------------|
 | id                 | string                                             | 注文が正常に作成されたときに提供される注文 id。                                   |
-| 代替 id        | string                                             | 注文のわかりやすい識別子。                                                                          |
-|referenceCustomerId | string                                             | 顧客識別子。 |
-| 周期サイクル       | string                                             | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [BillingCycleType](product-resources.md#billingcycletype)で見つかったメンバー名です。 既定値は、注文の作成時に "毎月" または "OneTime" です。 このフィールドは、注文が正常に作成されたときに適用されます。 |
-| transactionType    | string                                             | 読み取り専用。 注文のトランザクションの種類。 サポートされている値は、' UserPurchase '、' SystemPurchase '、または ' SystemBilling ' です。 |
+| alternateId        | string                                             | 注文のわかりやすい識別子。                                                                          |
+|referenceCustomerId | string                                             | 顧客 ID。 |
+| billingCycle       | string                                             | パートナーがこの注文に対して課金される頻度を示します。 サポートされる値は、[BillingCycleType](product-resources.md#billingcycletype) で検出されたメンバー名です。 既定値は、注文の作成時に "毎月" または "OneTime" です。 このフィールドは、注文が正常に作成されたときに適用されます。 |
+| transactionType    | string                                             | 読み取り専用です。 注文のトランザクションの種類。 サポートされている値は、' UserPurchase '、' SystemPurchase '、または ' SystemBilling ' です。 |
 | lineItems          | [Orderlineitem](#orderlineitem)リソースの配列 | 顧客が購入しているプランの一覧 (数量を含む)。        |
-| currencyCode       | string                                             | 読み取り専用。 注文を配置するときに使用する通貨。 注文が正常に作成されたときに適用されます。           |
-| currencySymbol     | string                                             | 読み取り専用。 通貨コードによって修飾された通貨記号。 |
-| creationDate       | datetime                                           | 読み取り専用。 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。                                   |
-| 状態             | string                                             | 読み取り専用。 注文の状態。  サポートされる値は、 [**Orderstatus**](#orderstatus)で見つかったメンバー名です。        |
+| currencyCode       | string                                             | 読み取り専用です。 注文を配置するときに使用する通貨。 注文が正常に作成されたときに適用されます。           |
+| currencySymbol     | string                                             | 読み取り専用です。 通貨コードに関連付けられている通貨記号。 |
+| creationDate       | DATETIME                                           | 読み取り専用です。 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。                                   |
+| status             | string                                             | 読み取り専用です。 注文の状態。  サポートされる値は、 [**Orderstatus**](#orderstatus)で見つかったメンバー名です。        |
 | リンク              | [OrderLinks](utility-resources.md#resourcelinks)           | 注文に対応するリソースリンク。            |
-| 属性         | [ResourceAttributes](utility-resources.md#resourceattributes) | 順序に対応するメタデータ属性。       |
+| attributes         | [ResourceAttributes](utility-resources.md#resourceattributes) | 順序に対応するメタデータ属性。       |
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
 注文にはオファーの一覧が含まれ、各項目は OrderLineItem として表されます。
 
-| プロパティ             | 種類                                      | 説明                                                                                                                                                                                                                                |
+| プロパティ             | Type                                      | 説明                                                                                                                                                                                                                                |
 |----------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | int                                       | コレクション内の各行項目は、0からカウント-1 までカウントされる一意の行番号を取得します。                                                                                                                                                 |
+| lineItemNumber       | INT                                       | コレクション内の各品目には、0 からカウント -1 までカウントする、一意の品目番号が与えられます。                                                                                                                                                 |
 | offerId              | string                                    | オファーの ID。                                                                                                                                                                                                                       |
 | subscriptionId       | string                                    | サブスクリプションの ID です。                                                                                                                                                                                                                |
-| parentSubscriptionId | string                                    | 省略可。 アドオンプランの親サブスクリプションの ID。 PATCH にのみ適用されます。                                                                                                                                                     |
-| friendlyName         | string                                    | 省略可。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。                                                                                                                                              |
-| quantity             | int                                       | ライセンスまたはインスタンスの数。                                                                                                                                                                                |
+| parentSubscriptionId | string                                    | 省略可能。 アドオン オファーの親サブスクリプションの ID。 PATCH にのみ適用されます。                                                                                                                                                     |
+| friendlyName         | string                                    | 省略可能。 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。                                                                                                                                              |
+| 数量             | INT                                       | ライセンスまたはインスタンスの数。                                                                                                                                                                                |
 | termDuration         | string                                    | 用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月)、 **P1Y** (1 年)、および**P3Y** (3 年) です。                               |
-| transactionType      | string                                    | 読み取り専用。 品目のトランザクションの種類。 サポートされている値は、' new '、' 書き換え '、' addQuantity '、' Remov-アンチ Ty '、' cancel '、' convert '、または ' 顧客クレジット ' です。 |
-| partnerIdOnRecord    | string                                    | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを適切にアカウンティングできます。 |
-| provisioningContext  | Dictionary < string、string >            | カタログ内の一部の項目のプロビジョニングに必要な情報。 SKU の "プロビジョニング変数" プロパティは、カタログ内の特定のアイテムに必要なプロパティを示します。                                                                                                                                               |
-| リンク                | [OrderLineItemLinks](#orderlineitemlinks) | 読み取り専用。 注文明細項目に対応するリソースリンク。                                                                                                                                                                                |
+| transactionType      | string                                    | 読み取り専用です。 品目のトランザクションの種類。 サポートされている値は、' new '、' 書き換え '、' addQuantity '、' Remov-アンチ Ty '、' cancel '、' convert '、または ' 顧客クレジット ' です。 |
+| partnerIdOnRecord    | string                                    | 間接プロバイダーが間接リセラーの代わりに注文を行う場合は、このフィールドに**間接リセラー**の MPN id のみを入力します (間接プロバイダーの id は使用しないでください)。 これにより、インセンティブを正しく計算できます。 |
+| provisioningContext  | Dictionary<string、string>            | カタログ内の一部の項目のプロビジョニングに必要な情報。 SKU の "プロビジョニング変数" プロパティは、カタログ内の特定のアイテムに必要なプロパティを示します。                                                                                                                                               |
+| リンク                | [OrderLineItemLinks](#orderlineitemlinks) | 読み取り専用です。 注文明細項目に対応するリソースリンク。                                                                                                                                                                                |
 | renewsTo             | [RenewsTo](#renewsto)                         |更新期間の詳細。                                                                           |
 
-## <a name="renewsto"></a>renewsTo
+## <a name="renewsto"></a>RenewsTo
 
 更新期間の詳細を表します。
 
-| プロパティ              | 種類             | 必須        | 説明 |
+| プロパティ              | Type             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
 | termDuration          | string           | いいえ              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 
@@ -77,21 +77,21 @@ ms.locfileid: "80416434"
 
 注文に対応するリソースリンクを表します。
 
-| プロパティ           | 種類                                         | 説明                                                                   |
+| プロパティ           | Type                                         | 説明                                                                   |
 |--------------------|----------------------------------------------|-------------------------------------------------------------------------------|
-| プロビジョニング状態 | [Link](utility-resources.md#Link)            | 設定されている場合は、注文のプロビジョニングステータスを取得するためのリンクが表示されます。       |
-| 自身               | [Link](utility-resources.md#Link)            | 注文リソースを取得するためのリンク。                                      |
+| provisioningStatus | [リンク](utility-resources.md#link)            | 設定されている場合は、注文のプロビジョニングステータスを取得するためのリンクが表示されます。       |
+| 自身               | [リンク](utility-resources.md#link)            | 注文リソースを取得するためのリンク。                                      |
 
 ## <a name="orderlineitemlinks"></a>OrderLineItemLinks
 
 注文に関連付けられた完全なサブスクリプションを表します。
 
-| プロパティ           | 種類                                         | 説明                                                                          |
+| プロパティ           | Type                                         | 説明                                                                          |
 |--------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| プロビジョニング状態 | [Link](utility-resources.md#Link)            | 値が設定されている場合は、行項目の[プロビジョニング状態](#orderlineitemprovisioningstatus)を取得するためのリンクが表示されます。       |
-| sku                | [Link](utility-resources.md#Link)            | 購入したカタログアイテムの SKU 情報を取得するためのリンク。                    |
-| ご利用のサブスクリプションにユーザーを追加します。       | [Link](utility-resources.md#Link)            | 設定されている場合は、サブスクリプションの完全な情報へのリンク。                       |
-| activationLinks    | [Link](utility-resources.md#Link)            | 値が設定されている場合は、サブスクリプションをアクティブにするためのリンクのリソースを取得します。             |
+| provisioningStatus | [リンク](utility-resources.md#link)            | 値が設定されている場合は、行項目の[プロビジョニング状態](#orderlineitemprovisioningstatus)を取得するためのリンクが表示されます。       |
+| sku                | [リンク](utility-resources.md#link)            | 購入したカタログアイテムの SKU 情報を取得するためのリンク。                    |
+| subscription       | [リンク](utility-resources.md#link)            | 設定されている場合は、サブスクリプションの完全な情報へのリンク。                       |
+| activationLinks    | [リンク](utility-resources.md#link)            | 値が設定されている場合は、サブスクリプションをアクティブにするためのリンクのリソースを取得します。             |
 
 ## <a name="orderstatus"></a>OrderStatus
 
@@ -99,26 +99,26 @@ ms.locfileid: "80416434"
 
 | 値              | [位置]     | 説明                                     |
 |--------------------|--------------|-------------------------------------------------|
-| 不明            | 0            | 列挙型の初期化子です。                               |
+| unknown            | 0            | 列挙型の初期化子です。                               |
 | 完了          | 1            | 注文が完了したことを示します。          |
-| 行わ            | 2            | 順序がまだ保留中であることを示します。      |
+| 保留中            | 2            | 順序がまだ保留中であることを示します。      |
 | た          | 3            | 注文がキャンセルされたことを示します。    |
 
 ## <a name="orderlineitemprovisioningstatus"></a>Orderlineitemプロビジョニングステータス
 
 [Orderlineitem](#orderlineitem)のプロビジョニングの状態を表します。
 
-| プロパティ                        | 種類                                | 説明                                                                                |
+| プロパティ                        | Type                                | 説明                                                                                |
 |------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------|
-| lineItemNumber                  | int                                 | 注文明細項目の一意の行番号。 値の範囲は0からカウント-1 です。             |
-| 状態                          | string                              | 注文明細項目のプロビジョニングの状態。 値は次のとおりです。</br>"フルフィルメント済み": 注文のフルフィルメントが正常に完了し、ユーザーが予約を使用できるようになります。</br>"満たされ": キャンセルにより満たされていません</br>"PrefulfillmentPending": 要求はまだ処理中ですが、フルフィルメントはまだ完了していません |
-| quantityProvisioningInformation | <[QuantityProvisioningStatus](#quantityprovisioningstatus)> の一覧表示 | 注文品目の数量のプロビジョニング状態情報の一覧。 |
+| lineItemNumber                  | INT                                 | 注文明細項目の一意の行番号。 値の範囲は0からカウント-1 です。             |
+| status                          | string                              | 注文明細項目のプロビジョニングの状態。 次の値が含まれます。</br>"フルフィルメント済み": 注文のフルフィルメントが正常に完了し、ユーザーが予約を使用できるようになります。</br>"満たされ": キャンセルにより満たされていません</br>"PrefulfillmentPending": 要求はまだ処理中ですが、フルフィルメントはまだ完了していません |
+| quantityProvisioningInformation | リスト<[QuantityProvisioningStatus](#quantityprovisioningstatus)> | 注文品目の数量のプロビジョニング状態情報の一覧。 |
 
 ## <a name="quantityprovisioningstatus"></a>QuantityProvisioningStatus
 
 数量別のプロビジョニングの状態を表します。
 
-| プロパティ                           | 種類                                         | 説明                                          |
+| プロパティ                           | Type                                         | 説明                                          |
 |------------------------------------|----------------------------------------------|------------------------------------------------------|
-| quantity                           | int                                          | 項目の数                                 |
-| 状態                             | string                                       | 項目数の状態。                   |
+| 数量                           | INT                                          | 項目数。                                 |
+| status                             | string                                       | 項目数の状態。                   |

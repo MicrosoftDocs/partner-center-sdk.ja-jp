@@ -1,23 +1,23 @@
 ---
-title: サブスクリプションのリソース
+title: サブスクリプション リソース
 description: サブスクリプションリソースでは、サポート、返金、Azure 権利など、ライフサイクル全体にわたってサブスクリプションに関する詳細情報を提供できます。
 ms.assetid: E99B5EC3-2247-4CAD-B651-3000E36AF6B6
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e817762b2e058614a1fe594a9e2ee74f001cbfb9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: eb6a3c77b65e003db95a3959953077d35a2e79a6
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415124"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666103"
 ---
-# <a name="subscription-resources"></a>サブスクリプションのリソース
+# <a name="subscription-resources"></a>サブスクリプション リソース
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -31,86 +31,86 @@ ms.locfileid: "80415124"
 
 サブスクリプション**リソースは**、サブスクリプションのライフサイクルを表します。サブスクリプションのライフサイクル全体にわたって状態を定義するプロパティが含まれています。
 
-| プロパティ             | 種類                                                          | 説明                                                                                                                                                                   |
+| プロパティ             | Type                                                          | 説明                                                                                                                                                                   |
 |----------------------|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | string                                                        | サブスクリプション識別子。                                                                                                                                                  |
-| offerId              | string                                                        | プランの識別子。                                                                                                                                                         |
+| id                   | string                                                        | サブスクリプションの識別子です。                                                                                                                                                  |
+| offerId              | string                                                        | プラン ID。                                                                                                                                                         |
 | entitlementId        | string                                                        | 権利識別子 (Azure サブスクリプション ID)。                                                                                                                        |
-| Context.offername            | string                                                        | プラン名。                                                                                                                                                               |
+| offerName            | string                                                        | プラン名。                                                                                                                                                               |
 | friendlyName         | string                                                        | 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名。                                                                                           |
-| quantity             | number                                                        | 数量。 たとえば、ライセンスベースの課金の場合、このプロパティはライセンス数に設定されます。                                                            |
-| Unittype.pixel 単位             | string                                                        | サブスクリプションの数量を定義する単位です。                                                                                                                             |
+| 数量             | number                                                        | 数量。 たとえば、ライセンスベースの課金の場合、このプロパティはライセンス数に設定されます。                                                            |
+| unitType             | string                                                        | サブスクリプションの数量を定義する単位です。                                                                                                                             |
 | parentSubscriptionId | string                                                        | 親サブスクリプションの識別子を取得します。値の設定もできます。                                                                                                                              |
 | creationDate         | string                                                        | 日付/時刻形式で作成日を取得または設定します。                                                                                                                          |
-| And rateplancharge.effectivestartdate   | UTC 日時形式の文字列                                | このサブスクリプションの有効な開始日を日付/時刻形式で取得または設定します。 移行されたサブスクリプションの日付をバックアップする場合、または別のサブスクリプションに合わせる場合に使用します。                |
+| effectiveStartDate   | UTC 日時形式の文字列                                | このサブスクリプションの有効な開始日を日付/時刻形式で取得または設定します。 移行されたサブスクリプションの日付をバックアップする場合、または別のサブスクリプションに合わせる場合に使用します。                |
 | Commitの Enddate    | UTC 日時形式の文字列                                | このサブスクリプションのコミットメント終了日 (日付/時刻形式)。 自動更新できないサブスクリプションの場合、これはそれまでの日付を表します。       |
-| 状態               | string                                                        | サブスクリプションの状態: "なし"、"アクティブ"、"保留中"、"中断"、または "削除済み"。                                                                                                         |
+| status               | string                                                        | サブスクリプションの状態: "なし"、"アクティブ"、"保留中"、"中断"、または "削除済み"。                                                                                                         |
 | autoRenewEnabled     | boolean                                                       | サブスクリプションが自動的に更新されるかどうかを示す値を取得します。                                                                                                    |
 | 種類          | string                                                        | サブスクリプションの課金方法を指定します。 "none"、"usage"、"license" です。                                                                                                      |
-| 周期サイクル         | string                                                        | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [**BillingCycleType**](product-resources.md#billingcycletype)で見つかったメンバー名です。 |
+| billingCycle         | string                                                        | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [**BillingCycleType**](product-resources.md#billingcycletype)で見つかったメンバー名です。 |
 | hasPurchasableAddons | boolean                                                       | サブスクリプションに購入可能なアドオンがあるかどうかを示す値を取得または設定します。                                                                                             |
 | isTrial              | boolean                                                       | 評価版サブスクリプションであるかどうかを示す値です。                                                                                                                      |
 | Ismicrosoft 製品   | boolean                                                       | このが Microsoft 製品であるかどうかを示す値。                                                                                                                       |
 | publisherName        | string                                                        | 発行元の名前。                                                                                                                                                           |
-| 操作              | 文字列の配列                                              | 許可されるアクションを取得または設定します。 有効な値: "edit"、"cancel"                                                                                                  |
+| actions              | 文字列の配列                                              | 許可されるアクションを取得または設定します。 有効な値: "edit"、"cancel"                                                                                                  |
 | パートナー            | string                                                        | 間接パートナーモデルで使用される、レコードの再販業者の MPN ID。                                                                                                     |
-| suspensionReasons    | 文字列の配列                                              | 読み取り専用。 サブスクリプションが中断された場合は、その理由を示します。                                                                                                                  |
-| contractType         | string                                                        | 読み取り専用。 コントラクトの種類: "subscription"、"productKey"、または "redemptionCode"。                                                                                           |
+| suspensionReasons    | 文字列の配列                                              | 読み取り専用です。 サブスクリプションが中断された場合は、その理由を示します。                                                                                                                  |
+| contractType         | string                                                        | 読み取り専用です。 コントラクトの種類: "subscription"、"productKey"、または "redemptionCode"。                                                                                           |
 | refundOptions        | [RefundOption](#refundoption)リソースの配列   | 読み取り専用。 このサブスクリプションで使用できる返金オプションのセット。                                                                                              |
 | リンク                | [SubscriptionLinks](#subscriptionlinks)                       | サブスクリプションリンクを取得または設定します。                                                                                                                                          |
 | orderId              | string                                                        | サブスクリプションを開始するために配置された注文の ID。                                                                                                                |
 | termDuration         | string                                                        | 用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月)、 **P1Y** (1 年)、および**P3Y** (3 年) です。                                                        |
-| 属性           | [ResourceAttributes](utility-resources.md#resourceattributes) | サブスクリプションに対応するメタデータ属性。                                                                                                                    |
+| attributes           | [ResourceAttributes](utility-resources.md#resourceattributes) | サブスクリプションに対応するメタデータ属性。                                                                                                                    |
 | renewalTermDuration  | string                                                        | 用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。                                                        |
 
 ## <a name="subscriptionlinks"></a>SubscriptionLinks
 
 **Subscriptionlinks**リソースには、サブスクリプションリソースにアタッチされたリンクのコレクションが記述されています。
 
-| プロパティ           | 種類                               | 説明                           |
+| プロパティ           | Type                               | 説明                           |
 |--------------------|------------------------------------|---------------------------------------|
-| 得る              | [Link](utility-resources.md#link) | オファーを取得または設定します。               |
-| parentSubscription | [Link](utility-resources.md#link) | 親サブスクリプションを取得します。値の設定もできます。 |
-| プロダクト            | [Link](utility-resources.md#link) | サブスクリプションに関連付けられている製品を取得します。 |
-| sku                | [Link](utility-resources.md#link) | サブスクリプションに関連付けられている製品 sku を取得します。 |
-| 可用性       | [Link](utility-resources.md#link) | サブスクリプションに関連付けられている製品 sku の可用性を取得します。 |
-| activationLinks    | [Link](utility-resources.md#link) | サブスクリプションに関連付けられているアクティベーションリンクの一覧を取得します。 |
-| 自身               | [Link](utility-resources.md#link) | 自己 URI。                         |
-| next               | [Link](utility-resources.md#link) | 項目の次のページ。               |
-| 前へ           | [Link](utility-resources.md#link) | 項目の前のページ。           |
+| offer              | [リンク](utility-resources.md#link) | オファーを取得または設定します。               |
+| parentSubscription | [リンク](utility-resources.md#link) | 親サブスクリプションを取得します。値の設定もできます。 |
+| product            | [リンク](utility-resources.md#link) | サブスクリプションに関連付けられている製品を取得します。 |
+| sku                | [リンク](utility-resources.md#link) | サブスクリプションに関連付けられている製品 sku を取得します。 |
+| availability       | [リンク](utility-resources.md#link) | サブスクリプションに関連付けられている製品 sku の可用性を取得します。 |
+| activationLinks    | [リンク](utility-resources.md#link) | サブスクリプションに関連付けられているアクティベーションリンクの一覧を取得します。 |
+| 自身               | [リンク](utility-resources.md#link) | 自己 URI。                         |
+| [次へ]               | [リンク](utility-resources.md#link) | 項目の次のページ。               |
+| previous           | [リンク](utility-resources.md#link) | 項目の前のページ。           |
 
 ## <a name="subscriptionprovisioningstatus"></a>Subscriptionのプロビジョニングステータス
 
 **Subscriptionprovisioning status**リソースは、サブスクリプションのプロビジョニング状態に関する情報を提供します。
 
-| プロパティ   | 種類                                                           | 説明                                                          |
+| プロパティ   | Type                                                           | 説明                                                          |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------|
 | skuId      | string                                                         | 製品 SKU を識別する GUID 形式の文字列。             |
-| 状態     | string                                                         | プロビジョニングの状態を示します。 "成功"、"保留中"、または "失敗" です。 |
-| quantity   | number                                                         | プロビジョニング後のサブスクリプション数を提供します。               |
+| status     | string                                                         | プロビジョニングの状態を示します。 "成功"、"保留中"、または "失敗" です。 |
+| 数量   | number                                                         | プロビジョニング後のサブスクリプション数を提供します。               |
 | endDate    | UTC 日時形式の文字列                                 | サブスクリプションの終了日。                                    |
-| 属性 | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。                                             |
+| attributes | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。                                             |
 
 ## <a name="subscriptionregistrationstatus"></a>SubscriptionRegistrationStatus
 
 **Subscriptionregistrationstatus**リソースには、サブスクリプションリソースにアタッチされたリンクのコレクションが記述されています。
 
-| プロパティ           | 種類                               | 説明                                                                           |
+| プロパティ           | Type                               | 説明                                                                           |
 |--------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| subscriptionId     | string                             | サブスクリプション識別子。                                                          |
-| 状態             | string                             | 登録状態を示します。 "登録済み"、"登録中"、または "notregistered" です。    |
+| subscriptionId     | string                             | サブスクリプションの識別子です。                                                          |
+| status             | string                             | 登録状態を示します。 "登録済み"、"登録中"、または "notregistered" です。    |
 
 ## <a name="supportcontact"></a>サポート連絡先
 
 **Supportcontact**リソースは、お客様のサブスクリプションのサポート連絡先を表します。
 
-| プロパティ        | 種類                                                           | 説明                                                                     |
+| プロパティ        | Type                                                           | 説明                                                                     |
 |-----------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | supportTenantId | string                                                         | サポート連絡先のテナント識別子を示す GUID 形式の文字列。 |
 | supportMpnId    | string                                                         | 連絡先の Microsoft Partner Network (MPN) 識別子。                       |
 | name            | string                                                         | サポート連絡先の名前。                                                |
 | リンク           | [ResourceLinks](utility-resources.md#resourcelinks)            | サポート連絡先関連のリンク。                                              |
-| 属性      | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。 "ObjectType": "SupportContact" が含まれています。              |
+| attributes      | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。 "ObjectType": "SupportContact" が含まれています。              |
 
 ## <a name="registersubscription"></a>RegisterSubscription
 
@@ -118,7 +118,7 @@ ms.locfileid: "80415124"
 
 | プロパティ                | 種類                               | 説明                                                                           |
 |-------------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| httpResponseMessage     | object                             | HTTP 状態コード 202 "accept" を返します。場所ヘッダーには、登録ステータスをクエリするためのリンクが含まれています。 たとえば、`"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` と記述します。 |
+| httpResponseMessage     | object                             | HTTP 状態コード 202 "accept" を返します。場所ヘッダーには、登録ステータスをクエリするためのリンクが含まれています。 たとえば、`"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` のように指定します。 |
 
 ## <a name="refundoption"></a>RefundOption
 
@@ -126,7 +126,7 @@ ms.locfileid: "80415124"
 
 | プロパティ          | 種類 | 説明                                                                         |
 |-------------------|--------|-------------------------------------------------------------------------------------|
-| 型 | string | 返金の種類。 サポートされている値は、"Partial" と "Full" です。 |
+| type | string | 返金の種類。 サポートされている値は、"Partial" と "Full" です。 |
 | expiresAfter      | UTC 日時形式の文字列 | このオプションが有効期限切れになったときのタイムスタンプ。 Null の場合は、有効期限がないことを意味します。 |
 
 ## <a name="azureentitlement"></a>AzureEntitlement
@@ -137,5 +137,5 @@ ms.locfileid: "80415124"
 |-------------------|--------|-------------------------------------------------------------------------------------|
 | id | string | 権利識別子 |
 | friendlyName      | string | 権利のフレンドリ名。 |
-| 状態 | string | 権利の状態。 |
+| status | string | 権利の状態。 |
 | subscriptionId | string | 権利が属しているサブスクリプション識別子。 |

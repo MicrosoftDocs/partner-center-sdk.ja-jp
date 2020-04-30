@@ -6,18 +6,18 @@ ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1675db6dcb09301f86436bb0b9c8dbb785fcde17
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 4ff89cccf9c3605887b89f35b6505ae809d0ac9f
+ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413541"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82092989"
 ---
 # <a name="country-information-resources"></a>国情報リソース
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,7 +26,7 @@ ms.locfileid: "80413541"
 
 ## <a name="countryinformation"></a>CountryInformation
 
-| プロパティ                      | 種類               | 説明                                                                                        |
+| プロパティ                      | Type               | 説明                                                                                        |
 |-------------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | ExtensionData                 | string             | 拡張データ。                                                                                |
 | Iso2Code                      | string             | ISO 2 のコード。                                                                                     |
@@ -45,7 +45,7 @@ ms.locfileid: "80413541"
 | V・ Dregex                    | string             | 税 ID の正規表現。                                                                     |
 | PhoneNumberRegex              | string             | 電話番号の正規表現。                                                               |
 | サポートされている Isregistrationnumber | boolean            | 登録番号がサポートされているかどうかを示します。                                       |
-| IsTaxIdSupported              | boolean            | 税 ID がサポートされているかどうかを示します。 これは Isvがサポートされているものとは異なることに注意してください。 |
+| IsTaxIdSupported              | boolean            | 税 ID がサポートされているかどうかを示します。 これは、Isvがサポートされているものとは異なります。 |
 | ResellerAgreementRegion       | string             | リセラー契約リージョン。                                                                     |
 | GeographicRegion              | string             | 地理的領域。                                                                             |
 | CountryCallingCodesList       | 文字列の配列   | 国/地域でサポートされている呼び出しコード。                                                 |
@@ -55,7 +55,7 @@ ms.locfileid: "80413541"
 
 国/地域の住所の書式規則について説明します。
 
-| プロパティ                | 種類               | 説明                                                                                        |
+| プロパティ                | Type               | 説明                                                                                        |
 |-------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | Iso2Code                | string             | ISO 2 のコード。                                                                                     |
 | DefaultCulture          | string             | 既定のカルチャ。                                                                               |
@@ -71,7 +71,7 @@ ms.locfileid: "80413541"
 | TaxIdSample             | string             | 税 ID のサンプルです。                                                                                 |
 | V・ Dregex              | string             | 税 ID の正規表現。                                                                     |
 | PhoneNumberRegex        | string             | 電話番号の正規表現。                                                               |
-| IsTaxIdSupported        | boolean            | 税 ID がサポートされているかどうかを示します。 これは Isvがサポートされているものとは異なることに注意してください。 |
+| IsTaxIdSupported        | boolean            | 税 ID がサポートされているかどうかを示します。 このプロパティは、Isvがサポートされているものとは異なります。 |
 | Ist軸のその他の条件         | boolean            | 税 ID が省略可能かどうかを示します。                                                     |
 | CountryCallingCodesList | 文字列の配列   | 国/地域でサポートされている呼び出しコード。                                                 |
 | 属性              | ResourceAttributes | CountryInformation リソースに対応するメタデータ属性。                          |

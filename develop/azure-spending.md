@@ -1,23 +1,22 @@
 ---
 title: Azure 利用状況
 description: CSP パートナーは、パートナーセンター Api を使用して、Azure の支出を表示および管理できます。 また、顧客の Azure の予算に対する支出をプログラムによって表示することもできます。
-ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3b67120a057510ce53b43001420b3e3a2d792b0f
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7729c973622a7db6cae6ba9fc492e6f9b7caa981
+ms.sourcegitcommit: 685137f5dd204912efcb4c406a1bf02278ce5dae
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413189"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81785087"
 ---
 # <a name="azure-spending"></a>Azure 利用状況
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター

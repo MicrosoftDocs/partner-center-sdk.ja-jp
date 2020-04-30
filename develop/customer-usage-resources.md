@@ -6,18 +6,18 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 880a53503bce2f06d14e9794bf42b85bcd30e7ff
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: c792e93f872b2224049d20a6de99f5dcaa15084b
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414145"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666037"
 ---
 # <a name="customer-usage-resources"></a>お客様の使用リソース
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -30,9 +30,9 @@ ms.locfileid: "80414145"
 
 **CustomerMonthlyUsageRecord**は、現在の月の顧客の使用量の推定金銭的コストを表します。
 
-| プロパティ         | 種類               | 説明                                                              |
+| プロパティ         | Type               | 説明                                                              |
 |------------------|--------------------|--------------------------------------------------------------------------|
-| 割り当て           | SpendingBudget     | 顧客に割り当てられた支出予算。                          |
+| 予算           | SpendingBudget     | 顧客に割り当てられた支出予算。                          |
 | PercentUsed      | decimal             | 割り当てられた予算から使用された割合。                        |
 | ResourceId       | string             | リソースの一意の識別子。                                   |
 | ResourceName     | string             | リソースの名前。                                                |
@@ -40,7 +40,7 @@ ms.locfileid: "80414145"
 | CurrencyLocale   | string             | 顧客の通貨のロケール。 Microsoft Azure (0145P) サブスクリプションで使用できます。            |
 | CurrencyCode     | string             | 通貨コードを取得または設定します。 Azure プランで使用できます。           |
 | USDTotalCost     | decimal             | 推定合計コストを USD で取得または設定します。 Azure プランで使用できます。                                         |
-| IsUpgraded       | bool             | 顧客の Azure サブスクリプションがアップグレードされているかどうかを示す値を取得または設定します。 値**true**は、Azure プランを持つ顧客を表します。                         |
+| IsUpgraded       | [bool]             | 顧客の Azure サブスクリプションがアップグレードされているかどうかを示す値を取得または設定します。 値**true**は、Azure プランを持つ顧客を表します。                         |
 | LastModifiedDate | date               | 使用状況データが最後に変更された日付。                               |
 | 属性       | ResourceAttributes | 使用状況レコードに対応するメタデータ属性。               |
 
@@ -48,9 +48,9 @@ ms.locfileid: "80414145"
 
 **CustomerUsageSummary**は、請求期間全体における顧客の使用状況の概要を表します。
 
-| プロパティ         | 種類               | 説明                                                                                                      |
+| プロパティ         | Type               | 説明                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| 割り当て           | SpendingBudget     | 顧客に割り当てられた支出予算。                                                                  |
+| 予算           | SpendingBudget     | 顧客に割り当てられた支出予算。                                                                  |
 | ResourceId       | string             | リソースの一意の識別子。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
 | ResourceName     | string             | リソースの名前。 CustomerMonthlyUsageRecord のコンテキストでは、これは顧客名です。               |
 | /日 | date               | 現在の請求期間の開始日。                                                                    |
@@ -60,19 +60,19 @@ ms.locfileid: "80414145"
 | CurrencyCode     | string             | 通貨コードを取得または設定します。 Azure プランで使用できます。                                         |
 | USDTotalCost     | decimal             | 推定合計コストを USD で取得または設定します。 Azure プランサブスクリプションリソースで使用できます。                                         |
 | LastModifiedDate | date               | 使用状況データが最後に変更された日付。                                                                       |
-| Links            | ResourceLinks      | 使用状況の概要に対応するリソースリンク。                                                           |
+| リンク            | ResourceLinks      | 使用状況の概要に対応するリソースリンク。                                                           |
 | 属性       | ResourceAttributes | 使用状況の概要に対応するメタデータ属性。                                                      |
 
 ## <a name="partnerusagesummary"></a>PartnerUsageSummary
 
 **PartnerUsageSummary**は、すべての顧客の使用量の予算を示すパートナーレベルの概要を表します。
 
-| プロパティ         | 種類               | 説明                                                                                                      |
+| プロパティ         | Type               | 説明                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
 | EmailsToNotify   | 文字列の配列   | 通知用の電子メールアドレスの一覧。                                                                   |
-| 顧客の超過コスト | 整数          | 予算を超過している顧客の数。                                                                    |
-| CustomersTrendingOver | 整数       | 予算を超過している顧客の数。                                                     |
-| 顧客の Swithon のサブスクリプション  | 整数 | 使用量ベースのサブスクリプションを使用している顧客の数。                                               |
+| 顧客の超過コスト | 整数 (integer)          | 予算を超過している顧客の数。                                                                    |
+| CustomersTrendingOver | 整数 (integer)       | 予算を超過している顧客の数。                                                     |
+| 顧客の Swithon のサブスクリプション  | 整数 (integer) | 使用量ベースのサブスクリプションを使用している顧客の数。                                               |
 | ResourceId       | string             | リソースの一意の識別子。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
 | ResourceName     | string             | リソースの名前。 CustomerMonthlyUsageRecord のコンテキストでは、これは顧客名です。               |
 | /日 | date               | 現在の請求期間の開始日。                                                                    |
@@ -80,14 +80,14 @@ ms.locfileid: "80414145"
 | TotalCost        | decimal             | 請求期間の開始時点からの現在の使用状況に基づいて、すべての顧客使用量の推定総コスト。      |
 | CurrencyLocale   | string             | 通貨のロケール。                                                                                             |
 | LastModifiedDate | date               | 使用状況データが最後に変更された日付。                                                                       |
-| Links            | ResourceLinks      | 使用状況の概要に対応するリソースリンク。                                                           |
+| リンク            | ResourceLinks      | 使用状況の概要に対応するリソースリンク。                                                           |
 | 属性       | ResourceAttributes | 使用状況の概要に対応するメタデータ属性。                                                      |
 
 ## <a name="spendingbudget"></a>SpendingBudget
 
 **SpendingBudget**は、使用量ベースのサブスクリプションについて、この顧客に割り当てられた予算を表します。
 
-| プロパティ   | 種類               | 説明                                                                                         |
+| プロパティ   | Type               | 説明                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
 | 金額     | decimal             | 割り当てられた予算。 値が null の場合、この顧客に割り当てられている支出予算はありません。 |
 | 属性 | ResourceAttributes | 予算に対応するメタデータ属性。                                                |

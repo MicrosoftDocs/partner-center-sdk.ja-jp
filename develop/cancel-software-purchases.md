@@ -1,24 +1,24 @@
 ---
-title: ソフトウェアの購入の取り消し
+title: ソフトウェア購入の取り消し
 description: パートナーセンター Api を使用して、ソフトウェアサブスクリプションと永続的なソフトウェアの購入をキャンセルするセルフサービスオプション。
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1da4e45bcfa3c54316139fefa348044643256190
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7d984deb3c80a6f02ae1880ccbc8d9c7c882226f
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413053"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82123169"
 ---
-# <a name="cancel-software-purchases"></a>ソフトウェアの購入の取り消し
+# <a name="cancel-software-purchases"></a>ソフトウェア購入の取り消し
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
-パートナーセンター Api を使用して、購入日からキャンセル期間内にあるソフトウェアのサブスクリプションと永続的なソフトウェアの購入を取り消すことができます。 このようなキャンセルを行うためのサポートチケットを作成する必要はありません。代わりに、次のセルフサービスメソッドを使用できます。
+パートナーセンター Api を使用して、ソフトウェアのサブスクリプションとソフトウェアの永続的な購入を取り消すことができます (購入日からキャンセル期間内に購入した場合)。 このようなキャンセルを行うためのサポートチケットを作成する必要はありません。代わりに、次のセルフサービスメソッドを使用できます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -30,11 +30,11 @@ ms.locfileid: "80413053"
 
 1. パートナー操作を取得するために[**ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)インターフェイスを取得するには、アカウントの資格情報を[**createpartneroperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡します。
 
-2. 取り消したい特定の[順序](order-resources.md#order)を選択します。 顧客識別子を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、その後に注文 id を付けて**ById ()** を呼び出します。
+2. 取り消したい特定の[順序](order-resources.md#order)を選択します。 顧客識別子を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、その後に注文 id を付けて**ById ()** を呼び出します。
 
 3. 注文を取得するには、 **Get**または**GetAsync**メソッドを呼び出します。
 
-4. [ [**Order. Status**](order-resources.md#order) ] プロパティを [取り消し済み] に設定します。
+4. [**Order. Status**](order-resources.md#order)プロパティをに`cancelled`設定します。
 
 5. Optionalキャンセルする特定の行項目を指定する場合は、取り消したい品目の一覧に[**LineItems**](order-resources.md#order)を設定します。
 
@@ -61,22 +61,22 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド     | 要求 URI                                                                            |
+| 認証方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
 顧客を削除するには、次のクエリパラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                                                                                                            |
+| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする、GUID 形式の顧客テナント識別子です。 |
-| **注文-id** | **文字列** | Y        | 値は、キャンセルする順序の識別子を表す文字列です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする、GUID 形式の顧客テナント識別子です。 |
+| **注文-id** | **string** | Y        | 値は、キャンセルする順序の識別子を表す文字列です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
@@ -115,9 +115,9 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは取り消された行項目の注文を返します。
+成功した場合、このメソッドはキャンセルされた行項目と共に注文を返します。
 
-注文の状態は、**キャンセル**(注文のすべての行項目が取り消された場合)、または**completed** (注文のすべての行項目が取り消された場合) としてマークされます。
+注文のすべての行項目が取り消された場合、注文のステータスは [**キャンセル**] とマークされます。また、注文のすべての行項目がキャンセルされない場合は [**完了**] とマークされます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -125,7 +125,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ### <a name="response-example"></a>応答の例
 
-次の応答例では、オファー識別子**DG7GMGF0FKZV: 0003: DG7GMGF0DWMS**を持つ品目の数量がゼロ (0) になっていることがわかります。 この変更は、取り消し対象としてマークされた品目が正常にキャンセルされたことを意味します。 注文例には、キャンセルされなかった他の品目が含まれています。つまり、注文全体の状態は**完了**としてマークされ、**キャンセル**されることはありません。
+次の応答例では、オファー id **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** を持つ品目の数量がゼロ (0) になっていることがわかります。 この変更は、取り消し対象としてマークされた品目が正常にキャンセルされたことを意味します。 注文例には、キャンセルされなかった他の品目が含まれています。つまり、注文全体の状態は**完了**としてマークされ、**キャンセル**されることはありません。
 
 ```http
 HTTP/1.1 200 OK

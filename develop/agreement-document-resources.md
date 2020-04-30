@@ -5,18 +5,18 @@ ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 917bb25ab5cb20b5148af056c5f433a8b62e9cc9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 21035d465094ab306d65ce3f24a006a97bf96354
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412677"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81665158"
 ---
 # <a name="agreement-document-resources"></a>契約ドキュメントのリソース
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 **AgreementDocument**リソースは、現在、 *Microsoft パブリッククラウド*のパートナーセンターでのみサポートされています。 このリソースは、次には適用されません。
 
@@ -30,7 +30,7 @@ ms.locfileid: "80412677"
 
 **AgreementDocument**リソースには、次のプロパティが含まれています。
 
-| プロパティ       | 種類   | 説明                                                                                               |
+| プロパティ       | Type   | 説明                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | country | string | このドキュメントが適用される国または地域。 |
 | language | string | このドキュメントがローカライズされる言語。 |

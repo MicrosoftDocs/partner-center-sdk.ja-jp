@@ -1,32 +1,32 @@
 ---
-title: パートナーセンターのサンプル
+title: パートナー センターのサンプル
 description: パートナーセンター Api を使用して迅速に稼働させるには、サンプルプログラム、C \ マネージコードスニペット、REST サンプルの要求と応答を提供します。
 ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cc3605287da38cee9a67e4e7fe9ec5b5784b7dc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e076e7d7c6b67eb8795e8f19ad6971459984f3db
+ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416384"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82095164"
 ---
-# <a name="partner-center-samples"></a>パートナーセンターのサンプル
+# <a name="partner-center-samples"></a>パートナー センターのサンプル
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-パートナーセンター Api を使用して迅速に稼働させるには、サンプルプログラム、 C#マネージコードスニペット、および REST サンプルの要求と応答を提供します。
+パートナーセンター Api を使用して迅速に稼働させるために、サンプルプログラム、C# マネージコードスニペット、REST サンプルの要求と応答を提供しています。
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 <table>
   <thead>
@@ -44,7 +44,7 @@ ms.locfileid: "80416384"
     </tr>
     <tr>
       <td><a href="console-test-app.md">コンソール テスト アプリ</a></td>
-      <td>このアプリは、とC# Java で使用できます。また、「シナリオ」セクションに記載されているすべてのシナリオに対してコードとエラー処理を提供します。</td>
+      <td>このアプリは、C# および Java で使用でき、「シナリオ」セクションに記載されているすべてのシナリオにコードとエラー処理を提供します。</td>
     </tr>
     <tr>
       <td><a href="csp-customer-web-storefront.md">CSP 顧客 Web ネットショップ</a></td>
@@ -52,10 +52,10 @@ ms.locfileid: "80416384"
     </tr>
     <tr>
       <td>Web サイトの保存</td>
-      <td><p><strong>説明 :</strong></p>
+      <td><p><strong>説明:</strong></p>
           <p>このアプリケーションは、クラウドソリューションプロバイダーパートナーが利用できるオファーのカタログに基づいて web ストアを構築する方法を示しています。 お客様は、ストアアカウントを作成し、サイトを通じてソフトウェアサブスクリプションを注文することができます。</p>
         <p><strong>コードを取得します。</strong></p>
-        <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=746683">サンプルコードをダウンロードする</a></p>
+        <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=746683">サンプル コードのダウンロード</a></p>
         <p><strong>リリース前に構成する内容:</strong></p>
         <ul>
           <li><p>認証: アプリ ID & シークレット。</p></li>

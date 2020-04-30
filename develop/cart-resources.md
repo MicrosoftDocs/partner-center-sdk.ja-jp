@@ -5,18 +5,18 @@ ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 22b9ec1799a9d8c5423fb9dea3db61d028ec6dba
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cb47c244934d25e6970440c55a3bdd13ffbc8951
+ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413018"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82090789"
 ---
 # <a name="cart-resources"></a>カートのリソース
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,7 +27,7 @@ ms.locfileid: "80413018"
 
 カートについて説明します。
 
-| プロパティ              | 種類             | 説明                                                                                            |
+| プロパティ              | Type             | 説明                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | id                    | string           | カートが正常に作成されたときに提供されるカート識別子。                               |
 | 前のタイムスタンプ     | DateTime         | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。      |
@@ -35,33 +35,33 @@ ms.locfileid: "80413018"
 | expirationTimeStamp   | DateTime         | カートの有効期限が切れる日付 (日付と時刻の形式)。 カートの作成が成功したときに適用されます。          |
 | lastModifiedUser      | string           | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                          |
 | lineItems             | オブジェクトの配列 | [CartLineItem](#cartlineitem)リソースの配列。                                                   |
-| 状態                | string           | カートの状態。 有効な値は、"Active" (更新/送信可能) と "Ordered" (既に送信済み) です。 |
+| status                | string           | カートの状態。 有効な値は、"Active" (更新/送信可能) と "Ordered" (既に送信済み) です。 |
 
 ## <a name="cartlineitem"></a>CartLineItem
 
 カートに含まれる1つのアイテムを表します。
 
-| プロパティ             | 種類                             | 説明                                                                                                                                           |
+| プロパティ             | Type                             | 説明                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                   | string                           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                                   |
 | catalogItemId        | string                           | カタログ項目の識別子。                                                                                                                          |
-| friendlyName         | string                           | 省略可。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
-| quantity             | int                              | ライセンスまたはインスタンスの数。                                                                                                                  |
+| friendlyName         | string                           | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
+| 数量             | INT                              | ライセンスまたはインスタンスの数。                                                                                                                  |
 | currencyCode         | string                           | 通貨コード。                                                                                                                                    |
-| 周期サイクル         | オブジェクト                           | 現在の期間に設定されている請求サイクルの種類。                                                                                                 |
+| billingCycle         | Object                           | 現在の期間に設定されている請求サイクルの種類。                                                                                                 |
 | termDuration         | string                           | 用語の期間の ISO 8601 表現。 現在サポートされている値は、P1M (1 か月)、P1Y (1 年)、および P3Y (3 年) です。                                |
 | participants         | オブジェクトの文字列ペアの一覧      | 購入時のレコードの PartnerId (MPNID) のコレクション。                                                                                          |
-| provisioningContext  | Dictionary < string、string >       | 購入した項目をプロビジョニングするときに使用される追加のコンテキスト。 特定の項目に必要な値を判断するには、SKU の "プロビジョニング変数" プロパティを参照してください。 |
+| provisioningContext  | Dictionary<string、string>       | 購入した項目をプロビジョニングするときに使用される追加のコンテキスト。 特定の項目に必要な値を確認するには、SKU の "プロビジョニング変数" プロパティを参照してください。 |
 | orderGroup           | string                           | 同じ順序で一緒に送信できる項目を示すグループ。                                                                          |
-| addonItems           | **CartLineItem**オブジェクトの一覧 | ルートカートの品目の購入から得られる基本サブスクリプションに対して購入されるアドオンのカート品目のコレクション。 |
-| エラー                | オブジェクト                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
+| addonItems           | **CartLineItem**オブジェクトの一覧 | アドオンのカート行項目のコレクション。 これらの項目は、ルートカートの品目の購入から得られる基本サブスクリプションに対して購入されます。 |
+| error                | Object                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
 | renewsTo             | オブジェクトの配列                 | [Renewsto](#renewsto)の配列。                                                                            |
 
-## <a name="renewsto"></a>renewsTo
+## <a name="renewsto"></a>RenewsTo
 
 カートの品目に含まれる1つのアイテムを表します。
 
-| プロパティ              | 種類             | 必須        | 説明 |
+| プロパティ              | Type             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
 | termDuration          | string           | いいえ              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 
@@ -69,7 +69,7 @@ ms.locfileid: "80413018"
 
 カートが作成された後に発生するエラーを表します。
 
-| プロパティ         | 種類                                   | 説明                                                                                   |
+| プロパティ         | Type                                   | 説明                                                                                   |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|
 | errorCode        | [CartErrorCode](#carterrorcode) | カートエラーの種類。                                                                       |
 | errorDescription | string                                 | エラーの説明。サポートされる値、既定値、または制限に関する注意事項が含まれます。 |
@@ -78,9 +78,9 @@ ms.locfileid: "80413018"
 
 カートエラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
-| 値                                | [位置] | 説明                                             |
+| 値                                | [位置] | [説明]                                             |
 |--------------------------------------|----------|---------------------------------------------------------|
-| 不明                              | 0        | 既定値。                                          |
+| Unknown                              | 0        | 既定値です。                                          |
 | CurrencyIsNotSupported               | 10000    | 指定された市場では、通貨はサポートされていません。 |
 | CatalogItemIdIsNotValid              | 10001    | カタログ項目 ID が無効です。                       |
 | QuotaNotAvailable                    | 10002    | 使用可能なクォータが不足しています。                    |
@@ -95,19 +95,19 @@ ms.locfileid: "80413018"
 
 カートのチェックアウトの結果を表します。
 
-| プロパティ    | 種類                                              | 説明                     |
+| プロパティ    | Type                                              | 説明                     |
 |-------------|---------------------------------------------------|---------------------------------|
-| orders      | [Order](order-resources.md#order)オブジェクトのリスト。         | 注文のコレクションです。       |
+| 注文      | [Order](order-resources.md#order)オブジェクトのリスト。         | 注文のコレクションです。       |
 | orderErrors | [Ordererror](#ordererror)オブジェクトの一覧。 | 注文エラーのコレクションです。 |
 
 ## <a name="ordererror"></a>OrderError
 
 注文が作成されたときにカートのチェックアウト中に発生するエラーを表します。
 
-| プロパティ     | 種類   | 説明                                     |
+| プロパティ     | Type   | 説明                                     |
 |--------------|--------|-------------------------------------------------|
 | orderGroupId | string | 注文の注文グループ ID をエラーと共に使用します。 |
-| code         | int    | エラー コードです。                                 |
+| code         | INT    | エラー コード。                                 |
 | description  | string | エラーの説明。                   |
 
 ## <a name="ordererrorcode"></a>OrderErrorCode
@@ -141,19 +141,19 @@ ms.locfileid: "80413018"
 | ReviewCancelled | 800024 | このトランザクションの対象ではありません。 |
 | LineOfCreditNotDefined | 800025 | クレジットラインがこの購入の最小しきい値に達していないため、このトランザクションの対象になりません。 注文を更新してください (または、サポートに連絡してください)。 |
 | RiskError | 800026 | このトランザクションの対象ではありません。 |
-| SubscriptionNotRegistered 済み | 800030 | このサブスクリプションは登録されていません。 |
+| SubscriptionNotRegistered | 800030 | このサブスクリプションは登録されていません。 |
 | PurchaseSystemNotSupported | 800031 | 購入システムはサポートされていません。 |
 | ConditionFailed | 800036 | 事前条件が失敗しました。 |
 | AssetIdNotFound | 800037 | 資産 ID が見つかりません。 |
 | AssetFutureBillingInfoNotFound | 800038 | Asset FutureBillingInfo が見つかりません。 |
 | ResellerProgramStatusNotActive | 800039 | リセラープログラムの状態がアクティブではありません。 |
-| AssetStatusChangeNotValid | 800040 | 資産の状態を **{1}** から **{0}** に変更することはできません。 |
+| AssetStatusChangeNotValid | 800040 | 資産の状態をから**{0}** **{1}** に変更することはできません。 |
 | 項目がアクティブになりました | 800041 | この項目は既にアクティブ化されています。 |
 | NotSupported | 800042 | サポートされていません。 |
 | PricingAccessForbidden | 800043 | 価格情報へのアクセス権は付与されません。 |
 | OrderInProgress | 800060 | 注文が進行中です。 数分で最近の注文の注文履歴を確認してください。 |
 | OrderCannotBeCancelled | 800061 | 注文を取り消すことはできません。 |
 | ReviewRejected | 800062 | このトランザクションの対象ではありません。 |
-| CancelLegacyOrder | 800063 | この注文 **{0}** を取り消すことはできません。 `PATCH /customers/{1}/subscriptions/<subscriptionId>` を使用して、サブスクリプションを中断します。 |
-| CartProcessedByAnotherRequest | 800064 | カート **{0}** が別の要求によって処理されています。 |
-| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | 既に送信されているカート **{0}** をチェックアウトすることはできません。 |
+| CancelLegacyOrder | 800063 | この順序**{0}** を取り消すことはできません。 サブスクリプション`PATCH /customers/{1}/subscriptions/<subscriptionId>`を中断するには、を使用します。 |
+| CartProcessedByAnotherRequest | 800064 | カート**{0}** は別の要求によって処理されています。 |
+| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | 既に送信された**{0}** カートをチェックアウトすることはできません。 |

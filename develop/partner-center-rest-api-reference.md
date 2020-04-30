@@ -6,29 +6,29 @@ ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 07c529d85ca2246d9b39da92ada8910e1588fef9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 6890a3b23c3c998baaf80f8aabf4fc36ed9354e7
+ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416418"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82089832"
 ---
 # <a name="partner-center-rest-api-reference"></a>パートナー センター REST API リファレンス
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-## <a name="partner-center-rest-api"></a>パートナーセンター REST API
+## <a name="partner-center-rest-api"></a>パートナー センター REST API
 
 パートナーセンター REST API は、クラウドソリューションプロバイダー (CSP) パートナーが、顧客アカウントの管理、注文の配置、サブスクリプションの管理、およびサポート要求の処理を行う Microsoft システムと既存の CRM または課金ソフトウェアを統合するのに役立ちます。
 
 API が実行できる操作 (サンプルコードを含む) の詳細については、「バックグラウンドの概要」を含む、[シナリオ](scenarios.md)に関するトピックを参照してください。
 
-コーディングを開始する前に、「[はじめ](get-started.md)に」のトピックを参照してください。 このトピックでは、テストと実稼働アカウントの設定、認証の機能の取得、およびサンプルコードの検索について説明します。
+コーディングを開始する前に、「[はじめ](get-started.md)に」のトピックを参照してください。 この記事には、テストと実稼働アカウントの設定、認証の機能の取得、およびサンプルコードの検索に関する情報が含まれています。
 
 ## <a name="topics"></a>トピック
 
