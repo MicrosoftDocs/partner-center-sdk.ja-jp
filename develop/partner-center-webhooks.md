@@ -1,74 +1,68 @@
 ---
-title: パートナーセンターの webhook
+title: パートナー センター Webhook
 description: Webhook を使用すると、パートナーはリソース変更イベントに登録できます。
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9a470ad6e3ee049f2cea3bc71b8a26f47aba1601
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: fc0749f146aa507cab27b36120722d2f6844e4cb
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416356"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157074"
 ---
-# <a name="partner-center-webhooks"></a>パートナーセンターの webhook
-
+# <a name="partner-center-webhooks"></a>パートナー センター Webhook
 
 **適用対象**
 
-- Partner Center   
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
-- 米国政府機関向け Microsoft Cloud のパートナー センター   
+- 米国政府機関向け Microsoft Cloud のパートナー センター
 
+パートナーセンターの Webhook Api を使用すると、パートナーはリソース変更イベントに登録できます。 これらのイベントは、パートナーの登録済み URL に HTTP 投稿の形式で配信されます。 パートナーセンターからイベントを受信するために、パートナーはパートナーセンターがリソース変更イベントを投稿できるコールバックをホストします。 イベントはデジタル署名されるので、パートナーはパートナーセンターから送信されたことを確認できます。
 
-パートナーセンターの Webhook Api を使用すると、パートナーはリソース変更イベントに登録できます。 これらのイベントは、パートナーの登録済み URL に HTTP 投稿の形式で配信されます。 パートナーセンターからイベントを受信するために、パートナーはパートナーセンターがリソース変更イベントを投稿できるコールバックをホストします。 イベントはデジタル署名されるので、パートナーはパートナーセンターから送信されたことを確認できます。 
+パートナーは、次の例のように、パートナーセンターでサポートされている Webhook イベントから選択できます。
 
-パートナーは、パートナーセンターでサポートされている次のような Webhook イベントから選択できます。  
+- **テスト イベント ("test-created")**
 
-- **テストイベント ("テスト作成済み")**
+    このイベントを使用すると、テストイベントを要求し、その進行状況を追跡することによって、登録を自己オンボードしてテストできます。 イベントを配信しようとしているときに、Microsoft から受信されているエラーメッセージを確認できます。 この制限は、"テスト作成" イベントにのみ適用されます。 7日を経過したデータは削除されます。
 
-    このイベントを使用すると、テストイベントを要求し、その進行状況を追跡することによって、登録を自己オンボードしてテストできます。 イベントの配信を試みている間に、Microsoft から受信されているエラーメッセージを確認することができます。 これは "テスト作成済み" イベントにのみ適用され、7日を経過したデータは消去されます。
+- **サブスクリプション更新イベント ("subscription-updated")**
 
-- **サブスクリプション更新イベント ("サブスクリプション-更新済み")**
+    このイベントは、サブスクリプションが変化したときに発生します。 これらのイベントは、パートナー センター API を通じて変更が行われた場合に加えて、内部変更が行われた場合にも生成されます。
 
-    このイベントは、サブスクリプションが変化したときに発生します。 これらのイベントは、パートナー センター API を通じて変更が行われた場合に加えて、内部変更が行われた場合にも生成されます。 
-    
     >[!NOTE]
-    >サブスクリプションが変更されてからサブスクリプションの更新イベントがトリガーされるまでに、最大48時間の遅延が発生します。 
+    >サブスクリプションが変更されてからサブスクリプションの更新イベントがトリガーされるまでに、最大48時間の遅延が発生します。
 
-- **しきい値を超えたイベント ("usagerecords-thresholdExceeded")**
+- **しきい値超過イベント ("usagerecords-thresholdExceeded")**
 
     いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 詳細については、「[顧客の Azure 支出予算を設定する](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers)」を参照してください。
 
 - **紹介作成イベント ("紹介-作成済み")**
 
-    このイベントは、参照が作成されるときに発生します。 
+    このイベントは、参照が作成されるときに発生します。
 
 - **紹介更新イベント ("紹介-更新")**
 
-    このイベントは、参照が更新されたときに発生します。 
+    このイベントは、参照が更新されたときに発生します。
 
 - **請求書の準備完了イベント ("請求書の準備完了")**
 
     このイベントは、新しい請求書の準備が整ったときに発生します。
 
-
-将来の Webhook イベントは、パートナーが制御していないシステムで変更されるリソースに対して追加されます。また、これらのイベントを可能な限り "リアルタイム" の近くに取得するために更新が行われます。 イベントがビジネスに付加されるパートナーからのフィードバックは、どの新しいイベントを追加するかを決定するうえで非常に役立ちます。 
+将来の Webhook イベントは、パートナーが制御していないシステムで変更されるリソースに対して追加されます。また、これらのイベントを可能な限り "リアルタイム" の近くに取得するために更新が行われます。 イベントがビジネスに付加されるパートナーからのフィードバックは、追加する新しいイベントを決定する際に役立ちます。
 
 パートナーセンターでサポートされている Webhook イベントの完全な一覧については、「[パートナーセンターの webhook イベント](partner-center-webhook-events.md)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。   
-
-
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 ## <a name="receiving-events-from-partner-center"></a>パートナーセンターからのイベントの受信
 
-パートナーセンターからイベントを受信するには、パブリックにアクセス可能なエンドポイントを公開する必要があります。また、このエンドポイントは公開されているため、通信がパートナーセンターからのものであることを検証する必要があります。 受信したすべての Webhook イベントは、Microsoft ルートにチェーンされている証明書を使用してデジタル署名されます。 イベントの署名に使用される証明書へのリンクも提供されます。 これにより、サービスを再デプロイまたは再構成することなく、証明書を更新できます。 パートナーセンターでは、イベントの配信が10回試行されます。 10回試行してもイベントが配信されない場合は、オフラインキューに移動され、配信時にそれ以上の試行は行われません。 
+パートナーセンターからイベントを受信するには、パブリックにアクセス可能なエンドポイントを公開する必要があります。 このエンドポイントは公開されているため、通信がパートナーセンターからのものであることを検証する必要があります。 受信したすべての Webhook イベントは、Microsoft ルートにチェーンされている証明書を使用してデジタル署名されます。 イベントの署名に使用される証明書へのリンクも提供されます。 これにより、サービスを再デプロイまたは再構成しなくても証明書を更新できます。 パートナーセンターでは、イベントの配信が10回試行されます。 10回試行してもイベントが配信されない場合は、オフラインキューに移動され、配信時にそれ以上の試行は行われません。
 
 次のサンプルは、パートナーセンターから投稿されたイベントを示しています。
 
@@ -88,46 +82,50 @@ Content-Length: 195
     "ResourceName": "test",
     "AuditUri": null,
     "ResourceChangeUtcDate": "2017-11-16T16:19:06.3520276+00:00"
-} 
+}
 ```
 
->[!NOTE] 
+>[!NOTE]
 >Authorization ヘッダーには "Signature" のスキームがあります。 これは、コンテンツの base64 でエンコードされた署名です。
 
 ## <a name="how-to-authenticate-the-callback"></a>コールバックを認証する方法
 
-
 パートナーセンターから受信したコールバックイベントを認証するには、次の手順を実行します。
 
-1.  必要なヘッダーが存在することを確認します (承認、x.509-ms-証明書 url、x.509 アルゴリズム)。
-2.  コンテンツの署名に使用された証明書をダウンロードします (--certificate-url)。
-3.  証明書チェーンを確認します。
-4.  証明書の "組織" を確認します。
-5.  バッファーに UTF8 エンコードを使用してコンテンツを読み取ります。
-6.  RSA 暗号化プロバイダーを作成します。
-7.  データが、指定されたハッシュアルゴリズム (SHA256 など) で署名されたものと一致していることを確認します。
-8.  検証が成功した場合は、メッセージを処理します。
+1. 必要なヘッダーが存在することを確認します (承認、x.509-ms-証明書 url、x.509 アルゴリズム)。
+
+2. コンテンツに署名するために使用する証明書をダウンロードします (x-ms-certificate-url)。
+
+3. 証明書チェーンを確認します。
+
+4. 証明書の "組織" を確認します。
+
+5. バッファーに UTF8 エンコードを使用してコンテンツを読み取ります。
+
+6. RSA 暗号化プロバイダーを作成します。
+
+7. データが、指定されたハッシュアルゴリズム (SHA256 など) で署名されたものと一致していることを確認します。
+
+8. 検証が成功した場合は、メッセージを処理します。
 
 > [!NOTE]
 > 既定では、署名トークンは Authorization ヘッダーで送信されます。 登録で**Signaturetokentomssignatureheader**を true に設定すると、代わりに、署名トークンが x.509 署名ヘッダーで送信されます。
 
 ## <a name="event-model"></a>イベントモデル
 
-
 次の表では、パートナーセンターイベントのプロパティについて説明します。
 
-**[プロパティ]**
+### <a name="properties"></a>Properties
 
-| Name                      | 説明                                                                           |
+| 名前                      | 説明                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
 | **EventName**             | イベントの名前です。 {Resource}-{action} の形式で。 たとえば、"テスト作成" などです。  |
 | **ResourceUri**           | 変更されたリソースの URI。                                                 |
 | **ResourceName**          | 変更されたリソースの名前。                                                |
-| **AuditUrl**              | 省略可。 監査レコードの URI。                                                |
+| **AuditUrl**              | 省略可能。 監査レコードの URI。                                                |
 | **ResourceChangeUtcDate** | リソースの変更が発生した日時 (UTC 形式)。                  |
 
-
-**サンプル**
+### <a name="sample"></a>サンプル
 
 次のサンプルは、パートナーセンターイベントの構造を示しています。
 
@@ -141,24 +139,21 @@ Content-Length: 195
 }
 ```
 
+## <a name="webhook-apis"></a>Webhook Api
 
-## <a name="webhook-apis"></a>Webhook Api   
+### <a name="authentication"></a>認証
 
+Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 アクセスhttps://api.partnercenter.microsoft.comするアクセストークンを取得します。 このトークンは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
 
-**[認証]**   
-
-Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 https://api.partnercenter.microsoft.comにアクセスするには、アクセストークンを取得する必要があります。 これは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
-
-
- 
 ### <a name="get-a-list-of-events"></a>イベントの一覧を取得する
 
 Webhook Api で現在サポートされているイベントの一覧を返します。
 
-**リソース URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration/events
+### <a name="resource-url"></a>リソース URL
 
-**要求の例**   
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration/events`
+
+### <a name="request-example"></a>要求の例
 
 ```http
 GET /webhooks/v1/registration/events
@@ -168,7 +163,7 @@ accept: */*
 host: api.partnercenter.microsoft.com
 ```
 
-**応答の例**   
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200
@@ -180,21 +175,19 @@ Vary: Accept-Encoding
 MS-CorrelationId: c0bcf3a3-46e9-48fd-8e05-f674b8fd5d66
 MS-RequestId: 79419bbb-06ee-48da-8221-e09480537dfc
 X-Locale: en-US
- 
+
 [ "subscription-updated", "test-created", "usagerecords-thresholdExceeded" ]
 ```
 
-
-
-### <a name="register-to-receive-events"></a>登録してイベントを受信する      
+### <a name="register-to-receive-events"></a>登録してイベントを受信する
 
 指定されたイベントを受信するようにテナントを登録します。
 
-**リソース URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration
+#### <a name="resource-url"></a>リソース URL
 
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-**要求の例**   
+### <a name="request-example"></a>要求の例
 
 ```http
 POST /webhooks/v1/registration
@@ -204,14 +197,14 @@ Accept: */*
 Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 Content-Length: 219
- 
+
 {
     "WebhookUrl": "{{YourCallbackUrl}}",
     "WebhookEvents": ["subscription-updated", "test-created"]
 }
 ```
 
-**応答の例**   
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200
@@ -221,7 +214,7 @@ Content-Type: application/json; charset=utf-8
 content-encoding: gzip
 Vary: Accept-Encoding
 MS-CorrelationId: 718f2336-8b56-4f42-93ac-54896047c59a
-MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2 
+MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 
 {
     "SubscriberId": "e82cac64-dc67-4cd3-849b-78b6127dd57d",
@@ -230,17 +223,15 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 }
 ```
 
-
-
-### <a name="view-a-registration"></a>登録の表示        
+### <a name="view-a-registration"></a>登録の表示
 
 テナントの Webhook イベント登録を返します。
 
-**リソース URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration
+#### <a name="resource-url"></a>リソース URL
 
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-**要求の例**   
+### <a name="request-example"></a>要求の例
 
 ```http
 GET /webhooks/v1/registration
@@ -251,7 +242,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-**応答の例**   
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200
@@ -270,17 +261,15 @@ X-Locale: en-US
 }
 ```
 
+### <a name="update-an-event-registration"></a>イベント登録を更新する
 
+既存のイベント登録を更新します。
 
-### <a name="update-an-event-registration"></a>イベント登録を更新する      
+#### <a name="resource-url"></a>リソース URL
 
-既存のイベント登録を更新します。 
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration`
 
-**リソース URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration
-
-
-**要求の例**   
+### <a name="request-example"></a>要求の例
 
 ```http
 PUT /webhooks/v1/registration
@@ -290,14 +279,14 @@ Accept: */*
 Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 Content-Length: 258
- 
+
 {
     "WebhookUrl": "{{YourCallbackUrl}}",
     "WebhookEvents": ["subscription-updated", "test-created"]
 }
 ```
 
-**応答の例**   
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200
@@ -307,7 +296,7 @@ Content-Type: application/json; charset=utf-8
 content-encoding: gzip
 Vary: Accept-Encoding
 MS-CorrelationId: 718f2336-8b56-4f42-93ac-54896047c59a
-MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2 
+MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 
 {
     "SubscriberId": "e82cac64-dc67-4cd3-849b-78b6127dd57d",
@@ -316,18 +305,18 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 }
 ```
 
+### <a name="send-a-test-event-to-validate-your-registration"></a>テストイベントを送信して登録を検証する
 
-### <a name="send-a-test-event-to-validate-your-registration"></a>テストイベントを送信して登録を検証する   
-
-Webhook 登録を検証するテストイベントを生成します。 このテストは、パートナーセンターからイベントを受信できることを検証することを目的としています。 これらのイベントのデータは、最初のイベントが作成されてから7日後に削除されます。 検証イベントを送信する前に、登録 API を使用して "テスト作成" イベントに登録する必要があります。 
+Webhook 登録を検証するテストイベントを生成します。 このテストは、パートナーセンターからイベントを受信できることを検証することを目的としています。 これらのイベントのデータは、最初のイベントが作成されてから7日後に削除されます。 検証イベントを送信する前に、登録 API を使用して "テスト作成" イベントに登録する必要があります。
 
 >[!NOTE]
->検証イベントを投稿する場合、1分あたり2要求のスロットル制限があります。 
+>検証イベントを投稿する場合、1分あたり2要求のスロットル制限があります。
 
-**リソース URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents
+#### <a name="resource-url"></a>リソース URL
 
-**要求の例**   
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents`
+
+### <a name="request-example"></a>要求の例
 
 ```http
 POST /webhooks/v1/registration/validationEvents
@@ -339,7 +328,7 @@ Accept-Encoding: gzip, deflate
 Content-Length:
 ```
 
-**応答の例**   
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200
@@ -355,16 +344,15 @@ X-Locale: en-US
 { "correlationId": "04af2aea-d413-42db-824e-f328001484d1" }
 ```
 
+### <a name="verify-that-the-event-was-delivered"></a>イベントが配信されたことを確認する
 
+検証イベントの現在の状態を返します。 この確認は、イベント配信の問題のトラブルシューティングに役立ちます。 応答には、イベントを配信するために行われた各試行の結果が含まれます。
 
-### <a name="verify-that-the-event-was-delivered"></a>イベントが配信されたことを確認する   
+#### <a name="resource-url"></a>リソース URL
 
-検証イベントの現在の状態を返します。 これは、イベント配信の問題のトラブルシューティングに役立ちます。 応答には、イベントを配信するために行われた各試行の結果が含まれます。
+`https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents/{correlationId}`
 
-**リソース URL**   
-https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents/{correlationId}
-
-**要求の例**   
+### <a name="request-example"></a>要求の例
 
 ```http
 GET /webhooks/v1/registration/validationEvents/04af2aea-d413-42db-824e-f328001484d1
@@ -375,7 +363,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-**応答の例**     
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200
@@ -402,11 +390,9 @@ X-Locale: en-US
 }
 ```
 
-
 ## <a name="example-for-signature-validation"></a>署名の検証の例
 
-
-**コールバックコントローラー署名のサンプル (ASP.NET)**     
+### <a name="sample-callback-controller-signature-aspnet"></a>コールバックコントローラー署名のサンプル (ASP.NET)
 
 ``` csharp
 [AuthorizeSignature]
@@ -414,7 +400,8 @@ X-Locale: en-US
 public IHttpActionResult Post(PartnerResourceChangeCallBack callback)
 ```
 
-**署名の検証**      
+### <a name="signature-validation"></a>署名の検証
+
 次の例では、Webhook イベントからコールバックを受信しているコントローラーに Authorization 属性を追加する方法を示します。
 
 ``` csharp
@@ -517,7 +504,7 @@ namespace Webhooks.Security
             var certificateUrl = GetHeaderValue(request.Headers, CertificateUrlHeader);
             var certificate = await GetCertificate(certificateUrl);
             var content = await GetContentAsync(request);
-            var alg = signatureAlgorithm.Split('-'); // e.g. RSA-SHA1
+            var alg = signatureAlgorithm.Split('-'); // for example RSA-SHA1
             var isValid = false;
 
             var logger = GetLoggerIfAvailable(request);

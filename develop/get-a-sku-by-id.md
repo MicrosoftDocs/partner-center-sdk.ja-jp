@@ -6,77 +6,70 @@ ms.date: 01/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 33c8eb16c1327c8a92e48621d3f793c78aceaa19
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f24b0881f1e09986e68547321d095c01d094faf2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415647"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156934"
 ---
 # <a name="get-a-sku-by-id"></a>ID で SKU を取得する
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
 指定された SKU ID を使用して、指定された製品の SKU を取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 製品 ID。 
-- SKU ID。 
 
+- 製品 ID。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+- SKU ID。
 
+## <a name="c"></a>C\#
 
 特定の SKU の詳細を取得するには、まず「 [ID で製品を取得](get-a-product-by-id.md)する」の手順に従って、特定の製品の操作のインターフェイスを取得します。 生成されたインターフェイスから**sku**プロパティを選択して、sku で使用可能な操作を含むインターフェイスを取得します。 SKU ID を**ById ()** メソッドに渡し、 **Get ()** または**GetAsync ()** を呼び出して sku の詳細を取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
 string countryCode;
-string productId; 
+string productId;
 string skuId;
 
 // Get the SKU details.
 var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                                         |
+| 認証方法  | 要求 URI                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}? country = {country-CODE} HTTP/1.1   |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}? country = {country-CODE} HTTP/1.1   |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 指定された SKU ID を使用して、指定された製品の SKU を取得するには、次のパスとクエリパラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                     |
+| 名前                   | Type     | 必須 | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 製品 id             | string   | はい      | 製品を識別する文字列。                           |
 | sku-id                 | string   | はい      | SKU を識別する文字列。                               |
 | 国-コード           | string   | はい      | 国/地域 ID。                                            |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+### <a name="request-body"></a>[要求本文]
 
-**要求本文**
+なし。
 
-[なし]。
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3V/skus/00G1?country=US HTTP/1.1
@@ -90,12 +83,11 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[SKU](product-resources.md#sku)リソースが含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
@@ -106,8 +98,7 @@ Host: api.partnercenter.microsoft.com
 | 404                  | 400013       | 製品が見つかりませんでした。                                                                                    |
 | 404                  | 400018       | Sku が見つかりませんでした。                                                                                        |
 
-
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -169,4 +160,3 @@ Content-Length: 1108
     }
 }
 ```
-

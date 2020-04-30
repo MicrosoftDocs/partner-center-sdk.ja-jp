@@ -6,18 +6,18 @@ ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fb149389e9da11ea8e03d869eebbf9c96e83504e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f9d8d38c50445096791369048c0a68369fbc4b93
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412744"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156894"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-customer"></a>製品の Sku の一覧を取得する (顧客別)
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -27,35 +27,35 @@ ms.locfileid: "80412744"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (**customer-tenant-id**)。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 製品 ID (**製品 id**)。
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
-
-| メソッド | 要求 URI                                                                                                        |
+| 認証方法 | 要求 URI                                                                                                        |
 |--------|--------------------------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products/{product-id}/skus HTTP/1.1 |
+| POST   | baseURL/v1/customers/{customer-tenant-id}/products/{product-id}/skus HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
-#### <a name="request-uri-parameter"></a>要求 URI パラメーター
+### <a name="request-uri-parameter"></a>要求 URI パラメーター
 
-| Name               | 種類 | 必須 | 説明                                                                                 |
+| 名前               | Type | 必須 | 説明                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
 | customer-tenant-id | GUID | はい | この値は、顧客を指定できるようにする識別子である、GUID 形式の **customer-tenant-id** です。 |
 | 製品 id | string | はい | 製品を識別する文字列。 |
 
-#### <a name="request-header"></a>要求ヘッダー
+### <a name="request-header"></a>要求ヘッダー
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-#### <a name="request-example"></a>要求の例
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/65543400-f8b0-4783-8530-6d35ab8c6801/products/DZH318Z0BPS6 HTTP/1.1
@@ -65,9 +65,9 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
@@ -77,7 +77,7 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 |------------------|------------|-------------|
 | 404 | 400013 | 親製品が見つかりませんでした。 |
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

@@ -1,28 +1,28 @@
 ---
-title: 市場別のオファーカテゴリの一覧を取得する
+title: 市場別のプラン カテゴリの一覧を取得する
 description: 特定の国/地域およびロケールのすべてのオファーカテゴリを含むコレクションを取得する方法。
 ms.assetid: 69174433-74C6-4294-ACAA-C2CE3D69CFEE
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e04fb68aa3e75ddd0171386b3f9eab7064e7d2ab
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0cb3d64444558b301fb1f5991f8d5e78c58c53b2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416787"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156874"
 ---
-# <a name="get-a-list-of-offer-categories-by-market"></a>市場別のオファーカテゴリの一覧を取得する
+# <a name="get-a-list-of-offer-categories-by-market"></a>市場別のプラン カテゴリの一覧を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-このトピックでは、特定の国/地域とロケールのすべてのオファーカテゴリを含むコレクションを取得する方法について説明します。
+この記事では、特定の国/地域とロケールのすべてのオファーカテゴリを含むコレクションを取得する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -32,7 +32,8 @@ ms.locfileid: "80416787"
 
 特定の国/地域とロケールでプランカテゴリの一覧を取得するには、次のようにします。
 
-1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)コレクションを使用して、特定のコンテキストで[**With ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with)メソッドを呼び出します。
+1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)コレクションを使用して、特定のコンテキストで[**With ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with)メソッドを呼び出します。
+
 2. 結果として得られるオブジェクトの[**OfferCategories**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories)プロパティを調べます。
 
 ``` csharp
@@ -51,27 +52,27 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                  |
+| 認証方法  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offercategories? country = {country-ID} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offercategories? country = {country-ID} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、プランのカテゴリを取得するために必要なクエリパラメーターを示します。
 
-| Name           | 種類       | 必須 | 説明            |
+| 名前           | Type       | 必須 | 説明            |
 |----------------|------------|----------|------------------------|
-| **国-id** | **文字列** | Y        | 国/地域 ID。 |
+| **country-id** | **string** | Y        | 国/地域 ID。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
 文字列として書式設定された**ロケール id**が必要です。
 
-詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

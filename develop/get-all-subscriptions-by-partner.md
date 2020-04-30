@@ -1,39 +1,38 @@
 ---
-title: パートナー MPN ID で顧客のサブスクリプションを取得する
+title: パートナー MPN ID ごとに顧客のサブスクリプションを取得する
 description: 特定のパートナーから提供されたサブスクリプションの一覧を指定された顧客に取得する方法。
 ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d2029e9079d31d06995dad5c8e57cacfb2ae2015
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 2346ebec68b56e7449a7f70fc1bf34aaf8265c3a
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416067"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156364"
 ---
-# <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>パートナー MPN ID で顧客のサブスクリプションを取得する
+# <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>パートナー MPN ID ごとに顧客のサブスクリプションを取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 特定のパートナーから提供されたサブスクリプションの一覧を指定された顧客に取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - パートナー Microsoft Partner Network (MPN) 識別子。
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>の例
-
-### <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 指定された顧客に対して特定のパートナーによって提供されたサブスクリプションの一覧を取得するには、最初に顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティから顧客サブスクリプションコレクション操作へのインターフェイスを取得し、MPN ID を指定して[**ByPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner)メソッドを呼び出してパートナーを識別し、パートナーサブスクリプション操作へのインターフェイスを取得します。 最後に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)メソッドを呼び出して、コレクションを取得します。
 
@@ -47,9 +46,9 @@ var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetSubscriptionsByMpnid.cs
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 指定された顧客に対して特定のパートナーによって提供されたサブスクリプションの一覧を取得するには、まず、顧客 ID と共に**iaggregatepartner.customers**関数を使用して顧客を識別します。 次に、 **getsubscriptions**関数から顧客サブスクリプションコレクション操作へのインターフェイスを取得し、MPN ID を指定して**byPartner**関数を呼び出し、パートナーを識別し、パートナーサブスクリプション操作へのインターフェイスを取得します。 最後に、 **get**関数を呼び出して、コレクションを取得します。
 
@@ -61,9 +60,9 @@ var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).
 ResourceCollection<Subscription> customerSubscriptionsByMpnId = partnerOperations.getCustomers().byId(customerId).getSubscriptions().byPartner(partnerMpnId).get();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 指定された顧客に対して特定のパートナーから提供されたサブスクリプションの一覧を取得するには、 [**Get Partnercustomer subscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md)コマンドを実行します。 **CustomerId**パラメーターを使用して顧客を識別するための顧客 ID を指定し、 **MPNID**パラメーターに MPN ID を設定して、パートナーを識別します。
 
@@ -74,33 +73,32 @@ ResourceCollection<Subscription> customerSubscriptionsByMpnId = partnerOperation
 Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST 要求
+## <a name="rest-request"></a>REST 要求
 
-**要求の構文**
+### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI |
+| 認証方法  | 要求 URI |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions? mpn\_id = {mpn-ID} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions? mpn\_id = {mpn} HTTP/1.1 |
 
-**URI パラメーター**
+### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスとクエリパラメーターを使用して、顧客とパートナーを識別します。
 
-| Name        | 種類   | 必須 | 説明                                                 |
+| 名前        | Type   | 必須 | 説明                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。       |
-| mpn-id      | int    | はい      | パートナーを識別する Microsoft Partner Network ID。 |
+| customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。       |
+| mpn-id      | INT    | はい      | パートナーを識別する Microsoft Partner Network ID。 |
 
- 
-**要求ヘッダー**
+### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/c501c3c4-d776-40ef-9ecf-9cefb59442c1/subscriptions?mpn_id=4847383 HTTP/1.1
@@ -113,15 +111,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[サブスクリプション](subscription-resources.md)リソースのコレクションが含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -177,5 +175,6 @@ Date: Thu, 13 Apr 2017 20:58:08 GMT
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>関連項目
- - [パートナー センターの分析 - リソース](partner-center-analytics-resources.md)
+## <a name="see-also"></a>関連項目
+
+- [パートナー センターの分析 - リソース](partner-center-analytics-resources.md)

@@ -6,32 +6,34 @@ ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: abb66f98363587afff2ffb35ea4840e3bb7486ee
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 04c91b939765817c97ac45786f20f516871140f7
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415663"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156804"
 ---
 # <a name="get-a-list-of-a-customers-policies"></a>顧客のポリシーの一覧を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-このトピックでは、指定された顧客の構成ポリシーのコレクションを取得する方法について説明します。
+この記事では、指定された顧客の構成ポリシーのコレクションを取得する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
 顧客のすべてのポリシーの一覧を取得するには、次のようにします。
 
 1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+
 2. 構成ポリシーのコレクション操作へのインターフェイスを取得するには、 [**Configurationpolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies)プロパティを取得します。
 3. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync)メソッドを呼び出して、ポリシーのコレクションを取得します。
 
@@ -52,21 +54,21 @@ var configPolicies = partnerOperations.Customers.ById(selectedCustomerId).Config
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                              |
+| 認証方法  | 要求 URI                                                                              |
 |---------|------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| Name        | 種類   | 必須 | 説明                                           |
+| 名前        | Type   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 

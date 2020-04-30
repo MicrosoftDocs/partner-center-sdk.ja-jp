@@ -1,41 +1,40 @@
 ---
-title: 注文別のサブスクリプションの一覧を取得する
+title: 注文ごとにサブスクリプションの一覧を取得する
 description: 指定された順序に対応するサブスクリプションリソースのコレクションを取得します。
 ms.assetid: C6DCE351-8C02-42CD-9A80-8156BC6BF1B8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4fa77a9c3bd99188e57f4c3c3d72fadc99b441ac
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 20bc7416059acd62caf940f976b4eddc3c3a0f23
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413822"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156924"
 ---
-# <a name="get-a-list-of-subscriptions-by-order"></a>注文別のサブスクリプションの一覧を取得する
-
+# <a name="get-a-list-of-subscriptions-by-order"></a>注文ごとにサブスクリプションの一覧を取得する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 指定された順序に対応する[サブスクリプション](subscription-resources.md)リソースのコレクションを取得します。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 注文 ID。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+## <a name="c"></a>C\#
 
-
-順序に従ってサブスクリプションの一覧を取得するには、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、[[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] プロパティを呼び出し、続いて**byorder ()** メソッドを呼び出します。 [**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)または[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)を呼び出して終了します。
+注文ごとのサブスクリプションの一覧を取得するには、**IAggregatePartner.Customers** コレクションを使用し、**ById()** メソッドを呼び出します。 次に、[[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] プロパティを呼び出し、続いて**byorder ()** メソッドを呼び出します。 [**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)を呼び出して終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,37 +46,32 @@ ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Custo
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: SubscriptionsByOrder.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                                                   |
+| 認証方法  | 要求 URI                                                                                                                   |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions? order\_id = {id-順序} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions? order\_id = {ID-order} HTTP/1.1 |
 
-
-
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、すべてのサブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| Name                   | 種類     | 必須 | 説明                           |
+| 名前                   | Type     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。 |
-| **id (順序)**       | **guid** | Y        | 注文に対応する GUID。    |
+| **customer-tenant-id** | **guid** | Y        | 顧客に対応する GUID。 |
+| **id-for-order**       | **guid** | Y        | 注文に対応する GUID。    |
 
+### <a name="request-headers"></a>要求ヘッダー
 
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-**要求ヘッダー**
+### <a name="request-body"></a>[要求本文]
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+なし。
 
-**要求本文**
-
-[なし]。
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions?order_id={id-for-order} HTTP/1.1
@@ -88,16 +82,15 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で[サブスクリプション](subscription-resources.md)リソースのコレクションを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -110,7 +103,7 @@ Date: Wed, 25 Nov 2015 05:50:45 GMT
 {
     "totalCount": 37,
     "items": [{
-        "id": "83ef9d05-4169-4ef9-9657-0e86b1eab1de", 
+        "id": "83ef9d05-4169-4ef9-9657-0e86b1eab1de",
         "entitlementId": "a356ac8c-e310-44f4-bf85-C7f29044af99",
         "friendlyName": "Myofferpurchase",
         "quantity": 1,
@@ -145,11 +138,3 @@ Date: Wed, 25 Nov 2015 05:50:45 GMT
     }
 }
 ```
-
-
-
-
-
-
-
-

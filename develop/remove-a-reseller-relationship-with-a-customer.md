@@ -5,43 +5,40 @@ ms.date: 01/12/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e64b6b9921e500d4f4926a45a624c909988ec00
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 00ab4361c7eb83ea14b52d7858ecb8f04b5c7550
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415478"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157024"
 ---
 # <a name="remove-a-reseller-relationship-with-a-customer"></a>顧客との再販業者関係の削除
 
-
 **適用対象**
 
-- Partner Center  
+- パートナー センター
 
+取引がなくなった顧客との再販業者関係を削除します。
 
-取引がなくなった顧客との再販業者関係を削除します。 
+## <a name="prerequisites"></a>前提条件
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
-- すべての Azure 予約 VM インスタンスの注文は、再販業者の関係を削除する前にキャンセルする必要があります。 開いている Azure 予約 VM インスタンスの注文をキャンセルするには、Azure サポートにお問い合わせください。
+- すべての Azure 予約 VM インスタンスの注文は、再販業者の関係を削除する前にキャンセルする必要があります。 開いている Azure 予約 VM インスタンスの注文を取り消すには、Azure サポートにお問い合わせください。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+## <a name="c"></a>C\#
 
+顧客の再販業者関係を削除するには、まず、その顧客のアクティブな Azure Reserved VM Instances がキャンセルされていることを確認します。 次に、その顧客のすべてのアクティブなサブスクリプションが中断されていることを確認します。 これを行うには、再販業者の関係を削除する顧客の ID を決定します。 次のコード例では、ユーザーは顧客識別子を入力するように求められます。
 
-顧客の再販業者関係を削除するには、まずその顧客のアクティブな Azure Reserved VM Instances が取り消され、その顧客のすべてのアクティブなサブスクリプションが中断されていることを確認する必要があります。 これを行うには、再販業者の関係を削除する顧客の ID を決定します (次のコード例では、ユーザーは顧客 id を入力するように求められます)。 
+顧客の Azure Reserved VM Instances を取り消す必要があるかどうかを判断するには、顧客を指定するために顧客識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、権利コレクション操作へのインターフェイスを取得する[**権利**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを使用して、権利のコレクションを取得します。 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)メソッドを呼び出して、権利コレクションを取得します。 EntitlementType の[**EntitlementType**](entitlement-resources.md#entitlementtype)値を持つ権利のコレクションをフィルター処理し[**ます。 VirtualMachineReservedInstance**](entitlement-resources.md#entitlementtype)がある場合は、続行する前にサポートを呼び出して取り消します。
 
-顧客の Azure Reserved VM Instances を取り消す必要があるかどうかを判断するには、顧客を指定するために顧客識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、権利コレクション操作へのインターフェイスを取得する[**権利**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを使用して、権利のコレクションを取得します。 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)メソッドを呼び出して、権利コレクションを取得します。 EntitlementType の[**EntitlementType**](entitlement-resources.md#entitlementtype)値を持つ権利のコレクションをフィルター処理し[**ます。 VirtualMachineReservedInstance**](entitlement-resources.md#entitlementtype)がある場合は、続行する前にサポートを呼び出して取り消します。 
-
-次に、顧客の識別子を使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出して顧客のサブスクリプションのコレクションを取得し、 [**subscription プロパティを呼び出して、サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)コレクション操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)メソッドを呼び出して、顧客のサブスクリプションコレクションを取得します。 サブスクリプションコレクションを走査し、サブスクリプションにサブスクリプションがないことを確認し[**ます。 Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)プロパティの値は[**Subscriptionstatus. Active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)です。 サブスクリプションがアクティブな場合は、中断する方法については、「[サブスクリプションを中断](https://review.docs.microsoft.com/partner-center/develop/suspend-a-subscription)する」を参照してください。 
+次に、顧客の識別子を使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出して顧客のサブスクリプションのコレクションを取得し、 [**subscription プロパティを呼び出して、サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)コレクション操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)メソッドを呼び出して、顧客のサブスクリプションコレクションを取得します。 サブスクリプションコレクションを走査し、サブスクリプションにサブスクリプションがないことを確認し[**ます。 Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)プロパティの値は[**Subscriptionstatus. Active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)です。 サブスクリプションがアクティブな場合は、中断する方法については、「[サブスクリプションを中断](https://review.docs.microsoft.com/partner-center/develop/suspend-a-subscription)する」を参照してください。
 
 その顧客のすべてのアクティブな Azure Reserved VM Instances が取り消され、すべてのアクティブなサブスクリプションが中断されていることを確認したら、その顧客の再販業者の関係を削除できます。 最初に、 [customer. RelationshipToPartner](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.relationshiptopartner)プロパティを [顧客[**パートナー関係**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerpartnerrelationship)] に設定して、新しい[customer](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)オブジェクトを作成します。 次に、顧客識別子を使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出して顧客を指定し、 **Patch**メソッドを呼び出して新しい customer オブジェクトを渡します。
 
-関係を再確立するには、[再販業者の関係を要求](https://docs.microsoft.com/partner-center/develop/request-reseller-relationship)するプロセスを繰り返します。 
-
+関係を再確立するには、[再販業者の関係を要求](https://docs.microsoft.com/partner-center/develop/request-reseller-relationship)するプロセスを繰り返します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -85,37 +82,31 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: DeletePartnerCustomerRelationship.cs
 
+## <a name="rest-request"></a>REST 要求
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST 要求   
+### <a name="request-syntax"></a>要求の構文
 
-
-**要求の構文**
-
-| メソッド     | 要求 URI                                                                                                                           |
+| 認証方法     | 要求 URI                                                                                                                           |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **KB830347**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/HTTP/1.1 |
+| **PATCH**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/HTTP/1.1 |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、リセラー関係を削除するために必要なクエリパラメーターを示します。
 
-| Name                   | 種類     | 必須 | 説明                                                                        |
+| 名前                   | Type     | 必須 | 説明                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の**顧客テナント id**です。 |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
-
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
 要求本文には、**顧客**リソースが必要です。 **Relationshiptopartner**プロパティが [なし] に設定されていることを確認します。
 
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id> HTTP/1.1
@@ -134,16 +125,15 @@ Date: Fri, 12 Jan 2018 00:31:55 GMT
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST 応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは、指定された顧客の再販業者の関係を削除します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

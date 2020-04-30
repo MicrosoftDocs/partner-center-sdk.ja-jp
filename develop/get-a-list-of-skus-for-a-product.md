@@ -1,29 +1,30 @@
 ---
-title: 製品の Sku の一覧を取得する (国別)
+title: 製品の SKU の一覧を取得する (国別)
 description: パートナーセンター Api を使用して、製品の国別に Sku のコレクションを取得したり、フィルター処理したりすることができます。
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9613290c34cde57008247eeee05d71e99436d959
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 18af0d68aae4d05e34c239c4dc8e473353507954
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416796"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156214"
 ---
-# <a name="get-a-list-of-skus-for-a-product-by-country"></a>製品の Sku の一覧を取得する (国別)
+# <a name="get-a-list-of-skus-for-a-product-by-country"></a>製品の SKU の一覧を取得する (国別)
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 パートナーセンター Api を使用して、特定の製品の国で利用可能な Sku のコレクションを取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - 製品識別子。
 
 ## <a name="c"></a>C\#
@@ -31,9 +32,13 @@ ms.locfileid: "80416796"
 製品の Sku の一覧を取得するには、次のようにします。
 
 1. 「 [ID で製品を取得する](get-a-product-by-id.md)」の手順に従って、特定の製品の操作のインターフェイスを取得します。
+
 2. インターフェイスから sku プロパティを選択し**て、sku**で使用可能な操作を含むインターフェイスを取得します。
+
 3. **Get ()** または**GetAsync ()** メソッドを呼び出して、製品で使用可能な sku のコレクションを取得します。
+
 4. Optional**ByReservationScope ()** メソッドを使用して予約スコープを選択します。
+
 5. Optional**Bytargetsegment ()** メソッドを使用して、 **Get ()** または**GetAsync ()** を呼び出す前に、ターゲットセグメントで sku をフィルター処理します。
 
 ``` csharp
@@ -60,13 +65,16 @@ var skus = partnerOperations.Products.ByCountry(countryCode).ById(productIdForAz
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 製品の Sku の一覧を取得するには、次のようにします。
 
 1. 「 [ID で製品を取得する](get-a-product-by-id.md)」の手順に従って、特定の製品の操作のインターフェイスを取得します。
+
 2. インターフェイスから、 **getskus**関数を選択して、sku で使用可能な操作を含むインターフェイスを取得します。
+
 3. **Get ()** 関数を呼び出して、製品で使用可能な sku のコレクションを取得します。
+
 4. Optional**Bytargetsegment ()** 関数を使用して、 **get ()** 関数を呼び出す前に、ターゲットセグメントで sku をフィルター処理します。
 
 ```java
@@ -85,11 +93,12 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 製品の Sku の一覧を取得するには、次のようにします。
 
 1. [**Get PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md)コマンドを実行します。
+
 2. Optional**セグメント**パラメーターを指定して、ターゲットセグメントで sku をフィルター処理します。
 
 ```powershell
@@ -103,36 +112,34 @@ Get-PartnerProductSku -ProductId $productId
 Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
-
-| メソッド  | 要求 URI                                                                                                                              |
+| 認証方法  | 要求 URI                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus? country = {country-code} & targetsegment = {target-SEGMENT} HTTP/1.1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus? country = {country-code} &targetsegment = {target-SEGMENT} HTTP/1.1  |
 
-##### <a name="uri-parameters"></a>URI パラメーター
+#### <a name="uri-parameters"></a>URI パラメーター
 
 製品の Sku の一覧を取得するには、次のパスとクエリパラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                     |
+| 名前                   | Type     | 必須 | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 製品 id             | string   | はい      | 製品を識別する文字列。                           |
 | 国-コード           | string   | はい      | 国/地域 ID。                                            |
 | ターゲット-セグメント         | string   | いいえ       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
-| reservationScope | string   | いいえ | Azure 予約製品の Sku の一覧を照会するときに、`reservationScope=AzurePlan` を指定して、AzurePlan に適用できる Sku の一覧を取得します。 Microsoft Azure (0145P) サブスクリプションに適用される Azure 予約製品の Sku の一覧を取得するには、このパラメーターを除外します。  |
+| reservationScope | string   | いいえ | Azure 予約製品の Sku の一覧を照会するときに、AzurePlan `reservationScope=AzurePlan`に適用可能な sku の一覧を取得するように指定します。 Microsoft Azure (0145P) サブスクリプションに適用される Azure 予約製品の Sku の一覧を取得するには、このパラメーターを除外します。  |
 
-#### <a name="request-headers"></a>要求ヘッダー
+### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
-#### <a name="request-examples"></a>要求の例
+### <a name="request-examples"></a>要求の例
 
 特定の製品の Sku の一覧を取得します。
 
@@ -164,11 +171,11 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[SKU](product-resources.md#sku)リソースのコレクションが含まれます。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
@@ -179,7 +186,7 @@ MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 | 403                  | 400030       | 要求された targetSegment へのアクセスは許可されていません。                                                     |
 | 404                  | 400013       | 親製品が見つかりませんでした。                                                                         |
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

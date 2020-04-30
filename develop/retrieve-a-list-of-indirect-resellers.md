@@ -6,31 +6,28 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a1ed1d4d3c0d105a489774d698d832f2e0212934
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: c3f672626b5ebe2514d0e17e88b6f98eb3d806b2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415379"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156964"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>間接リセラーの一覧を取得する
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 
 サインインしているパートナーの間接リセラーの一覧を取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
+## <a name="prerequisites"></a>前提条件
 
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+## <a name="c"></a>C\#
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
-
-サインインしているパートナーが関係を持つ間接リセラーの一覧を取得するには、まず、 [**partneroperations.** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) relationship プロパティからリレーションシップコレクション操作へのインターフェイスを取得します。 次に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)または[**get\_Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)メソッドを呼び出し、 [**partnerrelationshiptype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列挙体のメンバーを渡してリレーションシップ型を識別します。 間接リセラーを取得するには、IsIndirectCloudSolutionProviderOf を使用する必要があります。
+サインインしているパートナーが関係を持つ間接リセラーの一覧を取得するには、まず、 [**partneroperations.**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) relationship プロパティからリレーションシップコレクション操作へのインターフェイスを取得します。 次に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)また[**は\_get Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)メソッドを呼び出し、 [**partnerrelationshiptype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列挙体のメンバーを渡してリレーションシップ型を識別します。 間接リセラーを取得するには、IsIndirectCloudSolutionProviderOf を使用する必要があります。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -40,18 +37,15 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)**プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetIndirectResellers.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                                                |
+| 認証方法  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/relationships? リレーションシップ\_Type = IsIndirectCloudSolutionProviderOf HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/relationships? リレーションシップ\_の種類 = IsIndirectCloudSolutionProviderOf HTTP/1.1 |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 リレーションシップの種類を識別するには、次のクエリパラメーターを使用します。
 
@@ -64,8 +58,8 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 </colgroup>
 <thead>
 <tr class="header">
-<th>Name</th>
-<th>種類</th>
+<th>名前</th>
+<th>Type</th>
 <th>必須</th>
 <th>説明</th>
 </tr>
@@ -82,17 +76,15 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 </tbody>
 </table>
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+### <a name="request-body"></a>[要求本文]
 
-**要求本文**
+なし。
 
-[なし]。
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/relationships?relationship_type=IsIndirectCloudSolutionProviderOf HTTP/1.1
@@ -104,16 +96,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には、再販業者を識別するための[Partnerrelationship](relationships-resources.md)リソースのコレクションが含まれます。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -154,11 +145,3 @@ Date: Wed, 05 Apr 2017 21:08:44 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

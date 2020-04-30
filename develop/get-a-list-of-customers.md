@@ -6,26 +6,26 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e4b7b78f51351e40851a743b45d2049b7921126a
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 8f1115385ad020f8a7c20810765842e19dd53cd1
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416740"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156884"
 ---
 # <a name="get-a-list-of-customers"></a>顧客の一覧を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-このトピックでは、パートナーのすべての顧客を表すリソースのコレクションを取得する方法について説明します。
+この記事では、パートナーのすべての顧客を表すリソースのコレクションを取得する方法について説明します。
 
 > [!TIP]
-> この操作は、パートナーセンターのダッシュボードでも実行できます。 メインページの **[カスタマー管理]** で、 **[顧客の表示]** を選択します。 または、サイドバーで **[Customers]** を選択します。
+> この操作は、パートナーセンターのダッシュボードでも実行できます。 メインページの [**カスタマー管理**] で、[**顧客の表示**] を選択します。 または、サイドバーで [ **Customers**] を選択します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -36,7 +36,8 @@ ms.locfileid: "80416740"
 すべての顧客の一覧を取得するには:
 
 1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 **ipartner**オブジェクトを作成します。
-2. [**Query ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)メソッドまたは[**QueryAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)メソッドを使用して、顧客リストを取得します。 (クエリを作成する手順については、「 [**Queryfactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)クラス」を参照してください)。
+
+2. [**Query ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)メソッドまたは[**QueryAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)メソッドを使用して、顧客リストを取得します。 (クエリを作成する手順については、「 [**Queryfactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)クラス」を参照してください)。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -57,11 +58,12 @@ var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(c
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 すべての顧客の一覧を取得するには:
 
-1. 顧客の操作への参照を取得するには、 **[iaggregatepartner.customers]** 関数を使用します。
+1. 顧客の操作への参照を取得するには、[**iaggregatepartner.customers**] 関数を使用します。
+
 2. **Query ()** 関数を使用して顧客リストを取得します。
 
 ```java
@@ -88,7 +90,7 @@ while (customersEnumerator.hasValue())
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 すべての顧客の一覧を取得するには、パラメーターを使用せずに、 [**Get PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md)コマンドを実行します。
 
@@ -100,25 +102,25 @@ Get-PartnerCustomer
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                   |
+| 認証方法  | 要求 URI                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers? size = {SIZE} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers? size = {SIZE} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、顧客の一覧を取得します。
 
-| Name     | 種類    | 必須 | 説明                                        |
+| 名前     | Type    | 必須 | 説明                                        |
 |----------|---------|----------|----------------------------------------------------|
-| **size** | **通り** | Y        | 一度に表示される結果の数。 |
+| **size** | **int** | Y        | 一度に表示される結果の数。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

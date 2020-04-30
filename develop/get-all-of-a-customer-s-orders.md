@@ -6,35 +6,37 @@ ms.date: 06/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d307f747dcf487b2806970aa26d2bfa970dd48b4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 01a90967c72944584850941e63b636ef53f5934a
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416124"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156714"
 ---
 # <a name="get-all-of-a-customers-orders"></a>顧客の注文をすべて取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-指定された顧客のすべての注文のコレクションを取得します。 注文が送信されてから顧客の注文のコレクションに表示されるまでに、最大15分の遅延が発生することに注意してください。
+指定された顧客のすべての注文のコレクションを取得します。 注文が送信されてから顧客の注文のコレクションに表示されるまでに、最大15分の遅延が発生します。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
 顧客のすべての注文のコレクションを取得するには、次のようにします。
 
-1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 [**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。
-2. [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティを呼び出し、その後に[**Get ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)または[**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)メソッドを呼び出します。
+1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 [**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。
+
+2. [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティを呼び出し、その後に[**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,25 +51,25 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                   |
+| 認証方法  | 要求 URI                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders HTTP/1.1  |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders HTTP/1.1  |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-すべての注文を取得するには、次のクエリパラメーターを使用します。
+すべての注文を取得するには、次のクエリ パラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                               |
+| 名前                   | Type     | 必須 | 説明                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
 | customer-tenant-id     | string   | はい      | 顧客に対応する GUID 形式の文字列。    |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

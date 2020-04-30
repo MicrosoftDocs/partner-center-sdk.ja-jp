@@ -6,33 +6,31 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 502b86fb4b9544f852e94b9f1eb54294bd222341
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 98314143aec247e31d681e8d202e79f4aeeed9f5
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416111"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156644"
 ---
 # <a name="get-a-customers-subscriptions"></a>顧客のサブスクリプションを取得する
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 顧客のサブスクリプションのコレクションを取得する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
+## <a name="c"></a>C\#
 
 顧客のすべてのサブスクリプションの一覧を取得するには、最初に顧客 id と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、 [**subscription プロパティを使用して**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)、サブスクリプションコレクション操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)メソッドを呼び出して、顧客のサブスクリプションコレクションを取得します。
 
@@ -45,36 +43,31 @@ var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscri
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetSubscriptions.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド  | 要求 URI                                                                                          |
+| 認証方法  | 要求 URI                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1.1 |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、すべてのサブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| Name               | 種類   | 必須 | 説明                                           |
+| 名前               | Type   | 必須 | 説明                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
 | customer-tenant-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-- 詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+### <a name="request-body"></a>[要求本文]
 
-**要求本文**
+なし。
 
-[なし]。
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions HTTP/1.1
@@ -85,16 +78,15 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で[サブスクリプション](subscription-resources.md)リソースのコレクションを返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[パートナー センターの REST エラーコード](error-codes.md)に関する記事を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -107,7 +99,7 @@ Date: Wed, 25 Nov 2015 05:43:06 GMT
 {
     "totalCount": 37,
     "items": [{
-        "id": "83ef9d05-4169-4ef9-9657-0e86b1eab1de", 
+        "id": "83ef9d05-4169-4ef9-9657-0e86b1eab1de",
         "entitlementId": "a356ac8c-e310-44f4-bf85-C7f29044af99",
         "friendlyName": "nickname",
         "quantity": 1,
@@ -142,11 +134,3 @@ Date: Wed, 25 Nov 2015 05:43:06 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

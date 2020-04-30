@@ -1,31 +1,33 @@
 ---
-title: 指定されたバッチと顧客のデバイスの一覧を取得します。
+title: 指定されたバッチと顧客のデバイスの一覧を取得する
 description: 顧客に対して指定されたデバイスバッチ内のデバイスとデバイスの詳細のコレクションを取得する方法。
 ms.assetid: 13FD2D2D-1EF3-4BE2-977D-83577DA57F51
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b6e1c06ede7c240b9bd86179e35402cc956a7bd4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 95ee58852713dbf1f7e16855bd001285647de2e9
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415605"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156854"
 ---
-# <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>指定されたバッチと顧客のデバイスの一覧を取得します。
+# <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>指定されたバッチと顧客のデバイスの一覧を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
-このトピックでは、指定した顧客について、指定したデバイスバッチ内のデバイスのコレクションを取得する方法について説明します。 各デバイスリソースには、デバイスに関する詳細が含まれています。
+この記事では、指定した顧客について、指定したデバイスバッチ内のデバイスのコレクションを取得する方法について説明します。 各デバイスリソースには、デバイスに関する詳細が含まれています。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - デバイスバッチ識別子。
 
 ## <a name="c"></a>C\#
@@ -33,8 +35,11 @@ ms.locfileid: "80415605"
 指定された顧客について、指定されたデバイスバッチ内のデバイスのコレクションを取得するには、次のようにします。
 
 1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+
 2. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid)メソッドを呼び出して、指定されたバッチのデバイスバッチコレクション操作へのインターフェイスを取得します。
+
 3. [**デバイスプロパティを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices)取得して、バッチのデバイスコレクション操作へのインターフェイスを取得します。
+
 4. デバイスのコレクションを取得するには、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync)メソッドを呼び出します。
 
 ``` csharp
@@ -56,22 +61,22 @@ var devices =
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                                            |
+| 認証方法  | 要求 URI                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| Name           | 種類   | 必須 | 説明                                           |
+| 名前           | Type   | 必須 | 説明                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| 顧客 id    | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| customer-id    | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 | devicebatch-id | string | はい      | デバイスバッチを識別する文字列識別子。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 

@@ -1,39 +1,44 @@
 ---
-title: 顧客のサービスコストの概要を取得する
+title: 顧客のサービス コストの概要を取得する
 description: 指定された請求期間の顧客のサービスコストを取得します。
 ms.assetid: 99B250F7-6C29-4BC3-8427-0DF178D7BE68
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 353fc5b0ba0d24306195906b68847ee2899c484e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 2bc21bd4fd956fc9c93545c351ae88bd9a3f5a21
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416254"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156204"
 ---
-# <a name="get-a-customers-service-costs-summary"></a>顧客のサービスコストの概要を取得する
+# <a name="get-a-customers-service-costs-summary"></a>顧客のサービス コストの概要を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 指定された請求期間の顧客のサービスコストを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。
-- 顧客識別子。
-- 請求期間インジケーター (**最新**)。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
+- 請求期間インジケーター (**`mostrecent`**)。
 
 ## <a name="c"></a>C\#
 
 指定された顧客のサービスコストの概要を取得するには:
 
 1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。
+
 2. [**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts)プロパティを使用して、顧客サービスコストの収集操作へのインターフェイスを取得します。
+
 3. [**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod)列挙体のメンバーを使用して[**By の期間**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod)メソッドを呼び出し、 [**IServiceCostsCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection)を返します。
+
 4. [**IServiceCostsCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.getasync)メソッドを使用して、顧客のサービスコストの概要を取得します。
 
 ``` csharp
@@ -47,26 +52,26 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                                   |
+| 認証方法  | 要求 URI                                                                                                   |
 |---------|---------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客と請求期間を識別します。
 
-| Name           | 種類   | 必須 | 説明                                                                                                                      |
+| 名前           | Type   | 必須 | 説明                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| 顧客 id    | guid   | はい      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
-| 請求-期間 | string | はい      | 請求期間を表すインジケーター。 唯一サポートされている値は、最新です。 文字列の大文字と小文字の区別は関係ありません。 |
+| customer-id    | guid   | はい      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
+| billing-period | string | はい      | 請求期間を表すインジケーター。 サポートされている値は MostRecent のみです。 文字列の大文字と小文字の区別は関係ありません。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

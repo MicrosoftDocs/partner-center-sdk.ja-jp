@@ -1,23 +1,22 @@
 ---
 title: 顧客の使用支出予算を取得する
 description: 支出予算 (SpendingBudget オブジェクト) を使用して、顧客の使用状況の概要 (CustomerUsageSummary リソース) を更新することができます。
-ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dd402187e5f41bcc6b6abd47c93553f2c8d2e865
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: a6b258ea9a4cd6ed8a2feec62903cd5e166853b6
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414115"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156254"
 ---
 # <a name="get-a-customers-usage-spending-budget"></a>顧客の使用支出予算を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -26,14 +25,17 @@ ms.locfileid: "80414115"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (**customer-tenant-id**)。 顧客の識別子がない場合は、顧客 リストから顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで識別子を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
 顧客の使用量予算を更新するには、次のようにします。
 
 1. 更新された金額で新しい[**SpendingBudget**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget)オブジェクトを作成します。
-2. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection)コレクションを使用して、指定した顧客の識別子を使用して[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。
+
+2. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection)コレクションを使用して、指定した顧客の識別子を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。
+
 3. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync)メソッドを呼び出して、顧客の使用量の予算を取得します。
 
 ``` csharp
@@ -42,7 +44,7 @@ ms.locfileid: "80414115"
 
 // Create a new spending budget with the udpated amount.
 var newUsageBudget = new SpendingBudget()
-{  
+{
     Amount = 100
 };
 
@@ -50,33 +52,31 @@ var newUsageBudget = new SpendingBudget()
 var usageBudget = partnerOperations.Customers.ById(selectedCustomerId).UsageBudget.Get();
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>REST 要求
 
-### <a name="rest-request"></a>REST 要求
+### <a name="request-syntax"></a>要求の構文
 
-#### <a name="request-syntax"></a>要求の構文
-
-| メソッド    | 要求 URI                                                                                             |
+| 認証方法    | 要求 URI                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagebudget HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagebudget HTTP/1.1 |
 
-##### <a name="uri-parameter"></a>URI パラメーター
+### <a name="uri-parameter"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、課金プロファイルを更新します。
 
-| Name                   | 種類     | 必須 | 説明                                                                                                                                            |
+| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 
-#### <a name="request-headers"></a>要求ヘッダー
+### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-#### <a name="request-body"></a>[要求本文]
+### <a name="request-body"></a>[要求本文]
 
 完全なリソース。
 
-#### <a name="request-example"></a>要求の例
+### <a name="request-example"></a>要求の例
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/usagebudget HTTP/1.1
@@ -88,15 +88,15 @@ Content-Type: application/json;charset=utf-8
 X-Locale: "en-US"
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは、更新された金額を持つユーザーの支出予算を返します。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-#### <a name="response-example"></a>応答の例
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK

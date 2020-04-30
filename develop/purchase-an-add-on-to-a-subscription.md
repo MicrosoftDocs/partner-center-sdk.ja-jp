@@ -1,50 +1,52 @@
 ---
-title: サブスクリプションにアドオンを購入する
+title: サブスクリプションのアドオンを購入する
 description: 既存のサブスクリプションにアドオンを購入する方法。
 ms.assetid: 743520E5-0501-4403-B977-5E6D3E32DEC3
 ms.date: 11/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f49685eb142945fc94e551e2113799c4c5b959e5
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0ae6aa7a15340eb4173119b1ce3a3bc30ee9f7c2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416305"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157070"
 ---
-# <a name="span-idpc_apiv2purchase_an_add-on_to_a_subscriptionpurchase-an-add-on-to-a-subscription"></a>サブスクリプションにアドオンを購入 <span id="pc_apiv2.purchase_an_add-on_to_a_subscription"/>には
-
+# <a name="purchase-an-add-on-to-a-subscription"></a>サブスクリプションのアドオンを購入する
 
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 既存のサブスクリプションにアドオンを購入する方法。
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>の前提条件
-
+## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - サブスクリプション ID。 これは、アドオンプランを購入するための既存のサブスクリプションです。
+
 - 購入するアドオンプランを識別するプラン ID。
 
-## <a name="span-idpurchasing_an_add-on_through_codespan-idpurchasing_an_add-on_through_codespan-idpurchasing_an_add-on_through_codepurchasing-an-add-on-through-code"></a>コードを使用したアドオンの購入 <span id="PURCHASING_AN_ADD-ON_THROUGH_CODE"/><span id="purchasing_an_add-on_through_code"/>の <span id="Purchasing_an_add-on_through_code"/>
-
+## <a name="purchasing-an-add-on-through-code"></a>コードを使用したアドオンの購入
 
 サブスクリプションにアドオンを購入すると、そのアドオンの順序に従って元のサブスクリプションの順序が更新されます。 次の例では、customerId は顧客 ID、subscriptionId はサブスクリプション ID、addOnOfferId はアドオンのプラン ID です。
 
-手順は次のとおりです。
+次に手順を示します。
 
 1.  サブスクリプションの操作へのインターフェイスを取得します。
+
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
 2.  このインターフェイスを使用して、サブスクリプションオブジェクトをインスタンス化します。 これにより、注文 id を含む親サブスクリプションの詳細が取得されます。
+
     ``` csharp
     var parentSubscription = subscriptionOperations.Get();
     ```
@@ -73,8 +75,7 @@ ms.locfileid: "80416305"
     Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(parentSubscription.OrderId).Patch(orderToUpdate);
     ```
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 アドオンを購入するには、まずサブスクリプション操作へのインターフェイスを取得します。そのためには、顧客 ID を指定して ById メソッドを呼び出し、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)プランを持つサブスクリプションを識別する[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出します。 この[**インターフェイス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription)を使用して、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get)を呼び出してサブスクリプションの詳細を取得します。 サブスクリプションの詳細が必要な理由 サブスクリプション注文の注文 id が必要であるためです。 これがアドオンで更新される順序です。
 
@@ -116,70 +117,59 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: AddSubscriptionAddOn.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>要求
+## <a name="rest-request"></a>REST 要求
 
+### <a name="request-syntax"></a>要求の構文
 
-**要求の構文**
-
-| メソッド    | 要求 URI                                                                                              |
+| 認証方法    | 要求 URI                                                                                              |
 |-----------|----------------------------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
- 
-
-**URI パラメーター**
+### <a name="uri-parameters"></a>URI パラメーター
 
 顧客と注文を識別するには、次のパラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                                        |
+| 名前                   | Type     | 必須 | 説明                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の**顧客テナント id**です。 |
 | **注文-id**           | **guid** | Y        | 順序識別子。                                                              |
 
- 
+### <a name="request-headers"></a>要求ヘッダー
 
-**要求ヘッダー**
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
-
-**要求本文**
+### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文のプロパティについて説明します。
 
-## <a name="span-idorderspan-idorderspan-idorderorder"></a><span id="Order"/><span id="order"/><span id="ORDER"/>の順序
+## <a name="order"></a>Order
 
-
-| Name                | 種類             | 必須 | 説明                                          |
+| 名前                | Type             | 必須 | 説明                                          |
 |---------------------|------------------|----------|------------------------------------------------------|
 | Id                  | string           | N        | 注文 ID。                                        |
-| referenceCustomerId | string           | Y        | 顧客 ID。                                     |
-| lineItems           | オブジェクトの配列 | Y        | [Orderlineitem](#orderlineitem)オブジェクトの配列です。 |
+| ReferenceCustomerId | string           | Y        | 顧客 ID。                                     |
+| LineItems           | オブジェクトの配列 | Y        | [Orderlineitem](#orderlineitem)オブジェクトの配列です。 |
 | CreationDate        | string           | N        | 注文が作成された日付 (日付/時刻形式)。 |
 | 属性          | object           | N        | "ObjectType": "Order" を格納します。                      |
 
- 
+## <a name="orderlineitem"></a>OrderLineItem
 
-## <a name="span-idorderlineitemspan-idorderlineitemspan-idorderlineitemorderlineitem"></a><span id="orderLineItem"/><span id="orderlineitem"/><span id="ORDERLINEITEM"/>OrderLineItem
-
-
-| Name                 | 種類   | 必須 | 説明                                                  |
+| 名前                 | Type   | 必須 | 説明                                                  |
 |----------------------|--------|----------|--------------------------------------------------------------|
-| lineItemNumber       | number | Y        | 0から始まる行項目番号。                       |
+| LineItemNumber       | number | Y        | 0から始まる行項目番号。                       |
 | OfferId              | string | Y        | アドオンのプラン ID。                                  |
 | SubscriptionId       | string | N        | 購入したアドオンサブスクリプションの ID。                 |
-| parentSubscriptionId | string | Y        | アドオンが用意されている親サブスクリプションの ID。 |
+| ParentSubscriptionId | string | Y        | アドオンが用意されている親サブスクリプションの ID。 |
 | FriendlyName         | string | N        | この行項目の表示名。                        |
-| 数量             | number | Y        | ライセンスの数。                                      |
-| partnerIdOnRecord    | string | N        | レコードのパートナーの MPN ID。                         |
+| Quantity             | number | Y        | ライセンスの数。                                      |
+| PartnerIdOnRecord    | string | N        | レコードのパートナーの MPN ID。                         |
 | 属性           | object | N        | "ObjectType": "OrderLineItem" が含まれています。                      |
 
- 
-
-**要求の例**
+### <a name="request-example"></a>要求の例
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/orders/CF3B0E37-BE0B-4CDD-B584-D1A97D98A922 HTTP/1.1
-Authorization: Bearer <token> 
+Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: 17a2658e-d2cc-439b-a2f0-2aefd9344fbc
 MS-CorrelationId: 60efdd24-17ef-4080-9b02-4fc315f916ff
@@ -212,16 +202,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>応答
-
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは応答本文で更新されたサブスクリプションの順序を返します。
 
-**応答成功およびエラーコード**
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
-**応答の例**
+### <a name="response-example"></a>応答の例
 
 ```http
 HTTP/1.1 200 OK
@@ -279,11 +268,3 @@ Date: Wed, 25 Jan 2017 23:01:08 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

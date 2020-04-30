@@ -6,33 +6,35 @@ ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e6457ec02ffad1edcd3bb2e54f3318fe2e2b86ac
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 06a928854aefc6ec4f7416b5585aadad5b6b9990
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415531"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156824"
 ---
 # <a name="get-a-list-of-all-user-accounts-for-a-customer"></a>顧客のすべてのユーザー アカウントの一覧を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
-このトピックでは、顧客のいずれかに属しているすべてのユーザーアカウントの一覧を取得する方法について説明します。
+この記事では、顧客のいずれかに属しているすべてのユーザーアカウントの一覧を取得する方法について説明します。
 
 ID で1つのユーザーアカウントを検索するには、「 [id でユーザーアカウントを取得](get-a-user-account-by-id.md)する」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客 ID (**顧客-テナント id**)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
 指定された顧客のすべてのユーザーアカウントのコレクションを取得するには、次のようにします。
 
 1. 顧客 ID を指定して[**Iaggregatepartner.customers ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。
+
 2. コレクションを取得するには、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync)メソッドを呼び出します。
 
 ``` csharp
@@ -53,25 +55,25 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.G
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                  |
+| 認証方法  | 要求 URI                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 正しい顧客を識別するには、次の URI パラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                                                                                                            |
+| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

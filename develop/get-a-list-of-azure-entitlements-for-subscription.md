@@ -1,55 +1,57 @@
 ---
-title: サブスクリプションの Azure の権利の一覧を取得する
+title: サブスクリプションの Azure エンタイトルメントの一覧を取得する
 description: AzureEntitlement リソースを使用して、サブスクリプションに属している Azure の権利リソースのコレクションを取得できます。
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d2aaaed8fd4455cc2e7b57281ea1e104fdbe030c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 91a356ad22281f50d180645989fa06eb631a3305
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412295"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156864"
 ---
-# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>サブスクリプションの Azure の権利の一覧を取得する
+# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>サブスクリプションの Azure エンタイトルメントの一覧を取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 [Azure の権利リソース](subscription-resources.md#azureentitlement)(**azureentitlement**) を使用して、サブスクリプションに属するリソースのコレクションを取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (**customer-tenant-id**)。 顧客の id を持っていない場合は、顧客 一覧から顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存することで、パートナーセンターで検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - サブスクリプション識別子。
 
 ## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                                                   |
+| 認証方法  | 要求 URI                                                                                                                   |
 |---------|---------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次の表に、サブスクリプションのすべての Azure 権限を取得するために必要なクエリパラメーターを示します。
 
-| Name                   | 種類     | 必須 | 説明                           |
+| 名前                   | Type     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | 顧客に対応する GUID。 |
+| **customer-tenant-id** | **guid** | Y        | 顧客に対応する GUID。 |
 | **サブスクリプション id**       | **guid** | Y        | サブスクリプションに対応する GUID。    |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md)」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 
