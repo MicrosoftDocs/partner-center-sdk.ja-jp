@@ -1,22 +1,22 @@
 ---
-title: カートをチェックアウトする
+title: カートを精算する
 description: カート内の顧客の注文をチェックアウトする方法。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 123ff771fad9982f6fb84484010456d38e785a74
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 8aedb24b9f11b10e37f0a145c86bf17cbad3f42f
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412903"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154504"
 ---
-# <a name="checkout-a-cart"></a>カートをチェックアウトする
+# <a name="checkout-a-cart"></a>カートを精算する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -26,12 +26,12 @@ ms.locfileid: "80412903"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 既存のカートのカート ID。
 
-## <a name="examples"></a>例
-
-### <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 顧客の注文をチェックアウトするには、カートと顧客識別子を使用してカートへの参照を取得します。 最後に、 **Create**または**createasync**関数を呼び出して、注文を完了します。
 
@@ -43,9 +43,9 @@ ms.locfileid: "80412903"
 var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checkout();
 ```
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
 顧客の注文をチェックアウトするには、カートと顧客識別子を使用してカートへの参照を取得します。 最後に、 **create**関数を呼び出して、注文を完了します。
 
@@ -57,9 +57,9 @@ var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checko
 Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(cartId).checkout();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
 顧客の注文をチェックアウトするには、[**送信パートナー**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md)の顧客カートを実行して注文を完了します。
 
@@ -74,26 +74,26 @@ Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                                                 |
+| 認証方法   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスパラメーターを使用して顧客を特定し、チェックアウトするカートを指定します。
 
-| Name            | 種類     | 必須 | 説明                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 | **カート-id**     | string   | はい      | カートを識別する GUID 形式のカート id。                     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

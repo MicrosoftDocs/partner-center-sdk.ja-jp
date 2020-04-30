@@ -1,23 +1,22 @@
 ---
 title: 商用 marketplace 製品のサブスクリプションを作成する
 description: 開発者は、パートナーセンター Api を使用して、商用 marketplace 製品のサブスクリプションを作成および管理できます。
-ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1db279b2e377ee5e24bf80709a7e84755fc2f132
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7d3c030d7e808e5bc40b985ce02dda84672a020c
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412229"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82125423"
 ---
 # <a name="create-a-subscription-for-commercial-marketplace-products"></a>商用 marketplace 製品のサブスクリプションを作成する
 
-適用対象
+**適用対象:**
 
-* Partner Center
+* パートナー センター
 
 パートナーセンター API を使用して、商用マーケットプレース製品のサブスクリプションを作成できます。 [市場向けのオファーの一覧を取得](#get-a-list-of-offers-for-a-market)し、商業市場向けサブスクリプションの[注文を作成および送信](#create-and-submit-an-order)してから、[ライセンス認証リンクを取得](#get-activation-link)する必要があります。
 
@@ -26,15 +25,15 @@ ms.locfileid: "80412229"
 ## <a name="prerequisites"></a>前提条件
 
 * [パートナーセンターの認証](partner-center-authentication.md)資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-* 顧客識別子。 顧客の識別子がない場合: パートナーセンターにサインインし、顧客 の一覧から顧客を選択し、**アカウント** を選択して、 **Microsoft ID**を保存します。
+* 顧客 ID。 顧客の識別子がない場合は、「[顧客の一覧を取得する](get-a-list-of-customers.md)」の手順に従います。 または、パートナーセンターにサインインして、顧客の一覧から顧客を選択し、[**アカウント**] を選択して、 **Microsoft ID**を保存します。
 
-## <a name="get-a-list-of-offers-for-a-market"></a>市場向けプランの一覧を取得する
+## <a name="get-a-list-of-offers-for-a-market"></a>市場別のプランの一覧を取得する
 
 次のパートナーセンター API モデルを使用して、市場の利用可能なオファーを確認することができます。
 
-* **[Product](product-resources.md#product)** : 購入可能な商品またはサービスのグループ化構成体。 製品自体は購入可能なの項目ではありません。
-* **[Sku](product-resources.md#sku)** : 製品の購入可能な在庫保持ユニット (sku)。 これらは、製品のさまざまな形状を表します。
-* **[可用性](product-resources.md#availability)** : SKU を購入できるようにする構成 (国、通貨、業界セグメントなど)。
+* **[Product](product-resources.md#product)**: 購入可能な商品またはサービスのグループ化構成体。 製品自体は購入可能なの項目ではありません。
+* **[Sku](product-resources.md#sku)**: 製品の購入可能な在庫保持ユニット (sku)。 これらは、製品のさまざまな形状を表します。
+* **[可用性](product-resources.md#availability)**: SKU を購入できるようにする構成 (国、通貨、業界セグメントなど)。
 
 Azure 予約を購入する前に、次の手順を実行します。
 
@@ -42,7 +41,7 @@ Azure 予約を購入する前に、次の手順を実行します。
 
     * [製品の一覧を取得する](get-a-list-of-products.md)
     * [製品 ID を使用して製品を取得する](get-a-product-by-id.md)
-    * [製品の SKU の一覧を取得する](get-a-list-of-skus-for-a-product.md)
+    * [製品の Sku の一覧を取得する](get-a-list-of-skus-for-a-product.md)
     * [SKU ID を使用して SKU を取得する](get-a-sku-by-id.md)
 
     > [!NOTE]
@@ -55,7 +54,7 @@ Azure 予約を購入する前に、次の手順を実行します。
 
 3. SKU の可用性を取得します。 注文を配置するときに、可用性の**Catalogitemid**が必要になります。この場合、次の api を使用して取得できます。
 
-    * [SKU の空き状況の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
+    * [SKU に使用できる機能の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
     * [可用性 ID を使用して可用性を取得する](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>注文を作成して送信する
@@ -74,9 +73,9 @@ Azure 予約注文を送信するには、次の手順を実行します。
 
 ## <a name="get-activation-link"></a>アクティブ化リンクの取得
 
-パートナーまたは顧客は、Azure にマークされた場所製品のサブスクリプションをアクティブ化する必要があります。 [注文明細項目を使用してアクティブ化リンクを取得](get-activation-link-by-order-line-item.md)できます。 また、 [ID でサブスクリプションを取得](get-a-subscription-by-id.md)し、その**Links**プロパティを列挙してアクティベーションリンクを作成することもできます。
+パートナーまたは顧客は、Azure Marketplace 製品のサブスクリプションをアクティブ化する必要があります。 [注文明細項目を使用してアクティブ化リンクを取得](get-activation-link-by-order-line-item.md)できます。 また、 [ID でサブスクリプションを取得](get-a-subscription-by-id.md)し、その**Links**プロパティを列挙してアクティベーションリンクを作成することもできます。
 
-## <a name="lifecycle-management"></a>ライフサイクルの管理
+## <a name="lifecycle-management"></a>ライフサイクル管理
 
 次の方法を使用して、商用 marketplace 製品に対するサブスクリプションのライフサイクルを管理できます。
 
@@ -93,9 +92,9 @@ Azure 予約注文を送信するには、次の手順を実行します。
 
 次の方法を使用して、顧客の[請求書](invoice-resources.md)(商用 marketplace 製品へのサブスクリプションの請求を含む) を管理できます。
 
-* [請求書の課金されているコマーシャル マーケットプレース使用明細を取得する](get-invoice-billed-consumption-lineitems.md)
+* [請求書を取得する商用マーケットプレースの従量課金明細項目](get-invoice-billed-consumption-lineitems.md)
 * [請求書の推定リンクを取得する](get-invoice-estimate-links.md)
-* [請求書の課金されていないコマーシャル マーケットプレース使用明細を取得する](get-invoice-unbilled-consumption-lineitems.md)
+* [Invoice 未請求商業市場消費量の品目を取得する](get-invoice-unbilled-consumption-lineitems.md)
 * [Invoice 未請求調整の品目を取得する](get-invoice-unbilled-recon-lineitems.md)
 
 ## <a name="test-using-integration-sandbox-account"></a>統合サンドボックスアカウントを使用してテストする

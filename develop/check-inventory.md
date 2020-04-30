@@ -6,29 +6,30 @@ ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1dfd831917689f8d06dfb5b30b4d07a899f6eee0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 5d874b1d69750a08506669061573e511dd6704de
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412912"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154624"
 ---
 # <a name="check-inventory"></a>インベントリの確認
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 特定のカタログアイテムのセットの在庫を確認する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - 1つまたは複数の製品 Id。 必要に応じて、SKU Id を指定することもできます。
-- 指定された製品/SKU ID によって参照されている SKU のインベントリを確認するために必要な追加のコンテキスト。 これらの要件は、製品/SKU の種類によって異なる場合があり、 [sku の](product-resources.md#sku) **InventoryVariables**プロパティから決定できます。 
 
-## <a name="c"></a>C#
+- 指定された製品/SKU ID によって参照されている SKU のインベントリを確認するために必要な追加のコンテキスト。 これらの要件は、製品/SKU の種類によって異なる場合があり、 [sku の](product-resources.md#sku) **InventoryVariables**プロパティから決定できます。
 
+## <a name="c"></a>C\#
 
 インベントリを確認するには、チェックする項目ごとに[InventoryItem](product-resources.md#inventoryitem)オブジェクトを使用して[InventoryCheckRequest](product-resources.md#inventorycheckrequest)オブジェクトを作成します。 次に、 **iaggregatepartner.customers**アクセサーを使用して、**製品**にスコープを適用し、 **bycountry ()** メソッドを使用して国を選択します。 最後に、 **InventoryCheckRequest**オブジェクトを使用して**checkinventory ()** メソッドを呼び出します。
 
@@ -59,25 +60,25 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                                                                              |
+| 認証方法   | 要求 URI                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory? country = {country-CODE} HTTP/1.1                        |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/extensions/product/checkInventory? country = {country-CODE} HTTP/1.1                        |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、インベントリを確認します。
 
-| Name                   | 種類     | 必須 | 説明                                                     |
+| 名前                   | Type     | 必須 | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 国-コード           | string   | はい      | 国/地域 ID。                                            |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-1つ以上の[InventoryItem](product-resources.md#inventoryitem)リソースを含む[InventoryCheckRequest](product-resources.md#inventorycheckrequest)リソースで構成される在庫要求の詳細。 
+1つ以上の[InventoryItem](product-resources.md#inventoryitem)リソースを含む[InventoryCheckRequest](product-resources.md#inventorycheckrequest)リソースで構成される在庫要求の詳細。
 
 ### <a name="request-example"></a>要求の例
 
@@ -94,7 +95,7 @@ Content-Type: application/json
 {"TargetItems":[{"ProductId":"DZH318Z0BQ3P"}],"InventoryContext":{"customerId":"d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d","azureSubscriptionId":"3A231FBE-37FE-4410-93FD-730D3D5D4C75","armRegionName":"Europe"}}
 ```
 
-## <a name="response"></a>応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には、制限の詳細が設定されている[InventoryItem](product-resources.md#inventoryitem)オブジェクトのコレクションが含まれます (該当する場合)。
 

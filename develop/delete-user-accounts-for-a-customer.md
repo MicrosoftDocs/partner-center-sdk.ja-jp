@@ -1,30 +1,32 @@
 ---
-title: 顧客のユーザーアカウントを削除する
+title: 顧客のユーザー アカウントを削除する
 description: 顧客の既存のユーザーアカウントを削除する方法。
 ms.assetid: 12097809-A62D-4929-9F1D-08676784BA39
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 728694cc236e0257a24940ad4c3a9284e4e28b21
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 5e6814c1bcdfbd459d9a8e8c590806f18ff00eb5
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415589"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154224"
 ---
-# <a name="delete-a-user-account-for-a-customer"></a>顧客のユーザーアカウントを削除する
+# <a name="delete-a-user-account-for-a-customer"></a>顧客のユーザー アカウントを削除する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
-このトピックでは、顧客の既存のユーザーアカウントを削除する方法について説明します。
+この記事では、顧客の既存のユーザーアカウントを削除する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客 ID (**顧客-テナント id**)。 お客様の ID をお持ちでない場合は、パートナーセンターで ID を参照してください。 顧客 の一覧から顧客を選択し、**アカウント** を選択して、Microsoft ID を保存します。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - ユーザー ID。 ユーザー ID を持っていない場合は、「[顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)する」を参照してください。
 
 ## <a name="deleting-a-user-account"></a>ユーザー アカウントを削除する
@@ -38,7 +40,9 @@ ms.locfileid: "80415589"
 既存の顧客のユーザーアカウントを削除するには:
 
 1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用し、顧客を識別します。
+
 2. ユーザーを識別するには、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出します。
+
 3. [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete)メソッドを呼び出してユーザーを削除し、ユーザー状態を非アクティブに設定します。
 
 ``` csharp
@@ -55,26 +59,26 @@ partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdTo
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド     | 要求 URI                                                                                            |
+| 認証方法     | 要求 URI                                                                                            |
 |------------|--------------------------------------------------------------------------------------------------------|
-| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
+| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次のクエリパラメーターを使用して、顧客とユーザーを識別します。
 
-| Name                   | 種類     | 必須 | 説明                                                                                                               |
+| 名前                   | Type     | 必須 | 説明                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
 | customer-tenant-id     | GUID     | Y        | 値は GUID 形式の**顧客テナント id**で、リセラーは特定の顧客の結果をフィルター処理できます。 |
-| ユーザー id                | GUID     | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                          |
+| user-id                | GUID     | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                          |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

@@ -1,30 +1,30 @@
 ---
-title: コンソールテストアプリ
+title: コンソール テスト アプリ
 description: このコンソールテストアプリは、パートナーセンター Api でサポートされているすべてのシナリオのサンプルコードを提供します。 テストにも使用できます。
 ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 35ebb92e8e9705cbce8c629d0a862613cc2f50b6
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: a75f01a6636b20865d5f5a0e6ec59aa3f7779e00
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412847"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155034"
 ---
-# <a name="console-test-app"></a>コンソールテストアプリ
+# <a name="console-test-app"></a>コンソール テスト アプリ
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-コンソールテストアプリはと Java でC#提供され、パートナーセンター api でサポートされているすべてのシナリオのサンプルコードを提供します。 テストにも使用できます。
+コンソールテストアプリは、C# および Java で提供されており、パートナーセンター Api でサポートされているすべてのシナリオのサンプルコードを提供します。 テストにも使用できます。
 
-## <a name="get-the-code"></a>コードを入手する
+## <a name="get-the-code"></a>コードの入手
 
 コンソールテストアプリのサンプルコードをダウンロードします。
 
@@ -37,11 +37,11 @@ ms.locfileid: "80412847"
 
 *App.config*ファイルの**ScenarioSettings**では、実行するシナリオに自動的に渡されるパラメーターを設定できます。
 
-実行されるシナリオの一覧を変更するには、 **Ipartnerscenario\[\] Mainscenarios**をコメントアウトするか、 *Program.cs*ファイルに記載されている個々の**シナリオの取得**メソッドをコメントアウトします。
+実行されるシナリオの一覧を変更するには、 **ipartnerscenario の\[ \] mainscenarios**または*Program.cs*ファイルにある個々の**Get** scenario メソッドでコメントアウトします。
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 [サンプルコードをダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=2026887)し、必要に応じて変更します。
 
@@ -50,7 +50,7 @@ ms.locfileid: "80412847"
 
 *SamplesConfiguration*ファイルの**ScenarioSettings**では、実行するシナリオに自動的に渡されるパラメーターを設定できます。
 
-実行されるシナリオの一覧を変更するには、 **Ipartnerscenario\[\] Mainscenarios**にコメントアウトするか、または*java*ファイルに含まれる個々の**Get** scenario メソッドにコメントアウトします。
+実行されるシナリオの一覧を変更するには、 **ipartnerscenario の\[ \] mainscenarios**の行をコメントアウトするか、または*java*ファイルに含まれる個々の**Get** scenario メソッドにコメントアウトします。
 
 ## <a name="what-to-change"></a>変更する内容
 
@@ -80,7 +80,7 @@ ms.locfileid: "80412847"
 - **ResourceUrl**
 - **RedirectUrl**
 
-### <a name="appauthentication"></a>Microsoft.azure.services.appauthentication
+### <a name="appauthentication"></a>AppAuthentication
 
 **Appauthentication**の場合は、次のように変更する必要があります。
 

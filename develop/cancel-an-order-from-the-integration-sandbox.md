@@ -1,22 +1,22 @@
 ---
-title: 統合サンドボックスから注文をキャンセルする
+title: 統合サンドボックスから注文を取り消す
 description: 統合サンドボックスアカウントから注文をキャンセルします。
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e3aa651731b4cf624d1266e3c780e2acbb9c0d4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 05c54d753548b6fadfc0595e43720877393cd0c4
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413093"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154724"
 ---
-# <a name="cancel-an-order-from-the-integration-sandbox"></a>統合サンドボックスから注文をキャンセルする
+# <a name="cancel-an-order-from-the-integration-sandbox"></a>統合サンドボックスから注文を取り消す
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
@@ -24,20 +24,21 @@ ms.locfileid: "80413093"
 統合サンドボックスアカウントから、予約済みのインスタンス、ソフトウェア、および商用 marketplace のサービスとしてのソフトウェア (SaaS) のサブスクリプションを取り消す方法。
 
 >[!NOTE]
->予約済みのインスタンス、ソフトウェア、または商用の marketplace の SaaS サブスクリプションの注文をキャンセルできるのは、統合サンドボックスアカウントのみであることに注意してください。 製造注文をキャンセルするには、パートナーセンターのサポートにお問い合わせください。
+>予約されているインスタンス、ソフトウェア、または商用の marketplace の SaaS サブスクリプションの注文は、統合サンドボックスアカウントからのキャンセルのみが可能であることに注意してください。 製造注文をキャンセルするには、パートナーセンターのサポートにお問い合わせください。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - 統合サンドボックスパートナーアカウント。アクティブな予約インスタンス/ソフトウェア/サードパーティの SaaS サブスクリプション注文を持つ顧客がいます。
 
-## <a name="c"></a>C#
+## <a name="c"></a>C\#
 
-統合サンドボックスから注文を取り消すには、アカウントの資格情報を[**Createpartneroperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡して、パートナー操作を取得するために[**ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)インターフェイスを取得します。
+統合サンドボックスから注文を取り消すには、アカウントの資格情報を[**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡して[**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) 、パートナー操作を取得するためのインターフェイスを取得します。
 
-特定の[注文](order-resources.md#order)を選択するには、パートナー操作を使用し、顧客 id と共に[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出して顧客を指定し、その後に注文 id を指定した**ById ()** を指定して注文を指定し、最後に**Get**または**GetAsync**メソッドを取得します。
+特定の[順序](order-resources.md#order)を選択するには、パートナー操作を[**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)使用し、顧客識別子と共にメソッドを呼び出して**`Orders.ById()`** 顧客を指定します。次に、 **`Get`** order **`GetAsync`** 識別子を指定して順序と finally またはメソッドを取得する方法を指定します。
 
-[ [**Order. Status**](order-resources.md#order) ] プロパティを "取り消し" に設定し、 **Patch ()** メソッドを使用して注文を更新します。
+[**`Order.Status`**](order-resources.md#order)プロパティをに`cancelled`設定し、 **`Patch()`** メソッドを使用して順序を更新します。
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
@@ -57,28 +58,29 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド     | 要求 URI                                                                            |
+| 認証方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 顧客を削除するには、次のクエリパラメーターを使用します。
 
-| Name                   | 種類     | 必須 | 説明                                                                                                                                            |
+| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **顧客-テナント id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
-| **注文-id** | **文字列** | Y        | 値は、キャンセルする必要がある注文 id を示す文字列です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **注文-id** | **string** | Y        | 値は、キャンセルする必要がある注文 Id を示す文字列です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
+
 ```http
-{  
-    "id": "UKXASSO1dezh3HdxClHxSp5UEFXGbAnt1",  
-    "status": "cancelled",  
+{
+    "id": "UKXASSO1dezh3HdxClHxSp5UEFXGbAnt1",
+    "status": "cancelled",
 }
 ```
 

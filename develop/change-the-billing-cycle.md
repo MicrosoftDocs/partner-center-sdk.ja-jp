@@ -5,27 +5,27 @@ ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f3c040745ead22e92a7012155b0fcfc50fe97739
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 93c33886d22ea9d4a72ed650da6ec14904cfdb28
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412960"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154764"
 ---
 # <a name="change-the-billing-cycle"></a>請求サイクルを変更する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 月単位、年単位、または月単位の請求に対して、[注文](order-resources.md)を更新します。
 
-パートナーセンターのダッシュボードでは、顧客のサブスクリプションの詳細ページに移動することによって、この操作を実行できます。 この時点で、サブスクリプションの現在の請求サイクルを定義するオプションが表示され、サブスクリプションを変更して送信することができます。  
+パートナーセンターのダッシュボードでは、顧客のサブスクリプションの詳細ページに移動することによって、この操作を実行できます。 この時点で、サブスクリプションの現在の請求サイクルを定義するオプションが表示され、サブスクリプションを変更して送信することができます。
 
-このトピックの**範囲外**:  
+この記事の**範囲外**:
 
 - 試用の請求サイクルの変更
 - Azure サブスクリプション & 年間契約期間 (月単位、6年間) の請求サイクルの変更
@@ -35,10 +35,12 @@ ms.locfileid: "80412960"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (顧客-テナント id)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 注文 ID。
 
-## <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 請求サイクルの頻度を変更するには、[[**次数**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle?view=partnercenter-dotnet-latest#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle)] プロパティを更新します。
 
@@ -71,49 +73,49 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド    | 要求 URI                                                                                             |
+| 認証方法    | 要求 URI                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、サブスクリプションの数量を変更するために必要なクエリパラメーターを示します。
 
-| Name                   | 種類 | 必須 | 説明                                                          |  
-|------------------------|------|----------|----------------------------------------------------------------------|  
-| **顧客-テナント id** | GUID |    Y     | 顧客を識別する GUID 形式の**顧客テナント id** |  
-| **注文-id**           | GUID |    Y     | 順序識別子                                                 |  
+| 名前                   | Type | 必須 | 説明                                                          |
+|------------------------|------|----------|----------------------------------------------------------------------|
+| **customer-tenant-id** | GUID |    Y     | 顧客を識別する GUID 形式の**顧客テナント id** |
+| **注文-id**           | GUID |    Y     | 順序識別子                                                 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文のプロパティについて説明します。
 
-## <a name="order"></a>Order
+### <a name="order"></a>Order
 
-| プロパティ           | 種類             | 必須 | 説明                                                                |
+| プロパティ           | Type             | 必須 | 説明                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
 | Id                 | string           |    N     | 注文が正常に作成されたときに提供される注文 id |
-|referenceCustomerId | string           |    Y     | 顧客識別子                                                    |
-| BillingCycle       | string           |    Y     | パートナーがこの注文に対して課金される頻度を示します。 サポートされている値は、 [BillingCycleType](product-resources.md#billingcycletype)で見つかったメンバー名です。 |
-| lineItems          | オブジェクトの配列 |    Y     | [Orderlineitem](#orderlineitem)リソースの配列                      |
-| CreationDate       | datetime         |    N     | 注文が作成された日付 (日付/時刻形式)                        |
-| 属性         | オブジェクト           |    N     | "ObjectType": "OrderLineItem" が含まれています。                                     |
+|ReferenceCustomerId | string           |    Y     | 顧客識別子                                                    |
+| BillingCycle       | string           |    Y     | パートナーがこの注文に対して課金される頻度を示します。 サポートされる値は、[BillingCycleType](product-resources.md#billingcycletype) で検出されたメンバー名です。 |
+| LineItems          | オブジェクトの配列 |    Y     | [Orderlineitem](#orderlineitem)リソースの配列                      |
+| CreationDate       | DATETIME         |    N     | 注文が作成された日付 (日付/時刻形式)                        |
+| 属性         | Object           |    N     | "ObjectType": "OrderLineItem" が含まれています。                                     |
 
-## <a name="orderlineitem"></a>OrderLineItem
+### <a name="orderlineitem"></a>OrderLineItem
 
-| プロパティ             | 種類   | 必須 | 説明                                                                        |
+| プロパティ             | Type   | 必須 | 説明                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
-| lineItemNumber       | number |    Y     | 0から始まる行項目番号。                                              |
+| LineItemNumber       | number |    Y     | 0から始まる行項目番号。                                              |
 | OfferId              | string |    Y     | プランの ID                                                                |
 | SubscriptionId       | string |    Y     | サブスクリプションの ID                                                         |
 | FriendlyName         | string |    N     | 明確に区別するためにパートナーによって定義されたサブスクリプションのフレンドリ名 |
-| 数量             | number |    Y     | ライセンスまたはインスタンスの数                                                |
-| partnerIdOnRecord    | string |    N     | レコードのパートナーの MPN ID                                                |
-| 属性           | オブジェクト |    N     | "ObjectType": "OrderLineItem" が含まれています。                                             |
+| Quantity             | number |    Y     | ライセンスまたはインスタンスの数                                                |
+| PartnerIdOnRecord    | string |    N     | レコードのパートナーの MPN ID                                                |
+| 属性           | Object |    N     | "ObjectType": "OrderLineItem" が含まれています。                                             |
 
 ### <a name="request-example"></a>要求の例
 

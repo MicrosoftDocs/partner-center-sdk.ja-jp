@@ -1,30 +1,31 @@
 ---
-title: 商用 marketplace サブスクリプションをキャンセルする
+title: 商用マーケットプレース サブスクリプションをキャンセルする
 description: 顧客とサブスクリプション ID に一致する商用 marketplace サブスクリプションリソースをキャンセルします。
-ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ccca3d2e0ef9a57acc59400cc2fc46ed1910fc4e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 19f1cdc2241c4c9c33343700ed71fbec32c35d9f
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413105"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154734"
 ---
-# <a name="cancel-a-commercial-marketplace-subscription"></a>商用 marketplace サブスクリプションをキャンセルする
+# <a name="cancel-a-commercial-marketplace-subscription"></a>商用マーケットプレース サブスクリプションをキャンセルする
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 顧客とサブスクリプション ID に一致する商用 marketplace[サブスクリプション](subscription-resources.md)リソースを取り消すことができます。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客 ID (**顧客-テナント id**)。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - サブスクリプション ID。
 
 ## <a name="partner-center-dashboard-method"></a>パートナーセンターのダッシュボードの方法
@@ -32,18 +33,24 @@ ms.locfileid: "80413105"
 パートナーセンターのダッシュボードで商用 marketplace のサブスクリプションを取り消すには、次のようにします。
 
 1. [顧客を選択](get-a-customer-by-name.md)します。
-2. 取り消したいサブスクリプションを選択します。
-3. **[サブスクリプションの取り消し]** オプションを選択し、 **[送信]** を選択します。
 
-## <a name="c"></a>C#
+2. 取り消したいサブスクリプションを選択します。
+
+3. [**サブスクリプションの取り消し**] オプションを選択し、[**送信**] を選択します。
+
+## <a name="c"></a>C\#
 
 顧客のサブスクリプションを取り消すには、次のようにします。
 
 1. [ID でサブスクリプションを取得](get-a-subscription-by-id.md)します。
-2. サブスクリプションの[**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)プロパティを変更します。 **状態**コードの詳細については、「 [subscriptionstatus 列挙型](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)」を参照してください。
-3. 変更が行われた後、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。
-4. [**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)のプロパティを呼び出し、その後に[**ById ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。
-5. **Patch ()** メソッドを呼び出します。
+
+2. サブスクリプションの[**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)プロパティを変更します。 **Status** コードについては、「[SubscriptionStatus enumeration (SubscriptionStatus 列挙型)](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)」を参照してください。
+
+3. 変更が行われたら、 **`IAggregatePartner.Customers`** コレクションを使用し、 **ById ()** メソッドを呼び出します。
+
+4. [**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)のプロパティを呼び出し、その後に[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。
+
+5. **Patch()** メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -62,26 +69,26 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド    | 要求 URI                                                                                                                |
+| 認証方法    | 要求 URI                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **KB830347** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次の表に、サブスクリプションを中断するために必要なクエリパラメーターを示します。
 
-| Name                    | 種類     | 必須 | 説明                               |
+| 名前                    | Type     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **顧客-テナント id**  | **guid** | Y        | 顧客に対応する GUID。     |
-| **id-サブスクリプション** | **guid** | Y        | サブスクリプションに対応する GUID。 |
+| **customer-tenant-id**  | **guid** | Y        | 顧客に対応する GUID。     |
+| **id-for-subscription** | **guid** | Y        | サブスクリプションに対応する GUID。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-- 詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-要求本文には、完全な**サブスクリプション**リソースが必要です。 **Status**プロパティが更新されていることを確認します。
+要求本文には完全な **Subscription** リソースが必要です。 **Status**プロパティが更新されていることを確認します。
 
 ### <a name="request-example"></a>要求の例
 

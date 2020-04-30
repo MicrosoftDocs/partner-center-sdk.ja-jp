@@ -1,33 +1,35 @@
 ---
-title: ユーザーに割り当てられているライセンスを取得する
+title: ユーザーに割り当てられたライセンスを取得する
 description: 顧客アカウント内のユーザーに割り当てられているライセンスの一覧を取得します。
 ms.assetid: 87DC74A1-92E2-4639-BC4C-168A677F5F52
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c51a7b2bb03d21ed1a83c1773267772042d56e63
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 28bc8cb341784d36be9113fd4b43a788cecae9a5
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412890"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154484"
 ---
-# <a name="get-licenses-assigned-to-a-user"></a>ユーザーに割り当てられているライセンスを取得する
+# <a name="get-licenses-assigned-to-a-user"></a>ユーザーに割り当てられたライセンスを取得する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 顧客アカウント内のユーザーに割り当てられたライセンスの一覧を取得する方法。 次に示す例では、group1 から割り当てられたライセンスが返されます。これは、Azure Active Directory によって管理されるライセンスを表す既定のライセンスグループです。 指定したライセンスグループから割り当てられたライセンスを取得するには、「[ライセンスグループ別にユーザーに割り当てられたライセンスを取得](get-licenses-assigned-to-a-user-by-license-group.md)する」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客識別子。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - ユーザー識別子。
 
-## <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 既定の group1 ライセンスグループからユーザーに割り当てられているライセンスを確認するには、まず、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、ユーザー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出し、ユーザーを識別します。 次に、[[**ライセンス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses)] プロパティから顧客のユーザーライセンス操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync)メソッドを呼び出して、ユーザーに割り当てられているライセンスのコレクションを取得します。
 
@@ -45,26 +47,26 @@ var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCust
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド  | 要求 URI                                                                                              |
+| 認証方法  | 要求 URI                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客とユーザーを識別します。
 
-| Name        | 種類   | 必須 | 説明                                           |
+| 名前        | Type   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
-| ユーザー id     | string | はい      | ユーザーを識別する GUID 形式の文字列。     |
+| customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| user-id     | string | はい      | ユーザーを識別する GUID 形式の文字列。     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし]。
+なし。
 
 ### <a name="request-example"></a>要求の例
 

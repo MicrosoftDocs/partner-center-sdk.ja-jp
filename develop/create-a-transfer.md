@@ -5,84 +5,82 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f113fd1cf43f26d01e74ea337079d9ac1c9f1fd3
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: e77711f2bda6d4e5af536ed2658df63241462c31
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220758"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154814"
 ---
 # <a name="create-a-transfer"></a>転送を作成する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                                                 |
+| 認証方法   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers HTTP/1.1                    |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers HTTP/1.1                    |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-顧客を識別するには、次のパスパラメーターを使用します。
+次のパス パラメーターを使用して顧客を指定します。
 
-| Name            | 種類     | 必須 | 説明                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文の[Transferentity](transfer-entity-resources.md)プロパティについて説明します。
 
-| プロパティ              | 種類          | 必須  | 説明                                                                                |
+| プロパティ              | Type          | 必須  | 説明                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
 | id                    | string        | いいえ    | TransferEntity が正常に作成されたときに提供される transferEntity 識別子。                               |
 | createdTime           | DateTime      | いいえ    | TransferEntity が作成された日付 (日付/時刻形式)。 TransferEntity の作成が正常に完了したときに適用されます。      |
 | lastModifiedTime      | DateTime      | いいえ    | TransferEntity が最後に更新された日付 (日付/時刻形式)。 TransferEntity の作成が正常に完了したときに適用されます。 |
 | lastModifiedUser      | string        | いいえ    | TransferEntity を最後に更新したユーザー。 TransferEntity の作成が正常に完了したときに適用されます。                          |
-| customerName          | string        | いいえ    | 省略可。 サブスクリプションを転送する顧客の名前。                                              |
+| customerName          | string        | いいえ    | 省略可能。 サブスクリプションを転送する顧客の名前。                                              |
 | 顧客 Tenantid      | string        | いいえ    | 顧客を識別する GUID 形式の顧客 id。 TransferEntity の作成が正常に完了したときに適用されます。         |
 | partnertenantid       | string        | いいえ    | パートナーを識別する GUID 形式のパートナー id。                                                                   |
-| sourcePartnerName     | string        | いいえ    | 省略可。 譲渡を開始するパートナー組織の名前。                                           |
+| sourcePartnerName     | string        | いいえ    | 省略可能。 譲渡を開始するパートナー組織の名前。                                           |
 | sourcePartnerTenantId | string        | はい   | 転送を開始するパートナーを識別する GUID 形式のパートナー id。                                           |
-| targetPartnerName     | string        | いいえ    | 省略可。 譲渡の対象となるパートナーの組織の名前。                                         |
+| targetPartnerName     | string        | いいえ    | 省略可能。 譲渡の対象となるパートナーの組織の名前。                                         |
 | targetPartnerTenantId | string        | はい   | 転送の対象となるパートナーを識別する GUID 形式のパートナー id。                                  |
 | lineItems             | オブジェクトの配列 | はい| [Transferlineitem](transfer-entity-resources.md#transferlineitem)リソースの配列。                                   |
-| 状態                | string        | いいえ    | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
+| status                | string        | いいえ    | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
 
 次の表では、要求本文の[Transferlineitem](transfer-entity-resources.md#transferlineitem)プロパティについて説明します。
 
-|      プロパティ       |            種類             | 必須 | 説明                                                                                     |
+|      プロパティ       |            Type             | 必須 | 説明                                                                                     |
 |---------------------|-----------------------------|----------|-------------------------------------------------------------------------------------------------|
 | id                   | string                     | いいえ       | 転送明細項目の一意の識別子。 TransferEntity の作成が正常に完了したときに適用されます。|
-| subscriptionId       | string                     | はい      | サブスクリプション識別子。                                                                         |
-| quantity             | int                        | いいえ       | ライセンスまたはインスタンスの数。                                                                 |
-| 周期サイクル         | オブジェクト                     | いいえ       | 現在の期間に設定されている請求サイクルの種類。                                                |
-| friendlyName         | string                     | いいえ       | 省略可。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                |
+| subscriptionId       | string                     | はい      | サブスクリプションの識別子です。                                                                         |
+| 数量             | INT                        | いいえ       | ライセンスまたはインスタンスの数。                                                                 |
+| billingCycle         | Object                     | いいえ       | 現在の期間に設定されている請求サイクルの種類。                                                |
+| friendlyName         | string                     | いいえ       | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                |
 | partnerIdOnRecord    | string                     | いいえ       | 転送が受け入れられたときに発生する、購入時の PartnerId (MPNID)。              |
-| offerId              | string                     | いいえ       | プランの識別子。                                                                                |
+| offerId              | string                     | いいえ       | プラン ID。                                                                                |
 | addonItems           | **Transferlineitem**オブジェクトの一覧 | いいえ | 転送されるベースサブスクリプションと共に転送されるアドオンの transferEntity 行項目のコレクション。 TransferEntity の作成が正常に完了したときに適用されます。|
 | transferError        | string                     | いいえ       | エラーが発生した場合に transferEntity が受け入れられた後に適用されます。                                        |
-| 状態               | string                     | いいえ       | TransferEntity 内の lineitem の状態。                                                    |
-
-
+| status               | string                     | いいえ       | TransferEntity 内の lineitem の状態。                                                    |
 
 ### <a name="request-example"></a>要求の例
 

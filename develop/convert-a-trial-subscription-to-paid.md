@@ -1,31 +1,34 @@
 ---
-title: 試用版サブスクリプションを有料に変換する
+title: 試用版サブスクリプションを有料版に変換する
 description: 試用版のサブスクリプションを有料のサブスクリプションに変換する方法。
 ms.assetid: 06EB96D7-6260-47E0-ACAE-07D4213BEBB7
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d41fa94a78d49a6537834ddaf9d4c62c54d8f911
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 3bf468dd7f4a38d711cef41b3560fa2c82065e14
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413560"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154954"
 ---
-# <a name="convert-a-trial-subscription-to-paid"></a>試用版サブスクリプションを有料に変換する
+# <a name="convert-a-trial-subscription-to-paid"></a>試用版サブスクリプションを有料版に変換する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 試用版のサブスクリプションを有料に変換することができます。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客識別子。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - アクティブな試用版サブスクリプションのサブスクリプション ID。
+
 - 使用可能な変換プラン。
 
 ## <a name="convert-a-trial-subscription-to-paid-through-code"></a>試用版サブスクリプションをコードによって有料に変換する
@@ -74,12 +77,16 @@ ms.locfileid: "80413560"
 試用版のサブスクリプションを有料のサブスクリプションに変換するには、次のようにします。
 
 1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用し、顧客を識別します。
+
 2. 試用版サブスクリプション ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 サブスクリプション操作インターフェイスへの参照をローカル変数に保存します。
+
 3. 変換に対して使用可能な操作へのインターフェイスを取得し、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync)メソッドを呼び出して、使用可能な[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion)の提供のコレクションを取得するには、[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)プロパティを使用します。 1つを選択する必要があります。 次の例では、使用可能な最初の変換が既定値に設定されています。
+
 4. ローカル変数に保存したサブスクリプション操作インターフェイスへの参照と[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)プロパティを使用して、変換で使用可能な操作へのインターフェイスを取得します。
+
 5. 選択した変換オファーオブジェクトを[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync)メソッドに渡して、試用変換を試行します。
 
-### <a name="c-example"></a>C#よう
+### <a name="c-example"></a>C\#の例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -112,22 +119,22 @@ else
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                                                                 |
+| 認証方法   | 要求 URI                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客と試用版のサブスクリプションを識別します。
 
-| Name            | 種類   | 必須 | 説明                                                     |
+| 名前            | Type   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| 顧客 id     | string | はい      | 顧客を識別する GUID 形式の文字列。           |
-| サブスクリプション id | string | はい      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
+| customer-id     | string | はい      | 顧客を識別する GUID 形式の文字列。           |
+| subscription-id | string | はい      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
@@ -159,7 +166,7 @@ Expect: 100-continue
 }
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、応答本文には[ConversionResult](conversions-resources.md#conversionresult)リソースが含まれます。
 

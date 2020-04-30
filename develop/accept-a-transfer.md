@@ -5,49 +5,50 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 714c3d76e84d1076335ca4578d19052f8f0fc5e7
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: 400f33139d8b9260a82c631f897ccadc8a39bebe
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220788"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154364"
 ---
 # <a name="accept-a-transfer"></a>譲渡を受け入れる
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 既存の転送の転送識別子。
 
 ## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                                                 |
+| 認証方法   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id}/accept HTTP/1.1                    |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id}/accept HTTP/1.1                    |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
 次の path パラメーターを使用して顧客を特定し、受け入れる転送を指定します。
 
-| Name            | 種類     | 必須 | 説明                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 | **転送 id** | string   | はい      | 転送を識別する GUID 形式の転送 id。             |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-example"></a>要求の例
 
@@ -101,7 +102,6 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
           "quantity": 1,
           "partnerIdOnRecord": "5139005",
           "links": {
-            
           }
         }
       ],
@@ -112,16 +112,12 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
         "self": {
           "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/orders/21b92393-ffce-4bc7-87c5-62cfa897d8f9",
           "method": "GET",
-          "headers": [
-            
-          ]
+          "headers": [ ]
         },
         "patchOperation": {
           "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/orders/21b92393-ffce-4bc7-87c5-62cfa897d8f9",
           "method": "PATCH",
-          "headers": [
-            
-          ]
+          "headers": [ ]
         }
       },
       "attributes": {
@@ -145,7 +141,6 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
           "quantity": 1,
           "partnerIdOnRecord": "5139005",
           "links": {
-            
           }
         }
       ],
@@ -156,16 +151,12 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
         "self": {
           "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/orders/7414b8ea-c167-4cc4-bc8e-b43efc177a46",
           "method": "GET",
-          "headers": [
-            
-          ]
+          "headers": [ ]
         },
         "patchOperation": {
           "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/orders/7414b8ea-c167-4cc4-bc8e-b43efc177a46",
           "method": "PATCH",
-          "headers": [
-            
-          ]
+          "headers": [ ]
         }
       },
       "attributes": {
@@ -186,9 +177,7 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
           "friendlyName": "Project Online Essentials",
           "quantity": 1,
           "transferGroupId": "1",
-          "addonItems": [
-            
-          ],
+          "addonItems": [ ],
           "partnerIdOnRecord": "5139005",
           "billingCycle": "annual",
           "sourceSubscriptionId": "637FF8F6-D842-4573-8DA8-89765356CD1A"

@@ -1,41 +1,46 @@
 ---
-title: アドオンを含むカートを作成する
+title: アドオンを扱うカートを作成する
 description: カート内の顧客のアドオンを含む注文を追加する方法。
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 99556ccb26dfe8ce8a43e62bc4a24ea5e7760ef0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: eb5177b9263f8a21aec20fa5e4a3b4970f4525f7
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413527"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154974"
 ---
-# <a name="create-a-cart-with-add-ons"></a>アドオンを含むカートを作成する
+# <a name="create-a-cart-with-add-ons"></a>アドオンを扱うカートを作成する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 カートを通じてアドオンを購入できます。 現在販売可能なものの詳細については、 [Cloud Solution Provider プログラムのパートナープランに](https://docs.microsoft.com/partner-center/csp-offers)関する情報を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。 顧客の ID を持っていない場合は、[顧客] リストから顧客を選択し、[アカウント] を選択して、Microsoft ID を保存することで、パートナーセンターで ID を検索できます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
 カートでは、基本プランとそれに対応するアドオンを購入できます。 カートを作成するには、次の手順に従います。
 
 1. [**カート**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart)オブジェクトをインスタンス化します。
+
 2. 基本プランを表す[**CartLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem)オブジェクトの一覧を作成し、そのリストをカートの[**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems)プロパティに割り当てます。
+
 3. 各基本プランのカート明細項目の下で、 **AddOnItems**の一覧に、その基本プランに対して購入されるアドオンを表す他の**CartLineItem**オブジェクトを入力します。
+
 4. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)を使用して買い物かご操作へのインターフェイスを取得し、顧客 ID を指定して[**ICustomerCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出して顧客を識別し、**買い物かご**プロパティからインターフェイスを取得します。
+
 5. 最後に、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync)メソッドを呼び出してカートを作成します。
 
-### <a name="c-example"></a>C\# の例
+### <a name="c-example"></a>C\#の例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -79,6 +84,7 @@ var createdCart = partnerOperations.Customers.ById(customerId).Carts.Create(cart
 次の手順に従ってカートを作成します。これにより、既存の基本サブスクリプションに対してアドオンを購入できます。
 
 1. キー "ParentSubscriptionId" を使用して、 **ProvisioningContext**プロパティにサブスクリプション ID を含む新しい**CartLineItem**を使用して**カート**を作成します。
+
 2. **Create**メソッドまたは**createasync**メソッドを呼び出します。
 
 ```csharp
@@ -112,27 +118,27 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                                                 |
+| 認証方法   | 要求 URI                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-顧客を識別するには、次のパスパラメーターを使用します。
+次のパス パラメーターを使用して顧客を指定します。
 
-| Name            | 種類     | 必須 | 説明                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文に含まれる[カート](cart-resources.md)のプロパティについて説明します。
 
-| プロパティ              | 種類             | 必須        | 説明 |
+| プロパティ              | Type             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | id                    | string           | いいえ              | カートが正常に作成されたときに提供されるカート識別子。                                  |
 | 前のタイムスタンプ     | DateTime         | いいえ              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。         |
@@ -143,19 +149,19 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
 
-| プロパティ             | 種類                             | 説明                                                                                                                                           |
+| プロパティ             | Type                             | 説明                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                   | string                           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                                   |
 | catalogId            | string                           | カタログ項目の識別子。                                                                                                                          |
-| friendlyName         | string                           | 省略可。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
-| quantity             | int                              | ライセンスまたはインスタンスの数。                                                                                                                  |
+| friendlyName         | string                           | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                                 |
+| 数量             | INT                              | ライセンスまたはインスタンスの数。                                                                                                                  |
 | currencyCode         | string                           | 通貨コード。                                                                                                                                    |
-| 周期サイクル         | オブジェクト                           | 現在の期間に設定されている請求サイクルの種類。                                                                                                 |
+| billingCycle         | Object                           | 現在の期間に設定されている請求サイクルの種類。                                                                                                 |
 | participants         | オブジェクトの文字列ペアの一覧      | 購入時のレコードの PartnerId (MPNID) のコレクション。                                                                                          |
-| provisioningContext  | Dictionary < string、string >       | プランのプロビジョニングに使用されるコンテキスト。                                                                                                             |
+| provisioningContext  | Dictionary<string、string>       | プランのプロビジョニングに使用されるコンテキスト。                                                                                                             |
 | orderGroup           | string                           | 一緒に配置できる項目を示すグループ。                                                                                               |
 | addonItems           | **CartLineItem**オブジェクトの一覧 | 親のカートの品目の購入から得られる基本サブスクリプションに対して購入されるアドオンのカート品目のコレクション。 |
-| エラー                | オブジェクト                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
+| error                | Object                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>要求の例 (新しい基本サブスクリプション)
 
@@ -219,7 +225,7 @@ MS-CorrelationId: 182474ba-7303-4d0f-870a-8c7fba5ccc4b
 }
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは、応答本文で設定された[カート](cart-resources.md)リソースを返します。
 

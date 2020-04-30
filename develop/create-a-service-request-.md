@@ -1,23 +1,23 @@
 ---
-title: サービス リクエストを作成します
+title: サービス要求を作成する
 description: パートナーセンターのサービス要求を作成する方法。
 ms.assetid: 16DA9836-7052-4103-82D4-933E5EEB7E71
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e2060beb7b276e76c29e7bc92e0543aa41a703b1
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0421d11b5a284f6537136d4e75672e73169c50e1
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413853"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154874"
 ---
-# <a name="create-a-service-request"></a>サービス リクエストを作成します
+# <a name="create-a-service-request"></a>サービス要求を作成する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -25,7 +25,8 @@ ms.locfileid: "80413853"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
 - サポートトピック ID。 サポートトピック ID がない場合は、「[サービス要求のサポートトピックを取得](get-service-request-support-topics--pending-.md)する」を参照してください。
 
 ## <a name="c"></a>C\#
@@ -33,9 +34,10 @@ ms.locfileid: "80413853"
 サービス要求を作成するには:
 
 1. タイトル、説明、重大度、サポートトピック id を使用して、 [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)オブジェクトを作成し、設定します。追加情報を追加するために、 [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)オブジェクトはオプションの[**メモ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.notes)のコレクションをサポートしていますが、アップロードするファイルへのリンクはサポートしていません。
+
 2. オブジェクトが作成されたら、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.ipartnerservicerequestcollection.create)メソッドを呼び出し、新しく作成された ServiceRequest オブジェクトと、サービス要求を作成した組織のロケール (エージェントのロケール) を含む文字列を渡します。
 
-### <a name="c-example"></a>C\# の例
+### <a name="c-example"></a>C\#の例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -58,37 +60,37 @@ ServiceRequest serviceRequest = partnerOperations.ServiceRequests.Create(service
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                            |
+| 認証方法   | 要求 URI                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{agent-locale} HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{agent-locale} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 次の URI パラメーターを使用して、エージェントのロケールを識別します。
 
-| Name             | 種類       | 必須 | 説明                                                  |
+| 名前             | Type       | 必須 | 説明                                                  |
 |------------------|------------|----------|--------------------------------------------------------------|
-| **エージェント-ロケール** | **文字列** | Y        | サービス要求を作成する組織のロケール。 |
+| **エージェント-ロケール** | **string** | Y        | サービス要求を作成する組織のロケール。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
 次の表では、要求本文の必須プロパティと省略可能なプロパティについて説明します。
 
-| Name             | 種類                                                                        | 必須 | 説明                                                                          |
+| 名前             | Type                                                                        | 必須 | 説明                                                                          |
 |------------------|-----------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
 | タイトル            | string                                                                      | Y        | サービス要求のタイトル。                                                           |
-| 説明      | string                                                                      | Y        | 説明。                                                                     |
-| Severity         | string                                                                      | Y        | 重大度: "unknown"、"critical"、"中"、または "最小"。                       |
+| 説明      | string                                                                      | Y        | 説明です。                                                                     |
+| 重大度         | string                                                                      | Y        | 重大度: "unknown"、"critical"、"中"、または "最小"。                       |
 | サポートトピック Id   | string                                                                      | Y        | サポートトピックの id。                                                         |
 | サポートトピック名 | string                                                                      | N        | サポートトピックの名前。                                                       |
 | Id               | string                                                                      | N        | サービス要求の id。                                                       |
-| 状態           | string                                                                      | N        | サービス要求の状態: "none"、"open"、"closed"、または "attention\_が必要"。 |
-| 組織     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | サービス要求が作成される組織。                               |
-| primaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | サービスリクエストに関する主要連絡先。                                              |
+| Status           | string                                                                      | N        | サービス要求の状態: "none"、"open"、"closed"、または "attention\_必要"。 |
+| Organization     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | サービス要求が作成される組織。                               |
+| PrimaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | サービスリクエストに関する主要連絡先。                                              |
 | LastUpdatedBy    | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | サービスリクエストの変更については、"最終更新者" に問い合わせます。                        |
 | ProductName      | string                                                                      | N        | サービス要求に対応する製品の名前。                     |
 | ProductId        | string                                                                      | N        | 製品の id。                                                               |
@@ -97,7 +99,7 @@ ServiceRequest serviceRequest = partnerOperations.ServiceRequests.Create(service
 | LastClosedDate   | date                                                                        | N        | サービス要求が最後に閉じられた日付。                                   |
 | FileLinks        | [FileInfo](utility-resources.md#fileinfo)リソースの配列               | N        | サービス要求に関連するファイルリンクのコレクション。                    |
 | NewNote          | [ServiceRequestNote](service-request-resources.md#servicerequestnote)                 | N        | 既存のサービス要求にメモを追加できます。                                  |
-| 説明            | [ServiceRequestNotes](service-request-resources.md#servicerequestnote)の配列       | N        | サービス要求に追加されるメモのコレクション。                                  |
+| Notes            | [ServiceRequestNotes](service-request-resources.md#servicerequestnote)の配列       | N        | サービス要求に追加されるメモのコレクション。                                  |
 | CountryCode      | string                                                                      | N        | サービス要求に対応する国。                                    |
 | 属性       | object                                                                      | N        | "ObjectType": "ServiceRequest" が含まれています。                                             |
 

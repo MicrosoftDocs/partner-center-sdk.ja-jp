@@ -1,71 +1,76 @@
 ---
-title: 商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化する
+title: 商用マーケットプレース製品のサンドボックス サブスクリプションをアクティブ化する
 description: 商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化します。
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e4641f5a623a1c3cf42634b409d4c2c0514cc0c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cee833f110c45e8f53a47aed3d8a8c3b1ccd6946
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412477"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154374"
 ---
-# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>商用 marketplace 製品のサンドボックスサブスクリプションをアクティブ化する
+# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>商用マーケットプレース製品のサンドボックス サブスクリプションをアクティブ化する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 統合サンドボックスアカウントから、商用 marketplace のサービスとしてのソフトウェア (SaaS) 製品のサブスクリプションをアクティブ化して課金を有効にする方法について説明します。
 
->[!NOTE]
->統合サンドボックスアカウントから、商用 marketplace の SaaS 製品のサブスクリプションをアクティブ化することのみが可能です。 運用環境のサブスクリプションがある場合は、発行元のサイトにアクセスしてセットアッププロセスを完了する必要があります。 サブスクリプションの課金は、セットアップの完了後にのみ開始されます。
+> [!NOTE]
+> 統合サンドボックスアカウントから、商用 marketplace の SaaS 製品のサブスクリプションをアクティブ化することのみが可能です。 運用環境のサブスクリプションがある場合は、発行元のサイトにアクセスしてセットアッププロセスを完了する必要があります。 サブスクリプションの課金は、セットアップの完了後にのみ開始されます。
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
+
 - 統合サンドボックスパートナーアカウント。お客様は、商用 marketplace SaaS 製品のアクティブなサブスクリプションを持っています。
+
 - パートナーセンター .NET SDK を使用しているパートナーの場合、この機能にアクセスするには、SDK バージョン1.14.0 以上を使用する必要があります。
 
-## <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 次の手順を使用して、商用 marketplace SaaS 製品のサブスクリプションをアクティブ化します。
 
 1. 使用可能なサブスクリプション操作へのインターフェイスを作成します。 顧客を特定し、試用版サブスクリプションのサブスクリプション識別子を指定する必要があります。
 
-    ``` csharp
-    var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
+   ```csharp
+   var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
+   ```
 
-2. Activate the subscription using the **Activate** operation.
+2. **アクティブ化**操作を使用してサブスクリプションをアクティブ化します。
 
-    ``` csharp
-    var subscriptionActivationResult = subscriptionOperations.Activate();
-## REST request
+   ```csharp
+   var subscriptionActivationResult = subscriptionOperations.Activate();
+   ```
 
-### Request syntax
+## <a name="rest-request"></a>REST 要求
 
-| Method     | Request URI                                                                            |
+### <a name="request-syntax"></a>要求の構文
+
+| 認証方法     | 要求 URI                                                                            |
 |------------|----------------------------------------------------------------------------------------|
 | **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/activate HTTP/1.1 |
 
-### URI parameter
+### <a name="uri-parameter"></a>URI パラメーター
 
-| Name                   | Type     | Required | Description                                                                                                                                            |
+| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y | The value is a GUID-formatted customer tenant identifier (**customer-tenant-id**), which allows you to specify a customer. |
-| **subscription-id** | **guid** | Y | The value is a GUID-formatted subscription identifier (**subscription-id**), which allows you to specify a subscription. |
+| **customer-tenant-id** | **guid** | Y | 値は、GUID 形式の顧客テナント識別子 (**顧客テナント id**) です。これにより、顧客を指定できます。 |
+| **サブスクリプション id** | **guid** | Y | 値は、GUID 形式のサブスクリプション識別子 (**サブスクリプション id**) で、サブスクリプションを指定できます。 |
 
-### Request headers
+### <a name="request-headers"></a>要求ヘッダー
 
-See [Partner Center REST headers](headers.md) for more information.
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
-### Request body
+### <a name="request-body"></a>[要求本文]
 
-None.
+なし。
 
-### Request example
+### <a name="request-example"></a>要求の例
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/42b5f772-5c5c-4bce-b9d7-bdadeecca411/subscriptions/87363db7-39ab-dd25-d371-94340aaa2f97/activate HTTP/1.1

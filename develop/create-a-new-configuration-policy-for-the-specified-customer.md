@@ -1,23 +1,23 @@
 ---
-title: 指定された顧客の新しい構成ポリシーを作成します
+title: 指定された顧客の新しい構成ポリシーを作成する
 description: 指定された顧客の新しい構成ポリシーを作成する方法。
 ms.assetid: 95649991-A950-4F43-87E8-3EB1E7D06FCD
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 101f9cda9d46e7dbd54cbef33b3191953c577503
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: a18335087d23a26b698d3e3ee18090349650dead
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413762"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154864"
 ---
-# <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>指定された顧客の新しい構成ポリシーを作成します
+# <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>指定された顧客の新しい構成ポリシーを作成する
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 
 指定された顧客の新しい構成ポリシーを作成する方法。
@@ -25,17 +25,20 @@ ms.locfileid: "80413762"
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
-- 顧客識別子。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
 指定された顧客の新しい構成ポリシーを作成するには、次のようにします。
 
 1. 次のコードスニペットに示すように、新しい[**Configurationpolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy)オブジェクトをインスタンス化します。 次に、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+
 2. 構成ポリシーのコレクション操作へのインターフェイスを取得するには、 [**Configurationpolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies)プロパティを取得します。
+
 3. 構成ポリシーを作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)メソッドを呼び出します。
 
-### <a name="c-example"></a>C\# の例
+### <a name="c-example"></a>C\#の例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -60,27 +63,27 @@ var createdConfigurationPolicy =
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                              |
+| 認証方法   | 要求 URI                                                                              |
 |----------|------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| Name        | 種類   | 必須 | 説明                                           |
+| 名前        | Type   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| 顧客 id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
+| customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
 要求本文には、次の表に示すように、構成ポリシー情報を持つオブジェクトが含まれている必要があります。
 
-| Name           | 種類             | 必須 | 説明                      |
+| 名前           | Type             | 必須 | 説明                      |
 |----------------|------------------|----------|----------------------------------|
 | name           | string           | はい      | ポリシーのフレンドリ名。 |
 | category       | string           | はい      | ポリシーカテゴリ。             |

@@ -6,66 +6,60 @@ ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 80afa2b8c0e9c4ad6c8c5ef68b78e9706abb04ed
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 28382b24c6956f9d5b95310ae0d21769207dcb48
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416246"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82125593"
 ---
 # <a name="entitlement-resources"></a>権利リソース
 
-
 **適用対象**
 
-- Partner Center
+- パートナー センター
 - 21Vianet が運営するパートナー センター
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
+## <a name="entitlement"></a>Entitlement
 
-## <a name="span-identitlementspan-identitlementspan-identitlemententitlement"></a><span id="Entitlement"/><span id="entitlement"/><span id="ENTITLEMENT"/>権利
+このリソースは、顧客がカタログから商品を購入した場合に使用する権利を持つ製品を表します。
 
-
-このリソースは、顧客がカタログから商品を購入した場合に使用する権利を持つ製品を表します。 
-
-| プロパティ | 種類 | 説明 |
+| プロパティ | Type | 説明 |
 |----------|------|-------------|
-| referenceOrder | [ReferenceOrder](#referenceorder) | 資格が得られた注文参照。 |
+| referenceOrder | [ReferenceOrder](#referenceorder) | 権利の原因となった注文参照。 |
 | productId | string | 製品の ID。 |
 | skuID | string | SKU の ID。 |
-| quantity | int | 権利の数量 (満たされ/転送される権利を除く)。 |
-| quantityDetails | IEnumerable <[QuantityDetail](#quantitydetail)> | 権利の数量の詳細 (各数量の項目と状態の数) の一覧。 |
+| 数量 | INT | 権利の数量 (満たされ/転送される権利を除く)。 |
+| quantityDetails | IEnumerable<[QuantityDetail](#quantitydetail)> | 権利の数量の詳細 (各数量の項目と状態の数) の一覧。 |
 | entitlementType | string | 権利の種類。 (SDK 1.8 で[EntitlementType](#entitlementtype)から文字列に更新されました)。 |
-| entitledArtifacts | IEnumerable <[成果物](#artifact)> | 権利に関連付けられている成果物の一覧。 |
-| IncludedEntitlements | IEnumerable < の[権利](#artifact)> | カタログから ProductId/SkuId を購入した結果として暗黙的に含まれる権利の一覧。 |
+| entitledArtifacts | IEnumerable<[成果物](#artifact)> | 権利に関連付けられている成果物の一覧。 |
+| IncludedEntitlements | IEnumerable<の[権利](#artifact)> | 資格の一覧。カタログから ProductId/SkuId を購入した結果として暗黙的に含まれます。 |
 | ExpiryDate | UTC 日時形式の文字列  | 権利の有効期限 (該当する場合)。 |
 
+## <a name="referenceorder"></a>ReferenceOrder
 
-## <a name="span-idreferenceorderspan-idreferenceorderspan-idreferenceorderreferenceorder"></a><span id="ReferenceOrder"/><span id="referenceorder"/><span id="REFERENCEORDER"/>ReferenceOrder
+権利の注文参照。
 
-権利の注文参照。 
-
-| プロパティ | 種類 | 説明 |
+| プロパティ | Type | 説明 |
 |----------|------|-------------|
 | id | string | 参照される順序の ID。 |
 | lineItemId | string | 参照される注文品目の ID。 |
-| 代替 id | string | 参照される注文品目の代替 ID。 |
+| alternateId | string | 参照される注文品目の代替 ID。 |
 
-
-## <a name="span-idquantitydetailspan-idquantitydetailspan-idquantitydetailquantitydetail"></a><span id="QuantityDetail"/><span id="quantitydetail"/><span id="QUANTITYDETAIL"/>QuantityDetail
+## <a name="quantitydetail"></a>QuantityDetail
 
 権利の数量の詳細を表します。
 
-| プロパティ | 種類 | 説明 |
+| プロパティ | Type | 説明 |
 |----------|------|-------------|
-| quantity | int | 項目の数 |
-| 状態 | string | 数量の状態。 |
+| 数量 | INT | 項目数。 |
+| status | string | 数量の状態。 |
 
+## <a name="entitlementtype"></a>EntitlementType
 
-## <a name="span-identitlementtypespan-identitlementtypespan-identitlementtypeentitlementtype"></a><span id="EntitlementType"/><span id="entitlementtype"/><span id="ENTITLEMENTTYPE"/>EntitlementType
-
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > SDK version 1.9 で非推奨
 
 権利の種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)型。
@@ -75,20 +69,18 @@ ms.locfileid: "80416246"
 | ソフトウェア | ソフトウェアに関連する権利の種類を示します。 |
 | VirtualMachineReservedInstance | Azure Reserved Virtual Machine Instances に関連する権利の種類を示します。 |
 
+## <a name="artifact"></a>アーティファクト
 
-## <a name="span-idartifactspan-idartifactspan-idartifactartifact"></a><span id="Artifact"/><span id="artifact"/><span id="ARTIFACT"/>成果物
+権利に関連付けられている成果物。
 
-権利に関連付けられている成果物。  
-
-| プロパティ | 種類 | 説明 |
+| プロパティ | Type | 説明 |
 |----------|------|-------------|
 | artifactType | string | 成果物の種類。 (SDK Version 1.8 では[Artifacttype](#artifacttype)から文字列に更新) |
-| dynamicAttributes | Dictionary&lt;string、object&gt; | Artifacttype 固有の値を含む動的属性。 たとえば、artifactType = "reservedinstance" の場合、これには "reservationType" = "virtualmachines" または "reservationType" = "sqldatabases" が含まれます。これは、仮想マシンの予約インスタンスまたは Azure SQL の予約済みインスタンスを示します。 (SDK v1.0 以降で利用可能) |
+| dynamicAttributes | ディクショナリ&lt;文字列、オブジェクト&gt; | Artifacttype 固有の値を含む動的属性。 たとえば、artifactType = "reservedinstance" の場合、このプロパティには、仮想マシンの予約インスタンスまたは Azure SQL 予約インスタンスを示す "reservationType" = "virtualmachines" または "reservationType" = "sqldatabases" が含まれます。 (SDK v1.0 以降で利用可能) |
 
+## <a name="artifacttype"></a>ArtifactType
 
-## <a name="span-idartifacttypespan-idartifacttypespan-idartifacttypeartifacttype"></a><span id="ArtifactType"/><span id="artifacttype"/><span id="ARTIFACTTYPE"/>ArtifactType
-
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > SDK version 1.9 で非推奨
 
 権利の成果物の種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
@@ -97,28 +89,25 @@ ms.locfileid: "80416246"
 |--------------------------------| ----------------------------------------------------------------------------------------|
 | VirtualMachineReservedInstance | アーティファクトが Azure Reserved Virtual Machine Instances の取得に役立つことを示します。 |
 
+## <a name="reservedinstanceartifact"></a>ReservedInstanceArtifact
 
-## <a name="span-idreservedinstanceartifactspan-idreservedinstanceartifactspan-idreservedinstanceartifactreservedinstanceartifact"></a><span id="ReservedInstanceArtifact"/><span id="reservedinstanceartifact"/><span id="RESERVEDINSTANCEARTIFACT"/>ReservedInstanceArtifact
-
-Azure 予約インスタンスに関連付けられている成果物。 [アーティファクト](#artifact)クラスから継承されます。 
+Azure 予約インスタンスに関連付けられている成果物。 [アーティファクト](#artifact)クラスから継承されます。
 
 | プロパティ   | 種類                           | 説明                                        |
 |------------|--------------------------------|----------------------------------------------------|
-| link       | [Link](./utility-resources.md#link) | 関連付けられているすべての成果物の詳細を取得するためのリンク。   |
+| link       | [リンク](./utility-resources.md#link) | 関連付けられているすべての成果物の詳細を取得するためのリンク。   |
 | resourceID | string                         | Azure 予約注文またはリソースの ID。 |
 
+## <a name="reservedinstanceartifactdetails"></a>ReservedInstanceArtifactDetails
 
-## <a name="span-idreservedinstanceartifactdetailsspan-idreservedinstanceartifactdetailsspan-idreservedinstanceartifactdetailsreservedinstanceartifactdetails"></a><span id="ReservedInstanceArtifactDetails"/><span id="reservedinstanceartifactdetails"/><span id="RESERVEDINSTANCEARTIFACTDETAILS"/>ReservedInstanceArtifactDetails
-
-Azure 予約インスタンス成果物リンクの呼び出し時に返されるエンティティを表します。 
-
+Azure 予約インスタンス成果物リンクの呼び出し時に返されるエンティティを表します。
 
 |   プロパティ   |           種類           |                          説明                          |
 |--------------|--------------------------|---------------------------------------------------------------|
-|     型     |          string          |                     成果物の種類。                     |
-| 予約 | IEnumerable<Reservation> | Azure リソースまたは予約注文 id を示します。 |
+|     type     |          string          |                     成果物の種類。                     |
+| reservations | IEnumerable<Reservation> | Azure リソースまたは予約注文 id を示します。 |
 
-## <a name="span-idreservationspan-idreservationspan-idreservationreservation"></a><span id="Reservation"/><span id="reservation"/><span id="RESERVATION"/>予約
+## <a name="reservation"></a>予約
 
 個々の予約を表します。
 
@@ -127,55 +116,50 @@ Azure 予約インスタンス成果物リンクの呼び出し時に返され�
 | reservationId     | string                         | 予約の ID。                                         |
 | scopeType         | string                         | 仮想マシン予約に関連付けられているスコープの種類。 |
 | displayName       | string                         | 予約の表示名。                               |
-| appliedScopes     | IEnumerable                    | 予約に関連付けられている適用済みスコープの一覧。 (ScopeType が共有されていない場合にのみ使用できます。) |
-| quantity          | int                            | 予約に含まれる仮想マシンの数。                 |
+| appliedScopes     | IEnumerable                    | 予約に関連付けられている適用済みスコープの一覧。 (ScopeType が共有でない場合にのみ使用できます)。 |
+| 数量          | INT                            | 予約に含まれる仮想マシンの数。                 |
 | expiryDateTime    | UTC 日時形式の文字列 | 予約の有効期限。                                |
 | effectiveDateTime | UTC 日時形式の文字列 | 予約の有効日。                             |
 | provisioningState | string                         | 予約のプロビジョニングの状態。                         |
 
+## <a name="virtualmachinereservedinstanceartifact"></a>VirtualMachineReservedInstanceArtifact
 
-## <a name="span-idvirtualmachinereservedinstanceartifactspan-idvirtualmachinereservedinstanceartifactspan-idvirtualmachinereservedartifactvirtualmachinereservedinstanceartifact"></a><span id="VirtualMachineReservedInstanceArtifact"/><span id="virtualmachinereservedinstanceartifact"/><span id="VIRTUALMACHINERESERVEDARTIFACT"/>VirtualMachineReservedInstanceArtifact
-
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > SDK version 1.9 で非推奨
 
-Azure 予約仮想マシンインスタンスの権利に関連付けられている成果物。 [アーティファクト](#artifact)クラスから継承されます。  
+Azure 予約仮想マシンインスタンスの権利に関連付けられている成果物。 [アーティファクト](#artifact)クラスから継承されます。
 
 | プロパティ   | 種類                              | 説明                                        |
 |------------|-----------------------------------|----------------------------------------------------|
-| link       | [Link](utility-resources.md#link) | 関連付けられているすべての成果物の詳細を取得するためのリンク。   |
+| link       | [リンク](utility-resources.md#link) | 関連付けられているすべての成果物の詳細を取得するためのリンク。   |
 | resourceID | string                            | Azure 予約注文またはリソースの ID。 |
 
+## <a name="virtualmachinereservedinstanceartifactdetails"></a>VirtualMachineReservedInstanceArtifactDetails
 
-## <a name="span-idvirtualmachinereservedinstanceartifactdetailsspan-idvirtualmachinereservedinstanceartifactdetailsspan-idvirtualmachinereservedartifactdetailsvirtualmachinereservedinstanceartifactdetails"></a><span id="VirtualMachineReservedInstanceArtifactDetails"/><span id="virtualmachinereservedinstanceartifactdetails"/><span id="VIRTUALMACHINERESERVEDARTIFACTDETAILS"/>VirtualMachineReservedInstanceArtifactDetails
-
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > SDK version 1.9 で非推奨
 
-Azure 予約仮想マシンインスタンス成果物リンクの呼び出し時に返されるエンティティを表します。  
+Azure 予約仮想マシンインスタンス成果物リンクの呼び出し時に返されるエンティティを表します。
 
 | プロパティ                    | 種類                                                                 | 説明           |
 |-----------------------------|----------------------------------------------------------------------|-----------------------|
-| 型                        | [ArtifactType](#artifacttype)                                        | 成果物の種類。 |
-| virtualMachineReservations  | IEnumerable <[VirtualMachineReservation](#virtualmachinereservation)> | Azure リソースまたは予約注文 id を示します。 |
+| type                        | [ArtifactType](#artifacttype)                                        | 成果物の種類。 |
+| virtualMachineReservations  | IEnumerable<[VirtualMachineReservation](#virtualmachinereservation)> | Azure リソースまたは予約注文 id を示します。 |
 
+## <a name="virtualmachinereservation"></a>VirtualMachineReservation
 
-## <a name="span-idvirtualmachinereservationspan-idvirtualmachinereservationspan-idvirtualmachinereservationvirtualmachinereservation"></a><span id="VirtualMachineReservation"/><span id="virtualmachinereservation"/><span id="VIRTUALMACHINERESERVATION"/>VirtualMachineReservation
-
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > SDK version 1.9 で非推奨
 
 個々の仮想マシン予約を表します。
-
 
 |     プロパティ      |              種類              |                                                説明                                                 |
 |-------------------|--------------------------------|------------------------------------------------------------------------------------------------------------|
 |   reservationId   |             string             |                                         予約の ID。                                         |
 |     scopeType     |             string             |                     仮想マシン予約に関連付けられているスコープの種類。                     |
 |    displayName    |             string             |                                    予約の表示名。                                    |
-|   appliedScopes   |      IEnumerable<string>       | 予約に関連付けられている適用済みスコープの一覧。 (ScopeType が共有されていない場合にのみ使用できます。) |
-|     quantity      |              int               |                             予約に含まれる仮想マシンの数。                             |
+|   appliedScopes   |      IEnumerable<string>       | 予約に関連付けられている適用済みスコープの一覧。 (ScopeType が共有でない場合にのみ使用できます)。 |
+|     数量      |              INT               |                             予約に含まれる仮想マシンの数。                             |
 |  expiryDateTime   | UTC 日時形式の文字列 |                                    予約の有効期限。                                     |
 | effectiveDateTime | UTC 日時形式の文字列 |                                   予約の有効日。                                   |
 | provisioningState |             string             |                                 予約のプロビジョニングの状態。                                 |
-

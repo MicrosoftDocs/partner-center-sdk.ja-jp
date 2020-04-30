@@ -6,33 +6,36 @@ ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f968ce90d4bbed3f3c9384b82c70a9ee7811f71
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 02a104f53113ef46ecab42314b57a8fe7cff0a54
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413231"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154784"
 ---
 # <a name="assign-licenses-to-a-user"></a>ユーザーにライセンスを割り当てる
 
-適用対象
+**適用対象:**
 
-- Partner Center
+- パートナー センター
 
 顧客ユーザーにライセンスを割り当てる方法。
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
-- 顧客識別子。 お客様は、割り当てに使用できるライセンスを持つサブスクリプションを所有している必要があります。
-- 顧客のユーザー id。 これにより、ライセンスを割り当てるユーザーが識別されます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+
+- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
+- 顧客のユーザー id。 この ID は、ライセンスを割り当てるユーザーを識別します。
+
 - ライセンスの製品を識別する製品 SKU 識別子。
 
 ## <a name="assigning-licenses-through-code"></a>コードを使用したライセンスの割り当て
 
-ユーザーにライセンスを割り当てるときは、お客様のサブスクライブ済み Sku のコレクションから選択する必要があります。 次に、割り当てる製品を特定した後、割り当てを行うために各製品の製品 SKU ID を取得する必要があります。 各[**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku)インスタンスには[ **、productsku オブジェクトを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku)参照して[**ID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)を取得できる[**productsku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku)プロパティが含まれています。
+ユーザーにライセンスを割り当てるときは、お客様のサブスクライブ済み Sku のコレクションから選択する必要があります。 次に、割り当てる製品を特定した後、割り当てを行うために各製品の製品 SKU ID を取得する必要があります。 各[**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku)インスタンスには[**、productsku オブジェクトを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku)参照して[**ID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)を取得できる[**productsku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku)プロパティが含まれています。
 
-ライセンス割り当て要求には、1つのライセンスグループのライセンスが含まれている必要があります。 たとえば、同じ要求で[**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)と**Group2**からライセンスを割り当てることはできません。 1つの要求で複数のグループからライセンスを割り当てようとすると、適切なエラーが発生して失敗します。 ライセンスグループごとに利用可能なライセンスを確認するには、「[ライセンスグループ別の使用可能なライセンスの一覧を取得](get-a-list-of-available-licenses-by-license-group.md)する」を参照してください。
+ライセンス割り当て要求には、1つのライセンスグループのライセンスが含まれている必要があります。 たとえば、同じ要求で [**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) のライセンスと **Group2** のライセンスを割り当てることはできません。 1 つの要求で複数のグループのライセンスを割り当てようとすると失敗して、該当するエラーが生成されます。 ライセンスグループごとに利用可能なライセンスを確認するには、「[ライセンスグループ別の使用可能なライセンスの一覧を取得](get-a-list-of-available-licenses-by-license-group.md)する」を参照してください。
 
 コードを使用してライセンスを割り当てる手順は次のとおりです。
 
@@ -43,7 +46,7 @@ ms.locfileid: "80413231"
     ```
 
 2. 次に示すように、オブジェクトのプロパティを設定します。 このコードでは、製品 SKU ID が既に存在し、利用可能なすべてのサービスプランが割り当てられていることを前提としています (つまり、除外されません)。
-  
+
     ```csharp
     license.SkuId = selectedProductSkuId;
     license.ExcludedPlans = null;
@@ -111,30 +114,30 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 **サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CustomerUserAssignLicenses.cs
 
-## <a name="request"></a>要求
+## <a name="rest-request"></a>REST 要求
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド   | 要求 URI                                                                                                    |
+| 認証方法   | 要求 URI                                                                                                    |
 |----------|----------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 次のパスパラメーターを使用して、顧客とユーザーを識別します。
 
-| Name        | 種類   | 必須 | 説明                                       |
+| 名前        | Type   | 必須 | 説明                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| 顧客 id | string | はい      | 顧客を識別する GUID 形式の ID。 |
-| ユーザー id     | string | はい      | ユーザーを識別する GUID 形式の ID。     |
+| customer-id | string | はい      | 顧客を識別する GUID 形式の ID。 |
+| user-id     | string | はい      | ユーザーを識別する GUID 形式の ID。     |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[パートナーセンターの REST ヘッダー](headers.md) 」を参照してください。
+詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
 
-割り当てるライセンスを指定する[Licenseupdate](license-resources.md#licenseupdate)リソースを要求本文に含める必要があります。
+割り当てるライセンスを指定する[Licenseupdate](license-resources.md#licenseupdate)リソースを要求本文に含めます。
 
 ### <a name="request-example"></a>要求の例
 
@@ -197,7 +200,7 @@ Date: Thu, 20 Apr 2017 21:50:39 GMT
 }
 ```
 
-### <a name="response-example-license-is-not-available"></a>応答の例 (ライセンスは使用できません)
+### <a name="response-example-license-isnt-available"></a>応答の例 (ライセンスはありません)
 
 ```http
 HTTP/1.1 400 Bad Request
