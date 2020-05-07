@@ -6,12 +6,12 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7199c03733c2bfdb496939af94e35c9aafa9931c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 734b9df837a7c036de89ba2ced7bb83ae051b5fe
+ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155804"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82882378"
 ---
 # <a name="get-a-collection-of-invoices"></a>請求書のコレクションを取得する
 
@@ -76,6 +76,9 @@ while (invoicesEnumerator.HasValue)
 ```
 
 少し異なる例については、「**サンプル**:[コンソールテストアプリ](console-test-app.md)」を参照してください。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetPagedInvoices.cs
+
+> [!NOTE] 
+> 同じ API が、すべての最新の商用購入に加え、145p と Office のライセンスにも使用されます。 サイズとオフセットは、従来の請求書に対してのみ考慮されます。 すべての最新の商用購入については、pagesize & オフセットは無視されます。
 
 ## <a name="rest-request"></a>REST 要求
 

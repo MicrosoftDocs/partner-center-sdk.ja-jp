@@ -11,12 +11,12 @@ metadata:
   author: jasonwhowell
   ms.author: jasonh
   ms.date: 01/08/2020
-  ms.openlocfilehash: d7213a6c4d63ad5b76723bed6b3166b7583cffe7
-  ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+  ms.openlocfilehash: e47e41e7ad6e00e17e32f287b0c64fc8d7a433ed
+  ms.sourcegitcommit: 506c69986f3d1ea650c935c42880048d6c4241f4
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 04/23/2020
-  ms.locfileid: "82089962"
+  ms.lasthandoff: 05/05/2020
+  ms.locfileid: "82784717"
 landingContent:
 - title: パートナー センターを使用して開発する
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
       url: partner-center-samples.md
     - text: シナリオ例
       url: scenarios.md
-- title: .NET SDK (v1.15.2) を使用する
+- title: .NET SDK (v1.15.3) を使用する
   linkLists:
   - linkListType: download
     links:

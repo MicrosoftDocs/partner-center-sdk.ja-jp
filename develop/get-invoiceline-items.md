@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1267a10bff9e428720bf16d6dcb53ade69d6a343
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e20a7bbfbfcd557be1f27904eafed31e4a7691a6
+ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157404"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82882398"
 ---
 # <a name="get-invoice-line-items"></a>請求書の品目を取得する
 
@@ -128,7 +128,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 | Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure&invoicelineitemtype = billinglineitems&size = {size} &offset = {OFFSET} HTTP/1.1  |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure&invoicelineitemtype = usagelineitems&size = {size} &offset = {OFFSET} HTTP/1.1  |
+| **取得** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = azure&invoicelineitemtype = usagelineitems&size = {size} &offset = {OFFSET} HTTP/1.1  |
 
 ##### <a name="onetime"></a>OneTime
 
@@ -137,7 +137,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 | Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = billinglineitems&size = {SIZE} HTTP/1.1  |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems&size = {size}? Seekoperation = 次へ                           |
+| **取得** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems&size = {size}? Seekoperation = 次へ                           |
 
 #### <a name="previous-syntaxes"></a>前の構文
 
@@ -162,10 +162,10 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 | 請求書-id             | string | はい      | 請求書を識別する文字列。                             |
 | billing-provider       | string | はい      | 課金プロバイダー: "Office"、"Azure"、"OneTime"。               |
 | invoice-line-item-type | string | はい      | 請求書の詳細の種類: "BillingLineItems"、"UsageLineItems"。 |
-| size                   | number | いいえ       | 返される項目の最大数。                            |
+| size                   | number | いいえ       | 返される項目の最大数。 既定の最大サイズ = 2000    |
 | offset                 | number | いいえ       | 返される最初の行項目の0から始まるインデックス。            |
-| seekOperation          | string | いいえ       | 請求**プロバイダー**が**OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation**を**next**に等しく設定します。 |
-| hasPartnerEarnedCredit | [bool] | いいえ | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
+| seekOperation          | string | No       | 請求**プロバイダー**が**OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation**を**next**に等しく設定します。 |
+| hasPartnerEarnedCredit | ブール | いいえ | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -173,7 +173,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+ありません。
 
 ## <a name="rest-response"></a>REST 応答
 

@@ -6,12 +6,12 @@ ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2ed7a22fbf8e2e8736f906663e88509e58b2791a
-ms.sourcegitcommit: e24ee5d22fd89b5120b8e8c2dbf7ed61117a70ab
+ms.openlocfilehash: d24becdaf89798fd99ca0ed3fe0ea60d75d0d2f9
+ms.sourcegitcommit: 58fecbc8e6f20dae7cde34ae44b72d5d37ae09b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596449"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869057"
 ---
 # <a name="test-and-debug"></a>テストとデバッグ
 
