@@ -6,12 +6,12 @@ ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9317e84df5ef6789f7f555e9cb98bb603b412a54
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: 80dc28411c78b7bf3524456d4c1426d8fad7e0a4
+ms.sourcegitcommit: caadf6300aac239f37e6964baf179a9d848308f3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559064"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82973228"
 ---
 # <a name="manage-customers"></a>顧客の管理
 
@@ -73,7 +73,8 @@ ms.locfileid: "82559064"
 - [ユーザーにライセンスを割り当てる](assign-licenses-to-a-user.md)
 - [ユーザーに割り当てられているライセンスを確認する](check-which-licenses-are-assigned-to-a-user.md)
 
-**顧客のセルフサービスポリシーを管理する**
+## <a name="manage-a-customers-self-serve-policies"></a>顧客のセルフサービスポリシーを管理する
+
 - [セルフ サービス ポリシーを作成する](create-a-self-serve-policy.md)
 - [セルフ サービス ポリシーを削除する](delete-a-self-serve-policy.md)
 - [セルフ サービス ポリシーを更新する](update-a-self-serve-policy.md)
