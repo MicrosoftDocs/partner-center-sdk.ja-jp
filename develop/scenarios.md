@@ -6,16 +6,16 @@ ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c9192a5ed7055e280db219307cd539fcdc4be842
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 26ae536f766f799d0ebcab0ecc5640358f997d33
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415330"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157684"
 ---
 # <a name="scenarios"></a>シナリオ
 
-適用先:
+**適用対象:**
 
 - パートナー センター
 - 21Vianet が運営するパートナー センター
@@ -24,14 +24,16 @@ ms.locfileid: "80415330"
 
 このセクションでは、クラウド ソリューション プロバイダー プログラムのパートナーが、パートナー センター API を使用して、顧客アカウント、パートナー アカウント、注文、サブスクリプション、サポート、請求をプログラムによって管理する方法について説明します。
 
-利用可能なパートナー センターには、異なる機能が含まれる異なるバージョンがあることに注意してください。 パートナー センターのすべてのバージョンですべてのシナリオがサポートされるわけではありません。 詳細については、「[Microsoft National Cloud のパートナー センター向けの開発](developing-for-partner-center-for-microsoft-national-cloud.md)」を参照してください。
+利用可能なパートナー センターには、異なる機能が含まれる異なるバージョンがあります。 パートナー センターのすべてのバージョンですべてのシナリオがサポートされるわけではありません。 詳細については、「[Microsoft National Cloud のパートナー センター向けの開発](developing-for-partner-center-for-microsoft-national-cloud.md)」を参照してください。
 
 ## <a name="scenarios-supported-by-the-partner-center-sdk"></a>パートナー センター SDK によりサポートされるシナリオ
 
 次のシナリオはすべて、3 つの異なる方法で完了できます。
 
-- [パートナー センター](https://go.microsoft.com/fwlink/p/?LinkId=620294)のダッシュボードで手動で。
+- [パートナー センター](https://partner.microsoft.com/dashboard)のダッシュボードで手動で。
+
 - パートナー センター マネージド API を使用してプログラムで。
+
 - パートナー センター REST API を使用してプログラムで。
 
 <table>
@@ -146,7 +148,7 @@ ms.locfileid: "80415330"
 <li><p><a href="create-a-customer.md">顧客を作成する</a></p></li>
 <li><p><a href="create-a-customer-for-an-indirect-reseller.md">間接リセラーの顧客を作成する</a></p></li>
 <li><p><a href="request-reseller-relationship.md">関係要求 URL を取得する</a></p></li>
-<li><p><a href="remove-a-reseller-relationship-with-a-customer.md">顧客との再販業者関係の削除</a></p></li> 
+<li><p><a href="remove-a-reseller-relationship-with-a-customer.md">顧客との再販業者関係の削除</a></p></li>
 </ul>
 <p>顧客を検索する</p>
 <ul>
@@ -158,7 +160,7 @@ ms.locfileid: "80415330"
 <ul>
 <li><p><a href="get-all-of-a-customer-s-orders.md">顧客の注文をすべて取得する</a></p></li>
 <li><p><a href="get-a-list-of-orders-by-customer-and-billing-cycle-type.md">顧客と請求サイクルの種類別に注文の一覧を取得する</a></p></li>
-<li><p><a href="get-a-collection-of-entitlements.md">エンタイトルメントのコレクションを取得する</a></p></li> 
+<li><p><a href="get-a-collection-of-entitlements.md">エンタイトルメントのコレクションを取得する</a></p></li>
 <li><p><a href="get-all-of-a-customer-s-subscriptions.md">顧客のサブスクリプションを取得する</a></p></li>
 <li><p><a href="update-the-nickname-for-a-subscription.md">サブスクリプションのニックネームを更新する</a></p></li>
 </ul>
@@ -206,7 +208,7 @@ ms.locfileid: "80415330"
 </ul>
 <p>1 回限りの購入を行う</p>
 <ul>
-<li><p><a href="make-a-one-time-purchase.md">1 回限りの購入を行う</a></p></li> 
+<li><p><a href="make-a-one-time-purchase.md">1 回限りの購入を行う</a></p></li>
 </ul>
 <p>カタログからオファーを取得する</p>
 <ul>
@@ -278,7 +280,7 @@ ms.locfileid: "80415330"
 <li><p><a href="create-a-service-request-.md">サービス リクエストを作成する</a></p></li>
 <li><p><a href="get-service-request-support-topics--pending-.md">サービス リクエストのサポート トピックを取得する</a></p></li>
 <li><p><a href="get-all-service-requests-for-a-customer.md">顧客のサービス リクエストをすべて取得する</a></p></li>
-<li><p><a href="get-service-request-details-by-id.md">ID でサービス リクエストの詳細を取得する</a></p></li> 
+<li><p><a href="get-service-request-details-by-id.md">ID でサービス リクエストの詳細を取得する</a></p></li>
 <li><p><a href="update-a-service-request.md">サービス リクエストを更新する</a></p></li>
 </ul></td>
 </tr>
@@ -286,10 +288,10 @@ ms.locfileid: "80415330"
   <td><p><a href="https://docs.microsoft.com/partner/develop/referrals">紹介</a></p></td>
   <td><p>紹介</p>
     <ul>
-      <li><p><a href="https://docs.microsoft.com/partner/develop/create-a-referral">紹介を作成する</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-list-of-referrals">紹介の一覧を取得する</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-referral-by-id">紹介を ID ごとに取得する</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/update-a-referral">紹介を更新する</a></p></li> 
+      <li><p><a href="https://docs.microsoft.com/partner/develop/create-a-referral">紹介を作成する</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-list-of-referrals">紹介の一覧を取得する</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-referral-by-id">紹介を ID ごとに取得する</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/update-a-referral">紹介を更新する</a></p></li>
     </ul>
   </td>
 </tr>
