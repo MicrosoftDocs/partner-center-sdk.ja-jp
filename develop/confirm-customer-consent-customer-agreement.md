@@ -5,12 +5,12 @@ ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 33a2dacc622c87feb3058931259ad7fbea7a0758
-ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+ms.openlocfilehash: 2f59616191a4ce255a294e9c80c26a4e73eda267
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093814"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154404"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft 顧客契約へのお客様の同意を確認する
 
@@ -29,9 +29,13 @@ ms.locfileid: "82093814"
 ## <a name="prerequisites"></a>前提条件
 
 - パートナー センター .NET SDK を使用している場合、バージョン 1.14 以降が必要です。
+
 - [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 *このシナリオでは、アプリとユーザー認証のみがサポートされます。*
-- 顧客 ID (**customer-tenant-id**)。
+
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+
 - 顧客が Microsoft 顧客契約に同意したときの日付 (**dateAgreed**)。
+
 - Microsoft 顧客契約に同意した顧客組織のユーザーに関する情報。 たとえば、次のようなアニメーションや効果を作成できます。
   - 名
   - 姓
@@ -44,36 +48,38 @@ Microsoft 顧客契約に対する顧客の同意を確認または再確認す�
 
 1. Microsoft 顧客契約の契約メタデータを取得します。 Microsoft 顧客契約の **templateId** を取得する必要があります。 詳細については、「[Microsoft 顧客契約の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
 
-```csharp
-// IAggregatePartner partnerOperations;
+   ```csharp
+   // IAggregatePartner partnerOperations;
 
-string agreementType = "MicrosoftCustomerAgreement";
+   string agreementType = "MicrosoftCustomerAgreement";
 
-var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
-```
+   var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
+   ```
 
 2. 確認の詳細を含む新しい **Agreement** オブジェクトを作成します。
+
 3. **IAgreggatePartner** コレクションを使用して、指定された **customer-tenant-id** で **ById** メソッドを呼び出します。
+
 4. **Agreements** プロパティを使用し、**Create** または **CreateAsync** を呼び出します。
 
-```csharp
-// string selectedCustomerId;
+   ```csharp
+   // string selectedCustomerId;
 
-var agreementToCreate = new Agreement
-{
-    DateAgreed = DateTime.UtcNow,
-    TemplateId = microsoftCustomerAgreementDetails.TemplateId,
-    PrimaryContact = new Contact
-    {
-        FirstName = "Tania",
-        LastName = "Carr",
-        Email = "someone@example.com",
-        PhoneNumber = "1234567890"
-    }
-};
+   var agreementToCreate = new Agreement
+   {
+       DateAgreed = DateTime.UtcNow,
+       TemplateId = microsoftCustomerAgreementDetails.TemplateId,
+       PrimaryContact = new Contact
+       {
+           FirstName = "Tania",
+           LastName = "Carr",
+           Email = "someone@example.com",
+           PhoneNumber = "1234567890"
+       }
+   };
 
-Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
-```
+   Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
+   ```
 
 完全なサンプルについては、[コンソール テスト アプリ](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) プロジェクトの [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) クラスを参照してください。
 
@@ -82,6 +88,7 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 Microsoft 顧客契約に対する顧客の同意を確認または再確認するには、次のようにします。
 
 1. Microsoft 顧客契約の契約メタデータを取得します。 Microsoft 顧客契約の **templateId** を取得する必要があります。 詳細については、「[Microsoft 顧客契約の契約メタデータを取得する](get-customer-agreement-metadata.md)」を参照してください。
+
 2. 顧客が Microsoft 顧客契約に同意していることを確認するために新しい [**Agreement**リソース](agreement-resources.md)を作成します。 次の [REST 要求構文](#request-syntax)を使用します。
 
 ### <a name="request-syntax"></a>要求の構文
@@ -142,11 +149,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-### <a name="rest-response"></a>REST 応答
+## <a name="rest-response"></a>REST 応答
 
 成功した場合、このメソッドは [**Agreement** リソース](./agreement-resources.md)を返します。
 
-#### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
+### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。
 

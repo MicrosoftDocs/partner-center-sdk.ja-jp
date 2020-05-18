@@ -5,16 +5,16 @@ ms.date: 01/20/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a6c3d14ca55350db832c10956b0751acb8f8a0c
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 274b7ebc96cde1bca5c549fb92fe5ffb4ae29add
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "76723184"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155624"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>セキュリティで保護されたアプリケーション モデル フレームワークを有効にする
 
-適用先:
+**適用対象:**
 
 - パートナー センター
 
@@ -24,11 +24,12 @@ Microsoft では、Microsoft Azure 多要素認証 (MFA) アーキテクチャ�
 
 ## <a name="scope"></a>スコープ
 
-このトピックでは、次のアクターについて説明します。
+この記事では、次のアクターについて説明します。
 
 - CPV
   - CPV とは、Partner Center API と統合するために CSP パートナーによって使用されるアプリを開発する独立系ソフトウェア ベンダーです。
   - CPV は、パートナー センター ダッシュボードまたは API に直接アクセスできる CSP パートナーではありません。
+
 - アプリ ID とユーザー認証を使用し、Partner Center API と直接統合する CSP 間接プロバイダーと CSP ダイレクト パートナー。
 
 ## <a name="security-requirements"></a>セキュリティ要件
@@ -50,19 +51,23 @@ Marketplace アプリケーションでは、Microsoft API を呼び出すため
 - [.NET のサンプル](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
 - [Java のサンプル](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
 
-    [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+    [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 - [REST の手順とサンプル](#rest)
 - [PowerShell の手順とサンプル](#powershell)
 
 ## <a name="rest"></a>REST
 
-サンプル コードを使用してセキュア アプリケーション モデル フレームワークで REST 呼び出しを行うには、以下を実行する必要があります。
+サンプル コードを使用してセキュア アプリケーション モデル フレームワークで REST 呼び出しを行うには、次の手順を行います。
 
 1. [Web アプリを作成する](#create-a-web-app)
+
 2. [認証コードを取得する](#get-authorization-code)
+
 3. [更新トークンを取得する](#get-refresh-token)
+
 4. [アクセス トークンを取得する](#get-access-token)
+
 5. [Partner Center API の呼び出しを行う](#make-partner-center-api-calls)
 
 > [!TIP]
@@ -73,15 +78,23 @@ Marketplace アプリケーションでは、Microsoft API を呼び出すため
 REST 呼び出しを行う前に、パートナー センターで Web アプリを作成して登録する必要があります。
 
 1. [Azure portal](https://portal.azure.com) にサインインします。
+
 2. Azure Active Directory (Azure AD) アプリを作成します。
+
 3. *アプリケーションの要件に応じて*、委任されたアプリケーションのアクセス許可を次のリソースに付与します。 必要に応じて、アプリケーション リソースに委任されたアクセス許可をさらに追加することができます。
-    1. **Microsoft パートナー センター** (一部のテナントでは、これが **SampleBECApp** と表示されます)
-    2. **Azure Management API** (Azure API の呼び出しを計画している場合)
-    3. **Windows Azure Active Directory**
+
+   1. **Microsoft パートナー センター** (一部のテナントでは、これが **SampleBECApp** と表示されます)
+
+   2. **Azure Management API** (Azure API の呼び出しを計画している場合)
+
+   3. **Windows Azure Active Directory**
+
 4. アプリのホーム URL が、ライブ Web アプリが実行されているエンドポイントに設定されていることを確認します。 このアプリでは、Azure AD のログイン呼び出しから[認証コード](#get-authorization-code)を受け入れる必要があります。 たとえば、[次のセクション](#get-authorization-code)のサンプル コードでは、Web アプリが `https://localhost:44395/` で実行されています。
+
 5. Azure AD の Web アプリの設定のうち、次の情報に注意してください。
-    - アプリケーション ID
-    - アプリケーション シークレット
+
+   - アプリケーション ID
+   - アプリケーション シークレット
 
 > [!NOTE]
 > [アプリケーション シークレットとして証明書を使用する](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)ことをお勧めします。 ただし、Azure portal でアプリケーション キーを作成することもできます。 [次のセクション](#get-authorization-code)のサンプル コードではアプリケーション キーを使用しています。
@@ -90,10 +103,14 @@ REST 呼び出しを行う前に、パートナー センターで Web アプリ
 
 Web アプリが Azure AD のログイン呼び出しから同意するには、次の認証コードを取得する必要があります。
 
-1. <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1> の URL で Azure AD にログインします。 必ず、Partner Center API の呼び出しを行うユーザー アカウント (管理エージェントや販売エージェント アカウントなど) を使用してログインしてください。
+1. [https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1](https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1) の URL で Azure AD にログインします。 必ず、Partner Center API の呼び出しを行うユーザー アカウント (管理エージェントや販売エージェント アカウントなど) を使用してログインしてください。
+
 2. **Application-Id** を Azure AD アプリ ID (GUID) に置き換えます。
+
 3. プロンプトが表示されたら、MFA が構成されたユーザー アカウントを使用してログインします。
+
 4. プロンプトが表示されたら、追加の MFA 情報 (電話番号またはメール アドレス) を入力して、ログインを確認します。
+
 5. ログインすると、ブラウザーによって Web アプリ エンドポイントへの呼び出しが認証コードと共にリダイレクトされます。 たとえば、次のサンプル コードを実行すると、`https://localhost:44395/` にリダイレクトされます。
 
 #### <a name="authorization-code-call-trace"></a>認証コード呼び出しのトレース
@@ -117,7 +134,9 @@ code=AuthorizationCodeValue&id_token=IdTokenValue&<rest of properties for state>
 次に、認証コードを使用して更新トークンを取得する必要があります。
 
 1. 認証コードを使用して Azure AD ログイン エンドポイント `https://login.microsoftonline.com/CSPTenantID/oauth2/token` への POST 呼び出しを行います。 例については、次の[サンプル呼び出し](#sample-refresh-call)を参照してください。
+
 2. 返される更新トークンに注意してください。
+
 3. 更新トークンを Azure Key Vault に格納します。 詳細については、[Key Vault API のドキュメント](https://docs.microsoft.com/rest/api/keyvault/)を参照してください。
 
 > [!IMPORTANT]
@@ -205,7 +224,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 [Partner Center PowerShell モジュール](https://www.powershellgallery.com/packages/PartnerCenter)を使用すると、アクセス トークンの認証コードを交換するために必要なインフラストラクチャを減らすことができます。 この方法は、[Partner Center REST 呼び出し](#rest)を行う場合に省略可能です。
 
