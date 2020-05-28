@@ -5,12 +5,12 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 05c54d753548b6fadfc0595e43720877393cd0c4
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 459db3cfb9a85fd2f4a0d32b065d6929ab40006b
+ms.sourcegitcommit: 99fa2c7669f3db84fd00cb5f28ef8d783900c8d3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154724"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84121234"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>統合サンドボックスから注文を取り消す
 
@@ -24,7 +24,10 @@ ms.locfileid: "82154724"
 統合サンドボックスアカウントから、予約済みのインスタンス、ソフトウェア、および商用 marketplace のサービスとしてのソフトウェア (SaaS) のサブスクリプションを取り消す方法。
 
 >[!NOTE]
->予約されているインスタンス、ソフトウェア、または商用の marketplace の SaaS サブスクリプションの注文は、統合サンドボックスアカウントからのキャンセルのみが可能であることに注意してください。 製造注文をキャンセルするには、パートナーセンターのサポートにお問い合わせください。
+>予約されたインスタンスまたは商用 marketplace の SaaS サブスクリプションの注文は、統合サンドボックスアカウントからのキャンセルのみが可能であることに注意してください。  
+
+API を通じてソフトウェアの製造注文をキャンセルするには、 [[キャンセル-ソフトウェアの購入]](cancel-software-purchases.md)を使用します。
+[[購入のキャンセル]](https://docs.microsoft.com/partner-center/csp-software-subscriptions.md)を使用して、ダッシュボードを使用してソフトウェアの生産注文をキャンセルすることもできます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -34,11 +37,11 @@ ms.locfileid: "82154724"
 
 ## <a name="c"></a>C\#
 
-統合サンドボックスから注文を取り消すには、アカウントの資格情報を[**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡して[**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) 、パートナー操作を取得するためのインターフェイスを取得します。
+統合サンドボックスから注文を取り消すには、アカウントの資格情報をメソッドに渡して、 [**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) [**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) パートナー操作を取得するためのインターフェイスを取得します。
 
-特定の[順序](order-resources.md#order)を選択するには、パートナー操作を[**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)使用し、顧客識別子と共にメソッドを呼び出して**`Orders.ById()`** 顧客を指定します。次に、 **`Get`** order **`GetAsync`** 識別子を指定して順序と finally またはメソッドを取得する方法を指定します。
+特定の[順序](order-resources.md#order)を選択するには、パートナー操作を使用し、 [**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) 顧客識別子と共にメソッドを呼び出して顧客を指定します。次に、order 識別子を指定して **`Orders.ById()`** 順序と finally **`Get`** または **`GetAsync`** メソッドを取得する方法を指定します。
 
-[**`Order.Status`**](order-resources.md#order)プロパティをに`cancelled`設定し、 **`Patch()`** メソッドを使用して順序を更新します。
+プロパティを [**`Order.Status`**](order-resources.md#order) に設定 `cancelled` し、メソッドを使用して順序を更新し **`Patch()`** ます。
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
