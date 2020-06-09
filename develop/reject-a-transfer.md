@@ -5,27 +5,24 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a76d30ca66c8d056341077bd85b7a36b169d9d9
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 62e934f0b2289b9cb235d7360bce01b5bf3474c4
+ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157084"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84489199"
 ---
 # <a name="reject-a-transfer"></a>転送を拒否する
 
 **適用対象:**
 
 - パートナー センター
-- 21Vianet が運営するパートナー センター
-- Microsoft Cloud ドイツのパートナー センター
-- 米国政府機関向け Microsoft Cloud のパートナー センター
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - 既存の転送の転送識別子。
 
@@ -41,7 +38,7 @@ ms.locfileid: "82157084"
 
 次の path パラメーターを使用して顧客を特定し、受け入れる転送を指定します。
 
-| 名前            | Type     | 必須 | 説明                                                            |
+| 名前            | 型     | 必須 | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 | **転送 id** | string   | はい      | 転送を識別する GUID 形式の転送 id。             |
@@ -56,7 +53,7 @@ ms.locfileid: "82157084"
 
 | プロパティ              | Type          | 必須  | 説明                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | string        | いいえ    | TransferEntity が正常に作成されたときに提供される transferEntity 識別子。                               |
+| id                    | 文字列        | いいえ    | TransferEntity が正常に作成されたときに提供される transferEntity 識別子。                               |
 | status                | string        | いいえ    | TransferEntity の状態。 転送を拒否するには、値を "reject" に設定します。|
 
 ### <a name="request-example"></a>要求の例

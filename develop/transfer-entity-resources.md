@@ -5,21 +5,18 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c9b891673fb933ae787f8231e36158ed69224a04
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 0a9a357d9f2fd90069df0b39427e32fe25dc16af
+ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666619"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84489169"
 ---
 # <a name="transferentity-resources"></a>TransferEntity リソース
 
 **適用対象:**
 
 - パートナー センター
-- 21Vianet が運営するパートナー センター
-- Microsoft Cloud ドイツのパートナー センター
-- 米国政府機関向け Microsoft Cloud のパートナー センター
 
 パートナーは、顧客がパートナーとのサブスクリプションを別のパートナーに譲渡する必要がある場合に、転送を作成します。
 
@@ -64,7 +61,7 @@ TransferEntity に含まれる1つの項目を表します。
 
 転送の受け入れの結果を表します。
 
-| プロパティ          | Type                                                  | 説明                        |
+| プロパティ          | Type                                                  | Description                        |
 |-------------------|-------------------------------------------------------|------------------------------------|
 | 注文            | [Order](order-resources.md#order)オブジェクトのリスト。    | 注文のコレクションです。          |
 | transferErrors    | [Transfererror](#transfererror)オブジェクトの一覧。      | 転送エラーのコレクションです。 |
@@ -73,7 +70,7 @@ TransferEntity に含まれる1つの項目を表します。
 
 転送が受け入れられたときに発生するエラーを表します。
 
-| プロパティ          | Type   | 説明                                     |
+| プロパティ          | Type   | Description                                     |
 |-------------------|--------|-------------------------------------------------|
 | transferGroupId   | string | 注文の注文グループ ID をエラーと共に使用します。 |
 | code              | INT    | エラー コード。                                 |
@@ -84,7 +81,7 @@ TransferEntity に含まれる1つの項目を表します。
 
 注文エラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
-| 値 | [位置] | 説明 |
+| 値 | 位置 | Description |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | 要求コンテキストにパートナートークンがありません。 |
 | InvalidInput | 800002 | 要求の入力が無効です。 |

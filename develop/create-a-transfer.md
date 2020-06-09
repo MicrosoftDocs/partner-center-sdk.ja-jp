@@ -5,27 +5,24 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e77711f2bda6d4e5af536ed2658df63241462c31
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 7d6e8efddc64bc2b4b36005f0892927f5b3454f8
+ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154814"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84489179"
 ---
 # <a name="create-a-transfer"></a>転送を作成する
 
 **適用対象:**
 
 - パートナー センター
-- 21Vianet が運営するパートナー センター
-- Microsoft Cloud ドイツのパートナー センター
-- 米国政府機関向け Microsoft Cloud のパートナー センター
 
 ## <a name="prerequisites"></a>前提条件
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -39,7 +36,7 @@ ms.locfileid: "82154814"
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前            | Type     | 必須 | 説明                                                            |
+| 名前            | 型     | 必須 | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 
@@ -53,16 +50,16 @@ ms.locfileid: "82154814"
 
 | プロパティ              | Type          | 必須  | 説明                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | string        | いいえ    | TransferEntity が正常に作成されたときに提供される transferEntity 識別子。                               |
+| id                    | 文字列        | いいえ    | TransferEntity が正常に作成されたときに提供される transferEntity 識別子。                               |
 | createdTime           | DateTime      | いいえ    | TransferEntity が作成された日付 (日付/時刻形式)。 TransferEntity の作成が正常に完了したときに適用されます。      |
 | lastModifiedTime      | DateTime      | いいえ    | TransferEntity が最後に更新された日付 (日付/時刻形式)。 TransferEntity の作成が正常に完了したときに適用されます。 |
-| lastModifiedUser      | string        | いいえ    | TransferEntity を最後に更新したユーザー。 TransferEntity の作成が正常に完了したときに適用されます。                          |
-| customerName          | string        | いいえ    | 省略可能。 サブスクリプションを転送する顧客の名前。                                              |
-| 顧客 Tenantid      | string        | いいえ    | 顧客を識別する GUID 形式の顧客 id。 TransferEntity の作成が正常に完了したときに適用されます。         |
-| partnertenantid       | string        | いいえ    | パートナーを識別する GUID 形式のパートナー id。                                                                   |
-| sourcePartnerName     | string        | いいえ    | 省略可能。 譲渡を開始するパートナー組織の名前。                                           |
+| lastModifiedUser      | 文字列        | いいえ    | TransferEntity を最後に更新したユーザー。 TransferEntity の作成が正常に完了したときに適用されます。                          |
+| customerName          | 文字列        | いいえ    | 省略可能。 サブスクリプションを転送する顧客の名前。                                              |
+| 顧客 Tenantid      | 文字列        | いいえ    | 顧客を識別する GUID 形式の顧客 id。 TransferEntity の作成が正常に完了したときに適用されます。         |
+| partnertenantid       | 文字列        | いいえ    | パートナーを識別する GUID 形式のパートナー id。                                                                   |
+| sourcePartnerName     | 文字列        | いいえ    | 省略可能。 譲渡を開始するパートナー組織の名前。                                           |
 | sourcePartnerTenantId | string        | はい   | 転送を開始するパートナーを識別する GUID 形式のパートナー id。                                           |
-| targetPartnerName     | string        | いいえ    | 省略可能。 譲渡の対象となるパートナーの組織の名前。                                         |
+| targetPartnerName     | 文字列        | いいえ    | 省略可能。 譲渡の対象となるパートナーの組織の名前。                                         |
 | targetPartnerTenantId | string        | はい   | 転送の対象となるパートナーを識別する GUID 形式のパートナー id。                                  |
 | lineItems             | オブジェクトの配列 | はい| [Transferlineitem](transfer-entity-resources.md#transferlineitem)リソースの配列。                                   |
 | status                | string        | いいえ    | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
@@ -71,16 +68,16 @@ ms.locfileid: "82154814"
 
 |      プロパティ       |            Type             | 必須 | 説明                                                                                     |
 |---------------------|-----------------------------|----------|-------------------------------------------------------------------------------------------------|
-| id                   | string                     | いいえ       | 転送明細項目の一意の識別子。 TransferEntity の作成が正常に完了したときに適用されます。|
+| id                   | 文字列                     | No       | 転送明細項目の一意の識別子。 TransferEntity の作成が正常に完了したときに適用されます。|
 | subscriptionId       | string                     | はい      | サブスクリプションの識別子です。                                                                         |
 | 数量             | INT                        | いいえ       | ライセンスまたはインスタンスの数。                                                                 |
 | billingCycle         | Object                     | いいえ       | 現在の期間に設定されている請求サイクルの種類。                                                |
-| friendlyName         | string                     | いいえ       | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                |
-| partnerIdOnRecord    | string                     | いいえ       | 転送が受け入れられたときに発生する、購入時の PartnerId (MPNID)。              |
-| offerId              | string                     | いいえ       | プラン ID。                                                                                |
+| friendlyName         | 文字列                     | いいえ       | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                |
+| partnerIdOnRecord    | 文字列                     | No       | 転送が受け入れられたときに発生する、購入時の PartnerId (MPNID)。              |
+| offerId              | 文字列                     | No       | プラン ID。                                                                                |
 | addonItems           | **Transferlineitem**オブジェクトの一覧 | いいえ | 転送されるベースサブスクリプションと共に転送されるアドオンの transferEntity 行項目のコレクション。 TransferEntity の作成が正常に完了したときに適用されます。|
-| transferError        | string                     | いいえ       | エラーが発生した場合に transferEntity が受け入れられた後に適用されます。                                        |
-| status               | string                     | いいえ       | TransferEntity 内の lineitem の状態。                                                    |
+| transferError        | 文字列                     | No       | エラーが発生した場合に transferEntity が受け入れられた後に適用されます。                                        |
+| status               | 文字列                     | No       | TransferEntity 内の lineitem の状態。                                                    |
 
 ### <a name="request-example"></a>要求の例
 
