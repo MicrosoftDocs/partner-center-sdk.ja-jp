@@ -43,6 +43,7 @@
       "extendBreadcrumb": true,
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/partner-center-sdk.ja-jp",
+      "feedback_product_url": "https://docs.microsoft.com/answers/topics/partner-center-api.html",
       "author": "JasonWHowell",
       "manager": "jasonh",
       "ms.author": "jasonh",
