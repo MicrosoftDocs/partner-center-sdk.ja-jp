@@ -5,12 +5,12 @@ ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 537f39eb8c4c5bd786d69e6287fbaecb9e52c7c6
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b39efc495712476d72706e769957bec0484b268d
+ms.sourcegitcommit: 3a5154692071b5dee597c9d00e63a57efb2aff06
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157424"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85365801"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Invoice 未請求の商業消費明細項目を取得する
 
@@ -21,6 +21,9 @@ ms.locfileid: "82157424"
 未請求商業消費明細項目の詳細のコレクションを取得する方法。
 
 次のメソッドを使用して、未請求商業消費明細行項目 (オープンな使用状況の行項目とも呼ばれます) のコレクションをプログラムで取得できます。
+
+>[!NOTE]
+>日々の評価を受けた使用量は通常、パートナーセンターに表示されるか、API を使用してアクセスされるまでに24時間かかります。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -105,7 +108,7 @@ while (fetchNext)
 
 同様の例については、次を参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetUnBilledConsumptionReconLineItemsPaging.cs**
 
@@ -119,7 +122,7 @@ while (fetchNext)
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &period = {PERIOD} HTTP/1.1                              | この構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &period = {period} &size = {SIZE} HTTP/1.1  | この構文は、大きな請求書に使用します。 この構文を指定したサイズと0から始まるオフセットを使用して、行項目のページ化されたリストを返します。 |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &period = {period} &size = {size} &Seekoperation = Next                               | この構文を使用すると、を使用して`seekOperation = "Next"`、調整行項目の次のページを取得できます。 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems? provider = onetime&invoicelineitemtype = usagelineitems&currencycode = {currencycode} &period = {period} &size = {size} &Seekoperation = Next                               | この構文を使用すると、を使用して、調整行項目の次のページを取得 `seekOperation = "Next"` できます。 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
@@ -132,7 +135,7 @@ while (fetchNext)
 | currencyCode           | string | はい      | 未請求の品目の通貨コード。                                  |
 | 前期                 | string | はい      | 未請求偵察の期間 (例: **current**, **previous**)。                      |
 | size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000です。                    |
-| seekOperation          | string | いいえ       | を`seekOperation=Next`設定して、調整行項目の次のページを取得します。                |
+| seekOperation          | 文字列 | No       | を設定し `seekOperation=Next` て、調整行項目の次のページを取得します。                |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -140,7 +143,7 @@ while (fetchNext)
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ## <a name="rest-response"></a>REST 応答
 
