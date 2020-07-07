@@ -6,12 +6,13 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 54cc64be22740d5c27d6599c47a5ed03a3c1597e
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
-ms.translationtype: MT
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 1e4782815c9b777c7cdb3e11e342dd9be94d9310
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82123175"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022698"
 ---
 # <a name="azure-utilization-record-resources"></a>Azure 使用率レコードリソース
 
@@ -31,16 +32,16 @@ Azure 使用率レコードには、Azure サブスクリプションリソー�
 
 Azure 使用率レコードリソースのプロパティについて説明します。
 
-| プロパティ       | Type                                      | 必須 | 説明                                                                                                                                                                             |
+| プロパティ       | 種類                                      | 必須 | 説明                                                                                                                                                                             |
 |----------------|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | usageStartTime | string                                    | はい      | 使用状況集計の時間範囲の開始。 応答は、消費時間によってグループ化されます (リソースが実際に使用された時間と、課金システムに報告された日時)。 |
 | usageEndTime   | string                                    | はい      | 使用状況集計の時間範囲の最後。 応答は、消費時間によってグループ化されます。 つまり、リソースが実際に使用されたときと、が課金システムに報告された日時です。   |
 | resource       | object                                    | はい      | [Azureresource](#azureresource)オブジェクトが含まれています。                                                                                                                                     |
 | 数量       | number                                    | はい      | [Azureresource](#azureresource)の消費量。                                                                                                                           |
-| unit           | string                                    | いいえ       | 数量の種類 (時間、バイトなど)このプロパティは省略可能です。                                                                                                                     |
+| unit           | 文字列                                    | いいえ       | 数量の種類 (時間、バイトなど)このプロパティは省略可能です。                                                                                                                     |
 | infoFields     | object                                    | はい      | インスタンスレベルの詳細のキーと値のペア。 このオブジェクトは空でもかまいません。                                                                                                                    |
 | instanceData   | object                                    | いいえ       | インスタンスレベルの詳細のキーと値のペアを含む[Azureinstancedata](#azureinstancedata)オブジェクトを格納します。 このプロパティは省略可能であり、含めることはできません。                  |
-| attributes     | [ResourceAttributes](utility-resources.md#resourceattributes) | はい      | メタデータ属性。 "ObjectType": "AzureUtilizationRecord" が含まれています。                                                                                                                |
+| 属性     | [ResourceAttributes](utility-resources.md#resourceattributes) | はい      | メタデータ属性。 "ObjectType": "AzureUtilizationRecord" が含まれています。                                                                                                                |
 
 ### <a name="operations-on-the-azureutilizationrecord-resource"></a>AzureUtilizationRecord リソースに対する操作
 
@@ -50,19 +51,19 @@ Azure 使用率レコードリソースのプロパティについて説明し�
 
 Azure リソースのプロパティについて説明します。
 
-| プロパティ    | Type   | 必須 | 説明                                                                         |
+| プロパティ    | 種類   | 必須 | 説明                                                                         |
 |-------------|--------|----------|-------------------------------------------------------------------------------------|
 | id          | string | はい      | Azure リソースの一意識別子。 ResourceID またはリソース GUID とも呼ばれます。 |
-| name        | string | いいえ       | 使用されているリソースのわかりやすい名前。 このプロパティは省略可能です。            |
+| name        | 文字列 | いいえ       | 使用されているリソースのわかりやすい名前。 このプロパティは省略可能です。            |
 | category    | string | いいえ       | 消費されたリソースのカテゴリ。 このプロパティは省略可能です。                   |
-| サブカテゴリ | string | いいえ       | 消費されたリソースのサブカテゴリ。 このプロパティは省略可能です。               |
-| region      | string | いいえ       | 消費されたリソースの領域。 このプロパティは省略可能です。                     |
+| サブカテゴリ | 文字列 | いいえ       | 消費されたリソースのサブカテゴリ。 このプロパティは省略可能です。               |
+| region      | 文字列 | いいえ       | 消費されたリソースの領域。 このプロパティは省略可能です。                     |
 
 ## <a name="azureinstancedata"></a>AzureInstanceData
 
 Azure インスタンスデータリソースのプロパティについて説明します。
 
-| プロパティ       | Type             | 必須 | 説明                                                                                                        |
+| プロパティ       | 種類             | 必須 | 説明                                                                                                        |
 |----------------|------------------|----------|--------------------------------------------------------------------------------------------------------------------|
 | resourceUri    | string           | はい      | 完全修飾 Azure リソース ID。リソースグループとインスタンス名が含まれます。                   |
 | location       | string           | はい      | サービスが実行されたリージョン。                                                                               |

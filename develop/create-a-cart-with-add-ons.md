@@ -5,12 +5,13 @@ ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: eb5177b9263f8a21aec20fa5e4a3b4970f4525f7
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 63dd12725ae488b6676077fe3a646551b793be73
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154974"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022679"
 ---
 # <a name="create-a-cart-with-add-ons"></a>アドオンを扱うカートを作成する
 
@@ -24,7 +25,7 @@ ms.locfileid: "82154974"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
@@ -40,7 +41,7 @@ ms.locfileid: "82154974"
 
 5. 最後に、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync)メソッドを呼び出してカートを作成します。
 
-### <a name="c-example"></a>C\#の例
+### <a name="c-example"></a>C の \# 例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -126,7 +127,7 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前            | Type     | 必須 | 説明                                                            |
+| 名前            | 種類     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 
@@ -138,18 +139,18 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 次の表では、要求本文に含まれる[カート](cart-resources.md)のプロパティについて説明します。
 
-| プロパティ              | Type             | 必須        | 説明 |
+| プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | id                    | string           | いいえ              | カートが正常に作成されたときに提供されるカート識別子。                                  |
 | 前のタイムスタンプ     | DateTime         | いいえ              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。         |
 | lastModifiedTimeStamp | DateTime         | いいえ              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
 | expirationTimeStamp   | DateTime         | いいえ              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
-| lastModifiedUser      | string           | いいえ              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
+| lastModifiedUser      | 文字列           | いいえ              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
 | lineItems             | オブジェクトの配列 | はい             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                             |
 
 次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
 
-| プロパティ             | Type                             | 説明                                                                                                                                           |
+| プロパティ             | 種類                             | 説明                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                   | string                           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                                   |
 | catalogId            | string                           | カタログ項目の識別子。                                                                                                                          |
@@ -161,7 +162,7 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 | provisioningContext  | Dictionary<string、string>       | プランのプロビジョニングに使用されるコンテキスト。                                                                                                             |
 | orderGroup           | string                           | 一緒に配置できる項目を示すグループ。                                                                                               |
 | addonItems           | **CartLineItem**オブジェクトの一覧 | 親のカートの品目の購入から得られる基本サブスクリプションに対して購入されるアドオンのカート品目のコレクション。 |
-| error                | Object                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
+| エラー                | Object                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>要求の例 (新しい基本サブスクリプション)
 

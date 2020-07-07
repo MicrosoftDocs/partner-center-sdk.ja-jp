@@ -5,12 +5,13 @@ ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 23397ab479f32879b00c04a817ef889221a6f091
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
-ms.translationtype: MT
+author: aarzh-AaronZhang
+ms.author: v-aarzh
+ms.openlocfilehash: 7575d5654cd8de9a65d4ee9ed484ff8cc0df2b0e
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665985"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022619"
 ---
 # <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>顧客契約の直接の署名 (直接受け入れ) の状態
 
@@ -32,6 +33,6 @@ ms.locfileid: "81665985"
 
 **DirectSignedCustomerAgreementStatus**リソースには、次のプロパティが含まれています。
 
-| プロパティ       | Type   | 説明                                                                                               |
+| プロパティ       | 種類   | 説明                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | isSigned | boolean | カスタマーアグリーメントが顧客によって直接署名 (受け入れ) されているかどうかを示します。 |

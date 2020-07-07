@@ -5,12 +5,13 @@ ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dcc81acbab84e7f6ac9a495c00b2798c87075d89
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: fc7f96cf6518a3fc761270c8ae1d4ba3575abc90
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155582"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022769"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft 顧客契約テンプレートのダウンロード リンクを取得する
 
@@ -38,7 +39,7 @@ ms.locfileid: "82155582"
 
 > [!IMPORTANT]
 >
-> - Microsoft カスタマーアグリーメントは、国によって異なります。 Microsoft カスタマーアグリーメントテンプレートをダウンロードするためのリンクを要求する場合は、顧客の所在地に基づいて正しい国を指定するようにしてください。 サポートされている国の一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。
+> - Microsoft 顧客契約は国によって異なります。 Microsoft カスタマーアグリーメントテンプレートをダウンロードするためのリンクを要求する場合は、顧客の所在地に基づいて正しい国を指定するようにしてください。 サポートされている国の一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。
 >
 > - 一部の国では、Microsoft カスタマー契約を複数の言語で利用できます。 最適なカスタマーエクスペリエンスを実現するには、お客様のニーズに最も合った言語を選択してください。 サポートされている言語の一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。
 > - この方法は、Microsoft カスタマーアグリーメントでのみサポートされています。
@@ -99,17 +100,17 @@ Microsoft カスタマーアグリーメントテンプレートをダウンロ�
 
 | Method | 要求 URI |
 |--------|---------------------------------------------------------------------|
-| GET | baseURL/v1/agreementtemplates/{agreement-template-id}/document? language = {language} &country = {country} HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET | [* \{ baseURL \} *](partner-center-rest-urls.md)/v1/agreementtemplates/{agreement-template-id}/document? language = {language} &country = {country} HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
 要求では、次の URI パラメーターを使用できます。
 
-| 名前                   | Type   | 必須 | 説明                                 |
+| 名前                   | 種類   | 必須 | 説明                                 |
 |------------------------|--------|----------|---------------------------------------------|
 | 契約テンプレート-id  | string | はい      | 契約の種類を表す一意の識別子。 Microsoft 顧客契約の契約メタデータを取得することで、Microsoft 顧客契約の templateId を取得できます。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](./get-customer-agreement-metadata.md)」を参照してください。 このパラメーターでは **、大文字と小文字が区別**されます。|
 | country                | string | いいえ       | アグリーメントテンプレートを適用する国を指定します。 パラメーターが指定されていない場合、クエリの既定値は*US*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
-| language               | string | いいえ       | アグリーメントテンプレートのローカライズに使用する言語を指定します。 パラメーターが指定されていない場合、または指定された国に対して指定された国コードがサポートされていない場合、クエリの既定値は*en-us*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
+| language               | 文字列 | いいえ       | アグリーメントテンプレートのローカライズに使用する言語を指定します。 パラメーターが指定されていない場合、または指定された国に対して指定された国コードがサポートされていない場合、クエリの既定値は*en-us*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -117,7 +118,7 @@ Microsoft カスタマーアグリーメントテンプレートをダウンロ�
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 
@@ -162,13 +163,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 > [!IMPORTANT]
 > 国コードプロパティでは、大文字と小文字が区別されます。 次の表で指定されている正しい文字種を使用してください。
 
-| Country                   | 国番号   | サポートされている言語コード |
+| 国                   | 国番号   | サポートされている言語コード |
 |------------------------|--------|----------|
 | オーランド諸島 | AX | ja-JP |
 | アフガニスタン | AF | ja-JP |
 | アルバニア | AL | ja-JP |
 | アルジェリア | DZ | en-us, fr-fr, en-us, en-us |
-| アメリカ領サモア | AS | ja-JP |
+| 米領サモア | AS | ja-JP |
 | アンドラ | AD | ja-JP |
 | アンゴラ | AO | en-us、pt-PT |
 | アンギラ | AI | ja-JP |
@@ -197,7 +198,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | ブーベ島 | BV | ja-JP |
 | ブラジル | BR | en-us、pt-BR |
 | 英領インド洋地域 | IO | ja-JP |
-| 英領バージン諸島 | VG | ja-JP |
+| 英領ヴァージン諸島 | VG | ja-JP |
 | ブルネイ | BN | ja-JP |
 | ブルガリア | BG | en-us、bg-BG |
 | ブルキナファソ | BF | ja-JP |
@@ -212,11 +213,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | チャド | TD | ja-JP |
 | チリ | CL | en-us、es |
 | クリスマス島 | CX | ja-JP |
-| ココス諸島 | CC | ja-JP |
+| ココス(キーリング)諸島 | CC | ja-JP |
 | コロンビア | CO | en-us、es |
 | コモロ | KM | ja-JP |
 | コンゴ民主共和国 | CD | ja-JP |
-| コンゴ共和国 | CG | ja-JP |
+| コンゴ | CG | ja-JP |
 | クック諸島 | CK | ja-JP |
 | コスタリカ | CR | en-us、es |
 | クロアチア | HR | en-us、hr-HR |
@@ -225,7 +226,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | チェコ | CZ | en-us, cs-CS-CZ |
 | デンマーク | DK | en-us、da-DK |
 | ジブチ | DJ | ja-JP |
-| ドミニカ国 | DM | ja-JP |
+| ドミニカ | DM | ja-JP |
 | ドミニカ共和国 | DO | en-us、es |
 | エクアドル | EC | ja-JP |
 | エジプト | EG | en-us、ar-SA |
@@ -241,7 +242,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | フィンランド | FI | en-us、fi FI |
 | フランス | FR | en-US、fr-FR |
 | 仏領ギアナ | GF | en-US、fr-FR  |
-| フランス領ポリネシア | PF | ja-JP |
+| 仏領ポリネシア | PF | ja-JP |
 | 仏領極南諸島 | TF | ja-JP |
 | ガボン | GA | ja-JP |
 | ガンビア | GM | ja-JP |
@@ -255,7 +256,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | グアドループ | GP | ja-JP |
 | グアム | GU | ja-JP |
 | グアテマラ | GT | en-us、es |
-| ガーンジー島 | GG | ja-JP |
+| ガーンジー | GG | ja-JP |
 | ギニア | GN | ja-JP |
 | ギニアビサウ | GW | ja-JP |
 | ガイアナ | GY | ja-JP |
@@ -275,7 +276,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | ジャマイカ | JM | ja-JP |
 | ヤンマイエン島 | XJ | ja-JP |
 | 日本 | JP | en-us、ja-jp |
-| ジャージー島 | JE | ja-JP |
+| ジャージー | JE | ja-JP |
 | ヨルダン | JO | en-us、ar-SA |
 | カザフスタン | KZ | en-us、kk-KZ |
 | ケニア | KE | ja-JP |
@@ -305,14 +306,14 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | マルティニーク | MQ | ja-JP |
 | モーリタニア | MR | ja-JP |
 | モーリシャス | MU | en-us、ar-SA |
-| マイヨット島 | YT | ja-JP |
+| マヨット | YT | ja-JP |
 | メキシコ | MX | en-us、es |
 | ミクロネシア | FM | ja-JP |
 | モルドバ | MD | en-us、ro-RO |
 | モナコ | MC | en-US、fr-FR |
 | モンゴル | MN | ja-JP |
 | モンテネグロ | ME | ja-JP |
-| モンセラット | MS | ja-JP |
+| モントセラト | MS | ja-JP |
 | モロッコ | MA | en-us, fr-fr, en-us, en-us |
 | モザンビーク | MZ | ja-JP |
 | ミャンマー | mm | ja-JP |
@@ -352,7 +353,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | サン・バルテルミー | BL | ja-JP |
 | セントクリストファー・ネイビス | KN | ja-JP |
 | セントルシア | LC | en-us、en-us |
-| サンマルタン島 | MF | en-us、en-us |
+| サン・マルタン | MF | en-us、en-us |
 | サンピエール・ミクロン | PM | ja-JP |
 | セントビンセント及びグレナディーン諸島 | VC | ja-JP |
 | サモア | WS | ja-JP |
@@ -364,7 +365,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | シエラレオネ | SL | ja-JP |
 | シンガポール | SG | en-us、zh-tw |
 | シント・ユースタティウス島 | XE | ja-JP |
-| シント・マールテン島 | SX | en-us、en-us |
+| シント・マールテン | SX | en-us、en-us |
 | スロバキア | SK | en-us、sk-SK |
 | スロベニア | SI | en-us、sl-SI |
 | ソロモン諸島 | SB | ja-JP |
@@ -385,7 +386,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | タイ | TH | en-us、th |
 | ティモール・レステ | TL | ja-JP |
 | トーゴ | TG | ja-JP |
-| トケラウ諸島 | TK | ja-JP |
+| トケラウ | TK | ja-JP |
 | トンガ | TO | ja-JP |
 | トリニダード・トバゴ | TT | ja-JP |
 | チュニジア | TN | en-us, fr-fr, en-us, en-us |
@@ -394,7 +395,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | タークス・カイコス諸島 | TC | ja-JP |
 | ツバル | TV | ja-JP |
 | 米領小離島 | UM | ja-JP |
-| 米領バージン諸島 | VI | ja-JP |
+| 米国バージン諸島 | VI | ja-JP |
 | ウガンダ | UG | ja-JP |
 | ウクライナ | UA | en-us、uk-UA |
 | アラブ首長国連邦 | AE | en-us、ar-SA |

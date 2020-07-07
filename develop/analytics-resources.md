@@ -6,12 +6,13 @@ ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b33412a74cb4ba733de0f0d95fbc3d39448ab23
-ms.sourcegitcommit: 685137f5dd204912efcb4c406a1bf02278ce5dae
-ms.translationtype: MT
+author: v-sumukh
+ms.author: v-sumukh
+ms.openlocfilehash: 50c04b1df512ab2475cd555e06bc2b6b92b6c8a7
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81785143"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022691"
 ---
 # <a name="analytics-resources"></a>分析リソース
 
@@ -25,33 +26,33 @@ ms.locfileid: "81785143"
 
 **PartnerLicensesDeploymentInsights**リソースには、ライセンスの展開に関するパートナーレベルの洞察が含まれています。
 
-| プロパティ                  | Type                                                           | 説明                                                                         |
+| プロパティ                  | 種類                                                           | 説明                                                                         |
 |---------------------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | proratedDeploymentPercent | number                                                         | 展開されたライセンスの割合。                                                |
 | licensesSold              | number                                                         | 販売されたライセンスの数。                                                        |
 | processedDateTime         | UTC 日時形式の文字列                                 | データが集計された日付と時刻。                                     |
 | serviceName               | string                                                         | サービス名 (例: o365、crm)。                                                  |
 | channel                   | string                                                         | サービスのチャネル名 (例: リセラー)。                                    |
-| attributes                | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "PartnerLicensesDeploymentInsights" が含まれます。 |
+| 属性                | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "PartnerLicensesDeploymentInsights" が含まれます。 |
 
 ## <a name="partnerlicensesusageinsights"></a>PartnerLicensesUsageInsights
 
 **PartnerLicensesUsageInsights**リソースには、ライセンスの使用状況に関するパートナーレベルの洞察が含まれています。
 
-| プロパティ                     | Type                                                           | 説明                                                                    |
+| プロパティ                     | 種類                                                           | 説明                                                                    |
 |------------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | proratedLicensesUsagePercent | number                                                         | 展開されたライセンスの割合。                                           |
 | workloadName                 | string                                                         | ワークロード名 (例: exchange)。                                             |
 | processedDateTime            | UTC 日時形式の文字列                                 | データが集計された日付と時刻。                                |
 | serviceName                  | string                                                         | サービス名 (例: o365、crm)。                                             |
 | channel                      | string                                                         | サービスのチャネル名 (例: リセラー)。                               |
-| attributes                   | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "PartnerLicensesUsageInsights" が含まれます。 |
+| 属性                   | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "PartnerLicensesUsageInsights" が含まれます。 |
 
 ## <a name="customerlicensesdeploymentinsights"></a>CustomerLicensesDeploymentInsights
 
 **CustomerLicensesDeploymentInsights**リソースには、ライセンスの展開に関する顧客レベルの洞察が含まれています。
 
-| プロパティ          | Type                                                           | 説明                                                                          |
+| プロパティ          | 種類                                                           | 説明                                                                          |
 |-------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | licensesDeployed  | number                                                         | 展開されたライセンスの数。                                                     |
 | licensesSold      | number                                                         | 販売されたライセンスの数。                                                         |
@@ -63,13 +64,13 @@ ms.locfileid: "81785143"
 | processedDateTime | UTC 日時形式の文字列                                 | データが集計された日付と時刻。                                      |
 | serviceName       | string                                                         | サービス名 (例: o365、crm)。                                                   |
 | channel           | string                                                         | サービスのチャネル名 (例: リセラー)。                                     |
-| attributes        | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "CustomerLicensesDeploymentInsights" が含まれます。 |
+| 属性        | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "CustomerLicensesDeploymentInsights" が含まれます。 |
 
 ## <a name="customerlicensesusageinsights"></a>CustomerLicensesUsageInsights
 
 **CustomerLicensesUsageInsights**リソースには、ライセンスの使用状況に関する顧客レベルの洞察が含まれています。
 
-| プロパティ          | Type                                                           | 説明                                                                     |
+| プロパティ          | 種類                                                           | 説明                                                                     |
 |-------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | workloadCode      | string                                                         | ワークロードコード。                                                              |
 | workloadName      | number                                                         | ワークロード名 (例: Exchange)。                                              |
@@ -83,4 +84,4 @@ ms.locfileid: "81785143"
 | processedDateTime | UTC 日時形式の文字列                                 | データが集計された日付と時刻。                                 |
 | serviceName       | string                                                         | サービス名 (例: o365、crm)。                                              |
 | channel           | string                                                         | サービスのチャネル名 (例: リセラー)。                                |
-| attributes        | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "CustomerLicensesUsageInsights" が含まれます。 |
+| 属性        | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 "ObjectType": "CustomerLicensesUsageInsights" が含まれます。 |

@@ -6,12 +6,13 @@ ms.date: 06/03/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f67dcd1bfa2e3f896e2fb1e9ae777ef3974e22eb
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 9838c3bc17bde79c0557d873df78b3da58a6b940
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155214"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022729"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller"></a>間接リセラーの顧客を作成する
 
@@ -23,7 +24,7 @@ ms.locfileid: "82155214"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 - 間接リセラーのテナント識別子。
 
@@ -39,7 +40,7 @@ ms.locfileid: "82155214"
 
 3. 顧客を作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)メソッドを呼び出します。
 
-### <a name="c-example"></a>C\#の例
+### <a name="c-example"></a>C の \# 例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -95,7 +96,7 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                                          | Type   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
+| 名前                                          | 種類   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [BillingProfile](#billing-profile)             | object | はい      | 顧客の課金プロファイル情報。                                                                                                                                                                                                                                                                                                           |
 | [CompanyProfile](#company-profile)             | object | はい      | 顧客の会社プロファイル情報。                                                                                                                                                                                                                                                                                                           |
@@ -105,19 +106,19 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | Type                                     | 必須 | 説明                                                                                                                                                                                                     |
+| 名前             | 種類                                     | 必須 | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | email            | string                                   | はい      | 顧客のメール アドレス。                                                                                                                                                                                   |
-| culture          | string                                   | はい      | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
-| language         | string                                   | はい      | 既定の言語です。 2文字の言語コード (や`en` `fr`など) がサポートされています。                                                                                                                                |
-| 会社\_名    | string                                   | はい      | 登録されている会社名または組織名。                                                                                                                                                                       |
-| 既定\_のアドレス | [アドレス](utility-resources.md#address) | はい      | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
+| カルチャ          | string                                   | はい      | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
+| language         | string                                   | はい      | 既定の言語です。 2文字の言語コード ( `en` やなど `fr` ) がサポートされています。                                                                                                                                |
+| 会社 \_ 名    | string                                   | はい      | 登録されている会社名または組織名。                                                                                                                                                                       |
+| 既定の \_ アドレス | [アドレス](utility-resources.md#address) | はい      | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
 
 #### <a name="company-profile"></a>会社プロファイル
 
 次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | Type   | 必須 | 説明                                                  |
+| 名前   | 種類   | 必須 | 説明                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
 | domain | string | .うん     | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 

@@ -5,12 +5,13 @@ ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 93c33886d22ea9d4a72ed650da6ec14904cfdb28
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: 7333d2a7216551e50672db3beac0624776709701
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154764"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022629"
 ---
 # <a name="change-the-billing-cycle"></a>請求サイクルを変更する
 
@@ -36,7 +37,7 @@ ms.locfileid: "82154764"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - 注文 ID。
 
@@ -81,7 +82,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 次の表に、サブスクリプションの数量を変更するために必要なクエリパラメーターを示します。
 
-| 名前                   | Type | 必須 | 説明                                                          |
+| 名前                   | 種類 | 必須 | 説明                                                          |
 |------------------------|------|----------|----------------------------------------------------------------------|
 | **customer-tenant-id** | GUID |    Y     | 顧客を識別する GUID 形式の**顧客テナント id** |
 | **注文-id**           | GUID |    Y     | 順序識別子                                                 |
@@ -94,9 +95,9 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 次の表では、要求本文のプロパティについて説明します。
 
-### <a name="order"></a>Order
+### <a name="order"></a>順番
 
-| プロパティ           | Type             | 必須 | 説明                                                                |
+| プロパティ           | 種類             | 必須 | 説明                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
 | Id                 | string           |    N     | 注文が正常に作成されたときに提供される注文 id |
 |ReferenceCustomerId | string           |    Y     | 顧客識別子                                                    |
@@ -107,7 +108,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ### <a name="orderlineitem"></a>OrderLineItem
 
-| プロパティ             | Type   | 必須 | 説明                                                                        |
+| プロパティ             | 種類   | 必須 | 説明                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
 | LineItemNumber       | number |    Y     | 0から始まる行項目番号。                                              |
 | OfferId              | string |    Y     | プランの ID                                                                |

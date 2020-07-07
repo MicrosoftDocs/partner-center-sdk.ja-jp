@@ -5,12 +5,13 @@ ms.date: 01/02/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e57835aaa5c2c2e0871107094adc154617c6e4f
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
-ms.translationtype: MT
+author: mowrim
+ms.author: mowrim
+ms.openlocfilehash: 315cee7cfe19a4d1d0fc1c0c3a77623086ee8473
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125276"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022759"
 ---
 # <a name="create-an-azure-plan"></a>Azure プランを作成する
 

@@ -6,12 +6,13 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 343b339a93d6542a6475cd2607a1da9a899d02b1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 35ed60b6053fc688249af40ab07b2245a7d8b92c
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154884"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022739"
 ---
 # <a name="create-a-customer"></a>顧客の作成
 
@@ -51,7 +52,7 @@ ms.locfileid: "82154884"
 
 2. [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)を呼び出して、新しい顧客を[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションに追加します。
 
-### <a name="c-example"></a>C\#の例
+### <a name="c-example"></a>C の \# 例
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -168,7 +169,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                              | Type   | 説明                                 |
+| 名前                              | 種類   | 説明                                 |
 |-----------------------------------|--------|---------------------------------------------|
 | [BillingProfile](#billing-profile) | object | 顧客の課金プロファイル情報。 |
 | [CompanyProfile](#company-profile) | object | 顧客の会社プロファイル情報。 |
@@ -177,19 +178,19 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | Type                                     | 説明                                                                                                                                                                                                     |
+| 名前             | 種類                                     | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | email            | string                                   | 顧客のメール アドレス。                                                                                                                                                                                   |
-| culture          | string                                   | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
-| language         | string                                   | 既定の言語です。 2文字の言語コード (や`en` `fr`など) がサポートされています。                                                                                                                                |
-| 会社\_名    | string                                   | 登録されている会社名または組織名。                                                                                                                                                                       |
-| 既定\_のアドレス | [アドレス](utility-resources.md#address) | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
+| カルチャ          | string                                   | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
+| language         | string                                   | 既定の言語です。 2文字の言語コード ( `en` やなど `fr` ) がサポートされています。                                                                                                                                |
+| 会社 \_ 名    | string                                   | 登録されている会社名または組織名。                                                                                                                                                                       |
+| 既定の \_ アドレス | [アドレス](utility-resources.md#address) | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
 
 #### <a name="company-profile"></a>会社プロファイル
 
 次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | Type   | 説明                                                  |
+| 名前   | 種類   | 説明                                                  |
 |--------|--------|--------------------------------------------------------------|
 | domain | string | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 
