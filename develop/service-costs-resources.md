@@ -1,17 +1,15 @@
 ---
 title: サービスコストリソース
 description: 顧客が購入したサービスに関連するリソースについて説明します。
-ms.assetid: 2916B7F3-06D5-4DC1-A137-CD8270258CDB
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e61ef7e2d6c72938a365d28774a90b993c5d3e7b
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: c0236329d93d8ddc9019a15fb67a81a3af3e7620
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098492"
 ---
 # <a name="service-costs-resources"></a>サービスコストリソース
 
@@ -29,7 +27,7 @@ ms.locfileid: "81666304"
 | -------- | ---- | ----------- |
 | details | [ServiceCostsSummaryDetail](#servicecostssummarydetail)オブジェクトの配列 | 請求書の種類別に識別されるサービスコストの概要の詳細一覧。|
 | リンク | [ResourceLinks](utility-resources.md#resourcelinks) | リソースリンク。 |
-| attributes | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 |
+| 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。 |
 
 > [!IMPORTANT]
 > **次の表のフィールドは非推奨とされます。** 定期的および1回限りのサービスコストの概要を取得するには、代わりに [**詳細**] フィールドを使用します。 **詳細**フィールドは、前の表で説明されています。 **詳細**フィールドの対応するデータ値を参照しますが、ルートレベルのフィールドは参照しません。
@@ -97,4 +95,4 @@ ms.locfileid: "81666304"
 | プロパティ             | Type                               | 説明                         |
 |----------------------|------------------------------------|-------------------------------------|
 | serviceCostLineItems | [リンク](utility-resources.md#link) | 行項目を取得する URI。 |
-| 自身                 | [リンク](utility-resources.md#link) | 自己 URI。                       |
+| self                 | [リンク](utility-resources.md#link) | 自己 URI。                       |

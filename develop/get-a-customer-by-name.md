@@ -1,17 +1,17 @@
 ---
 title: 検索フィールドによってフィルター処理された顧客の一覧を取得する
 description: フィルターに一致する顧客リソースのコレクションを取得します。 必要に応じてページサイズを設定することもできます。 フィルターを適用するには、会社名、ドメイン、間接リセラー、または間接クラウドソリューションプロバイダー (CSP) を使用します。
-ms.assetid: 7D5D8C83-1DBD-4C54-8CDA-FE0CAC911D14
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 833c84e08ee1a8ec7ad606504ea4076db9a42377
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 60875f960c228c9eca90c21cc0c34f5747c04860
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098357"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>検索フィールドによってフィルター処理された顧客の一覧を取得する
 
@@ -88,11 +88,11 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 次の表では、必要なキーと値のペアについて説明します。
 
-| キー      | 値                                                                                                                    |
+| Key      | 値                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
 | フィールド    | フィルター処理するフィールド。 有効な値は、 [**"顧客の searchfield"**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)にあります。 |
 | 値    | フィルター処理される値。 値の大文字と小文字の区別は無視されます。                                                                |
-| 演算子 | 適用する演算子。 この顧客シナリオでサポートされている値は\_、"次で始まる" だけです。                            |
+| 演算子 | 適用する演算子。 この顧客シナリオでサポートされている値は、"次で始まる" だけです \_ 。                            |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -100,7 +100,7 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

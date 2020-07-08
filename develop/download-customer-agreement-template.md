@@ -4,14 +4,14 @@ description: Microsoft カスタマーアグリーメントテンプレートの
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: fc7f96cf6518a3fc761270c8ae1d4ba3575abc90
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 8c794d264ad64a42fa6ca823ddfc3841248c01cd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022769"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098377"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft 顧客契約テンプレートのダウンロード リンクを取得する
 
@@ -106,7 +106,7 @@ Microsoft カスタマーアグリーメントテンプレートをダウンロ�
 
 要求では、次の URI パラメーターを使用できます。
 
-| 名前                   | 種類   | 必須 | 説明                                 |
+| 名前                   | Type   | 必須 | 説明                                 |
 |------------------------|--------|----------|---------------------------------------------|
 | 契約テンプレート-id  | string | はい      | 契約の種類を表す一意の識別子。 Microsoft 顧客契約の契約メタデータを取得することで、Microsoft 顧客契約の templateId を取得できます。 詳細については、「 [Microsoft Customer agreement の契約メタデータを取得する](./get-customer-agreement-metadata.md)」を参照してください。 このパラメーターでは **、大文字と小文字が区別**されます。|
 | country                | string | いいえ       | アグリーメントテンプレートを適用する国を指定します。 パラメーターが指定されていない場合、クエリの既定値は*US*です。 サポートされている国コードの一覧については、[サポートされている国と言語の一覧](#list-of-supported-countries-and-languages)を参照してください。|

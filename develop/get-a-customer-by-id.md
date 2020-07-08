@@ -1,17 +1,17 @@
 ---
 title: ID で顧客を取得する
 description: 顧客 ID に対応する顧客リソースを取得します。
-ms.assetid: C84DF574-0E1B-418B-8AED-06C1E3BD301F
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9c4a580ceebc44792fad027955cccf2f6cd6d049
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 1a14a05c3db89320486a0e1eddca9169e4d3a596
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155894"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098386"
 ---
 # <a name="get-a-customer-by-id"></a>ID で顧客を取得する
 
@@ -28,7 +28,7 @@ ms.locfileid: "82155894"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報またはアプリ専用認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
@@ -88,7 +88,7 @@ Get-PartnerCustomer -CustomerId '2ca7de6c-c05c-46b5-b689-32e53573a97a'
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

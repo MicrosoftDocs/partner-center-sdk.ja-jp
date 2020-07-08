@@ -1,17 +1,17 @@
 ---
 title: パートナーの請求プロファイルを更新する
 description: パートナーの請求プロファイルを更新します。
-ms.assetid: F924B390-90C6-43B3-BB12-F4831464EC1F
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ab81eca1066af22382dee5c2f6d6fd95efc3a44b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: parthpandyaMSFT
+ms.author: parthp
+ms.openlocfilehash: 34e7d2396d6dbdd45a6cf87a3bda481f51326f1e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157794"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098471"
 ---
 # <a name="update-the-partner-billing-profile"></a>パートナーの請求プロファイルを更新する
 
@@ -26,7 +26,7 @@ ms.locfileid: "82157794"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 
@@ -59,7 +59,7 @@ BillingProfile updatedPartnerBillingProfile = partnerOperations.Profiles.Billing
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

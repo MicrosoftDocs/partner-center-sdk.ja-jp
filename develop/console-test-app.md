@@ -1,17 +1,15 @@
 ---
 title: コンソール テスト アプリ
 description: このコンソールテストアプリは、パートナーセンター Api でサポートされているすべてのシナリオのサンプルコードを提供します。 テストにも使用できます。
-ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a75f01a6636b20865d5f5a0e6ec59aa3f7779e00
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e82bac3ccc22d0e7cf898e5b2d2e002c622584ae
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155034"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098418"
 ---
 # <a name="console-test-app"></a>コンソール テスト アプリ
 
@@ -24,7 +22,7 @@ ms.locfileid: "82155034"
 
 コンソールテストアプリは、C# および Java で提供されており、パートナーセンター Api でサポートされているすべてのシナリオのサンプルコードを提供します。 テストにも使用できます。
 
-## <a name="get-the-code"></a>コードの入手
+## <a name="get-the-code"></a>コードを取得する
 
 コンソールテストアプリのサンプルコードをダウンロードします。
 
@@ -33,11 +31,11 @@ ms.locfileid: "82155034"
 [サンプルコードをダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=746682)し、必要に応じて変更します。
 
 > [!IMPORTANT]
-> アプリケーションをビルドする前に、 *app.config*ファイルの値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 具体的には、開発の初期段階で、または実稼働環境でのテストの際に、統合サンドボックスアカウントの設定を使用する必要があります。
+> アプリケーションをビルドする前に、 *App.config*ファイルの値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 具体的には、開発の初期段階で、または実稼働環境でのテストの際に、統合サンドボックスアカウントの設定を使用する必要があります。
 
-*App.config*ファイルの**ScenarioSettings**では、実行するシナリオに自動的に渡されるパラメーターを設定できます。
+*App.config*ファイルの [ **ScenarioSettings** ] では、実行するシナリオに自動的に渡されるパラメーターを設定できます。
 
-実行されるシナリオの一覧を変更するには、 **ipartnerscenario の\[ \] mainscenarios**または*Program.cs*ファイルにある個々の**Get** scenario メソッドでコメントアウトします。
+実行されるシナリオの一覧を変更するには、 **Ipartnerscenario の \[ \] mainscenarios**または*Program.cs*ファイルにある個々の**Get** scenario メソッドでコメントアウトします。
 
 ## <a name="java"></a>Java
 
@@ -46,11 +44,11 @@ ms.locfileid: "82155034"
 [サンプルコードをダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=2026887)し、必要に応じて変更します。
 
 > [!IMPORTANT]
-> アプリケーションをビルドする前に、 *SamplesConfigurations*ファイルの値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 具体的には、開発の初期段階で、または実稼働環境でのテストの際に、統合サンドボックスアカウントの設定を使用する必要があります。
+> アプリケーションをビルドする前に、 *SamplesConfigurations.js*のファイルの値を更新して、[パートナーセンターの認証](partner-center-authentication.md)で作成した Azure AD 認証情報を反映させます。 具体的には、開発の初期段階で、または実稼働環境でのテストの際に、統合サンドボックスアカウントの設定を使用する必要があります。
 
-*SamplesConfiguration*ファイルの**ScenarioSettings**では、実行するシナリオに自動的に渡されるパラメーターを設定できます。
+ファイルの*SamplesConfiguration.js*の [ **ScenarioSettings** ] で、実行するシナリオに自動的に渡されるパラメーターを設定できます。
 
-実行されるシナリオの一覧を変更するには、 **ipartnerscenario の\[ \] mainscenarios**の行をコメントアウトするか、または*java*ファイルに含まれる個々の**Get** scenario メソッドにコメントアウトします。
+実行されるシナリオの一覧を変更するには、 **Ipartnerscenario の \[ \] mainscenarios**の行をコメントアウトするか、または*java*ファイルに含まれる個々の**Get** scenario メソッドにコメントアウトします。
 
 ## <a name="what-to-change"></a>変更する内容
 

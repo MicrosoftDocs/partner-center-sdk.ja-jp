@@ -4,13 +4,12 @@ description: パートナーセンター .NET SDK の最新バージョンのリ
 ms.date: 12/09/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e11e5d6f7f2372b3230d8ac26e02d00b2b554edc
-ms.sourcegitcommit: 506c69986f3d1ea650c935c42880048d6c4241f4
+ms.openlocfilehash: fe63c5bf5a7d3114f8914d432a64099e009698e6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82784707"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098407"
 ---
 # <a name="net-sdk-release-notes"></a>.NET SDK のリリースノート
 

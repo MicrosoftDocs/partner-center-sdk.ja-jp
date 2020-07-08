@@ -1,17 +1,15 @@
 ---
 title: サポート プロファイルを更新する
 description: ユーザーのサポートプロファイルを更新します。
-ms.assetid: 3F98BD1D-2490-4F0B-A8FF-7D80B7E0690E
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: de7e1e5061fc696bd130b9dba4d29e205b6b24a5
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 1f22f01474cb6cb007f39a2aa1e978d2f7506ea6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157914"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098467"
 ---
 # <a name="update-support-profile"></a>サポート プロファイルを更新する
 
@@ -26,7 +24,7 @@ ms.locfileid: "82157914"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 

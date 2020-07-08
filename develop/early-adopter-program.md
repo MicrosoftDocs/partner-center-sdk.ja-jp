@@ -4,13 +4,12 @@ description: パートナーは、パートナーの機能の開発に関して 
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 486b2e9002c1b0130c96345c2b5ed296418be4da
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 62770ea695f63e1be7dbd624f1239286620a6432
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155594"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098394"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>パートナー センターAPI および SDK 早期導入者プログラムにご参加ください。
 
@@ -42,7 +41,7 @@ ms.locfileid: "82155594"
    > [!NOTE]
    > パートナーセンターの早期導入プログラム Yammer グループに参加する前に、Microsoft Cloud Yammer コミュニティネットワークに参加することが必要になる場合があります。
 
-2. Microsoft ID またはヒント (運用環境でのテスト) サンドボックスアカウントとプライマリドメインを使用して、**に電子メール[pctap@microsoft.com](mailto:pctap@microsoft.com)を送信**します。
+2. **に電子メールを [pctap@microsoft.com](mailto:pctap@microsoft.com) 送信する**Microsoft ID またはヒント (運用環境でのテスト) サンドボックスアカウントとプライマリドメイン。
 
    > [!TIP]
    > Microsoft ID は、[**アカウント設定**] メニューの [**組織のプロファイル**] ページで確認できます。
