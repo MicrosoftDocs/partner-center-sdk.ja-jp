@@ -4,13 +4,14 @@ description: Webhook を使用すると、パートナーはリソース変更�
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fc0749f146aa507cab27b36120722d2f6844e4cb
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 1ff3631ed70b197a781d2ca30d71eb8fbf211509
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157074"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097331"
 ---
 # <a name="partner-center-webhooks"></a>パートナー センター Webhook
 
@@ -143,7 +144,7 @@ Content-Length: 195
 
 ### <a name="authentication"></a>認証
 
-Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 アクセスhttps://api.partnercenter.microsoft.comするアクセストークンを取得します。 このトークンは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
+Webhook Api のすべての呼び出しは、Authorization ヘッダーのベアラートークンを使用して認証されます。 アクセスするアクセストークンを取得 https://api.partnercenter.microsoft.com します。 このトークンは、パートナーセンター Api の残りの部分にアクセスするために使用されるトークンと同じです。
 
 ### <a name="get-a-list-of-events"></a>イベントの一覧を取得する
 

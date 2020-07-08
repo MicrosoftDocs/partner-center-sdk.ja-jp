@@ -1,17 +1,15 @@
 ---
 title: パートナーの法的ビジネス プロファイルを取得する
 description: パートナーの法的ビジネスプロファイルを取得する方法。
-ms.assetid: 84A7C363-FD19-457B-8C45-A6E4E254712B
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 533384ac775a5792ace8667a0202f7cd740b8c5f
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 27ee41a9b7ac3586c13f3675d8b688ab52103fca
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157394"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096820"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>パートナーの法的ビジネス プロファイルを取得する
 
@@ -54,7 +52,7 @@ var billingProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

@@ -1,17 +1,15 @@
 ---
 title: 変換に関するリソース
 description: 変換リソースでは、試用版サブスクリプションから有料サブスクリプションへの変換がサポートされます。
-ms.assetid: 4AE796E3-47D9-428B-8267-A5247B573E0C
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 74e974a3475015374a9014fb3dc372501d1348d9
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 10526af03ee66b81d790816dfa9925c28e410114
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665252"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096386"
 ---
 # <a name="conversions-resources"></a>変換に関するリソース
 
@@ -54,4 +52,4 @@ ms.locfileid: "81665252"
 | subscriptionId | string                              | サブスクリプションの識別子です。                                           |
 | offerId        | string                              | 元のプラン識別子。                                         |
 | targetOfferId  | string                              | ターゲットプランのプラン識別子。                             |
-| error          | [ConversionError](#conversionerror) | 変換の試行中にエラーが発生しました (該当する場合)。 |
+| エラー          | [ConversionError](#conversionerror) | 変換の試行中にエラーが発生しました (該当する場合)。 |

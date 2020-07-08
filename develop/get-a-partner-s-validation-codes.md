@@ -4,13 +4,14 @@ description: パートナーの政府機関向けコミュニティクラウド�
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 1f671229f5c427c9c25f7fe3c2799f1ed739a7f3
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khakiali
+ms.author: alikhaki
+ms.openlocfilehash: 5ad255dadb499fb6c311bb3a2e9d76892611a91b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156944"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097179"
 ---
 # <a name="get-a-partners-validation-codes"></a>パートナーの確認コードを取得する
 
@@ -55,7 +56,7 @@ var gccValidations = partnerOperations.Validations.GetValidationCodes();
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

@@ -1,17 +1,15 @@
 ---
 title: 関係要求 URL を取得する
 description: 顧客に送信するリレーションシップ要求 URL を取得する方法。
-ms.assetid: 31D9EDB2-4ABE-4C57-A394-2FF256F7D3CA
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: de6eaa1451e91df29f6a9ed0448e70b348b1e64c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 90a749b7bb4e78391831aed162857d55e028158a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157004"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096702"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>関係要求 URL を取得する
 
@@ -25,7 +23,7 @@ ms.locfileid: "82157004"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 

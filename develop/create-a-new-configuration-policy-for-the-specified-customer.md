@@ -1,17 +1,15 @@
 ---
 title: 指定された顧客の新しい構成ポリシーを作成する
 description: 指定された顧客の新しい構成ポリシーを作成する方法。
-ms.assetid: 95649991-A950-4F43-87E8-3EB1E7D06FCD
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a18335087d23a26b698d3e3ee18090349650dead
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 0c95136aa8769560660354d9be815f4f515c3e63
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154864"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097354"
 ---
 # <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>指定された顧客の新しい構成ポリシーを作成する
 
@@ -26,7 +24,7 @@ ms.locfileid: "82154864"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
@@ -38,7 +36,7 @@ ms.locfileid: "82154864"
 
 3. 構成ポリシーを作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)メソッドを呼び出します。
 
-### <a name="c-example"></a>C\#の例
+### <a name="c-example"></a>C の \# 例
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -87,7 +85,7 @@ var createdConfigurationPolicy =
 |----------------|------------------|----------|----------------------------------|
 | name           | string           | はい      | ポリシーのフレンドリ名。 |
 | category       | string           | はい      | ポリシーカテゴリ。             |
-| description    | string           | いいえ       | ポリシーの説明。          |
+| description    | 文字列           | いいえ       | ポリシーの説明。          |
 | policySettings | 文字列の配列 | はい      | ポリシー設定。             |
 
 ### <a name="request-example"></a>要求の例

@@ -4,13 +4,12 @@ description: パートナーは、顧客がプランの一覧からサブスク�
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cb47c244934d25e6970440c55a3bdd13ffbc8951
-ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
+ms.openlocfilehash: 561bffb905becd1bfc699eb13fe4dc6e10e8e07a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82090789"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096496"
 ---
 # <a name="cart-resources"></a>カートのリソース
 
@@ -35,7 +34,7 @@ ms.locfileid: "82090789"
 | expirationTimeStamp   | DateTime         | カートの有効期限が切れる日付 (日付と時刻の形式)。 カートの作成が成功したときに適用されます。          |
 | lastModifiedUser      | string           | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                          |
 | lineItems             | オブジェクトの配列 | [CartLineItem](#cartlineitem)リソースの配列。                                                   |
-| status                | string           | カートの状態。 有効な値は、"Active" (更新/送信可能) と "Ordered" (既に送信済み) です。 |
+| 状態                | string           | カートの状態。 有効な値は、"Active" (更新/送信可能) と "Ordered" (既に送信済み) です。 |
 
 ## <a name="cartlineitem"></a>CartLineItem
 
@@ -54,7 +53,7 @@ ms.locfileid: "82090789"
 | provisioningContext  | Dictionary<string、string>       | 購入した項目をプロビジョニングするときに使用される追加のコンテキスト。 特定の項目に必要な値を確認するには、SKU の "プロビジョニング変数" プロパティを参照してください。 |
 | orderGroup           | string                           | 同じ順序で一緒に送信できる項目を示すグループ。                                                                          |
 | addonItems           | **CartLineItem**オブジェクトの一覧 | アドオンのカート行項目のコレクション。 これらの項目は、ルートカートの品目の購入から得られる基本サブスクリプションに対して購入されます。 |
-| error                | Object                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
+| エラー                | Object                           | エラーが発生した場合にカートが作成された後に適用されます。                                                                                                    |
 | renewsTo             | オブジェクトの配列                 | [Renewsto](#renewsto)の配列。                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
@@ -63,7 +62,7 @@ ms.locfileid: "82090789"
 
 | プロパティ              | Type             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | いいえ              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
+| termDuration          | 文字列           | いいえ              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 
 ## <a name="carterror"></a>CartError
 
@@ -78,7 +77,7 @@ ms.locfileid: "82090789"
 
 カートエラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
-| 値                                | [位置] | [説明]                                             |
+| 値                                | 位置 | 説明                                             |
 |--------------------------------------|----------|---------------------------------------------------------|
 | Unknown                              | 0        | 既定値です。                                          |
 | CurrencyIsNotSupported               | 10000    | 指定された市場では、通貨はサポートされていません。 |
@@ -114,7 +113,7 @@ ms.locfileid: "82090789"
 
 注文エラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
-| 値 | [位置] | 説明 |
+| 値 | 位置 | 説明 |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | 要求コンテキストにパートナートークンがありません。 |
 | InvalidInput | 800002 | 要求の入力が無効です。 |
@@ -147,13 +146,13 @@ ms.locfileid: "82090789"
 | AssetIdNotFound | 800037 | 資産 ID が見つかりません。 |
 | AssetFutureBillingInfoNotFound | 800038 | Asset FutureBillingInfo が見つかりません。 |
 | ResellerProgramStatusNotActive | 800039 | リセラープログラムの状態がアクティブではありません。 |
-| AssetStatusChangeNotValid | 800040 | 資産の状態をから**{0}** **{1}** に変更することはできません。 |
+| AssetStatusChangeNotValid | 800040 | 資産の状態をからに変更することはできません **{0}** **{1}** 。 |
 | 項目がアクティブになりました | 800041 | この項目は既にアクティブ化されています。 |
 | NotSupported | 800042 | サポートされていません。 |
 | PricingAccessForbidden | 800043 | 価格情報へのアクセス権は付与されません。 |
 | OrderInProgress | 800060 | 注文が進行中です。 数分で最近の注文の注文履歴を確認してください。 |
 | OrderCannotBeCancelled | 800061 | 注文を取り消すことはできません。 |
 | ReviewRejected | 800062 | このトランザクションの対象ではありません。 |
-| CancelLegacyOrder | 800063 | この順序**{0}** を取り消すことはできません。 サブスクリプション`PATCH /customers/{1}/subscriptions/<subscriptionId>`を中断するには、を使用します。 |
-| CartProcessedByAnotherRequest | 800064 | カート**{0}** は別の要求によって処理されています。 |
-| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | 既に送信された**{0}** カートをチェックアウトすることはできません。 |
+| CancelLegacyOrder | 800063 | この順序 **{0}** を取り消すことはできません。 `PATCH /customers/{1}/subscriptions/<subscriptionId>`サブスクリプションを中断するには、を使用します。 |
+| CartProcessedByAnotherRequest | 800064 | カート **{0}** は別の要求によって処理されています。 |
+| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | 既に送信されたカートをチェックアウトすることはできません **{0}** 。 |

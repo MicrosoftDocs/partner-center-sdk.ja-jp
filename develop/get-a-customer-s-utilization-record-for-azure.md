@@ -1,17 +1,15 @@
 ---
 title: Azure に関する顧客の使用率レコードを取得する
 description: Azure 使用率 API を使用して、指定した期間における顧客の Azure サブスクリプションの使用率レコードを取得できます。
-ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 3ee3f2187f0e4961a7945c865bbcb80b90a6cf4b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 478f91e85c0ab178804e24eaf77b8f7fd086ddf6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155324"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098307"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Azure に関する顧客の使用率レコードを取得する
 
@@ -27,7 +25,7 @@ Azure 使用率 API を使用して、指定した期間の顧客の Azure サ�
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - サブスクリプション識別子。
 
@@ -136,7 +134,7 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 
 | 認証方法 | 要求 URI |
 |------- | ----------- |
-| **GET** | *{baseURL}*/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure? 開始\_時間 = {開始時刻} &終了\_時刻 = {終了時刻} &粒度 = {粒度} &詳細\_を表示 = {True} |
+| **GET** | *{baseURL}*/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure? 開始 \_ 時間 = {開始時刻} &終了時刻 \_ = {終了時刻} &粒度 = {粒度} &詳細を表示 \_ = {True} |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
@@ -148,8 +146,8 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 | subscription-id | string | はい | サブスクリプションを識別する GUID 形式の文字列。 |
 | start_time | UTC 日時オフセット形式の文字列 | はい | 課金システムで使用率がレポートされた日時を表す時間範囲の開始。 |
 | end_time | UTC 日時オフセット形式の文字列 | はい | 課金システムで使用率がレポートされた日時を表す時間範囲の最後。 |
-| 粒度 (granularity) | string | いいえ | 使用状況の集計の粒度を定義します。 使用可能なオプション`daily`は、(既定`hourly`値) とです。
-| show_details | boolean | いいえ | インスタンス レベルの使用状況の詳細を取得するかどうかを指定します。 既定では、 `true`です。 |
+| 粒度 (granularity) | 文字列 | No | 使用状況の集計の粒度を定義します。 使用可能なオプションは `daily` 、(既定値) と `hourly` です。
+| show_details | boolean | いいえ | インスタンス レベルの使用状況の詳細を取得するかどうかを指定します。 既定値は、`true` です。 |
 | size | number | いいえ | 1 回の API 呼び出しで返される集計の数を指定します。 既定値は 1000 です。 最大値は1000です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー

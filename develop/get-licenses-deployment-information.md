@@ -4,13 +4,12 @@ description: Office と Dynamics のライセンスのデプロイ情報を取�
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 47ff8d7a11edbc06591df56e26dec5896555595e
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 6f13a90bcae8099d6a1aa6c85f3ce0e9a29f3a90
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096794"
 ---
 # <a name="get-licenses-deployment-information"></a>ライセンスのデプロイ情報を取得する
 
@@ -38,12 +37,12 @@ Office と Dynamics のライセンスのデプロイ情報を取得する方法
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
-| パラメーター         | Type     | 説明 | 必須 |
+| パラメーター         | 種類     | 説明 | 必須 |
 |-------------------|----------|-------------|----------|
 | top               | string   | 要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 | いいえ |
 | skip              | int      | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。 | いいえ |
-| filter            | string   | <p>要求の <em>filter</em> パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各**`eq`** ステートメントには、また**`ne`** は演算子に関連付けられたフィールドと値が含まれて**`and`** おり**`or`**、ステートメントはまたはを使用して組み合わせることができます。 <em>フィルター</em>パラメーターの例をいくつか次に示します。</p><ul><li><em>filter = serviceCode eq ' O365 '</em></li><li><em>filter = serviceCode eq ' O365 '</em>または (<em>Channel eq ' リセラー '</em>)</li></ul><p>次のフィールドを指定できます。</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>チャンネル</strong></li><li><strong>顧客 Tenantid</strong></li><li><strong>おける</strong></li><li><strong>Id</strong></li><li><strong>同様</strong></li></ul> | いいえ |
-| groupby           | string   | <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>チャンネル</strong></li><li><strong>顧客 Tenantid</strong></li><li><strong>おける</strong></li><li><strong>Id</strong></li><li><strong>同様</strong></li></ul><p>返されるデータ行には、<em>groupby</em> パラメーターに指定したフィールドと次の値が含まれます。</p><ul><li><strong>licensesDeployed</strong></li><li><strong>licensesSold</strong></li></ul> | いいえ |
+| filter            | string   | <p>要求の <em>filter</em> パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各ステートメントには、または演算子に関連付けられたフィールドと値が含まれて **`eq`** **`ne`** おり、ステートメントはまたはを使用して組み合わせることができ **`and`** **`or`** ます。 <em>フィルター</em>パラメーターの例をいくつか次に示します。</p><ul><li><em>filter = serviceCode eq ' O365 '</em></li><li><em>filter = serviceCode eq ' O365 '</em>または (<em>Channel eq ' リセラー '</em>)</li></ul><p>次のフィールドを指定できます。</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>チャンネル</strong></li><li><strong>顧客 Tenantid</strong></li><li><strong>おける</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul> | いいえ |
+| groupby           | string   | <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>チャンネル</strong></li><li><strong>顧客 Tenantid</strong></li><li><strong>おける</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul><p>返されるデータ行には、<em>groupby</em> パラメーターに指定したフィールドと次の値が含まれます。</p><ul><li><strong>licensesDeployed</strong></li><li><strong>licensesSold</strong></li></ul> | いいえ |
 | processedDateTime | DateTime | 使用状況データが処理された日付を指定できます。 データが処理された最新の日付を既定値に設定します。 | いいえ |
 
 ### <a name="request-example"></a>要求の例

@@ -1,17 +1,15 @@
 ---
 title: Microsoft Azure パートナー共有サービスの価格を取得する
 description: Microsoft Azure Partner Shared Services の価格で Azure 料金カードを取得する方法について説明します。
-ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f8da51f0f23e8a45aa4708d7cc6891483ebf46a7
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 608520b8d0219e423eab35a8001e3d54d9ea7085
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157294"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097720"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Microsoft Azure パートナー共有サービスの価格を取得する
 
@@ -71,8 +69,8 @@ Get-PartnerAzureRateCard -SharedServices
 
 | 名前     | Type   | 必須 | 説明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | string | いいえ       | リソースレートが提供される通貨の3文字の ISO コード (省略可能) (たとえば`EUR`、)。 既定値は、パートナー プロファイル内の市場に関連付けられている通貨です。 |
-| region   | string | いいえ       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (たとえば`FR`、)。 既定値は、パートナー プロファイルに設定された国/地域コードです。        |
+| currency | string | いいえ       | リソースレートが提供される通貨の3文字の ISO コード (省略可能) (たとえば、 `EUR` )。 既定値は、パートナー プロファイル内の市場に関連付けられている通貨です。 |
+| region   | string | いいえ       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (たとえば、 `FR` )。 既定値は、パートナー プロファイルに設定された国/地域コードです。        |
 
 省略可能な X-Locale ヘッダーが要求に含まれている場合、その値によって、応答の詳細に使用される言語が決まります。
 
@@ -82,7 +80,7 @@ Get-PartnerAzureRateCard -SharedServices
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

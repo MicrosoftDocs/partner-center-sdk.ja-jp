@@ -1,17 +1,15 @@
 ---
 title: パートナー ライセンスの使用情報を取得する
 description: パートナーライセンスの使用状況情報を収集して、すべての顧客を含める方法。
-ms.assetid: 87BCC8FC-5C29-4245-8607-BB62ABC03EDE
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f33af84c8a0e7fcf7b5720d0dd2aa1219bc65781
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: a9bad2d4bc5d7b607bbc472068a47cfe7c156f94
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157334"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097715"
 ---
 # <a name="get-partner-licenses-usage-information"></a>パートナー ライセンスの使用情報を取得する
 
@@ -52,7 +50,7 @@ var partnerLicensesUsageAnalytics = partnerOperations.Analytics.Licenses.Usage.G
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

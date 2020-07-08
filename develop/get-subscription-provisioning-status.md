@@ -1,17 +1,15 @@
 ---
 title: サブスクリプションのプロビジョニング状態を取得する
 description: 顧客サブスクリプションのサブスクリプションのプロビジョニング状態を取得する方法。
-ms.assetid: CC3A13FE-D6D3-4A65-981F-0235A4A8382E
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b2be10aea196d4f4049d3f2055709dbc8a5e8eb3
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e347ed736e5b6cef070084749d6fabb7c05bcd5d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157214"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097535"
 ---
 # <a name="get-subscription-provisioning-status"></a>サブスクリプションのプロビジョニング状態を取得する
 
@@ -26,9 +24,9 @@ ms.locfileid: "82157214"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - サブスクリプション識別子。
 
@@ -70,7 +68,7 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 
@@ -115,7 +113,7 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 }
 ```
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>注釈
 
 - 接続クライアントの割り当ての変更時に、 [subscriptionの](subscription-resources.md#subscriptionprovisioningstatus)状態フィールドが "pending" に設定されます。
 

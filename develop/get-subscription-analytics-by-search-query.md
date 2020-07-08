@@ -4,13 +4,12 @@ description: 検索クエリでフィルター処理されたサブスクリプ�
 ms.date: 05/10/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e93582b004429f1e15fb00e29e4e80e898c8846c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c1046ea3c7e813eedae4890eebf6356337c80ede
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157234"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097555"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>検索クエリでフィルター処理されたサブスクリプションの分析情報を取得する
 
@@ -33,7 +32,7 @@ ms.locfileid: "82157234"
 
 | 認証方法 | 要求 URI |
 |--------|-------------|
-| **GET** | baseURL/partner/v1/analytics/subscriptions? filter = {filter_string} [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ baseURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions? filter = {filter_string} |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
@@ -45,7 +44,7 @@ ms.locfileid: "82157234"
 
 ### <a name="filter-syntax"></a>フィルターの構文
 
-Filter パラメーターは、一連のフィールド、値、および演算子の組み合わせとして構成する必要があります。 または演算子を使用し**`and`** て**`or`** 、複数の組み合わせを組み合わせることができます。
+Filter パラメーターは、一連のフィールド、値、および演算子の組み合わせとして構成する必要があります。 または演算子を使用して、複数の組み合わせを組み合わせることができ **`and`** **`or`** ます。
 
 エンコードされていない場合、 のようになります。
 
@@ -55,7 +54,7 @@ Filter パラメーターは、一連のフィールド、値、および演算�
 
 ### <a name="filter-fields"></a>フィルター フィールド
 
-要求の filter パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各ステートメントに**`eq`** は、または**`ne`** 演算子に関連付けられているフィールドと値が含まれています。 **`contains`** 一部のフィールドでは、 **`gt`**、 **`lt`**、 **`ge`**、、 **`le`** および演算子もサポートされています。 ステートメントは、または**`and`** **`or`** 演算子を使用して組み合わせることができます。
+要求の filter パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各ステートメントには、または演算子に関連付けられているフィールドと値が含まれてい **`eq`** **`ne`** ます。 一部のフィールドでは **`contains`** 、、、、 **`gt`** **`lt`** 、および演算子もサポートさ **`ge`** **`le`** れています。 ステートメント **`and`** は、または演算子を使用して組み合わせることができ **`or`** ます。
 
 フィルター文字列の例を次に示します。
 
@@ -86,7 +85,7 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 | partnerName | string | サブスクリプションが購入されたパートナーの名前 |
 | productName | `contains`, `eq`, `ne` | 製品の名前です。 |
 | providerName | string | 間接リセラーのサブスクリプショントランザクションの場合、プロバイダー名はサブスクリプションを購入した間接プロバイダーになります。|
-| status | `eq`, `ne` | サブスクリプションのステータス。 サポートされている値は、"ACTIVE"、"中断"、または "プロビジョニング解除" です。 |
+| 状態 | `eq`, `ne` | サブスクリプションのステータス。 サポートされている値は、"ACTIVE"、"中断"、または "プロビジョニング解除" です。 |
 | subscriptionType | `eq`, `ne` | サブスクリプションの種類。 **注**: このフィールドでは大文字と小文字が区別されます。 サポートされている値は、"Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS" です。 |
 | trialStartDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le` | サブスクリプションの試用期間が開始された日付。 既定値は、null です。 |
 | trialToPaidConversionDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le`  | サブスクリプションが試用から有料に変換される日付。 既定値は、null です。 |
@@ -97,7 +96,7 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

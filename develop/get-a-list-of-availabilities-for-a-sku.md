@@ -1,17 +1,17 @@
 ---
 title: SKU の空き状況の一覧を取得する (国別)
 description: 指定された製品および SKU の利用能力のコレクションを顧客の国別に取得する方法。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0ba3e0dcffbe709eac7d5885f72cf303c24b94d6
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: b97a4ce85b5edd9de1301a577988f8c54096ebeb
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155694"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098187"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>SKU の空き状況の一覧を取得する (国別)
 
@@ -83,8 +83,8 @@ SKU に利用できる機能の一覧を取得するには、次のパスとク�
 | 製品 id             | string   | はい      | 製品を識別する文字列。                           |
 | sku-id                 | string   | はい      | SKU を識別する文字列。                               |
 | 国-コード           | string   | はい      | 国/地域 ID。                                            |
-| ターゲット-セグメント         | string   | いいえ       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
-| reservationScope | string   | いいえ | Azure 予約 SKU の利用可能な機能の一覧を照会するときに`reservationScope=AzurePlan` 、AzurePlan に適用できる利用可能な機能の一覧を取得するように指定します。 Microsoft Azure (0145P) サブスクリプションに適用できる利用可能な機能の一覧を取得するには、このパラメーターを除外します。  |
+| ターゲット-セグメント         | 文字列   | いいえ       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
+| reservationScope | 文字列   | いいえ | Azure 予約 SKU の利用可能な機能の一覧を照会するときに、 `reservationScope=AzurePlan` AzurePlan に適用できる利用可能な機能の一覧を取得するように指定します。 Microsoft Azure (0145P) サブスクリプションに適用できる利用可能な機能の一覧を取得するには、このパラメーターを除外します。  |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -92,7 +92,7 @@ SKU に利用できる機能の一覧を取得するには、次のパスとク�
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-examples"></a>要求の例
 

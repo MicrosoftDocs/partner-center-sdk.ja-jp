@@ -1,17 +1,17 @@
 ---
 title: 顧客と請求サイクルの種類別に注文の一覧を取得する
 description: 指定された顧客と請求サイクルの種類の注文リソースのコレクションを取得します。
-ms.assetid: DF1E52F6-1A3D-4B26-8BCC-6E429410C662
 ms.date: 06/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 80fd88e5df07f48064cbcf7903e15277597bc0a0
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 2fa1ee7ad360ad846d47fc9ac7bb64d5a96ab6c0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156834"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098094"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>顧客と請求サイクルの種類別に注文の一覧を取得する
 
@@ -28,7 +28,7 @@ ms.locfileid: "82156834"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
@@ -37,7 +37,7 @@ ms.locfileid: "82156834"
 1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用し、選択した顧客 ID を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。
 
 2. 指定した[**BillingCycleType**](product-resources.md#billingcycletype)を使用して、 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティと**ByBillingCycleType ()** メソッドを呼び出します。
-3. [**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)メソッドを呼び出します。
+3. [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) または [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -62,7 +62,7 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBilli
 | 名前                   | Type     | 必須 | 説明                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
 | customer-tenant-id     | string   | はい      | 顧客に対応する GUID 形式の文字列。    |
-| 請求-サイクルの種類     | string   | いいえ       | 請求サイクルの種類に対応する文字列。         |
+| 請求-サイクルの種類     | 文字列   | いいえ       | 請求サイクルの種類に対応する文字列。         |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -70,7 +70,7 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBilli
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

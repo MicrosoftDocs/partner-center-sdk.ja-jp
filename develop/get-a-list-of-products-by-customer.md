@@ -5,13 +5,14 @@ ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6252209dca0a2fada15ee5e44f2f65c4b4230eca
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: ba06f152ae6bd3cd63fc0866f9b714c9eb830874
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156014"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098085"
 ---
 # <a name="get-a-list-of-products-by-customer"></a>製品の一覧を取得する (顧客別)
 
@@ -28,7 +29,7 @@ ms.locfileid: "82156014"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -36,7 +37,7 @@ ms.locfileid: "82156014"
 
 | 認証方法 | 要求 URI                                                                                                              |
 |--------|--------------------------------------------------------------------------------------------------------------------------|
-| POST   | baseURL/v1/customers/{customer-tenant-id}/products? targetview = {targetview} HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| POST   | [* \{ baseURL \} *](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products? targetView = {targetview} HTTP/1.1 |
 
 #### <a name="request-uri-parameters"></a>要求 URI のパラメーター
 
@@ -51,7 +52,7 @@ ms.locfileid: "82156014"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

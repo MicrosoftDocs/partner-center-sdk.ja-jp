@@ -4,13 +4,12 @@ description: 新しいセルフサービスポリシーを作成する方法。
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 52b5a21874a1361d01f26907481a36f10c5e858f
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: 7440da859a9086513725c27e1d6945a6941eea28
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564310"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096206"
 ---
 # <a name="create-a-selfservepolicy"></a>SelfServePolicy を作成する
 
@@ -41,7 +40,7 @@ ms.locfileid: "82564310"
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                              | Type   | 説明                                 |
+| 名前                              | Type   | Description                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
 | [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | セルフサービスポリシー情報。 |
 
@@ -49,7 +48,7 @@ ms.locfileid: "82564310"
 
 次の表では、新しいセルフサービスポリシーを作成するために必要な[SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)リソースの最小限の必須フィールドについて説明します。
 
-| プロパティ              | Type             | 説明                                                                                            |
+| プロパティ              | Type             | Description                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | SelfServeEntity       | SelfServeEntity  | アクセスが許可されているセルフサービスエンティティ。                                                     |
 | Grantor               | Grantor          | アクセスを許可している権限の許可。                                                                    |

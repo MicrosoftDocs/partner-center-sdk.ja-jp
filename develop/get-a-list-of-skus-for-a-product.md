@@ -1,17 +1,17 @@
 ---
 title: 製品の SKU の一覧を取得する (国別)
 description: パートナーセンター Api を使用して、製品の国別に Sku のコレクションを取得したり、フィルター処理したりすることができます。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 18af0d68aae4d05e34c239c4dc8e473353507954
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 9d5ec9172ed92d33e6ff291eafd523cbc13bfbbd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156214"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098056"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>製品の SKU の一覧を取得する (国別)
 
@@ -128,8 +128,8 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 製品 id             | string   | はい      | 製品を識別する文字列。                           |
 | 国-コード           | string   | はい      | 国/地域 ID。                                            |
-| ターゲット-セグメント         | string   | いいえ       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
-| reservationScope | string   | いいえ | Azure 予約製品の Sku の一覧を照会するときに、AzurePlan `reservationScope=AzurePlan`に適用可能な sku の一覧を取得するように指定します。 Microsoft Azure (0145P) サブスクリプションに適用される Azure 予約製品の Sku の一覧を取得するには、このパラメーターを除外します。  |
+| ターゲット-セグメント         | 文字列   | いいえ       | フィルター処理に使用するターゲットセグメントを識別する文字列。 |
+| reservationScope | 文字列   | いいえ | Azure 予約製品の Sku の一覧を照会するときに、 `reservationScope=AzurePlan` AzurePlan に適用可能な sku の一覧を取得するように指定します。 Microsoft Azure (0145P) サブスクリプションに適用される Azure 予約製品の Sku の一覧を取得するには、このパラメーターを除外します。  |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -137,7 +137,7 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-examples"></a>要求の例
 

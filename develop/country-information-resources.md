@@ -1,17 +1,15 @@
 ---
 title: 国情報リソース
 description: 国/地域の記述メタデータ。
-ms.assetid: 19460437-5611-49A1-A7E7-704420C1DE8F
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4ff89cccf9c3605887b89f35b6505ae809d0ac9f
-ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
+ms.openlocfilehash: ed744cf131c2d5956575ab1aa2c79f0303b226fc
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82092989"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096316"
 ---
 # <a name="country-information-resources"></a>国情報リソース
 

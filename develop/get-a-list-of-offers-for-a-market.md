@@ -1,17 +1,17 @@
 ---
 title: 市場別のプランの一覧を取得する
 description: 特定の市場向けのすべてのオファーを含むコレクションを取得します。
-ms.assetid: 9251B841-498D-4B20-A90B-EB493A8FF212
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93ffb0d87daee327825673c217233e502a4779a5
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 3a004f6f8f8de8cd398d82c300793e4f196efaaa
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156844"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098103"
 ---
 # <a name="get-a-list-of-offers-for-a-market"></a>市場別のプランの一覧を取得する
 
@@ -63,7 +63,7 @@ ResourceCollection<Offer> offers = partnerOperations.Offers.ByCountry("US").Get(
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

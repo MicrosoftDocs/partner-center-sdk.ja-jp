@@ -1,18 +1,17 @@
 ---
 title: 顧客の作成
 description: 新しい顧客を作成する方法。
-ms.assetid: 7EA3E23F-0EA8-49CB-B98A-C4B74F559873
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-author: rbars
-ms.author: rbars
-ms.openlocfilehash: 35ed60b6053fc688249af40ab07b2245a7d8b92c
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 81231861532a426d71c739c35894697d17863f72
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022739"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096240"
 ---
 # <a name="create-a-customer"></a>顧客の作成
 
@@ -169,7 +168,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                              | 種類   | 説明                                 |
+| 名前                              | Type   | 説明                                 |
 |-----------------------------------|--------|---------------------------------------------|
 | [BillingProfile](#billing-profile) | object | 顧客の課金プロファイル情報。 |
 | [CompanyProfile](#company-profile) | object | 顧客の会社プロファイル情報。 |
@@ -178,7 +177,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | 種類                                     | 説明                                                                                                                                                                                                     |
+| 名前             | Type                                     | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | email            | string                                   | 顧客のメール アドレス。                                                                                                                                                                                   |
 | カルチャ          | string                                   | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
@@ -190,7 +189,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | 種類   | 説明                                                  |
+| 名前   | Type   | 説明                                                  |
 |--------|--------|--------------------------------------------------------------|
 | domain | string | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 

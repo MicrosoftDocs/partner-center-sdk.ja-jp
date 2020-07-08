@@ -4,13 +4,12 @@ description: ID によって既存の顧客サービス要求の詳細を取得�
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a99a470eb7abd0d16cfa4e73abe0e720542e274a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 93fd56931913d674591735d3da6f60a3b9b15607
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097625"
 ---
 # <a name="get-service-request-details-by-id"></a>ID でサービス リクエストの詳細を取得する
 
@@ -24,7 +23,7 @@ ms.locfileid: "82157264"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 - サービス要求 ID。
 
@@ -67,7 +66,7 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

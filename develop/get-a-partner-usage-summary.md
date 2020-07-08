@@ -4,13 +4,14 @@ description: PartnerUsageSummary リソースを使用して、現在の請求�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2e31c21001fc009b1bc4c380514102158f29724d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: ba1885f46043a75274595239fe61ce3ef0998acf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155274"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097147"
 ---
 # <a name="get-a-usage-summary-for-a-partner"></a>パートナーの使用状況の概要を取得する
 
@@ -26,7 +27,7 @@ ms.locfileid: "82155274"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 
@@ -44,7 +45,7 @@ ms.locfileid: "82155274"
 
 例については、以下を参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト: **Partnersdk. FeatureSamples**
 - クラス: **GetPartnerUsageSummary.cs**
 
@@ -62,7 +63,7 @@ ms.locfileid: "82155274"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

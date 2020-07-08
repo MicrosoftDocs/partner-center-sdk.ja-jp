@@ -4,13 +4,14 @@ description: この記事では、お客様が Microsoft カスタマーアグ�
 ms.date: 09/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9daa54968128cdc0b7c6e44fb2a2f0392055b42b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: d5fdf6e7f2c075b4b954e990e6f30cb07f09290f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157714"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096991"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft 顧客契約に関する顧客の同意の確認を取得する 
 
@@ -32,7 +33,7 @@ ms.locfileid: "82157714"
 
 - [パートナー センターの認証](./partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザー認証のみがサポートされます。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="net"></a>.NET
 
@@ -69,7 +70,7 @@ var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Ag
 
 | Method | 要求 URI                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | baseURL/v1/customers/{customer-tenant-id}/agreements? agreementType = {agreement-type} HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET    | [* \{ baseURL \} *](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements? agreementType = {AGREEMENT-type} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
@@ -78,7 +79,7 @@ var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Ag
 | 名前             | Type | 必須 | 説明                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
 | customer-tenant-id | GUID | はい | 値は、顧客を指定できるようにする GUID 形式の顧客**tenantid**です。 |
-| 契約タイプ | string | いいえ | このパラメーターは、すべてのアグリーメントメタデータを返します。 このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされる値は <ul><li>Microsoft の**Cloudagreement**では、種類が " *microsoft*" の契約のメタデータのみが含まれています。</li><li>Microsoft の**顧客契約**では、種類が「 *Microsoft の顧客契約*」の契約メタデータのみが含まれています。</li><li>**\*** すべてのアグリーメントメタデータを返します。 (予期し**\*** ない契約の種類を処理するために必要なロジックがコードに含まれていない場合は、を使用しないでください)。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。 Microsoft では、契約のメタデータをいつでも新しい契約の種類と共に導入する場合があります。  |
+| 契約タイプ | string | いいえ | このパラメーターは、すべてのアグリーメントメタデータを返します。 このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされる値は <ul><li>Microsoft の**Cloudagreement**では、種類が " *microsoft*" の契約のメタデータのみが含まれています。</li><li>Microsoft の**顧客契約**では、種類が「 *Microsoft の顧客契約*」の契約メタデータのみが含まれています。</li><li>**\*** すべてのアグリーメントメタデータを返します。 (予期しない **\*** 契約の種類を処理するために必要なロジックがコードに含まれていない場合は、を使用しないでください)。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。 Microsoft では、契約のメタデータをいつでも新しい契約の種類と共に導入する場合があります。  |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -86,7 +87,7 @@ var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Ag
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

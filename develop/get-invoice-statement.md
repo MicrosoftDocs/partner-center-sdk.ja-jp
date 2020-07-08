@@ -1,17 +1,17 @@
 ---
 title: 請求明細書を取得する
 description: 請求書 ID を使用して請求書明細書を取得します。
-ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8a9107fc3de986c328f534dc420c8478a48b0b93
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 42e5201919eea5644da463dfe2584c8d55002083
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157444"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096910"
 ---
 # <a name="get-invoice-statement"></a>請求明細書を取得する
 
@@ -26,7 +26,7 @@ ms.locfileid: "82157444"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 - 有効な請求書 ID。
 

@@ -1,17 +1,15 @@
 ---
 title: パートナー センター アクティビティのレコードを取得する
 description: パートナーのユーザーまたはアプリケーションが一定期間に実行した操作の記録を取得する方法。
-ms.assetid: C24054DA-3E31-4BCD-BEB5-085564C20C58
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9247573eff347784655b38e3315f4d1415dd5c2a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 7a17e5e7dbded778e5938d9f8024cee4b507111e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156954"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097125"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>パートナー センター アクティビティのレコードを取得する
 
@@ -121,7 +119,7 @@ while (auditRecordEnumerator.HasValue)
 </colgroup>
 <thead>
 <tr class="header">
-<th>キー</th>
+<th>Key</th>
 <th>値</th>
 </tr>
 </thead>
@@ -134,12 +132,12 @@ while (auditRecordEnumerator.HasValue)
 <td>値</td>
 <td>フィルター処理される値。 値の大文字と小文字の区別は無視されます。 次の値パラメーターは、<a href="#rest-request">要求構文</a>に示すようにサポートされています。
 <ul>
-<li><p>searchSubstring-会社名で置き換えます。 会社名の一部と一致する部分文字列を入力できます (たとえば`bri` 、が`Fabrikam, Inc`一致します)。</p>
-<p>例: &quot;値&quot;:&quot;bri&quot;</p></li>
+<li><p>searchSubstring-会社名で置き換えます。 会社名の一部と一致する部分文字列を入力できます (たとえば、 `bri` が一致し `Fabrikam, Inc` ます)。</p>
+<p>例: &quot; 値 &quot; : &quot; bri&quot;</p></li>
 <li><p>customerId-顧客識別子を表す GUID 形式の文字列で置き換えます。</p>
-<p>例: &quot;値&quot;:&quot;0c39d6d5-c70d47 c55-bc02-f62084 4f3fd1&quot;</p></li>
+<p>例: &quot; 値 &quot; : &quot; 0c39d6d5-c70d47 c55-bc02-f62084 4f3fd1&quot;</p></li>
 <li><p>resourceType-監査レコードを取得するリソースの種類 (たとえば、Subscription) で置き換えます。 使用可能なリソースの種類は、 <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>で定義されています。</p>
-<p>例: &quot;値&quot;:&quot;Subscription&quot;</p></li>
+<p>例: &quot; 値 &quot; : &quot; Subscription&quot;</p></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -155,7 +153,7 @@ while (auditRecordEnumerator.HasValue)
 
 ### <a name="request-body"></a>要求本文
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

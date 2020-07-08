@@ -1,17 +1,15 @@
 ---
 title: サブスクリプションのアドオンを購入する
 description: 既存のサブスクリプションにアドオンを購入する方法。
-ms.assetid: 743520E5-0501-4403-B977-5E6D3E32DEC3
 ms.date: 11/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0ae6aa7a15340eb4173119b1ce3a3bc30ee9f7c2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 69c817cc89b97cea43533c170cef598df99095f7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157070"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096724"
 ---
 # <a name="purchase-an-add-on-to-a-subscription"></a>サブスクリプションのアドオンを購入する
 
@@ -27,7 +25,7 @@ ms.locfileid: "82157070"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - サブスクリプション ID。 これは、アドオンプランを購入するための既存のサブスクリプションです。
 
@@ -37,7 +35,7 @@ ms.locfileid: "82157070"
 
 サブスクリプションにアドオンを購入すると、そのアドオンの順序に従って元のサブスクリプションの順序が更新されます。 次の例では、customerId は顧客 ID、subscriptionId はサブスクリプション ID、addOnOfferId はアドオンのプラン ID です。
 
-次に手順を示します。
+この手順を以下に示します。
 
 1.  サブスクリプションの操作へのインターフェイスを取得します。
 
@@ -142,7 +140,7 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 次の表では、要求本文のプロパティについて説明します。
 
-## <a name="order"></a>Order
+## <a name="order"></a>順番
 
 | 名前                | Type             | 必須 | 説明                                          |
 |---------------------|------------------|----------|------------------------------------------------------|

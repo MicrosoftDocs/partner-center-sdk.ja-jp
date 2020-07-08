@@ -1,17 +1,17 @@
 ---
 title: 製品の一覧を取得する (国別)
 description: 製品リソースを使用して、顧客の国別に製品のコレクションを取得することができます。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7427c3b3f28ac3cd6a2694fe90ac9024f913c749
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: f04d030aac1256e7d76c9a9e644a50d771485090
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098117"
 ---
 # <a name="get-a-list-of-products-by-country"></a>製品の一覧を取得する (国別)
 
@@ -115,8 +115,8 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 |------------------------|----------|----------|-------------------------------------------------------------------------|
 | country                | string   | はい      | 国/地域 ID。                                                  |
 | targetView             | string   | はい      | カタログのターゲットビューを識別します。 サポートされる値は <ul><li>**Azure (すべて**の azure 項目を含む)</li><li>**AzureReservations**(すべての Azure 予約項目を含む)</li><li>**AzureReservationsVM**(すべての仮想マシン (VM) 予約項目を含む)</li><li>**AzureReservationsSQL**(すべての SQL 予約項目を含む)</li><li>**AzureReservationsCosmosDb**。すべての Cosmos データベース予約項目が含まれます。</li><li>**Microsoftazure.mobileengagement**: Microsoft Azure サブスクリプション (**0145p**) と Azure プランの項目が含まれています</li><li>すべてのオンラインサービス項目 (商用 marketplace 製品を含む) を含む**Onlineservices**</li><li>**ソフトウェア**。すべてのソフトウェア項目が含まれます。</li><li>**SoftwareSUSELinux**(すべてのソフトウェア SUSE Linux 項目を含む)</li><li>すべての永続ソフトウェア項目を含む、**永続的**なソフトウェア</li><li>すべて**のソフトウェアサブスクリプション項目**を含む software subscription</li></ul> |
-| targetSegment          | string   | いいえ       | ターゲットセグメントを識別します。 さまざまな対象ユーザーのビュー。 サポートされる値は <ul><li>**迷惑**</li><li>**知識**</li><li>**官公庁**</li><li>**非営利**</li></ul> |
-| reservationScope | string   | いいえ | Azure Reservations の製品の一覧を照会するときに、 `reservationScope=AzurePlan` Azure プランに適用可能な製品の一覧を取得するには、を指定します。 このパラメーターを除外すると、Microsoft Azure (**0145P**) サブスクリプションに適用される Azure 予約の製品の一覧を取得できます。  |
+| targetSegment          | 文字列   | いいえ       | ターゲットセグメントを識別します。 さまざまな対象ユーザーのビュー。 サポートされる値は <ul><li>**迷惑**</li><li>**知識**</li><li>**官公庁**</li><li>**非営利**</li></ul> |
+| reservationScope | 文字列   | いいえ | Azure Reservations の製品の一覧を照会するときに、 `reservationScope=AzurePlan` Azure プランに適用可能な製品の一覧を取得するには、を指定します。 このパラメーターを除外すると、Microsoft Azure (**0145P**) サブスクリプションに適用される Azure 予約の製品の一覧を取得できます。  |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -124,7 +124,7 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-examples"></a>要求の例
 

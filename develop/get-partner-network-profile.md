@@ -1,17 +1,15 @@
 ---
 title: Microsoft Partner Network プロファイルを取得する
 description: パートナーの MPN プロファイルを表すオブジェクトを取得します。
-ms.assetid: 6DC85E2F-0AC8-4166-883B-CCFD19044FC1
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b8b4d757bb881cac5f261e15f34eb49822f3af30
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b5a65786bae048281966b42b3ec359c8264f3a3d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097762"
 ---
 # <a name="get-microsoft-partner-network-profile"></a>Microsoft Partner Network プロファイルを取得する
 
@@ -26,7 +24,7 @@ ms.locfileid: "82157304"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 
@@ -76,7 +74,7 @@ Get-PartnerMpnProfile
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

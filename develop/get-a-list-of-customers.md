@@ -1,17 +1,17 @@
 ---
 title: 顧客の一覧を取得する
 description: パートナーのすべての顧客を表すリソースのコレクションを取得する方法。
-ms.assetid: 6D636257-7C23-4DDF-9895-96F208B66232
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8f1115385ad020f8a7c20810765842e19dd53cd1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: feff7ee333914fd578d5cf7024b2417548d58027
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156884"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098150"
 ---
 # <a name="get-a-list-of-customers"></a>顧客の一覧を取得する
 
@@ -52,7 +52,7 @@ var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(c
 
 例については、以下を参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト: **Partnersdk. FeatureSamples**
 - クラス: **CustomerPaging.cs**
 
@@ -120,7 +120,7 @@ Get-PartnerCustomer
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

@@ -1,17 +1,15 @@
 ---
 title: 間接リセラーの一覧を取得する
 description: サインインしているパートナーの間接リセラーの一覧を取得する方法。
-ms.assetid: 1767BD6C-651A-4C14-930B-35D7EFD46C19
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c3f672626b5ebe2514d0e17e88b6f98eb3d806b2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 92d79bb031fdf1cb132791ed9103451cf8ba32bf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156964"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096606"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>間接リセラーの一覧を取得する
 
@@ -23,11 +21,11 @@ ms.locfileid: "82156964"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 
-サインインしているパートナーが関係を持つ間接リセラーの一覧を取得するには、まず、 [**partneroperations.**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) relationship プロパティからリレーションシップコレクション操作へのインターフェイスを取得します。 次に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)また[**は\_get Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)メソッドを呼び出し、 [**partnerrelationshiptype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列挙体のメンバーを渡してリレーションシップ型を識別します。 間接リセラーを取得するには、IsIndirectCloudSolutionProviderOf を使用する必要があります。
+サインインしているパートナーが関係を持つ間接リセラーの一覧を取得するには、まず、 [**partneroperations.**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) relationship プロパティからリレーションシップコレクション操作へのインターフェイスを取得します。 次に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get)または[**get \_ Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync)メソッドを呼び出し、 [**partnerrelationshiptype**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)列挙体のメンバーを渡してリレーションシップ型を識別します。 間接リセラーを取得するには、IsIndirectCloudSolutionProviderOf を使用する必要があります。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,7 +41,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 | 認証方法  | 要求 URI                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/relationships? リレーションシップ\_の種類 = IsIndirectCloudSolutionProviderOf HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/relationships? リレーションシップの \_ 種類 = IsIndirectCloudSolutionProviderOf HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
@@ -82,7 +80,7 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

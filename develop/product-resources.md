@@ -1,17 +1,15 @@
 ---
 title: 製品リソース
 description: 購入可能な商品またはサービスを表すリソース。 製品の種類と形状 (SKU) を説明し、在庫内の製品の可用性を確認するためのリソースが含まれています。
-ms.assetid: 80C1F9B5-35FB-4DD8-B501-03467E1D75AD
 ms.date: 04/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d733c956f4742a7299e847e7ff48130a6b268df6
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 0474f2e7e089d8e637e18fa9bd7f77ffd5fb2f4e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124647"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097327"
 ---
 # <a name="products-resources"></a>製品リソース
 
@@ -21,7 +19,7 @@ ms.locfileid: "82124647"
 
 購入可能な商品またはサービスを表すリソース。 製品の種類と形状 (SKU) を説明し、在庫内の製品の可用性を確認するためのリソースが含まれています。
 
-## <a name="product"></a>Product
+## <a name="product"></a>製品
 
 購入可能な good または service を表します。 製品自体は購入可能なの項目ではありません。
 
@@ -89,12 +87,12 @@ SKU を購入できる構成 (国、通貨、業界セグメントなど) を表
 | country         | string                                              | この可用性が適用される国または地域 (ISO 国コード形式)。 |
 | isPurchasable   | [bool]                                                | この可用性が購入可能なかどうかを示します。 |
 | isRenewable 可能     | [bool]                                                | この可用性が更新可能かどうかを示します。 |
-| product      | [梱包](#product)               | この可用性が対応する製品。 |
+| product      | [Product](#product)               | この可用性が対応する製品。 |
 | sku          | [SKU](#sku)            | この可用性が対応する SKU。 |
 | terms           | [用語](#term)リソースの配列  | この可用性に適用される用語のコレクション。 |
 | リンク           | [ResourceLinks](utility-resources.md#resourcelinks) | 可用性に含まれるリソースリンク。 |
 
-## <a name="term"></a>期間
+## <a name="term"></a>用語
 
 可用性を購入できる用語を表します。
 
@@ -138,10 +136,10 @@ SKU を購入できる構成 (国、通貨、業界セグメントなど) を表
 
 請求サイクルの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)型。
 
-| 値              | [位置]     | [説明]                                                                                |
+| 値              | 位置     | 説明                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
 | Unknown            | 0            | 列挙型の初期化子です。                                                                          |
-| 月 1 回            | 1            | パートナーが月単位で課金されることを示します。                                        |
+| 月単位            | 1            | パートナーが月単位で課金されることを示します。                                        |
 | 年単位             | 2            | パートナーが毎年課金されることを示します。                                       |
 | なし               | 3            | パートナーが課金されないことを示します。 この値は、試用版の項目に使用できます。    |
 | OneTime            | 4            | パートナーに1回だけ課金されることを示します。                                       |

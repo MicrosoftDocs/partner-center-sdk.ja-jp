@@ -1,17 +1,15 @@
 ---
 title: パートナーの現在の残高を取得する
 description: パートナーの現在のアカウント残高を取得します。 定期的な料金と1回限りの課金の両方について、請求書の残高と合計料金の概要。
-ms.assetid: 130C8230-6284-4B1F-8741-CA92E1ECA30F
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c28d4cbdb4c6a74ca983a727d72ded5cd93ecabc
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 110da433faa6ff4d3d068c6d68a6f497f4a2721a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157174"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097429"
 ---
 # <a name="get-the-partners-current-account-balance"></a>パートナーの現在の残高を取得する
 

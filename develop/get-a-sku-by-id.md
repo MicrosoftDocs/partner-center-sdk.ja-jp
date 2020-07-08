@@ -1,17 +1,17 @@
 ---
 title: ID で SKU を取得する
 description: 指定された SKU ID を使用して、指定された製品の SKU を取得します。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f24b0881f1e09986e68547321d095c01d094faf2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 54ef72413d2d2b9e7154e82e4bbdd7427a79a2dd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156934"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097970"
 ---
 # <a name="get-a-sku-by-id"></a>ID で SKU を取得する
 
@@ -67,7 +67,7 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

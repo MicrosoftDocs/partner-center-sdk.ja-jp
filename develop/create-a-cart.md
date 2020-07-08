@@ -4,14 +4,14 @@ description: 買い物かごに顧客の注文を追加する方法。
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 38d292f54d6a26cad4c796e422369e58e5c998e6
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: aa3bd159a850028a30ee88edc22bb3b263df310e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022749"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096326"
 ---
 # <a name="create-a-cart"></a>カートを作成する
 
@@ -214,7 +214,7 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前            | 種類     | 必須 | 説明                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 
@@ -226,7 +226,7 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 次の表では、要求本文に含まれる[カート](cart-resources.md)のプロパティについて説明します。
 
-| プロパティ              | 種類             | 必須        | 説明 |
+| プロパティ              | Type             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | id                    | string           | いいえ              | カートが正常に作成されたときに提供されるカート識別子。                                  |
 | 前のタイムスタンプ     | DateTime         | いいえ              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。         |
@@ -237,7 +237,7 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
 
-|      プロパティ       |            種類             | 必須 |                                                                                         説明                                                                                         |
+|      プロパティ       |            Type             | 必須 |                                                                                         説明                                                                                         |
 |---------------------|-----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         id          |           string            |    いいえ    |                                                     カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                     |
 |      catalogId      |           string            |   はい    |                                                                                カタログ項目の識別子。                                                                                 |
@@ -253,7 +253,7 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 次の表では、要求本文の[renewsto](cart-resources.md#renewsto)について説明します。
 
-| プロパティ              | 種類             | 必須        | 説明 |
+| プロパティ              | Type             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
 | termDuration          | 文字列           | いいえ              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
 

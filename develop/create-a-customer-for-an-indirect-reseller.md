@@ -1,18 +1,17 @@
 ---
 title: 間接リセラーの顧客を作成する
 description: 間接プロバイダーは、間接リセラーの顧客を作成できます。
-ms.assetid: F6196EE1-1B72-4D0A-BE6E-56A243671CDE
 ms.date: 06/03/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-author: rbars
-ms.author: rbars
-ms.openlocfilehash: 9838c3bc17bde79c0557d873df78b3da58a6b940
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: b11a952be19819a6c5acce17287c10a2e01e2421
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022729"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096259"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller"></a>間接リセラーの顧客を作成する
 
@@ -96,7 +95,7 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                                          | 種類   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
+| 名前                                          | Type   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [BillingProfile](#billing-profile)             | object | はい      | 顧客の課金プロファイル情報。                                                                                                                                                                                                                                                                                                           |
 | [CompanyProfile](#company-profile)             | object | はい      | 顧客の会社プロファイル情報。                                                                                                                                                                                                                                                                                                           |
@@ -106,7 +105,7 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | 種類                                     | 必須 | 説明                                                                                                                                                                                                     |
+| 名前             | Type                                     | 必須 | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | email            | string                                   | はい      | 顧客のメール アドレス。                                                                                                                                                                                   |
 | カルチャ          | string                                   | はい      | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
@@ -118,7 +117,7 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | 種類   | 必須 | 説明                                                  |
+| 名前   | Type   | 必須 | 説明                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
 | domain | string | .うん     | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 

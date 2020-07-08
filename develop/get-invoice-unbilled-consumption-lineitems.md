@@ -4,13 +4,12 @@ description: パートナーセンター Api を使用して、指定された�
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b39efc495712476d72706e769957bec0484b268d
-ms.sourcegitcommit: 3a5154692071b5dee597c9d00e63a57efb2aff06
+ms.openlocfilehash: 2a74029e1125616edf7a3be96d9f635dad56927c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85365801"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096899"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Invoice 未請求の商業消費明細項目を取得する
 

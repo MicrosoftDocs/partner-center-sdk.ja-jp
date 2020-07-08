@@ -4,13 +4,12 @@ description: 顧客のサブスクリプションの転送を拒否する方法�
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 62e934f0b2289b9cb235d7360bce01b5bf3474c4
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: e4a182ff92a21cf72ca1c2da9de7e211b433725f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489199"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096164"
 ---
 # <a name="reject-a-transfer"></a>転送を拒否する
 
@@ -38,7 +37,7 @@ ms.locfileid: "84489199"
 
 次の path パラメーターを使用して顧客を特定し、受け入れる転送を指定します。
 
-| 名前            | 型     | 必須 | Description                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 | **転送 id** | string   | はい      | 転送を識別する GUID 形式の転送 id。             |
@@ -54,7 +53,7 @@ ms.locfileid: "84489199"
 | プロパティ              | Type          | 必須  | 説明                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
 | id                    | 文字列        | いいえ    | TransferEntity が正常に作成されたときに提供される transferEntity 識別子。                               |
-| status                | string        | いいえ    | TransferEntity の状態。 転送を拒否するには、値を "reject" に設定します。|
+| 状態                | string        | いいえ    | TransferEntity の状態。 転送を拒否するには、値を "reject" に設定します。|
 
 ### <a name="request-example"></a>要求の例
 

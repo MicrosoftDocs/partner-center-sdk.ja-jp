@@ -1,17 +1,15 @@
 ---
 title: サブスクリプション分析を日付または使用条件でグループ化して取得する
 description: サブスクリプション分析情報を日付または使用条件でグループ化して取得する方法。
-ms.assetid: 5D0C0649-F64D-40A9-ACCC-2077E2D2BA4E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 713dceb4c037918f2dfd7793659b70ae8ef3148b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 4a9946027fa89f5a93fff5eede86e36a6be5b721
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157224"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097524"
 ---
 # <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>サブスクリプション分析を日付または使用条件でグループ化して取得する
 
@@ -34,13 +32,13 @@ ms.locfileid: "82157224"
 
 | 認証方法 | 要求 URI |
 |--------|-------------|
-| **GET** | baseURL/partner/v1/analytics/subscriptions? groupby = {groupby_queries} [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ baseURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions? groupby = {groupby_queries} |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
 組織を識別し、結果をグループ化するには、次の必須のパスパラメーターを使用します。
 
-| 名前 | Type | 必須 | 説明 |
+| 名前 | 種類 | 必須 | 説明 |
 |------|------|----------|-------------|
 | groupby_queries | 文字列と dateTime のペア | はい | 結果をフィルター処理するための用語と日付。 |
 
@@ -56,13 +54,13 @@ Group by パラメーターは、一連のコンマ区切りのフィールド�
 
 次の表に、group by でサポートされているフィールドの一覧を示します。
 
-| フィールド | Type | 説明 |
+| フィールド | 型 | Description |
 |-------|------|-------------|
 | 顧客 Tenantid | string | 顧客のテナントを識別する GUID 形式の文字列。 |
 | customerName | string | 顧客の名前。 |
 | 顧客市場 | string | 顧客が事業を行っている国/地域。 |
 | id | string | サブスクリプションを識別する GUID 形式の文字列。 |
-| status | string | サブスクリプションのステータス。 サポートされている値は、"ACTIVE"、"中断"、または "プロビジョニング解除" です。 |
+| 状態 | string | サブスクリプションのステータス。 サポートされている値は、"ACTIVE"、"中断"、または "プロビジョニング解除" です。 |
 | productName | string | 製品の名前です。 |
 | subscriptionType | string | サブスクリプションの種類。 注: このフィールドでは大文字と小文字が区別されます。 サポートされている値は、"Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS" です。 |
 | autoRenewEnabled | Boolean | サブスクリプションが自動的に更新されるかどうかを示す値です。 |
@@ -88,7 +86,7 @@ Group by パラメーターは、一連のコンマ区切りのフィールド�
 |-------|------|--------------|
 | top | INT | 要求で返すデータの行数です。 値が指定されていない場合、最大値と既定値は1万です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |
 | skip | int | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top = 10000 および skip = 0 はデータの最初の1万行を取得し、top = 10000、skip = 10000 は、次の1万行のデータを取得します。 |
-| filter | string | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各フィルターステートメントには**`eq`**、 **`ne`** 応答本文からのフィールド名と、特定のフィールド ( **`contains`** 演算子) の、、またはに関連付けられている値が含まれています。 ステートメントは、または**`and`** **`or`** を使用して組み合わせることができます。 filter パラメーターでは、文字列値を単一引用符で囲む必要があります。 フィルター処理できるフィールドと、それらのフィールドでサポートされている演算子の一覧については、次のセクションを参照してください。 |
+| filter | string | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各フィルターステートメントには、応答本文からのフィールド名と、 **`eq`** **`ne`** 特定のフィールド (演算子) の、、またはに関連付けられている値が含まれてい **`contains`** ます。 ステートメントは、またはを使用して組み合わせることができ **`and`** **`or`** ます。 filter パラメーターでは、文字列値を単一引用符で囲む必要があります。 フィルター処理できるフィールドと、それらのフィールドでサポートされている演算子の一覧については、次のセクションを参照してください。 |
 | aggregationLevel | string | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。**day**、**week**、または **month**。 値が指定されていない場合、既定値は**dateRange**です。 **注**: このパラメーターは、日付フィールドが groupBy パラメーターの一部として渡された場合にのみ適用されます。 |
 | groupBy | string | 指定したフィールドのみにデータ集計を適用するステートメントです。 |
 
@@ -98,7 +96,7 @@ Group by パラメーターは、一連のコンマ区切りのフィールド�
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

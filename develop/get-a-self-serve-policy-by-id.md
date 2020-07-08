@@ -4,13 +4,14 @@ description: ID を使用して、指定されたセルフサービスポリシ�
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 082f4ab240831379454f1479e35477262d9b5f8c
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: ec01d0d9b7c3858cdacf1dbaad3b2b0bb7b6a1a4
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564350"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098043"
 ---
 # <a name="get-a-self-serve-policy-by-id"></a>ID でセルフ サービス ポリシーを取得する
 
@@ -50,7 +51,7 @@ ID を使用して、指定されたセルフサービスポリシーを取得�
 
 **要求本文**
 
-なし。
+[なし] :
 
 **要求の例**
 

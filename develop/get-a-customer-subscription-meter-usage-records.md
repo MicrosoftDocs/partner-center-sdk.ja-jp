@@ -4,13 +4,12 @@ description: MeterUsageRecord リソースコレクションを使用すると�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9a84255f479b2faf1954cadabcf6f71274a5f053
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: df981eae8d2caee2dcb7f36696725ec011ead75b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154334"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098279"
 ---
 # <a name="get-usage-data-for-subscription-by-meter"></a>サブスクリプションの使用状況データをメーターごとに取得する
 
@@ -24,13 +23,13 @@ ms.locfileid: "82154334"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - サブスクリプション ID
 
-*この新しいルートはに`subscriptions/{subscription-id}/usagerecords/resources`相当します。これは、Microsoft Azure (0145P) サブスクリプションに対してのみ機能し続けます。* この新しいルートでは、Microsoft Azure (0145P) サブスクリプションと Azure プランの両方がサポートされます。 Azure プランのこの情報を取得するには、この新しいルートに切り替える必要があります。 次のセクションで説明するプロパティ以外の応答は、古いルートと同じです。
+*この新しいルートはに相当します。これは `subscriptions/{subscription-id}/usagerecords/resources` 、Microsoft Azure (0145P) サブスクリプションに対してのみ機能し続けます。* この新しいルートでは、Microsoft Azure (0145P) サブスクリプションと Azure プランの両方がサポートされます。 Azure プランのこの情報を取得するには、この新しいルートに切り替える必要があります。 次のセクションで説明するプロパティ以外の応答は、古いルートと同じです。
 
 ## <a name="c"></a>C\#
 
@@ -50,7 +49,7 @@ ms.locfileid: "82154334"
 
 例については、次のサンプルを参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト: **Partnersdk. FeatureSamples**
 - クラス: **GetSubscriptionUsageRecordsByMeter.cs**
 
@@ -77,7 +76,7 @@ ms.locfileid: "82154334"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 
@@ -91,7 +90,7 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**\<PagedResourceCollection MeterUsageRecord>** リソースを返します。
+成功した場合、このメソッドは応答本文で**PagedResourceCollection \<MeterUsageRecord> **リソースを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

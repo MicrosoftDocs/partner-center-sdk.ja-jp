@@ -1,17 +1,15 @@
 ---
 title: パートナー ライセンスのデプロイ情報を取得する
 description: すべての顧客を含むように、集計されたパートナーライセンスの展開情報を取得する方法。
-ms.assetid: BC78F9EA-C07C-4FD5-B06D-C87E8330B6E2
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 278f445a2e4072eecf6e1f91a5e2f9f2fd1d7c02
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: ac28f10c8d255d0d4fe7f92e9d1977b16d1ae962
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157314"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097738"
 ---
 # <a name="get-partner-licenses-deployment-information"></a>パートナー ライセンスのデプロイ情報を取得する
 
@@ -52,7 +50,7 @@ var partnerLicensesDeploymentAnalytics = partnerOperations.Analytics.Licenses.De
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

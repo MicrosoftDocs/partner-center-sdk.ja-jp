@@ -1,24 +1,25 @@
 ---
-title: セルフサービスの一覧を取得する
+title: セルフサービスポリシーの一覧を取得する
 description: 顧客のセルフサービスポリシーを表すリソースのコレクションを取得する方法。
-ms.date: 04/13/2020
+ms.date: 07/06/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c2a2b779a552af2f2071994c53f56038e9036169
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 8d2e7e461fee0993176f954aab2d020c2bbc9714
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564330"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098078"
 ---
-# <a name="get-a-list-of-self-serve-policies"></a>セルフ サービス ポリシーの一覧を取得する
+# <a name="get-a-list-of-self-serve-policies"></a>セルフサービスポリシーの一覧を取得する
 
 **適用対象:**
 
 - パートナー センター
 
-このトピックでは、エンティティのセルフサービスポリシーを表すリソースのコレクションを取得する方法について説明します。
+この記事では、エンティティのセルフサービスポリシーを表すリソースのコレクションを取得する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -38,15 +39,15 @@ ms.locfileid: "82564330"
 
 | 名前          | Type       | 必須 | 説明                                        |
 |---------------|------------|----------|----------------------------------------------------|
-| **entity_id** | **string** | Y        | アクセスを要求しているエンティティ識別子。 これが顧客のテナント id になります。 |
+| **entity_id** | **string** | Y        | アクセスを要求しているエンティティ識別子。 これは顧客のテナント ID になります。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-詳細については、「[ヘッダー](headers.md) 」を参照してください。
+詳細については、「[ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>要求本文
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

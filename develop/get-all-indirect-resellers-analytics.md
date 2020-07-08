@@ -1,17 +1,17 @@
 ---
 title: 間接顧客の分析情報をすべて取得する
 description: すべての間接リセラーの分析情報を取得する方法。
-ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4a8bf1a958b28b5ea8c471a3bbee9009243f7455
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 65bbc79ff456022c399a0a0c08e4561f0c7babcd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157774"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097860"
 ---
 # <a name="get-all-indirect-resellers-analytics-information"></a>間接顧客の分析情報をすべて取得する
 
@@ -34,7 +34,7 @@ ms.locfileid: "82157774"
 
 | 認証方法  | 要求 URI |
 |---------|-------------|
-| **GET** | baseURL/partner/v1/analytics/indirectresellers HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/indirectresellers HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
@@ -129,7 +129,7 @@ ms.locfileid: "82157774"
         <td>skip</td>
         <td>int</td>
         <td>
-          <p>クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、は<code>top=10000 and skip=0</code> 、最初の1万行のデータを<code>top=10000 and skip=10000</code>取得し、次の1万行のデータを取得します。</p>
+          <p>クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、は、 <code>top=10000 and skip=0</code> 最初の1万行のデータを取得し、 <code>top=10000 and skip=10000</code> 次の1万行のデータを取得します。</p>
         </td>
     </tr>
     <tr>
@@ -162,7 +162,7 @@ ms.locfileid: "82157774"
         <td>aggregationLevel</td>
         <td>string</td>
         <td><p>集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。&quot;day&quot;、&quot;week&quot;、または &quot;month&quot;。 指定しない場合、既定値は &quot;day&quot; です。</p>
-        <p><code>aggregationLevel</code>は、なしで<code>aggregationLevel</code>はサポートされません。 <code>aggregationLevel</code>に存在するすべての<strong>datefields</strong>に適用されます。<code>aggregationLevel</code></p>
+        <p><code>aggregationLevel</code>は、なしではサポートされません <code>aggregationLevel</code> 。 <code>aggregationLevel</code>に存在するすべての<strong>datefields</strong>に適用されます。<code>aggregationLevel</code></p>
         </td>
     </tr>
     <tr>
@@ -186,7 +186,7 @@ ms.locfileid: "82157774"
                 <li>&quot;subscriptionCount&quot;</li>
                 <li>&quot;licenseCount&quot;</li>
             </ul>
-            <p><em>Order</em>パラメーターは省略可能で、 <code>asc</code>または<code>desc</code>にすることができます。フィールドごとに昇順または降順を指定する場合は。 既定では、 <code>asc</code>です。</p>
+            <p><em>Order</em>パラメーターは省略可能であり、またはにすることができ <code>asc</code> ます。 <code>desc</code> 各フィールドの昇順または降順を指定します。 既定値は、<code>asc</code> です。</p>
             <p><strong>例:</strong></br>
                 <code>...&orderby=market,subscriptionCount</code>
             </p>
@@ -211,13 +211,13 @@ ms.locfileid: "82157774"
                 <li><em>firstSubscriptionDeprovisionedDate</em></li>
                 <li><em>latestSubscriptionDeprovisionedDate</em></li>
             </ul>
-            <p>返されるデータ行には、 <code>groupby</code>句で指定されたフィールドと、次のフィールドが含まれます。</p>
+            <p>返されるデータ行には、句で指定されたフィールド <code>groupby</code> と、次のフィールドが含まれます。</p>
             <ul>
                 <li><em>indirectResellerCount</em></li>
                 <li><em>licenseCount</em></li>
                 <li><em>subscriptionCount</em></li>
             </ul>
-            <p><code>groupby</code>パラメーターは、 <code>aggregationLevel</code>パラメーターと共に使用できます。</p>
+            <p>パラメーターは、 <code>groupby</code> パラメーターと共に使用でき <code>aggregationLevel</code> ます。</p>
             <p><strong>例:</strong></br>
                 <code>...&groupby=ageGroup,market&aggregationLevel=week</code>
             </p>
@@ -232,7 +232,7 @@ ms.locfileid: "82157774"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

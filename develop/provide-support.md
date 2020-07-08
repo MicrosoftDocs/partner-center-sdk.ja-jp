@@ -1,17 +1,15 @@
 ---
 title: サポートの提供
 description: このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用して、サポートとサービス要求をプログラムで管理する方法について説明します。
-ms.assetid: 2E92EEA0-13D6-4FAB-896F-F95C65E7B495
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 38fa47e81f92a9830bac558bddddaeb97eda7f82
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+ms.openlocfilehash: 4dd6251841e3e854de66debcf316cec9d0af6b44
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089262"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097244"
 ---
 # <a name="provide-support"></a>サポートの提供
 
@@ -28,7 +26,7 @@ ms.locfileid: "82089262"
 
 - [ID を使って顧客の管理サービスを取得する](get-the-managed-services-for-a-customer-by-id.md)
 
-## <a name="manage-service-requests"></a>サービス要求の管理
+## <a name="manage-service-requests"></a>サービス リクエストを管理する
 
 - [サービス リクエストのサポート トピックを取得する](get-service-request-support-topics--pending-.md)
 - [顧客のサービス リクエストをすべて取得する](get-all-service-requests-for-a-customer.md)

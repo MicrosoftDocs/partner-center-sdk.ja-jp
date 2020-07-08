@@ -4,13 +4,12 @@ description: パートナーセンター Api を使用して、ソフトウェ�
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d984deb3c80a6f02ae1880ccbc8d9c7c882226f
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 364859172661832531e6d214e70dfeb6bc27a7fa
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82123169"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097303"
 ---
 # <a name="cancel-software-purchases"></a>ソフトウェア購入の取り消し
 
@@ -34,7 +33,7 @@ ms.locfileid: "82123169"
 
 3. 注文を取得するには、 **Get**または**GetAsync**メソッドを呼び出します。
 
-4. [**Order. Status**](order-resources.md#order)プロパティをに`cancelled`設定します。
+4. [**Order. Status**](order-resources.md#order)プロパティ `cancelled` をに設定します。
 
 5. Optionalキャンセルする特定の行項目を指定する場合は、取り消したい品目の一覧に[**LineItems**](order-resources.md#order)を設定します。
 
@@ -125,7 +124,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ### <a name="response-example"></a>応答の例
 
-次の応答例では、オファー id **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** を持つ品目の数量がゼロ (0) になっていることがわかります。 この変更は、取り消し対象としてマークされた品目が正常にキャンセルされたことを意味します。 注文例には、キャンセルされなかった他の品目が含まれています。つまり、注文全体の状態は**完了**としてマークされ、**キャンセル**されることはありません。
+次の応答例では、オファー id を持つ品目の数量 **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** がゼロ (0) になっていることがわかります。 この変更は、取り消し対象としてマークされた品目が正常にキャンセルされたことを意味します。 注文例には、キャンセルされなかった他の品目が含まれています。つまり、注文全体の状態は**完了**としてマークされ、**キャンセル**されることはありません。
 
 ```http
 HTTP/1.1 200 OK

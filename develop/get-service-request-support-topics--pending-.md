@@ -1,17 +1,15 @@
 ---
 title: サービス要求のサポート トピックを取得する
 description: サービス要求に関する有効なトピックを表す項目のコレクションを取得します。
-ms.assetid: 50A61342-70C4-49F5-BEA2-2754338CF5A1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cccaa14c450e9c73b65172c85e5a09058c9fdef2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: dbc2197f47681b36cd66d0fd5d19732999f86066
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157254"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097612"
 ---
 # <a name="get-service-request-support-topics"></a>サービス要求のサポート トピックを取得する
 
@@ -25,7 +23,7 @@ ms.locfileid: "82157254"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 
@@ -51,7 +49,7 @@ ResourceCollection<SupportTopic> supportTopicsCollection = partnerOperations.Ser
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

@@ -3,18 +3,17 @@ title: MFA を使用しないポータル要求を取得する
 description: パートナー REST API を使用して、multi-factor authentication (MFA) を使用せずにユーザー要求の一覧を取得します。
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: c4a32376690165f7aa883f35ec4aff22f8b1e432
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+ms.openlocfilehash: fd350aa3301f00926942ae6c6af359b0d0edc423
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186350"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097750"
 ---
 # <a name="get-portal-requests-without-mfa"></a>MFA を使用しないポータル要求を取得する
 
-適用先:
+適用対象:
 
 - パートナー センター API
 
@@ -38,7 +37,7 @@ ms.locfileid: "84186350"
 
 ### <a name="request-body"></a>要求本文
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

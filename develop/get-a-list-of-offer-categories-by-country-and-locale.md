@@ -1,17 +1,17 @@
 ---
 title: 市場別のプラン カテゴリの一覧を取得する
 description: 特定の国/地域およびロケールのすべてのオファーカテゴリを含むコレクションを取得する方法。
-ms.assetid: 69174433-74C6-4294-ACAA-C2CE3D69CFEE
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0cb3d64444558b301fb1f5991f8d5e78c58c53b2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: c94368219bce2242e79d142ae999d45b9145e2de
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156874"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098127"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>市場別のプラン カテゴリの一覧を取得する
 
@@ -44,7 +44,7 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 例については、以下を参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト: **Partnersdk. FeatureSample**
 - クラス: **Partnersdk. FeatureSample**
 
@@ -72,7 +72,7 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

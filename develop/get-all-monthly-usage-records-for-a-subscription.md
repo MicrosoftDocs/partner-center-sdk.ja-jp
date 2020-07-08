@@ -1,17 +1,17 @@
 ---
 title: サブスクリプションの毎月の使用状況レコードをすべて取得します。
 description: AzureResourceMonthlyUsageRecord リソースコレクションを使用すると、顧客のサブスクリプション内のサービスの一覧と、それらに関連付けられた評価済みの使用状況情報を取得できます。
-ms.assetid: 037D71B9-8E8B-4BC0-8388-9CBC97218CED
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c90bed3b20aafa59799fadd03b848cfa4be4db76
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: f97f950a139af40a47d7c91af69da80000708558
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156744"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097073"
 ---
 # <a name="get-all-monthly-usage-records-for-a-subscription"></a>サブスクリプションの毎月の使用状況レコードをすべて取得します。
 
@@ -27,7 +27,7 @@ ms.locfileid: "82156744"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - サブスクリプション識別子。
 
@@ -52,7 +52,7 @@ var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscrip
 
 例については、以下を参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト: **Partnersdk. FeatureSample**
 - クラス: **SubscriptionResourceUsageRecords.cs**
 
@@ -79,7 +79,7 @@ var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscrip
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

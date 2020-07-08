@@ -1,17 +1,15 @@
 ---
 title: 市場別の住所書式規則を取得する
 description: 市場の iso コードに基づいて、予想されるアドレス形式を取得します。
-ms.assetid: B02B3ECF-8020-4818-872F-9D70DCBC0228
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6f9dd36ef3f2dca11f2d6ca690fb6950f22805d8
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c755a38c11ed9803edb7777a0f661c1fbc5a6107
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157354"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096735"
 ---
 # <a name="get-address-formatting-rules-by-market"></a>市場別の住所書式規則を取得する
 
@@ -48,7 +46,7 @@ ms.locfileid: "82157354"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

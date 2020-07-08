@@ -1,17 +1,15 @@
 ---
 title: Microsoft Azure の価格を取得する
 description: Azure プランのリアルタイム価格で Azure 料金カードを取得する方法について説明します。 Azure の価格は流動的で絶えず変化します。
-ms.assetid: 65262585-0F3B-4BD0-83BE-B2695C33CDB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 011c95c80fa793606a62ebb8fa8645b22da413bc
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 9b56e4bbfdf93cf2f4e9c6c07d638f5a24436c3e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157284"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097706"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>Microsoft Azure の価格を取得する
 
@@ -73,8 +71,8 @@ Get-PartnerAzureRateCard
 
 | 名前     | Type   | 必須 | 説明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | string | いいえ       | リソースレートが提供される通貨の3文字の ISO コード (省略可能) (たとえば`EUR`、)。 既定では、 `USD`です。 |
-| region   | string | いいえ       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (たとえば`FR`、)。 既定では、 `US`です。        |
+| currency | string | いいえ       | リソースレートが提供される通貨の3文字の ISO コード (省略可能) (たとえば、 `EUR` )。 既定値は、`USD` です。 |
+| region   | string | いいえ       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (たとえば、 `FR` )。 既定値は、`US` です。        |
 
 要求には、省略可能な X-Locale[ヘッダー](headers.md#rest-request-headers)を含めることができます。 X-Locale ヘッダーを含めない場合は、既定値 ("en-us") が使用されます。
 
@@ -88,7 +86,7 @@ Get-PartnerAzureRateCard
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

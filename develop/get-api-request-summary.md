@@ -3,18 +3,19 @@ title: MFA の導入ステータスを取得する
 description: パートナー REST API を使用して、パートナーごとに multi-factor authentication の導入状態の一覧を取得します。
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: ac47df306c19194a50b14f000fe4182a437d8c84
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: f82d163b704323c81e2948b78eb9b9d1a14ddc52
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186340"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097001"
 ---
 # <a name="get-mfa-adoption-status"></a>MFA の導入ステータスを取得する
 
-適用先:
+適用対象:
 
 - パートナー センター API
 
@@ -38,7 +39,7 @@ ms.locfileid: "84186340"
 
 ### <a name="request-body"></a>要求本文
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

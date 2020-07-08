@@ -1,17 +1,17 @@
 ---
 title: 注文明細でアクティブ化リンクを取得する
 description: 注文明細項目によってサブスクリプションのアクティブ化リンクを取得します。
-ms.assetid: ff1c1b59-f6c2-4f17-b0d6-00109761a1fd
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f35be68810cd270cb6564299399e5b7ad5480c6a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 110710650c758c9d38234566cd2c89a4b7f93a3e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157564"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097889"
 ---
 # <a name="get-activation-link-by-order-line-item"></a>注文明細でアクティブ化リンクを取得する
 
@@ -60,7 +60,7 @@ var partnerOperations.Customers.ById(customerId).Orders.ById(orderId).OrderLineI
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

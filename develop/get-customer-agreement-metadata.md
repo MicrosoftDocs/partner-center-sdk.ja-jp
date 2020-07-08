@@ -4,13 +4,14 @@ description: この記事では、Microsoft カスタマーアグリーメント
 ms.date: 8/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 419be44e0dc82f931826dbf849c7122a98bc8646
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khakiali
+ms.author: alikhaki
+ms.openlocfilehash: 45cc1284d872072a80a973cfee5a6218452a2409
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157704"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096966"
 ---
 # <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>Microsoft 顧客契約の契約メタデータを取得する
 
@@ -67,13 +68,13 @@ Microsoft Customer Agreement の契約メタデータを取得するには:
 
 | 認証方法 | 要求 URI                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | baseURL/v1/agreements? agreementType = {agreement-type} HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET    | [* \{ baseURL \} *](partner-center-rest-urls.md)/v1/agreements? agreementType = {AGREEMENT-type} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
 | 名前                   | Type     | 必須 | 説明                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| 契約タイプ | string | いいえ | このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされる値は <ul><li>Microsoft の種類の**契約に含まれる契約**メタデータのみを含む Microsoft *cloudagreement*</li><li>Microsoft の**顧客契約**では、契約メタデータのみが含まれて*います。*</li><li>**\*** すべてのアグリーメントメタデータを返します。 (を使用**\*** しないでください。ただし、お使いのコードに、不明な契約の種類を処理するために必要なランタイムロジックがある場合を除きます)。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。  |
+| 契約タイプ | string | いいえ | このパラメーターを使用して、特定のアグリーメントの種類に対するクエリ応答のスコープを指定します。 サポートされる値は <ul><li>Microsoft の種類の**契約に含まれる契約**メタデータのみを含む Microsoft *cloudagreement*</li><li>Microsoft の**顧客契約**では、契約メタデータのみが含まれて*います。*</li><li>**\*** すべてのアグリーメントメタデータを返します。 (を使用しないで **\*** ください。ただし、お使いのコードに、不明な契約の種類を処理するために必要なランタイムロジックがある場合を除きます)。</li></ul> URI パラメーターが指定されていない場合、クエリは、旧バージョンとの互換性のために、既定では**Microsoft Cloudagreement**に設定されます。  |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -81,7 +82,7 @@ Microsoft Customer Agreement の契約メタデータを取得するには:
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

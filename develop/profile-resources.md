@@ -1,17 +1,15 @@
 ---
 title: プロファイルリソース
 description: クラウドソリューションプロバイダーのプロファイルの動作について説明します。
-ms.assetid: 42F2959B-D70D-41A7-9A50-E22A2356A339
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9bd3f5322de7fae9a919e4bcfdd747a6bbc89e80
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: bb3b4dab92091775a9a89bdf34ca33f7f378692f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82119178"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097256"
 ---
 # <a name="profile-resources"></a>プロファイルリソース
 
@@ -38,7 +36,7 @@ ms.locfileid: "82119178"
 | billingCurrency     | string                                                         | 会社または組織によって使用される通貨。           |
 | profileType         | string                                                         | パートナーのプロファイルの種類。                                   |
 | リンク               | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。            |
-| attributes          | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。       |
+| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。       |
 
 ## <a name="legalbusinessprofile"></a>LegalBusinessProfile
 
@@ -55,7 +53,7 @@ ms.locfileid: "82119178"
 | vettingSubStatus       | string                                                         | 審査サブステータス。 この値は、 [**VettingSubStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus)で見つかったメンバー名のいずれかの文字列表現です。 |
 | profileType            | string                                                         | パートナーのプロファイルの種類。                                                                                                                                            |
 | リンク                  | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。                                                                                                                     |
-| attributes             | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                                                                                                                |
+| 属性             | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                                                                                                                |
 
 ## <a name="mpnprofile"></a>MpnProfile
 
@@ -67,7 +65,7 @@ ms.locfileid: "82119178"
 | mpnId       | string                                                         | Microsoft Partner Network Id。                     |
 | profileType | string                                                         | パートナーのプロファイルの種類。                             |
 | リンク       | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。      |
-| attributes  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。 |
+| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。 |
 
 ## <a name="organizationprofile"></a>組織のプロファイル
 
@@ -82,10 +80,10 @@ ms.locfileid: "82119178"
 | domain         | string                                                         | 会社または組織のドメイン。                                  |
 | email          | string                                                         | 親サブスクリプションを取得します。値の設定もできます。                                  |
 | language       | string                                                         | 通信に使用する言語です。                              |
-| culture        | string                                                         | 通信と通貨に使用する優先カルチャ ("en-us" など)。 |
+| カルチャ        | string                                                         | 通信と通貨に使用する優先カルチャ ("en-us" など)。 |
 | profileType    | string                                                         | パートナーのプロファイルの種類。                                              |
 | リンク          | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。                       |
-| attributes     | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                  |
+| 属性     | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                  |
 
 ## <a name="supportprofile"></a>SupportProfile
 
@@ -98,5 +96,5 @@ ms.locfileid: "82119178"
 | Web サイト (website)     | string                                                         | サポート web サイト。                                  |
 | profileType | string                                                         | パートナーのプロファイルの種類。                             |
 | リンク       | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイルに対応するリソースリンク。      |
-| attributes  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。 |
+| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。 |
 

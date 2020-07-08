@@ -1,17 +1,15 @@
 ---
 title: 注文の管理
 description: このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用して、顧客の注文とサブスクリプションをプログラムで管理する方法について説明します。
-ms.assetid: D4E13B95-4E27-42E5-86E4-9DBF91564209
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 34c29d6bee23d5d8a65600870e1ed4736978b37d
-ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+ms.openlocfilehash: d87dc2f64ca54684990c6d044ba345c8e16e2971
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82095804"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096710"
 ---
 # <a name="manage-orders"></a>注文の管理
 
@@ -23,7 +21,7 @@ ms.locfileid: "82095804"
 
 このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用して、顧客の注文とサブスクリプションをプログラムで管理する方法について説明します。
 
-## <a name="purchase-azure-reserved-vm-instances"></a>購入 Azure Reserved VM Instances
+## <a name="purchase-azure-reserved-vm-instances"></a>Microsoft Azure Reserved VM Instances
 
 - [Azure Reservations を購入する](purchase-azure-reservations.md)
 
@@ -39,13 +37,13 @@ ms.locfileid: "82095804"
 - [プラン ID のアドオンを取得する](get-addon-offers-by-offer-id.md)
 - [製品の一覧を取得する](get-a-list-of-products.md)
 - [ID で製品を取得する](get-a-product-by-id.md)
-- [製品の Sku の一覧を取得する](get-a-list-of-skus-for-a-product.md)
+- [製品の SKU の一覧を取得する](get-a-list-of-skus-for-a-product.md)
 - [ID で SKU を取得する](get-a-sku-by-id.md)
-- [SKU に使用できる機能の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
+- [SKU の空き状況の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
 - [ID で可用性を取得する](get-an-availability-by-id.md)
 - [在庫を確認する](check-inventory.md)
 
-## <a name="manage-an-order"></a>注文の管理
+## <a name="manage-an-order"></a>注文を管理する
 
 - [統合サンドボックスから注文を取り消す](cancel-an-order-from-the-integration-sandbox.md)
 - [カートを精算する](checkout-a-cart.md)
@@ -57,7 +55,7 @@ ms.locfileid: "82095804"
 - [カタログ項目を購入する](purchase-catalog-items.md)
 - [カートを更新する](update-a-cart.md)
 
-## <a name="enable-a-subscription-for-azure-reserved-vm-instance-purchases"></a>Azure 予約 VM インスタンスの購入のサブスクリプションを有効にする
+## <a name="enable-a-subscription-for-azure-reserved-vm-instance-purchases"></a>Azure Reserved VM Instances 購入のサブスクリプションを有効にする
 
 - [サブスクリプションを登録する](register-a-subscription.md)
 - [サブスクリプションの登録状態を取得する](get-subscription-registration-status.md)
@@ -68,7 +66,7 @@ ms.locfileid: "82095804"
 - [注文ごとにサブスクリプションの一覧を取得する](get-a-list-of-subscriptions-by-order.md)
 - [サブスクリプションのアドオンの一覧を取得する](get-a-list-of-add-ons-for-a-subscription.md)
 
-## <a name="manage-a-subscription"></a>サブスクリプションの管理
+## <a name="manage-a-subscription"></a>サブスクリプションを管理する
 
 - [サブスクリプションの数量を変更する](change-the-quantity-of-a-subscription.md)
 - [商用マーケットプレース サブスクリプションの自動更新を更新する](update-autorenew-for-an-azure-marketplace-subscription.md)

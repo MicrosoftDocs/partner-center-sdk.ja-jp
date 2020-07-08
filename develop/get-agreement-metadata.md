@@ -4,13 +4,14 @@ description: この記事では、Microsoft Cloud Agreement のアグリーメ�
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6a249bcac40294fa0d6966425b5135f8fbed2088
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 909dec77dd189005839d72caeb0e66a7ad5c8a1b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157604"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097151"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Microsoft Cloud 契約の契約メタデータを取得する
 
@@ -24,7 +25,7 @@ ms.locfileid: "82157604"
 > - Microsoft Cloud ドイツのパートナー センター
 > - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 - パートナーセンター .NET SDK を使用している場合は、バージョン1.9 以降が必要です。
 
@@ -112,7 +113,7 @@ Microsoft Cloud Agreement のアグリーメントメタデータを取得する
 
 | 認証方法 | 要求 URI                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | baseURL/v1/agreements HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET    | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/agreements HTTP/1.1 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -120,7 +121,7 @@ Microsoft Cloud Agreement のアグリーメントメタデータを取得する
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

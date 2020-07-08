@@ -1,17 +1,17 @@
 ---
 title: パートナー センターのサンプル
 description: パートナーセンター Api を使用して迅速に稼働させるには、サンプルプログラム、C \ マネージコードスニペット、REST サンプルの要求と応答を提供します。
-ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e076e7d7c6b67eb8795e8f19ad6971459984f3db
-ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 78f1c7a66b07579b9955d4ac76413a4ce7ede306
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82095164"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097404"
 ---
 # <a name="partner-center-samples"></a>パートナー センターのサンプル
 

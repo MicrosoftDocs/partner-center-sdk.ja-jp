@@ -5,13 +5,14 @@ ms.assetid: ''
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f9d8d38c50445096791369048c0a68369fbc4b93
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 6b9c9bcd52798006d7f686405f059192a722c7e8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156894"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098024"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-customer"></a>製品の Sku の一覧を取得する (顧客別)
 
@@ -28,7 +29,7 @@ ms.locfileid: "82156894"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - 製品 ID (**製品 id**)。
 
@@ -38,11 +39,11 @@ ms.locfileid: "82156894"
 
 | 認証方法 | 要求 URI                                                                                                        |
 |--------|--------------------------------------------------------------------------------------------------------------------|
-| POST   | baseURL/v1/customers/{customer-tenant-id}/products/{product-id}/skus HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| POST   | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products/{product-id}/skus HTTP/1.1 |
 
 ### <a name="request-uri-parameter"></a>要求 URI パラメーター
 
-| 名前               | Type | 必須 | 説明                                                                                 |
+| 名前               | Type | 必須 | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
 | customer-tenant-id | GUID | はい | この値は、顧客を指定できるようにする識別子である、GUID 形式の **customer-tenant-id** です。 |
 | 製品 id | string | はい | 製品を識別する文字列。 |
@@ -53,7 +54,7 @@ ms.locfileid: "82156894"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

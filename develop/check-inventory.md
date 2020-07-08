@@ -1,17 +1,15 @@
 ---
 title: インベントリの確認
 description: 特定のカタログ項目のセットの在庫を確認します。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 5d874b1d69750a08506669061573e511dd6704de
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c0860c4840df6924ffb8e222b79efa28fa33d9ea
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154624"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096446"
 ---
 # <a name="check-inventory"></a>インベントリの確認
 

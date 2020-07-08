@@ -1,17 +1,17 @@
 ---
 title: プラン ID のアドオンを取得する
 description: プラン ID のアドオンを取得する方法。
-ms.assetid: 647EBB14-7ABF-47A4-A342-7A691D8B2BA4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 67b8a2c636ff56a1624635e5756782c067e2662f
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: cff024700c3ab04986d468c839053cbfa7670a86
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157574"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097878"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>プラン ID のアドオンを取得する
 
@@ -59,7 +59,7 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 | 名前         | Type       | 必須 | 説明                       |
 |--------------|------------|----------|-----------------------------------|
 | **プラン id** | **guid**   | Y        | オファーを識別する GUID。 |
-| **country**  | **string** | Y        | 国コード (など`US`)。       |
+| **原産**  | **string** | Y        | 国コード (など `US` )。       |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -67,7 +67,7 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

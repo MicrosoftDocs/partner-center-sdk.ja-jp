@@ -1,17 +1,17 @@
 ---
 title: 組織プロファイルを取得する
 description: パートナーの組織プロファイルを表すオブジェクトを取得します。
-ms.assetid: 2AA159F1-CC84-4367-A2AF-DFA4C8B0E673
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93a1ea368baa3ad776fcd1fcae4d0a86aec20c15
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: d0d4caed36b1ab58fdb40d32a7ccb159e3895207
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157734"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097051"
 ---
 # <a name="get-an-organization-profile"></a>組織プロファイルを取得する
 
@@ -26,7 +26,7 @@ ms.locfileid: "82157734"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 
@@ -76,7 +76,7 @@ Get-PartnerOrganizationProfile
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

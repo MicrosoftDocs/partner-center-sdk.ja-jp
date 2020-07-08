@@ -1,17 +1,15 @@
 ---
 title: 組織プロファイルを更新する
 description: 組織の請求プロファイルを更新します。
-ms.assetid: 8EC7E1A8-883A-4BF2-BAD7-36A0E043FCA3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: bf67bae2f505c15f80a2cea227a4b40280dd4f0b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: ccf938fff285704f54d4717b2678e1419d857d8d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157934"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096589"
 ---
 # <a name="update-an-organization-profile"></a>組織プロファイルを更新する
 
@@ -26,7 +24,7 @@ ms.locfileid: "82157934"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 
@@ -59,7 +57,7 @@ OrganizationProfile updatedOrganizationProfile = partnerOperations.Profiles.Orga
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 
