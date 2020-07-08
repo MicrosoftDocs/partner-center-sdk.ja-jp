@@ -1,17 +1,15 @@
 ---
 title: プランリソース
 description: リセラーのカタログに記載されている製品を顧客に提供することができます。
-ms.assetid: 702B18DB-D78A-4E3B-BC8F-EFD4092131DE
 ms.date: 03/15/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a4bec5d83faa4454857cd093bb109495bce4c17a
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: 45af02705d2a03c7586ba6bf3a5537c3e4eec3c7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82118658"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094742"
 ---
 # <a name="offer-resources"></a>プランリソース
 
@@ -38,7 +36,7 @@ ms.locfileid: "82118658"
 | locale                      | string                    | プランが適用されるロケール。                                                                          |
 | country                     | string                    | プランが適用される国/地域。                                                                    |
 | category                    | [OfferCategory](#offercategory)           | オファーのカテゴリ。                                                                   |
-| limitUnitOfMeasure          | string                    | 購入制限の種類を示す値です。 指定できる値は、次のとおりです。<br/> "なし"-購入したプランに基づくサブスクリプションの数に制限はありません。<br/> "同時実行"-特定の時点で顧客のテナントに存在できるサブスクリプションの数。これには、アクティブまたは取り消されたサブスクリプションが含まれます。 この値は、ほとんどの場合、ライセンス数が300未満の小規模ビジネスプランに適用されます。 Provisionioned サブスクリプションはカウントされません。<br/> "有効期間"-顧客テナントの有効期間中に存在できるサブスクリプションの数。 この値は、試用版に最も適しています。 Provisionioned サブスクリプションはカウントされません。      |
+| limitUnitOfMeasure          | string                    | 購入制限の種類を示す値です。 次の値を指定できます。<br/> "なし"-購入したプランに基づくサブスクリプションの数に制限はありません。<br/> "同時実行"-特定の時点で顧客のテナントに存在できるサブスクリプションの数。これには、アクティブまたは取り消されたサブスクリプションが含まれます。 この値は、ほとんどの場合、ライセンス数が300未満の小規模ビジネスプランに適用されます。 Provisionioned サブスクリプションはカウントされません。<br/> "有効期間"-顧客テナントの有効期間中に存在できるサブスクリプションの数。 この値は、試用版に最も適しています。 Provisionioned サブスクリプションはカウントされません。      |
 | limit                       | INT                       | LimitUnitOfMeasure に基づいて、このプランの購入可能なサブスクリプションの量。                |
 | prerequisiteOffers          | string                    | 前提条件の提供。                                                                                        |
 | isAddOn                     | boolean                   | このインスタンスがアドオンであるかどうかを示す値。                                                           |
@@ -56,7 +54,7 @@ ms.locfileid: "82118658"
 | product                     | [OfferProduct](#offerproduct)           | オファー製品を取得します。                                                                           |
 | unitType                    | string                    | 単位の型。                                                                                      |
 | リンク                       | [OfferLinks](#offerlinks)               | プランの "詳細情報" リンク。                                                                    |
-| attributes                  | [ResourceAttributes](utility-resources.md#resourceattributes) | オファーに対応するメタデータ属性。                         |
+| 属性                  | [ResourceAttributes](utility-resources.md#resourceattributes) | オファーに対応するメタデータ属性。                         |
 
 ## <a name="offercategory"></a>OfferCategory
 
@@ -70,7 +68,7 @@ ms.locfileid: "82118658"
 | locale     | string                                                         | プランが適用されるロケール。                                                                                                                        |
 | country    | string                                                         | プランが適用される国/地域。                                                                                                                   |
 | リンク      | [ResourceLinks](utility-resources.md#resourcelinks)           | OfferCategory に対応するリソースリンク。                                                                                                                     |
-| attributes | [ResourceAttributes](utility-resources.md#resourceattributes) | OfferCategory に対応するメタデータ属性。                                                                                                                |
+| 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | OfferCategory に対応するメタデータ属性。                                                                                                                |
 
 ## <a name="offerlinks"></a>OfferLinks
 
@@ -78,10 +76,10 @@ ms.locfileid: "82118658"
 
 | プロパティ  | Type | 説明                 |
 |-----------|------|-----------------------------|
-| learnMore | Link | [詳細情報] リンク      |
-| 自身      | Link | 自己 URI                |
-| [次へ]      | Link | 項目の次のページ。     |
-| previous  | Link | 項目の前のページ。 |
+| learnMore | リンク | [詳細情報] リンク      |
+| self      | リンク | 自己 URI                |
+| [次へ]      | リンク | 項目の次のページ。     |
+| previous  | リンク | 項目の前のページ。 |
 
 ## <a name="offerproduct"></a>OfferProduct
 

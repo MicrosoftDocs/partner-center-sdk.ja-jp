@@ -1,17 +1,15 @@
 ---
 title: アドレスを確認する
 description: アドレス検証 API を使用してアドレスを検証する方法。
-ms.assetid: 38A136CD-5E42-46D2-85A4-ED08E30444B8
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 402c7ff4d1c713eb57ade674a76f4e66033ba428
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 22d5faec2fdab4907067bb01cb74e110032dea9a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157864"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095494"
 ---
 # <a name="validate-an-address"></a>アドレスを確認する
 

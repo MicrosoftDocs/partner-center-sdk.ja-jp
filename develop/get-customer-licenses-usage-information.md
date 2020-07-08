@@ -1,17 +1,17 @@
 ---
 title: 顧客ライセンスの使用情報を取得する
 description: 特定の顧客のライセンス使用状況の洞察を取得する方法。
-ms.assetid: 02B98495-9FE7-4A9F-B1DD-B14563D0FF29
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d853665bf4f7e9cac8e58871416d3f67c86cfe5
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 5e54c002412bdea689c96f3ba5327612411424e7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157544"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093750"
 ---
 # <a name="get-customer-licenses-usage-information"></a>顧客ライセンスの使用情報を取得する
 
@@ -61,7 +61,7 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

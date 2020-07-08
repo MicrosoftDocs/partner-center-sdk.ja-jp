@@ -1,17 +1,15 @@
 ---
 title: テストとデバッグ
 description: コードをテストするには、パートナーセンター (および対応するトークン) で統合サンドボックスアカウントを使用する必要があります。これにより、会社が支払いを行う新しい料金が誤って発生することはありません。
-ms.assetid: 0A84F92F-CE66-42DF-B686-4D9E6FFECB16
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d24becdaf89798fd99ca0ed3fe0ea60d75d0d2f9
-ms.sourcegitcommit: 58fecbc8e6f20dae7cde34ae44b72d5d37ae09b4
+ms.openlocfilehash: a5b78454c6c41a9e4401ad44a43ca233049498b8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869057"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095978"
 ---
 # <a name="test-and-debug"></a>テストとデバッグ
 

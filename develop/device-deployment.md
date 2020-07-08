@@ -1,17 +1,15 @@
 ---
 title: デバイスの展開
 description: パートナーセンターの API デバイス展開機能には、構成ポリシーとデバイスが含まれます。
-ms.assetid: 7403E326-5A33-4B39-9364-40D1E5CD2DE1
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: eff3dcdc9a5717699152eaa4980f07aa48325bae
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 72292ee59955bb35be7ad9d59789a3e109d5f7ec
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666245"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094091"
 ---
 # <a name="device-deployment"></a>デバイスの展開
 

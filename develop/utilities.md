@@ -1,17 +1,15 @@
 ---
 title: Utilities
 description: このセクションでは、パートナーがパートナーセンターを使用して、ユーティリティの機能をプログラムで管理する方法について説明します。
-ms.assetid: 646301CF-83E5-4BC3-987D-948E984D17F3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4ba6e34e2048f5c91c62f95e8d88307acda83001
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+ms.openlocfilehash: 2d3745a7a4d0a5bd45fd62c706450383a5e24216
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82088452"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095566"
 ---
 # <a name="utilities"></a>Utilities
 

@@ -1,17 +1,15 @@
 ---
 title: ドメインが使用できるかどうかを確認する
 description: ドメインが使用可能かどうかを確認する方法。
-ms.assetid: 9ECF8241-3672-441D-B34D-83F7C23138B3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7518253d937567e78c5afd59b9b0a1375d047c89
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: f0ae17a7f929e74a32647c616bb35bc20ed9bcc3
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157844"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093494"
 ---
 # <a name="verify-domain-availability"></a>ドメインが使用できるかどうかを確認する
 
@@ -28,7 +26,7 @@ ms.locfileid: "82157844"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- ドメイン (など`contoso.onmicrosoft.com`)。
+- ドメイン (など `contoso.onmicrosoft.com` )。
 
 ## <a name="c"></a>C\#
 
@@ -57,7 +55,7 @@ bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 
 | 名前       | Type       | 必須 | 説明                                   |
 |------------|------------|----------|-----------------------------------------------|
-| **domain** | **string** | Y        | チェック対象のドメインを識別する文字列。 |
+| **領域** | **string** | Y        | チェック対象のドメインを識別する文字列。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 

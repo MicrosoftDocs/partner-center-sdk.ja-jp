@@ -1,17 +1,15 @@
 ---
 title: サブスクリプションの利用状況に関するリソース
 description: サブスクリプションの使用状況に関するリソースでは、使用量ベースの課金によるサブスクリプションについて説明します。 これらのサブスクリプションには、日単位および月単位の使用状況レコードと、各支払い期間の使用状況の概要が含まれています。
-ms.assetid: 61B98AB8-D802-4EC1-91FB-B7A2B95DE20C
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b5317596f8fe77e06aabcda98268186550e7c355
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 8e23287d80f19084860f4597754448e81c01049f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095790"
 ---
 # <a name="subscription-usage-resources"></a>サブスクリプションの利用状況に関するリソース
 
@@ -45,7 +43,7 @@ ms.locfileid: "81666094"
 
 | プロパティ         | Type               | 説明                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| Status           | string             | サブスクリプションの状態: "none"、"active"、"中断"、または "deleted"。                  |
+| 状態           | string             | サブスクリプションの状態: "none"、"active"、"中断"、または "deleted"。                  |
 | PartnerOnRecord  | string             | "レコード上のパートナーの MPN ID"                                                        |
 | OfferId          | string             | GUID。 このサブスクリプションに関連付けられているオファーの id。                                       |
 | Id               | string             | GUID。 サブスクリプションまたはリソースの id。                                                 |

@@ -4,13 +4,12 @@ description: 開発者は、パートナーセンター Api を使用して、�
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d3c030d7e808e5bc40b985ce02dda84672a020c
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: df2a3707e00ba36a11c404b102304c08d105244e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125423"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094371"
 ---
 # <a name="create-a-subscription-for-commercial-marketplace-products"></a>商用 marketplace 製品のサブスクリプションを作成する
 
@@ -22,7 +21,7 @@ ms.locfileid: "82125423"
 
 また、[ライフサイクル管理を実行](#lifecycle-management)し、これらのサブスクリプションの[請求書を管理](#invoice-and-reconciliation)することもできます。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 * [パートナーセンターの認証](partner-center-authentication.md)資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 * 顧客 ID。 顧客の識別子がない場合は、「[顧客の一覧を取得する](get-a-list-of-customers.md)」の手順に従います。 または、パートナーセンターにサインインして、顧客の一覧から顧客を選択し、[**アカウント**] を選択して、 **Microsoft ID**を保存します。
@@ -41,7 +40,7 @@ Azure 予約を購入する前に、次の手順を実行します。
 
     * [製品の一覧を取得する](get-a-list-of-products.md)
     * [製品 ID を使用して製品を取得する](get-a-product-by-id.md)
-    * [製品の Sku の一覧を取得する](get-a-list-of-skus-for-a-product.md)
+    * [製品の SKU の一覧を取得する](get-a-list-of-skus-for-a-product.md)
     * [SKU ID を使用して SKU を取得する](get-a-sku-by-id.md)
 
     > [!NOTE]
@@ -54,7 +53,7 @@ Azure 予約を購入する前に、次の手順を実行します。
 
 3. SKU の可用性を取得します。 注文を配置するときに、可用性の**Catalogitemid**が必要になります。この場合、次の api を使用して取得できます。
 
-    * [SKU に使用できる機能の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
+    * [SKU の空き状況の一覧を取得する](get-a-list-of-availabilities-for-a-sku.md)
     * [可用性 ID を使用して可用性を取得する](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>注文を作成して送信する
@@ -92,9 +91,9 @@ Azure 予約注文を送信するには、次の手順を実行します。
 
 次の方法を使用して、顧客の[請求書](invoice-resources.md)(商用 marketplace 製品へのサブスクリプションの請求を含む) を管理できます。
 
-* [請求書を取得する商用マーケットプレースの従量課金明細項目](get-invoice-billed-consumption-lineitems.md)
+* [請求書の課金されているコマーシャル マーケットプレース使用明細を取得する](get-invoice-billed-consumption-lineitems.md)
 * [請求書の推定リンクを取得する](get-invoice-estimate-links.md)
-* [Invoice 未請求商業市場消費量の品目を取得する](get-invoice-unbilled-consumption-lineitems.md)
+* [請求書の課金されていないコマーシャル マーケットプレース使用明細を取得する](get-invoice-unbilled-consumption-lineitems.md)
 * [Invoice 未請求調整の品目を取得する](get-invoice-unbilled-recon-lineitems.md)
 
 ## <a name="test-using-integration-sandbox-account"></a>統合サンドボックスアカウントを使用してテストする

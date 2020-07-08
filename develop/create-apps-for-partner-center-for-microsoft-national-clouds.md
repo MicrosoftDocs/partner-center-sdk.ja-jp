@@ -4,17 +4,15 @@ description: 開発者は、Azure portal を通じて Azure AD でアプリの�
 MS-HAID:
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_cloud\_germany
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_national\_clouds
-ms.assetid: 73C5926A-0DEB-42E5-8982-7E44A2031F0B
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ada59eaae21c920aa94b5da13f8dd9f04e6012ad
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: acb84caddfc42de957b4e45b781f650ec9640038
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155044"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094420"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Microsoft National Cloud のパートナーセンターのアプリの詳細を登録する
 
@@ -39,7 +37,7 @@ Web アプリの場合は、次の手順を使用してアプリケーション 
 
 1. [Azure portal アプリの登録](https://go.microsoft.com/fwlink/?linkid=2083908)ページに移動して、アプリを登録します。 職場または学校のアカウントまたは個人の Microsoft アカウントを使用して Azure portal にサインインします。
 
-2. **[新規登録]** を選択します。 詳細については、「[クイックスタート: Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)へのアプリケーションの登録」を参照してください。
+2. **[新規登録]** を選択します。 詳細については、「[クイック スタート: Microsoft ID プラットフォームにアプリケーションを登録する](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)」を参照してください。
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>Web アプリの API アクセス許可を構成する
 
@@ -72,7 +70,7 @@ Web アプリの構成の詳細は次のとおりです。
 
 ### <a name="register-the-web-app-in-partner-center"></a>パートナーセンターで Web アプリを登録する
 
-1. に[https://partnercenter.microsoft.com](https://partnercenter.microsoft.com)ログインします。
+1. にログイン [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) します。
 
 2. [**ダッシュボード**] を選択し、[**アカウントの設定**]、[**アプリの管理**] の順に選択します。
 
@@ -89,11 +87,11 @@ Web アプリの構成の詳細は次のとおりです。
 >[!NOTE]
 >Azure portal でネイティブアプリを作成する前に、パートナーテナントの管理者ユーザー資格情報を使用してパートナーセンターにログインします。 これにより、アプリのアクセス許可を有効にするための設定がテナントに作成されます。
 
-### <a name="create-native-app"></a>ネイティブアプリの作成
+### <a name="create-native-app"></a>ネイティブ アプリを作成する
 
 1. [Azure portal アプリの登録](https://go.microsoft.com/fwlink/?linkid=2083908)ページに移動して、アプリを登録します。 職場または学校のアカウントまたは個人の Microsoft アカウントを使用して Azure portal にサインインします。
 
-2. **[新規登録]** を選択します。 詳細については、「[クイックスタート: Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)へのアプリケーションの登録」を参照してください。
+2. **[新規登録]** を選択します。 詳細については、「[クイック スタート: Microsoft ID プラットフォームにアプリケーションを登録する](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)」を参照してください。
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>ネイティブアプリの API アクセス許可を構成する
 
@@ -104,7 +102,7 @@ Web アプリの構成の詳細は次のとおりです。
 3. **Windows Azure Active Directory のアクセス許可**を選択します。 [委任された**アクセス許可**] で、次のアクセス許可を選択します。
 
     - **サインインしてユーザー プロファイルを読み取る**
-    - **ディレクトリ データの読み取り**
+    - **ディレクトリ データの読み込み**
     - **サインインしたユーザーとしてディレクトリにアクセスする**
     - **すべてのグループの読み取り**
 

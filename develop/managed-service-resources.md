@@ -1,17 +1,15 @@
 ---
 title: 管理されたサービスリソース
 description: 管理されたサービスとは、パートナーが管理者特権を委任したサービスです。 パートナーは、管理されたサービスの代理として、およびファイルサービス要求のサポートを提供できます。
-ms.assetid: B05E9585-72E4-4330-8721-A88EC4C193D7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a4de6e373748026c56599f8e7153569f04a0c9cf
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: ef644ac4d8ae9660cffc9558af33cc27832556c7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82118648"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094794"
 ---
 # <a name="managed-service-resources"></a>管理されたサービスリソース
 
@@ -42,10 +40,10 @@ ms.locfileid: "82118648"
 
 | プロパティ      | Type | 説明                 |
 |---------------|------|-----------------------------|
-| AdminService  | Link | 管理サービスの URI。      |
-| ServiceHealth | Link | サービス正常性 URI。     |
-| ServiceTicket | Link | サービスチケットの URI。     |
-| セルフ          | Link | 自己 URI。               |
-| Next          | Link | 項目の次のページ。     |
-| Previous      | Link | 項目の前のページ。 |
+| AdminService  | リンク | 管理サービスの URI。      |
+| ServiceHealth | リンク | サービス正常性 URI。     |
+| ServiceTicket | リンク | サービスチケットの URI。     |
+| セルフ          | リンク | 自己 URI。               |
+| 次へ          | リンク | 項目の次のページ。     |
+| 前へ      | リンク | 項目の前のページ。 |
 

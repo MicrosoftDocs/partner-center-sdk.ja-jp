@@ -1,17 +1,17 @@
 ---
 title: パートナー センター REST URL
 description: パートナーセンターは、世界中のさまざまな国や地域でご利用いただけます。 一部のバージョンのパートナーセンターでは、アプリが正常に動作するために、異なるエンドポイントが必要になる場合があります。
-ms.assetid: D4E1AC16-3FB1-4192-A06A-5766BF00A6D8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fad231890e0539c115cf6de5958e5282ab598cd2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 71e27e4426ac28fa9080004fd7841f54296cf2f2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157094"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094617"
 ---
 # <a name="partner-center-rest-urls"></a>パートナー センター REST URL
 
@@ -32,4 +32,4 @@ ms.locfileid: "82157094"
 |21Vianet が運営するパートナー センター  |  `https://partner.partnercenterapi.microsoftonline.cn`       |
 
 >[!NOTE]
->Microsoft Cloud ドイツ Azure AD ライブラリのパートナーセンターのトークン機関は次のhttps://login.microsoftonline.deとおりです。
+>Microsoft Cloud ドイツ Azure AD ライブラリのパートナーセンターのトークン機関は次のとおりです https://login.microsoftonline.de 。

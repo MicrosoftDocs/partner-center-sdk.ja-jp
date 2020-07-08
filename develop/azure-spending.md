@@ -4,13 +4,12 @@ description: CSP パートナーは、パートナーセンター Api を使用�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7729c973622a7db6cae6ba9fc492e6f9b7caa981
-ms.sourcegitcommit: 685137f5dd204912efcb4c406a1bf02278ce5dae
+ms.openlocfilehash: 6a64b1345587f3eeef264972dee432678d035900
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81785087"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095312"
 ---
 # <a name="azure-spending"></a>Azure 利用状況
 

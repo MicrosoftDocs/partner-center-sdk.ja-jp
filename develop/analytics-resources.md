@@ -1,18 +1,17 @@
 ---
 title: 分析リソース
 description: 使用状況、デプロイ、消費に関するレポートに使用されるデータのパートナーセンターリソース。
-ms.assetid: 1FEB08D6-AD0C-4B01-B7A8-AE05C914912B
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: v-sumukh
 ms.author: v-sumukh
-ms.openlocfilehash: 50c04b1df512ab2475cd555e06bc2b6b92b6c8a7
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 613f97cf36a3ecb978b7764fbf9fc5065bd74c30
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022691"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095415"
 ---
 # <a name="analytics-resources"></a>分析リソース
 
@@ -26,7 +25,7 @@ ms.locfileid: "86022691"
 
 **PartnerLicensesDeploymentInsights**リソースには、ライセンスの展開に関するパートナーレベルの洞察が含まれています。
 
-| プロパティ                  | 種類                                                           | 説明                                                                         |
+| プロパティ                  | Type                                                           | 説明                                                                         |
 |---------------------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | proratedDeploymentPercent | number                                                         | 展開されたライセンスの割合。                                                |
 | licensesSold              | number                                                         | 販売されたライセンスの数。                                                        |
@@ -39,7 +38,7 @@ ms.locfileid: "86022691"
 
 **PartnerLicensesUsageInsights**リソースには、ライセンスの使用状況に関するパートナーレベルの洞察が含まれています。
 
-| プロパティ                     | 種類                                                           | 説明                                                                    |
+| プロパティ                     | Type                                                           | 説明                                                                    |
 |------------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | proratedLicensesUsagePercent | number                                                         | 展開されたライセンスの割合。                                           |
 | workloadName                 | string                                                         | ワークロード名 (例: exchange)。                                             |
@@ -52,7 +51,7 @@ ms.locfileid: "86022691"
 
 **CustomerLicensesDeploymentInsights**リソースには、ライセンスの展開に関する顧客レベルの洞察が含まれています。
 
-| プロパティ          | 種類                                                           | 説明                                                                          |
+| プロパティ          | Type                                                           | 説明                                                                          |
 |-------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | licensesDeployed  | number                                                         | 展開されたライセンスの数。                                                     |
 | licensesSold      | number                                                         | 販売されたライセンスの数。                                                         |
@@ -70,7 +69,7 @@ ms.locfileid: "86022691"
 
 **CustomerLicensesUsageInsights**リソースには、ライセンスの使用状況に関する顧客レベルの洞察が含まれています。
 
-| プロパティ          | 種類                                                           | 説明                                                                     |
+| プロパティ          | Type                                                           | 説明                                                                     |
 |-------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | workloadCode      | string                                                         | ワークロードコード。                                                              |
 | workloadName      | number                                                         | ワークロード名 (例: Exchange)。                                              |

@@ -1,17 +1,17 @@
 ---
 title: アカウントとプロファイルの管理
 description: このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用して、ユーザーアカウントとプロファイルをプログラムで管理する方法について説明します。
-ms.assetid: 7E2D461D-279E-4E6C-ACFA-BC96AAE8503C
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 81f086ddb3efa83ea72060363eea288fd70d1ed9
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+author: parthpandyaMSFT
+ms.author: parthp
+ms.openlocfilehash: 1ec57757ebd45eba26af7834a484b00aa92234ce
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089332"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094830"
 ---
 # <a name="manage-accounts-and-profiles"></a>アカウントとプロファイルの管理
 

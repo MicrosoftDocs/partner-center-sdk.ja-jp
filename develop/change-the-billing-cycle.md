@@ -4,14 +4,14 @@ description: サブスクリプションを毎月または年間請求に更新�
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 7333d2a7216551e50672db3beac0624776709701
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: f5a18634a0250bd1614d456d6c35e443a3e9be67
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022629"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096072"
 ---
 # <a name="change-the-billing-cycle"></a>請求サイクルを変更する
 
@@ -82,7 +82,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 次の表に、サブスクリプションの数量を変更するために必要なクエリパラメーターを示します。
 
-| 名前                   | 種類 | 必須 | 説明                                                          |
+| 名前                   | Type | 必須 | 説明                                                          |
 |------------------------|------|----------|----------------------------------------------------------------------|
 | **customer-tenant-id** | GUID |    Y     | 顧客を識別する GUID 形式の**顧客テナント id** |
 | **注文-id**           | GUID |    Y     | 順序識別子                                                 |
@@ -97,7 +97,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ### <a name="order"></a>順番
 
-| プロパティ           | 種類             | 必須 | 説明                                                                |
+| プロパティ           | Type             | 必須 | 説明                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
 | Id                 | string           |    N     | 注文が正常に作成されたときに提供される注文 id |
 |ReferenceCustomerId | string           |    Y     | 顧客識別子                                                    |
@@ -108,7 +108,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ### <a name="orderlineitem"></a>OrderLineItem
 
-| プロパティ             | 種類   | 必須 | 説明                                                                        |
+| プロパティ             | Type   | 必須 | 説明                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
 | LineItemNumber       | number |    Y     | 0から始まる行項目番号。                                              |
 | OfferId              | string |    Y     | プランの ID                                                                |

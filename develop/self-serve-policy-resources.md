@@ -4,13 +4,12 @@ description: パートナーは、顧客のセルフサービスポリシーを�
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: dc0da58debb7ea0c32272bf180f26d535110d4a5
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: 04daf6aaeb69153c4139941188f53dbab8979969
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564320"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095842"
 ---
 # <a name="selfservepolicy-resource"></a>SelfServePolicy リソース
 
@@ -50,7 +49,7 @@ ms.locfileid: "82564320"
 | TenantId             | string                           | アクセス権を付与するエンティティのテナント識別子。                                       |
 
 
-## <a name="permission"></a>権限
+## <a name="permission"></a>アクセス許可
 
 セルフサービスポリシーの権限を表します。
 

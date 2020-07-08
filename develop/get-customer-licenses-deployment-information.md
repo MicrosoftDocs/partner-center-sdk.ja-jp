@@ -1,17 +1,17 @@
 ---
 title: 顧客ライセンスのデプロイ情報を取得する
 description: 特定の顧客に対してライセンスを取得する方法について説明します。
-ms.assetid: 8CD6119A-868F-46A2-9730-DECB4A0BC747
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c8b0317dfb335372c16ba83dfebf70eb89b10c7c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 873279de57960e98d617c4cc6fd01955aa702c70
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157554"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093774"
 ---
 # <a name="get-customer-licenses-deployment-information"></a>顧客ライセンスのデプロイ情報を取得する
 
@@ -61,7 +61,7 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

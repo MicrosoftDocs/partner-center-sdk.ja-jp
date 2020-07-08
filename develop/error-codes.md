@@ -1,17 +1,15 @@
 ---
 title: パートナー センター REST エラー コード
 description: パートナーセンターの Api からのエラーコードと成功応答の説明。
-ms.assetid: 08AC1F2E-5847-4AD8-AE5B-0173C5DB589A
 ms.date: 06/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d4f31783b94ed8cae85687b806624945bb185486
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b75f7fa6b9b82c2b1744a21fa0dbac95aa7c7acd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155754"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093996"
 ---
 # <a name="partner-center-rest-error-codes"></a>パートナー センター REST エラー コード
 
@@ -58,7 +56,7 @@ ms.locfileid: "82155754"
 | code        | string | 常に返されます。 発生したエラーの種類を示します。 null 以外。                                                                                  |
 | description | string | 常に返されます。 エラーを詳しく説明し、追加のデバッグ情報を提供します。 null または空以外。 最大長は 1024 文字です。 |
 | data        | array  | 一部のエラーの種類に対してのみ返されます。 エラーオブジェクトの一覧。                                                                                           |
-| source      | string | 常に返されます。 エラーのソースです。                                                                                                              |
+| ソース      | string | 常に返されます。 エラーのソースです。                                                                                                              |
 
 ```json
 {

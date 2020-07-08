@@ -4,13 +4,12 @@ description: 請求書 ID と受信確認 ID を使用して、請求書の領�
 ms.date: 02/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6767337f2d3510f7ac98d61c060e2ee8c1191514
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 96cef11d6778de2d9bf28e466d88a39f9415727d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157464"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093558"
 ---
 # <a name="get-invoice-receipt-statement"></a>請求書の領収書を取得する
 
@@ -25,7 +24,7 @@ ms.locfileid: "82157464"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 - 有効な請求書 ID と対応する受信 ID。
 

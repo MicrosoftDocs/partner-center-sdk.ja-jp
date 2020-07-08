@@ -4,17 +4,15 @@ description: パートナーセンター向けのパートナーセンター向�
 MS-HAID:
 - pc\_apiv2.developing\_with\_different\_partner\_center\_versions
 - pc\_apiv2.developing\_for\_partner\_center\_for\_microsoft\_national\_cloud
-ms.assetid: 13D45776-4837-48F5-AB8B-605FD1D3D52D
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c2f8e9e61c02b037b817305989bbad430c6fd579
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 6220b9f89f960f6d403e88e993c7e46444374cfc
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154234"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094110"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Microsoft National クラウドのパートナーセンター向けの開発
 
@@ -60,7 +58,7 @@ ms.locfileid: "82154234"
   - パートナーは、Office 365 管理センターまたは Azure portal を使用して、顧客のユーザーを手動で作成または更新する必要があります。 [Azure Active Directory のドキュメント](https://docs.microsoft.com/azure/active-directory/)を参照してください。
 
 - Microsoft Cloud ドイツポータルまたは Api のパートナーセンターを使用して、顧客のユーザーのライセンスを管理することはできません。 代わりに、Office 365 管理センターまたは Azure Active (近日対応予定) のライセンス管理を使用してライセンスを管理する必要があります。
-  - (省略可能) Azure AD Graph API を使用できます。 「[ユーザーにライセンスを追加または削除する](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense)」を参照してください。 Microsoft Cloud ドイツのパートナーセンターでは、ではなく、グラフエンド`https://graph.cloudapi.de`ポイントを`https://graph.windows.net`使用してください。
+  - (省略可能) Azure AD Graph API を使用できます。 「[ユーザーにライセンスを追加または削除する](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense)」を参照してください。 Microsoft Cloud ドイツのパートナーセンターでは、ではなく、グラフエンドポイントを使用してください `https://graph.cloudapi.de` `https://graph.windows.net` 。
 
 - 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Office 365 管理センターまたは Azure portal を使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/)」を参照してください。 手順1では、Microsoft Cloud ドイツの Azure portal にサインインする必要があります。
 
@@ -82,6 +80,6 @@ ms.locfileid: "82154234"
 
 - 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Azure ポータルを使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal)」を参照してください。 手順 1. では、米国政府向け Microsoft Cloud の Azure portal にサインインする必要があります。
 
-- 米国政府向け Microsoft Cloud のパートナーセンターの REST エンドポイントは、パートナーセンターの場合と`https://api.partnercenter.microsoft.com`同じです。
+- 米国政府向け Microsoft Cloud のパートナーセンターの REST エンドポイントは、パートナーセンターの場合と同じ `https://api.partnercenter.microsoft.com` です。
 
 - 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録して、米国政府向けの Microsoft Cloud を行う必要があります。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリの詳細を登録](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)する」を参照してください。

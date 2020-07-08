@@ -1,17 +1,17 @@
 ---
 title: パートナー MPN ID ごとに顧客のサブスクリプションを取得する
 description: 特定のパートナーから提供されたサブスクリプションの一覧を指定された顧客に取得する方法。
-ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2346ebec68b56e7449a7f70fc1bf34aaf8265c3a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 545eb08e54a5a74fb6e8ca27fd1f02d4ba5bf055
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156364"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093903"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>パートナー MPN ID ごとに顧客のサブスクリプションを取得する
 
@@ -28,7 +28,7 @@ ms.locfileid: "82156364"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - パートナー Microsoft Partner Network (MPN) 識別子。
 
@@ -79,7 +79,7 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 | 認証方法  | 要求 URI |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions? mpn\_id = {mpn} HTTP/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions? mpn \_ id = {mpn} HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
@@ -96,7 +96,7 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

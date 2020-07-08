@@ -4,13 +4,12 @@ description: 顧客のサブスクリプションの転送の詳細を取得す�
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8eb9ad116312488f8d62d81c04e0138235728364
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: c39e9483f1e51469981b0d6fa2541a6372ff2dac
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095202"
 ---
 # <a name="get-transfer-details-by-id"></a>Id で転送の詳細を取得する
 
@@ -38,7 +37,7 @@ ms.locfileid: "84489219"
 
 次の path パラメーターを使用して顧客を特定し、受け入れる転送を指定します。
 
-| 名前            | Type     | 必須 | Description                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 | **転送 id** | string   | はい      | 転送を識別する GUID 形式の転送 id。             |

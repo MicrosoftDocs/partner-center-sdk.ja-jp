@@ -1,17 +1,15 @@
 ---
 title: リソースの注文
 description: パートナーは、顧客がプランの一覧からサブスクリプションを購入することを希望する場合に注文を行います。
-ms.assetid: 5CFA35FF-1C0D-461D-A942-309AFCD98395
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 27025e7e16afa2d560a9006ded98565d7d6e9697
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 587333504742a303f7bf02b41b58e45c855d2c2d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124662"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094732"
 ---
 # <a name="order-resources"></a>リソースの注文
 
@@ -27,7 +25,7 @@ ms.locfileid: "82124662"
 >[!NOTE]
 >注文リソースには、テナント識別子ごとに1分あたり500の要求のレート制限があります。
 
-## <a name="order"></a>Order
+## <a name="order"></a>順番
 
 パートナーの注文について説明します。
 
@@ -42,9 +40,9 @@ ms.locfileid: "82124662"
 | currencyCode       | string                                             | 読み取り専用です。 注文を配置するときに使用する通貨。 注文が正常に作成されたときに適用されます。           |
 | currencySymbol     | string                                             | 読み取り専用です。 通貨コードに関連付けられている通貨記号。 |
 | creationDate       | DATETIME                                           | 読み取り専用です。 注文が作成された日付 (日付/時刻形式)。 注文が正常に作成されたときに適用されます。                                   |
-| status             | string                                             | 読み取り専用です。 注文の状態。  サポートされる値は、 [**Orderstatus**](#orderstatus)で見つかったメンバー名です。        |
+| 状態             | string                                             | 読み取り専用です。 注文の状態。  サポートされる値は、 [**Orderstatus**](#orderstatus)で見つかったメンバー名です。        |
 | リンク              | [OrderLinks](utility-resources.md#resourcelinks)           | 注文に対応するリソースリンク。            |
-| attributes         | [ResourceAttributes](utility-resources.md#resourceattributes) | 順序に対応するメタデータ属性。       |
+| 属性         | [ResourceAttributes](utility-resources.md#resourceattributes) | 順序に対応するメタデータ属性。       |
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
@@ -77,16 +75,16 @@ ms.locfileid: "82124662"
 
 注文に対応するリソースリンクを表します。
 
-| プロパティ           | Type                                         | 説明                                                                   |
+| プロパティ           | Type                                         | Description                                                                   |
 |--------------------|----------------------------------------------|-------------------------------------------------------------------------------|
 | provisioningStatus | [リンク](utility-resources.md#link)            | 設定されている場合は、注文のプロビジョニングステータスを取得するためのリンクが表示されます。       |
-| 自身               | [リンク](utility-resources.md#link)            | 注文リソースを取得するためのリンク。                                      |
+| self               | [リンク](utility-resources.md#link)            | 注文リソースを取得するためのリンク。                                      |
 
 ## <a name="orderlineitemlinks"></a>OrderLineItemLinks
 
 注文に関連付けられた完全なサブスクリプションを表します。
 
-| プロパティ           | Type                                         | 説明                                                                          |
+| プロパティ           | Type                                         | Description                                                                          |
 |--------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
 | provisioningStatus | [リンク](utility-resources.md#link)            | 値が設定されている場合は、行項目の[プロビジョニング状態](#orderlineitemprovisioningstatus)を取得するためのリンクが表示されます。       |
 | sku                | [リンク](utility-resources.md#link)            | 購入したカタログアイテムの SKU 情報を取得するためのリンク。                    |
@@ -97,28 +95,28 @@ ms.locfileid: "82124662"
 
 順序の状態を示す値を持つ[列挙型](https://docs.microsoft.com/dotnet/api/system.enum)。
 
-| 値              | [位置]     | 説明                                     |
+| 値              | 位置     | 説明                                     |
 |--------------------|--------------|-------------------------------------------------|
 | unknown            | 0            | 列挙型の初期化子です。                               |
 | 完了          | 1            | 注文が完了したことを示します。          |
-| 保留中            | 2            | 順序がまだ保留中であることを示します。      |
+| pending            | 2            | 順序がまだ保留中であることを示します。      |
 | た          | 3            | 注文がキャンセルされたことを示します。    |
 
 ## <a name="orderlineitemprovisioningstatus"></a>Orderlineitemプロビジョニングステータス
 
 [Orderlineitem](#orderlineitem)のプロビジョニングの状態を表します。
 
-| プロパティ                        | Type                                | 説明                                                                                |
+| プロパティ                        | Type                                | Description                                                                                |
 |------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------|
 | lineItemNumber                  | INT                                 | 注文明細項目の一意の行番号。 値の範囲は0からカウント-1 です。             |
-| status                          | string                              | 注文明細項目のプロビジョニングの状態。 次の値が含まれます。</br>"フルフィルメント済み": 注文のフルフィルメントが正常に完了し、ユーザーが予約を使用できるようになります。</br>"満たされ": キャンセルにより満たされていません</br>"PrefulfillmentPending": 要求はまだ処理中ですが、フルフィルメントはまだ完了していません |
+| 状態                          | string                              | 注文明細項目のプロビジョニングの状態。 次の値が含まれます。</br>"フルフィルメント済み": 注文のフルフィルメントが正常に完了し、ユーザーが予約を使用できるようになります。</br>"満たされ": キャンセルにより満たされていません</br>"PrefulfillmentPending": 要求はまだ処理中ですが、フルフィルメントはまだ完了していません |
 | quantityProvisioningInformation | リスト<[QuantityProvisioningStatus](#quantityprovisioningstatus)> | 注文品目の数量のプロビジョニング状態情報の一覧。 |
 
 ## <a name="quantityprovisioningstatus"></a>QuantityProvisioningStatus
 
 数量別のプロビジョニングの状態を表します。
 
-| プロパティ                           | Type                                         | 説明                                          |
+| プロパティ                           | Type                                         | Description                                          |
 |------------------------------------|----------------------------------------------|------------------------------------------------------|
 | 数量                           | INT                                          | 項目数。                                 |
-| status                             | string                                       | 項目数の状態。                   |
+| 状態                             | string                                       | 項目数の状態。                   |

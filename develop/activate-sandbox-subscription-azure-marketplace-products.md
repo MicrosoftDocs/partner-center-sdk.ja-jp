@@ -4,13 +4,12 @@ description: 商用 marketplace 製品のサンドボックスサブスクリプ
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cee833f110c45e8f53a47aed3d8a8c3b1ccd6946
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: f7b6edef3984b64f04bdbec1f02218a4a84ca04e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154374"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095245"
 ---
 # <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>商用マーケットプレース製品のサンドボックス サブスクリプションをアクティブ化する
 
@@ -68,7 +67,7 @@ ms.locfileid: "82154374"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

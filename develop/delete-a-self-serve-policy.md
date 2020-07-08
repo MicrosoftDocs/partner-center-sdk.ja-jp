@@ -4,13 +4,12 @@ description: セルフサービスポリシーを削除する方法。
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8c1227c6e24f0358ecfe7967e2f87b8313a33ac5
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: e8a8122e0049846f6a4c04d814359b1d649c269b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564340"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094175"
 ---
 # <a name="delete-a-selfservepolicy"></a>SelfServePolicy を削除する
 
@@ -47,7 +46,7 @@ ms.locfileid: "82564340"
 
 ### <a name="request-body"></a>要求本文
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

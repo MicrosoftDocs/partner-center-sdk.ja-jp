@@ -4,13 +4,14 @@ description: DirectSignedCustomerAgreementStatus リソースを使用して、M
 ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f92e3d57438260af0b8e7beb12e9c7a4448eaf13
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 3f1deb20a18bc6e7133cac91db528f2d1ad694e2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157524"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093687"
 ---
 # <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>Microsoft カスタマーアグリーメントの顧客の直接署名 (直接受け入れ) の状態を取得します。
 
@@ -38,7 +39,7 @@ ms.locfileid: "82157524"
 
 | Method | 要求 URI                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | baseURL/v1/customers/{customer-tenant-id}/directSignedMicrosoftCustomerAgreementStatus HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET    | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directSignedMicrosoftCustomerAgreementStatus HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
@@ -54,7 +55,7 @@ ms.locfileid: "82157524"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

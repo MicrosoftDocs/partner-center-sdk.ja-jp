@@ -4,14 +4,14 @@ description: AgreementDocument リソースは、アグリーメントドキュ�
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 233277daece48cebe434ea3f458fd98fe6436de7
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: a99af9ae8a3ba229c9d3fb1bb14e2cc9eeca6c5f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022602"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095434"
 ---
 # <a name="agreement-document-resources"></a>契約ドキュメントのリソース
 
@@ -31,7 +31,7 @@ ms.locfileid: "86022602"
 
 **AgreementDocument**リソースには、次のプロパティが含まれています。
 
-| プロパティ       | 種類   | 説明                                                                                               |
+| プロパティ       | Type   | 説明                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | country | string | このドキュメントが適用される国または地域。 |
 | language | string | このドキュメントがローカライズされる言語。 |

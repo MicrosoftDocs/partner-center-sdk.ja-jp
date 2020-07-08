@@ -4,13 +4,14 @@ description: パートナーセンター Api を使用して、指定された�
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0b1fce3f2d5eea5713fe87c4c1f60ac5e70551b4
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 1fbc16217a45b8b5d5fb8513723ff28c01efe06d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157484"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093569"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>請求書に請求される商用消費量の品目を取得する
 
@@ -106,7 +107,7 @@ while (fetchNext)
 
 同様の例については、以下を参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetBilledConsumptionReconLineItemsPaging.cs**
 
@@ -114,7 +115,7 @@ while (fetchNext)
 
 ### <a name="request-syntax"></a>要求の構文
 
-最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 請求書が大きい場合に、サイズと 0 ベースのオフセットを指定して品目のリストをページ単位で取得するには、2 つ目の構文を使用します。 3番目の構文を使用して、を使用して`seekOperation = "Next"`行項目の次のページを取得します。
+最初の構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 請求書が大きい場合に、サイズと 0 ベースのオフセットを指定して品目のリストをページ単位で取得するには、2 つ目の構文を使用します。 3番目の構文を使用して、を使用して行項目の次のページを取得し `seekOperation = "Next"` ます。
 
 | Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -134,7 +135,7 @@ while (fetchNext)
 | currencyCode           | string | はい      | 請求明細項目の通貨コード。                    |
 | 前期                 | string | はい      | 課金対象の期間。 例: current、previous。        |
 | size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000       |
-| seekOperation          | string | いいえ       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
+| seekOperation          | 文字列 | No       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -142,7 +143,7 @@ while (fetchNext)
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ## <a name="rest-response"></a>REST 応答
 

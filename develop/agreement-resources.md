@@ -4,14 +4,14 @@ description: アグリーメントリソースは、Microsoft cloud customer Agr
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 3e59debb59700f7d2d4f0eba9dc156c325b3688d
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 742436648079ca0870400b6fb305138226d1de5c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022669"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095873"
 ---
 # <a name="agreement-resources"></a>契約リソース
 
@@ -31,11 +31,11 @@ ms.locfileid: "86022669"
 
 **アグリーメント**リソースは、パートナーによって提供される認定の詳細を表します。
 
-| プロパティ       | 種類   | 説明                                                                                               |
+| プロパティ       | Type   | 説明                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | userId         | string                         | パートナー組織の代わりに確認を提供する、パートナーテナント内のログインユーザーのオブジェクト識別子。 アプリ + ユーザー認証を使用してアグリーメントリソースを作成する場合、パートナーセンターは自動的に、アプリ + ユーザートークンから**userId**属性の値を取得します。                                                                             |
 | primaryContact | [Contact](./utility-resources.md#contact) | 契約に同意した顧客組織からのユーザーに関する情報。たとえば、 **firstName**、 **lastName**、 **email**、 **phoneNumber** (省略可能) です。 |
 | dateAgreed     | UTC 日時形式の文字列 | 顧客が契約に同意した日付。                                 |
 | templateId     |string                          | 顧客が同意したアグリーメントの一意識別子。 |
-| 型           |string                          | 契約の種類。 現在サポートされている値は、 **microsoft の cloudagreement**と**Microsoft の顧客契約**です。|
+| type           |string                          | 契約の種類。 現在サポートされている値は、 **microsoft の cloudagreement**と**Microsoft の顧客契約**です。|
 | agreementLink  | string                         | アグリーメントテンプレートの URL。                                                    |

@@ -1,17 +1,15 @@
 ---
 title: パートナーの MPN ID を検証する
 description: パートナーの Microsoft Partner Network 識別子 (MPN ID) を確認する方法。次に示す手法では、パートナーセンターからパートナーの MPN プロファイルを要求することによって、パートナーの Microsoft Partner Network 識別子を確認します。
-ms.assetid: 95CBA254-0980-4519-B95D-1F906C321863
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 429f6e14da1cd9ba310167beb148930d7d3e015e
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 5c35cfb024a8894d7f40208f8f93f6f41ee94121
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157324"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095214"
 ---
 # <a name="verify-a-partner-mpn-id"></a>パートナーの MPN ID を検証する
 
@@ -28,7 +26,7 @@ ms.locfileid: "82157324"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 - 確認するパートナー MPN ID。 この値を省略した場合、要求はサインインしているパートナーの MPN プロファイルを取得します。
 
@@ -67,7 +65,7 @@ var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

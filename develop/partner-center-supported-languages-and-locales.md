@@ -4,13 +4,14 @@ description: パートナーセンターでサポートされている ISO2 と 
 ms.date: 12/03/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 70b9b6a4954b133c619cb72ff40bc5e99fb307cd
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 38dad24ec1a10357bb60467dcdac2816aea89e91
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089362"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095030"
 ---
 # <a name="partner-center-supported-languages-and-locales"></a>パートナー センターでサポートされている言語とロケール
 
@@ -27,13 +28,13 @@ ms.locfileid: "82089362"
 
 次の表は、パートナーセンターの Api でサポートされているカルチャと国際標準化機構 (ISO) の国コードを示しています。
 
-| 国/リージョン                           | ISO Alpha 2 国コード | ISO Alpha 3 国コード | サポートされているカルチャ                  |
+| 国/地域                           | ISO Alpha 2 国コード | ISO Alpha 3 国コード | サポートされているカルチャ                  |
 |------------------------------------------|--------------------------|--------------------------|---------------------------------------|
 | アフガニスタン                              | AF                       | AFG                      | ps-AF/en-us                         |
 | オーランド諸島                            | AX                       | より                      | sv-SE/en-us-US                         |
 | アルバニア                                  | AL                       | ALB                      | sq-AL/en-us-US                         |
 | アルジェリア                                  | DZ                       | DZA                      | ar-DZ/en-us-US                         |
-| アメリカ領サモア                           | AS                       | ASM                      | ja-JP                                 |
+| 米領サモア                           | AS                       | ASM                      | ja-JP                                 |
 | アンドラ                                  | AD                       | AND                      | ca-ES/en-us                         |
 | アンゴラ                                   | AO                       | 前                      | pt-PT/en-us-US                         |
 | アンギラ                                 | AI                       | AIA                      | ja-JP                                 |
@@ -62,7 +63,7 @@ ms.locfileid: "82089362"
 | ブーベ島                            | BV                       | BVT                      | nb-いいえ/en-us                         |
 | ブラジル                                   | BR                       | BRA                      | pt-BR/en-us-US                         |
 | 英領インド洋地域           | IO                       | IoT                      | ja-JP                                 |
-| 英領バージン諸島                   | VG                       | VGB                      | ja-JP                                 |
+| 英領ヴァージン諸島                   | VG                       | VGB                      | ja-JP                                 |
 | ブルネイ                                   | BN                       | BRN                      | BN/en-us                         |
 | ブルガリア                                 | BG                       | BGR                      | bg-BG/en-us                         |
 | ブルキナファソ                             | BF                       | BFA                      | fr-fr/en-us                         |
@@ -77,10 +78,10 @@ ms.locfileid: "82089362"
 | チリ                                    | CL                       | CHL                      | es-CL/en-us                         |
 | 中国                                    | CN                       | CHN                      | zh-tw-CN/en-US                         |
 | クリスマス島                         | CX                       | .CXR                      | ja-JP                                 |
-| ココス諸島                  | CC                       | CCK                      | ja-JP                                 |
+| ココス(キーリング)諸島                  | CC                       | CCK                      | ja-JP                                 |
 | コロンビア                                 | CO                       | 行列                      | es-CO/en-us-US                         |
 | コモロ                                  | KM                       | COM (COM)                      | fr-fr/en-us                         |
-| コンゴ共和国                                    | CG                       | 歯車                      | fr-fr/en-us                         |
+| コンゴ                                    | CG                       | 歯車                      | fr-fr/en-us                         |
 | コンゴ民主共和国                              | CD                       | 代金引換払い                      | fr-fr/en-us                         |
 | クック諸島                             | CK                       | COK                      | ja-JP                                 |
 | コスタリカ                               | CR                       | CRI                      | es-CR/en-us                         |
@@ -91,7 +92,7 @@ ms.locfileid: "82089362"
 | チェコ                                  | CZ                       | CZE                      | cs-CS-CZ/en-us                         |
 | デンマーク                                  | DK                       | DNK                      | da-DK/en-us                         |
 | ジブチ                                 | DJ                       | DJI                      | fr-fr/en-us                         |
-| ドミニカ国                                 | DM                       | DMA                      | ja-JP                                 |
+| ドミニカ                                 | DM                       | DMA                      | ja-JP                                 |
 | ドミニカ共和国                       | DO                       | DOM                      | es-DO/en-us                         |
 | エクアドル                                  | EC                       | ECU                      | es-EC/en-us-US                         |
 | エジプト                                    | EG                       | ○                      | ar-例/en-us                         |
@@ -107,7 +108,7 @@ ms.locfileid: "82089362"
 | フィンランド                                  | FI                       | FIN                      | fi fi/sv-FI/en-us                 |
 | フランス                                   | FR                       | FRA                      | fr-fr/en-us                         |
 | 仏領ギアナ                            | GF                       | GUF                      | fr-fr/en-us                         |
-| フランス領ポリネシア                         | PF                       | PYF                      | fr-fr/en-us                         |
+| 仏領ポリネシア                         | PF                       | PYF                      | fr-fr/en-us                         |
 | 仏領極南諸島              | TF                       | ATF                      | fr-fr/en-us                         |
 | ガボン                                    | GA                       | GAB                      | fr-fr/en-us                         |
 | ガンビア                                   | GM                       | GMB                      | ja-JP                                 |
@@ -121,7 +122,7 @@ ms.locfileid: "82089362"
 | グアドループ                               | GP                       | GLP                      | fr-fr/en-us                         |
 | グアム                                     | GU                       | ガム                      | ja-JP                                 |
 | グアテマラ                                | GT                       | GTM                      | es-GT/en-us                         |
-| ガーンジー島                                 | GG                       | GGY                      | ja-JP                                 |
+| ガーンジー                                 | GG                       | GGY                      | ja-JP                                 |
 | ギニア                                   | GN                       | GIN                      | fr-fr/en-us                         |
 | ギニアビサウ                            | GW                       | GNB                      | pt-PT/en-us-US                         |
 | ガイアナ                                   | GY                       | やつ                      | ja-JP                                 |
@@ -141,7 +142,7 @@ ms.locfileid: "82089362"
 | ジャマイカ                                  | JM                       | 紙                      | en-JM/en-us-US                         |
 | ヤンマイエン島                                | XJ                       | XJA                      | nb-いいえ/en-us                         |
 | 日本                                    | JP                       | JPN                      | ja-jp/en-us                         |
-| ジャージー島                                   | JE                       | JEY                      | ja-JP                                 |
+| ジャージー                                   | JE                       | JEY                      | ja-JP                                 |
 | ヨルダン                                   | JO                       | JOR                      | ar-JO/en-us                         |
 | カザフスタン                               | KZ                       | KAZ                      | kk-KZ/en-us-US                         |
 | ケニア                                    | KE                       | たとえる                      | sw-KE/en-us                         |
@@ -171,14 +172,14 @@ ms.locfileid: "82089362"
 | マルティニーク                               | MQ                       | MTQ                      | fr-fr/en-us                         |
 | モーリタニア                               | MR                       | MRT.DLL                      | ar-SA/en-us-US                         |
 | モーリシャス                                | MU                       | メモリ                      | en GB/en-us                         |
-| マイヨット島                                  | YT                       | MYT                      | fr-fr/en-us                         |
+| マヨット                                  | YT                       | MYT                      | fr-fr/en-us                         |
 | メキシコ                                   | MX                       | MEX                      | es-MX/en-us                         |
 | ミクロネシア                               | FM                       | FSM                      | ja-JP                                 |
 | モルドバ                                  | MD                       | MDA                      | ro-RO/en-us-US                         |
 | モナコ                                   | MC                       | MCO                      | fr-MC/en-us                         |
 | モンゴル                                 | MN                       | MNG                      | 最新-米国中/en-us                         |
 | モンテネグロ                               | ME                       | MNE                      | Latn-ME/en-us                    |
-| モンセラット                               | MS                       | MSR                      | ja-JP                                 |
+| モントセラト                               | MS                       | MSR                      | ja-JP                                 |
 | モロッコ                                  | MA                       | 3 月                      | ar-MA/en-us                         |
 | モザンビーク                               | MZ                       | MOZ                      | pt-PT/en-us-US                         |
 | ミャンマー                                  | mm                       | MMR                      | ja-JP                                 |
@@ -217,7 +218,7 @@ ms.locfileid: "82089362"
 | サバ島                                     | XS                       | XSA                      | nl-NL/en-us                         |
 | セントクリストファー・ネイビス                    | KN                       | KNA                      | en GB/en-us                         |
 | セントルシア                              | LC                       | LCA                      | ja-JP                                 |
-| サンマルタン島                             | MF                       | MAF                      | fr-fr/en-us                         |
+| サン・マルタン                             | MF                       | MAF                      | fr-fr/en-us                         |
 | サンピエール・ミクロン                | PM                       | SPM                      | fr-fr/en-us                         |
 | セントビンセント及びグレナディーン諸島         | VC                       | VCT                      | ja-JP                                 |
 | サン・バルテルミー                         | BL                       | BLM                      | fr-fr/en-us                         |
@@ -231,7 +232,7 @@ ms.locfileid: "82089362"
 | シエラレオネ                             | SL                       | SLE                      | ja-JP                                 |
 | シンガポール                                | SG                       | SGP                      | en SG/zh-tw/en-us/en-us                 |
 | シント・ユースタティウス島                           | XE                       | XSE                      | nl-NL/en-us                         |
-| シント・マールテン島                             | SX                       | SXM                      | ja-JP                                 |
+| シント・マールテン                             | SX                       | SXM                      | ja-JP                                 |
 | スロバキア                                 | SK                       | SVK                      | sk-SK/en-us-US                         |
 | スロベニア                                 | SI                       | SVN                      | sl-SI/en-us                         |
 | ソロモン諸島                          | SB                       | SLB                      | ja-JP                                 |
@@ -252,7 +253,7 @@ ms.locfileid: "82089362"
 | タイ                                 | TH                       | THA                      | th-TH/en-us                         |
 | ティモール・レステ                              | TL                       | TLS                      | pt-PT/en-us-US                         |
 | トーゴ                                     | TG                       | TGO                      | fr-fr/en-us                         |
-| トケラウ諸島                                  | TK                       | TKL                      | ja-JP                                 |
+| トケラウ                                  | TK                       | TKL                      | ja-JP                                 |
 | トンガ                                    | TO                       | ITEMS                      | ja-JP                                 |
 | トリニダード・トバゴ                      | TT                       | TTO                      | en-us/en-us                         |
 | チュニジア                                  | TN                       | TUN                      | ar-TN/en-us                         |
@@ -265,7 +266,7 @@ ms.locfileid: "82089362"
 | アラブ首長国連邦                     | AE                       | ARE                      | ar-AE/en-us-US                         |
 | イギリス                           | GB                       | GBR                      | en GB/en-us                         |
 | 米領小離島                    | UM                       | UMI                      | ja-JP                                 |
-| 米領バージン諸島                      | VI                       | PR1-DBMS-VIR                      | ja-JP                                 |
+| 米国バージン諸島                      | VI                       | PR1-DBMS-VIR                      | ja-JP                                 |
 | United States                            | US                       | 米国                      | en-us/es-US                         |
 | ウルグアイ                                  | UY                       | URY                      | es-UY/en-us-US                         |
 | ウズベキスタン                               | UZ                       | UZB                      | uz-Latn-UZ/en-us                    |

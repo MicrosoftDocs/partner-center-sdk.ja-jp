@@ -4,13 +4,12 @@ description: 顧客のサブスクリプションの転送を作成する方法�
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d6e8efddc64bc2b4b36005f0892927f5b3454f8
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: d5e70cc5b7ce4fcfa715f581a2151f0b8d1922b0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489179"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094519"
 ---
 # <a name="create-a-transfer"></a>転送を作成する
 
@@ -36,7 +35,7 @@ ms.locfileid: "84489179"
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前            | 型     | 必須 | Description                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 
@@ -62,7 +61,7 @@ ms.locfileid: "84489179"
 | targetPartnerName     | 文字列        | いいえ    | 省略可能。 譲渡の対象となるパートナーの組織の名前。                                         |
 | targetPartnerTenantId | string        | はい   | 転送の対象となるパートナーを識別する GUID 形式のパートナー id。                                  |
 | lineItems             | オブジェクトの配列 | はい| [Transferlineitem](transfer-entity-resources.md#transferlineitem)リソースの配列。                                   |
-| status                | string        | いいえ    | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
+| 状態                | string        | いいえ    | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
 
 次の表では、要求本文の[Transferlineitem](transfer-entity-resources.md#transferlineitem)プロパティについて説明します。
 
@@ -77,7 +76,7 @@ ms.locfileid: "84489179"
 | offerId              | 文字列                     | No       | プラン ID。                                                                                |
 | addonItems           | **Transferlineitem**オブジェクトの一覧 | いいえ | 転送されるベースサブスクリプションと共に転送されるアドオンの transferEntity 行項目のコレクション。 TransferEntity の作成が正常に完了したときに適用されます。|
 | transferError        | 文字列                     | No       | エラーが発生した場合に transferEntity が受け入れられた後に適用されます。                                        |
-| status               | 文字列                     | No       | TransferEntity 内の lineitem の状態。                                                    |
+| 状態               | 文字列                     | No       | TransferEntity 内の lineitem の状態。                                                    |
 
 ### <a name="request-example"></a>要求の例
 

@@ -4,13 +4,12 @@ description: 統合サンドボックスアカウントから注文をキャン�
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 459db3cfb9a85fd2f4a0d32b065d6929ab40006b
-ms.sourcegitcommit: 99fa2c7669f3db84fd00cb5f28ef8d783900c8d3
+ms.openlocfilehash: 9960ee5281d5681a9b93470796f7141ba195ffe1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84121234"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096063"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>統合サンドボックスから注文を取り消す
 

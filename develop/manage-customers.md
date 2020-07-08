@@ -1,17 +1,15 @@
 ---
 title: 顧客の管理
 description: このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用して、顧客アカウントをプログラムによって管理する方法について説明します。
-ms.assetid: C8D81324-5D5A-4C42-933F-6C0552FB882D
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 80dc28411c78b7bf3524456d4c1426d8fad7e0a4
-ms.sourcegitcommit: caadf6300aac239f37e6964baf179a9d848308f3
+ms.openlocfilehash: 9b89b7766bed42206df8b7d3612a660576a46d54
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82973228"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095865"
 ---
 # <a name="manage-customers"></a>顧客の管理
 
@@ -35,7 +33,7 @@ ms.locfileid: "82973228"
 - [会社名またはドメインで顧客を取得する](get-a-customer-by-name.md)
 - [顧客の一覧を取得する](get-a-list-of-customers.md)
 
-## <a name="manage-customer-orders-and-subscriptions"></a>顧客の注文とサブスクリプションの管理
+## <a name="manage-customer-orders-and-subscriptions"></a>顧客の注文とサブスクリプションを管理する
 
 - [顧客の注文をすべて取得する](get-all-of-a-customer-s-orders.md)
 - [顧客と請求サイクルの種類別に注文の一覧を取得する](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)
@@ -43,7 +41,7 @@ ms.locfileid: "82973228"
 - [すべての顧客のサブスクリプションを取得する](get-all-of-a-customer-s-subscriptions.md)
 - [サブスクリプションのニックネームを更新する](update-the-nickname-for-a-subscription.md)
 
-## <a name="manage-customer-account-details"></a>顧客アカウントの詳細の管理
+## <a name="manage-customer-account-details"></a>顧客のアカウント詳細を管理する
 
 - [顧客の請求プロファイルを取得する](get-all-of-a-customer-s-billing-profiles.md)
 - [顧客の請求プロファイルを更新する](update-a-customer-s-billing-profile.md)
@@ -51,14 +49,14 @@ ms.locfileid: "82973228"
 - [顧客の使用支出予算を更新する](update-a-customer-s-usage-spending-budget.md)
 - [顧客の確認済みドメインを追加する](add-a-verified-domain-for-a-customer.md)
 - [Microsoft Cloud 契約の契約メタデータを取得する](get-agreement-metadata.md)
-- [Microsoft Cloud 契約に対する顧客の同意を確認する](get-confirmation-of-customer-consent.md)
+- [Microsoft Cloud 契約に関するお客様の同意の確認を取得する](get-confirmation-of-customer-consent.md)
 - [Microsoft 顧客契約の直接署名 (直接受け入れ) の状態を取得する](get-direct-sign-status-of-customer-agreement.md)
 - [Microsoft 顧客契約へのお客様の同意を確認する](confirm-customer-consent-customer-agreement.md)
 - [パートナーの確認コードを取得する](get-a-partner-s-validation-codes.md)
 - [顧客の資格情報を取得する](get-a-customer-s-qualification.md)
 - [顧客の資格情報を更新する](update-a-customer-s-qualification.md)
 
-## <a name="manage-user-accounts-and-assign-licenses"></a>ユーザーアカウントを管理し、ライセンスを割り当てる
+## <a name="manage-user-accounts-and-assign-licenses"></a>ユーザー アカウントの管理とライセンスの割り当て
 
 - [顧客のユーザー アカウントを作成する](create-user-accounts-for-a-customer.md)
 - [顧客のユーザー アカウントを削除する](delete-user-accounts-for-a-customer.md)

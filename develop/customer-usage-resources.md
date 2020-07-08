@@ -1,17 +1,15 @@
 ---
 title: お客様の使用リソース
 description: 使用量ベースのサブスクリプションと毎月の使用量 (CustomerMonthlyUsageRecord、CustomerUsageSummary、PartnerUsageSummary、SpendingBudget を含む) をお持ちのお客様向けのリソース。
-ms.assetid: 268C7AF5-3A95-451F-8092-033A3E8126F2
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c792e93f872b2224049d20a6de99f5dcaa15084b
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: ec82fcfe6c08a8ad55dd1fb48984859b954dd3c8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666037"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094210"
 ---
 # <a name="customer-usage-resources"></a>お客様の使用リソース
 
@@ -70,9 +68,9 @@ ms.locfileid: "81666037"
 | プロパティ         | Type               | 説明                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
 | EmailsToNotify   | 文字列の配列   | 通知用の電子メールアドレスの一覧。                                                                   |
-| 顧客の超過コスト | 整数 (integer)          | 予算を超過している顧客の数。                                                                    |
-| CustomersTrendingOver | 整数 (integer)       | 予算を超過している顧客の数。                                                     |
-| 顧客の Swithon のサブスクリプション  | 整数 (integer) | 使用量ベースのサブスクリプションを使用している顧客の数。                                               |
+| 顧客の超過コスト | integer          | 予算を超過している顧客の数。                                                                    |
+| CustomersTrendingOver | integer       | 予算を超過している顧客の数。                                                     |
+| 顧客の Swithon のサブスクリプション  | integer | 使用量ベースのサブスクリプションを使用している顧客の数。                                               |
 | ResourceId       | string             | リソースの一意の識別子。 CustomerMonthlyUsageRecord のコンテキストでは、この id は顧客 id です。 |
 | ResourceName     | string             | リソースの名前。 CustomerMonthlyUsageRecord のコンテキストでは、これは顧客名です。               |
 | /日 | date               | 現在の請求期間の開始日。                                                                    |
@@ -89,5 +87,5 @@ ms.locfileid: "81666037"
 
 | プロパティ   | Type               | 説明                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
-| 金額     | decimal             | 割り当てられた予算。 値が null の場合、この顧客に割り当てられている支出予算はありません。 |
+| 量     | decimal             | 割り当てられた予算。 値が null の場合、この顧客に割り当てられている支出予算はありません。 |
 | 属性 | ResourceAttributes | 予算に対応するメタデータ属性。                                                |

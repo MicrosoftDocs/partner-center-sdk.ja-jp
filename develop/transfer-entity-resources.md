@@ -4,13 +4,12 @@ description: パートナーは、顧客がパートナーとのサブスクリ�
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0a9a357d9f2fd90069df0b39427e32fe25dc16af
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: 467b113864b855b72626d6222e5e5b0980ee5de7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489169"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095764"
 ---
 # <a name="transferentity-resources"></a>TransferEntity リソース
 
@@ -38,7 +37,7 @@ TransferEntity について説明します。
 | targetPartnerName     | string           | 省略可能。 譲渡の対象となるパートナーの組織の名前。                                         |
 | targetPartnerTenantId | string           | 転送の対象となるパートナーを識別する GUID 形式のパートナー id。                                  |
 | lineItems             | オブジェクトの配列 | [Transferlineitem](#transferlineitem)リソースの配列。                                                   |
-| status                | string           | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
+| 状態                | string           | TransferEntity の状態。 有効な値は、"アクティブ" (削除/送信可能) および "完了" (既に完了している) です。 TransferEntity の作成が正常に完了したときに適用されます。|
 
 ## <a name="transferlineitem"></a>TransferLineItem
 
@@ -55,13 +54,13 @@ TransferEntity に含まれる1つの項目を表します。
 | offerId              | string                           | プラン ID。    |
 | addonItems           | **Transferlineitem**オブジェクトの一覧 | 転送されるベースサブスクリプションと共に転送されるアドオンの transferEntity 行項目のコレクション。 TransferEntity の作成が正常に完了したときに適用されます。|
 | transferError        | string                           | エラーが発生した場合に transferEntity が受け入れられた後に適用されます。                |
-| status               | string           | TransferEntity 内の lineitem の状態。|
+| 状態               | string           | TransferEntity 内の lineitem の状態。|
 
 ## <a name="transfersubmitresult"></a>TransferSubmitResult
 
 転送の受け入れの結果を表します。
 
-| プロパティ          | Type                                                  | Description                        |
+| プロパティ          | Type                                                  | 説明                        |
 |-------------------|-------------------------------------------------------|------------------------------------|
 | 注文            | [Order](order-resources.md#order)オブジェクトのリスト。    | 注文のコレクションです。          |
 | transferErrors    | [Transfererror](#transfererror)オブジェクトの一覧。      | 転送エラーのコレクションです。 |
@@ -70,7 +69,7 @@ TransferEntity に含まれる1つの項目を表します。
 
 転送が受け入れられたときに発生するエラーを表します。
 
-| プロパティ          | Type   | Description                                     |
+| プロパティ          | Type   | 説明                                     |
 |-------------------|--------|-------------------------------------------------|
 | transferGroupId   | string | 注文の注文グループ ID をエラーと共に使用します。 |
 | code              | INT    | エラー コード。                                 |
@@ -81,7 +80,7 @@ TransferEntity に含まれる1つの項目を表します。
 
 注文エラーの種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
 
-| 値 | 位置 | Description |
+| 値 | 位置 | 説明 |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | 要求コンテキストにパートナートークンがありません。 |
 | InvalidInput | 800002 | 要求の入力が無効です。 |

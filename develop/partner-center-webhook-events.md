@@ -4,13 +4,14 @@ description: パートナーセンターでサポートされているすべて�
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9e88ae502d7426b13137484d0e9e85dc7188ef7f
-ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: c874a44e1b43cb05ee20834f9c7a14d221edcab6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82092759"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094992"
 ---
 # <a name="partner-center-webhook-events"></a>パートナーセンターの webhook イベント
 
@@ -21,7 +22,7 @@ ms.locfileid: "82092759"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-パートナーセンターの webhook イベントは、登録された URL に HTTP Post の形式で配信されるリソース変更イベントです。 パートナーセンターからイベントを受信するには、パートナーセンターがイベントを投稿できるコールバックをホストします。 イベントはデジタル署名されているため、パートナーセンターから送信されたことを検証できます。 
+パートナーセンターの webhook イベントは、登録された URL に HTTP Post の形式で配信されるリソース変更イベントです。 パートナーセンターからイベントを受信するには、パートナーセンターがイベントを投稿できるコールバックをホストします。 イベントはデジタル署名されているため、パートナーセンターから送信されたことを検証できます。
 
 イベントを受信する方法、コールバックを認証する方法、およびパートナーセンターの webhook Api を使用してイベント登録を作成、表示、更新する方法については、「[パートナーセンター](partner-center-webhooks.md)の webhook」を参照してください。
 
@@ -60,10 +61,10 @@ ms.locfileid: "82092759"
 
 ### <a name="subscription-updated-event"></a>サブスクリプションの更新イベント
 
-このイベントは、指定されたサブスクリプションが変更されたときに発生します。 パートナーセンター API を使用して変更が行われた場合に加えて、サブスクリプションの更新イベントが生成されます。  このイベントは、たとえば、ライセンスの数が変更されたときや、サブスクリプションの状態が変化したときなど、コマースレベルの変更がある場合にのみ生成されます。 サブスクリプション内でリソースが作成されるときには生成されません。 
+このイベントは、指定されたサブスクリプションが変更されたときに発生します。 パートナーセンター API を使用して変更が行われた場合に加えて、サブスクリプションの更新イベントが生成されます。  このイベントは、たとえば、ライセンスの数が変更されたときや、サブスクリプションの状態が変化したときなど、コマースレベルの変更がある場合にのみ生成されます。 サブスクリプション内でリソースが作成されるときには生成されません。
 
 >[!NOTE]
->サブスクリプションが変更されてからサブスクリプションの更新イベントがトリガーされるまでに、最大48時間の遅延が発生します。  
+>サブスクリプションが変更されてからサブスクリプションの更新イベントがトリガーされるまでに、最大48時間の遅延が発生します。
 
 #### <a name="properties"></a>Properties
 
@@ -82,7 +83,7 @@ ms.locfileid: "82092759"
     "EventName": "subscription-updated",
     "ResourceUri": "http://api.partnercenter.microsoft.com/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}",
     "ResourceName": "subscription",
-    "AuditUri": "https://api.partnercenter.microsoft.com/v1/auditrecords/{{AuditId}}", 
+    "AuditUri": "https://api.partnercenter.microsoft.com/v1/auditrecords/{{AuditId}}",
     "ResourceChangeUtcDate": "2017-11-16T16:19:06.3520276+00:00"
 }
 ```
@@ -115,7 +116,7 @@ ms.locfileid: "82092759"
 
 ### <a name="referral-created-event"></a>紹介作成イベント
 
-このイベントは、参照が作成されるときに発生します。 
+このイベントは、参照が作成されるときに発生します。
 
 #### <a name="properties"></a>Properties
 

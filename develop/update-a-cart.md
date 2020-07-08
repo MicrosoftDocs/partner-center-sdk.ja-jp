@@ -4,13 +4,12 @@ description: カート内の顧客の注文を更新する方法。
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f6e0a54f088c3e1ecbc00338e67a143b655b708e
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 7c0806ccc87281b9b34005f22cd8d6ad57fb5de5
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157644"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095714"
 ---
 # <a name="update-a-cart"></a>カートを更新する
 
@@ -24,7 +23,7 @@ ms.locfileid: "82157644"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - 既存のカートのカート ID。
 
@@ -77,7 +76,7 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 | 前のタイムスタンプ     | DateTime         | いいえ              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。        |
 | lastModifiedTimeStamp | DateTime         | いいえ              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
 | expirationTimeStamp   | DateTime         | いいえ              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
-| lastModifiedUser      | string           | いいえ              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
+| lastModifiedUser      | 文字列           | いいえ              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
 | lineItems             | オブジェクトの配列 | はい             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                               |
 
 次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
@@ -86,14 +85,14 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
 | id                   | string                      | いいえ           | カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                |
 | catalogId            | string                      | はい          | カタログ項目の識別子。                                                                       |
-| friendlyName         | string                      | いいえ           | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。              |
+| friendlyName         | 文字列                      | いいえ           | 省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。              |
 | 数量             | INT                         | はい          | ライセンスまたはインスタンスの数。     |
 | currencyCode         | string                      | いいえ           | 通貨コード。                                                                                 |
 | billingCycle         | Object                      | はい          | 現在の期間に設定されている請求サイクルの種類。                                              |
 | participants         | オブジェクトの文字列ペアの一覧 | いいえ           | 購入の参加者のコレクション。                                                      |
 | provisioningContext  | Dictionary<string、string>  | いいえ           | プランのプロビジョニングに使用されるコンテキスト。                                                          |
 | orderGroup           | string                      | いいえ           | 一緒に配置できる項目を示すグループ。                                            |
-| error                | Object                      | いいえ           | エラーが発生した場合にカートが作成された後に適用されます。                                                 |
+| エラー                | Object                      | いいえ           | エラーが発生した場合にカートが作成された後に適用されます。                                                 |
 
 ### <a name="request-example"></a>要求の例
 

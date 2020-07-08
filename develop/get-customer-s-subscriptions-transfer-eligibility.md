@@ -4,13 +4,14 @@ description: 譲渡の対象となる顧客のサブスクリプションのコ�
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 78daa51d97cfb3cd223bb9e8893393977275fe72
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 43086a32fa0dbbdecf65aac167c687f26fc4c2c6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489209"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093736"
 ---
 # <a name="get-a-customers-subscriptions-transfer-eligibility"></a>顧客のサブスクリプション譲渡の資格を取得する
 
@@ -49,7 +50,7 @@ ms.locfileid: "84489209"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

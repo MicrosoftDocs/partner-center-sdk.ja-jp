@@ -1,17 +1,15 @@
 ---
 title: 権利リソース
 description: 権利に関連するリソースについて説明します。
-ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 28382b24c6956f9d5b95310ae0d21769207dcb48
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: d9dbba36fb8db8d040bd61d53483c56467987691
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125593"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094000"
 ---
 # <a name="entitlement-resources"></a>権利リソース
 
@@ -26,7 +24,7 @@ ms.locfileid: "82125593"
 
 このリソースは、顧客がカタログから商品を購入した場合に使用する権利を持つ製品を表します。
 
-| プロパティ | Type | 説明 |
+| プロパティ | Type | Description |
 |----------|------|-------------|
 | referenceOrder | [ReferenceOrder](#referenceorder) | 権利の原因となった注文参照。 |
 | productId | string | 製品の ID。 |
@@ -52,10 +50,10 @@ ms.locfileid: "82125593"
 
 権利の数量の詳細を表します。
 
-| プロパティ | Type | 説明 |
+| プロパティ | Type | Description |
 |----------|------|-------------|
 | 数量 | INT | 項目数。 |
-| status | string | 数量の状態。 |
+| 状態 | string | 数量の状態。 |
 
 ## <a name="entitlementtype"></a>EntitlementType
 
@@ -73,7 +71,7 @@ ms.locfileid: "82125593"
 
 権利に関連付けられている成果物。
 
-| プロパティ | Type | 説明 |
+| プロパティ | Type | Description |
 |----------|------|-------------|
 | artifactType | string | 成果物の種類。 (SDK Version 1.8 では[Artifacttype](#artifacttype)から文字列に更新) |
 | dynamicAttributes | ディクショナリ&lt;文字列、オブジェクト&gt; | Artifacttype 固有の値を含む動的属性。 たとえば、artifactType = "reservedinstance" の場合、このプロパティには、仮想マシンの予約インスタンスまたは Azure SQL 予約インスタンスを示す "reservationType" = "virtualmachines" または "reservationType" = "sqldatabases" が含まれます。 (SDK v1.0 以降で利用可能) |

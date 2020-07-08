@@ -1,17 +1,15 @@
 ---
 title: 請求書のリソース
 description: 複数の請求書関連リソースは、パートナーセンター Api を通じて利用できます。 これらのリソースは、請求書と品目の詳細に関連しています。
-ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 04de53676527330ed1ff0bdfa2d762ce0bcae13a
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: bd2caefe4ae18c81a31083d084f1e87da1288dd9
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124701"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095121"
 ---
 # <a name="invoice-resources"></a>請求書のリソース
 
@@ -41,9 +39,9 @@ ms.locfileid: "82124701"
 | 修正      | [Invoice](#invoice)オブジェクトの配列   | この請求書に対する修正。  |
 | documentType    | string | 請求書のドキュメントの種類: "クレジットメモ"、"請求書"。 |
 | amendsOf        | string | このドキュメントが適用されているドキュメントの参照番号。  |
-| invoiceType     | string  | 請求書の種類: "定期的"、"1\_回限り"。   |
+| invoiceType     | string  | 請求書の種類: "定期的"、"1 \_ 回限り"。   |
 | リンク           | [ResourceLinks](utility-resources.md#resourcelinks)  | リソースリンク。  |
-| attributes      | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。  |
+| 属性      | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。  |
 
 ## <a name="invoicedetail"></a>InvoiceDetail
 
@@ -51,10 +49,10 @@ ms.locfileid: "82124701"
 
 | プロパティ            | Type                                                           | 説明                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| invoiceLineItemType | string                                                         | 請求書の詳細の種類: "なし"、"\_使用\_明細項目"、"\_請求\_明細項目"。 |
-| プロバイダ     | string                                                         | 課金プロバイダー: "なし"、"office"、"azure"、"azure\_データ\_マーケット"。         |
+| invoiceLineItemType | string                                                         | 請求書の詳細の種類: "なし"、"使用 \_ 明細 \_ 項目"、"請求 \_ 明細 \_ 項目"。 |
+| プロバイダ     | string                                                         | 課金プロバイダー: "なし"、"office"、"azure"、"azure \_ データ \_ マーケット"。         |
 | リンク               | [ResourceLinks](utility-resources.md#resourcelinks)           | リソースリンク。                                                               |
-| attributes          | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                                          |
+| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                                          |
 
 ## <a name="invoicelineitem"></a>InvoiceLineItem
 
@@ -62,9 +60,9 @@ ms.locfileid: "82124701"
 
 | プロパティ            | Type                                                           | 説明                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceLineItemType | string                                                         | 請求書の品目の種類。 "none"、"usage\_line\_items"、"billing\_line\_items"。 |
-| プロバイダ     | string                                                         | 課金プロバイダー: "なし"、"office"、"azure"、"azure\_データ\_マーケット"。            |
-| attributes          | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                                             |
+| invoiceLineItemType | string                                                         | 請求書の品目の種類。 "none"、"usage \_ line \_ items"、"billing \_ line \_ items"。 |
+| プロバイダ     | string                                                         | 課金プロバイダー: "なし"、"office"、"azure"、"azure \_ データ \_ マーケット"。            |
+| 属性          | [ResourceAttributes](utility-resources.md#resourceattributes) | メタデータ属性。                                                             |
 
 ## <a name="invoicesummary"></a>InvoiceSummary
 
@@ -82,15 +80,15 @@ ms.locfileid: "82124701"
 | latestInvoiceDate        | UTC 日時形式の文字列                                 | 顧客の最後の請求書が作成された日付。               |
 | details                  | [InvoiceSummaryDetail](#invoicesummarydetail)オブジェクトの配列 | 請求書の概要の詳細。                                           |
 | リンク                    | [ResourceLinks](utility-resources.md#resourcelinks)            | リソースリンク。                                                   |
-| attributes               | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。                                              |
+| 属性               | [ResourceAttributes](utility-resources.md#resourceattributes)  | メタデータ属性。                                              |
 
 ## <a name="invoicesummarydetail"></a>InvoiceSummaryDetail
 
-請求書の種類 (定期的、1\_回など) の個々の詳細の概要を表します。
+請求書の種類 (定期的、1回など) の個々の詳細の概要を表し \_ ます。
 
 | プロパティ            | Type                                                           | 説明                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceType         | string                                                         | 請求書の種類: "定期的"、"1\_回限り"。                                       |
+| invoiceType         | string                                                         | 請求書の種類: "定期的"、"1 \_ 回限り"。                                       |
 | summary             | [InvoiceSummary](#invoicesummary)オブジェクト                       | 請求書の種類ごとの請求書の概要。                                         |
 
 ## <a name="invoicesummaries"></a>InvoiceSummaries
@@ -108,7 +106,7 @@ ms.locfileid: "82124701"
 | プロパティ                 | Type                                                           | 説明                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | 合計                   | string                                                         | 合計金額を取得または設定します。 合計金額 = 単価 * 数量。  |
-| attributes               | string                                                         | 属性を取得します。                                                  |
+| 属性               | string                                                         | 属性を取得します。                                                  |
 | billingCycleType         | string                                                         | 請求サイクルの種類を取得または設定します。                                  |
 | プロバイダ          | string                                                         | 課金プロバイダーを取得します。                                            |
 | chargeEndDate            | UTC 日時形式の文字列                                 | 料金の終了日を取得します。値の設定もできます。                             |
@@ -127,10 +125,10 @@ ms.locfileid: "82124701"
 | パートナー                | string                                                         | パートナーの Azure active directory テナント ID を取得または設定します。            |
 | 数量                 | number                                                         | この行項目に関連付けられている単位の数を取得または設定します。      |
 | subscriptionDescription  | string                                                         | サブスクリプションの説明を取得します。値の設定もできます。                            |
-| Subscription.subscriptionenddate      | UTC 日時形式の文字列                                 | サブスクリプションの有効期限が切れる日付を取得します。値の設定もできます。                      |
+| subscriptionEndDate      | UTC 日時形式の文字列                                 | サブスクリプションの有効期限が切れる日付を取得します。値の設定もできます。                      |
 | subscriptionId           | string                                                         | サブスクリプションの一意の識別子を取得します。値の設定もできます。                      |
 | subscriptionName         | string                                                         | サブスクリプション名を取得または設定します。                                   |
-| And subscription.subscriptionstartdate    | UTC 日時形式の文字列                                 | サブスクリプションが開始される日付を取得します。値の設定もできます。                   |
+| subscriptionStartDate    | UTC 日時形式の文字列                                 | サブスクリプションが開始される日付を取得します。値の設定もできます。                   |
 | 小計                 | number                                                         | 割引後の金額を取得または設定します。                               |
 | syndicationPartnerSubscriptionNumber | string                                             | 配信パートナーのサブスクリプション番号を取得します。値の設定もできます。             |
 | 税金                      | number                                                         | 課金される税金を取得または設定します。                                       |
@@ -145,7 +143,7 @@ ms.locfileid: "82124701"
 
 | プロパティ                 | Type                                                           | 説明                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| attributes               | string                                                         | 属性を取得します。                                                  |
+| 属性               | string                                                         | 属性を取得します。                                                  |
 | billingCycleType         | string                                                         | 請求サイクルの種類を取得または設定します。                                  |
 | プロバイダ          | string                                                         | 課金プロバイダーを取得します。                                            |
 | chargeEndDate            | UTC 日時形式の文字列                                 | 料金の終了日を取得します。値の設定もできます。                             |
@@ -222,7 +220,7 @@ Application/pdf の invoice ステートメントで使用可能な操作を表�
 | 小計 | decimal | 割引後の金額を取得または設定します。 |
 | TaxTotal | decimal | 課金される税金を取得または設定します。 |
 | TotalForCustomer | decimal | 割引と税金の後の合計金額を取得または設定します。 |
-| Currency | string | この品目に使用する通貨を取得または設定します。 |
+| 通貨 | string | この品目に使用する通貨を取得または設定します。 |
 | 発行元 | string | この購入に関連付けられている発行元の名前を取得または設定します。 |
 | PublisherId | string | この購入に関連付けられている発行者 ID を取得または設定します。 |
 | SubscriptionDescription | string | この購入に関連付けられているサブスクリプションの説明を取得または設定します。 |
@@ -279,7 +277,7 @@ Application/pdf の invoice ステートメントで使用可能な操作を表�
 | ResourceGroup | string | リソースグループの名前を取得または設定します。 |
 | ResourceUri | string | 使用に関するリソースインスタンスの uri を取得または設定します。 |
 | Tags | string | 顧客が追加したタグを取得または設定します。 |
-| AdditionalInfo: | string | サービス固有のメタデータを取得または設定します。 たとえば、仮想マシンのイメージの種類です。 |
+| AdditionalInfo | string | サービス固有のメタデータを取得または設定します。 たとえば、仮想マシンのイメージの種類です。 |
 | ServiceInfo1 | string | 内部の Azure サービスメタデータを取得または設定します。 |
 | ServiceInfo2 | string | サービス情報を取得または設定します。たとえば、仮想マシンのイメージの種類と ExpressRoute の ISP 名を取得または設定します。 |
 | CustomerCountry | string | 顧客の国を取得または設定します。 |

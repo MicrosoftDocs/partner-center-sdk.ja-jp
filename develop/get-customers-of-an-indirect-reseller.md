@@ -1,17 +1,17 @@
 ---
 title: 間接リセラーの顧客を取得する
 description: 間接リセラーの顧客の一覧を取得する方法。
-ms.assetid: 2920F056-E6B8-4C66-9EEA-4577BEC034F9
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f03c3dc15c71c2a435280ee4138a6b5beddb9a92
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 513fe5d1372dfcc69c076b72c16cfe4d05147ccf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157514"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093733"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>間接リセラーの顧客を取得する
 
@@ -23,7 +23,7 @@ ms.locfileid: "82157514"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 - 間接リセラーのテナント識別子。
 
@@ -87,7 +87,7 @@ while (customersEnumerator.HasValue)
 | 名前   | Type   | 必須 | 説明                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | size   | INT    | いいえ       | 一度に表示される結果の数。 このパラメーターは省略可能です。                                                                                                                                                                                                                |
-| filter | filter | はい      | 検索をフィルター処理するクエリ。 指定された間接リセラーの顧客を取得するには、間接リセラー識別子を挿入し、次の文字列を含めてエンコードする必要があります: {"Field": "IndirectReseller 業者"、"Value": "{間接\_リセラー識別子}"、"Operator": "で始まる"}。 |
+| filter | filter | はい      | 検索をフィルター処理するクエリ。 指定された間接リセラーの顧客を取得するには、間接リセラー識別子を挿入し、次の文字列を含めてエンコードする必要があります: {"Field": "IndirectReseller 業者"、"Value": "{間接リセラー識別子}"、"Operator": " \_ で始まる"}。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -95,7 +95,7 @@ while (customersEnumerator.HasValue)
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example-encoded"></a>要求の例 (エンコード済み)
 

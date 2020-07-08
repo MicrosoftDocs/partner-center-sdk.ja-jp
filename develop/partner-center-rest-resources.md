@@ -1,17 +1,17 @@
 ---
 title: パートナー センター REST リソース
 description: このセクションでは、パートナーセンター REST API を使用して要求を作成し、応答を解析するために必要な JSON 要素の定義について説明します。
-ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e452681406a717ef618808b4b699cda5f6684931
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: ec760a6643a90878a1c5c3c37f0a4f14046e6ce1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559042"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094655"
 ---
 # <a name="partner-center-rest-resources"></a>パートナー センター REST リソース
 
@@ -87,7 +87,7 @@ ms.locfileid: "82559042"
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="customer-resources.md">顧客</a></td>
+<td><a href="customer-resources.md">Customer</a></td>
 <td><ul>
 <li>Customer</li>
 <li>顧客企業プロファイル</li>
@@ -162,7 +162,7 @@ ms.locfileid: "82559042"
 <tr class="odd">
 <td><a href="order-resources.md">注文</a></td>
 <td><ul>
-<li>Order</li>
+<li>順番</li>
 <li>OrderLineItem</li>
 <li>OrderLinks</li>
 <li>OrderLineItemLinks</li>
@@ -182,7 +182,7 @@ ms.locfileid: "82559042"
 <tr class="odd">
 <td><a href="product-resources.md">製品</a></td>
 <td><ul>
-<li>Product</li>
+<li>製品</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
 <li>Sku</li>
@@ -257,7 +257,7 @@ ms.locfileid: "82559042"
 <tr class="odd">
 <td><a href="user-resources.md">ユーザー</a></td>
 <td><ul>
-<li>User</li>
+<li>ユーザー</li>
 <li>CustomerUser</li>
 <li>ユーザー</li>
 <li>UserMember</li>
@@ -270,7 +270,7 @@ ms.locfileid: "82559042"
 <li>Contact</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>
-<li>Link</li>
+<li>リンク</li>
 <li>PasswordProfile</li>
 <li>ResourceLinks</li>
 <li>ResourceAttributes</li>

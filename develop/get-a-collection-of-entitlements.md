@@ -1,17 +1,15 @@
 ---
 title: エンタイトルメントのコレクションを取得する
 description: 権利のコレクションを取得する方法。
-ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 13e2b33d030eb344616e5db40c94447851804b3d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b57e493958386df7a493bcbdc79121b09fcd72e0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155774"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093967"
 ---
 # <a name="get-a-collection-of-entitlements"></a>エンタイトルメントのコレクションを取得する
 
@@ -25,7 +23,7 @@ ms.locfileid: "82155774"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
@@ -59,7 +57,7 @@ var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get
 | 名前 | Type | 必須 | 説明 |
 |------|------|----------|-------------|
 | customerId | string | はい | 顧客を識別する GUID 形式の customerId。 |
-| entitlementType | string | いいえ | 取得する権利の種類 (**software**または**reservedInstance** ) を指定するために使用できます。 設定されていない場合は、すべての型が取得されます。 |
+| entitlementType | 文字列 | いいえ | 取得する権利の種類 (**software**または**reservedInstance** ) を指定するために使用できます。 設定されていない場合は、すべての型が取得されます。 |
 | showExpiry 期限 | boolean | いいえ | 資格の有効期限日が必要かどうかを示す省略可能なフラグです。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
@@ -68,7 +66,7 @@ var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 
@@ -179,7 +177,7 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
 
 次の例は、特定の種類の権利と有効期限 (該当する場合) を取得する方法を示しています。
 
-### <a name="c-example"></a>C\#の例
+### <a name="c-example"></a>C の \# 例
 
 特定の種類の権利を取得するには、**権利**インターフェイスから**ByEntitlementType**インターフェイスを取得し、 **Get ()** または**GetAsync ()** の各メソッドを使用します。
 
@@ -307,7 +305,7 @@ Date: Mon, 28 Jan 2019 18:31:43 GMT
 
 ### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>SDK Version 1.8 を使用して権利から仮想マシンの予約詳細を取得する
 
-### <a name="c-example"></a>C\#の例
+### <a name="c-example"></a>C の \# 例
 
 権利からの仮想マシンの予約に関連する詳細情報を取得するには、entitledArtifacts の下に公開されている、artifactType = virtual_machine_reserved_instance で公開されている URI を呼び出します。
 
@@ -359,9 +357,9 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 
 ### <a name="retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>SDK Version 1.9 を使用して権利から予約の詳細を取得する
 
-### <a name="c-example"></a>C\#の例
+### <a name="c-example"></a>C の \# 例
 
-予約インスタンスの権利から予約に関連する詳細情報を取得するには、で公開```entitledArtifacts.link```さ```artifactType = reservedinstance```れている URI をと共に呼び出します。
+予約インスタンスの権利から予約に関連する詳細情報を取得するには、で公開されている URI を ```entitledArtifacts.link``` と共に呼び出し ```artifactType = reservedinstance``` ます。
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();

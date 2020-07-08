@@ -1,17 +1,17 @@
 ---
 title: 請求書を ID で取得する
 description: 請求書 ID を使用して、指定された請求書を取得します。
-ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f0abd0abbf090b9ad6f06903c45a58d85f2168b1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 17880265d06e8e5eaacc5470d83c49defd10ad51
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157454"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093656"
 ---
 # <a name="get-invoice-by-id"></a>請求書を ID で取得する
 
@@ -26,7 +26,7 @@ ms.locfileid: "82157454"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 - 有効な請求書 ID。
 

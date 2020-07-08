@@ -1,17 +1,17 @@
 ---
 title: 請求書の概要を取得する
 description: 通貨の種類ごとに請求書の概要リソースを使用して、定期的な料金と1回限りの課金の両方の残高と合計料金を表示できます。
-ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ea3eedf7b19f3160cd9d1eee76d58f80700151a8
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 82cd669117db72e1819d941f48f8ea69b2eddaec
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157434"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093539"
 ---
 # <a name="get-invoice-summaries"></a>請求書の概要を取得する
 
@@ -26,7 +26,7 @@ ms.locfileid: "82157434"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 - 有効な請求書の識別子。
 
@@ -51,7 +51,7 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 
 詳細については、次のコード例を参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト: **Partnersdk. FeatureSample**
 - クラス: **GetInvoiceSummaries.cs**
 
@@ -65,7 +65,7 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 
 #### <a name="uri-parameter"></a>URI パラメーター
 
-なし。
+[なし] :
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -73,7 +73,7 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

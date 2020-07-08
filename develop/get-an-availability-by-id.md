@@ -1,17 +1,17 @@
 ---
 title: ID で可用性を取得する
 description: 可用性 ID を使用して、指定された製品と SKU の可用性を取得します。
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 34c1dd0c40b4594142a239ccb81a884e3212cbdf
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 824303d40e1dcb0405246c8e29562c4527d147fd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157764"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093891"
 ---
 # <a name="get-the-availability-by-id"></a>ID で可用性を取得する
 
@@ -98,7 +98,7 @@ Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

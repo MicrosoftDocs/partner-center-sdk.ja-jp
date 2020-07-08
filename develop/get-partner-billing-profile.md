@@ -1,17 +1,15 @@
 ---
 title: パートナーの請求プロファイルを取得する
 description: パートナーの請求プロファイルを表すオブジェクトを取得します。
-ms.assetid: E5BAC2C4-8C58-4B5D-8FA9-C445896EEC4A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 800d30d8934bcca1e5ea1c5d2de7b0d5868ffe72
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 5d0b8aaf904f3f4fd63e508d0c18756c2b9c5492
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157344"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095227"
 ---
 # <a name="get-partner-billing-profile"></a>パートナーの請求プロファイルを取得する
 
@@ -26,7 +24,7 @@ ms.locfileid: "82157344"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
 ## <a name="c"></a>C\#
 
@@ -54,7 +52,7 @@ BillingProfile billingProfile = partnerOperations.Profiles.BillingProfile.Get();
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

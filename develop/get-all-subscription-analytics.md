@@ -1,17 +1,17 @@
 ---
 title: サブスクリプションの分析情報をすべて取得する
 description: すべてのサブスクリプション分析情報を取得する方法。
-ms.assetid: 243E54BD-EA34-400E-B9AB-D735EB46B9F6
 ms.date: 08/02/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b0afac55646980fb59f9cc42051a5532f45bf223
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: f32fb99ad52939ae8e9de26276588d3022f18fbc
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156444"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093866"
 ---
 # <a name="get-all-subscription-analytics-information"></a>サブスクリプションの分析情報をすべて取得する
 
@@ -34,7 +34,7 @@ ms.locfileid: "82156444"
 
 | 認証方法 | 要求 URI |
 |--------|-------------|
-| **GET** | baseURL/partner/v1/analytics/subscriptions HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
@@ -42,9 +42,9 @@ ms.locfileid: "82156444"
 
 | パラメーター | Type |  説明 |
 |-----------|------|--------------|
-| top | INT | 要求で返すデータの行数です。 値が指定されていない場合、最大値と既定`10000`値はになります。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |
-| skip | int | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、と`top=10000` `skip=0`は、データの最初の1万行を`top=10000`取得`skip=10000`し、次の1万行のデータを取得します。 |
-| filter | string | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各フィルターステートメントには**`eq`**、 **`ne`** 応答本文からのフィールド名と、特定のフィールド ( **`contains`** 演算子) の、、またはに関連付けられている値が含まれています。 ステートメントは、または**`and`** **`or`** を使用して組み合わせることができます。 **filter** パラメーターでは、文字列値を単一引用符で囲む必要があります。 フィルター処理できるフィールドと、それらのフィールドでサポートされている演算子の一覧については、次のセクションを参照してください。 |
+| top | INT | 要求で返すデータの行数です。 値が指定されていない場合、最大値と既定値はに `10000` なります。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |
+| skip | int | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、とは、 `top=10000` `skip=0` データの最初の1万行を取得 `top=10000` し、 `skip=10000` 次の1万行のデータを取得します。 |
+| filter | string | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各フィルターステートメントには、応答本文からのフィールド名と、 **`eq`** **`ne`** 特定のフィールド (演算子) の、、またはに関連付けられている値が含まれてい **`contains`** ます。 ステートメントは、またはを使用して組み合わせることができ **`and`** **`or`** ます。 **filter** パラメーターでは、文字列値を単一引用符で囲む必要があります。 フィルター処理できるフィールドと、それらのフィールドでサポートされている演算子の一覧については、次のセクションを参照してください。 |
 | aggregationLevel | string | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。**day**、**week**、または **month**。 値が指定されていない場合、既定値は**dateRange**です。 このパラメーターは、日付フィールドが**groupBy**パラメーターの一部として渡された場合にのみ適用されます。 |
 | groupBy | string | 指定したフィールドのみにデータ集計を適用するステートメントです。 |
 
@@ -54,7 +54,7 @@ ms.locfileid: "82156444"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

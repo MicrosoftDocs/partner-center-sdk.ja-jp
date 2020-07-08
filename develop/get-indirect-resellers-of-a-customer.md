@@ -1,17 +1,17 @@
 ---
 title: 顧客の間接リセラーを取得する
 description: 指定された顧客との関係を持つ間接リセラーの一覧を取得する方法。
-ms.assetid: C3C4BE9A-97E8-41AD-AB28-6F9CB7DCE475
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8ea8422bb31e5614d714323b065fb866d52b4c2a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 08892b69b73235b27203648fa6cb6efd2fcac9f0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157494"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093641"
 ---
 # <a name="get-indirect-resellers-of-a-customer"></a>顧客の間接リセラーを取得する
 
@@ -23,13 +23,13 @@ ms.locfileid: "82157494"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリ + ユーザー資格情報のみを使用した認証がサポートされます。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
-指定された顧客がリレーションシップを持つ間接リセラーの一覧を取得するには、まず、顧客を識別するための顧客 ID を指定して、特定の顧客の顧客コレクション操作へのインターフェイスを取得します[**。**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) 次に、[**リレーションシップの get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get)また[**は\_get Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync)メソッドを呼び出して、間接リセラーの一覧を取得します。
+指定された顧客がリレーションシップを持つ間接リセラーの一覧を取得するには、まず、顧客を識別するための顧客 ID を指定して、特定の顧客の顧客コレクション操作へのインターフェイスを取得します[**。**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) 次に、[**リレーションシップの get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get)または[**get \_ Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync)メソッドを呼び出して、間接リセラーの一覧を取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -62,7 +62,7 @@ ms.locfileid: "82157494"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

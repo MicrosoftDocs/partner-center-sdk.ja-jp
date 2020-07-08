@@ -1,17 +1,15 @@
 ---
 title: パートナー センターの分析
 description: パートナーセンター分析パブリック API ドキュメント。
-ms.assetid: B605C1CD-FC40-4393-8588-55C8F0CAA51A
 ms.date: 06/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e5516312815b08b2ebc7fb54754c30506c30e0bd
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 4b14ee929f3020079f409be8817e077673d3219f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124695"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094715"
 ---
 # <a name="partner-center-analytics---resources"></a>パートナー センターの分析 - リソース
 
@@ -106,7 +104,7 @@ Azure の使用に関するすべての分析データを表します。
 |       customerName        |             string             |                                                               顧客の名前。                                                                |
 |      顧客市場       |             string             |                                                 顧客が事業を行っている国/地域。                                                 |
 |            id             |             string             |                                                              サブスクリプションの識別子です。                                                              |
-|          status           |             string             |                                          サブスクリプションの状態: "ACTIVE"、"中断"、または "プロビジョニング解除"。                                           |
+|          状態           |             string             |                                          サブスクリプションの状態: "ACTIVE"、"中断"、または "プロビジョニング解除"。                                           |
 |        productName        |             string             |                                                                製品の名前です。                                                                |
 |     subscriptionType      |             string             |       サブスクリプションの種類。 **注**: このフィールドでは大文字と小文字が区別されます。 サポートされている値は、"Office"、"Azure"、"Microsoft365"、"Dynamics"、"EMS" です。       |
 |     autoRenewEnabled      |            boolean             |                                         サブスクリプションが自動的に更新されるかどうかを示す値です。                                          |
@@ -180,7 +178,7 @@ Azure の使用に関するすべての分析データを表します。
 | プロパティ | Type | 説明 |
 |----------|------|-------------|
 | id | string | 顧客のテナント識別子。  |
-| status | string | 紹介が顧客に対しているかどうかを示します。  |
+| 状態 | string | 紹介が顧客に対しているかどうかを示します。  |
 | 顧客市場 | string | 顧客が事業を行っている国/地域。 |
 | customerName | string | 顧客の名前。 |
 | 顧客 Orgsize | string | 顧客の組織内の従業員の数を示す範囲。 たとえば、"10to50employees" のようになります。 |

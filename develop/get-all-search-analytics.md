@@ -1,17 +1,15 @@
 ---
 title: 検索の分析情報をすべて取得する
 description: すべての検索分析情報を取得する方法。
-ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 10e607a0fd2c973909c4b8aa57d6c7074eab9503
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 967f8d0ed2d276e0f68a047204b64d83dc69da95
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156564"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093977"
 ---
 # <a name="get-all-search-analytics-information"></a>検索の分析情報をすべて取得する
 
@@ -34,7 +32,7 @@ ms.locfileid: "82156564"
 
 | 認証方法  | 要求 URI |
 |---------|-------------|
-| **GET** | baseURL/partner/v1/analytics/search HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/search HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
@@ -52,7 +50,7 @@ ms.locfileid: "82156564"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

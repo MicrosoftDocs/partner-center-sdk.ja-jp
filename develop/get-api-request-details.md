@@ -3,18 +3,19 @@ title: すべてのパートナーユーザー要求の一覧を取得します�
 description: パートナー REST API を使用して、すべてのパートナーユーザー要求の一覧を取得します。
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: 6e3f3c248d39ace5fc4aa82694d3120f15eff66c
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 43b1e3d4a6220ac8adba8eed0389395113072288
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186360"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093787"
 ---
 # <a name="get-app-and-user-api-requests"></a>アプリとユーザーの API 要求を取得する
 
-適用先:
+適用対象:
 
 - パートナー センター API
 
@@ -41,7 +42,7 @@ ms.locfileid: "84186360"
 
 ### <a name="request-body"></a>要求本文
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

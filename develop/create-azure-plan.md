@@ -4,14 +4,14 @@ description: 開発者は、パートナーセンター Api を使用して、Az
 ms.date: 01/02/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: mowrim
 ms.author: mowrim
-ms.openlocfilehash: 315cee7cfe19a4d1d0fc1c0c3a77623086ee8473
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 213577f2235d58c4f1d91869b4f6405409369fc2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022759"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094531"
 ---
 # <a name="create-an-azure-plan"></a>Azure プランを作成する
 
@@ -21,7 +21,7 @@ ms.locfileid: "86022759"
 
 パートナーセンター Api を使用して、Azure プランの購入、作成、管理を行うことができます。 このプロセスは、Microsoft Azure (0145P) サブスクリプションの作成と似ています。 [Azure プランのカタログアイテムを取得](#get-the-catalog-item-for-azure-plan)し、[注文を作成して送信](#create-and-submit-an-order)する必要があります。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 * [パートナーセンターの認証](partner-center-authentication.md)資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 * 顧客 ID。 顧客の識別子がない場合は、「[顧客の一覧を取得する](get-a-list-of-customers.md)」の手順に従います。 または、パートナーセンターにサインインして、顧客の一覧から顧客を選択し、[**アカウント**] を選択して、 **Microsoft ID**を保存します。

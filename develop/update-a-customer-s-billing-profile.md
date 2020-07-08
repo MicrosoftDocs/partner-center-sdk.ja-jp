@@ -1,17 +1,17 @@
 ---
 title: 顧客の請求プロファイルを更新する
 description: プロファイルに関連付けられているアドレスを含めて、顧客の請求プロファイルを更新します。
-ms.assetid: 77B8E08D-01C8-4BF7-A281-C8AEF0340DDC
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c2d82496f389d26300a8ff8dc19143b3573e8c76
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: d41ff767699b55be7bdf92a073263042c7c073dd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157614"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095658"
 ---
 # <a name="update-a-customers-billing-profile"></a>顧客の請求プロファイルを更新する
 
@@ -28,7 +28,7 @@ ms.locfileid: "82157614"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
@@ -65,7 +65,7 @@ billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profiles.B
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-- **If-match**: 同時実行検出&lt;に&gt;は "ETag" が必要です。
+- **If-match**: &lt; &gt; 同時実行検出には "ETag" が必要です。
 詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]

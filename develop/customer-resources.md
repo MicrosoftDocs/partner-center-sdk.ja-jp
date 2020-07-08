@@ -1,17 +1,17 @@
 ---
 title: お客様のリソース
 description: 顧客または再販業者を表す顧客リソース。
-ms.assetid: C7EC2657-62F2-43B3-B171-2F74498D45E0
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fe2326692de3dca0da1cedcec3a933819ae33b55
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: edfde5a11d22460f30f2fc39a27341ce28eed9c1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665170"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094304"
 ---
 # <a name="customer-resources"></a>お客様のリソース
 
@@ -35,13 +35,13 @@ ms.locfileid: "81665170"
 | commerceId            | string                                                           | コマース ID。                                                                                                                             |
 | 会社のプロファイル        | [顧客企業プロファイル](#customercompanyprofile)                | 会社または組織に関する追加情報。                                                                                    |
 | billingProfile        | [顧客のプロファイル](#customerbillingprofile)                | 課金に使用される追加情報。                                                                                                     |
-| relationshipToPartner | string                                                           | パートナーがこの顧客に使用するライセンスプログラムを定義します。 "none"、"リセラー"、"advisor"、"シンジケーション\_"、"microsoft support" などです。 |
+| relationshipToPartner | string                                                           | パートナーがこの顧客に使用するライセンスプログラムを定義します。 "none"、"リセラー"、"advisor"、"シンジケーション"、"microsoft \_ support" などです。 |
 | allowDelegatedAccess  | boolean                                                          | この顧客によって代理管理者特権がパートナーに付与されているかどうか。 このプロパティは、リストではなく ID で顧客を取得する場合にのみ使用できます。                                                         |
 | ユーザー       | [ユーザー](user-resources.md#usercredentials) | ユーザー資格情報。                                                                                                                        |
 | customDomains         | 文字列の配列                                                 | 顧客のカスタムドメインの一覧。                                                                                                        |
 | associatedPartnerId   | string                                                           | この顧客アカウントに関連付けられている間接リセラー。 この値は、間接 CSP パートナーによってのみ設定できます。                              |
 | リンク                 | [ResourceLinks](utility-resources.md#resourcelinks)             | プロファイル内に含まれるリソースリンク。                                                                                             |
-| attributes            | [ResourceAttributes](utility-resources.md#resourceattributes)   | プロファイルに対応するメタデータ属性。                                                                                        |
+| 属性            | [ResourceAttributes](utility-resources.md#resourceattributes)   | プロファイルに対応するメタデータ属性。                                                                                        |
 
 ## <a name="customercompanyprofile"></a>顧客企業プロファイル
 
@@ -53,7 +53,7 @@ ms.locfileid: "81665170"
 | domain      | string                                                         | 顧客の名前 (contoso.onmicrosoft.com など)。                             |
 | companyName | string                                                         | 会社または組織の名前。                                          |
 | リンク       | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイル内に含まれるリソースリンク。                                  |
-| attributes  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                             |
+| 属性  | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                             |
 
 ## <a name="customerbillingprofile"></a>顧客のプロファイル
 
@@ -65,12 +65,12 @@ ms.locfileid: "81665170"
 | firstName      | string                                                         | 顧客の会社の請求先の連絡先の名。 これは、請求書とその他の課金情報の送信先になります。 |
 | lastName       | string                                                         | 請求先の連絡先の姓。                                                                                                                  |
 | email          | string                                                         | 請求先の連絡先の電子メールアドレス                                                                                                                    |
-| culture        | string                                                         | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。                                                                               |
+| カルチャ        | string                                                         | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。                                                                               |
 | language       | string                                                         | 通信に使用する優先言語。                                                                                                            |
 | companyName    | string                                                         | 会社または組織の名前。                                                                                                               |
 | defaultAddress | [アドレス](utility-resources.md#address)                       | 請求先となる請求先の住所。                                                                                   |
 | リンク          | [ResourceLinks](utility-resources.md#resourcelinks)           | プロファイル内に含まれるリソースリンク。                                                                                                       |
-| attributes     | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                                                                                                  |
+| 属性     | [ResourceAttributes](utility-resources.md#resourceattributes) | プロファイルに対応するメタデータ属性。                                                                                                  |
 
 ## <a name="customerrelationshiprequest"></a>顧客の Relationshiprequest
 
@@ -79,4 +79,4 @@ ms.locfileid: "81665170"
 | プロパティ   | Type                                                           | 説明                                                              |
 |------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
 | url        | string                                                         | パートナーとの関係を確立するために顧客が使用する URL。 |
-| attributes | [ResourceAttributes](utility-resources.md#resourceattributes) | リレーションシップ要求に対応するメタデータ属性。       |
+| 属性 | [ResourceAttributes](utility-resources.md#resourceattributes) | リレーションシップ要求に対応するメタデータ属性。       |

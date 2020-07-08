@@ -4,13 +4,12 @@ description: 顧客の譲渡の一覧を取得する方法。
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fd732f9868d5a6db936092f4d3392ae2ca60768b
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: 4a25a9f6ccba0a3d64934b23ccd83a535da05e4a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489129"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093955"
 ---
 # <a name="get-a-customers-transfers"></a>顧客の譲渡を取得する
 
@@ -46,7 +45,7 @@ ms.locfileid: "84489129"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

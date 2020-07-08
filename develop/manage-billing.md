@@ -1,17 +1,17 @@
 ---
 title: 請求の管理
 description: このセクションでは、クラウドソリューションプロバイダーパートナーがパートナーセンターを使用してプログラムで請求書を表示および管理する方法と、Azure の支出予算に対する顧客の進捗状況を確認する方法について説明します。
-ms.assetid: 198D32A5-AA2C-49BB-A057-0EFFBA408753
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 35bc02253932a43f22e99afec5f3ab279edf738e
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: ee58680c75d6904922ca46078d829c5aa6a0053a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089382"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095046"
 ---
 # <a name="manage-billing"></a>請求の管理
 
@@ -34,13 +34,13 @@ ms.locfileid: "82089382"
 **請求書**
 - [請求書のコレクションを取得する](get-a-collection-of-invoices.md)
 - [請求書の推定リンクを取得する](get-invoice-estimate-links.md)
-- [請求書を取得する商用マーケットプレースの従量課金明細項目](get-invoice-billed-consumption-lineitems.md)
+- [請求書の課金されているコマーシャル マーケットプレース使用明細を取得する](get-invoice-billed-consumption-lineitems.md)
 - [請求書を ID で取得する](get-invoice-by-id.md)
 - [請求書の明細を取得する](get-invoiceline-items.md)
 - [請求書の領収書を取得する](get-invoice-receipt-statement.md)
 - [請求明細書を取得する](get-invoice-statement.md)
 - [請求書の概要を取得する](get-invoice-summaries.md)
-- [Invoice 未請求商業市場消費量の品目を取得する](get-invoice-unbilled-consumption-lineitems.md)
+- [請求書の課金されていないコマーシャル マーケットプレース使用明細を取得する](get-invoice-unbilled-consumption-lineitems.md)
 - [請求書の未課金照合明細を取得する](get-invoice-unbilled-recon-lineitems.md)
 - [リセラーの現在のアカウント残高を取得する](get-the-reseller-s-current-account-balance.md)
 

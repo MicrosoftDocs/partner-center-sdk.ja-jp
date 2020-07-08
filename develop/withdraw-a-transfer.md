@@ -4,13 +4,12 @@ description: 顧客に対して作成されたサブスクリプションの転�
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4f4e0949ba9ee948e987d9cdb6b117285340d098
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: a9e1e2a33d21fc1338a36b8ac96b528e70b61c86
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489149"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093450"
 ---
 # <a name="withdraw-a-transfer"></a>転送を取り消す
 
@@ -38,7 +37,7 @@ ms.locfileid: "84489149"
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前            | Type     | 必須 | Description                                                            |
+| 名前            | Type     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 | **転送 id** | string   | はい      | 転送を識別する GUID 形式の転送 id。             |

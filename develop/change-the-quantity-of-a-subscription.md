@@ -1,17 +1,15 @@
 ---
 title: サブスクリプションの数量を変更する
 description: サブスクリプションを更新して、顧客のライセンスの数を増減させます。
-ms.assetid: 10535C45-63BF-4E75-A6E5-E03ADC1DF8DC
 ms.date: 06/05/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8dd9704fb97ed879feed8d0b35aa5fe1b507bb1b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b752f50f5f583489282d38df94d9baa8385b0620
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154634"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096051"
 ---
 # <a name="change-the-quantity-of-a-subscription"></a>サブスクリプションの数量を変更する
 
@@ -30,7 +28,7 @@ ms.locfileid: "82154634"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- 顧客 ID (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナーセンターの[ダッシュボード](https://partner.microsoft.com/dashboard)で確認できます。 パートナーセンターメニューの [ **CSP** ] を選択し、[ **Customers**] をクリックします。 [Customer] リストから顧客を選択し、[Account] \ (**アカウント**\) を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 - サブスクリプション ID。
 
@@ -125,7 +123,7 @@ Connection: Keep-Alive
 
 修正プログラムの処理に予想される時間よりも時間がかかる場合、パートナーセンターは、 **HTTP 状態 202**状態コードと、サブスクリプションを取得する場所を指す location ヘッダーを送信します。 サブスクリプションを定期的に照会して、状態と数量の変化を監視することができます。
 
-### <a name="response-examples"></a>応答の例
+### <a name="response-examples"></a>応答例
 
 #### <a name="response-example-1"></a>応答の例1
 

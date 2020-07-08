@@ -4,13 +4,14 @@ description: パートナーセンター Api を使用して、指定した期�
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b615565524b79877aa817aaf246655a7175b4ac2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: 6101ddd6ead66c78531273af959d53d37c71f678
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157414"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093627"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>請求書の未請求調整の品目を取得する
 
@@ -111,7 +112,7 @@ while (fetchNext)
 
 同様の例については、次を参照してください。
 
-- サンプル:[コンソールテストアプリ](console-test-app.md)
+- サンプル: [コンソール テスト アプリ](console-test-app.md)
 - プロジェクト:**パートナーセンター SDK のサンプル**
 - クラス: **GetUnBilledReconLineItemsPaging.cs**
 
@@ -125,7 +126,7 @@ while (fetchNext)
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = billinglineitems&currencycode = {currencycode} &period = {PERIOD} HTTP/1.1                              | この構文を使用して、指定された請求書のすべての品目の完全な一覧を返します。 |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = billinglineitems&currencycode = {currencycode} &period = {period} &size = {SIZE} HTTP/1.1  | 大きな請求書の場合は、指定されたサイズと0ベースのオフセットでこの構文を使用して、行項目のページ化されたリストを返します。 |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = billinglineitems&currencycode = {currencycode} &period = {period} &size = {size} &Seekoperation = Next                               | この構文を使用すると、を使用して`seekOperation = "Next"`、調整行項目の次のページを取得できます。 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems? provider = onetime&invoicelineitemtype = billinglineitems&currencycode = {currencycode} &period = {period} &size = {size} &Seekoperation = Next                               | この構文を使用すると、を使用して、調整行項目の次のページを取得 `seekOperation = "Next"` できます。 |
 
 #### <a name="uri-parameters"></a>URI パラメーター
 
@@ -140,7 +141,7 @@ while (fetchNext)
 | currencyCode           | string | はい      | 未請求の品目の通貨コード。                                  |
 | 前期                 | string | はい      | 未請求 recon の期間。 例: current、previous。                      |
 | size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000                     |
-| seekOperation          | string | いいえ       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。                |
+| seekOperation          | 文字列 | No       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。                |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -148,7 +149,7 @@ while (fetchNext)
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ## <a name="rest-response"></a>REST 応答
 

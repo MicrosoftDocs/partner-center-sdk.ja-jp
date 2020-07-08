@@ -1,17 +1,17 @@
 ---
 title: Azure の使用量分析情報をすべて取得する
 description: Azure usage analytics のすべての情報を取得する方法について説明します。
-ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e05ab42b154457ae0db079ff0d90d836a7da7d3e
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: c6302a2223bbb9c56943b04175a9cba44db1d1d2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156764"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095237"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>Azure の使用量分析情報をすべて取得する
 
@@ -34,7 +34,7 @@ ms.locfileid: "82156764"
 
 | 認証方法  | 要求 URI |
 |---------|-------------|
-| **GET** | baseURL/partner/v1/analytics/usage/azure HTTP/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
@@ -70,7 +70,7 @@ ms.locfileid: "82156764"
         <p>int</p>
       </td>
       <td>
-        <p>クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、は<code>top=10000 and skip=0</code> 、最初の1万行のデータを<code>top=10000 and skip=10000</code>取得し、次の1万行のデータを取得します。</p>
+        <p>クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、は、 <code>top=10000 and skip=0</code> 最初の1万行のデータを取得し、 <code>top=10000 and skip=10000</code> 次の1万行のデータを取得します。</p>
       </td>
     </tr>
     <tr>
@@ -81,7 +81,7 @@ ms.locfileid: "82156764"
         <p>string</p>
       </td>
       <td>
-        <p>要求の <em>filter</em> パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 <strong> <code>eq</code> </strong>各ステートメントには、また<strong> <code>ne</code> </strong>は演算子に関連付けられたフィールドと値が含まれて<strong> <code>and</code> </strong>おり<strong> <code>or</code> </strong>、ステートメントはまたはを使用して組み合わせることができます。 次のものを指定できます。</p>
+        <p>要求の <em>filter</em> パラメーターには、応答内の行をフィルター処理する 1 つまたは複数のステートメントが含まれます。 各ステートメントには、または演算子に関連付けられたフィールドと値が含まれて <strong> <code>eq</code> </strong> <strong> <code>ne</code> </strong> おり、ステートメント <strong> <code>and</code> </strong> はまたはを使用して組み合わせることができ <strong> <code>or</code> </strong> ます。 次のものを指定できます。</p>
         <ul>
           <li><code>customerTenantId</code></li>
           <li><code>customerName</code></li>
@@ -113,8 +113,8 @@ ms.locfileid: "82156764"
         <p>string</p>
       </td>
       <td>
-        <p>集計データを取得する時間範囲を指定します。 <code>day</code>には、 <code>week</code>、、または<code>month</code>のいずれかの文字列を指定できます。 指定されていない<code>day</code>場合、既定値はです。</p>
-      <p>パラメーター <code>aggregationLevel</code>は、なしでは<code>groupby</code>サポートされません。 パラメーター <code>aggregationLevel</code>は、に存在するすべての<code>groupby</code>日付フィールドに適用されます。</p>
+        <p>集計データを取得する時間範囲を指定します。 <code>day</code>には、、 <code>week</code> 、またはのいずれかの文字列を指定できます <code>month</code> 。 指定されていない場合、既定値は <code>day</code> です。</p>
+      <p><code>aggregationLevel</code>パラメーターは、なしではサポートされません <code>groupby</code> 。 <code>aggregationLevel</code>パラメーターは、に存在するすべての日付フィールドに適用され <code>groupby</code> ます。</p>
       </td>
     </tr>
     <tr>
@@ -125,7 +125,7 @@ ms.locfileid: "82156764"
         <p>string</p>
       </td>
       <td>
-        <p>各インストールの結果データ値の順序を指定するステートメントです。 構文は <code>...&orderby=field [order],field [order],...</code>です。 パラメーター <code>field</code>には、次のいずれかの文字列を指定できます。</p>
+        <p>各インストールの結果データ値の順序を指定するステートメントです。 構文は <code>...&orderby=field [order],field [order],...</code>です。 パラメーターには <code>field</code> 、次のいずれかの文字列を指定できます。</p>
         <ul>
           <li><code>customerTenantId</code></li>
           <li><code>customerName</code></li>
@@ -141,7 +141,7 @@ ms.locfileid: "82156764"
           <li><code>consumptionMeterId</code></li>
           <li><code>serviceType</code></li>
         </ul>
-        <p><em>Order</em>パラメーターは省略可能で、 <code>asc</code>または<code>desc</code>にすることができます。各フィールドに対して昇順または降順の順序を指定する場合は。 既定では、 <code>asc</code>です。</p>
+        <p><em>Order</em>パラメーターは省略可能であり、 <code>asc</code> またはにすることができます。 <code>desc</code> 各フィールドの昇順または降順を指定します。 既定値は、<code>asc</code> です。</p>
         <p><strong>例:</strong><br/>
           <code>...&orderby=meterCategory,meterUnit</code>
         </p>
@@ -171,8 +171,8 @@ ms.locfileid: "82156764"
           <li><code>consumptionMeterId</code></li>
           <li><code>serviceType</code></li>
         </ul>
-        <p>返されるデータ行には、 <code>groupby</code>パラメーターに指定されたフィールドと<em>数量</em>が含まれます。</p>
-        <p><code>groupby</code>パラメーターは、 <code>aggregationLevel</code>パラメーターと共に使用できます。</p>
+        <p>返されるデータ行には、パラメーターに指定されたフィールドと数量が含まれ <code>groupby</code> ます。 <em>Quantity</em></p>
+        <p>パラメーターは、 <code>groupby</code> パラメーターと共に使用でき <code>aggregationLevel</code> ます。</p>
         <p><strong>例:</strong></br>
           <code>...&groupby=meterCategory,meterUnit</code>
         </p>
@@ -187,7 +187,7 @@ ms.locfileid: "82156764"
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

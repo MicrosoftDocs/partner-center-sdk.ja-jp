@@ -1,17 +1,17 @@
 ---
 title: ID でプランを取得する
 description: オファー ID と一致するオファーリソースを取得します。
-ms.assetid: F5165C5A-7C93-4F8E-A733-641511BC8FB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0b3cb5856bb9b4259267c2284d8b00668f4427cf
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: brentserbus
+ms.author: brserbus
+ms.openlocfilehash: 2765859db2da91f544c926b264eeb7e32a22cd6c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157754"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093836"
 ---
 # <a name="get-an-offer-by-id"></a>ID でプランを取得する
 
@@ -95,7 +95,7 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 

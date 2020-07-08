@@ -1,19 +1,17 @@
 ---
-title: 監査操作
+title: 操作を監査する
 description: 監査操作を使用して、パートナーセンターのアクティビティのレコードを取得します。
-ms.assetid: C6337A08-6009-4F12-A7A3-B1CA1AE016A1
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 36b20d41d3313a1151c45177f4c74ed0b44b180d
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0e31990df06a67d4f02b97dab8422ee498a09b43
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413224"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095399"
 ---
-# <a name="audit-operations"></a>監査操作
+# <a name="audit-operations"></a>操作を監査する
 
 パートナーセンターの Api は、パートナーセンターのアクティビティの記録を取得できるように、監査機能を提供します。
 

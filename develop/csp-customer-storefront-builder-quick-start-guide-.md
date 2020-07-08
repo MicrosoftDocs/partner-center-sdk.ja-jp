@@ -1,17 +1,15 @@
 ---
 title: CSP 顧客ネットショップ ビルダー クイック スタート ガイド
 description: CSP カスタマーネットショップビルダーを使用して、クラウドソリューションプロバイダー (CSP) プランを販売するオンラインマーケットプレースを作成します。
-ms.assetid: 333EE80D-E49E-4E89-87FB-3F02AC48C236
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ac3d053e8e6d6684cf9583c57e388da828bc8442
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: cc4b56e6fa51c2ebc8338559075c93e7eab4b378
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155314"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094346"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP 顧客ネットショップ ビルダー クイック スタート ガイド
 
@@ -62,7 +60,7 @@ CSP Customer ネットショップビルダーは、web サイトを簡単に作
 
 店舗 web サイトを作成するためのプロセスは次のとおりです。
 
-1. [Web サイトをデプロイする](#deploy)
+1. [Web サイトのデプロイ](#deploy)
 
 2. [ネットストアを構成する](#configure)
 
@@ -86,9 +84,9 @@ CSP Customer ネットショップビルダーは、web サイトを簡単に作
 
 - **提供**: すべての CSP オファーを表示します。 顧客が表示および購入できるプランを選択できます。 また、オファー情報をカスタマイズして価格を追加することもできます。
 
-- **Paypal 支払い構成**: paypal 支払アカウント情報を追加します。 PayPal アカウントをお持ちでない場合は、に[https://www.paypal.com](https://www.paypal.com)アクセスして新しいアカウントを作成することができます。 このアカウントは、お客様による支払いのクレジットを PayPal に提供するために使用されます。 *Microsoft は、パートナーと PayPal の関係については責任を負いません。PayPal を使用する場合、パートナーまたはパートナーの顧客が追加の条件に同意することが必要になる場合があります。*
+- **Paypal 支払い構成**: paypal 支払アカウント情報を追加します。 PayPal アカウントをお持ちでない場合は、にアクセス [https://www.paypal.com](https://www.paypal.com) して新しいアカウントを作成することができます。 このアカウントは、お客様による支払いのクレジットを PayPal に提供するために使用されます。 *Microsoft は、パートナーと PayPal の関係については責任を負いません。PayPal を使用する場合、パートナーまたはパートナーの顧客が追加の条件に同意することが必要になる場合があります。*
 
-- (*インドの場合*)**給料 u の支払い構成**: お支払い額を追加します。 お金をお持ちでない場合は、にアクセス[https://www.payumoney.com/](https://www.payumoney.com/)して新しいアカウントを作成することができます。 このアカウントは、お客様による支払いをクレジットするために、支払いに使用されます。 *Microsoft は、パートナーと支払い方法の関係について責任を負いません。給料 u を使用する場合、パートナーまたはパートナーの顧客が追加の条件に同意することが必要になる場合があります。*
+- (*インドの場合*)**給料 u の支払い構成**: お支払い額を追加します。 お金をお持ちでない場合は、にアクセス [https://www.payumoney.com/](https://www.payumoney.com/) して新しいアカウントを作成することができます。 このアカウントは、お客様による支払いをクレジットするために、支払いに使用されます。 *Microsoft は、パートナーと支払い方法の関係について責任を負いません。給料 u を使用する場合、パートナーまたはパートナーの顧客が追加の条件に同意することが必要になる場合があります。*
 
 ### <a name="transact"></a>トランザクション
 
@@ -185,16 +183,16 @@ Enhanced またはカスタマイズされた CSP 顧客の店舗を展開する
 
 - CSP パートナーは、paypal のクライアント ID やシークレットなどの PayPal アカウント情報を入力できます。 CSP パートナーは、サンドボックスまたはライブアカウントのどちらを使用してテストするかを選択することもできます。
 
-  - パートナーは、[ [https://developer.paypal.com/](https://developer.paypal.com/) **マイアプリ & の資格情報**を使用してこの情報を確認できます。 この情報は、現在のアプリから取得することも、PayPal で新しいアプリを作成することによって取得することもできます。
+  - パートナーは [https://developer.paypal.com/](https://developer.paypal.com/) 、[**マイアプリ & の資格情報**を使用してこの情報を確認できます。 この情報は、現在のアプリから取得することも、PayPal で新しいアプリを作成することによって取得することもできます。
   - 新しい PayPal アカウントを作成します (まだお持ちでない場合)。 このアカウントは、お客様による支払いのクレジットを PayPal に提供するために使用されます。
 
-    - PayPal ビジネスアカウントを開くには、 [https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register](https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register)「」を参照してください。
+    - PayPal ビジネスアカウントを開くには、「」を参照してください [https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register](https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register) 。
 
-    - PayPal サンドボックスアカウントを作成する[https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/)には、「」を参照してください。
+    - PayPal サンドボックスアカウントを作成するには、「」を参照してください [https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/) 。
 
-- (インドの場合) CSP パートナーは、給料 u のクライアント ID やパスワードなど、給料を入力することができます。 詳細については、 [https://developer.payumoney.com/](https://developer.payumoney.com/)「」を参照してください。
+- (インドの場合) CSP パートナーは、給料 u のクライアント ID やパスワードなど、給料を入力することができます。 詳細については、「」を参照 [https://developer.payumoney.com/](https://developer.payumoney.com/) してください。
 
-  - まだお持ちでない場合は、新しいアカウントを作成します。 送金 u Money アカウントを開くには、 [https://www.payumoney.com/merchant-account/#/](https://www.payumoney.com/merchant-account/#/)にアクセスします。 このアカウントは、お客様による支払いをクレジットするために、支払いに使用されます。
+  - まだお持ちでない場合は、新しいアカウントを作成します。 送金 u Money アカウントを開くには、にアクセス [https://www.payumoney.com/merchant-account/#/](https://www.payumoney.com/merchant-account/#/) します。 このアカウントは、お客様による支払いをクレジットするために、支払いに使用されます。
 
 ## <a name="customer-experience-scenarios"></a>カスタマーエクスペリエンスのシナリオ
 
