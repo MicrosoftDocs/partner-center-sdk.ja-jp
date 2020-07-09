@@ -47,6 +47,7 @@
       "author": "JasonWHowell",
       "manager": "jasonh",
       "ms.author": "jasonh",
+      "ms.localizationpriority": "medium",
       "ms.topic": "article",
       "ms.service": "partner-dashboard",
       "ms.subservice": "partnercenter-sdk",
