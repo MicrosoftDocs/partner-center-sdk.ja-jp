@@ -5,7 +5,7 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.openlocfilehash: 05339a0c974885eb954472a90e094436a7889217
 ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/24/2020
 ms.locfileid: "82122401"

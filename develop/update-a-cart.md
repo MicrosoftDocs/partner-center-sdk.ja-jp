@@ -92,7 +92,7 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 | participants         | オブジェクトの文字列ペアの一覧 | いいえ           | 購入の参加者のコレクション。                                                      |
 | provisioningContext  | Dictionary<string、string>  | いいえ           | プランのプロビジョニングに使用されるコンテキスト。                                                          |
 | orderGroup           | string                      | いいえ           | 一緒に配置できる項目を示すグループ。                                            |
-| エラー                | Object                      | いいえ           | エラーが発生した場合にカートが作成された後に適用されます。                                                 |
+| error                | Object                      | いいえ           | エラーが発生した場合にカートが作成された後に適用されます。                                                 |
 
 ### <a name="request-example"></a>要求の例
 
