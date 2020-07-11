@@ -1,17 +1,15 @@
 ---
 title: シナリオ
 description: このセクションでは、クラウド ソリューション プロバイダー プログラムのパートナーが、パートナー センター API を使用して、顧客アカウント、パートナー アカウント、注文、サブスクリプション、サポート、請求をプログラムによって管理する方法について説明します。
-ms.assetid: D278B9D1-D5B9-4FAD-89D8-44244715D6C9
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 26ae536f766f799d0ebcab0ecc5640358f997d33
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: fc859b40cf2e8d017826d89e62d0d1dfe0fa2e89
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157684"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098425"
 ---
 # <a name="scenarios"></a>シナリオ
 

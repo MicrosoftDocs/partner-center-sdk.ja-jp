@@ -4,13 +4,14 @@ description: パートナー センターとコントロール パネル アプ�
 ms.date: 01/20/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
-ms.localizationpriority: medium
-ms.openlocfilehash: 274b7ebc96cde1bca5c549fb92fe5ffb4ae29add
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: aarzh-AaronZhang
+ms.author: v-aarzh
+ms.openlocfilehash: 8127f7cb4e5dd41029efe0bdacdec643d5b25797
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155624"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094079"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>セキュリティで保護されたアプリケーション モデル フレームワークを有効にする
 

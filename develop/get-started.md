@@ -1,17 +1,15 @@
 ---
 title: 開始
 description: Partner Center SDK には、パートナーが顧客、サブスクリプション、注文データを管理するために使用できるマネージド API と REST API が含まれています。
-ms.assetid: D9A91032-CA5B-4CD2-ADBA-6C5513E05D32
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 49b08fbb6896a484aaf61563a08802bafbe9a541
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 9c2af1e11dbda19489a27e37c7f3de8ede90fd1c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157244"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097561"
 ---
 # <a name="get-started"></a>開始
 
