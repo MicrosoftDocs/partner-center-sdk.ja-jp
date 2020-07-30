@@ -4,12 +4,12 @@ description: 統合サンドボックスアカウントから注文をキャン�
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9960ee5281d5681a9b93470796f7141ba195ffe1
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4bed678dc5f892dfe81d09daca820f24f177a91a
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096063"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261911"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>統合サンドボックスから注文を取り消す
 
@@ -26,7 +26,7 @@ ms.locfileid: "86096063"
 >予約されたインスタンスまたは商用 marketplace の SaaS サブスクリプションの注文は、統合サンドボックスアカウントからのキャンセルのみが可能であることに注意してください。  
 
 API を通じてソフトウェアの製造注文をキャンセルするには、 [[キャンセル-ソフトウェアの購入]](cancel-software-purchases.md)を使用します。
-[[購入のキャンセル]](https://docs.microsoft.com/partner-center/csp-software-subscriptions.md)を使用して、ダッシュボードを使用してソフトウェアの生産注文をキャンセルすることもできます。
+[[購入のキャンセル]](https://docs.microsoft.com/partner-center/csp-software-subscriptions)を使用して、ダッシュボードを使用してソフトウェアの生産注文をキャンセルすることもできます。
 
 ## <a name="prerequisites"></a>前提条件
 
