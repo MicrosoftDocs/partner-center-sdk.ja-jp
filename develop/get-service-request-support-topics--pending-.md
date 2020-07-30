@@ -4,12 +4,12 @@ description: サービス要求に関する有効なトピックを表す項目�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dbc2197f47681b36cd66d0fd5d19732999f86066
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e16348d9342c0c3d60debd0bc6ea7d2146edca27
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097612"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261921"
 ---
 # <a name="get-service-request-support-topics"></a>サービス要求のサポート トピックを取得する
 
@@ -20,6 +20,10 @@ ms.locfileid: "86097612"
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
 サービス要求に関する有効なトピックを表す項目のコレクションを取得します。
+
+   > [!IMPORTANT]
+   > Get service request support トピック API は、2020年8月31日までにサポートされなくなります。 この API は、必要なデータをプログラムによって取得し、使用停止になっているサービス要求 API を作成するために、パートナーによって使用されました。 パートナーがパートナーサポートチケットを作成するには、パートナーセンターのユーザーインターフェイスを使用する必要があります。 ユーザーエクスペリエンスでは、問題が発生している領域について推奨される手順やドキュメントなどのサポートケースを作成する際に、パートナーの追加情報を提供します。 また、パートナーセンターチームは、サポートエンジニアが問題を迅速かつ正確に解決するために必要な問題領域に固有の情報を要求するサービス要求フォームをカスタマイズすることで、ユーザーエクスペリエンスを向上させました。
+
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -49,7 +53,7 @@ ResourceCollection<SupportTopic> supportTopicsCollection = partnerOperations.Ser
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし] :
+ありません。
 
 ### <a name="request-example"></a>要求の例
 
