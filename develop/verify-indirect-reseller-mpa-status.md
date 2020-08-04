@@ -1,15 +1,15 @@
 ---
 title: 間接リセラーの Microsoft Partner Agreement の署名状態を確認する
 description: AgreementStatus API を使用して、間接リセラーが Microsoft パートナー契約に署名したかどうかを確認できます。
-ms.date: 10/30/2019
+ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3140928e382309268eacff1516eaa7b83bcf269a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4836a5e0646e1f00807966d3d8d332c026276c61
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261941"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>間接リセラーの Microsoft Partner Agreement の署名状態を確認する
 
@@ -211,5 +211,145 @@ Connection: close
     "description": "Both MPN Id and Tenant Id should not be passed.",
     "data": [],
     "source": "ComplianceController"
+}
+```
+
+#### <a name="csp-indirect-reseller-mpn-id-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>CSP Indirect Reseller の MPN ID が無効であるか、Partner Membership Center からパートナー センターに移行されていない
+
+次の応答の例は、渡された間接リセラー MPN ID が無効であるか、Partner Membership Center からパートナー センターに移行されていない場合に返されます。 [詳細情報](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2200,
+    "description": "MPN Id 123456 is either invalid or not yet migrated to Partner Center. Please advise your reseller to migrate the reseller MPN ID to Partner Center to continue with this order.",
+    "data": [
+        "https://partner.microsoft.com/en-us/resources/detail/migrate-pmc-pc-mpa-guide-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>CSP Indirect Provider の地域と CSP Indirect Reseller の地域が一致しない
+
+次の応答の例は、間接リセラー MPN ID の地域が間接プロバイダーの地域と一致しない場合に返されます。 [CSP の地域の詳細](https://docs.microsoft.com/partner-center/regional-authorization-overview)をご確認ください。
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 119
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: b4e67a78-0692-45d1-b408-04b9178a8ac6
+MS-RequestId: aa04fb9d-c6b6-4754-8a6a-86e00cdd5ccb
+MS-CV: WTsLWK5UlUW9sZjH.0
+MS-ServerId: 0000005B
+Date: Wed, 16 Oct 2019 09:02:30 GMT
+Connection: close
+{
+    "code": 2201,
+    "description": "The CSP region of the MPN ID 1234567 doesn’t match the CSP region from where you are placing the order. Provide the MPN ID for the CSP region where you are placing the order.",
+    "data": [
+        "https://docs.microsoft.com/en-us/partner-center/regional-authorization-overview" 
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>CSP 間接リセラー アカウントはパートナー センターに存在するが、MPA に署名されていない
+
+次の応答の例は、パートナー センターの CSP Indirect Reseller アカウントで MPA に署名されていない場合に返されます。 [詳細情報](https://partner.microsoft.com/resources/detail/verify-mpa-acceptance-status-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2203,
+    "description": "MPN Id 123456 has not signed Microsoft Partner Agreement (MPA) for the CSP region where the order is being placed. Please advise your reseller to sign MPA to continue with the order.",
+    "data": [
+        "https://partner.microsoft.com/en-gb/resources/detail/verify-mpa-acceptance-status-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>指定された MPN ID に関連付けられた CSP Indirect Reseller アカウントがない
+
+次の応答の例は、要求で渡された MPN ID はパートナー センターで認識されるが、指定された MPN ID に関連付けられた CSP 登録がない場合に返されます。 [詳細情報](https://partner.microsoft.com/resources/detail/onboard-pc-csp-mpn-mpa-guide-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2204,
+    "description": "MPN Id 123456 is not associated with a CSP Indirect Reseller account in Partner Center. Please advise your reseller to enroll into the CSP program as an indirect reseller in Partner Center.",
+    "data": [
+        "https://partner.microsoft.com/en-us/resources/detail/onboard-pc-csp-mpn-mpa-guide-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="invalid-tenant-id"></a>無効なテナント ID
+
+次の応答例は、要求で渡されたテナント ID に関連付けられたアカウントがパートナー センターで見つからない場合に返されます。
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2205,
+    "description": "Partner Center doesn't find any account associated to the Tenant ID 12345678-ACBD-1234-ABCD-123456789ABC",
+    "data": [],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="no-mpa-found-with-the-given-tenant-id"></a>指定されたテナント ID の MPA が見つからない
+
+次の応答例は、指定されたテナント ID を持つ MPA 署名がパートナー センターで見つからない場合に返されます。
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2206,
+    "description": "Parnter Center Account associated to Tenant Id 12345678-ACBD-1234-ABCD-123456789ABC hasn't signed the agreement",
+    "data": [],
+    "source": "PartnerFD"
 }
 ```
