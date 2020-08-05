@@ -4,12 +4,12 @@ description: 顧客サブスクリプションのサブスクリプションの�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e347ed736e5b6cef070084749d6fabb7c05bcd5d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0811ad6d26cb96c057a96bd906e47238a0d97cce
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097535"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557353"
 ---
 # <a name="get-subscription-provisioning-status"></a>サブスクリプションのプロビジョニング状態を取得する
 
@@ -68,7 +68,7 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 ### <a name="request-body"></a>[要求本文]
 
-[なし] :
+なし。
 
 ### <a name="request-example"></a>要求の例
 
@@ -113,8 +113,8 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 }
 ```
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>解説
 
-- 接続クライアントの割り当ての変更時に、 [subscriptionの](subscription-resources.md#subscriptionprovisioningstatus)状態フィールドが "pending" に設定されます。
+- ライセンス変更の割り当て時に、 [subscriptionの](subscription-resources.md#subscriptionprovisioningstatus)状態フィールドが "保留中" に設定されます。
 
 - [状態] フィールドは、15分ごとに更新されます。
