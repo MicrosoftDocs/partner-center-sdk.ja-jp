@@ -4,12 +4,12 @@ description: パートナー センター SDK に対して開発を行うため�
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 111ec6e92bff1aff0184e1fbbd4d208720e014e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0d2d8ea9f92c84a0bf36642504458c918c1607bf
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095837"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557313"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>パートナー センターでの API アクセスの設定
 
@@ -36,7 +36,7 @@ API の統合とテストに役立つように、パートナー センターは
 
 統合サンドボックス アカウントとプライマリ アカウントは独立して機能し、管理者アカウント、ユーザー アカウント、顧客、注文、サブスクリプションなどのデータは共有されません。
 
-統合サンドボックスでは、限られた数の顧客、注文、サブスクリプション、シートなどのトランザクションがサポートされます。
+統合サンドボックスでは、限られた数の顧客、注文、サブスクリプション、ライセンスなどのトランザクションがサポートされます。
 
 ポリシーでは、統合サンドボックス アカウントは統合テストのみを目的としています。
 
