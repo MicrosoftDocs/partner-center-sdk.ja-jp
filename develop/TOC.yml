@@ -1,0 +1,547 @@
+- name: パートナー センター開発者向けリソース
+  href: index.yml
+- name: はじめに
+  href: get-started.md
+  items:
+    - name: Microsoft National Cloud のパートナー センター向けの開発
+      href: developing-for-partner-center-for-microsoft-national-cloud.md
+      items:
+        - name: パートナー センターのアプリ詳細の登録
+          href: create-apps-for-partner-center-for-microsoft-national-clouds.md
+    - name: パートナー センターのサンプル
+      href: partner-center-samples.md
+      items:
+        - name: CSP 顧客 Web ネットショップ
+          href: csp-customer-web-storefront.md
+        - name: CSP 顧客ネットショップ ビルダー クイック スタート ガイド
+          href: csp-customer-storefront-builder-quick-start-guide-.md
+        - name: コンソール テスト アプリ
+          href: console-test-app.md
+    - name: パートナー センターでの API アクセスの設定
+      href: set-up-api-access-in-partner-center.md
+    - name: パートナー センターの認証
+      href: partner-center-authentication.md
+    - name: セキュリティで保護されたアプリケーション モデルを有効にする
+      href: enable-secure-app-model.md
+    - name: テストとデバッグ
+      href: test-and-debug.md
+    - name: 早期導入者プログラム
+      href: early-adopter-program.md
+- name: シナリオ
+  href: scenarios.md
+  items:
+    - name: Analytics
+      href: usage-analytics.md
+      items:
+        - name: パートナー センターの分析 - リソース
+          href: partner-center-analytics-resources.md
+    - name: Azure の使用量分析情報をすべて取得する
+      href: get-all-azure-usage-analytics.md
+      items:
+        - name: 間接顧客の分析情報をすべて取得する
+          href: get-all-indirect-resellers-analytics.md
+        - name: 紹介の分析情報をすべて取得する
+          href: get-all-referrals-analytics.md
+        - name: 検索の分析情報をすべて取得する
+          href: get-all-search-analytics.md
+        - name: サブスクリプションの分析情報をすべて取得する
+          href: get-all-subscription-analytics.md
+        - name: 検索クエリでフィルター処理されたサブスクリプションの分析情報を取得する
+          href: get-subscription-analytics-by-search-query.md
+        - name: 日付またはご契約条件でグループ化されたサブスクリプションの分析情報を取得する
+          href: get-subscription-analytics-grouped-by-dates-or-terms.md
+        - name: ライセンスのデプロイ情報を取得する
+          href: get-licenses-deployment-information.md
+        - name: ライセンスの使用情報を取得する
+          href: get-licenses-usage-information.md
+        - name: 顧客ライセンスのデプロイ情報を取得する
+          href: get-customer-licenses-deployment-information.md
+        - name: 顧客ライセンスの使用情報を取得する
+          href: get-customer-licenses-usage-information.md
+        - name: パートナー ライセンスのデプロイ情報を取得する
+          href: get-partner-licenses-deployment-information.md
+        - name: パートナー ライセンスの使用情報を取得する
+          href: get-partner-licenses-usage-information.md
+    - name: 操作を監査する
+      href: audit.md
+      items:
+        - name: パートナー センター アクティビティのレコードを取得する
+          href: get-a-record-of-partner-center-activity-by-user.md
+    - name: デバイスの展開
+      href: device-deployment.md
+      items:
+        - name: 指定された顧客の新しい構成ポリシーを作成する
+          href: create-a-new-configuration-policy-for-the-specified-customer.md
+        - name: 指定された顧客の構成ポリシーを削除する
+          href: delete-a-configuration-policy-for-the-specified-customer.md
+        - name: 顧客のポリシーの一覧を取得する
+          href: get-a-list-of-a-customer-s-policies.md
+        - name: 顧客の構成ポリシーを取得する
+          href: retrieve-a-customer-s-configuration-policy.md
+        - name: 指定された顧客の構成ポリシーを更新する
+          href: update-a-configuration-policy-for-the-specified-customer.md
+        - name: デバイスのバッチ アップロードの状態を取得する
+          href: get-the-status-of-a-device-batch-upload.md
+        - name: 指定された顧客のデバイス バッチの一覧を取得する
+          href: get-the-list-of-device-batches-for-the-specified-customer.md
+        - name: 指定されたバッチと顧客のデバイスの一覧を取得する
+          href: get-a-list-of-devices-for-the-specified-batch-and-customer.md
+        - name: デバイスの一覧をアップロードして指定された顧客の新しいバッチを作成する
+          href: upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer.md
+        - name: デバイスの一覧を指定された顧客の既存のバッチにアップロードする
+          href: upload-a-list-of-devices-for-the-specified-customer.md
+        - name: ポリシーを使用してデバイスの一覧を更新する
+          href: update-a-list-of-devices-with-a-policy.md
+        - name: 指定された顧客のデバイスを削除する
+          href: delete-a-device-for-the-specified-customer.md
+    - name: アカウントとプロファイルの管理
+      href: manage-profiles-and-information.md
+      items:
+        - name: パートナー MPN ID ごとに顧客のサブスクリプションを取得する
+          href: get-all-subscriptions-by-partner.md
+        - name: 組織プロファイルを取得する
+          href: get-an-organization-profile.md
+        - name: 間接リセラーの顧客を取得する
+          href: get-customers-of-an-indirect-reseller.md
+        - name: 顧客の間接リセラーを取得する
+          href: get-indirect-resellers-of-a-customer.md
+        - name: Microsoft Partner Network プロファイルを取得する
+          href: get-partner-network-profile.md
+        - name: パートナーの請求プロファイルを取得する
+          href: get-partner-billing-profile.md
+        - name: パートナーの MPN ID を検証する
+          href: get-partner-by-mpn-id.md
+        - name: 間接リセラーの Microsoft Partner Agreement の署名状態を確認する
+          href: verify-indirect-reseller-mpa-status.md
+        - name: サポート プロファイルを取得する
+          href: get-support-profile.md
+        - name: パートナーの法的ビジネス プロファイルを取得する
+          href: get-legal-business-profile.md
+        - name: 間接リセラーの一覧を取得する
+          href: retrieve-a-list-of-indirect-resellers.md
+        - name: 組織プロファイルを更新する
+          href: update-an-organization-profile.md
+        - name: パートナーの請求プロファイルを更新する
+          href: update-partner-billing-profile.md
+        - name: サポート プロファイルを更新する
+          href: update-support-profile.md
+        - name: パートナーの法的ビジネス プロファイルを更新する
+          href: update-legal-business-profile.md
+    - name: 請求の管理
+      href: manage-billing.md
+      items:
+        - name: 請求サイクルを変更する
+          href: change-the-billing-cycle.md
+        - name: 顧客のサービス コストの概要を取得する
+          href: get-a-customer-s-service-costs-summary.md
+        - name: 顧客のサービス コストの明細を取得する
+          href: get-a-customer-s-service-costs-line-items.md
+        - name: 請求書のコレクションを取得する
+          href: get-a-collection-of-invoices.md
+        - name: Azure に関する顧客の使用率レコードを取得する
+          href: get-a-customer-s-utilization-record-for-azure.md
+        - name: 請求書を ID で取得する
+          href: get-invoice-by-id.md
+        - name: 請求書の課金明細を取得する
+          href: get-invoice-billed-consumption-lineitems.md
+        - name: 請求書の推定リンクを取得する
+          href: get-invoice-estimate-links.md
+        - name: 請求書の品目を取得する
+          href: get-invoiceline-items.md
+        - name: 請求書の領収書を取得する
+          href: get-invoice-receipt-statement.md
+        - name: 請求明細書を取得する
+          href: get-invoice-statement.md
+        - name: 請求書の概要を取得する
+          href: get-invoice-summaries.md
+        - name: 請求書の未課金明細を取得する
+          href: get-invoice-unbilled-consumption-lineitems.md
+        - name: 請求書の未課金照合明細を取得する
+          href: get-invoice-unbilled-recon-lineitems.md
+        - name: Microsoft Azure の価格を取得する
+          href: get-prices-for-microsoft-azure.md
+        - name: Microsoft Azure パートナー共有サービスの価格を取得する
+          href: get-prices-for-microsoft-azure-partner-shared-services.md
+        - name: パートナーの現在の残高を取得する
+          href: get-the-reseller-s-current-account-balance.md
+    - name: Azure 利用状況
+      href: azure-spending.md
+      items:
+        - name: パートナーの使用量に関する概要を取得する
+          href: get-a-partner-usage-summary.md
+        - name: パートナーのすべての顧客の使用状況レコードを取得する
+          href: get-a-customer-s-usage-records.md
+        - name: 顧客の使用状況の概要を取得する
+          href: get-a-customer-usage-summary.md
+        - name: 顧客のすべてのサブスクリプション使用状況レコードを取得する
+          href: get-a-customer-subscription-s-usage-records.md
+        - name: サブスクリプションの使用状況の概要を取得する
+          href: get-a-customer-subscription-usage-summary.md
+        - name: サブスクリプションの月次使用状況レコードをすべて取得する
+          href: get-all-monthly-usage-records-for-a-subscription.md
+        - name: サブスクリプションの使用状況データをリソースごとに取得する
+          href: get-a-customer-subscription-resource-usage-records.md
+        - name: サブスクリプションの使用状況データをメーターごとに取得する
+          href: get-a-customer-subscription-meter-usage-records.md
+        - name: メーター使用状況レコードのリソースを取得する
+          href: meter-usage-resources.md
+        - name: リソース使用状況レコードのリソースを取得する
+          href: resource-usage-resources.md
+        - name: 顧客の使用予算を取得する
+          href: get-a-customer-s-usage-spending-budget.md
+        - name: 顧客の使用予算を更新する
+          href: update-a-customer-s-usage-spending-budget.md
+        - name: 製品のアップグレードに関するリソース
+          href: product-upgrade-resources.md
+          items:
+            - name: 製品のアップグレード状態を取得する
+              href: get-product-upgrade-status.md
+            - name: 製品のアップグレードの資格を取得する
+              href: get-eligibility-for-product-upgrade.md
+            - name: 顧客の製品アップグレード エンティティを作成する
+              href: create-product-upgrade-entity.md
+        - name: サブスクリプションの Azure エンタイトルメントの一覧を取得する
+          href: get-a-list-of-azure-entitlements-for-subscription.md
+    - name: 顧客のアカウントを管理する
+      href: manage-customers.md
+      items:
+        - name: 顧客の確認済みドメインを追加する
+          href: add-a-verified-domain-for-a-customer.md
+        - name: ユーザーにライセンスを割り当てる
+          href: assign-licenses-to-a-user.md
+        - name: Microsoft Cloud 契約の契約メタデータを取得する
+          href: get-agreement-metadata.md
+        - name: Microsoft 顧客契約の契約メタデータを取得する
+          href: get-customer-agreement-metadata.md
+        - name: Microsoft Cloud 契約に関する顧客の同意の確認を取得する
+          href: get-confirmation-of-customer-consent.md
+        - name: Microsoft 顧客契約テンプレートをダウンロードする
+          href: download-customer-agreement-template.md
+        - name: 'Microsoft 顧客契約に関する顧客の同意の確認を取得する '
+          href: get-confirmation-of-customer-agreement.md
+        - name: Microsoft 顧客契約の直接署名 (直接受け入れ) の状態を取得する
+          href: get-direct-sign-status-of-customer-agreement.md
+        - name: Microsoft 顧客契約へのお客様の同意を確認する
+          href: confirm-customer-consent-customer-agreement.md
+        - name: ユーザーに割り当てられたライセンスを取得する
+          href: check-which-licenses-are-assigned-to-a-user.md
+        - name: ユーザーに割り当てられたライセンスをライセンス グループ別に取得する
+          href: get-licenses-assigned-to-a-user-by-license-group.md
+        - name: 顧客の作成
+          href: create-a-customer.md
+        - name: 間接リセラーの顧客を作成する
+          href: create-a-customer-for-an-indirect-reseller.md
+        - name: 顧客のユーザー アカウントを作成する
+          href: create-user-accounts-for-a-customer.md
+        - name: 顧客のユーザー アカウントを削除する
+          href: delete-user-accounts-for-a-customer.md
+        - name: エンタイトルメントのコレクションを取得する
+          href: get-a-collection-of-entitlements.md
+        - name: ID で顧客を取得する
+          href: get-a-customer-by-id.md
+        - name: 顧客の請求プロファイルを取得する
+          href: get-all-of-a-customer-s-billing-profiles.md
+        - name: 顧客の会社プロファイルを取得する
+          href: get-a-customer-s-company-profile.md
+        - name: 顧客の資格情報を取得する
+          href: get-a-customer-s-qualification.md
+        - name: 顧客の注文をすべて取得する
+          href: get-all-of-a-customer-s-orders.md
+        - name: 顧客のサブスクリプションを取得する
+          href: get-all-of-a-customer-s-subscriptions.md
+        - name: 顧客のサブスクリプション譲渡の資格を取得する
+          href: get-customer-s-subscriptions-transfer-eligibility.md
+        - name: 顧客の譲渡を取得する
+          href: get-all-of-a-customer-s-transfers.md
+        - name: 顧客の譲渡の詳細を取得する
+          href: get-transfer-by-id.md
+        - name: 顧客のすべてのユーザー アカウントの一覧を取得する
+          href: get-a-list-of-all-user-accounts-for-a-customer.md
+        - name: 利用可能なライセンスの一覧を取得する
+          href: get-a-list-of-available-licenses.md
+        - name: 利用可能なライセンスの一覧をライセンス グループ別に取得する
+          href: get-a-list-of-available-licenses-by-license-group.md
+        - name: 顧客の一覧を取得する
+          href: get-a-list-of-customers.md
+        - name: 検索フィールドによってフィルター処理された顧客の一覧を取得する
+          href: get-a-customer-by-name.md
+        - name: 顧客と請求サイクルの種類別に注文の一覧を取得する
+          href: get-a-list-of-orders-by-customer-and-billing-cycle-type.md
+        - name: パートナーの確認コードを取得する
+          href: get-a-partner-s-validation-codes.md
+        - name: ユーザー アカウントを ID で取得する
+          href: get-a-user-account-by-id.md
+        - name: 顧客のユーザー ロールを取得する
+          href: get-user-roles-for-a-customer.md
+        - name: 顧客ユーザーをロールから削除する
+          href: remove-customer-user-from-a-role.md
+        - name: 顧客との再販業者関係の削除
+          href: remove-a-reseller-relationship-with-a-customer.md
+        - name: 関係要求 URL を取得する
+          href: request-reseller-relationship.md
+        - name: 顧客のユーザー パスワードをリセットする
+          href: reset-user-password-for-a-customer.md
+        - name: 顧客の削除されたユーザーを復元する
+          href: restore-a-user-for-a-customer.md
+        - name: 顧客のユーザー ロールを設定する
+          href: set-user-roles-for-a-customer.md
+        - name: 顧客の請求プロファイルを更新する
+          href: update-a-customer-s-billing-profile.md
+        - name: 顧客の資格情報を更新する
+          href: update-a-customer-s-qualification.md
+        - name: サブスクリプションのニックネームを更新する
+          href: update-the-nickname-for-a-subscription.md
+        - name: 顧客の譲渡を撤回する
+          href: withdraw-a-transfer.md
+        - name: 顧客からの譲渡を作成する
+          href: create-a-transfer.md
+        - name: 顧客の譲渡を承諾する
+          href: accept-a-transfer.md
+        - name: 顧客の譲渡を拒否する
+          href: reject-a-transfer.md
+        - name: 顧客のユーザー アカウントを更新する
+          href: update-user-accounts-for-a-customer.md
+        - name: 顧客の削除されたユーザーを表示する
+          href: view-a-deleted-user.md
+        - name: セルフ サービス ポリシーを作成する
+          href: create-a-self-serve-policy.md
+        - name: セルフ サービス ポリシーを削除する
+          href: delete-a-self-serve-policy.md
+        - name: セルフ サービス ポリシーの一覧を取得する
+          href: get-a-list-of-self-serve-policies.md
+        - name: ID でセルフ サービス ポリシーを取得する
+          href: get-a-self-serve-policy-by-id.md
+        - name: セルフ サービス ポリシーを更新する
+          href: update-a-self-serve-policy.md
+    - name: 注文の管理
+      href: manage-orders.md
+      items:
+        - name: Azure プランを購入する
+          href: create-azure-plan.md
+        - name: Azure Reservations を購入する
+          href: purchase-azure-reservations.md
+        - name: 商用マーケットプレース製品のサブスクリプションを購入する
+          href: create-subscription-azure-marketplace-products.md
+        - name: 商用マーケットプレース製品のサンドボックス サブスクリプションをアクティブ化する
+          href: activate-sandbox-subscription-azure-marketplace-products.md
+        - name: 商用マーケットプレース サブスクリプションをキャンセルする
+          href: cancel-an-azure-marketplace-subscription.md
+        - name: ソフトウェア購入の取り消し
+          href: cancel-software-purchases.md
+        - name: 統合サンドボックスから注文を取り消す
+          href: cancel-an-order-from-the-integration-sandbox.md
+        - name: サブスクリプションの数量を変更する
+          href: change-the-quantity-of-a-subscription.md
+        - name: 試用版サブスクリプションを有料版に変換する
+          href: convert-a-trial-subscription-to-paid.md
+        - name: 在庫を確認する
+          href: check-inventory.md
+        - name: カートを精算する
+          href: checkout-a-cart.md
+        - name: カートを作成する
+          href: create-a-cart.md
+        - name: アドオンを扱うカートを作成する
+          href: create-a-cart-with-add-ons.md
+        - name: 注文を作成する
+          href: create-an-order.md
+        - name: 間接リセラーの顧客の注文を作成する
+          href: create-an-order-for-a-customer-of-an-indirect-reseller.md
+        - name: サブスクリプションのアドオンの一覧を取得する
+          href: get-a-list-of-add-ons-for-a-subscription.md
+        - name: SKU の空き状況の一覧を取得する (国別)
+          href: get-a-list-of-availabilities-for-a-sku.md
+        - name: SKU の空き状況の一覧を取得する (顧客別)
+          href: get-a-list-of-availabilities-for-a-sku-by-customer.md
+        - name: 市場別のプラン カテゴリの一覧を取得する
+          href: get-a-list-of-offer-categories-by-country-and-locale.md
+        - name: 市場別のプランの一覧を取得する
+          href: get-a-list-of-offers-for-a-market.md
+        - name: 製品の一覧を取得する (国別)
+          href: get-a-list-of-products.md
+        - name: 製品の一覧を取得する (顧客別)
+          href: get-a-list-of-products-by-customer.md
+        - name: 製品の SKU の一覧を取得する (国別)
+          href: get-a-list-of-skus-for-a-product.md
+        - name: 製品の SKU の一覧を取得する (顧客別)
+          href: get-a-list-of-skus-for-a-product-by-customer.md
+        - name: 注文ごとにサブスクリプションの一覧を取得する
+          href: get-a-list-of-subscriptions-by-order.md
+        - name: 試用版の変換プランの一覧を取得する
+          href: get-a-list-of-trial-conversion-offers.md
+        - name: ID で製品を取得する
+          href: get-a-product-by-id.md
+        - name: ID で SKU を取得する
+          href: get-a-sku-by-id.md
+        - name: ID でサブスクリプションを取得する
+          href: get-a-subscription-by-id.md
+        - name: 注文明細でアクティブ化リンクを取得する
+          href: get-activation-link-by-order-line-item.md
+        - name: プラン ID のアドオンを取得する
+          href: get-addon-offers-by-offer-id.md
+        - name: ID で可用性を取得する
+          href: get-an-availability-by-id.md
+        - name: ID でプランを取得する
+          href: get-an-offer-by-id.md
+        - name: ID で注文を取得する
+          href: get-an-order-by-id.md
+        - name: サブスクリプションのプロビジョニング状態を取得する
+          href: get-subscription-provisioning-status.md
+        - name: サブスクリプションの登録状態を取得する
+          href: get-subscription-registration-status.md
+        - name: 1 回限りの購入を行う
+          href: make-a-one-time-purchase.md
+        - name: サブスクリプションのアドオンを購入する
+          href: purchase-an-add-on-to-a-subscription.md
+        - name: カタログ項目を購入する
+          href: purchase-catalog-items.md
+        - name: 中断したサブスクリプションを再アクティブ化する
+          href: reactivate-a-suspended-a-subscription.md
+        - name: サブスクリプションを登録する
+          href: register-a-subscription.md
+        - name: サブスクリプションの中断
+          href: suspend-a-subscription.md
+        - name: サブスクリプションを移行する
+          href: transition-a-subscription.md
+        - name: カートを更新する
+          href: update-a-cart.md
+        - name: 商用マーケットプレース サブスクリプションの自動更新を更新する
+          href: update-autorenew-for-an-azure-marketplace-subscription.md
+    - name: サポートの提供
+      href: provide-support.md
+      items:
+        - name: サービス要求を作成する
+          href: create-a-service-request-.md
+        - name: サブスクリプションのサポート連絡先情報を取得する
+          href: get-a-subscription-s-support-contact.md
+        - name: 顧客のサービス リクエストをすべて取得する
+          href: get-all-service-requests-for-a-customer.md
+        - name: ID でサービス リクエストの詳細を取得する
+          href: get-service-request-details-by-id.md
+        - name: サービス要求のサポート トピックを取得する
+          href: get-service-request-support-topics--pending-.md
+        - name: ID を使って顧客の管理サービスを取得する
+          href: get-the-managed-services-for-a-customer-by-id.md
+        - name: サービス リクエストを更新する
+          href: update-a-service-request.md
+        - name: サブスクリプションのサポート連絡先情報を更新する
+          href: update-a-subscription-s-support-contact.md
+    - name: 紹介
+      href: 'https://docs.microsoft.com/partner/develop/referrals'
+      items:
+        - name: 紹介を作成する
+          href: 'https://docs.microsoft.com/partner/develop/create-a-referral'
+        - name: 紹介の一覧を取得する
+          href: 'https://docs.microsoft.com/partner/develop/get-a-list-of-referrals'
+        - name: 紹介を ID ごとに取得する
+          href: 'https://docs.microsoft.com/partner/develop/get-a-referral-by-id'
+        - name: 紹介を更新する
+          href: 'https://docs.microsoft.com/partner/develop/update-a-referral'
+    - name: ユーティリティ
+      href: utilities.md
+      items:
+        - name: アドレスを確認する
+          href: validate-an-address.md
+        - name: 市場別の住所書式規則を取得する
+          href: get-market-specific-validation-data.md
+        - name: ドメインが使用できるかどうかを確認する
+          href: verify-domain-availability.md
+        - name: 統合サンドボックスから顧客アカウントを削除する
+          href: delete-a-customer-account-from-the-integration-sandbox.md
+    - name: セキュリティ
+      href: partner-security-requirements.md
+      items:
+        - name: MFA を使用しないポータル要求を取得する
+          href: get-portal-requests-without-mfa.md
+        - name: API 要求のサマリーを取得する
+          href: get-api-request-summary.md
+        - name: API 要求の詳細を取得する
+          href: get-api-request-details.md
+- name: パートナー センター REST API リファレンス
+  href: partner-center-rest-api-reference.md
+  items:
+    - name: パートナー センター REST URL
+      href: partner-center-rest-urls.md
+    - name: パートナー センター REST ヘッダー
+      href: headers.md
+    - name: パートナー センター REST リソース
+      href: partner-center-rest-resources.md
+      items:
+        - name: '[契約]'
+          href: agreement-resources.md
+        - name: 契約のメタデータ
+          href: agreement-metadata-resources.md
+        - name: 契約文書のリソース (プレビュー)
+          href: agreement-document-resources.md
+        - name: 顧客契約の直接署名 (直接受け入れ) の状態
+          href: customer-agreement-direct-sign-status-resource.md
+        - name: Analytics
+          href: analytics-resources.md
+        - name: 監査
+          href: auditing-resources.md
+        - name: Azure 価格カード
+          href: azure-rate-card-resources.md
+        - name: Azure 使用率レコード
+          href: azure-utilization-record-resources.md
+        - name: カート
+          href: cart-resources.md
+        - name: コンバージョン
+          href: conversions-resources.md
+        - name: 国別情報
+          href: country-information-resources.md
+        - name: Customer
+          href: customer-resources.md
+        - name: 顧客の使用状況
+          href: customer-usage-resources.md
+        - name: デバイスの展開
+          href: device-deployment-resources.md
+        - name: Entitlement
+          href: entitlement-resources.md
+        - name: 請求書
+          href: invoice-resources.md
+        - name: ライセンス
+          href: license-resources.md
+        - name: 管理されたサービス
+          href: managed-service-resources.md
+        - name: プラン
+          href: offer-resources.md
+        - name: Order
+          href: order-resources.md
+        - name: プロファイル
+          href: profile-resources.md
+        - name: 製品
+          href: product-resources.md
+        - name: リレーションシップ
+          href: relationships-resources.md
+        - name: セルフ サービス ポリシー
+          href: self-serve-policy-resources.md
+        - name: サービスのコスト
+          href: service-costs-resources.md
+        - name: サービス リクエスト
+          href: service-request-resources.md
+        - name: サブスクリプション
+          href: subscription-resources.md
+        - name: サブスクリプションの使用状況
+          href: subscription-usage-resources.md
+        - name: アップグレード
+          href: upgrade-resources.md
+        - name: User
+          href: user-resources.md
+        - name: ユーティリティ リソース
+          href: utility-resources.md
+    - name: パートナー センター REST エラー コード
+      href: error-codes.md
+    - name: パートナー センター REST イベント
+      href: partner-center-webhook-events.md
+    - name: パートナー センターでサポートされている言語とロケール
+      href: partner-center-supported-languages-and-locales.md
+    - name: パートナー センター Webhook
+      href: partner-center-webhooks.md
+- name: パートナー センターのマネージド .NET API リファレンス
+  href: 'https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest'
+  items:
+    - name: パートナー センターの .NET API バージョンのリリース ノート
+      href: dotnet-release-notes.md
+- name: パートナー センターの Java API リファレンス
+  href: 'https://docs.microsoft.com/java/partnercenter'
+- name: パートナー センターの PowerShell コマンド
+  href: 'https://docs.microsoft.com/powershell/partnercenter'
