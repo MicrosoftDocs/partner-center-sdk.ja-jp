@@ -4,12 +4,12 @@ description: パートナーセンター Api を使用して、指定された�
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2a74029e1125616edf7a3be96d9f635dad56927c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7a18163cbbfd67bc9f4cc1ac08bad50eb5a083e2
+ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096899"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937902"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Invoice 未請求の商業消費明細項目を取得する
 
@@ -40,11 +40,11 @@ ms.locfileid: "86096899"
 
 **Invoice オブジェクト**には、指定した請求書のすべての情報が含まれています。 **プロバイダー**は、未請求詳細情報のソース (たとえば、 **OneTime**) を識別します。 **InvoiceLineItemType**は、型 (たとえば、 **UsageLineItem**) を指定します。
 
-次のコード例では、 **foreach**ループを使用して、 **InvoiceLineItems**コレクションを処理します。 **InvoiceLineItemType**ごとに、個別の行項目のコレクションが取得されます。
+次のコード例では、 **foreach** ループを使用して、 **InvoiceLineItems** コレクションを処理します。 **InvoiceLineItemType**ごとに、個別の行項目のコレクションが取得されます。
 
 **InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
-1. インスタンスの**プロバイダー**と**InvoiceLineItemType**を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)メソッドに渡します。
+1. インスタンスの **プロバイダー** と **InvoiceLineItemType** を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) メソッドに渡します。
 
 2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
 3. 次の例に示すように、列挙子を作成してコレクションを走査します。
@@ -108,7 +108,7 @@ while (fetchNext)
 同様の例については、次を参照してください。
 
 - サンプル: [コンソール テスト アプリ](console-test-app.md)
-- プロジェクト:**パートナーセンター SDK のサンプル**
+- プロジェクト: **パートナーセンター SDK のサンプル**
 - クラス: **GetUnBilledConsumptionReconLineItemsPaging.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -127,14 +127,14 @@ while (fetchNext)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | Type   | 必須 | 説明                                                                     |
+| Name                   | 種類   | 必須 | 説明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
 | provider               | string | はい      | プロバイダー: "**OneTime**"。                                                |
 | invoice-line-item-type | string | はい      | 請求書の詳細の種類: "**UsageLineItems**"、"**UsageLineItems**"。               |
 | currencyCode           | string | はい      | 未請求の品目の通貨コード。                                  |
-| 前期                 | string | はい      | 未請求偵察の期間 (例: **current**, **previous**)。                      |
+| 前期                 | string | はい      | 未請求偵察の期間 (例: **current**, **previous**)。<br/><br/>[**前へ**] –請求サイクルが 01/01/2020 ~ 01/31/2020 の場合、通常、請求書は02/06/2020 と02/08/2020 の UTC 時間の間に生成されます。 02/01/2020 と請求書によって生成された日付 (02/06/2020 と 02/08/2020 UTC 時刻) の間に、請求サイクルの未請求使用状況データ (01/01/2020 ~ 01/31/2020) を照会する必要がある場合は、[前] として [期間] を選択する必要があります。<br/><br/>**Current** –請求サイクルが 01/01/2020 ~ 01/31/2020 である場合、通常、請求書は02/06/2020 と02/08/2020 の UTC 時間の間に生成されます。 請求サイクル内の01/01/2020 から01/31/2020 までの任意の時間に、請求サイクル (01/01/2020 ~ 01/31/2020) の未請求使用状況データを照会する必要がある場合は、[現在] として [期間] を選択する必要があります。 |
 | size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000です。                    |
-| seekOperation          | 文字列 | No       | を設定し `seekOperation=Next` て、調整行項目の次のページを取得します。                |
+| seekOperation          | string | いいえ       | を設定し `seekOperation=Next` て、調整行項目の次のページを取得します。                |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -148,7 +148,7 @@ while (fetchNext)
 
 成功した場合、応答には行項目の詳細のコレクションが含まれます。
 
-*行項目**ChargeType**の場合、**購入**した値は**新規**にマップされ、値の**返金**は**キャンセル**にマップされます。*
+*行項目 **ChargeType**の場合、 **購入** した値は **新規** にマップされ、値の **返金** は **キャンセル**にマップされます。*
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -162,7 +162,7 @@ while (fetchNext)
 
 - **プロバイダー**: **OneTime**
 - **InvoiceLineItemType**: **UsageLineItems**
-- **期間**:**前へ**
+- **期間**: **前へ**
 
 #### <a name="request-example-1"></a>要求の例1
 
@@ -336,8 +336,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 - **プロバイダー**: **OneTime**
 - **InvoiceLineItemType**: **UsageLineItems**
-- **期間**:**前へ**
-- **Seekoperation**:**次**
+- **期間**: **前へ**
+- **Seekoperation**: **次**
 
 #### <a name="request-example-2"></a>要求の例2
 

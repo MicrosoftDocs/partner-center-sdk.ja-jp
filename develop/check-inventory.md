@@ -4,12 +4,12 @@ description: 特定のカタログ項目のセットの在庫を確認します�
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c0860c4840df6924ffb8e222b79efa28fa33d9ea
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b3b08dab42b74de9f5bcb23ad8acfcdb5aaca383
+ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096446"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937872"
 ---
 # <a name="check-inventory"></a>インベントリの確認
 
@@ -25,11 +25,11 @@ ms.locfileid: "86096446"
 
 - 1つまたは複数の製品 Id。 必要に応じて、SKU Id を指定することもできます。
 
-- 指定された製品/SKU ID によって参照されている SKU のインベントリを確認するために必要な追加のコンテキスト。 これらの要件は、製品/SKU の種類によって異なる場合があり、 [sku の](product-resources.md#sku) **InventoryVariables**プロパティから決定できます。
+- 指定された製品/SKU ID によって参照されている SKU のインベントリを確認するために必要な追加のコンテキスト。 これらの要件は、製品/SKU の種類によって異なる場合があり、 [sku の](product-resources.md#sku) **InventoryVariables** プロパティから決定できます。
 
 ## <a name="c"></a>C\#
 
-インベントリを確認するには、チェックする項目ごとに[InventoryItem](product-resources.md#inventoryitem)オブジェクトを使用して[InventoryCheckRequest](product-resources.md#inventorycheckrequest)オブジェクトを作成します。 次に、 **iaggregatepartner.customers**アクセサーを使用して、**製品**にスコープを適用し、 **bycountry ()** メソッドを使用して国を選択します。 最後に、 **InventoryCheckRequest**オブジェクトを使用して**checkinventory ()** メソッドを呼び出します。
+インベントリを確認するには、チェックする項目ごとに[InventoryItem](product-resources.md#inventoryitem)オブジェクトを使用して[InventoryCheckRequest](product-resources.md#inventorycheckrequest)オブジェクトを作成します。 次に、 **iaggregatepartner.customers** アクセサーを使用して、 **製品** にスコープを適用し、 **bycountry ()** メソッドを使用して国を選択します。 最後に、 **InventoryCheckRequest**オブジェクトを使用して**checkinventory ()** メソッドを呼び出します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -66,7 +66,7 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 次のクエリパラメーターを使用して、インベントリを確認します。
 
-| 名前                   | Type     | 必須 | Description                                                     |
+| Name                   | 種類     | 必須 | 説明                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | 国-コード           | string   | はい      | 国/地域 ID。                                            |
 
@@ -95,21 +95,14 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には、制限の詳細が設定されている[InventoryItem](product-resources.md#inventoryitem)オブジェクトのコレクションが含まれます (該当する場合)。
+成功した場合、応答本文には、制限の詳細が設定されている [InventoryItem](product-resources.md#inventoryitem) オブジェクトのコレクションが含まれます (該当する場合)。
 
 >[!NOTE]
 >入力 InventoryItem がカタログに見つからなかった項目を表している場合、その項目は出力コレクションに含まれません。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
-
-このメソッドは、次のエラーコードを返します。
-
-| HTTP 状態コード     | エラー コード   | 説明                                                                                               |
-|----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2001         | 要求本文がありません。                                                                              |
-| 400                  | 400026       | 必要なインベントリコンテキスト項目がありません。                                                             |
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 
