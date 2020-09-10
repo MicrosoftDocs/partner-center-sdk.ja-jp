@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: b83e3ee7189cd0be9201d05d40d8959fa0644f34
-ms.sourcegitcommit: e55d630e82114754c385616be10d179544ad8470
+ms.openlocfilehash: a9fa70f8343ed51b288c1385540a247844e4659a
+ms.sourcegitcommit: b3a8b6db5fee1cb8756b94105f358ed4bc94d3a5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643999"
+ms.locfileid: "89666627"
 ---
 # <a name="api-throttling-guidance"></a>API 調整のガイダンス 
 
@@ -37,9 +37,9 @@ Microsoft は、パートナーセンター API を呼び出しているパー�
 
 ## <a name="best-practices-to-avoid-throttling"></a>調整を回避するためのベストプラクティス 
  
-リソースを継続的にポーリングして更新プログラムを確認したり、リソースコレクションを定期的にスキャンして新規または削除されたリソースを確認するなどのプログラミングプラクティスでは、調整が行われ、全体的なパフォーマンスが低下する可能性があります。 同時実行 API 呼び出しによって、ユニット時間あたりの要求数が多くなり、要求が調整されることもあります。 代わりに、変更の追跡と変更通知を活用する必要があります。 さらに、アクティビティログを利用して変更を検出することもできます。詳細については、「 [パートナーセンターのアクティビティログ](get-a-record-of-paratner-center-activity-by-user.md) 」を参照してください。  効率性を高め、スロットルを回避するために、アクティビティログ API の使用を検討することを強くお勧めします。 後述の「アクティビティログの使用例」も参照してください。
+リソースを継続的にポーリングして更新プログラムを確認したり、リソースコレクションを定期的にスキャンして新規または削除されたリソースを確認するなどのプログラミングプラクティスでは、調整が行われ、全体的なパフォーマンスが低下する可能性があります。 同時実行 API 呼び出しによって、ユニット時間あたりの要求数が多くなり、要求が調整されることもあります。 代わりに、変更の追跡と変更通知を活用する必要があります。 さらに、アクティビティログを利用して変更を検出することもできます。詳細については、「 [パートナーセンターのアクティビティログ](get-a-record-of-partner-center-activity-by-user.md) 」を参照してください。  効率性を高め、スロットルを回避するために、アクティビティログ API の使用を検討することを強くお勧めします。 後述の「アクティビティログの使用例」も参照してください。
 
-## <a name="best-practices-to-avoid-throttling"></a>調整を回避するためのベストプラクティス
+## <a name="best-practices-to-handle-throttling"></a>スロットル処理のベスト プラクティス
 
 調整を処理するためのベストプラクティスを次に示します。 
 
@@ -141,20 +141,20 @@ X-Locale: en-us
 接続: キープアライブ 
 
 **応答**:    
-
+```http
 { 
 
-    "totalCount":17, 
+    "totalCount": 17, 
 
     "items": [ 
 
         { 
 
-            "id": "9daaeb1c-4195-4db5-9f1d 509eb70c8c2d_e905b566-4779-7b1b5312705b_updatecustomeruserlicenses_637346859797753934 4e57-", 
+            "id": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_e905b566-4779-4e57-944c-7b1b5312705b_updatecustomeruserlicenses_637346859797753934", 
 
             "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            "参加者": [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
@@ -162,7 +162,7 @@ X-Locale: en-us
 
             "customerId": "e905b566-4779-4e57-944c-7b1b5312705b", 
 
-            "userPrincipalName": " admin@testsw09.onmicrosoft.com ", 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
             "applicationId": "FulfillmentService", 
 
@@ -170,7 +170,7 @@ X-Locale: en-us
 
             "operationType": "update_customer_user_licenses", 
 
-            "operationDate": "2020-09-02T23:26: 19.7753934 Z", 
+            "operationDate": "2020-09-02T23:26:19.7753934Z", 
 
             "operationStatus": "succeeded", 
 
@@ -178,7 +178,7 @@ X-Locale: en-us
 
                 { 
 
-                    "key": "顧客 Userid", 
+                    "key": "CustomerUserId", 
 
                     "value": "933808c7-b165-496c-a24e-1a4b7846fab4" 
 
@@ -200,7 +200,7 @@ X-Locale: en-us
 
             "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            "参加者": [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
@@ -208,21 +208,21 @@ X-Locale: en-us
 
             "customerId": "86bddccf-9a53-40c6-907c-08067a3f8da7", 
 
-            "様": "CustomMetersStagingTest", 
+            "customerName": "CustomMetersStagingTest", 
 
-            "userPrincipalName": " admin@testsw09.onmicrosoft.com ", 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
             "applicationId": "4990cffe-04e8-4e8b-808a-1175604b879f", 
 
             "resourceType": "order", 
 
-            "resourceNewValue": "{ \" Id \" : \" Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" , \" alternateid \" : \" 64144d300bde \" , \" ReferenceCustomerId \" : \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" , \" cycle \" : \" 毎月 \" , \" CurrencyCode \" : \" USD \" , \" CurrencySymbol \" : \" $ \" , \" LineItems \" : [{ \" lineitemnumber \" : 0、 \" ProvisioningContext \" : null、 \" offerid \" : \" DZH318Z0C964: 0001: DZH318Z0BZDG \" 、 \" SubscriptionId \" : \" f428d44a-d08b-348b-579e-ce92a6362c7b \" 、 \" parentsubscriptionid \" : null、 \" termduration \" : \" P1M \" 、 \" TransactionType \" : \" New \" 、 \" FriendlyName \" : \" SaaS カスタムメータープラン-ブロンズ \" 、 \" Quantity \" : 1、 \" 価格 \" : null、 \" partneridonrecord \" : null、 \" renewsto: \" null、 \" リンク \" : { \" Product \" : { \" Uri \" : \" /products/DZH318Z0C964? country = US \" 、 \" Method \" : \" GET \" 、 \" Body \" : null、 \" Headers \" : []}、 \" Sku \" : { \" Uri \" : \" /products/DZH318Z0C964/skus/0001? country = US \" 、 \" Method \" : \" GET \" 、 \" Body \" : null、 \" Headers \" : []}、 \" Availability \" : { \" Uri \" : \" /products/DZH318Z0C964/skus/0001/availabilities/DZH318Z0BZDG? country = US \" 、 \" Method \" : \" GET \" 、 \" Body \" : null、 \" Headers \" : []}、 \" ActivationLinks \" : { \" Uri \" : \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/lineitems/0/activationlinks\",\"メソッド \" : \" GET \" 、 \" Body \" : null、 \" Headers \" : []}}}]、 \" CreationDate \" : \" 2020-09-02t17:58: 01.7755853 z \" 、 \" Status \" : \" pending \" 、 \" TransactionType \" : \" userpurchase \" 、 \" Links \" : { \" Self \" : { \" Uri \" : \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" 、 \" Method \" : \" GET \" 、 \" Body \" : null、 \" Headers \" : []}、 \" プロビジョニング状態 \" : { \" Uri \" : \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/provisioningstatus \" 、 \" メソッド \" : \" GET \" 、 \" 本文 \" : null、 \" ヘッダー \" : []}、 \" PATCH operation \" : { \" uri \" : \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" 、 \" Method \" : \" PATCH \" 、 \" Body \" : null、 \" Headers \" : []}}、 \" Client \" : { \" marketplaceCountry \" : \" US \" 、 \" deviceFamily \" : \" UniversalStore-partnercenter \" 、 \" name \" : \" Partner center Web \" }、 \" 属性 \" : { \" ObjectType \" : \" Order \" }} "、 
+            "resourceNewValue": "{\"Id\":\"Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"AlternateId\":\"64144d300bde\",\"ReferenceCustomerId\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"BillingCycle\":\"monthly\",\"CurrencyCode\":\"USD\",\"CurrencySymbol\":\"$\",\"LineItems\":[{\"LineItemNumber\":0,\"ProvisioningContext\":null,\"OfferId\":\"DZH318Z0C964:0001:DZH318Z0BZDG\",\"SubscriptionId\":\"f428d44a-d08b-348b-579e-ce92a6362c7b\",\"ParentSubscriptionId\":null,\"TermDuration\":\"P1M\",\"TransactionType\":\"New\",\"FriendlyName\":\"SaaS custom meter offer - Bronze\",\"Quantity\":1,\"Pricing\":null,\"PartnerIdOnRecord\":null,\"RenewsTo\":null,\"Links\":{\"Product\":{\"Uri\":\"/products/DZH318Z0C964?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"Sku\":{\"Uri\":\"/products/DZH318Z0C964/skus/0001?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"Availability\":{\"Uri\":\"/products/DZH318Z0C964/skus/0001/availabilities/DZH318Z0BZDG?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"ActivationLinks\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/lineitems/0/activationlinks\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]}}}],\"CreationDate\":\"2020-09-02T17:58:01.7755853Z\",\"Status\":\"pending\",\"TransactionType\":\"UserPurchase\",\"Links\":{\"Self\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"ProvisioningStatus\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/provisioningstatus\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"PatchOperation\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"Method\":\"PATCH\",\"Body\":null,\"Headers\":[]}},\"Client\":{\"marketplaceCountry\":\"US\",\"deviceFamily\":\"UniversalStore-PartnerCenter\",\"name\":\"Partner Center Web\"},\"Attributes\":{\"ObjectType\":\"Order\"}}", 
 
             "operationType": "create_order", 
 
             "originalCorrelationId": "96514ebe-c1b2-4865-cb46-2c2d20a2e911", 
 
-            "operationDate": "2020-09-02T17:58: 10.9268372 Z", 
+            "operationDate": "2020-09-02T17:58:10.9268372Z", 
 
             "operationStatus": "succeeded", 
 
@@ -246,9 +246,9 @@ X-Locale: en-us
 
                 { 
 
-                    "キー": "単位" サイクル " 
+                    "key": "BillingCycle", 
 
-                    "value": "毎月" 
+                    "value": "Monthly" 
 
                 }, 
 
@@ -256,7 +256,7 @@ X-Locale: en-us
 
                     "key": "OfferId-0", 
 
-                    "value": "DZH318Z0C964: 0001: DZH318Z0BZDG" 
+                    "value": "DZH318Z0C964:0001:DZH318Z0BZDG" 
 
                 }, 
 
@@ -270,9 +270,9 @@ X-Locale: en-us
 
                 { 
 
-                    "key": "SubscriptionName", 
+                    "key": "SubscriptionName-0", 
 
-                    "値": "SaaS カスタムメータープラン-ブロンズ" 
+                    "value": "SaaS custom meter offer - Bronze" 
 
                 }, 
 
@@ -308,7 +308,7 @@ X-Locale: en-us
 
             "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            "参加者": [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
@@ -316,21 +316,21 @@ X-Locale: en-us
 
             "customerId": "86bddccf-9a53-40c6-907c-08067a3f8da7", 
 
-            "様": "CustomMetersStagingTest", 
+            "customerName": "CustomMetersStagingTest", 
 
-            "userPrincipalName": " admin@testsw09.onmicrosoft.com ", 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
             "applicationId": "4990cffe-04e8-4e8b-808a-1175604b879f", 
 
             "resourceType": "customer", 
 
-            "resourceNewValue": "{ \" Id \" : \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" , \" CommerceId \" : \" 9dd78b4f氏 f98a47 4b4-a2fa25 b82ac58d24c \" , 会社の \" プロファイル \" : { \" TenantId \" : \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" 、 \" ドメイン \" : \" CustomMetersStagingTest.onmicrosoft.com \" 、 \" CompanyName \" : \" CustomMetersStagingTest \" 、 \" アドレス \" : null、 \" 電子メール \" : null、組織の \" registrationnumber \" : null、 \" リンク \" : { \" Self \" : { \" Uri \" : \" /customers/86bddccf-9a53-40c6-907c-08067a3f8da7/profiles/company \" 、 \" Method \" : \" GET \" 、 \" Body \" : null、Headers: \" \" []}}、 \" 属性 \" : { \" ObjectType \" : \" \" \" \" \" \" \" 4beafd7b-cdab-5bdc-52ed-02e16edf2e7a \" , \" FirstName \" : \" CustomMetersStagingTest \" 、 \" LastName \" : \" CustomMetersStagingTest \" 、 \" Email \" : \" CustomMetersStagingTest@CustomMetersStagingTest.com \" 、 \" Culture \" : \" en-us \" 、 \" Language \" : \" en \" 、 \" CompanyName \" : \" CustomMetersStagingTest \" 、 \" defaultaddress \" : { \" Id \" : null、 \" Country \" : \" US \" 、 \" Region \" : null、 \" City \" : \" Seattle \" 、 \" State \" : \" WA \" 、 \" 学区 \" : null、 \" AddressLine1 \" : \" CustomMetersStagingTest \" 、 \" AddressLine2 \" : null、 \" AddressLine3 \" : null、郵便番号 \" \" : \" 98122 \" 、 \" FirstName \" : \" CustomMetersStagingTest \" 、 \"LastName \" : \" CustomMetersStagingTest \" , \" EmailAddress \" : null, \" PhoneNumber \" : null, \" MiddleName \" : null}, \" 属性 \" : { \" Etag \" : \" -2279334701316321663 \" , \" ObjectType \" : 顧客の " \" \" }, \" relationshiptopartner \" : \" リセラー \" , \" AllowDelegatedAccess \" : true, \" usercredentials \" : { \" userName \" : \" admin \" , \" password \" : \" \" }, \" AssociatedPartnerId \" : null, \" customdomains \" : null, \" Attributes \" : { \" ObjectType \" : \" Customer \" }}", 
+            "resourceNewValue": "{\"Id\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"CommerceId\":\"9dd78b4f-f98a-44b4-a2fa-2b82ac58d24c\",\"CompanyProfile\":{\"TenantId\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"Domain\":\"CustomMetersStagingTest.onmicrosoft.com\",\"CompanyName\":\"CustomMetersStagingTest\",\"Address\":null,\"Email\":null,\"OrganizationRegistrationNumber\":null,\"Links\":{\"Self\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/profiles/company\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]}},\"Attributes\":{\"ObjectType\":\"CustomerCompanyProfile\"}},\"BillingProfile\":{\"Id\":\"4beafd7b-cdab-5bdc-52ed-02e16edf2e7a\",\"FirstName\":\"CustomMetersStagingTest\",\"LastName\":\"CustomMetersStagingTest\",\"Email\":\"CustomMetersStagingTest@CustomMetersStagingTest.com\",\"Culture\":\"en-US\",\"Language\":\"en\",\"CompanyName\":\"CustomMetersStagingTest\",\"DefaultAddress\":{\"Id\":null,\"Country\":\"US\",\"Region\":null,\"City\":\"Seattle\",\"State\":\"WA\",\"District\":null,\"AddressLine1\":\"CustomMetersStagingTest\",\"AddressLine2\":null,\"AddressLine3\":null,\"PostalCode\":\"98122\",\"FirstName\":\"CustomMetersStagingTest\",\"LastName\":\"CustomMetersStagingTest\",\"EmailAddress\":null,\"PhoneNumber\":null,\"MiddleName\":null},\"Attributes\":{\"Etag\":\"-2279334701316321663\",\"ObjectType\":\"CustomerBillingProfile\"}},\"RelationshipToPartner\":\"reseller\",\"AllowDelegatedAccess\":true,\"UserCredentials\":{\"userName\":\"admin\",\"password\":\"\"},\"AssociatedPartnerId\":null,\"CustomDomains\":null,\"Attributes\":{\"ObjectType\":\"Customer\"}}", 
 
             "operationType": "add_customer", 
 
             "originalCorrelationId": "7550d9ea-e64a-416f-e49b-3670c516cf69", 
 
-            "operationDate": "2020-09-02T17:34: 12.8069005 Z", 
+            "operationDate": "2020-09-02T17:34:12.8069005Z", 
 
             "operationStatus": "succeeded", 
 
@@ -348,7 +348,7 @@ X-Locale: en-us
 
                     "key": "Relationship", 
 
-                    "値": "再販業者" 
+                    "value": "Reseller" 
 
                 } 
 
@@ -368,11 +368,11 @@ X-Locale: en-us
 
     ], 
 
-    "リンク": { 
+    "links": { 
 
         "self": { 
 
-            "uri": "/auditrecords? startDate = 2020-09-02&endDate = 2020-09-02&size = 50", 
+            "uri": "/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50", 
 
             "method": "GET", 
 
@@ -389,7 +389,7 @@ X-Locale: en-us
     } 
 
 } 
-
+```
  
 
   
