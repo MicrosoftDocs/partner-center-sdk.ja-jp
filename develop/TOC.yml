@@ -19,6 +19,8 @@
           href: console-test-app.md
     - name: パートナー センターでの API アクセスの設定
       href: set-up-api-access-in-partner-center.md
+    - name: API 調整のガイダンス
+      href: api-throttling-guidance.md
     - name: パートナー センターの認証
       href: partner-center-authentication.md
     - name: セキュリティで保護されたアプリケーション モデルを有効にする
