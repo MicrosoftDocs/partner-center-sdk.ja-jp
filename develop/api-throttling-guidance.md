@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: a9fa70f8343ed51b288c1385540a247844e4659a
-ms.sourcegitcommit: b3a8b6db5fee1cb8756b94105f358ed4bc94d3a5
+ms.openlocfilehash: a3cdc238de6cd89a4542e9b7b54a9b22aca87e7a
+ms.sourcegitcommit: da2a0ef7f8525ea6f547079827a4f7f0b7b5ee97
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89666627"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023221"
 ---
 # <a name="api-throttling-guidance"></a>API 調整のガイダンス 
 
@@ -75,7 +75,7 @@ Microsoft は、パートナーセンター API を呼び出しているパー�
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/azureEntitlements|サブスクリプションに対する azure の権利の一覧を取得する|    
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|注文を作成する|     
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/registrationstatus|サブスクリプション登録状態の取得|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|サブスクリプションを移行する|          
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|サブスクリプションを移行する|      
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/transfers|すべてのお客様の譲渡|   
 |https://api.partnercenter.microsoft.com/v1/productUpgrades/{upgrade-id}/status|製品のアップグレード状態の取得| 
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|id で注文を取得する|           
@@ -85,10 +85,8 @@ Microsoft は、パートナーセンター API を呼び出しているパー�
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|カートを更新する|  
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|サブスクリプションを登録する|  
 |https://api.partnercenter.microsoft.com/v1/productupgrades|製品のアップグレードエンティティの作成|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|
-試用版変換プランの一覧を取得する|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|
-試用版サブスクリプションを有料に変換する|   
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|試用版変換プランの一覧を取得する|  
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|試用版サブスクリプションを有料に変換する|   
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}|id で顧客を取得する|
 
 ### <a name="error-code-response"></a>エラーコードの応答:
@@ -123,22 +121,23 @@ Operationtype/リソースの一覧については、以下の API ドキュメ�
 ### <a name="response-example"></a>応答の例
 
 **要求**:  
+```http
+Http Get call:  https://api.partnercenter.microsoft.com/v1/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50 
 
-Http Get 呼び出し: https://api.partnercenter.microsoft.com/v1/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50 
-
-承認: ベアラー <token> 
+Authorization: Bearer <token> 
 
 Accept: application/json 
 
 MS-RequestId: 127facaa-e389-41f8-8bb7-1d1af99db893 
 
-MS CorrelationId: de9c2ccc-40dd-4186-9660-65b9b64c3d14 
+MS-CorrelationId: de9c2ccc-40dd-4186-9660-65b9b64c3d14 
 
-X-Locale: en-us 
+X-Locale: en-US 
 
-ホスト: api.partnercenter.microsoft.com 
+Host: api.partnercenter.microsoft.com 
 
-接続: キープアライブ 
+Connection: Keep-Alive 
+```
 
 **応答**:    
 ```http
