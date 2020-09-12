@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: a3cdc238de6cd89a4542e9b7b54a9b22aca87e7a
-ms.sourcegitcommit: da2a0ef7f8525ea6f547079827a4f7f0b7b5ee97
+ms.openlocfilehash: 2531312e5f34a0c35220f009d7aa156331beee43
+ms.sourcegitcommit: aa7b12e0156404f64f576e09971ea3deb3529231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023221"
+ms.locfileid: "90037507"
 ---
 # <a name="api-throttling-guidance"></a>API 調整のガイダンス 
 
@@ -19,7 +19,7 @@ ms.locfileid: "90023221"
 
 - パートナー センター
 
-Microsoft は、パートナーセンター API を呼び出しているパートナーの期間内で、より一貫したパフォーマンスを実現するために API 調整を実装しています。 スロットルでは、リソースが過剰に活用されるのを防ぐために、サービスに対する要求の数を時間単位で制限します。 パートナーセンターは大量の要求を処理するように設計されていますが、少数のパートナーから膨大な数の要求が発生した場合、調整によって、すべてのパートナーにとって最適なパフォーマンスと信頼性を維持できます。  
+Microsoft は、パートナーセンター Api を呼び出しているパートナーの期間内で、より一貫したパフォーマンスを実現するために API 調整を実装しています。 スロットルでは、リソースが過剰に活用されるのを防ぐために、サービスに対する要求の数を時間単位で制限します。 パートナーセンターは大量の要求を処理するように設計されていますが、少数のパートナーから膨大な数の要求が発生した場合、調整によって、すべてのパートナーにとって最適なパフォーマンスと信頼性を維持できます。  
 
 スロットルの制限は、シナリオによって異なります。 たとえば大量の書き込みを実行している場合、読み取りだけを実行している場合と比べて、スロットルの余地は大きくなります。
 
@@ -57,52 +57,41 @@ Microsoft は、パートナーセンター API を呼び出しているパー�
 
 3. 429エラーコードによって要求が再度失敗した場合は、まだ調整されています。 指数バックオフを使用して再試行し、推奨される再試行後の遅延を使用して、要求が成功するまで再試行します。
 
-## <a name="apis-currently-impacted-by-throttling"></a>API は現在調整の影響を受けています
+## <a name="apis-currently-impacted-by-throttling"></a>調整によって現在影響を受けている Api
 
-長時間実行では、エンドポイント "api.partnercenter.microsoft.com/" を呼び出す単一のパートナーセンター API がすべて調整されます。 現時点では、スロットルの制限は、以下に示すいくつかの API にのみ適用されます。 パートナーセンターは、各 API のテレメトリを収集し、調整制限を動的に調整します。 次の表に、スロットルが現在適用されている API の一覧を示します。  
+長時間実行では、エンドポイント "api.partnercenter.microsoft.com/" を呼び出すすべてのパートナーセンター API が調整されます。 現時点では、スロットルの制限は、以下に示すいくつかの Api にのみ適用されます。 パートナーセンターは、各 Api でテレメトリを収集し、調整制限を動的に調整します。 次の表に、スロットルが現在適用されている Api の一覧を示します。  
 
 
 |**操作**| **パートナー センターのドキュメント**|       
 |------------------------|----------------------------|
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions|すべてのユーザー-s-s-サブスクリプション|    
-|https://api.partnercenter.microsoft.com/v1/productUpgrades/eligibility|利用資格-製品-アップグレード|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}|id でサブスクリプションを取得する|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|すべての顧客の注文を取得する|     
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|id で注文を取得する|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}/provisioningstatus|サブスクリプションのプロビジョニング状態の取得|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}|注文の管理とサブスクリプションの管理|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/addons|サブスクリプションのアドオンの一覧を取得する|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/azureEntitlements|サブスクリプションに対する azure の権利の一覧を取得する|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|注文を作成する|     
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/registrationstatus|サブスクリプション登録状態の取得|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|サブスクリプションを移行する|      
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/transfers|すべてのお客様の譲渡|   
-|https://api.partnercenter.microsoft.com/v1/productUpgrades/{upgrade-id}/status|製品のアップグレード状態の取得| 
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|id で注文を取得する|           
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/orders/{order-id}|サブスクリプションへのアドオンを購入する|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|カートを作成する|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}/checkout|カートをチェックアウトする|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|カートを更新する|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|サブスクリプションを登録する|  
-|https://api.partnercenter.microsoft.com/v1/productupgrades|製品のアップグレードエンティティの作成|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|試用版変換プランの一覧を取得する|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|試用版サブスクリプションを有料に変換する|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}|id で顧客を取得する|
+|{baseURL}/v1/customers/{customer_id}/orders|[注文を作成する](create-an-order.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|[サブスクリプションを移行する](transition-a-subscription.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/orders/{order-id}|[サブスクリプションへのアドオンを購入する](purchase-an-add-on-to-a-subscription.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[カートを作成する](create-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}/checkout|[カートをチェックアウトする](checkout-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[カートを更新する](update-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|[サブスクリプションを登録する](register-a-subscription.md)|
+|{baseURL}/v1/productupgrades|[製品のアップグレードエンティティの作成](create-product-upgrade-entity.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions |[試用版サブスクリプションを有料に変換する](convert-a-trial-subscription-to-paid.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}|[id で顧客を取得する](get-a-customer-by-id.md)|
+|{baseURL}/v1/productUpgrades/eligibility|[製品のアップグレードの資格を取得する](get-eligibility-for-product-upgrade.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} |[サブスクリプションの管理](manage-orders.md#manage-a-subscription)|
+
 
 ### <a name="error-code-response"></a>エラーコードの応答:
+```http
+HTTP/1.1 429 Too Many Requests 
 
-HTTP/1.1 429 要求が多すぎます 
+Content-Length: 84 
 
-Content-length:84 
+Content-Type: application/json 
 
-Content-Type, application/json 
+Retry-After: 57 
 
-再試行-後:57 
+Date: Tue, 21 Jul 2020 04:10:58 GMT 
 
-日付: 火曜日、21月 2020 04:10:58 GMT 
-
-{"statusCode": 429, "message": "レート制限を超えました。 57秒後にもう一度やり直してください。 " } 
-
+{ "statusCode": 429, "message": "Rate limit is exceeded. Try again in 57 seconds." } 
+```
 
 ## <a name="example-of-activity-log"></a>アクティビティログの例
 
