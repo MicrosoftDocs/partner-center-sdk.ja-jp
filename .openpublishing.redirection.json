@@ -180,5 +180,15 @@
       "redirect_url": "confirm-customer-consent-customer-agreement",
       "redirect_document_id": true
     },
+    {
+      "source_path": "develop/create-a-service-request-.md",
+      "redirect_url": "https://docs.microsoft.com/partner-center/develop/dotnet-release-notes#version-1162",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "develop/get-service-request-support-topics--pending-.md",
+      "redirect_url": "https://docs.microsoft.com/partner-center/develop/dotnet-release-notes#version-1162",
+      "redirect_document_id": false
+    }
   ]
 }
