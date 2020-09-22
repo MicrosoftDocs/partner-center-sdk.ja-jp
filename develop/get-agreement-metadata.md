@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 909dec77dd189005839d72caeb0e66a7ad5c8a1b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c6a404eb38c4c31d3e69bb598872b932d8985529
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097151"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927212"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Microsoft Cloud 契約の契約メタデータを取得する
 
@@ -25,7 +25,7 @@ ms.locfileid: "86097151"
 > - Microsoft Cloud ドイツのパートナー センター
 > - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 - パートナーセンター .NET SDK を使用している場合は、バージョン1.9 以降が必要です。
 
@@ -37,11 +37,11 @@ ms.locfileid: "86097151"
 
 Microsoft Cloud Agreement のアグリーメントメタデータを取得するには:
 
-1. まず、 **AgreementDetails**コレクションを取得します。
+1. まず、 **AgreementDetails** コレクションを取得します。
 
 2. **ByAgreementType**メソッドを呼び出して、コレクションを Microsoft Cloud Agreement にフィルター処理します。
 
-3. 最後に、 **Get**または**GetAsync**メソッドを呼び出します。
+3. 最後に、 **Get** または **GetAsync** メソッドを呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -57,7 +57,7 @@ var microsoftCloudAgreementDetails = partnerOperations.AgreementDetails.ByAgreem
 
 Microsoft Cloud Agreement のアグリーメントメタデータを取得するには:
 
-まず**Iaggregatepartner.customers AgreementDetails**コレクションを取得し、 **Get**または**GetAsync**メソッドを呼び出します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
+まず **Iaggregatepartner.customers AgreementDetails** コレクションを取得し、 **Get** または **GetAsync** メソッドを呼び出します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -73,7 +73,7 @@ AgreementMetaData microsoftCloudAgreement = agreements.Items.FirstOrDefault (agr
 
 Microsoft Cloud Agreement のアグリーメントメタデータを取得するには:
 
-まず、 **iaggregatepartner.customers**関数を呼び出し、次に**get**関数を呼び出します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
+まず、 **iaggregatepartner.customers** 関数を呼び出し、次に **get** 関数を呼び出します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -99,7 +99,7 @@ for (AgreementMetaData metadata : agreements)
 
 Microsoft Cloud Agreement のアグリーメントメタデータを取得するには:
 
-[**PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/get-partneragreementdetail)コマンドを使用します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
+[**PartnerAgreementDetail**](/powershell/module/partnercenter/get-partneragreementdetail)コマンドを使用します。 次に、コレクション内の項目を検索します。これは Microsoft Cloud アグリーメントに対応しています。
 
 ```powershell
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
@@ -107,7 +107,7 @@ Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudA
 
 ## <a name="rest-request"></a>REST 要求
 
-Microsoft Cloud Agreement のアグリーメントメタデータを取得するには、まず REST 要求を作成して**AgreementMetaData** collection を取得します。 次に、Microsoft Cloud Agreement に対応するコレクション内の項目を検索します。
+Microsoft Cloud Agreement のアグリーメントメタデータを取得するには、まず REST 要求を作成して **AgreementMetaData** collection を取得します。 次に、Microsoft Cloud Agreement に対応するコレクション内の項目を検索します。
 
 ### <a name="request-syntax"></a>要求の構文
 
@@ -135,7 +135,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**AgreementMetaData**リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で **AgreementMetaData** リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -172,4 +172,4 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-応答で Microsoft Cloud アグリーメントに対応するリソースを特定するには、 **agreementType**プロパティの値が "Microsoft cloudagreement" であるリソースを探します。
+応答で Microsoft Cloud アグリーメントに対応するリソースを特定するには、 **agreementType** プロパティの値が "Microsoft cloudagreement" であるリソースを探します。

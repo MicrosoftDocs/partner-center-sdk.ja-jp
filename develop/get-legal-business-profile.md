@@ -4,12 +4,12 @@ description: パートナーの法的ビジネスプロファイルを取得す�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 27ee41a9b7ac3586c13f3675d8b688ab52103fca
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1c1b326e53211e875f74f16160a1ba45332ef4e9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096820"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927545"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>パートナーの法的ビジネス プロファイルを取得する
 
@@ -28,7 +28,7 @@ ms.locfileid: "86096820"
 
 ## <a name="c"></a>C\#
 
-パートナーの法的ビジネスプロファイルを取得するには、まず、 **iaggregatepartner.customers**プロパティからパートナープロファイル操作のコレクションへのインターフェイスを取得します。 次に、 **LegalBusinessProfile**プロパティの値を取得して、法的ビジネスプロファイル操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync)メソッドを呼び出して、プロファイルを取得します。
+パートナーの法的ビジネスプロファイルを取得するには、まず、 **iaggregatepartner.customers** プロパティからパートナープロファイル操作のコレクションへのインターフェイスを取得します。 次に、 **LegalBusinessProfile** プロパティの値を取得して、法的ビジネスプロファイル操作へのインターフェイスを取得します。 最後に、[**Get**/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get)] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync] メソッドを呼び出して、プロファイルを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,7 +36,7 @@ ms.locfileid: "86096820"
 var billingProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetLegalBusinessProfile.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetLegalBusinessProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -69,7 +69,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**LegalBusinessProfile**オブジェクトを返します。
+成功した場合、このメソッドは応答本文で **LegalBusinessProfile** オブジェクトを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

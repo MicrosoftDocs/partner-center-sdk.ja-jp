@@ -4,12 +4,12 @@ description: 指定された請求期間の顧客のサービスコストを取�
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bdcfd2273b8af37680b4aff7821d773a0f417688
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 635e61342e13c3676120ec0df02f1e8bffda64ac
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098315"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927755"
 ---
 # <a name="get-a-customers-service-costs-summary"></a>顧客のサービス コストの概要を取得する
 
@@ -31,13 +31,13 @@ ms.locfileid: "86098315"
 
 指定された顧客のサービスコストの概要を取得するには:
 
-1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。
+1. 顧客 ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、顧客を識別します。
 
-2. [**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts)プロパティを使用して、顧客サービスコストの収集操作へのインターフェイスを取得します。
+2. [**ServiceCosts**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts)プロパティを使用して、顧客サービスコストの収集操作へのインターフェイスを取得します。
 
-3. [**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod)列挙体のメンバーを使用して[**By の期間**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod)メソッドを呼び出し、 [**IServiceCostsCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection)を返します。
+3. [**ServiceCostsBillingPeriod**](/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod)列挙体のメンバーを使用して[**By の期間**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod)メソッドを呼び出し、 [**IServiceCostsCollection**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection)を返します。
 
-4. [**IServiceCostsCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.getasync)メソッドを使用して、顧客のサービスコストの概要を取得します。
+4. [**IServiceCostsCollection**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.get)または[**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostsummary.getasync)メソッドを使用して、顧客のサービスコストの概要を取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -58,9 +58,9 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次のパスパラメーターを使用して、顧客と請求期間を識別します。
 
-| 名前           | Type   | 必須 | 説明                                                                                                                      |
+| 名前           | 種類   | 必須 | 説明                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| customer-id    | guid   | はい      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
+| customer-id    | guid   | Yes      | 顧客を識別する GUID 形式の顧客 ID。                                                                       |
 | billing-period | string | はい      | 請求期間を表すインジケーター。 サポートされている値は MostRecent のみです。 文字列の大文字と小文字の区別は関係ありません。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
@@ -85,7 +85,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には、サービスのコストに関する情報を提供する[ServiceCostsSummary](service-costs-resources.md)リソースが含まれます。
+成功した場合、応答本文には、サービスのコストに関する情報を提供する [ServiceCostsSummary](service-costs-resources.md) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

@@ -4,12 +4,12 @@ description: 顧客に送信するリレーションシップ要求 URL を取�
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 90a749b7bb4e78391831aed162857d55e028158a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 32aaad7d5935971f8d06331bd023d7cdb8f7195f
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096702"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926743"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>関係要求 URL を取得する
 
@@ -27,7 +27,7 @@ ms.locfileid: "86096702"
 
 ## <a name="c"></a>C\#
 
-リレーションシップ要求 URL を取得するには、まず Iaggregatepartner.customers を使用して、パートナーの顧客の操作へのインターフェイスを取得します[**。**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) 次に、 [**relationshiprequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest)プロパティを使用して、顧客関係要求操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync)メソッドを呼び出して URL を取得します。
+リレーションシップ要求 URL を取得するには、最初に [**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) を使用して、パートナーの顧客の操作へのインターフェイスを取得します。 次に、[**relationshiprequest**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) プロパティを使用して、顧客関係要求操作へのインターフェイスを取得します。 最後に、[**Get**/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get)] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync] メソッドを呼び出して URL を取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -35,7 +35,7 @@ ms.locfileid: "86096702"
 var customerRelationshipRequest = partnerOperations.Customers.RelationshipRequest.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetCustomerRelationshipRequest.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetCustomerRelationshipRequest.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -68,7 +68,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答には[Relationshiprequest](relationships-resources.md#relationshiprequest)オブジェクトが含まれます。
+成功した場合、応答には [Relationshiprequest](relationships-resources.md#relationshiprequest) オブジェクトが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

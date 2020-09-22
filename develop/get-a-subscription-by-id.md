@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 531d7a7adb6f987859dfcc4c42831ebb633495de
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a789fa1ce5db6371fbea223ac4e69252fab38d92
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097965"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927267"
 ---
 # <a name="get-a-subscription-by-id"></a>ID でサブスクリプションを取得する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86097965"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-顧客 ID とサブスクリプション ID に一致する[サブスクリプション](subscription-resources.md)リソースを取得します。
+顧客 ID とサブスクリプション ID に一致する [サブスクリプション](subscription-resources.md) リソースを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -34,7 +34,7 @@ ms.locfileid: "86097965"
 
 ## <a name="c"></a>C\#
 
-ID でサブスクリプションを取得するには、まずサブスクリプション操作へのインターフェイスを取得します。そのためには、顧客 ID を指定して ById メソッドを呼び出し、サブスクリプションを識別する[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)します。 この[**インターフェイス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription)を使用して、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get)を呼び出してサブスクリプションの詳細を取得します。
+ID でサブスクリプションを取得するには、まず、顧客を識別するための顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、サブスクリプションを識別するための [**ById**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出して、サブスクリプション操作へのインターフェイスを取得します。 [**インターフェイス**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) を使用して、[**Get**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get] を呼び出してサブスクリプションの詳細を取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,7 +44,7 @@ ID でサブスクリプションを取得するには、まずサブスクリ�
 var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(subscriptionID).Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetSubscription.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetSubscription.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -58,7 +58,7 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| 名前                    | Type     | 必須 | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **id-for-subscription** | **guid** | Y        | サブスクリプションに対応する GUID。 |
@@ -85,7 +85,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[サブスクリプション](subscription-resources.md)リソースを返します。
+成功した場合、このメソッドは応答本文で [サブスクリプション](subscription-resources.md) リソースを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

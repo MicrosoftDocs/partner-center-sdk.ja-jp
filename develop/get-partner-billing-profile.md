@@ -4,12 +4,12 @@ description: パートナーの請求プロファイルを表すオブジェク�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5d0b8aaf904f3f4fd63e508d0c18756c2b9c5492
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6f23c8dfeac6268d0a9ff1e67a5bf913b4070fa9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095227"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927064"
 ---
 # <a name="get-partner-billing-profile"></a>パートナーの請求プロファイルを取得する
 
@@ -28,7 +28,7 @@ ms.locfileid: "86095227"
 
 ## <a name="c"></a>C\#
 
-パートナーの請求プロファイルを取得するには、Iaggregatepartner.customers コレクションを使用して、" **IAggregatePartner.Profiles** "**プロファイル**プロパティを呼び出します。 最後に、 [**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get)メソッドまたは[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync)メソッドを呼び出します。
+パートナーの請求プロファイルを取得するには、Iaggregatepartner.customers コレクションを使用して、" **IAggregatePartner.Profiles** "**プロファイル**プロパティを呼び出します。 最後に、[**Get ()**/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,7 +36,7 @@ ms.locfileid: "86095227"
 BillingProfile billingProfile = partnerOperations.Profiles.BillingProfile.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル**クラス**: GetBillingProfile.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル **クラス**: GetBillingProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -66,7 +66,7 @@ MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で1つの**プロファイル**オブジェクトを返します。
+成功した場合、このメソッドは応答本文で1つの **プロファイル** オブジェクトを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

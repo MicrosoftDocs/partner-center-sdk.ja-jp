@@ -4,12 +4,12 @@ description: パートナーのユーザーまたはアプリケーションが�
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7a17e5e7dbded778e5938d9f8024cee4b507111e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7ca3736916f246301ad55f6a551a6849f79b389a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097125"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927612"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>パートナー センター アクティビティのレコードを取得する
 
@@ -29,13 +29,13 @@ ms.locfileid: "86097125"
 
 ## <a name="c"></a>C\#
 
-パートナーセンターの操作のレコードを取得するには、まず取得するレコードの日付範囲を設定します。 次のコード例では、開始日のみを使用しますが、終了日を含めることもできます。 詳細については、「[**クエリ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query)メソッド」を参照してください。 次に、適用するフィルターの種類に必要な変数を作成し、適切な値を割り当てます。 たとえば、会社名の部分文字列でフィルター処理を行うには、部分文字列を保持する変数を作成します。 顧客 ID でフィルター処理するには、ID を保持する変数を作成します。
+パートナーセンターの操作のレコードを取得するには、まず取得するレコードの日付範囲を設定します。 次のコード例では、開始日のみを使用しますが、終了日を含めることもできます。 詳細については、「**Query**/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) メソッド」を参照してください。 次に、適用するフィルターの種類に必要な変数を作成し、適切な値を割り当てます。 たとえば、会社名の部分文字列でフィルター処理を行うには、部分文字列を保持する変数を作成します。 顧客 ID でフィルター処理するには、ID を保持する変数を作成します。
 
-次の例では、会社名の部分文字列、顧客 ID、またはリソースの種類でフィルター処理するサンプルコードが提供されています。 1つを選択し、他のコメントをコメントアウトします。 どちらの場合も、最初に、既定の[**コンストラクター**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor)を使用して[**simplefieldfilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)オブジェクトをインスタンス化し、フィルターを作成します。 次に示すように、検索するフィールドを含む文字列と、適用する適切な演算子を渡す必要があります。 また、によってフィルター処理する文字列も指定する必要があります。
+次の例では、会社名の部分文字列、顧客 ID、またはリソースの種類でフィルター処理するサンプルコードが提供されています。 1つを選択し、他のコメントをコメントアウトします。 どちらの場合も、最初に既定の [**コンストラクター**/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor) を使用して [**simplefieldfilter**/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) オブジェクトをインスタンス化し、フィルターを作成します。 次に示すように、検索するフィールドを含む文字列と、適用する適切な演算子を渡す必要があります。 また、によってフィルター処理する文字列も指定する必要があります。
 
-次に、 [**Auditrecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords)プロパティを使用してレコード操作を監査するインターフェイスを取得し、 [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query)または[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync)メソッドを呼び出してフィルターを実行し、結果の最初のページを表す[**auditrecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord)のコレクションを取得します。 メソッドに開始日、この例で使用されていない省略可能な終了日、およびエンティティに対するクエリを表す[**Iquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)オブジェクトを渡します。 IQuery オブジェクトは、上記で作成したフィルターを[**Queryfactory の**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) [**buildsimplequery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)メソッドに渡すことによって作成されます。
+次に、[**Auditrecords**/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords)] プロパティを使用してレコード操作を監査するためのインターフェイスを取得し、[**Query**/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query] または [**QueryAsync**/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync) メソッドを呼び出して、フィルターを実行し、結果の最初のページを表す [**auditrecords の**/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord) のコレクションを取得します。 メソッドに開始日、この例で使用されていない省略可能な終了日、およびエンティティに対するクエリを表す [**Iquery**/dotnet/api/microsoft.store.partnercenter.models.query.iquery) オブジェクトを渡します。 IQuery オブジェクトは、上記で作成したフィルターを [**Queryfactory の**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) [**buildsimplequery**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) メソッドに渡すことによって作成されます。
 
-項目の最初のページが表示されたら、[**列挙子**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)を使用して、残りのページを反復処理するために使用できる列挙子を作成します。
+項目の最初のページが表示されたら、[/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create の**作成**] メソッドを使用して、残りのページを反復処理するために使用できる列挙子を作成します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -77,7 +77,7 @@ while (auditRecordEnumerator.HasValue)
 }
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**フォルダー**: 監査
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **フォルダー**: 監査
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -95,11 +95,11 @@ while (auditRecordEnumerator.HasValue)
 
 要求の作成時には、次のクエリパラメーターを使用します。
 
-| 名前      | Type   | 必須 | 説明                                                                                                                                                                                                                |
+| 名前      | 種類   | 必須 | 説明                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate | date   | いいえ       | Yyyy-mm-dd 形式の開始日。 何も指定しない場合、結果セットの既定値は、要求日の30日前になります。 フィルターが指定されている場合、このパラメーターは省略可能です。                                          |
-| endDate   | 日付   | いいえ       | Yyyy-mm-dd 形式の終了日。 フィルターが指定されている場合、このパラメーターは省略可能です。 終了日を省略した場合、または null に設定した場合、要求は max ウィンドウを返します。または、今日を終了日として使用します。 |
-| filter    | string | いいえ       | 適用するフィルター。 このパラメーターは、エンコードされた文字列である必要があります。 開始日または終了日が指定されている場合、このパラメーターは省略可能です。                                                                                              |
+| startDate | 日付   | No       | Yyyy-mm-dd 形式の開始日。 何も指定しない場合、結果セットの既定値は、要求日の30日前になります。 フィルターが指定されている場合、このパラメーターは省略可能です。                                          |
+| endDate   | 日付   | No       | Yyyy-mm-dd 形式の終了日。 フィルターが指定されている場合、このパラメーターは省略可能です。 終了日を省略した場合、または null に設定した場合、要求は max ウィンドウを返します。または、今日を終了日として使用します。 |
+| filter    | string | No       | 適用するフィルター。 このパラメーターは、エンコードされた文字列である必要があります。 開始日または終了日が指定されている場合、このパラメーターは省略可能です。                                                                                              |
 
 ### <a name="filter-syntax"></a>フィルターの構文
 フィルターパラメーターは、コンマ区切りの一連のキーと値のペアとして構成する必要があります。 各キーと値は、個別に引用符で囲まれ、コロンで区切られている必要があります。 フィルター全体はエンコードされている必要があります。
@@ -119,18 +119,18 @@ while (auditRecordEnumerator.HasValue)
 </colgroup>
 <thead>
 <tr class="header">
-<th>Key</th>
+<th>キー</th>
 <th>値</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>フィールド</td>
-<td>フィルター処理するフィールド。 サポートされている値については、「<a href="#rest-request">要求の構文</a>」を参照してください。</td>
+<td>フィルター処理するフィールド。 サポートされている値については、「 <a href="#rest-request">要求の構文</a>」を参照してください。</td>
 </tr>
 <tr class="even">
 <td>値</td>
-<td>フィルター処理される値。 値の大文字と小文字の区別は無視されます。 次の値パラメーターは、<a href="#rest-request">要求構文</a>に示すようにサポートされています。
+<td>フィルター処理される値。 値の大文字と小文字の区別は無視されます。 次の値パラメーターは、 <a href="#rest-request">要求構文</a>に示すようにサポートされています。
 <ul>
 <li><p>searchSubstring-会社名で置き換えます。 会社名の一部と一致する部分文字列を入力できます (たとえば、 `bri` が一致し `Fabrikam, Inc` ます)。</p>
 <p>例: &quot; 値 &quot; : &quot; bri&quot;</p></li>
@@ -142,7 +142,7 @@ while (auditRecordEnumerator.HasValue)
 </tr>
 <tr class="odd">
 <td>演算子</td>
-<td>適用する演算子。 サポートされている演算子については、「<a href="#rest-request">要求の構文</a>」を参照してください。</td>
+<td>適用する演算子。 サポートされている演算子については、「 <a href="#rest-request">要求の構文</a>」を参照してください。</td>
 </tr>
 </tbody>
 </table>

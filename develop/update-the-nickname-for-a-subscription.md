@@ -4,12 +4,12 @@ description: 顧客のサブスクリプションのフレンドリ名または�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7080f0cdd04c94fdbba4c55ea0210740843a35c1
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: fc17e1ff2b38b2280c1f1bdb6baf14df2c5e645b
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098455"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925598"
 ---
 # <a name="update-the-nickname-for-a-subscription"></a>サブスクリプションのニックネームを更新する
 
@@ -20,9 +20,9 @@ ms.locfileid: "86098455"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-顧客の[サブスクリプション](subscription-resources.md)のフレンドリ名またはニックネームを更新します。 この名前は、お客様のアカウントのサブスクリプションを区別するために、パートナーセンターに表示されます。
+顧客の [サブスクリプション](subscription-resources.md)のフレンドリ名またはニックネームを更新します。 この名前は、お客様のアカウントのサブスクリプションを区別するために、パートナーセンターに表示されます。
 
-パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、名前を変更する対象のサブスクリプションを選択します。 完了するには、[サブスクリプションの**ニックネーム**] フィールドの名前を変更し、[送信] を選択し**ます。**
+パートナーセンターのダッシュボードでは、最初に [顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、名前を変更する対象のサブスクリプションを選択します。 完了するには、[サブスクリプションの **ニックネーム** ] フィールドの名前を変更し、[送信] を選択し **ます。**
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -34,7 +34,7 @@ ms.locfileid: "86098455"
 
 ## <a name="c"></a>C\#
 
-顧客のサブスクリプションのニックネームを更新するには、最初に[サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの[**FriendlyName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.friendlyname)プロパティを変更します。 変更が完了したら、 [**Ipartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 [**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを呼び出し、その後に[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。 次に、 [**Patch ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch)メソッドを呼び出して終了します。
+顧客のサブスクリプションのニックネームを更新するには、最初に [サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの [**FriendlyName**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.friendlyname] プロパティを変更します。 変更が完了したら、[**Ipartner**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) コレクションを使用して、[**ById ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。 次に、[**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions]** プロパティを呼び出した後、[**ById ()**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) メソッドを呼び出します。 次に、[**Patch ()**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) メソッドを呼び出して終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -48,7 +48,7 @@ Subscription selectedSubscription = customerSubscriptions.Items.FirstOrDefault(s
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: UpdateSubscription.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples **クラス**: UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -62,7 +62,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションのニックネームを更新するために必要なクエリパラメーターを示します。
 
-| 名前                    | Type     | 必須 | 説明                          |
+| 名前                    | 種類     | 必須 | 説明                          |
 |-------------------------|----------|----------|--------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | **顧客テナント id** (GUID)。 |
 | **id-for-subscription** | **guid** | Y        | サブスクリプション ID (GUID)。        |
@@ -112,7 +112,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、応答本文で更新された[サブスクリプション](subscription-resources.md)リソースのプロパティを返します。
+成功した場合、このメソッドは、応答本文で更新された [サブスクリプション](subscription-resources.md) リソースのプロパティを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

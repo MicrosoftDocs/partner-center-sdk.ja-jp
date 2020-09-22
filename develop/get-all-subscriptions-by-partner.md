@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 545eb08e54a5a74fb6e8ca27fd1f02d4ba5bf055
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a1d612a415ae2b3619efd17a13e1bde6a94c32fa
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093903"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927149"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>パートナー MPN ID ごとに顧客のサブスクリプションを取得する
 
@@ -34,7 +34,7 @@ ms.locfileid: "86093903"
 
 ## <a name="c"></a>C\#
 
-指定された顧客に対して特定のパートナーによって提供されたサブスクリプションの一覧を取得するには、最初に顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティから顧客サブスクリプションコレクション操作へのインターフェイスを取得し、MPN ID を指定して[**ByPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner)メソッドを呼び出してパートナーを識別し、パートナーサブスクリプション操作へのインターフェイスを取得します。 最後に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)メソッドを呼び出して、コレクションを取得します。
+指定された顧客に対して特定のパートナーから提供されたサブスクリプションの一覧を取得するには、まず、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 次に、[**サブスクリプション**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] プロパティから顧客サブスクリプションコレクション操作へのインターフェイスを取得し、MPN ID を指定して [**ByPartner**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) メソッドを呼び出し、パートナーを識別し、パートナーサブスクリプション操作へのインターフェイスを取得します。 最後に、[**get**/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync] メソッドを呼び出して、コレクションを取得します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -44,13 +44,13 @@ ms.locfileid: "86093903"
 var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).Subscriptions.ByPartner(partnerMpnId).Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetSubscriptionsByMpnid.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetSubscriptionsByMpnid.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-指定された顧客に対して特定のパートナーによって提供されたサブスクリプションの一覧を取得するには、まず、顧客 ID と共に**iaggregatepartner.customers**関数を使用して顧客を識別します。 次に、 **getsubscriptions**関数から顧客サブスクリプションコレクション操作へのインターフェイスを取得し、MPN ID を指定して**byPartner**関数を呼び出し、パートナーを識別し、パートナーサブスクリプション操作へのインターフェイスを取得します。 最後に、 **get**関数を呼び出して、コレクションを取得します。
+指定された顧客に対して特定のパートナーによって提供されたサブスクリプションの一覧を取得するには、まず、顧客 ID と共に **iaggregatepartner.customers** 関数を使用して顧客を識別します。 次に、 **getsubscriptions** 関数から顧客サブスクリプションコレクション操作へのインターフェイスを取得し、MPN ID を指定して **byPartner** 関数を呼び出し、パートナーを識別し、パートナーサブスクリプション操作へのインターフェイスを取得します。 最後に、 **get** 関数を呼び出して、コレクションを取得します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -64,7 +64,7 @@ ResourceCollection<Subscription> customerSubscriptionsByMpnId = partnerOperation
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-指定された顧客に対して特定のパートナーから提供されたサブスクリプションの一覧を取得するには、 [**Get Partnercustomer subscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md)コマンドを実行します。 **CustomerId**パラメーターを使用して顧客を識別するための顧客 ID を指定し、 **MPNID**パラメーターに MPN ID を設定して、パートナーを識別します。
+指定された顧客に対して特定のパートナーから提供されたサブスクリプションの一覧を取得するには、 [**Get Partnercustomer subscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) コマンドを実行します。 **CustomerId**パラメーターを使用して顧客を識別するための顧客 ID を指定し、 **MPNID**パラメーターに MPN ID を設定して、パートナーを識別します。
 
 ```powershell
 # $customerId
@@ -85,7 +85,7 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 次のパスとクエリパラメーターを使用して、顧客とパートナーを識別します。
 
-| 名前        | Type   | 必須 | 説明                                                 |
+| 名前        | 種類   | 必須 | 説明                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。       |
 | mpn-id      | INT    | はい      | パートナーを識別する Microsoft Partner Network ID。 |
@@ -113,7 +113,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[サブスクリプション](subscription-resources.md)リソースのコレクションが含まれます。
+成功した場合、応答本文には [サブスクリプション](subscription-resources.md) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

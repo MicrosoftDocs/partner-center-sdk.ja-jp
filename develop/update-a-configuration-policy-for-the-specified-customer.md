@@ -4,12 +4,12 @@ description: 指定された顧客に対して指定された構成ポリシー�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5fe3b30dd62fb0d2653f52d875310ff302f36bd2
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d29319ebf8561487fa279ef3e87664f3007bb778
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095960"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925712"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>指定された顧客の構成ポリシーを更新する
 
@@ -30,7 +30,7 @@ ms.locfileid: "86095960"
 
 ## <a name="c"></a>C\#
 
-指定された顧客の既存の構成ポリシーを更新するには、次のコードスニペットに示すように、新しい[**configurationpolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy)オブジェクトをインスタンス化します。 この新しいオブジェクトの値は、既存のオブジェクト内の対応する値に置き換えられます。 次に、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。 次に、ポリシー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)メソッドを呼び出し、指定したポリシーの構成ポリシー操作へのインターフェイスを取得します。 最後に、Patch または[**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) [**async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync)メソッドを呼び出して、構成ポリシーを更新します。
+指定された顧客の既存の構成ポリシーを更新するには、次のコードスニペットに示すように、新しい [**Configurationpolicy**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) オブジェクトをインスタンス化します。 この新しいオブジェクトの値は、既存のオブジェクト内の対応する値に置き換えられます。 次に、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出して、指定された顧客の操作へのインターフェイスを取得します。 次に、ポリシー ID と共に [**ById**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) メソッドを呼び出して、指定されたポリシーの構成ポリシー操作へのインターフェイスを取得します。 最後に、[Patch/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch] または [**Patch****async**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) メソッドを呼び出して、構成ポリシーを更新します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -50,7 +50,7 @@ ConfigurationPolicy updatedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Patch(configPolicyToBeUpdated);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: UpdateConfigurationPolicy.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: UpdateConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -64,7 +64,7 @@ ConfigurationPolicy updatedConfigurationPolicy =
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                                   |
+| 名前        | 種類   | 必須 | 説明                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。         |
 | ポリシー-id   | string | はい      | 更新するポリシーを識別する GUID 形式の文字列。 |
@@ -77,12 +77,12 @@ ConfigurationPolicy updatedConfigurationPolicy =
 
 要求本文には、ポリシー情報を提供するオブジェクトが含まれている必要があります。
 
-| 名前            | Type             | 必須 | 更新可能 | 説明                                                                                                                                              |
+| 名前            | 種類             | 必須 | 更新可能 | 説明                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id              | string           | はい      | いいえ        | ポリシーを識別する GUID 形式の文字列。                                                                                                    |
 | name            | string           | はい      | はい       | ポリシーのフレンドリ名。                                                                                                                         |
 | category        | string           | はい      | いいえ        | ポリシーカテゴリ。                                                                                                                                     |
-| description     | 文字列           | いいえ       | はい       | ポリシーの説明。                                                                                                                                  |
+| description     | string           | いいえ       | はい       | ポリシーの説明。                                                                                                                                  |
 | 割り当てられたデバイス | number           | いいえ       | いいえ        | デバイスの数。                                                                                                                                   |
 | policySettings  | 文字列の配列 | はい      | はい       | ポリシー設定は、"none"、"oem プレインストールを削除する \_ \_ "、"oobe \_ user \_ not \_ local \_ admin"、"簡易設定をスキップする \_ \_ "、"oem 登録をスキップする"、" \_ \_ eula をスキップする" \_ です。 |
 
@@ -111,7 +111,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には新しいポリシーの[Configurationpolicy](device-deployment-resources.md#configurationpolicy)リソースが含まれます。
+成功した場合、応答本文には新しいポリシーの [Configurationpolicy](device-deployment-resources.md#configurationpolicy) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

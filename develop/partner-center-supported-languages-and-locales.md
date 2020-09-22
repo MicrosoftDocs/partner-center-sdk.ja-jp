@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 38dad24ec1a10357bb60467dcdac2816aea89e91
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5f428bf9104fec3e4855706e8786ad3941875f3d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095030"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926896"
 ---
 # <a name="partner-center-supported-languages-and-locales"></a>パートナー センターでサポートされている言語とロケール
 
@@ -22,9 +22,9 @@ ms.locfileid: "86095030"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-一部のパートナーセンター Api では、ロケール、国、または地域を示す値が必要です。 たとえば、[パートナーセンターの REST ヘッダー](headers.md)の X ロケールでは、"言語-国" という形式の値が必要です ("en-us" は "English-米国" を示します)。
+一部のパートナーセンター Api では、ロケール、国、または地域を示す値が必要です。 たとえば、 [パートナーセンターの REST ヘッダー](headers.md) の X ロケールでは、"言語-国" という形式の値が必要です ("en-us" は "English-米国" を示します)。
 
-パートナーセンターマネージ Api では、 [CountryValidationRules](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.countryvalidationrules.countryvalidationrules)クラスと OfferCategory、 [ServiceRequest、CountryCode](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.countrycode)、または[OfferCategory.Locale](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.offercategory.locale)の各プロパティに、言語、国/地域 (ISO2 言語コードまたは ISO3 country/region コードの形式)、ロケール、またはカルチャ (国/地域コードと組み合わせた言語 ID) を示す文字列値が必要[です](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile.culture)。
+パートナーセンターのマネージ Api では、[CountryValidationRules/dotnet/api/CountryValidationRules] クラスと [OfferCategory/dotnet/api/CountryValidationRules) (OfferCategory/ServiceRequest/api/) が [CountryCode/dotnet/api/になります。この Api が含まれています。 ServiceRequest. CountryCode) または [servicerequests] プロパティには、言語または国/地域 (ISO2 言語コードまたは ISO3 country/region コードの形式) を示す文字列値が必要です。このプロパティには、言語または国/地域を示す文字列を指定する必要があります。ロケールまたはカルチャ (言語 ID と国/地域コードを組み合わせたもの)。
 
 次の表は、パートナーセンターの Api でサポートされているカルチャと国際標準化機構 (ISO) の国コードを示しています。
 

@@ -4,12 +4,12 @@ description: 顧客の管理されたサービスを取得します。 つまり
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 52002b3ff3f002b45dadf6321178933cd4476b4b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2b61d7ba59bc602e0a268ff746644dbe0c018fd9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097427"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927485"
 ---
 # <a name="get-the-managed-services-for-a-customer-by-id"></a>ID を使って顧客の管理サービスを取得する
 
@@ -29,7 +29,7 @@ ms.locfileid: "86097427"
 
 ## <a name="c"></a>C\#
 
-顧客のすべての管理対象サービスの一覧を表示するには、 **iaggregatepartner.customers**コレクションを使用して、 [**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**Managedservices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices)プロパティを呼び出し、その後に[**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync)メソッドを呼び出します。
+顧客のすべての管理対象サービスの一覧を表示するには、 **iaggregatepartner.customers** コレクションを使用して、[**ById ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。 次に、[**Managedservices**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices)] プロパティを呼び出し、次に [**Get ()**/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,7 +38,7 @@ ms.locfileid: "86097427"
 ResourceCollection<ManagedService> managedServices = partnerOperations.Customers.ById(selectedCustomerId).ManagedServices.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル**クラス**: CustomerManagedServices.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル **クラス**: CustomerManagedServices.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -52,7 +52,7 @@ ResourceCollection<ManagedService> managedServices = partnerOperations.Customers
 
 次のクエリパラメーターを使用して、顧客の管理されたサービスを取得します。
 
-| 名前                   | Type     | 必須 | 説明                           |
+| 名前                   | 種類     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 顧客に対応する GUID。 |
 
@@ -76,7 +76,7 @@ MS-CorrelationId: 03d6064a-f048-4aee-8892-ed46dc5c8bee
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**マネージサービス**オブジェクトのコレクションを返します。
+成功した場合、このメソッドは応答本文で **マネージサービス** オブジェクトのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

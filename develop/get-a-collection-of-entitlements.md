@@ -4,12 +4,12 @@ description: 権利のコレクションを取得する方法。
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b57e493958386df7a493bcbdc79121b09fcd72e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d2cc485429941dd2080bd285553333a01fc0ffd1
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093967"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927289"
 ---
 # <a name="get-a-collection-of-entitlements"></a>エンタイトルメントのコレクションを取得する
 
@@ -27,7 +27,7 @@ ms.locfileid: "86093967"
 
 ## <a name="c"></a>C\#
 
-顧客の権利コレクションを取得するには、顧客 ID を指定して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別することによって、[**権利**](entitlement-resources.md#entitlement)操作へのインターフェイスを取得します。 次に、**権利**プロパティからインターフェイスを取得し、 **Get ()** または**GetAsync ()** メソッドを呼び出して権利のコレクションを取得します。
+顧客の権利コレクションを取得するには、顧客 ID を指定して[**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別することによって、[**権利**](entitlement-resources.md#entitlement)操作へのインターフェイスを取得します。 次に、 **権利** プロパティからインターフェイスを取得し、 **Get ()** または **GetAsync ()** メソッドを呼び出して権利のコレクションを取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -37,7 +37,7 @@ string customerId;
 var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get();
 ```
 
-取得する権利の有効期限を設定するには、上記と同じメソッドを呼び出し、オプションのブール型パラメーター **showexpiry**を true **Get (true)** または**GetAsync (true)** に設定します。 これは、権利の有効期限 (該当する場合) が必要であることを示します。
+取得する権利の有効期限を設定するには、上記と同じメソッドを呼び出し、オプションのブール型パラメーター **showexpiry** を true **Get (true)** または **GetAsync (true)** に設定します。 これは、権利の有効期限 (該当する場合) が必要であることを示します。
 
 > [!IMPORTANT]
 > オンプレミスの権利の種類には、有効期限がありません。
@@ -54,10 +54,10 @@ var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get
 
 要求の作成時には、次のパスとクエリパラメーターを使用します。
 
-| 名前 | Type | 必須 | 説明 |
+| 名前 | 種類 | 必須 | 説明 |
 |------|------|----------|-------------|
 | customerId | string | はい | 顧客を識別する GUID 形式の customerId。 |
-| entitlementType | 文字列 | いいえ | 取得する権利の種類 (**software**または**reservedInstance** ) を指定するために使用できます。 設定されていない場合は、すべての型が取得されます。 |
+| entitlementType | string | No | 取得する権利の種類 (**software** または **reservedInstance** ) を指定するために使用できます。 設定されていない場合は、すべての型が取得されます。 |
 | showExpiry 期限 | boolean | いいえ | 資格の有効期限日が必要かどうかを示す省略可能なフラグです。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
@@ -82,7 +82,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[権利](entitlement-resources.md#entitlement)リソースのコレクションが含まれます。
+成功した場合、応答本文には [権利](entitlement-resources.md#entitlement) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -409,4 +409,4 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 
 ### <a name="api-consumers"></a>API コンシューマー
 
-API を使用して仮想マシンの予約済みインスタンスの権利を照会するパートナー-旧バージョンとの互換性を維持するために、/顧客からの要求 URI を更新します。または、 **entitlementType = virtualmachinereservedinstance に**変更します。 Virtual machine または Azure SQL を enhanced contract で使用するには、要求 URI を **/顧客 id/entitlementType = reservedinstance**に更新します。
+API を使用して仮想マシンの予約済みインスタンスの権利を照会するパートナー-旧バージョンとの互換性を維持するために、/顧客からの要求 URI を更新します。または、 **entitlementType = virtualmachinereservedinstance に** 変更します。 Virtual machine または Azure SQL を enhanced contract で使用するには、要求 URI を **/顧客 id/entitlementType = reservedinstance**に更新します。

@@ -4,12 +4,12 @@ description: 顧客サブスクリプションのサブスクリプションの�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0811ad6d26cb96c057a96bd906e47238a0d97cce
-ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
+ms.openlocfilehash: 7c35730d6b6734ca69f3ffa21a78ff209fbc5ecb
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87557353"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927512"
 ---
 # <a name="get-subscription-provisioning-status"></a>サブスクリプションのプロビジョニング状態を取得する
 
@@ -34,7 +34,7 @@ ms.locfileid: "87557353"
 
 ## <a name="c"></a>C\#
 
-サブスクリプションのプロビジョニング状態を取得するには、まず、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、サブスクリプション ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、provisioning [**status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus)プロパティを使用して、現在のサブスクリプションのプロビジョニング状態操作へのインターフェイスを取得してから、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync)メソッドを呼び出して[**subscriptionprovisioning status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus)オブジェクトを取得します。
+サブスクリプションのプロビジョニング状態を取得するには、まず、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 次に、サブスクリプション ID を使用して [**ById**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、[/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus] プロパティを使用して、現在のサブスクリプションの**プロビジョニング状態操作**へのインターフェイスを取得し、[**Get**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync) メソッドを呼び出して、[**subscriptionprovisioning status**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus) オブジェクトを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -57,7 +57,7 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| 名前            | Type   | 必須 | 説明                                               |
+| 名前            | 種類   | 必須 | 説明                                               |
 |-----------------|--------|----------|-----------------------------------------------------------|
 | customer-id     | string | はい      | 顧客を識別する GUID 形式の文字列。     |
 | subscription-id | string | はい      | サブスクリプションを識別する GUID 形式の文字列。 |
@@ -68,7 +68,7 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 ### <a name="request-body"></a>[要求本文]
 
-なし。
+[なし] :
 
 ### <a name="request-example"></a>要求の例
 
@@ -84,7 +84,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[Subscriptionプロビジョニング状態](subscription-resources.md#subscriptionprovisioningstatus)リソースが含まれます。
+成功した場合、応答本文には [Subscriptionプロビジョニング状態](subscription-resources.md#subscriptionprovisioningstatus) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -113,8 +113,8 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 }
 ```
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
-- ライセンス変更の割り当て時に、 [subscriptionの](subscription-resources.md#subscriptionprovisioningstatus)状態フィールドが "保留中" に設定されます。
+- ライセンス変更の割り当て時に、 [subscriptionの](subscription-resources.md#subscriptionprovisioningstatus) 状態フィールドが "保留中" に設定されます。
 
 - [状態] フィールドは、15分ごとに更新されます。

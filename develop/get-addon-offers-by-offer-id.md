@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: cff024700c3ab04986d468c839053cbfa7670a86
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9ee22712b323c7439a192ed2e5af8d5e7eaf92a3
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097878"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927224"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>プラン ID のアドオンを取得する
 
@@ -28,11 +28,11 @@ ms.locfileid: "86097878"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
-- プラン ID。 プラン ID をお持ちでない場合は、「[市場向けのプランの一覧を取得する](get-a-list-of-offers-for-a-market.md)」を参照してください。
+- プラン ID。 プラン ID をお持ちでない場合は、「 [市場向けのプランの一覧を取得する](get-a-list-of-offers-for-a-market.md)」を参照してください。
 
 ## <a name="c"></a>C\#
 
-ID でオファーのアドオンを取得するには、まず、国コードを使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry)メソッドを呼び出し、指定された国に基づいて操作を提供するインターフェイスを取得します。 次に、オファー ID を指定して[**ByID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)メソッドを呼び出し、アドオンを取得するオファーを識別します。 次に、[**アドオン**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons)プロパティを使用して、現在のプランのアドオン操作へのインターフェイスを取得します。 最後に、 [**get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync)メソッドを呼び出して、指定されたオファーのすべてのアドオンのコレクションを取得します。
+ID でオファーのアドオンを取得するには、まず、国コードを使用して [**iaggregatepartner.customers**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) メソッドを呼び出し、指定された国に基づいて操作を提供するインターフェイスを取得します。 次に、オファー ID を指定して [**ByID**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) メソッドを呼び出し、アドオンを取得するオファーを識別します。 次に、 [**アドオン**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) プロパティを使用して、現在のプランのアドオン操作へのインターフェイスを取得します。 最後に、 [**get**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) または [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) メソッドを呼び出して、指定されたオファーのすべてのアドオンのコレクションを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,7 +42,7 @@ ID でオファーのアドオンを取得するには、まず、国コード�
 var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).AddOns.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetOffer.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetOffer.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -56,10 +56,10 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 次のパラメーターを使用して、プラン ID と国コードを指定します。
 
-| 名前         | Type       | 必須 | 説明                       |
+| 名前         | 種類       | 必須 | 説明                       |
 |--------------|------------|----------|-----------------------------------|
 | **プラン id** | **guid**   | Y        | オファーを識別する GUID。 |
-| **原産**  | **string** | Y        | 国コード (など `US` )。       |
+| **country**  | **string** | Y        | 国コード (など `US` )。       |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -83,7 +83,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[オファー](offer-resources.md)オブジェクトのコレクションを返します。
+成功した場合、このメソッドは応答本文で [オファー](offer-resources.md) オブジェクトのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

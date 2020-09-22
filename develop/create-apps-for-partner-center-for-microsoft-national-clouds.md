@@ -7,12 +7,12 @@ MS-HAID:
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: acb84caddfc42de957b4e45b781f650ec9640038
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 48eb5bf8c9fe473ae6fabe88ad2cc0767852dbe6
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094420"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927861"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Microsoft National Cloud のパートナーセンターのアプリの詳細を登録する
 
@@ -23,7 +23,7 @@ ms.locfileid: "86094420"
 
 開発者は、Azure portal を通じて Azure AD でアプリの詳細を登録する必要があります。 これにより、指定されたアプリのみがパートナーおよび顧客データに接続できるようになります。
 
-米国政府の Microsoft Cloud のパートナーセンターでは、現在、PowerShell を使用してアプリを管理する必要があります。 詳細については、 [Azure PowerShell リファレンスドキュメント](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0#applications)を参照してください。
+米国政府の Microsoft Cloud のパートナーセンターでは、現在、PowerShell を使用してアプリを管理する必要があります。 詳細については、 [Azure PowerShell リファレンスドキュメント](/powershell/module/Azuread/?view=azureadps-2.0#applications)を参照してください。
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
@@ -37,11 +37,11 @@ Web アプリの場合は、次の手順を使用してアプリケーション 
 
 1. [Azure portal アプリの登録](https://go.microsoft.com/fwlink/?linkid=2083908)ページに移動して、アプリを登録します。 職場または学校のアカウントまたは個人の Microsoft アカウントを使用して Azure portal にサインインします。
 
-2. **[新規登録]** を選択します。 詳細については、「[クイック スタート: Microsoft ID プラットフォームにアプリケーションを登録する](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)」を参照してください。
+2. **[新規登録]** を選択します。 詳細については、「[クイック スタート: Microsoft ID プラットフォームにアプリケーションを登録する](/azure/active-directory/develop/quickstart-register-app)」を参照してください。
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>Web アプリの API アクセス許可を構成する
 
-1. アプリを選びます。 Web アプリの [**設定**] にアクセスします。
+1. アプリを選びます。 Web アプリの [ **設定** ] にアクセスします。
 
 2. [ **API アクセス**] セクションで、[**必要なアクセス許可**] を選択します。
 
@@ -49,15 +49,15 @@ Web アプリの場合は、次の手順を使用してアプリケーション 
 
     1. **Windows Azure Active Directory のアクセス許可**を選択します。
 
-    2. [**アプリケーションのアクセス許可**] で、[ディレクトリデータの読み取り] を選択します。
+    2. [ **アプリケーションのアクセス許可**] で、[ディレクトリデータの読み取り] を選択します。
 
     3. アクセス許可を保存します。
 
-4. Web アプリの [**プロパティ**] セクションで、アプリケーション ID をメモしておきます。
+4. Web アプリの [ **プロパティ** ] セクションで、アプリケーション ID をメモしておきます。
 
 ### <a name="add-a-secret-key-to-your-app"></a>アプリへの秘密鍵の追加
 
-1. Web アプリの [**キー** ] セクションにアクセスします。
+1. Web アプリの [ **キー** ] セクションにアクセスします。
 
 2. キーの説明を入力し、必要に応じて [期間] を1または2年として選択します。
 
@@ -72,13 +72,13 @@ Web アプリの構成の詳細は次のとおりです。
 
 1. にログイン [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) します。
 
-2. [**ダッシュボード**] を選択し、[**アカウントの設定**]、[**アプリの管理**] の順に選択します。
+2. [ **ダッシュボード**] を選択し、[ **アカウントの設定**]、[ **アプリの管理**] の順に選択します。
 
-3. [ **Web アプリ**] セクションで、[**既存のアプリの登録**] を選択します。
+3. [ **Web アプリ** ] セクションで、[ **既存のアプリの登録**] を選択します。
 
 4. Azure portal で作成した web アプリを選択します。
 
-5. [**アプリの登録**] を選択します。
+5. [ **アプリの登録**] を選択します。
 
 ## <a name="native-apps"></a>ネイティブ アプリ
 
@@ -91,15 +91,15 @@ Web アプリの構成の詳細は次のとおりです。
 
 1. [Azure portal アプリの登録](https://go.microsoft.com/fwlink/?linkid=2083908)ページに移動して、アプリを登録します。 職場または学校のアカウントまたは個人の Microsoft アカウントを使用して Azure portal にサインインします。
 
-2. **[新規登録]** を選択します。 詳細については、「[クイック スタート: Microsoft ID プラットフォームにアプリケーションを登録する](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)」を参照してください。
+2. **[新規登録]** を選択します。 詳細については、「[クイック スタート: Microsoft ID プラットフォームにアプリケーションを登録する](/azure/active-directory/develop/quickstart-register-app)」を参照してください。
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>ネイティブアプリの API アクセス許可を構成する
 
 1. アプリを選びます。 **[設定]** に移動します。
 
-2. [API アクセス] で、[**必要なアクセス許可**] を選択します。
+2. [API アクセス] で、[ **必要なアクセス許可**] を選択します。
 
-3. **Windows Azure Active Directory のアクセス許可**を選択します。 [委任された**アクセス許可**] で、次のアクセス許可を選択します。
+3. **Windows Azure Active Directory のアクセス許可**を選択します。 [委任された **アクセス許可**] で、次のアクセス許可を選択します。
 
     - **サインインとユーザー プロファイルの読み取り**
     - **ディレクトリ データの読み取り**
@@ -118,11 +118,11 @@ Web アプリの構成の詳細は次のとおりです。
 
 7. **[アクセス許可の選択]** を選択します。
 
-    1. [**アクセスパートナーセンターの PPE**] を選択します。
+    1. [ **アクセスパートナーセンターの PPE**] を選択します。
     
     2. **[選択]** を選択します。
 
-8. [**完了**] を選択します。
+8. **[完了]** を選択します。
 
 >[!IMPORTANT]
 > アプリのプロパティのアプリケーション ID をメモしておきます。

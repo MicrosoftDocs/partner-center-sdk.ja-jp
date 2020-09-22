@@ -4,12 +4,12 @@ description: 指定された顧客に対して指定された構成ポリシー�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 39d78dca2186a9839f3b62facadf852444c5774b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5272457b70d3e8c86139713182d29cd68ef61444
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096612"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926467"
 ---
 # <a name="retrieve-a-customers-configuration-policy"></a>顧客の構成ポリシーを取得する
 
@@ -30,7 +30,7 @@ ms.locfileid: "86096612"
 
 ## <a name="c"></a>C\#
 
-指定された顧客の構成ポリシーを取得するには、最初に顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。 次に、ポリシー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)メソッドを呼び出し、指定したポリシーの構成ポリシー操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.getasync)メソッドを呼び出して構成ポリシーを取得します。
+指定された顧客の構成ポリシーを取得するには、まず、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出して、指定された顧客の操作へのインターフェイスを取得します。 次に、ポリシー ID と共に [**ById**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) メソッドを呼び出して、指定されたポリシーの構成ポリシー操作へのインターフェイスを取得します。 最後に、[**Get**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.get)] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.getasync] メソッドを呼び出して、構成ポリシーを取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -41,7 +41,7 @@ ConfigurationPolicy retrievedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetConfigurationPolicy.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -55,7 +55,7 @@ ConfigurationPolicy retrievedConfigurationPolicy =
 
 要求の作成時には、次のパスとクエリパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 | ポリシー-id   | string | はい      | ポリシーを識別する GUID 形式の文字列。   |
@@ -83,7 +83,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答には要求された[Configurationpolicy](device-deployment-resources.md#configurationpolicy)リソースが含まれます。
+成功した場合、応答には要求された [Configurationpolicy](device-deployment-resources.md#configurationpolicy) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

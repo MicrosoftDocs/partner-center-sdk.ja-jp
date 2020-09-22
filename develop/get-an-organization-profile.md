@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: d0d4caed36b1ab58fdb40d32a7ccb159e3895207
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d5b372795b8e3ccda7443ce35076d2b70cbd74f2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097051"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927125"
 ---
 # <a name="get-an-organization-profile"></a>組織プロファイルを取得する
 
@@ -30,7 +30,7 @@ ms.locfileid: "86097051"
 
 ## <a name="c"></a>C\#
 
-組織のプロファイルを取得するには、 **iaggregatepartner.customers**コレクションを使用して、[組織の**プロファイル**] プロパティを呼び出します。 最後に、 [**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get)メソッドまたは[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync)メソッドを呼び出します。
+組織のプロファイルを取得するには、 **iaggregatepartner.customers** コレクションを使用して、[組織の **プロファイル** ] プロパティを呼び出します。 最後に、[**Get ()**/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync) メソッドを呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -38,13 +38,13 @@ ms.locfileid: "86097051"
 OrganizationProfile organizationProfile = partnerOperations.Profiles.OrganizationProfile.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル**クラス**: GetOrganizationProfile.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル **クラス**: GetOrganizationProfile.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-組織のプロファイルを取得するには、 **iaggregatepartner.customers**関数を使用し、 **getprofiles profile**関数を呼び出します。 最後に、 **get ()** 関数を呼び出します。
+組織のプロファイルを取得するには、 **iaggregatepartner.customers** 関数を使用し、 **getprofiles profile** 関数を呼び出します。 最後に、 **get ()** 関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -56,7 +56,7 @@ OrganizationProfile organizationProfile = partnerOperations.getProfiles().getOrg
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-組織のプロファイルを取得するには、 [**Get partnerorganization profile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md)コマンドを実行します。
+組織のプロファイルを取得するには、 [**Get partnerorganization profile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md) コマンドを実行します。
 
 ```powershell
 Get-PartnerOrganizationProfile
@@ -90,7 +90,7 @@ MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、応答本文に**組織のプロファイル**オブジェクトを返します。
+成功した場合、このメソッドは、応答本文に **組織のプロファイル** オブジェクトを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

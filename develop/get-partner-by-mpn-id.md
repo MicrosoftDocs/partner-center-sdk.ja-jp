@@ -4,12 +4,12 @@ description: パートナーの Microsoft Partner Network 識別子 (MPN ID) を
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5c35cfb024a8894d7f40208f8f93f6f41ee94121
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f2588a75975cce6afe48c252c495291c4ee34eb5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095214"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927019"
 ---
 # <a name="verify-a-partner-mpn-id"></a>パートナーの MPN ID を検証する
 
@@ -32,7 +32,7 @@ ms.locfileid: "86095214"
 
 ## <a name="c"></a>C\#
 
-パートナーの MPN ID を確認するには、まず、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles)プロパティからパートナープロファイルコレクション操作へのインターフェイスを取得します。 次に、 [**Mpnprofile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile)プロパティから MPN profile 操作へのインターフェイスを取得します。 最後に、MPN ID を使用して[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync)メソッドを呼び出し、MPN プロファイルを取得します。 Get または GetAsync 呼び出しから MPN ID を省略した場合、要求はサインインしているパートナーの MPN プロファイルを取得しようとします。
+パートナーの MPN ID を確認するには、まず、[**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.profiles)] プロパティからパートナープロファイルコレクション操作へのインターフェイスを取得します。 次に、[**Mpnprofile**/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile)] プロパティから MPN profile 操作のインターフェイスを取得します。 最後に、MPN ID を使用して [**Get**/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) メソッドを呼び出し、MPN プロファイルを取得します。 Get または GetAsync 呼び出しから MPN ID を省略した場合、要求はサインインしているパートナーの MPN プロファイルを取得しようとします。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,7 +41,7 @@ ms.locfileid: "86095214"
 var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: VerifyPartnerMpnId.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: VerifyPartnerMpnId.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -55,7 +55,7 @@ var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 
 次のクエリパラメーターを指定して、パートナーを識別します。 このクエリパラメーターを省略すると、要求によって、サインインしているパートナーの MPN プロファイルが返されます。
 
-| 名前   | Type | 必須 | 説明                                                 |
+| 名前   | 種類 | 必須 | 説明                                                 |
 |--------|------|----------|-------------------------------------------------------------|
 | mpn-id | INT  | いいえ       | パートナーを識別する Microsoft Partner Network ID。 |
 
@@ -83,7 +83,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には、パートナーの[Mpnprofile](profile-resources.md#mpnprofile)リソースが含まれます。
+成功した場合、応答本文には、パートナーの [Mpnprofile](profile-resources.md#mpnprofile) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

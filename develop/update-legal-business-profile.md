@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: f024c1742fda3ecf9e37aefae76234097b37e798
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4a423a9eba7eeb270ede7a59c4773c9743e790f7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098489"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926707"
 ---
 # <a name="update-the-partner-legal-business-profile"></a>パートナーの法的ビジネス プロファイルを更新する
 
@@ -30,9 +30,9 @@ ms.locfileid: "86098489"
 
 ## <a name="c"></a>C\#
 
-パートナーの法的ビジネス プロファイルを更新するには、最初に **LegalBusinessProfile** オブジェクトをインスタンス化し、それに既存のプロファイルを設定します。 詳細については、「[パートナー法務ビジネスプロファイルを取得する](get-legal-business-profile.md)」を参照してください。 その後、変更する必要があるプロパティを更新します。 次のコード例は、住所と主要連絡先電話番号の変更を示しています。
+パートナーの法的ビジネス プロファイルを更新するには、最初に **LegalBusinessProfile** オブジェクトをインスタンス化し、それに既存のプロファイルを設定します。 詳細については、「 [パートナー法務ビジネスプロファイルを取得する](get-legal-business-profile.md)」を参照してください。 その後、変更する必要があるプロパティを更新します。 次のコード例は、住所と主要連絡先電話番号の変更を示しています。
 
-次に、**IAggregatePartner.Profiles** プロパティからパートナーのプロファイル操作コレクションへのインターフェイスを取得します。 その後、**LegalBusinessProfile** プロパティの値を取得して、法的ビジネス プロファイル操作へのインターフェイスを取得します。 最後に、変更されたオブジェクトを使用して[**update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update)または[**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync)メソッドを呼び出し、プロファイルを更新します。
+次に、**IAggregatePartner.Profiles** プロパティからパートナーのプロファイル操作コレクションへのインターフェイスを取得します。 その後、**LegalBusinessProfile** プロパティの値を取得して、法的ビジネス プロファイル操作へのインターフェイスを取得します。 最後に、変更されたオブジェクトを使用して [**update**/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update] または [**UpdateAsync**/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) メソッドを呼び出し、プロファイルを更新します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -131,7 +131,7 @@ Expect: 100-continue
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

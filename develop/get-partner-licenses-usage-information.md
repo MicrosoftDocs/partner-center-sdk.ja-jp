@@ -4,12 +4,12 @@ description: パートナーライセンスの使用状況情報を収集して�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a9bad2d4bc5d7b607bbc472068a47cfe7c156f94
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3774b5adcc8772da0c6f54c71ba0b21cd0ea0e0f
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097715"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927003"
 ---
 # <a name="get-partner-licenses-usage-information"></a>パートナー ライセンスの使用情報を取得する
 
@@ -20,7 +20,7 @@ ms.locfileid: "86097715"
 パートナーライセンスの使用状況情報を収集して、すべての顧客を含める方法。
 
 > [!NOTE]
-> このシナリオは、[ライセンスの取得の使用状況に関する情報](get-licenses-usage-information.md)に置き換えられます。
+> このシナリオは、 [ライセンスの取得の使用状況に関する情報](get-licenses-usage-information.md)に置き換えられます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -28,7 +28,7 @@ ms.locfileid: "86097715"
 
 ## <a name="c"></a>C\#
 
-ライセンスの展開の集計データを取得するには、まず、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.analytics)プロパティからパートナーレベルの分析コレクション操作へのインターフェイスを取得します。 次に、[[**ライセンス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses)] プロパティから、パートナーレベルのライセンス分析コレクションへのインターフェイスを取得します。 最後に、 [**usage. get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)メソッドを呼び出して、ライセンスの使用状況に関する集計データを取得します。 メソッドが成功した場合は、 [**PartnerLicensesUsageInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights)オブジェクトのコレクションが取得されます。
+ライセンスの展開の集計データを取得するには、まず、[**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.analytics)] プロパティからパートナーレベルの分析のコレクション操作へのインターフェイスを取得します。 次に、[**licenses**/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses] プロパティからパートナーレベルのライセンス分析コレクションへのインターフェイスを取得します。 最後に、[**usage. Get**/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)] メソッドを呼び出して、ライセンスの使用状況に関する集計データを取得します。 メソッドが成功すると、[**PartnerLicensesUsageInsights**/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) オブジェクトのコレクションが取得されます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -66,7 +66,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には、使用されたライセンスに関する情報を提供する[PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights)リソースのコレクションが含まれます。
+成功した場合、応答本文には、使用されたライセンスに関する情報を提供する [PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

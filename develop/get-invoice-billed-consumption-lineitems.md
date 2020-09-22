@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 1fbc16217a45b8b5d5fb8513723ff28c01efe06d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f30331a1c65777317472177c9fc8aab43a155c09
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093569"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926420"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>請求書に請求される商用消費量の品目を取得する
 
@@ -21,7 +21,7 @@ ms.locfileid: "86093569"
 
 次の方法を使用すると、指定された請求書について、商用消費請求書の明細品目 (終了日の評価済みの使用明細項目とも呼ばれます) の詳細のコレクションを取得できます。
 
-この API は、Microsoft Azure (0145P) サブスクリプション用の**azure**プロバイダーの種類もサポートしています。 これは、この API が下位互換性のある機能であることを意味します。
+この API は、Microsoft Azure (0145P) サブスクリプション用の **azure** プロバイダーの種類もサポートしています。 これは、この API が下位互換性のある機能であることを意味します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -33,19 +33,19 @@ ms.locfileid: "86093569"
 
 指定された請求書の商用の品目を取得するには、請求書オブジェクトを取得する必要があります。
 
-1. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
+1. [**ById**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
 
-2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、請求書オブジェクトを取得します。 Invoice オブジェクトには、指定した請求書のすべての情報が含まれています。
+2. [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)] メソッドを呼び出して、請求書オブジェクトを取得します。 Invoice オブジェクトには、指定した請求書のすべての情報が含まれています。
 
 **プロバイダー**は、請求された詳細情報のソースを識別します (たとえば、 **onetime**)。 **InvoiceLineItemType**は、型 (たとえば、 **UsageLineItem**) を指定します。
 
-次のコード例では、 **foreach**ループを使用して、行項目のコレクションを処理します。 **InvoiceLineItemType**ごとに、個別の行項目のコレクションが取得されます。
+次のコード例では、 **foreach** ループを使用して、行項目のコレクションを処理します。 **InvoiceLineItemType**ごとに、個別の行項目のコレクションが取得されます。
 
 **InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
-1. インスタンスの**プロバイダー**と**InvoiceLineItemType**を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)メソッドに渡します。
+1. インスタンスの **プロバイダー** と **InvoiceLineItemType** を [**By**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) メソッドに渡します。
 
-2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
+2. [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)] メソッドを呼び出して、関連付けられている行項目を取得します。
 3. 次の例に示すように、列挙子を作成してコレクションを走査します。
 
 ``` csharp
@@ -108,7 +108,7 @@ while (fetchNext)
 同様の例については、以下を参照してください。
 
 - サンプル: [コンソール テスト アプリ](console-test-app.md)
-- プロジェクト:**パートナーセンター SDK のサンプル**
+- プロジェクト: **パートナーセンター SDK のサンプル**
 - クラス: **GetBilledConsumptionReconLineItemsPaging.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -127,15 +127,15 @@ while (fetchNext)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | Type   | 必須 | 説明                                                       |
+| 名前                   | 種類   | 必須 | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | 請求書-id             | string | はい      | 請求書を識別する文字列。                             |
 | provider               | string | はい      | プロバイダー: "OneTime"。                                  |
 | invoice-line-item-type | string | はい      | 請求書の詳細の種類: "UsageLineItems"。 |
 | currencyCode           | string | はい      | 請求明細項目の通貨コード。                    |
 | 前期                 | string | はい      | 課金対象の期間。 例: current、previous。        |
-| size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000       |
-| seekOperation          | 文字列 | No       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
+| サイズ                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000       |
+| seekOperation          | string | No       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -149,7 +149,7 @@ while (fetchNext)
 
 成功した場合、応答には行項目の詳細のコレクションが含まれます。
 
-行項目**ChargeType**の場合、**購入**した値は**新規**にマップされます。 値の**返金**は**キャンセル**にマップされます。
+行項目 **ChargeType**の場合、 **購入** した値は **新規**にマップされます。 値の **返金** は **キャンセル**にマップされます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -163,7 +163,7 @@ while (fetchNext)
 
 - **プロバイダー**: **OneTime**
 - **InvoiceLineItemType**: **UsageLineItems**
-- **期間**:**前へ**
+- **期間**: **前へ**
 
 #### <a name="request-example-1"></a>要求の例1
 
@@ -331,8 +331,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 - **プロバイダー**: **OneTime**
 - **InvoiceLineItemType**: **UsageLineItems**
-- **期間**:**前へ**
-- **Seekoperation**:**次**
+- **期間**: **前へ**
+- **Seekoperation**: **次**
 
 #### <a name="request-example-2"></a>要求の例2
 

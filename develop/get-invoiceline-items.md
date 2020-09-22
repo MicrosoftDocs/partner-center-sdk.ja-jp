@@ -4,12 +4,12 @@ description: パートナーセンター Api を使用して、指定した請�
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 77f1c7cda97d5511c87933449586a52b17c93e97
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f5f6f07ac58a9771f7c49bd00f681a1b06540ebc
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096879"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927549"
 ---
 # <a name="get-invoice-line-items"></a>請求書の品目を取得する
 
@@ -38,18 +38,18 @@ ms.locfileid: "86096879"
 
 指定した請求書の品目を取得するには、次のようにします。
 
-1. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
+1. [**ById**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
 
-2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、請求書オブジェクトを取得します。 Invoice オブジェクトには、指定した請求書のすべての情報が含まれています。
-3. Invoice オブジェクトの[**InvoiceDetails**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails)プロパティを使用して、 [**InvoiceDetail**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail)オブジェクトのコレクションにアクセスします。各オブジェクトには、個別の[**プロバイダー**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider)と[**InvoiceLineItemType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.invoicelineitemtype)が含まれています。 この**プロバイダー**は、請求書の詳細情報のソース ( **Office**、 **Azure**、 **OneTime**など) を識別し、 **InvoiceLineItemType**は種類 (**たとえば、"** 例") を指定します。
+2. [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)] メソッドを呼び出して、請求書オブジェクトを取得します。 Invoice オブジェクトには、指定した請求書のすべての情報が含まれています。
+3. Invoice オブジェクトの [**InvoiceDetails**/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails)] プロパティを使用して **、[****InvoiceDetail**/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail) オブジェクトのコレクションにアクセスします。各オブジェクトには、"" と "**/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider**InvoiceLineItemType" が含まれています。 この **プロバイダー** は、請求書の詳細情報のソース ( **Office**、 **Azure**、 **OneTime**など) を識別し、 **InvoiceLineItemType** は種類 ( **たとえば、"** 例") を指定します。
 
-次のコード例では、 **foreach**ループを使用して、 **InvoiceDetails**コレクションを処理します。 **InvoiceDetail**インスタンスごとに、個別の行項目のコレクションが取得されます。
+次のコード例では、 **foreach** ループを使用して、 **InvoiceDetails** コレクションを処理します。 **InvoiceDetail**インスタンスごとに、個別の行項目のコレクションが取得されます。
 
 **InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
-1. インスタンスの**プロバイダー**と**InvoiceLineItemType**を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)メソッドに渡します。
+1. インスタンスの **プロバイダー** と **InvoiceLineItemType** を [**By**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) メソッドに渡します。
 
-2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
+2. [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.getasync)] メソッドを呼び出して、関連付けられている行項目を取得します。
 3. 次の例に示すように、列挙子を作成してコレクションを走査します。
 
 ``` csharp
@@ -102,7 +102,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 同様の例については、以下を参照してください。
 
 - サンプル: [コンソール テスト アプリ](console-test-app.md)
-- プロジェクト:**パートナーセンター SDK のサンプル**
+- プロジェクト: **パートナーセンター SDK のサンプル**
 - クラス: **GetInvoiceLineItems.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -113,7 +113,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 #### <a name="office"></a>Office
 
-次の構文は、課金プロバイダーが**Office**の場合に適用されます。
+次の構文は、課金プロバイダーが **Office**の場合に適用されます。
 
 | Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -130,7 +130,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 ##### <a name="onetime"></a>OneTime
 
-次の構文は、課金プロバイダーが**OneTime**の場合に適用されます。 これには、Azure の予約、ソフトウェア、Azure プラン、および商用 marketplace 製品の料金が含まれます。
+次の構文は、課金プロバイダーが **OneTime**の場合に適用されます。 これには、Azure の予約、ソフトウェア、Azure プラン、および商用 marketplace 製品の料金が含まれます。
 
 | Method  | 要求 URI                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -155,15 +155,15 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | Type   | 必須 | 説明                                                       |
+| 名前                   | 種類   | 必須 | 説明                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | 請求書-id             | string | はい      | 請求書を識別する文字列。                             |
 | billing-provider       | string | はい      | 課金プロバイダー: "Office"、"Azure"、"OneTime"。               |
 | invoice-line-item-type | string | はい      | 請求書の詳細の種類: "BillingLineItems"、"UsageLineItems"。 |
-| size                   | number | いいえ       | 返される項目の最大数。 既定の最大サイズ = 2000    |
+| サイズ                   | number | いいえ       | 返される項目の最大数。 既定の最大サイズ = 2000    |
 | offset                 | number | いいえ       | 返される最初の行項目の0から始まるインデックス。            |
-| seekOperation          | string | No       | 請求**プロバイダー**が**OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation**を**next**に等しく設定します。 |
-| hasPartnerEarnedCredit | [bool] | いいえ | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
+| seekOperation          | string | No       | 請求 **プロバイダー** が **OneTime**と等しい場合は、次のページの請求書明細項目を取得するために、 **seekoperation** を **next** に等しく設定します。 |
+| hasPartnerEarnedCredit | [bool] | No | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、課金プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -177,7 +177,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 成功した場合、応答には行項目の詳細のコレクションが含まれます。
 
-*行項目**ChargeType**の場合、**購入**した値は**新規**にマップされます。値の**返金**は**キャンセル**にマップされます。*
+*行項目 **ChargeType**の場合、 **購入** した値は **新規**にマップされます。値の **返金** は **キャンセル**にマップされます。*
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -722,7 +722,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 
 - **プロバイダ**: **OneTime**
 - **InvoiceLineItemType**: **BillingLineItems**
-- **Seekoperation**:**次**
+- **Seekoperation**: **次**
 
 #### <a name="request-example-5"></a>要求の例5
 

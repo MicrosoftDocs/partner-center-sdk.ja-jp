@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 57ee728ae4f1a0ad66066bc88179bcbceb860a24
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3cc486cc2f81f5708bf4b5d876bfd9bb74800365
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095621"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925592"
 ---
 # <a name="update-a-customers-qualification"></a>顧客の資格情報を更新する
 
@@ -27,11 +27,11 @@ ms.locfileid: "86095621"
 
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証のみがサポートされます。
 
-- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
+- 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウントページで、[**お客様のアカウント情報**] セクションで**Microsoft ID**を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
 ## <a name="c"></a>C\#
 
-顧客の認定を "教育" に更新するには、既存の[**顧客**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer?view=partnercenter-dotnet-latest)に対して**[update](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification.update)** を呼び出します。
+顧客の認定を "教育" に更新するには、既存の [Customer/dotnet/api/microsoft.store.partnercenter.models.customers.customer (**顧客**) に対して **[update/dotnet/api/icustomerqualification** ] を呼び出します。
 
 ``` csharp
 // CustomerQualification is an enum
@@ -39,9 +39,9 @@ ms.locfileid: "86095621"
 var eduCustomerQualification = partnerOperations.Customers.ById(existingCustomer.Id).Qualification.Update(CustomerQualification.Education);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: CustomerQualificationOperations.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples **クラス**: CustomerQualificationOperations.cs
 
-お客様の資格を更新して、既存の顧客に限定なしで**GovernmentCommunityCloud**します。  パートナーには、顧客の[**Validationcode**](utility-resources.md#validationcode)を含める必要もあります。
+お客様の資格を更新して、既存の顧客に限定なしで **GovernmentCommunityCloud** します。  パートナーには、顧客の [**Validationcode**](utility-resources.md#validationcode)を含める必要もあります。
 
 ``` csharp
 // CustomerQualification is an enum
@@ -62,9 +62,9 @@ var gccCustomerQualification = partnerOperations.Customers.ById(existingCustomer
 
 次のクエリパラメーターを使用して、修飾を更新します。
 
-| 名前                   | Type | 必須 | 説明                                                                                                                                            |
+| 名前                   | 種類 | 必須 | 説明                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | GUID | はい      | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | GUID | はい      | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
 | **validationCode**     | INT  | いいえ       | 政府コミュニティクラウドにのみ必要です。                                                                                                            |
 
 ### <a name="request-headers"></a>要求ヘッダー
@@ -73,7 +73,7 @@ var gccCustomerQualification = partnerOperations.Customers.ById(existingCustomer
 
 ### <a name="request-body"></a>[要求本文]
 
-[**顧客限定**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification)列挙型からの整数値。
+[**顧客限定**/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification) 列挙型の整数値。
 
 ### <a name="request-example"></a>要求の例
 
@@ -88,7 +88,7 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で更新された[**修飾**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification)プロパティを返します。
+成功した場合、このメソッドは応答本文で更新された [**修飾**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification] プロパティを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

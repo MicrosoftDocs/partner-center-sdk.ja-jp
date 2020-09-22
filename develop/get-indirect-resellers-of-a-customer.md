@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 08892b69b73235b27203648fa6cb6efd2fcac9f0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c48704d12cfee49723e9932854f09eb34e59cb5f
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093641"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926394"
 ---
 # <a name="get-indirect-resellers-of-a-customer"></a>顧客の間接リセラーを取得する
 
@@ -29,7 +29,7 @@ ms.locfileid: "86093641"
 
 ## <a name="c"></a>C\#
 
-指定された顧客がリレーションシップを持つ間接リセラーの一覧を取得するには、まず、顧客を識別するための顧客 ID を指定して、特定の顧客の顧客コレクション操作へのインターフェイスを取得します[**。**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) 次に、[**リレーションシップの get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get)または[**get \_ Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync)メソッドを呼び出して、間接リセラーの一覧を取得します。
+指定された顧客がリレーションシップを持つ間接リセラーの一覧を取得するには、まず、顧客を識別するための顧客 ID を指定して、[**partneroperations**] プロパティから特定の顧客の顧客コレクション操作へのインターフェイスを取得します。 次に、[**/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) または [****get \_ Async**/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) メソッドを呼び出して、間接リセラーの一覧を取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,7 +38,7 @@ ms.locfileid: "86093641"
  var indirectResellers = partnerOperations.Customers[customerId].Relationships.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)**プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetIndirectResellersOfCustomer.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)**プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetIndirectResellersOfCustomer.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -52,7 +52,7 @@ ms.locfileid: "86093641"
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
@@ -78,11 +78,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には、再販業者を識別するための[Partnerrelationship](relationships-resources.md)リソースのコレクションが含まれます。
+成功した場合、応答本文には、再販業者を識別するための [Partnerrelationship](relationships-resources.md) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

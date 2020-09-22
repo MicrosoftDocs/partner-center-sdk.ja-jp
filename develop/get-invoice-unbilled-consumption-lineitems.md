@@ -4,12 +4,12 @@ description: パートナーセンター Api を使用して、指定された�
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7a18163cbbfd67bc9f4cc1ac08bad50eb5a083e2
-ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
+ms.openlocfilehash: a10ae8fb580b89c6e8bb95035620457f88046d6a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88937902"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927075"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Invoice 未請求の商業消費明細項目を取得する
 
@@ -34,9 +34,9 @@ ms.locfileid: "88937902"
 
 指定した請求書の品目を取得するには、次のようにします。
 
-1. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
+1. [**ById**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
 
-2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、請求書オブジェクトを取得します。
+2. [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)] メソッドを呼び出して、請求書オブジェクトを取得します。
 
 **Invoice オブジェクト**には、指定した請求書のすべての情報が含まれています。 **プロバイダー**は、未請求詳細情報のソース (たとえば、 **OneTime**) を識別します。 **InvoiceLineItemType**は、型 (たとえば、 **UsageLineItem**) を指定します。
 
@@ -44,9 +44,9 @@ ms.locfileid: "88937902"
 
 **InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
-1. インスタンスの **プロバイダー** と **InvoiceLineItemType** を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) メソッドに渡します。
+1. インスタンスの **プロバイダー** と **InvoiceLineItemType** を [**By**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) メソッドに渡します。
 
-2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
+2. [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)] メソッドを呼び出して、関連付けられている行項目を取得します。
 3. 次の例に示すように、列挙子を作成してコレクションを走査します。
 
 ``` csharp
@@ -127,14 +127,14 @@ while (fetchNext)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| Name                   | 種類   | 必須 | 説明                                                                     |
+| 名前                   | 種類   | 必須 | 説明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
 | provider               | string | はい      | プロバイダー: "**OneTime**"。                                                |
 | invoice-line-item-type | string | はい      | 請求書の詳細の種類: "**UsageLineItems**"、"**UsageLineItems**"。               |
 | currencyCode           | string | はい      | 未請求の品目の通貨コード。                                  |
 | 前期                 | string | はい      | 未請求偵察の期間 (例: **current**, **previous**)。<br/><br/>[**前へ**] –請求サイクルが 01/01/2020 ~ 01/31/2020 の場合、通常、請求書は02/06/2020 と02/08/2020 の UTC 時間の間に生成されます。 02/01/2020 と請求書によって生成された日付 (02/06/2020 と 02/08/2020 UTC 時刻) の間に、請求サイクルの未請求使用状況データ (01/01/2020 ~ 01/31/2020) を照会する必要がある場合は、[前] として [期間] を選択する必要があります。<br/><br/>**Current** –請求サイクルが 01/01/2020 ~ 01/31/2020 である場合、通常、請求書は02/06/2020 と02/08/2020 の UTC 時間の間に生成されます。 請求サイクル内の01/01/2020 から01/31/2020 までの任意の時間に、請求サイクル (01/01/2020 ~ 01/31/2020) の未請求使用状況データを照会する必要がある場合は、[現在] として [期間] を選択する必要があります。 |
-| size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000です。                    |
-| seekOperation          | string | いいえ       | を設定し `seekOperation=Next` て、調整行項目の次のページを取得します。                |
+| サイズ                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000です。                    |
+| seekOperation          | string | No       | を設定し `seekOperation=Next` て、調整行項目の次のページを取得します。                |
 
 ### <a name="request-headers"></a>要求ヘッダー
 

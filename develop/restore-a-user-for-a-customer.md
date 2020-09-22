@@ -4,12 +4,12 @@ description: 顧客 ID とユーザー ID を使って削除されたユーザ�
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c908adaa8ae315003aff2ef3ca1ba1d54484767d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2d46983b487817fc7152420af1b9332b53dba77b
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096627"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926475"
 ---
 # <a name="restore-a-deleted-user-for-a-customer"></a>顧客の削除されたユーザーを復元する
 
@@ -17,7 +17,7 @@ ms.locfileid: "86096627"
 
 - パートナー センター
 
-顧客 ID とユーザー ID を使って削除された**ユーザー**を復元する方法。
+顧客 ID とユーザー ID を使って削除された **ユーザー** を復元する方法。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -25,19 +25,19 @@ ms.locfileid: "86096627"
 
 - 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
-- ユーザー ID。 ユーザー ID を持っていない場合は、「[顧客の削除されたユーザーの表示](view-a-deleted-user.md)」を参照してください。
+- ユーザー ID。 ユーザー ID を持っていない場合は、「 [顧客の削除されたユーザーの表示](view-a-deleted-user.md)」を参照してください。
 
 ## <a name="when-can-you-restore-a-deleted-user-account"></a>削除されたユーザーアカウントを復元できるのはいつですか。
 
-ユーザーアカウントを削除すると、ユーザーの状態が "非アクティブ" に設定されます。 30日間はそのままで、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。 削除されたユーザーアカウントは、この30日の期間中のみ復元できます。 削除され、"inactive" とマークされると、ユーザーアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、[[顧客のすべてのユーザーアカウントの一覧を取得する](get-a-list-of-all-user-accounts-for-a-customer.md)] を使用します)。
+ユーザーアカウントを削除すると、ユーザーの状態が "非アクティブ" に設定されます。 30日間はそのままで、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。 削除されたユーザーアカウントは、この30日の期間中のみ復元できます。 削除され、"inactive" とマークされると、ユーザーアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、[ [顧客のすべてのユーザーアカウントの一覧を取得する](get-a-list-of-all-user-accounts-for-a-customer.md)] を使用します)。
 
 ## <a name="c"></a>C\#
 
-ユーザーを復元するには、[**顧客ユーザー**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.customeruser)クラスの新しいインスタンスを作成し、[**ユーザーの状態**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.user.state)プロパティの値を[**UserState. Active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.userstate)に設定します。
+ユーザーを復元するには、[**顧客ユーザー**/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) クラスの新しいインスタンスを作成し、**[/dotnet/api/microsoft.store.partnercenter.models.users.user.state]** プロパティの値を [**UserState. Active**/dotnet/api/microsoft.store.partnercenter.models.users.userstate] に設定します。
 
-削除されたユーザーを復元するには、ユーザーの状態を [アクティブ] に設定します。 ユーザーリソースの残りのフィールドを再設定する必要はありません。 これらの値は、削除済みの非アクティブなユーザーリソースから自動的に復元されます。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別し、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを使用してユーザーを識別します。
+削除されたユーザーを復元するには、ユーザーの状態を [アクティブ] に設定します。 ユーザーリソースの残りのフィールドを再設定する必要はありません。 これらの値は、削除済みの非アクティブなユーザーリソースから自動的に復元されます。 次に、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別し、[**ById**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを使用してユーザーを識別します。
 
-最後に、 [**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch)メソッドを呼び出して、ユーザーを復元する要求を送信するための**ユーザー**インスタンスを渡します。
+最後に、[**Patch**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) メソッドを呼び出して、ユーザーを復元するための要求を送信するように **顧客ユーザー** インスタンスを渡します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,7 +53,7 @@ var updatedCustomerUser = new CustomerUser()
 var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Patch(updatedCustomerUser);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CustomerUserRestore.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: CustomerUserRestore.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -67,10 +67,10 @@ var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomer
 
 次のクエリパラメーターを使用して、顧客 id とユーザー id を指定します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                              |
+| 名前                   | 種類     | 必須 | 説明                                                                                                              |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、リセラーが特定の顧客に対して結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
-| **ユーザー id**            | **guid** | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                         |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーが特定の顧客に対して結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
+| **ユーザー id**            | **guid** | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の **ユーザー id** です。                                         |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -80,7 +80,7 @@ var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomer
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前       | Type   | 必須 | 説明                                                            |
+| 名前       | 種類   | 必須 | 説明                                                            |
 |------------|--------|----------|------------------------------------------------------------------------|
 | State      | string | Y        | ユーザーの状態。 削除されたユーザーを復元するには、この文字列に "active" が含まれている必要があります。 |
 | 属性 | object | N        | "ObjectType": "顧客ユーザー" が含まれています。                                 |
@@ -113,7 +113,7 @@ Expect: 100-continue
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

@@ -4,12 +4,12 @@ description: 顧客とサブスクリプション ID に一致するサブスク
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0549f1066038594c9e2a8c30a5427cc94b5ac296
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9a83b7ab5263e50f3957920994579d6a3a82e654
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095958"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925573"
 ---
 # <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>商用マーケットプレース サブスクリプションの自動更新を更新する
 
@@ -17,9 +17,9 @@ ms.locfileid: "86095958"
 
 - パートナー センター
 
-顧客とサブスクリプション ID に一致する商用 marketplace[サブスクリプション](subscription-resources.md)リソースの autorenew プロパティを更新します。
+顧客とサブスクリプション ID に一致する商用 marketplace [サブスクリプション](subscription-resources.md) リソースの autorenew プロパティを更新します。
 
-パートナーセンターのダッシュボードでは、最初に[顧客を選択する](get-a-customer-by-name.md)ことによって、この操作が実行されます。 次に、更新するサブスクリプションを選択します。 最後に、**自動更新**オプションを切り替え、[**送信**] を選択します。
+パートナーセンターのダッシュボードでは、最初に [顧客を選択する](get-a-customer-by-name.md)ことによって、この操作が実行されます。 次に、更新するサブスクリプションを選択します。 最後に、 **自動更新** オプションを切り替え、[ **送信**] を選択します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -31,7 +31,7 @@ ms.locfileid: "86095958"
 
 ## <a name="c"></a>C\#
 
-顧客のサブスクリプションを更新するには、最初に[サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの[**autoRenewEnabled**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled)プロパティを設定します。 変更が完了したら、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを呼び出し、その後に[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。 次に、 **Patch ()** メソッドを呼び出して終了します。
+顧客のサブスクリプションを更新するには、最初に [サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの [**autoRenewEnabled**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled)] プロパティを設定します。 変更が完了したら、 **iaggregatepartner.customers** コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、[**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions]** プロパティを呼び出した後、[**ById ()**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) メソッドを呼び出します。 次に、 **Patch ()** メソッドを呼び出して終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,7 +43,7 @@ selectedSubscription.AutoRenewEnabled = false;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: UpdateSubscription.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample **クラス**: UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -57,7 +57,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションを中断するために必要なクエリパラメーターを示します。
 
-| 名前                    | Type     | 必須 | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **GUID** | Y        | 顧客に対応する GUID。     |
 | **id-for-subscription** | **GUID** | Y        | サブスクリプションに対応する GUID。 |
@@ -68,7 +68,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="request-body"></a>[要求本文]
 
-要求本文には、完全な商用 marketplace**サブスクリプション**リソースが必要です。 **AutoRenewEnabled**プロパティが更新されていることを確認します。
+要求本文には、完全な商用 marketplace **サブスクリプション** リソースが必要です。 **AutoRenewEnabled**プロパティが更新されていることを確認します。
 
 ### <a name="request-example"></a>要求の例
 
@@ -116,7 +116,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、応答本文で更新された[サブスクリプション](subscription-resources.md)リソースのプロパティを返します。
+成功した場合、このメソッドは、応答本文で更新された [サブスクリプション](subscription-resources.md) リソースのプロパティを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

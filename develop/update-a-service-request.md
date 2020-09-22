@@ -4,12 +4,12 @@ description: お客様の代わりに、クラウドソリューションプロ�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 96a856b8b246edbee516486641b478df485f91c4
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a7330811c3be17d90015cfca7491b287852fbe86
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095592"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925536"
 ---
 # <a name="update-a-service-request"></a>サービス リクエストを更新する
 
@@ -21,7 +21,7 @@ ms.locfileid: "86095592"
 
 お客様の代わりに、クラウドソリューションプロバイダーによって Microsoft に提出された既存のカスタマーサービスリクエストを更新する方法。
 
-パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、左側のサイドバーで [**サービス管理**] を選択します。 [**サポート要求**] ヘッダーの下で、対象のサービス要求を選択します。 完了するには、サービス要求に必要な変更を行い、[送信] を選択し**ます。**
+パートナーセンターのダッシュボードでは、最初に [顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、左側のサイドバーで [ **サービス管理** ] を選択します。 [ **サポート要求** ] ヘッダーの下で、対象のサービス要求を選択します。 完了するには、サービス要求に必要な変更を行い、[送信] を選択し **ます。**
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -31,7 +31,7 @@ ms.locfileid: "86095592"
 
 ## <a name="c"></a>C\#
 
-顧客のサービス要求を更新するには、サービス要求 id を指定して[**IServiceRequestCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid)メソッドを呼び出し、サービス要求インターフェイスを特定して返します。 次に、 [**IServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch)または Patch [**async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync)メソッドを呼び出して、サービス要求を更新します。 更新された値を提供するには、新しい空の[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)オブジェクトを作成し、変更するプロパティ値のみを設定します。 次に、そのオブジェクトを Patch または Patch Async メソッドの呼び出しで渡します。
+顧客のサービス要求を更新するには、サービス要求 id を指定して [**IServiceRequestCollection ById**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) メソッドを呼び出し、サービス要求インターフェイスを特定して返します。 次に、[**IServiceRequest**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch) または [Patch**async**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync) メソッドを呼び出して、サービス要求を更新します。 更新された値を提供するには、新しい空の [**ServiceRequest**/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest] オブジェクトを作成し、変更するプロパティ値のみを設定します。 次に、そのオブジェクトを Patch または Patch Async メソッドの呼び出しで渡します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,7 +43,7 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 });
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: UpdatePartnerServiceRequest.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: UpdatePartnerServiceRequest.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -57,7 +57,7 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 
 サービス要求を更新するには、次の URI パラメーターを使用します。
 
-| 名前                  | Type     | 必須 | 説明                                 |
+| 名前                  | 種類     | 必須 | 説明                                 |
 |-----------------------|----------|----------|---------------------------------------------|
 | **servicerequest-id** | **guid** | Y        | サービス要求を識別する GUID。 |
 
@@ -67,7 +67,7 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 
 ### <a name="request-body"></a>[要求本文]
 
-要求本文には、 [ServiceRequest](service-request-resources.md)リソースが含まれている必要があります。 必要な値は、更新される値のみです。
+要求本文には、 [ServiceRequest](service-request-resources.md) リソースが含まれている必要があります。 必要な値は、更新される値のみです。
 
 ### <a name="request-example"></a>要求の例
 
@@ -115,11 +115,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で更新されたプロパティを含む**サービス要求**リソースを返します。
+成功した場合、このメソッドは応答本文で更新されたプロパティを含む **サービス要求** リソースを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

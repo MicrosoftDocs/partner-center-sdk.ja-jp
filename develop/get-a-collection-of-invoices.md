@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: d0237b02f3a4e8a837b70559f5858dff5ff08a33
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f56c3de8dd227f573921e5b969c2217c2f743a21
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098364"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927287"
 ---
 # <a name="get-a-collection-of-invoices"></a>請求書のコレクションを取得する
 
@@ -30,11 +30,11 @@ ms.locfileid: "86098364"
 
 ## <a name="c"></a>C\#
 
-使用可能なすべての請求書のコレクションを取得する[**には、invoice プロパティを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)使用して請求書操作へのインターフェイスを取得し、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync)メソッドを呼び出してコレクションを取得します。
+使用可能なすべての請求書のコレクションを取得する [**には、invoice プロパティを**](/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) 使用して請求書操作へのインターフェイスを取得し、 [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get) または [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync) メソッドを呼び出してコレクションを取得します。
 
-ページ分割された請求書のコレクションを取得するには、まず[**Buildindexedquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery)メソッドを呼び出し、それにページサイズを渡して[**iquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)オブジェクトを作成します。 次に、invoice[**プロパティを使用して請求**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices)書操作へのインターフェイスを取得し、[**クエリ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query)または[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync)メソッドに iquery オブジェクトを渡して、要求を送信して最初のページを取得します。
+ページ分割された請求書のコレクションを取得するには、まず [**Buildindexedquery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) メソッドを呼び出し、それにページサイズを渡して [**iquery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) オブジェクトを作成します。 次に、invoice [**プロパティを使用して請求**](/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) 書操作へのインターフェイスを取得し、 [**クエリ**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) または [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) メソッドに iquery オブジェクトを渡して、要求を送信して最初のページを取得します。
 
-次に、[**列挙子**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators)プロパティを使用して、サポートされているリソースコレクション列挙子のコレクションへのインターフェイスを取得し、[請求書] を呼び出し[**ます。 [作成**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)] をクリックして、請求書のコレクションを走査するための列挙子を作成します。 最後に、列挙子を使用して、次のコード例に示すように、請求書の各ページを取得して操作します。 [**次**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next)のメソッドを呼び出すたびに、ページサイズに基づいて請求書の次のページの要求が送信されます。
+次に、 [**列挙子**](/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) プロパティを使用して、サポートされているリソースコレクション列挙子のコレクションへのインターフェイスを取得し、[請求書] を呼び出し [**ます。 [作成**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) ] をクリックして、請求書のコレクションを走査するための列挙子を作成します。 最後に、列挙子を使用して、次のコード例に示すように、請求書の各ページを取得して操作します。 [**次**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next)のメソッドを呼び出すたびに、ページサイズに基づいて請求書の次のページの要求が送信されます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -75,7 +75,7 @@ while (invoicesEnumerator.HasValue)
 }
 ```
 
-少し異なる例については、「**サンプル**:[コンソールテストアプリ](console-test-app.md)」を参照してください。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetPagedInvoices.cs
+少し異なる例については、「 **サンプル**: [コンソールテストアプリ](console-test-app.md)」を参照してください。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetPagedInvoices.cs
 
 > [!NOTE] 
 > 同じ API が、すべての最新の商用購入に加え、145p と Office のライセンスにも使用されます。 サイズとオフセットは、従来の請求書に対してのみ考慮されます。 すべての最新の商用購入については、pagesize & オフセットは無視されます。
@@ -92,9 +92,9 @@ while (invoicesEnumerator.HasValue)
 
 要求の作成時には、次のクエリパラメーターを使用します。
 
-| 名前   | Type | 必須 | 説明                                                                            |
+| 名前   | 種類 | 必須 | 説明                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| size   | INT  | いいえ       | 応答で返される請求リソースの数。 このパラメーターは省略可能です。 |
+| サイズ   | INT  | いいえ       | 応答で返される請求リソースの数。 このパラメーターは省略できます。 |
 | offset | INT  | いいえ       | 返される最初の請求書の0から始まるインデックス。                                   |
 
 ### <a name="request-headers"></a>要求ヘッダー
@@ -120,7 +120,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[請求](invoice-resources.md#invoice)リソースのコレクションが含まれます。
+成功した場合、応答本文には [請求](invoice-resources.md#invoice) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

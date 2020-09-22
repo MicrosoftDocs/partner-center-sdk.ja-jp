@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: b11a952be19819a6c5acce17287c10a2e01e2421
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e3366f60aea9262b3d6532aded5c595b91eb9cb5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096259"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927852"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller"></a>間接リセラーの顧客を作成する
 
@@ -33,11 +33,11 @@ ms.locfileid: "86096259"
 
 間接リセラーに新しい顧客を追加するには、次のようにします。
 
-1. 新しい[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)オブジェクトをインスタンス化し、そのインスタンスを作成して、その[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)と会社の[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)を作成します。 必ず間接リセラー ID を[**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid)プロパティに割り当ててください。
+1. 新しい [**Customer**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) オブジェクトをインスタンス化し、そのインスタンスを作成して、その [**プロファイル**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) と会社の [**プロファイル**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)を作成します。 必ず間接リセラー ID を [**AssociatedPartnerID**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid) プロパティに割り当ててください。
 
-2. 顧客コレクション操作へのインターフェイスを取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)プロパティを使用します。
+2. 顧客コレクション操作へのインターフェイスを取得するには、 [**iaggregatepartner.customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) プロパティを使用します。
 
-3. 顧客を作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)メソッドを呼び出します。
+3. 顧客を作成するには、 [**create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) または [**createasync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) メソッドを呼び出します。
 
 ### <a name="c-example"></a>C の \# 例
 
@@ -77,7 +77,7 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateCustomerforIndirectReseller.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: CreateCustomerforIndirectReseller.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -95,7 +95,7 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                                          | Type   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
+| 名前                                          | 種類   | 必須 | 説明                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [BillingProfile](#billing-profile)             | object | はい      | 顧客の課金プロファイル情報。                                                                                                                                                                                                                                                                                                           |
 | [CompanyProfile](#company-profile)             | object | はい      | 顧客の会社プロファイル情報。                                                                                                                                                                                                                                                                                                           |
@@ -103,21 +103,21 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 #### <a name="billing-profile"></a>請求プロファイル
 
-次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
+次の表では、新しい顧客を作成するために必要な、ユーザーごとの [プロファイル](customer-resources.md#customerbillingprofile) リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | Type                                     | 必須 | 説明                                                                                                                                                                                                     |
+| 名前             | 種類                                     | 必須 | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | email            | string                                   | はい      | 顧客のメール アドレス。                                                                                                                                                                                   |
 | カルチャ          | string                                   | はい      | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
 | language         | string                                   | はい      | 既定の言語です。 2文字の言語コード ( `en` やなど `fr` ) がサポートされています。                                                                                                                                |
 | 会社 \_ 名    | string                                   | はい      | 登録されている会社名または組織名。                                                                                                                                                                       |
-| 既定の \_ アドレス | [アドレス](utility-resources.md#address) | はい      | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
+| 既定の \_ アドレス | [アドレス](utility-resources.md#address) | Yes      | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、 [アドレス](utility-resources.md#address) リソースを参照してください。                                             |
 
-#### <a name="company-profile"></a>会社プロファイル
+#### <a name="company-profile"></a>会社のプロファイル
 
-次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
+次の表では、新しい顧客を作成するために必要な、ユーザーの会社の [プロファイル](customer-resources.md#customercompanyprofile) リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | Type   | 必須 | 説明                                                  |
+| 名前   | 種類   | 必須 | 説明                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
 | domain | string | .うん     | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 
@@ -184,7 +184,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答には新しい顧客の[顧客](customer-resources.md#customer)リソースが含まれます。
+成功した場合、応答には新しい顧客の [顧客](customer-resources.md#customer) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

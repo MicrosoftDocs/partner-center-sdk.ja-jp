@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 8da599368cb7158ba31bbfdd4330d0f4bccb0dc4
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a2f42001365324a65376318cb1f2d57dc123df0c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097941"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927243"
 ---
 # <a name="get-a-user-account-by-id"></a>ユーザー アカウントを ID で取得する
 
@@ -27,7 +27,7 @@ ms.locfileid: "86097941"
 
 ## <a name="c"></a>C\#
 
-顧客のユーザーアカウントを取得するには、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。 次に、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出して、特定のユーザーを取得します。 最後に、ユーザーアカウントを取得するには、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync)メソッドを呼び出します。
+顧客のユーザーアカウントを取得するには、顧客 ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、顧客を識別します。 次に、 [**ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出して、特定のユーザーを取得します。 最後に、ユーザーアカウントを取得するには、 [**Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) または [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,7 +38,7 @@ ms.locfileid: "86097941"
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetCustomerUserDetails.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetCustomerUserDetails.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -52,10 +52,10 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 次の URI パラメーターを使用して、正しい顧客とユーザーを識別します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
-| **ユーザー id**            | **guid** | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                                                       |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
+| **ユーザー id**            | **guid** | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の **ユーザー id** です。                                                                       |
 
 ### <a name="request-headers"></a>要求ヘッダー
 

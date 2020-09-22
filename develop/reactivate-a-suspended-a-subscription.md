@@ -4,12 +4,12 @@ description: 以前に保留されていた支払い以外のサブスクリプ�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2d77b71803f788751c348651f74fc993ac0f0702
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9143df34d08b689654da41cc427fdf8527e06446
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096174"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926673"
 ---
 # <a name="reactivate-a-suspended-subscription"></a>中断したサブスクリプションを再アクティブ化する
 
@@ -20,9 +20,9 @@ ms.locfileid: "86096174"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-以前に保留されていた支払い以外の[サブスクリプション](subscription-resources.md)を再アクティブ化します。
+以前に保留されていた支払い以外の [サブスクリプション](subscription-resources.md) を再アクティブ化します。
 
-パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、名前を変更する対象のサブスクリプションを選択します。 完了するには、[**アクティブ**] をクリックし、[送信] を選択し**ます。**
+パートナーセンターのダッシュボードでは、最初に [顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、名前を変更する対象のサブスクリプションを選択します。 完了するには、[ **アクティブ** ] をクリックし、[送信] を選択し **ます。**
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -34,7 +34,7 @@ ms.locfileid: "86096174"
 
 ## <a name="c"></a>C\#
 
-顧客のサブスクリプションを再アクティブ化するには、最初に[サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの[**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)プロパティを変更します。 **状態**コードの詳細については、「 [subscriptionstatus 列挙型](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)」を参照してください。 変更が完了したら、 [**Ipartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 [**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを呼び出し、その後に[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。 次に、 [**Patch ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch)メソッドを呼び出して終了します。
+顧客のサブスクリプションを再アクティブ化するには、最初に [サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの [**Status**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status] プロパティを変更します。 **状態**コードの詳細については、[subscriptionstatus enumeration/dotnet/api/microsoft. ストア. subscriptionstatus] を参照してください。 変更が完了したら、[**Ipartner**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) コレクションを使用して、[**ById ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。 次に、[**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions]** プロパティを呼び出した後、[**ById ()**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) メソッドを呼び出します。 次に、[**Patch ()**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) メソッドを呼び出して終了します。
 
 ``` csharp
 // IPartner partnerOperations;
@@ -49,7 +49,7 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
 
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: FeatureSamplesApplication。 **クラス**: UpdateSubscription
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: FeatureSamplesApplication。 **クラス**: UpdateSubscription
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -63,7 +63,7 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
 
 次の表に、サブスクリプションを再アクティブ化するために必要なクエリパラメーターを示します。
 
-| 名前                    | Type     | 必須 | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **id-for-subscription** | **guid** | Y        | サブスクリプションに対応する GUID。 |
@@ -113,7 +113,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、応答本文で更新された[サブスクリプション](subscription-resources.md)リソースのプロパティを返します。
+成功した場合、このメソッドは、応答本文で更新された [サブスクリプション](subscription-resources.md) リソースのプロパティを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

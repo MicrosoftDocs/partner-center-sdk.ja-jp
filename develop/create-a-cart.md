@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: aa3bd159a850028a30ee88edc22bb3b263df310e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b0b064100a40ab265fca544822c86ead8a75629a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096326"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926489"
 ---
 # <a name="create-a-cart"></a>カートを作成する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86096326"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-買い物かごに顧客の注文を追加することができます。 現在販売可能なものの詳細については、 [Cloud Solution Provider プログラムのパートナープランに](https://docs.microsoft.com/partner-center/csp-offers)関する情報を参照してください。
+買い物かごに顧客の注文を追加することができます。 現在販売可能なものの詳細については、 [Cloud Solution Provider プログラムのパートナープランに](/partner-center/csp-offers)関する情報を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -38,9 +38,9 @@ ms.locfileid: "86096326"
 
 2. **CartLineItem**オブジェクトの一覧を作成し、そのリストをカートの LineItems プロパティに割り当てます。 各カートの品目には、1つの製品の購入情報が含まれています。 少なくとも1つのカート品目が必要です。
 
-3. 顧客 ID を指定して**ById**メソッドを呼び出して顧客を識別し、**カート**プロパティからインターフェイスを取得することによって、カート操作へのインターフェイスを取得します。
+3. 顧客 ID を指定して **ById** メソッドを呼び出して顧客を識別し、 **カート** プロパティからインターフェイスを取得することによって、カート操作へのインターフェイスを取得します。
 
-4. カートを作成するには、 **create**または**createasync**メソッドを呼び出します。
+4. カートを作成するには、 **create** または **createasync** メソッドを呼び出します。
 
 ### <a name="c-example"></a>C の \# 例
 
@@ -136,9 +136,9 @@ cart = partnerOperations.Customers.ById(customerId).Carts.Create(cart);
 
 2. **CartLineItem**オブジェクトの一覧を作成し、そのリストをカートの品目に割り当てます。 各カートの品目には、1つの製品の購入情報が含まれています。 少なくとも1つのカート品目が必要です。
 
-3. 顧客 ID を指定して**iaggregatepartner.customers () byId**関数を呼び出して顧客を識別し、 **getcustomers**関数からインターフェイスを取得することによって、カート操作へのインターフェイスを取得します。
+3. 顧客 ID を指定して **iaggregatepartner.customers () byId** 関数を呼び出して顧客を識別し、 **getcustomers** 関数からインターフェイスを取得することによって、カート操作へのインターフェイスを取得します。
 
-4. カートを作成するには、 **create**関数を呼び出します。
+4. カートを作成するには、 **create** 関数を呼び出します。
 
 ## <a name="java-example"></a>Java の例
 
@@ -214,7 +214,7 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前            | Type     | 必須 | 説明                                                            |
+| 名前            | 種類     | 必須 | 説明                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
 | **顧客 id** | string   | はい      | 顧客を識別する GUID 形式の顧客 id。             |
 
@@ -224,38 +224,38 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 ### <a name="request-body"></a>[要求本文]
 
-次の表では、要求本文に含まれる[カート](cart-resources.md)のプロパティについて説明します。
+次の表では、要求本文に含まれる [カート](cart-resources.md) のプロパティについて説明します。
 
-| プロパティ              | Type             | 必須        | 説明 |
+| プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | string           | いいえ              | カートが正常に作成されたときに提供されるカート識別子。                                  |
-| 前のタイムスタンプ     | DateTime         | いいえ              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。         |
-| lastModifiedTimeStamp | DateTime         | いいえ              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
-| expirationTimeStamp   | DateTime         | いいえ              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
-| lastModifiedUser      | 文字列           | いいえ              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
-| lineItems             | オブジェクトの配列 | はい             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                     |
+| id                    | string           | No              | カートが正常に作成されたときに提供されるカート識別子。                                  |
+| 前のタイムスタンプ     | DateTime         | No              | カートが作成された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。         |
+| lastModifiedTimeStamp | DateTime         | No              | カートが最後に更新された日付 (日付/時刻形式)。 カートが正常に作成されたときに適用されます。    |
+| expirationTimeStamp   | DateTime         | No              | カートの有効期限が切れる日付 (日付と時刻の形式)。  カートの作成が成功したときに適用されます。            |
+| lastModifiedUser      | string           | No              | カートを最後に更新したユーザー。 カートの作成が成功したときに適用されます。                             |
+| lineItems             | オブジェクトの配列 | Yes             | [CartLineItem](cart-resources.md#cartlineitem)リソースの配列。                                     |
 
-次の表では、要求本文の[CartLineItem](cart-resources.md#cartlineitem)プロパティについて説明します。
+次の表では、要求本文の [CartLineItem](cart-resources.md#cartlineitem) プロパティについて説明します。
 
-|      プロパティ       |            Type             | 必須 |                                                                                         説明                                                                                         |
+|      プロパティ       |            種類             | 必須 |                                                                                         説明                                                                                         |
 |---------------------|-----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         id          |           string            |    いいえ    |                                                     カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                     |
+|         id          |           string            |    No    |                                                     カートの品目の一意の識別子。 カートの作成が成功したときに適用されます。                                                     |
 |      catalogId      |           string            |   はい    |                                                                                カタログ項目の識別子。                                                                                 |
-|    friendlyName     |           文字列            |    いいえ    |                                                    省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                    |
+|    friendlyName     |           string            |    いいえ    |                                                    省略可能。 明確に区別できるように、パートナーによって定義された項目のフレンドリ名。                                                    |
 |      数量       |             INT             |   はい    |                                                                            ライセンスまたはインスタンスの数。                                                                             |
-|    currencyCode     |           文字列            |    いいえ    |                                                                                     通貨コード。                                                                                      |
+|    currencyCode     |           string            |    No    |                                                                                     通貨コード。                                                                                      |
 |    billingCycle     |           Object            |   はい    |                                                                    現在の期間に設定されている請求サイクルの種類。                                                                    |
-|    participants     | オブジェクトの文字列ペアの一覧 |    いいえ    |                                                                購入時のレコードの PartnerId (MPNID) のコレクション。                                                                 |
-| provisioningContext | Dictionary<string、string>  |    いいえ    | カタログ内の一部の項目のプロビジョニングに必要な情報。 SKU の "プロビジョニング変数" プロパティは、カタログ内の特定のアイテムに必要なプロパティを示します。 |
-|     orderGroup      |           文字列            |    いいえ    |                                                                   一緒に配置できる項目を示すグループ。                                                                   |
-|        エラー        |           Object            |    いいえ    |                                                                     エラーが発生した場合にカートが作成された後に適用されます。                                                                      |
-|     renewsTo        | オブジェクトの配列            |    いいえ    |                                                    [Renewsto](cart-resources.md#renewsto)の配列。                                                                            |
+|    participants     | オブジェクトの文字列ペアの一覧 |    No    |                                                                購入時のレコードの PartnerId (MPNID) のコレクション。                                                                 |
+| provisioningContext | Dictionary<string、string>  |    No    | カタログ内の一部の項目のプロビジョニングに必要な情報。 SKU の "プロビジョニング変数" プロパティは、カタログ内の特定のアイテムに必要なプロパティを示します。 |
+|     orderGroup      |           string            |    No    |                                                                   一緒に配置できる項目を示すグループ。                                                                   |
+|        error        |           Object            |    いいえ    |                                                                     エラーが発生した場合にカートが作成された後に適用されます。                                                                      |
+|     renewsTo        | オブジェクトの配列            |    No    |                                                    [Renewsto](cart-resources.md#renewsto)の配列。                                                                            |
 
-次の表では、要求本文の[renewsto](cart-resources.md#renewsto)について説明します。
+次の表では、要求本文の [renewsto](cart-resources.md#renewsto) について説明します。
 
-| プロパティ              | Type             | 必須        | 説明 |
+| プロパティ              | 種類             | 必須        | 説明 |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | 文字列           | いいえ              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と**P1Y** (1 年) です。 |
+| termDuration          | string           | No              | 更新用語の期間の ISO 8601 表現。 現在サポートされている値は、 **P1M** (1 か月) と **P1Y** (1 年) です。 |
 
 ### <a name="request-example"></a>要求の例
 
@@ -338,7 +338,7 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、応答本文で設定された[カート](cart-resources.md)リソースを返します。
+成功した場合、このメソッドは、応答本文で設定された [カート](cart-resources.md) リソースを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

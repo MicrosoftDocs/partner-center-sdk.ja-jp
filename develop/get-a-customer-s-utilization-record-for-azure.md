@@ -4,12 +4,12 @@ description: Azure 使用率 API を使用して、指定した期間におけ�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 478f91e85c0ab178804e24eaf77b8f7fd086ddf6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: bcdeb51b04039fd05b923150c85119385c0537e0
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098307"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927740"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Azure に関する顧客の使用率レコードを取得する
 
@@ -29,13 +29,13 @@ Azure 使用率 API を使用して、指定した期間の顧客の Azure サ�
 
 - サブスクリプション識別子。
 
-この API は、任意の期間の日単位および時間単位の超過使用量を返します。 ただし、*この API は Azure プランではサポートされていません*。 Azure プランをお持ちの場合は、「 [invoice 未請求従量課金明細](get-invoice-unbilled-consumption-lineitems.md)書を取得する」と「[請求書の課金対象の明細項目を取得](get-invoice-billed-consumption-lineitems.md)する」を参照してください。 これらの記事では、リソースごとに1メートルあたり1日に評価された使用量を取得する方法について説明します。 このレート使用量は、Azure 使用率 API によって提供される1日の粒度のデータと同じです。 請求書の識別子を使用して、課金対象の使用状況データを取得する必要があります。 または、現在と以前の期間を使用して、未請求の使用量の推定値を取得することもできます。 *Azure プランサブスクリプションリソースでは、1時間ごとの粒度データと任意の日付範囲フィルターは現在サポートされていません*。
+この API は、任意の期間の日単位および時間単位の超過使用量を返します。 ただし、 *この API は Azure プランではサポートされていません*。 Azure プランをお持ちの場合は、「 [invoice 未請求従量課金明細](get-invoice-unbilled-consumption-lineitems.md) 書を取得する」と「 [請求書の課金対象の明細項目を取得](get-invoice-billed-consumption-lineitems.md) する」を参照してください。 これらの記事では、リソースごとに1メートルあたり1日に評価された使用量を取得する方法について説明します。 このレート使用量は、Azure 使用率 API によって提供される1日の粒度のデータと同じです。 請求書の識別子を使用して、課金対象の使用状況データを取得する必要があります。 または、現在と以前の期間を使用して、未請求の使用量の推定値を取得することもできます。 *Azure プランサブスクリプションリソースでは、1時間ごとの粒度データと任意の日付範囲フィルターは現在サポートされていません*。
 
 ## <a name="azure-utilization-api"></a>Azure Utilization API
 
 この Azure 使用率 API は、課金システムで使用率がレポートされた日時を表す期間の使用状況レコードへのアクセスを提供します。 調整ファイルの作成と計算に使用されるのと同じ使用率データへのアクセスを提供します。 ただし、課金システムの調整ファイルのロジックはありません。 同じ期間、この API から取得した結果に対して、調整ファイルの概要結果が一致するとは限りません。
 
-たとえば、課金システムは同じ使用率データを取得し、遅延ルールを適用して、調整ファイルの内容を決定します。 請求期間が終了すると、請求期間の終了日までのすべての使用量が調整ファイルに含まれます。 請求期間内の遅延使用は、請求期間の終了後24時間以内に報告され、次の調整ファイルで考慮されます。 パートナーの請求方法に関する遅延の規則については、「 [Azure サブスクリプションの消費データを取得](https://docs.microsoft.com/previous-versions/azure/reference/mt219001(v=azure.100))する」を参照してください。
+たとえば、課金システムは同じ使用率データを取得し、遅延ルールを適用して、調整ファイルの内容を決定します。 請求期間が終了すると、請求期間の終了日までのすべての使用量が調整ファイルに含まれます。 請求期間内の遅延使用は、請求期間の終了後24時間以内に報告され、次の調整ファイルで考慮されます。 パートナーの請求方法に関する遅延の規則については、「 [Azure サブスクリプションの消費データを取得](/previous-versions/azure/reference/mt219001(v=azure.100))する」を参照してください。
 
 この REST API はページングされています。 応答ペイロードが1ページより大きい場合は、次のリンクに従って、使用率レコードの次のページを取得する必要があります。
 
@@ -45,11 +45,11 @@ Azure 使用率レコードを取得するには、次のようにします。
 
 1. 顧客 ID とサブスクリプション ID を取得します。
 
-2. 使用率レコードを含む[**Resourcecollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1)を返すには、 [**IAzureUtilizationCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query)メソッドを呼び出します。
+2. 使用率レコードを含む[**Resourcecollection**](/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1)を返すには、 [**IAzureUtilizationCollection**](/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query)メソッドを呼び出します。
 
 3. 使用率ページを走査するための Azure 使用率レコード列挙子を取得します。 リソースコレクションがページングされているため、この手順は必須です。
 
-- **サンプル**:[コンソールテストアプリ](console-test-app.md)
+- **サンプル**: [コンソールテストアプリ](console-test-app.md)
 - **プロジェクト**: パートナーセンター SDK のサンプル
 - **クラス**: GetAzureSubscriptionUtilization.cs
 
@@ -84,7 +84,7 @@ while (utilizationRecordEnumerator.HasValue)
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Azure 使用率レコードを取得するには、まず顧客 id とサブスクリプション識別子が必要です。 次に、 **IAzureUtilizationCollection**関数を呼び出して、使用率レコードを含む**resourcecollection**を返します。 リソース コレクションはページングされているため、使用率ページをスキャンするには Azure 使用率レコード列挙子を取得する必要があります。
+Azure 使用率レコードを取得するには、まず顧客 id とサブスクリプション識別子が必要です。 次に、 **IAzureUtilizationCollection** 関数を呼び出して、使用率レコードを含む **resourcecollection** を返します。 リソース コレクションはページングされているため、使用率ページをスキャンするには Azure 使用率レコード列挙子を取得する必要があります。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -119,7 +119,7 @@ while (utilizationRecordEnumerator.hasValue())
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Azure 使用率レコードを取得するには、まず顧客 id とサブスクリプション識別子が必要です。 次に、[**取得パートナーの Subscription使用率**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md)を呼び出します。 このコマンドは、指定された期間に利用可能なすべてのレコードを返します。
+Azure 使用率レコードを取得するには、まず顧客 id とサブスクリプション識別子が必要です。 次に、 [**取得パートナーの Subscription使用率**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md)を呼び出します。 このコマンドは、指定された期間に利用可能なすべてのレコードを返します。
 
 ```powershell
 # $customerId
@@ -140,15 +140,15 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 
 使用率レコードを取得するには、次のパスとクエリパラメーターを使用します。
 
-| 名前 | Type | 必須 | 説明 |
+| 名前 | 種類 | 必須 | 説明 |
 | ---- | ---- | -------- | ----------- |
 | customer-tenant-id | string | はい | 顧客を識別する GUID 形式の文字列。 |
 | subscription-id | string | はい | サブスクリプションを識別する GUID 形式の文字列。 |
-| start_time | UTC 日時オフセット形式の文字列 | はい | 課金システムで使用率がレポートされた日時を表す時間範囲の開始。 |
-| end_time | UTC 日時オフセット形式の文字列 | はい | 課金システムで使用率がレポートされた日時を表す時間範囲の最後。 |
-| 粒度 (granularity) | 文字列 | No | 使用状況の集計の粒度を定義します。 使用可能なオプションは `daily` 、(既定値) と `hourly` です。
+| start_time | UTC 日時オフセット形式の文字列 | Yes | 課金システムで使用率がレポートされた日時を表す時間範囲の開始。 |
+| end_time | UTC 日時オフセット形式の文字列 | Yes | 課金システムで使用率がレポートされた日時を表す時間範囲の最後。 |
+| 粒度 (granularity) | string | No | 使用状況の集計の粒度を定義します。 使用可能なオプションは `daily` 、(既定値) と `hourly` です。
 | show_details | boolean | いいえ | インスタンス レベルの使用状況の詳細を取得するかどうかを指定します。 既定値は、`true` です。 |
-| size | number | いいえ | 1 回の API 呼び出しで返される集計の数を指定します。 既定値は 1000 です。 最大値は1000です。 |
+| サイズ | number | いいえ | 1 回の API 呼び出しで返される集計の数を指定します。 既定値は 1000 です。 最大値は1000です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -176,11 +176,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、応答本文で[Azure 使用率レコード](azure-utilization-record-resources.md)リソースのコレクションを返します。 Azure 使用率データが依存システムでまだ準備されていない場合、このメソッドは再試行ヘッダーを含む HTTP 状態コード204を返します。
+成功した場合、このメソッドは、応答本文で [Azure 使用率レコード](azure-utilization-record-resources.md) リソースのコレクションを返します。 Azure 使用率データが依存システムでまだ準備されていない場合、このメソッドは再試行ヘッダーを含む HTTP 状態コード204を返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 ネットワークトレースツールを使用して、HTTP 状態コード、[エラーコードの種類](error-codes.md)、およびその他のパラメーターを読み取ります。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 ネットワークトレースツールを使用して、HTTP 状態コード、 [エラーコードの種類](error-codes.md)、およびその他のパラメーターを読み取ります。
 
 ### <a name="response-example"></a>応答の例
 

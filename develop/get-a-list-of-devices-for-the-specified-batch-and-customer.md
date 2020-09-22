@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: f79df59efe586d9067e3b39b1c51c44aa4561004
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 125d1b4e239f69ae2dfc9667f5d009bab9f415b2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098130"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927663"
 ---
 # <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>指定されたバッチと顧客のデバイスの一覧を取得する
 
@@ -34,13 +34,13 @@ ms.locfileid: "86098130"
 
 指定された顧客について、指定されたデバイスバッチ内のデバイスのコレクションを取得するには、次のようにします。
 
-1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+1. 顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出して、指定された顧客の操作に対するインターフェイスを取得します。
 
-2. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid)メソッドを呼び出して、指定されたバッチのデバイスバッチコレクション操作へのインターフェイスを取得します。
+2. [**ById**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) メソッドを呼び出して、指定されたバッチのデバイスバッチコレクション操作へのインターフェイスを取得します。
 
-3. [**デバイスプロパティを**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices)取得して、バッチのデバイスコレクション操作へのインターフェイスを取得します。
+3. [**Devices**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices] プロパティを取得して、バッチのデバイスコレクション操作へのインターフェイスを取得します。
 
-4. デバイスのコレクションを取得するには、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync)メソッドを呼び出します。
+4. [**Get**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get)] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync] メソッドを呼び出して、デバイスのコレクションを取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -54,7 +54,7 @@ var devices =
 例については、以下を参照してください。
 
 - サンプル: [コンソール テスト アプリ](console-test-app.md)
-- プロジェクト:**パートナーセンター SDK のサンプル**
+- プロジェクト: **パートナーセンター SDK のサンプル**
 - クラス: **GetDevices.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -69,7 +69,7 @@ var devices =
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前           | Type   | 必須 | 説明                                           |
+| 名前           | 種類   | 必須 | 説明                                           |
 |----------------|--------|----------|-------------------------------------------------------|
 | customer-id    | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 | devicebatch-id | string | はい      | デバイスバッチを識別する文字列識別子。 |
@@ -96,11 +96,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には、[デバイス](device-deployment-resources.md#device)リソースのページングされたコレクションが含まれます。 コレクションには、ページ内の100デバイスが含まれます。 100デバイスの次のページを取得するには、応答本文の continuationToken を ContinuationToken ヘッダーとして後続の要求に含める必要があります。
+成功した場合、応答本文には、 [デバイス](device-deployment-resources.md#device) リソースのページングされたコレクションが含まれます。 コレクションには、ページ内の100デバイスが含まれます。 100デバイスの次のページを取得するには、応答本文の continuationToken を ContinuationToken ヘッダーとして後続の要求に含める必要があります。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

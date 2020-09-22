@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 9fc7ad40e4ca8ec74dd3660c72ab359bbf5cc3ef
-ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
+ms.openlocfilehash: 8225623ade7e922ac23ebf0ed9215686b0601244
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87261951"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925881"
 ---
 # <a name="partner-center-webhooks"></a>パートナー センター Webhook
 
@@ -39,7 +39,7 @@ ms.locfileid: "87261951"
 
 - **しきい値超過イベント ("usagerecords-thresholdExceeded")**
 
-    いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 詳細については、「[顧客の Azure 支出予算を設定する](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers)」を参照してください。
+    いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 詳細については、「顧客/パートナーの Azure 支出予算を設定する」を参照してください。または、お客様に対して設定します。
 
 - **紹介作成イベント ("紹介-作成済み")**
 
@@ -55,7 +55,7 @@ ms.locfileid: "87261951"
 
 将来の Webhook イベントは、パートナーが制御していないシステムで変更されるリソースに対して追加されます。また、これらのイベントを可能な限り "リアルタイム" の近くに取得するために更新が行われます。 イベントがビジネスに付加されるパートナーからのフィードバックは、追加する新しいイベントを決定する際に役立ちます。
 
-パートナーセンターでサポートされている Webhook イベントの完全な一覧については、「[パートナーセンターの webhook イベント](partner-center-webhook-events.md)」を参照してください。
+パートナーセンターでサポートされている Webhook イベントの完全な一覧については、「 [パートナーセンターの webhook イベント](partner-center-webhook-events.md)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -110,13 +110,13 @@ Content-Length: 195
 8. 検証が成功した場合は、メッセージを処理します。
 
 > [!NOTE]
-> 既定では、署名トークンは Authorization ヘッダーで送信されます。 登録で**Signaturetokentomssignatureheader**を true に設定すると、代わりに、署名トークンが x.509 署名ヘッダーで送信されます。
+> 既定では、署名トークンは Authorization ヘッダーで送信されます。 登録で **Signaturetokentomssignatureheader** を true に設定すると、代わりに、署名トークンが x.509 署名ヘッダーで送信されます。
 
 ## <a name="event-model"></a>イベントモデル
 
 次の表では、パートナーセンターイベントのプロパティについて説明します。
 
-### <a name="properties"></a>プロパティ
+### <a name="properties"></a>Properties
 
 | 名前                      | 説明                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|

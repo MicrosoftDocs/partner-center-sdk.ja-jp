@@ -4,12 +4,12 @@ description: 顧客とサブスクリプション ID に一致する商用 marke
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: de7a5ecee0d0f530e4e411c5d7de8ab95ed2a2f7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4ed311ba66dd9d1cf2bcacd45922a80440916f36
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094526"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927418"
 ---
 # <a name="cancel-a-commercial-marketplace-subscription"></a>商用マーケットプレース サブスクリプションをキャンセルする
 
@@ -17,7 +17,7 @@ ms.locfileid: "86094526"
 
 - パートナー センター
 
-顧客とサブスクリプション ID に一致する商用 marketplace[サブスクリプション](subscription-resources.md)リソースを取り消すことができます。
+顧客とサブスクリプション ID に一致する商用 marketplace [サブスクリプション](subscription-resources.md) リソースを取り消すことができます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -35,7 +35,7 @@ ms.locfileid: "86094526"
 
 2. 取り消したいサブスクリプションを選択します。
 
-3. [**サブスクリプションの取り消し**] オプションを選択し、[**送信**] を選択します。
+3. [ **サブスクリプションの取り消し** ] オプションを選択し、[ **送信**] を選択します。
 
 ## <a name="c"></a>C\#
 
@@ -43,11 +43,11 @@ ms.locfileid: "86094526"
 
 1. [ID でサブスクリプションを取得](get-a-subscription-by-id.md)します。
 
-2. サブスクリプションの[**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)プロパティを変更します。 **Status** コードについては、「[SubscriptionStatus enumeration (SubscriptionStatus 列挙型)](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)」を参照してください。
+2. サブスクリプションの [**Status**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) プロパティを変更します。 **Status** コードについては、「[SubscriptionStatus enumeration (SubscriptionStatus 列挙型)](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)」を参照してください。
 
 3. 変更が行われたら、コレクションを使用 **`IAggregatePartner.Customers`** し、 **ById ()** メソッドを呼び出します。
 
-4. [**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)のプロパティを呼び出し、その後に[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。
+4. [**サブスクリプション**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)のプロパティを呼び出し、その後に[**ById ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。
 
 5. **Patch()** メソッドを呼び出します。
 
@@ -62,7 +62,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="sample-console-test-app"></a>サンプルコンソールテストアプリ
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: UpdateSubscription.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample **クラス**: UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -76,7 +76,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションを中断するために必要なクエリパラメーターを示します。
 
-| 名前                    | Type     | 必須 | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **id-for-subscription** | **guid** | Y        | サブスクリプションに対応する GUID。 |
@@ -135,7 +135,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で削除された[サブスクリプション](subscription-resources.md)リソースプロパティを返します。
+成功した場合、このメソッドは応答本文で削除された [サブスクリプション](subscription-resources.md) リソースプロパティを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

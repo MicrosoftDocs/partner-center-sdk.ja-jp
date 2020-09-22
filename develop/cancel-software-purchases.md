@@ -4,12 +4,12 @@ description: パートナーセンター Api を使用して、ソフトウェ�
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 364859172661832531e6d214e70dfeb6bc27a7fa
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 25fd10a171fa6ca01f3442d49145443f2382cc18
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097303"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927398"
 ---
 # <a name="cancel-software-purchases"></a>ソフトウェア購入の取り消し
 
@@ -27,15 +27,15 @@ ms.locfileid: "86097303"
 
 ソフトウェアの順序を取り消すには、
 
-1. パートナー操作を取得するために[**ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)インターフェイスを取得するには、アカウントの資格情報を[**createpartneroperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡します。
+1. パートナー操作を取得するために[**ipartner**](/dotnet/api/microsoft.store.partnercenter.ipartner)インターフェイスを取得するには、アカウントの資格情報を[**createpartneroperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡します。
 
-2. 取り消したい特定の[順序](order-resources.md#order)を選択します。 顧客識別子を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、その後に注文 id を付けて**ById ()** を呼び出します。
+2. 取り消したい特定の [順序](order-resources.md#order) を選択します。 顧客識別子を使用して [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、その後に注文 id を付けて **ById ()** を呼び出します。
 
-3. 注文を取得するには、 **Get**または**GetAsync**メソッドを呼び出します。
+3. 注文を取得するには、 **Get** または **GetAsync** メソッドを呼び出します。
 
 4. [**Order. Status**](order-resources.md#order)プロパティ `cancelled` をに設定します。
 
-5. Optionalキャンセルする特定の行項目を指定する場合は、取り消したい品目の一覧に[**LineItems**](order-resources.md#order)を設定します。
+5. Optionalキャンセルする特定の行項目を指定する場合は、取り消したい品目の一覧に [**LineItems**](order-resources.md#order) を設定します。
 
 6. **Patch ()** メソッドを使用して、順序を更新します。
 
@@ -68,7 +68,7 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 顧客を削除するには、次のクエリパラメーターを使用します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする、GUID 形式の顧客テナント識別子です。 |
 | **注文-id** | **string** | Y        | 値は、キャンセルする順序の識別子を表す文字列です。 |
@@ -116,7 +116,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 成功した場合、このメソッドはキャンセルされた行項目と共に注文を返します。
 
-注文のすべての行項目が取り消された場合、注文のステータスは [**キャンセル**] とマークされます。また、注文のすべての行項目がキャンセルされない場合は [**完了**] とマークされます。
+注文のすべての行項目が取り消された場合、注文のステータスは [ **キャンセル** ] とマークされます。また、注文のすべての行項目がキャンセルされない場合は [ **完了** ] とマークされます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -124,7 +124,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ### <a name="response-example"></a>応答の例
 
-次の応答例では、オファー id を持つ品目の数量 **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** がゼロ (0) になっていることがわかります。 この変更は、取り消し対象としてマークされた品目が正常にキャンセルされたことを意味します。 注文例には、キャンセルされなかった他の品目が含まれています。つまり、注文全体の状態は**完了**としてマークされ、**キャンセル**されることはありません。
+次の応答例では、オファー id を持つ品目の数量 **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** がゼロ (0) になっていることがわかります。 この変更は、取り消し対象としてマークされた品目が正常にキャンセルされたことを意味します。 注文例には、キャンセルされなかった他の品目が含まれています。つまり、注文全体の状態は **完了**としてマークされ、 **キャンセル**されることはありません。
 
 ```http
 HTTP/1.1 200 OK

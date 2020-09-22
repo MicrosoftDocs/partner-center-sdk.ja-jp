@@ -4,12 +4,12 @@ description: パートナーテナントに multi-factor authentication を適�
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
-ms.openlocfilehash: a09074637b887717fcbcb40cc91661420a6f226a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dcd3ac364e0d86ecac2c51eb34de48f1d66e2158
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094972"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925853"
 ---
 # <a name="partner-security-requirements-status"></a>パートナー セキュリティ要件の状態
 
@@ -21,7 +21,7 @@ ms.locfileid: "86094972"
 
 ## <a name="partner-security-requirements-overview"></a>パートナーのセキュリティ要件の概要
 
-- [概要](https://docs.microsoft.com/partner-center/partner-security-requirements)
+- [概要/パートナーセンター/パートナー-セキュリティ-要件]
 
 ## <a name="understand-mfa-adoption-status"></a>MFA の導入ステータスについて
 

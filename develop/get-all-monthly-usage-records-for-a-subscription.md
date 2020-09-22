@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: f97f950a139af40a47d7c91af69da80000708558
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8cbeb2b7264848ad88be13f0df063aa339a8dc13
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097073"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927199"
 ---
 # <a name="get-all-monthly-usage-records-for-a-subscription"></a>サブスクリプションの毎月の使用状況レコードをすべて取得します。
 
@@ -21,7 +21,7 @@ ms.locfileid: "86097073"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-[**AzureResourceMonthlyUsageRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord)リソースコレクションを使用すると、顧客のサブスクリプション内のサービスの一覧と、それらに関連付けられた評価済みの使用状況情報を取得できます。
+[**AzureResourceMonthlyUsageRecord**/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord)] リソースコレクションを使用すると、顧客のサブスクリプション内のサービスの一覧と、それらに関連付けられた評価済みの使用状況情報を取得できます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -31,7 +31,7 @@ ms.locfileid: "86097073"
 
 - サブスクリプション識別子。
 
-*この API は、Microsoft Azure (0145P) サブスクリプションのみをサポートしています。Azure プランを使用している場合は、「[測定によるサブスクリプションの使用状況データの取得](get-a-customer-subscription-meter-usage-records.md)」を参照してください。*
+*この API は、Microsoft Azure (0145P) サブスクリプションのみをサポートしています。Azure プランを使用している場合は、「 [測定によるサブスクリプションの使用状況データの取得](get-a-customer-subscription-meter-usage-records.md) 」を参照してください。*
 
 ## <a name="c"></a>C\#
 
@@ -68,7 +68,7 @@ var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscrip
 
 次の表に、評価された使用状況情報を取得するために必要なクエリパラメーターを示します。
 
-| 名前                    | Type     | 必須 | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **サブスクリプション id** | **guid** | Y        | サブスクリプションに対応する GUID。 |

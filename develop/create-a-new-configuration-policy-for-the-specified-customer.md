@@ -4,12 +4,12 @@ description: 指定された顧客の新しい構成ポリシーを作成する�
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0c95136aa8769560660354d9be815f4f515c3e63
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5fc8770968de17ec298a14154dafadae0e163b0d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097354"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926438"
 ---
 # <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>指定された顧客の新しい構成ポリシーを作成する
 
@@ -30,11 +30,11 @@ ms.locfileid: "86097354"
 
 指定された顧客の新しい構成ポリシーを作成するには、次のようにします。
 
-1. 次のコードスニペットに示すように、新しい[**Configurationpolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy)オブジェクトをインスタンス化します。 次に、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+1. 次のコードスニペットに示すように、新しい [**Configurationpolicy**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) オブジェクトをインスタンス化します。 次に、顧客 ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
 
-2. 構成ポリシーのコレクション操作へのインターフェイスを取得するには、 [**Configurationpolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies)プロパティを取得します。
+2. 構成ポリシーのコレクション操作へのインターフェイスを取得するには、 [**Configurationpolicies**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) プロパティを取得します。
 
-3. 構成ポリシーを作成するには、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)メソッドを呼び出します。
+3. 構成ポリシーを作成するには、 [**create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) または [**createasync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) メソッドを呼び出します。
 
 ### <a name="c-example"></a>C の \# 例
 
@@ -55,7 +55,7 @@ var createdConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.Create(configurationPolicyToCreate);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateConfigurationPolicy.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: CreateConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -69,7 +69,7 @@ var createdConfigurationPolicy =
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
@@ -81,12 +81,12 @@ var createdConfigurationPolicy =
 
 要求本文には、次の表に示すように、構成ポリシー情報を持つオブジェクトが含まれている必要があります。
 
-| 名前           | Type             | 必須 | 説明                      |
+| 名前           | 種類             | 必須 | 説明                      |
 |----------------|------------------|----------|----------------------------------|
 | name           | string           | はい      | ポリシーのフレンドリ名。 |
 | category       | string           | はい      | ポリシーカテゴリ。             |
-| description    | 文字列           | いいえ       | ポリシーの説明。          |
-| policySettings | 文字列の配列 | はい      | ポリシー設定。             |
+| description    | string           | No       | ポリシーの説明。          |
+| policySettings | 文字列の配列 | Yes      | ポリシー設定。             |
 
 ### <a name="request-example"></a>要求の例
 
@@ -111,7 +111,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には新しいポリシーの[Configurationpolicy](device-deployment-resources.md#configurationpolicy)リソースが含まれます。
+成功した場合、応答本文には新しいポリシーの [Configurationpolicy](device-deployment-resources.md#configurationpolicy) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

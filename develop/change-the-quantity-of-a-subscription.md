@@ -4,12 +4,12 @@ description: サブスクリプションを更新して、顧客のライセン�
 ms.date: 06/05/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b752f50f5f583489282d38df94d9baa8385b0620
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 40738486589276118591bf5e90e1e98592aa49fe
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096051"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927383"
 ---
 # <a name="change-the-quantity-of-a-subscription"></a>サブスクリプションの数量を変更する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86096051"
 
 [サブスクリプション](subscription-resources.md)を更新してライセンスの数を増減します。
 
-パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、名前を変更する対象のサブスクリプションを選択します。 完了するには、 **Quantity**フィールドの値を変更し、[送信] を選択し**ます。**
+パートナーセンターのダッシュボードでは、最初に [顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、名前を変更する対象のサブスクリプションを選択します。 完了するには、 **Quantity** フィールドの値を変更し、[送信] を選択し **ます。**
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -34,7 +34,7 @@ ms.locfileid: "86096051"
 
 ## <a name="c"></a>C\#
 
-顧客のサブスクリプションの数量を変更するには、最初に[サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの[**quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity)プロパティを変更します。 変更が完了したら、 **iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを呼び出し、その後に[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。 次に、 **Patch ()** メソッドを呼び出して終了します。
+顧客のサブスクリプションの数量を変更するには、最初に [サブスクリプションを取得](get-a-subscription-by-id.md)してから、サブスクリプションの [**quantity**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) プロパティを変更します。 変更が完了したら、 **iaggregatepartner.customers** コレクションを使用して、 **ById ()** メソッドを呼び出します。 次に、 [**サブスクリプション**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) プロパティを呼び出し、その後に [**ById ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) メソッドを呼び出します。 次に、 **Patch ()** メソッドを呼び出して終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,7 +51,7 @@ selectedSubscription.Quantity++;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: UpdateSubscription.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample **クラス**: UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -65,7 +65,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションの数量を変更するために必要なクエリパラメーターを示します。
 
-| 名前                    | Type     | 必須 | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **id-for-subscription** | **guid** | Y        | サブスクリプションに対応する GUID。 |
@@ -115,13 +115,13 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**HTTP ステータス 200**状態コードおよび更新された[サブスクリプションリソース](subscription-resources.md)プロパティを返します。
+成功した場合、このメソッドは応答本文で **HTTP ステータス 200** 状態コードおよび更新された [サブスクリプションリソース](subscription-resources.md)  プロパティを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
 各応答には、成功、失敗、および追加のデバッグ情報を示す HTTP ステータスコードが返されます。 ネットワークトレースツールを使用して、状態コード、エラーの種類、およびその他のパラメーターを読み取ります。 完全な一覧については、[エラー コード](error-codes.md)に関するページを参照してください。
 
-修正プログラムの処理に予想される時間よりも時間がかかる場合、パートナーセンターは、 **HTTP 状態 202**状態コードと、サブスクリプションを取得する場所を指す location ヘッダーを送信します。 サブスクリプションを定期的に照会して、状態と数量の変化を監視することができます。
+修正プログラムの処理に予想される時間よりも時間がかかる場合、パートナーセンターは、 **HTTP 状態 202** 状態コードと、サブスクリプションを取得する場所を指す location ヘッダーを送信します。 サブスクリプションを定期的に照会して、状態と数量の変化を監視することができます。
 
 ### <a name="response-examples"></a>応答例
 

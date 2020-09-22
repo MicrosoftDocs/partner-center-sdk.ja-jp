@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b58f70fa0aae5deb90356707bb601a7a77d33e9d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e9f34a77064bad090afac48b621546f2196a9e03
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927160"
 ---
 # <a name="get-all-service-requests-for-a-customer"></a>顧客のサービス リクエストをすべて取得する
 
@@ -23,7 +23,7 @@ ms.locfileid: "86097779"
 
 顧客のすべてのサービス要求を取得します。
 
-パートナーセンターのダッシュボードでは、最初に[顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、左側のサイドバーで [**サービス管理**] を選択します。 顧客のサービス要求は、[**サポートチケット**] の下に表示されます。
+パートナーセンターのダッシュボードでは、最初に [顧客を選択](get-a-customer-by-name.md)することでこの操作を実行できます。 次に、左側のサイドバーで [ **サービス管理** ] を選択します。 顧客のサービス要求は、[ **サポートチケット**] の下に表示されます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -33,7 +33,7 @@ ms.locfileid: "86097779"
 
 ## <a name="c"></a>C\#
 
-顧客のすべてのサービス要求の一覧を表示するには、 **iaggregatepartner.customers**コレクションを使用して、 [**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicerequests)プロパティを呼び出し、その後に[**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.getasync)メソッドを呼び出します。
+顧客のすべてのサービス要求の一覧を表示するには、 **iaggregatepartner.customers** コレクションを使用して、[**ById ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。 次に、[**ServiceRequests**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicerequests)] プロパティを呼び出し、次に [**Get ()**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,7 +42,7 @@ ms.locfileid: "86097779"
 ResourceCollection<ServiceRequest> serviceRequests = partnerOperations.Customers.ById(customerId).ServiceRequests.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル**クラス**: CustomerManagedServices.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル **クラス**: CustomerManagedServices.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -56,7 +56,7 @@ ResourceCollection<ServiceRequest> serviceRequests = partnerOperations.Customers
 
 次のクエリパラメーターを使用して、顧客に対するすべてのサービス要求を取得します。
 
-| 名前                   | Type     | 必須 | 説明                            |
+| 名前                   | 種類     | 必須 | 説明                            |
 |------------------------|----------|----------|----------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 顧客に対応する GUID。 |
 
@@ -80,7 +80,7 @@ MS-CorrelationId: 998e31a1-3f17-4471-a9ee-7678dd72e033
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**サービス要求**リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で **サービス要求** リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

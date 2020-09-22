@@ -4,12 +4,12 @@ description: 既存のサブスクリプションにアドオンを購入する�
 ms.date: 11/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 69c817cc89b97cea43533c170cef598df99095f7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ba490253092a1ba38382f2568bfd8e69d74a45da
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926838"
 ---
 # <a name="purchase-an-add-on-to-a-subscription"></a>サブスクリプションのアドオンを購入する
 
@@ -35,7 +35,7 @@ ms.locfileid: "86096724"
 
 サブスクリプションにアドオンを購入すると、そのアドオンの順序に従って元のサブスクリプションの順序が更新されます。 次の例では、customerId は顧客 ID、subscriptionId はサブスクリプション ID、addOnOfferId はアドオンのプラン ID です。
 
-この手順を以下に示します。
+手順は次のようになります。
 
 1.  サブスクリプションの操作へのインターフェイスを取得します。
 
@@ -49,7 +49,7 @@ ms.locfileid: "86096724"
     var parentSubscription = subscriptionOperations.Get();
     ```
 
-3.  新しい[**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order)オブジェクトをインスタンス化します。 この注文インスタンスは、サブスクリプションの購入に使用された元の注文を更新するために使用されます。 アドオンを表す注文に1つの行項目を追加します。
+3.  新しい [**Order**/dotnet/api/microsoft.store.partnercenter.models.orders.order) オブジェクトをインスタンス化します。 この注文インスタンスは、サブスクリプションの購入に使用された元の注文を更新するために使用されます。 アドオンを表す注文に1つの行項目を追加します。
     ``` csharp
     var orderToUpdate = new Order()
     {
@@ -75,9 +75,9 @@ ms.locfileid: "86096724"
 
 ## <a name="c"></a>C\#
 
-アドオンを購入するには、まずサブスクリプション操作へのインターフェイスを取得します。そのためには、顧客 ID を指定して ById メソッドを呼び出し、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)プランを持つサブスクリプションを識別する[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出します。 この[**インターフェイス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription)を使用して、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get)を呼び出してサブスクリプションの詳細を取得します。 サブスクリプションの詳細が必要な理由 サブスクリプション注文の注文 id が必要であるためです。 これがアドオンで更新される順序です。
+アドオンを購入するには、まずサブスクリプション操作へのインターフェイスを取得します。そのためには、顧客を識別するための顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、さらに、アドオンがあるサブスクリプションを識別するための [**ById**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出します。 [**インターフェイス**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) を使用して、[**Get**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get] を呼び出してサブスクリプションの詳細を取得します。 サブスクリプションの詳細が必要な理由 サブスクリプション注文の注文 id が必要であるためです。 これがアドオンで更新される順序です。
 
-次に、次のコードスニペットに示すように、新しい[**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order)オブジェクトをインスタンス化し、アドオンを識別するための情報を含む単一の[**LineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem)インスタンスを設定します。 この新しいオブジェクトを使用して、サブスクリプションの順序をアドオンで更新します。 最後に、Iaggregatepartner.customers を使用して顧客を特定し、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)と[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)を使用して注文した後、 [**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch)メソッドを呼び出してサブスクリプションの順序を更新します。
+次に、次のコードスニペットに示すように、新しい [**Order**/dotnet/api/microsoft.store.partnercenter.models.orders.order) オブジェクトをインスタンス化し、アドオンを識別するための情報を含む単一の [**LineItem**/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) インスタンスを設定します。 この新しいオブジェクトを使用して、サブスクリプションの順序をアドオンで更新します。 最後に、[**Patch**/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch) メソッドを呼び出してサブスクリプションの順序を更新します。最初に、[**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) を使用して顧客を特定し、[**orders. ById**/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid] で注文します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -113,7 +113,7 @@ var orderToUpdate = new Order()
 Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(parentSubscription.OrderId).Patch(orderToUpdate);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: AddSubscriptionAddOn.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: AddSubscriptionAddOn.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -127,9 +127,9 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 顧客と注文を識別するには、次のパラメーターを使用します。
 
-| 名前                   | Type     | 必須 | 説明                                                                        |
+| 名前                   | 種類     | 必須 | 説明                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の **顧客テナント id** です。 |
 | **注文-id**           | **guid** | Y        | 順序識別子。                                                              |
 
 ### <a name="request-headers"></a>要求ヘッダー
@@ -140,9 +140,9 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 次の表では、要求本文のプロパティについて説明します。
 
-## <a name="order"></a>順番
+## <a name="order"></a>Order
 
-| 名前                | Type             | 必須 | 説明                                          |
+| 名前                | 種類             | 必須 | 説明                                          |
 |---------------------|------------------|----------|------------------------------------------------------|
 | Id                  | string           | N        | 注文 ID。                                        |
 | ReferenceCustomerId | string           | Y        | 顧客 ID。                                     |
@@ -152,14 +152,14 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
-| 名前                 | Type   | 必須 | 説明                                                  |
+| 名前                 | 種類   | 必須 | 説明                                                  |
 |----------------------|--------|----------|--------------------------------------------------------------|
-| LineItemNumber       | number | Y        | 0から始まる行項目番号。                       |
+| LineItemNumber       | 数値 | Y        | 0から始まる行項目番号。                       |
 | OfferId              | string | Y        | アドオンのプラン ID。                                  |
 | SubscriptionId       | string | N        | 購入したアドオンサブスクリプションの ID。                 |
 | ParentSubscriptionId | string | Y        | アドオンが用意されている親サブスクリプションの ID。 |
 | FriendlyName         | string | N        | この行項目の表示名。                        |
-| Quantity             | number | Y        | ライセンスの数。                                      |
+| Quantity             | 数値 | Y        | ライセンスの数。                                      |
 | PartnerIdOnRecord    | string | N        | レコードのパートナーの MPN ID。                         |
 | 属性           | object | N        | "ObjectType": "OrderLineItem" が含まれています。                      |
 
@@ -206,7 +206,7 @@ Expect: 100-continue
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

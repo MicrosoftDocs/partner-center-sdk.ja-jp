@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 81231861532a426d71c739c35894697d17863f72
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b82d703b721519ce139fbf1dfcc764796e1c9b9a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096240"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926509"
 ---
 # <a name="create-a-customer"></a>顧客の作成
 
@@ -24,7 +24,7 @@ ms.locfileid: "86096240"
 この記事では、新しい顧客を作成する方法について説明します。
 
 > [!IMPORTANT]
-> 間接的なプロバイダーの場合、間接リセラーの顧客を作成するには、「[間接リセラーの顧客を作成](create-a-customer-for-an-indirect-reseller.md)する」を参照してください。
+> 間接的なプロバイダーの場合、間接リセラーの顧客を作成するには、「 [間接リセラーの顧客を作成](create-a-customer-for-an-indirect-reseller.md)する」を参照してください。
 
 クラウドソリューションプロバイダー (CSP) パートナーは、顧客を作成するときに、顧客に代わって注文を行うことができます。 顧客を作成する際には、次のものも作成します。
 
@@ -41,15 +41,15 @@ ms.locfileid: "86096240"
 - [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、スタンドアロンアプリとアプリ + ユーザー資格情報の両方を使用した認証がサポートされています。
 
 > [!IMPORTANT]
-> 顧客テナントを作成するには、作成プロセス中に有効な物理アドレスを指定する必要があります。 アドレスを検証するには、「[アドレスの検証](validate-an-address.md)」の手順に従ってください。 サンドボックス環境で無効なアドレスを使用して顧客を作成した場合、その顧客のテナントを削除することはできません。
+> 顧客テナントを作成するには、作成プロセス中に有効な物理アドレスを指定する必要があります。 アドレスを検証するには、「 [アドレスの検証](validate-an-address.md) 」の手順に従ってください。 サンドボックス環境で無効なアドレスを使用して顧客を作成した場合、その顧客のテナントを削除することはできません。
 
 ## <a name="c"></a>C\#
 
 顧客を追加するには:
 
-1. 新しい[**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)オブジェクトをインスタンス化します。 この[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile)と会社の[**プロファイル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)を必ず入力してください。
+1. 新しい [**Customer**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) オブジェクトをインスタンス化します。 この [**プロファイル**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) と会社の [**プロファイル**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)を必ず入力してください。
 
-2. [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)を呼び出して、新しい顧客を[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションに追加します。
+2. [**Create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)または[**createasync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)を呼び出して、新しい顧客を[**iaggregatepartner.customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションに追加します。
 
 ### <a name="c-example"></a>C の \# 例
 
@@ -90,7 +90,7 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateCustomer.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: CreateCustomer.cs
 
 ## <a name="java"></a>Java
 
@@ -142,7 +142,7 @@ Customer newCustomer = partnerOperations.getCustomers().create( customerToCreate
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-顧客を作成するには、[**新しい-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md)コマンドを実行します。
+顧客を作成するには、 [**新しい-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md) コマンドを実行します。
 
 ```powershell
 New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity 'Redmond' -BillingAddressCountry 'US' -BillingAddressPostalCode '98052' -BillingAddressState 'WA' -ContactEmail 'jdoe@customer.com' -ContactFirstName 'Jane' -ContactLastName 'Doe' -Culture 'en-US' -Domain 'newcustomer.onmicrosoft.com' -Language 'en' -Name 'New Customer'
@@ -168,28 +168,28 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                              | Type   | 説明                                 |
+| 名前                              | 種類   | 説明                                 |
 |-----------------------------------|--------|---------------------------------------------|
 | [BillingProfile](#billing-profile) | object | 顧客の課金プロファイル情報。 |
 | [CompanyProfile](#company-profile) | object | 顧客の会社プロファイル情報。 |
 
 #### <a name="billing-profile"></a>請求プロファイル
 
-次の表では、新しい顧客を作成するために必要な、ユーザーごとの[プロファイル](customer-resources.md#customerbillingprofile)リソースの最小限の必須フィールドについて説明します。
+次の表では、新しい顧客を作成するために必要な、ユーザーごとの [プロファイル](customer-resources.md#customerbillingprofile) リソースの最小限の必須フィールドについて説明します。
 
-| 名前             | Type                                     | 説明                                                                                                                                                                                                     |
+| 名前             | 種類                                     | 説明                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | email            | string                                   | 顧客のメール アドレス。                                                                                                                                                                                   |
 | カルチャ          | string                                   | "En-us" など、コミュニケーションおよび通貨に適したカルチャ。 サポートされているカルチャについては、[パートナーセンターのサポートされている言語とロケール](partner-center-supported-languages-and-locales.md) |
 | language         | string                                   | 既定の言語です。 2文字の言語コード ( `en` やなど `fr` ) がサポートされています。                                                                                                                                |
 | 会社 \_ 名    | string                                   | 登録されている会社名または組織名。                                                                                                                                                                       |
-| 既定の \_ アドレス | [アドレス](utility-resources.md#address) | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、[アドレス](utility-resources.md#address)リソースを参照してください。                                             |
+| 既定の \_ アドレス | [アドレス](utility-resources.md#address) | 顧客の会社/組織の登録済みアドレス。 すべての長さの制限については、 [アドレス](utility-resources.md#address) リソースを参照してください。                                             |
 
-#### <a name="company-profile"></a>会社プロファイル
+#### <a name="company-profile"></a>会社のプロファイル
 
-次の表では、新しい顧客を作成するために必要な、ユーザーの会社の[プロファイル](customer-resources.md#customercompanyprofile)リソースの最低限必要なフィールドについて説明します。
+次の表では、新しい顧客を作成するために必要な、ユーザーの会社の [プロファイル](customer-resources.md#customercompanyprofile) リソースの最低限必要なフィールドについて説明します。
 
-| 名前   | Type   | 説明                                                  |
+| 名前   | 種類   | 説明                                                  |
 |--------|--------|--------------------------------------------------------------|
 | domain | string | 顧客のドメイン名 (contoso.onmicrosoft.com など)。 |
 
@@ -232,7 +232,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、この API は新しい顧客の[顧客](customer-resources.md#customer)リソースを返します。 パートナーセンター SDK で今後使用するために、顧客 ID と Azure AD の詳細を保存します。 たとえば、アカウント管理で使用するために必要になります。
+成功した場合、この API は新しい顧客の [顧客](customer-resources.md#customer) リソースを返します。 パートナーセンター SDK で今後使用するために、顧客 ID と Azure AD の詳細を保存します。 たとえば、アカウント管理で使用するために必要になります。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

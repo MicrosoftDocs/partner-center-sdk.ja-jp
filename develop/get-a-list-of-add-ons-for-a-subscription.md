@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 43df1fd4674153d8e3016428f675ee5c9952f186
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4e62ad22cf30c34dedfeb628003c695e33b78758
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098215"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927712"
 ---
 # <a name="get-a-list-of-add-ons-for-a-subscription"></a>サブスクリプションのアドオンの一覧を取得する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86098215"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-この記事では、顧客が**[サブスクリプション](subscription-resources.md)** リソースに追加することを選択したアドオンのコレクションを取得する方法について説明します。
+この記事では、顧客が **[サブスクリプション](subscription-resources.md)** リソースに追加することを選択したアドオンのコレクションを取得する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -38,9 +38,9 @@ ms.locfileid: "86098215"
 
 1. **Iaggregatepartner.customers**コレクションを使用して、 **ById ()** メソッドを呼び出します。
 
-2. [**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)のプロパティを呼び出し、その後に[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。
+2. [**サブスクリプション**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)のプロパティを呼び出し、その後に[**ById ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出します。
 
-3. [**アドオン**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.addons)プロパティを呼び出し、続いて[**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.getasync)を呼び出します。
+3. [**アドオン**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.addons)プロパティを呼び出し、続いて[**Get ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.get)または[**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.getasync)を呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -69,7 +69,7 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 次の表に、サブスクリプションのアドオンの一覧を取得するために必要なクエリパラメーターを示します。
 
-| 名前                    | Type     | 必須 | 説明                               |
+| 名前                    | 種類     | 必須 | 説明                               |
 |-------------------------|----------|----------|-------------------------------------------|
 | **customer-tenant-id**  | **guid** | Y        | 顧客に対応する GUID。     |
 | **id-for-subscription** | **guid** | Y        | サブスクリプションに対応する GUID。 |
@@ -98,7 +98,7 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

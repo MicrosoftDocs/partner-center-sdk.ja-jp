@@ -4,12 +4,12 @@ description: 指定された顧客とポリシー識別子の構成ポリシー�
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c1a6a5d8a16eafb19dd84bc132c8a9d4caf3f852
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 586878367fc0873ef0fb1415799b2b7022954053
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094206"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927844"
 ---
 # <a name="delete-a-configuration-policy-for-the-specified-customer"></a>指定された顧客の構成ポリシーを削除する
 
@@ -32,11 +32,11 @@ ms.locfileid: "86094206"
 
 指定された顧客の構成ポリシーを削除するには:
 
-1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+1. 顧客 ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
 
-2. ポリシー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid)メソッドを呼び出し、指定したポリシーの構成ポリシー操作へのインターフェイスを取得します。
+2. ポリシー ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) メソッドを呼び出し、指定したポリシーの構成ポリシー操作へのインターフェイスを取得します。
 
-3. [**削除**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete)または[**deleteasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync)メソッドを呼び出して、構成ポリシーを削除します。
+3. [**削除**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete)または[**deleteasync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync)メソッドを呼び出して、構成ポリシーを削除します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -46,7 +46,7 @@ string selectedPolicyId;
 partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedPolicyId).Delete();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: DeleteConfigurationPolicy.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: DeleteConfigurationPolicy.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -60,7 +60,7 @@ partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                                   |
+| 名前        | 種類   | 必須 | 説明                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。         |
 | ポリシー-id   | string | はい      | 削除するポリシーを識別する GUID 形式の文字列。 |

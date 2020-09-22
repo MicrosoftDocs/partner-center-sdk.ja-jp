@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 6101ddd6ead66c78531273af959d53d37c71f678
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7fdd158877f291d663c210aea14385b8b1bd5015
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093627"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927562"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>請求書の未請求調整の品目を取得する
 
@@ -34,25 +34,25 @@ ms.locfileid: "86093627"
 
 指定された請求書の品目を取得するには、請求書オブジェクトを取得します。
 
-1. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid)メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
+1. [**ById**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) メソッドを呼び出して、指定された請求書の請求書操作へのインターフェイスを取得します。
 
-2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、請求書オブジェクトを取得します。
+2. [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)] メソッドを呼び出して、請求書オブジェクトを取得します。
 
 Invoice オブジェクトには、指定された請求書のすべての情報が含まれています。
 
-- **プロバイダー**は、未請求詳細情報のソース (たとえば、 **OneTime**) を識別します。
+- **プロバイダー** は、未請求詳細情報のソース (たとえば、 **OneTime**) を識別します。
 
 - **InvoiceLineItemType**は、型を指定します (たとえば、"例 **")。**
 
 **InvoiceDetail**インスタンスに対応する品目のコレクションを取得するには、次のようにします。
 
-1. インスタンスのプロバイダーと InvoiceLineItemType を、 [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by)メソッドに渡します。
+1. インスタンスのプロバイダーと InvoiceLineItemType を [**By**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) メソッドに渡します。
 
-2. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)メソッドを呼び出して、関連付けられている行項目を取得します。
+2. [**Get**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync)] メソッドを呼び出して、関連付けられている行項目を取得します。
 
 3. コレクションを走査する列挙子を作成します。 例については、次のサンプルコードを参照してください。
 
-次のサンプルコードでは、 **foreach**ループを使用して**InvoiceLineItems**コレクションを処理します。 **InvoiceLineItemType**ごとに、個別の行項目のコレクションが取得されます。
+次のサンプルコードでは、 **foreach** ループを使用して **InvoiceLineItems** コレクションを処理します。 **InvoiceLineItemType**ごとに、個別の行項目のコレクションが取得されます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -113,7 +113,7 @@ while (fetchNext)
 同様の例については、次を参照してください。
 
 - サンプル: [コンソール テスト アプリ](console-test-app.md)
-- プロジェクト:**パートナーセンター SDK のサンプル**
+- プロジェクト: **パートナーセンター SDK のサンプル**
 - クラス: **GetUnBilledReconLineItemsPaging.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -132,16 +132,16 @@ while (fetchNext)
 
 要求の作成時には、次の URI とクエリパラメーターを使用します。
 
-| 名前                   | Type   | 必須 | 説明                                                                     |
+| 名前                   | 種類   | 必須 | 説明                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
 | 請求書-id             | string | はい      | 請求書を識別する文字列。 未請求の推定値を取得するには、' 未請求 ' を使用します。 |
 | provider               | string | はい      | プロバイダー: "OneTime"。                                                |
 | invoice-line-item-type | string | はい      | 請求書の詳細の種類: "BillingLineItems"。               |
-| hasPartnerEarnedCredit | [bool]   | いいえ       | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。
+| hasPartnerEarnedCredit | [bool]   | No       | パートナーの獲得クレジットが適用された行項目を返すかどうかを示す値。 注: このパラメーターは、プロバイダーの種類が OneTime で InvoiceLineItemType が UsageLineItems の場合にのみ適用されます。
 | currencyCode           | string | はい      | 未請求の品目の通貨コード。                                  |
 | 前期                 | string | はい      | 未請求 recon の期間。 例: current、previous。                      |
-| size                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000                     |
-| seekOperation          | 文字列 | No       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。                |
+| サイズ                   | number | いいえ       | 返される項目の最大数。 既定のサイズは2000                     |
+| seekOperation          | string | No       | [SeekOperation = 次のページを取得する] の横にある [行項目に移動] を設定します。                |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -155,7 +155,7 @@ while (fetchNext)
 
 成功した場合、応答には行項目の詳細のコレクションが含まれます。
 
-*行項目**ChargeType**の場合、**購入**した値は**新規**にマップされ、値の**返金**は**キャンセル**にマップされます。*
+*行項目 **ChargeType**の場合、 **購入** した値は **新規** にマップされ、値の **返金** は **キャンセル**にマップされます。*
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
@@ -169,7 +169,7 @@ while (fetchNext)
 
 - プロバイダー: **OneTime**
 - InvoiceLineItemType: **BillingLineItems**
-- 期間:**前へ**
+- 期間: **前へ**
 
 #### <a name="request-example-1"></a>要求の例1
 
@@ -319,8 +319,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 - プロバイダー: **OneTime**
 - InvoiceLineItemType: **BillingLineItems**
-- 期間:**前へ**
-- SeekOperation:**次**
+- 期間: **前へ**
+- SeekOperation: **次**
 
 #### <a name="request-example-2"></a>要求の例2
 

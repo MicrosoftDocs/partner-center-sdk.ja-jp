@@ -4,12 +4,12 @@ description: 顧客の使用に割り当てられている支出予算を更新�
 ms.date: 02/05/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: aa33c15031132024a6a89a36ca0ce1c45a9b0840
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d1d18701f227897c55087eba576b5cd4b69817ff
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095615"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927589"
 ---
 # <a name="update-a-customers-usage-spending-budget"></a>顧客の使用支出予算を更新する
 
@@ -19,7 +19,7 @@ ms.locfileid: "86095615"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-顧客の使用に割り当てられている[支出予算](customer-usage-resources.md#customerusagesummary)を更新します。
+顧客の使用に割り当てられている [支出予算](customer-usage-resources.md#customerusagesummary) を更新します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -29,7 +29,7 @@ ms.locfileid: "86095615"
 
 ## <a name="c"></a>C\#
 
-顧客の使用量予算を更新するには、最初に更新された金額を含む新しい[**SpendingBudget**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget)オブジェクトを作成します。 次に、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection)コレクションを使用し、指定された顧客の ID を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、[使用量の[**予算**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.usagebudget)] プロパティにアクセスして、更新された使用量の予算を[**Patch ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patch)メソッドまたは Patch [**async ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patchasync)メソッドに渡します。
+顧客の使用量予算を更新するには、最初に、更新された金額で新しい [**SpendingBudget**/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) オブジェクトを作成します。 次に、[**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection)] コレクションを使用して、指定した顧客の ID で [**ById ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。 次に、[**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.usagebudget]** プロパティにアクセスして、更新された使用量の予算を [**Patch ()**/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patch) または [Patch**async ()**/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patchasync) メソッドに渡します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -57,9 +57,9 @@ var usageBudget = partnerOperations.Customers.ById(selectedCustomerId).UsageBudg
 
 次のクエリパラメーターを使用して、課金プロファイルを更新します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 

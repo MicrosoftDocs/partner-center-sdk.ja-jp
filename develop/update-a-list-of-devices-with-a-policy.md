@@ -4,12 +4,12 @@ description: 指定された顧客の構成ポリシーを使用してデバイ�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e7a39d25f72fca9b66ee29791c72e3bf50fa74d8
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 18ec280995b978a5ac62d3d7288337c1307a6643
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095605"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927579"
 ---
 # <a name="update-a-list-of-devices-with-a-policy"></a>ポリシーを使用してデバイスの一覧を更新する
 
@@ -32,11 +32,11 @@ ms.locfileid: "86095605"
 
 ## <a name="c"></a>C\#
 
-指定された構成ポリシーを使用してデバイスの一覧を更新するには、まず、次のコード例に示すように、 [KeyValuePair](https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2)[**(policycategory,**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory)String) 型の[リスト](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)をインスタンス化し、適用するポリシーを追加します。 ポリシーのポリシー識別子が必要になります。
+指定された構成ポリシーを使用してデバイスの一覧を更新するには、まず、次のコード例に示すように、型 [KeyValuePair/dotnet/api/KeyValuePair-2) [**(Policycategory,**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory) string) の [list/dotnet/api/] をインスタンス化して、適用するポリシーを追加します。 ポリシーのポリシー識別子が必要になります。
 
-次に、ポリシーを使用して更新する[**デバイス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device)オブジェクトの一覧を作成します。デバイス id と、適用するポリシーを含む一覧をデバイスごとに指定します。 次に、 [**Devicepolicyupdaterequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicepolicyupdaterequest)オブジェクトをインスタンス化し、 [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices)プロパティをデバイスオブジェクトの一覧に設定します。
+次に、ポリシーを使用して更新する [**device**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device] オブジェクトの一覧を作成します。デバイス id と、適用するポリシーを含む一覧をデバイスごとに指定します。 次に、[**Devicepolicyupdaterequest**) オブジェクトをインスタンス化し、[**Devices**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices)] プロパティをデバイスオブジェクトの一覧に設定します。
 
-デバイスポリシーの更新要求を処理するには、顧客識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作へのインターフェイスを取得します。 次に、 [**Devicepolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy)プロパティを取得して、顧客のデバイスコレクション操作へのインターフェイスを取得します。 最後に、DevicePolicyUpdateRequest オブジェクトを使用して[**update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.icustomerdevicecollection.update)メソッドを呼び出し、デバイスをポリシーで更新します。
+デバイスポリシーの更新要求を処理するには、顧客識別子を使用して [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、指定された顧客の操作へのインターフェイスを取得します。 次に、[**Devicepolicy**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy)] プロパティを取得して、顧客のデバイスコレクション操作へのインターフェイスを取得します。 最後に、DevicePolicyUpdateRequest オブジェクトを使用して [**update**) メソッドを呼び出し、デバイスをポリシーで更新します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -74,7 +74,7 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DevicePolicy.Update(devicePolicyUpdateRequest);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: UpdateDevicesPolicy.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: UpdateDevicesPolicy.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -88,7 +88,7 @@ var trackingLocation =
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
@@ -98,7 +98,7 @@ var trackingLocation =
 
 ### <a name="request-body"></a>[要求本文]
 
-要求本文には、 [Devicepolicyupdaterequest](device-deployment-resources.md#devicepolicyupdaterequest)リソースが含まれている必要があります。
+要求本文には、 [Devicepolicyupdaterequest](device-deployment-resources.md#devicepolicyupdaterequest) リソースが含まれている必要があります。
 
 ### <a name="request-example"></a>要求の例
 
@@ -143,7 +143,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答には、このバッチ処理の状態を取得するために使用できる URI を持つ**場所**ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
+成功した場合、応答には、このバッチ処理の状態を取得するために使用できる URI を持つ **場所** ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

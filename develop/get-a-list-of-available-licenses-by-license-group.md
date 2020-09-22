@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: e77c0bedc921f84d43ad80557bf7fde625b490f6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4a7d1e00ba82da1290f81b484956aef1467f2ec5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098177"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927679"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>利用可能なライセンスの一覧をライセンス グループ別に取得する
 
@@ -31,7 +31,7 @@ ms.locfileid: "86098177"
 
 ## <a name="c"></a>C\#
 
-指定されたライセンスグループの使用可能なライセンスの一覧を取得するには、まず種類が[**Licensegroupid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)の[リスト](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)をインスタンス化してから、その一覧にライセンスグループを追加します。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、 [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)プロパティの値を取得して、顧客がサブスクライブしている SKU コレクション操作へのインターフェイスを取得します。 最後に、ライセンスグループの一覧を[**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync)メソッドに渡して、使用可能なライセンスユニットの詳細を含むサブスクライブ済み sku の一覧を取得します。
+指定されたライセンスグループの使用可能なライセンスの一覧を取得するには、まず、[**Licensegroupid**/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid] 型の [list/dotnet/api/system.string] をインスタンス化してから、一覧にライセンスグループを追加します。 次に、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 次に、[**SubscribedSkus**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)] プロパティの値を取得して、顧客がサブスクライブしている SKU コレクション操作へのインターフェイスを取得します。 最後に、ライセンスグループの一覧を [**Get**/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) メソッドに渡して、使用可能なライセンスユニットの詳細を含むサブスクライブ済み sku の一覧を取得します。
 
 ``` csharp
 // string selectedCustomerId;
@@ -64,10 +64,10 @@ var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(s
 
 次のパスとクエリパラメーターを使用して、顧客とライセンスグループを識別します。
 
-| 名前            | Type   | 必須 | 説明                                                                                                                                                                                                                                                           |
+| 名前            | 種類   | 必須 | 説明                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | customer-id     | string | はい      | 顧客を識別する GUID 形式の文字列。                                                                                                                                                                                                                 |
-| licenseGroupIds | 文字列 | いいえ       | 割り当てられたライセンスのライセンスグループを示す列挙値。 有効な値: Group1、Group2 Group1-このグループには、Azure Active Directory (AAD) で管理できるライセンスを持つすべての製品が含まれています。 Group2-このグループには、Minecraft 製品ライセンスのみが含まれています。 |
+| licenseGroupIds | string | No       | 割り当てられたライセンスのライセンスグループを示す列挙値。 有効な値: Group1、Group2 Group1-このグループには、Azure Active Directory (AAD) で管理できるライセンスを持つすべての製品が含まれています。 Group2-このグループには、Minecraft 製品ライセンスのみが含まれています。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -91,11 +91,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[SubscribedSku](license-resources.md#subscribedsku)リソースのコレクションが含まれます。
+成功した場合、応答本文には [SubscribedSku](license-resources.md#subscribedsku) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

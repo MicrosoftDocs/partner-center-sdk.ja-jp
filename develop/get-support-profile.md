@@ -4,12 +4,12 @@ description: ユーザーのサポートプロファイルを表すオブジェ�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6107288c0885a6baf6140e66ef1b423ab9b2940d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b0c76d219aa2cef36a7e790e2be4feafeb10f826
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097497"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927501"
 ---
 # <a name="get-support-profile"></a>サポート プロファイルを取得する
 
@@ -27,7 +27,7 @@ ms.locfileid: "86097497"
 
 ## <a name="c"></a>C\#
 
-サポートプロファイルを取得するには、 **iaggregatepartner.customers**コレクションを使用します。 [**Supportprofile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile)プロパティを呼び出し、その後に[**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync)メソッドを呼び出します。
+サポートプロファイルを取得するには、 **iaggregatepartner.customers** コレクションを使用します。 [**Supportprofile**/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile)] プロパティを呼び出し、次に [**Get ()**/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -35,7 +35,7 @@ ms.locfileid: "86097497"
 SupportProfile supportProfile = partnerOperations.Profiles.SupportProfile.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル**クラス**: GetSupportProfile.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル **クラス**: GetSupportProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -65,7 +65,7 @@ MS-CorrelationId: 20604323-50bf-4738-9968-c5486ab32be0
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**Supportprofile**オブジェクトを返します。
+成功した場合、このメソッドは応答本文で **Supportprofile** オブジェクトを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

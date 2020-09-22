@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 63d9c25f7b34f0a48194cb1e719295e9c814a869
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c26a86ecb96e5e7942ba179f8a3cc704abab7df5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098340"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927783"
 ---
 # <a name="get-a-customers-company-profile"></a>顧客の会社プロファイルを取得する
 
@@ -32,7 +32,7 @@ ms.locfileid: "86098340"
 
 ## <a name="c"></a>C\#
 
-顧客の会社のプロファイルを取得するには、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。 その後、Company プロパティにアクセスするために、 [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles)プロパティから顧客の[**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection)インターフェイスを取得します。 次に、 [**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company)プロパティから[**ICustomerReadonlyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1)インターフェイスを取得し、その[**get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get)メソッドまたは[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync)メソッドを呼び出します。
+顧客の会社のプロファイルを取得するには、顧客 ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、顧客を識別します。 その後、Company プロパティにアクセスするために、 [**Profiles**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles)プロパティから顧客の[**ICustomerProfileCollection**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection)インターフェイスを取得します。 次に、 [**ICustomerProfileCollection**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company)プロパティから[**ICustomerReadonlyProfile**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1)インターフェイスを取得し、その[**get ()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get)メソッドまたは[**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync)メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,13 +41,13 @@ ms.locfileid: "86098340"
 var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Company.Get();
 ```
 
-**サンプル**:[パートナーセンター SDK をダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=746681)します。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: GetCustomerCompanyProfile.cs
+**サンプル**: [パートナーセンター SDK をダウンロード](https://go.microsoft.com/fwlink/p/?LinkId=746681)します。 **プロジェクト**: partnersdk. FeatureSamples **クラス**: GetCustomerCompanyProfile.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-顧客の会社プロファイルを取得するには、顧客識別子を使用して**iaggregatepartner.customers () byId**関数を呼び出し、顧客を識別します。 その後、会社のプロパティにアクセスするために、[**Getprofiles**] 関数から顧客の**ICustomerProfileCollection**インターフェイスを取得します。 次に、 **ICustomerProfileCollection**関数から**ICustomerReadonlyProfile**インターフェイスを取得し、 **get**関数を呼び出します。
+顧客の会社プロファイルを取得するには、顧客識別子を使用して **iaggregatepartner.customers () byId** 関数を呼び出し、顧客を識別します。 その後、会社のプロパティにアクセスするために、[**Getprofiles**] 関数から顧客の**ICustomerProfileCollection**インターフェイスを取得します。 次に、 **ICustomerProfileCollection**関数から**ICustomerReadonlyProfile**インターフェイスを取得し、 **get**関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -68,9 +68,9 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 次のクエリパラメーターを使用して、会社のプロファイルを取得します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -99,7 +99,7 @@ Connection: Keep-Alive
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

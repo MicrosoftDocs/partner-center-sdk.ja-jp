@@ -4,12 +4,12 @@ description: 顧客 ID によって顧客の削除されたユーザーリソー
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 849245b45c4cb763fb4da629caeb661c3f530fa7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dd7b573cca5810195d840fcb729850f981e55a51
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093486"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925540"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>顧客の削除されたユーザーを表示する
 
@@ -27,11 +27,11 @@ ms.locfileid: "86093486"
 
 ## <a name="what-happens-when-you-delete-a-user-account"></a>ユーザーアカウントを削除するとどうなりますか。
 
-ユーザーアカウントを削除すると、ユーザーの状態が "非アクティブ" に設定されます。 30日間はそのままで、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。 30日の期間内に削除されたユーザーアカウントを復元する場合は、「[顧客に対して削除されたユーザーを復元](restore-a-user-for-a-customer.md)する」を参照してください。 削除され、"inactive" とマークされた場合、ユーザーアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、[[顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)する] を使用します)。 削除されていないユーザーの一覧を取得するには、非アクティブに設定されているユーザーアカウントを照会する必要があります。
+ユーザーアカウントを削除すると、ユーザーの状態が "非アクティブ" に設定されます。 30日間はそのままで、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。 30日の期間内に削除されたユーザーアカウントを復元する場合は、「 [顧客に対して削除されたユーザーを復元](restore-a-user-for-a-customer.md)する」を参照してください。 削除され、"inactive" とマークされた場合、ユーザーアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、[ [顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)する] を使用します)。 削除されていないユーザーの一覧を取得するには、非アクティブに設定されているユーザーアカウントを照会する必要があります。
 
 ## <a name="c"></a>C\#
 
-削除されたユーザーの一覧を取得するには、状態が非アクティブに設定されている顧客のユーザーをフィルター処理するクエリを作成します。 まず、次のコードスニペットに示すように、パラメーターを使用して[**Simplefieldfilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)オブジェクトをインスタンス化することで、フィルターを作成します。 次に、 [**Buildindexedquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery)メソッドを使用してクエリを作成します。 ページングされた結果が不要な場合は、代わりに[**Buildsimplequery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)メソッドを使用できます。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 最後に、[**クエリ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query)メソッドを呼び出して要求を送信します。
+削除されたユーザーの一覧を取得するには、状態が非アクティブに設定されている顧客のユーザーをフィルター処理するクエリを作成します。 まず、次のコードスニペットに示すように、パラメーターを使用して [**Simplefieldfilter**/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) オブジェクトをインスタンス化することによって、フィルターを作成します。 次に、[**Buildindexedquery**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) メソッドを使用してクエリを作成します。 ページングされた結果が不要な場合は、代わりに [**Buildsimplequery**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery] メソッドを使用できます。 次に、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 最後に、[**Query**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) メソッドを呼び出して要求を送信します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ var simpleQueryWithFilter = QueryFactory.Instance.BuildIndexedQuery(customerUser
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Query(simpleQueryWithFilter);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetCustomerInactiveUsers.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetCustomerInactiveUsers.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -61,11 +61,11 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 要求の作成時には、次のパスとクエリパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                                                                                                                                                        |
+| 名前        | 種類   | 必須 | 説明                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id | guid   | はい      | 値は、顧客を識別する GUID 形式の顧客 id です。                                                                                                            |
-| size        | INT    | いいえ       | 一度に表示される結果の数。 このパラメーターは省略可能です。                                                                                                     |
-| filter      | filter | はい      | ユーザーの検索をフィルター処理するクエリ。 削除されたユーザーを取得するには、文字列 {"Field":"UserState","Value":"Inactive","Operator":"equals"} を含めてエンコードする必要があります。 |
+| customer-id | guid   | Yes      | 値は、顧客を識別する GUID 形式の顧客 id です。                                                                                                            |
+| サイズ        | INT    | いいえ       | 一度に表示される結果の数。 このパラメーターは省略できます。                                                                                                     |
+| filter      | filter | Yes      | ユーザーの検索をフィルター処理するクエリ。 削除されたユーザーを取得するには、文字列 {"Field":"UserState","Value":"Inactive","Operator":"equals"} を含めてエンコードする必要があります。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -89,7 +89,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、応答本文内の[ユーザー](user-resources.md#customeruser)リソースのコレクションを返します。
+成功した場合、このメソッドは、応答本文内の [ユーザー](user-resources.md#customeruser) リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

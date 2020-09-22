@@ -4,12 +4,12 @@ description: 指定された顧客の新しいバッチを作成するために�
 ms.date: 08/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 896ea9239dcc4d54b0b7630735743dfc5447b6f5
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 68ae21fa790b3c0810e26c54860b83d1ab303b8c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096525"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927873"
 ---
 # <a name="upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer"></a>デバイスの一覧をアップロードして指定された顧客の新しいバッチを作成する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86096525"
 
 ## <a name="prerequisites"></a>前提条件
 
-- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、[セキュリティで保護されたアプリモデル](enable-secure-app-model.md)に従います。
+- [パートナー センターの認証](partner-center-authentication.md)に関するページで説明している資格情報。 このシナリオでは、アプリとユーザーの資格情報を使用した認証がサポートされます。 パートナーセンター Api でアプリとユーザー認証を使用する場合は、 [セキュリティで保護されたアプリモデル](enable-secure-app-model.md) に従います。
 
 - 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
@@ -32,20 +32,20 @@ ms.locfileid: "86096525"
 
 新しいデバイスバッチを作成するためにデバイスの一覧をアップロードするには、次のようにします。
 
-1. [**デバイス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device)の種類の新しい[リスト](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)をインスタンス化し、リストに追加します。 各デバイスを識別するには、少なくとも次の設定されたプロパティの組み合わせが必要です。
+1. 型 [**Device**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) の新しい [List/dotnet/api/system.string] をインスタンス化し、リストにデバイスを設定します。 各デバイスを識別するには、少なくとも次の設定されたプロパティの組み合わせが必要です。
 
-   - [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)。
-   - [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)。
-   - [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)  + [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)。
-   - [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)のみ。
-   - [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)のみです。
-   - [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)  + [**OemManufacturerName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername)  + [**ModelName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname)。
+   - [**ハードウェアハッシュ**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)。
+   - [**ハードウェアハッシュ**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**シリアル**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) です。
+   - [**ハードウェアハッシュ**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**/Dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) + [**シリアル**の/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) です。
+   - [**ハードウェアハッシュ**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) のみです。
+   - [**ProductKey**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) のみです。
+   - [**シリアル**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) + [**OemManufacturerName**/Dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername) + [**ModelName**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname) です。
 
-2. [**Devicebatchの request**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest)オブジェクトをインスタンス化し、 [**batchid**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.batchid)プロパティを任意の一意の名前に設定し、 [**devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices)プロパティをアップロードするデバイスの一覧に設定します。
+2. [**Devicebatch/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest request**) オブジェクトをインスタンス化し、[**batchid**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.batchid] プロパティを選択した一意の名前に設定し、[**devices**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices] プロパティをアップロードするデバイスの一覧に設定します。
 
-3. 顧客 id を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作へのインターフェイスを取得することによって、デバイスのバッチ作成要求を処理します。
+3. 指定された顧客の操作へのインターフェイスを取得するために、顧客識別子と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出して、デバイスのバッチ作成要求を処理します。
 
-4. [**Devicebatches**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection)を呼び出します。バッチを作成するには、デバイスのバッチ作成要求を使用して、create または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection)メソッドを呼び出します。
+4. バッチを作成するためのデバイスバッチ作成要求を使用して、[**devicebatches. Create**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection) メソッドまたは [**createasync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection] メソッドを呼び出します。
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -72,7 +72,7 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.Create(newDeviceBatch);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateDeviceBatch.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: CreateDeviceBatch.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -86,7 +86,7 @@ var trackingLocation =
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
@@ -96,7 +96,7 @@ var trackingLocation =
 
 ### <a name="request-body"></a>[要求本文]
 
-要求本文には、 [Devicebatchの要求](device-deployment-resources.md#devicebatchcreationrequest)リソースが含まれている必要があります。
+要求本文には、 [Devicebatchの要求](device-deployment-resources.md#devicebatchcreationrequest) リソースが含まれている必要があります。
 
 ### <a name="request-example"></a>要求の例
 
@@ -137,7 +137,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答には、デバイスのアップロードステータスを取得するために使用できる URI を含む**場所**ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
+成功した場合、応答には、デバイスのアップロードステータスを取得するために使用できる URI を含む **場所** ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

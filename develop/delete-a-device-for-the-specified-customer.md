@@ -4,12 +4,12 @@ description: 指定された顧客に属するデバイスを削除する方法�
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2e1727b36f7775f59c191172c5514f0accbf3091
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 69b5440f2cf07d3cb4ecd5addf429acd64530257
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094162"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927818"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>指定された顧客のデバイスを削除する
 
@@ -34,13 +34,13 @@ ms.locfileid: "86094162"
 
 指定された顧客のデバイスを削除するには:
 
-1. 顧客識別子を使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客の操作に対するインターフェイスを取得します。
+1. 顧客識別子を使用して [**iaggregatepartner.customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、顧客の操作に対するインターフェイスを取得します。
 
-2. デバイスバッチ識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid)メソッドを呼び出し、指定されたバッチの操作へのインターフェイスを取得します。
+2. デバイスバッチ識別子を使用して [**ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) メソッドを呼び出し、指定されたバッチの操作へのインターフェイスを取得します。
 
-3. [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid)メソッドを呼び出して、指定されたデバイスで操作するインターフェイスを取得します。
+3. [**ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid)メソッドを呼び出して、指定されたデバイスで操作するインターフェイスを取得します。
 
-4. Batch からデバイスを削除するには、 [**delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete)または[**deleteasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync)メソッドを呼び出します。
+4. Batch からデバイスを削除するには、 [**delete**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) または [**deleteasync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) メソッドを呼び出します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -51,7 +51,7 @@ string selectedDeviceId;
 partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.ById(selectedDeviceId).Delete();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: DeleteDevice.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: DeleteDevice.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -65,7 +65,7 @@ partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selected
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前           | Type   | 必須 | 説明                                                        |
+| 名前           | 種類   | 必須 | 説明                                                        |
 |----------------|--------|----------|--------------------------------------------------------------------|
 | customer-id    | string | はい      | 顧客を識別する GUID 形式の文字列。              |
 | devicebatch-id | string | はい      | デバイスを含むバッチのデバイスバッチ識別子。 |
@@ -94,7 +94,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答は**204 コンテンツ**ステータスコードを返しません。
+成功した場合、応答は **204 コンテンツ** ステータスコードを返しません。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

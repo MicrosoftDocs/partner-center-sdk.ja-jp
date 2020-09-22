@@ -4,12 +4,12 @@ description: サブスクリプションのサポート担当者を、パート�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 904ba53da372877be9ce89d8bf683d2a447db96a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 39275394b2fecd67a25c9315ed11b9333532f514
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095570"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925441"
 ---
 # <a name="update-a-subscriptions-support-contact"></a>サブスクリプションのサポート連絡先情報を更新する
 
@@ -33,7 +33,7 @@ ms.locfileid: "86095570"
 
 ## <a name="c"></a>C\#
 
-サブスクリプションのサポート担当者を更新するには、まず、新しい値を使用して[**supportcontact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact)オブジェクトをインスタンス化して設定します。 次に、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、サブスクリプション ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、 [**supportcontact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact)プロパティを使用して、連絡先操作をサポートするインターフェイスを取得します。 最後に、設定された SupportContact オブジェクトを使用して[**update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update)または[**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync)メソッドを呼び出し、サポート連絡先を更新します。
+サブスクリプションのサポート担当者を更新するには、まず、新しい値で [**Supportcontact**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) オブジェクトをインスタンス化して設定します。 次に、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 次に、サブスクリプション ID を使用して [**ById**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、[**supportcontact**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact] プロパティを使用して、連絡先操作をサポートするインターフェイスを取得します。 最後に、設定されている SupportContact オブジェクトを使用して [**Update**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update] または [**UpdateAsync**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync) メソッドを呼び出し、サポート連絡先を更新します。
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -52,7 +52,7 @@ var supportContact = new SupportContact()
 var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionID).SupportContact.Update(supportContact);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: UpdateSubscriptionSupportContact.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: UpdateSubscriptionSupportContact.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -66,7 +66,7 @@ var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscri
 
 次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| 名前            | Type   | 必須 | 説明                                                     |
+| 名前            | 種類   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
 | customer-id     | string | はい      | 顧客を識別する GUID 形式の文字列。           |
 | subscription-id | string | はい      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
@@ -77,7 +77,7 @@ var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscri
 
 ### <a name="request-body"></a>[要求本文]
 
-要求本文には、設定された[Supportcontact](subscription-resources.md#supportcontact)リソースを含める必要があります。 サポート連絡先は、パートナーとの関係を持つ既存の再販業者である必要があります。
+要求本文には、設定された [Supportcontact](subscription-resources.md#supportcontact) リソースを含める必要があります。 サポート連絡先は、パートナーとの関係を持つ既存の再販業者である必要があります。
 
 ### <a name="request-example"></a>要求の例
 
@@ -112,11 +112,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[Supportcontact](subscription-resources.md#supportcontact)リソースが含まれます。
+成功した場合、応答本文には [Supportcontact](subscription-resources.md#supportcontact) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

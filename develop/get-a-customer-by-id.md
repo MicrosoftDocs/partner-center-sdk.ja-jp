@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 1a14a05c3db89320486a0e1eddca9169e4d3a596
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dd4301dbb6f749b675fe624daf7f63751806f856
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098386"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927810"
 ---
 # <a name="get-a-customer-by-id"></a>ID で顧客を取得する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86098386"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-顧客 ID に対応する**顧客**リソースを取得します。
+顧客 ID に対応する **顧客** リソースを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -32,7 +32,7 @@ ms.locfileid: "86098386"
 
 ## <a name="c"></a>C\#
 
-ID で顧客を取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用し、 [**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出してから、 [**get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.get)メソッドまたは[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.getasync)メソッドを呼び出します。
+ID で顧客を取得するには、 [**iaggregatepartner.customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) コレクションを使用し、 [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出してから、 [**get ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.get) メソッドまたは [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,13 +41,13 @@ ID で顧客を取得するには、 [**iaggregatepartner.customers**](https://d
 Customer customerInfo = partnerOperations.Customers.ById(customerIdToRetrieve).Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: CustomerInformation.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples **クラス**: CustomerInformation.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-ID で顧客を取得するには、 **iaggregatepartner.customers**関数を使用し、 **byId ()** 関数を呼び出してから、 **get ()** 関数を呼び出します。
+ID で顧客を取得するには、 **iaggregatepartner.customers** 関数を使用し、 **byId ()** 関数を呼び出してから、 **get ()** 関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -60,7 +60,7 @@ Customer customerInfo = partnerOperations.getCustomers().byId(customerIdToRetrie
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-ID で顧客を取得するには、 [**Get PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md)コマンドを実行し、 **CustomerId**パラメーターを指定します。
+ID で顧客を取得するには、 [**Get PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) コマンドを実行し、 **CustomerId** パラメーターを指定します。
 
 ```powershell
 Get-PartnerCustomer -CustomerId '2ca7de6c-c05c-46b5-b689-32e53573a97a'
@@ -78,9 +78,9 @@ Get-PartnerCustomer -CustomerId '2ca7de6c-c05c-46b5-b689-32e53573a97a'
 
 特定の顧客に対して次のクエリパラメーターを使用します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -102,7 +102,7 @@ MS-RequestId: 74ca1db9-df92-41c6-a362-a16433b0542b
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[顧客](customer-resources.md#customer)リソースを返します。
+成功した場合、このメソッドは応答本文で [顧客](customer-resources.md#customer) リソースを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

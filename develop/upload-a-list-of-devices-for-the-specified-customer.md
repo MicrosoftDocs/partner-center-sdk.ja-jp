@@ -4,12 +4,12 @@ description: 指定された顧客の既存のバッチに、デバイスに関�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 43a40274540ce12e3ebcfbb499786dcbb2b1313c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a3f6522b31d296e10c66cb45b3684eae3e0c25ab
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096530"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926432"
 ---
 # <a name="upload-a-list-of-devices-to-an-existing-batch-for-the-specified-customer"></a>デバイスの一覧を指定された顧客の既存のバッチにアップロードする
 
@@ -32,21 +32,21 @@ ms.locfileid: "86096530"
 
 ## <a name="c"></a>C\#
 
-既存のデバイスバッチにデバイスの一覧をアップロードするには、まず、[**デバイス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device)の種類の新しい[リスト](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1)をインスタンス化し、一覧にデバイスを設定します。 各デバイスを識別するには、少なくとも次の設定されたプロパティの組み合わせが必要です。
+既存のデバイスバッチにデバイスの一覧をアップロードするには、まず、種類が [**デバイス**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device] の新しい [list/dotnet/api/] をインスタンス化し、リストにデバイスを設定します。 各デバイスを識別するには、少なくとも次の設定されたプロパティの組み合わせが必要です。
 
-- [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)。
+- [**ハードウェアハッシュ**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)。
 
-- [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)。
+- [**ハードウェアハッシュ**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**シリアル**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) です。
 
-- [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  + [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)  + [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)。
+- [**ハードウェアハッシュ**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) + [**ProductKey**/Dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) + [**シリアル**の/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) です。
 
-- [**ハードウェアハッシュ**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)のみ。
+- [**ハードウェアハッシュ**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) のみです。
 
-- [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)のみです。
+- [**ProductKey**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) のみです。
 
-- [**シリアル**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)  + [**OemManufacturerName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername)  + [**ModelName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname)。
+- [**シリアル**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber) + [**OemManufacturerName**/Dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername) + [**ModelName**/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname) です。
 
-次に、顧客識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。 次に、デバイスのバッチ識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid)メソッドを呼び出し、指定されたバッチの操作へのインターフェイスを取得します。 最後に、デバイスの一覧を使用してデバイスの[**作成**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.createasync)メソッドを呼び出し、デバイスをデバイスバッチに追加します。
+次に、顧客識別子を使用して [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。 次に、デバイスのバッチ識別子を使用して [**Devicebatches**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) メソッドを呼び出し、指定されたバッチの操作のインターフェイスを取得します。 最後に、デバイスの一覧を使用してデバイスバッチにデバイスを追加するデバイスの一覧を使用して、**[/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.create) または [****createasync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.createasync) メソッドを呼び出します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -74,7 +74,7 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.Create(devicesToBeUploaded);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CreateDevices.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: CreateDevices.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -88,7 +88,7 @@ var trackingLocation =
 
 要求の作成時には、次のパスとクエリパラメーターを使用します。
 
-| 名前           | Type   | 必須 | 説明                                           |
+| 名前           | 種類   | 必須 | 説明                                           |
 |----------------|--------|----------|-------------------------------------------------------|
 | customer-id    | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 | devicebatch-id | string | はい      | デバイスバッチを識別する文字列識別子。 |
@@ -99,7 +99,7 @@ var trackingLocation =
 
 ### <a name="request-body"></a>[要求本文]
 
-要求本文には、[デバイス](device-deployment-resources.md#device)オブジェクトの配列が含まれている必要があります。 デバイスを識別するための次のフィールドの組み合わせが受け入れられます。
+要求本文には、 [デバイス](device-deployment-resources.md#device) オブジェクトの配列が含まれている必要があります。 デバイスを識別するための次のフィールドの組み合わせが受け入れられます。
 
 - ハードウェアハッシュ + productKey。
 - ハードウェアハッシュ + シリアル
@@ -153,7 +153,7 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答には、デバイスのアップロードステータスを取得するために使用できる URI を含む**場所**ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
+成功した場合、応答には、デバイスのアップロードステータスを取得するために使用できる URI を含む **場所** ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

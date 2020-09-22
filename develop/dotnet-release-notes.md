@@ -4,16 +4,16 @@ description: パートナーセンター .NET SDK の最新バージョンのリ
 ms.date: 09/18/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7ba1e9f0fa090863fd52dc6a60cf7c6e1f9a9ba6
-ms.sourcegitcommit: 9d85737f1baccb59c4321b22a69745dfeb336456
+ms.openlocfilehash: 082364100a922cd12e93d36c378435c2ef283842
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2020
-ms.locfileid: "90813016"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927309"
 ---
 # <a name="net-sdk-release-notes"></a>.NET SDK のリリースノート
 
-次のリリースノートは、 [Microsoft Partner Center .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter)の新しいバージョンで使用できます。 [.NET SDK のサンプル](https://github.com/Microsoft/Partner-Center-DotNet-Samples)については、GitHub を参照してください。 .NET API ブラウザーでは、 [パートナーセンターの .NET api リファレンス](https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest&preserve-view=true) を見つけることができます。
+次のリリースノートは、 [Microsoft Partner Center .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter)の新しいバージョンで使用できます。 [.NET SDK のサンプル](https://github.com/Microsoft/Partner-Center-DotNet-Samples)については、GitHub を参照してください。 .NET API ブラウザーでは、 [パートナーセンターの .NET api リファレンス](/dotnet/api/?view=partnercenter-dotnet-latest&preserve-view=true) を見つけることができます。
 
 ## <a name="version-1162"></a>バージョン1.16.2
 

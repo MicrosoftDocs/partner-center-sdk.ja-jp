@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 60875f960c228c9eca90c21cc0c34f5747c04860
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: aad9524dbe2c9edbbd7c1d50da7a448f6872fcb9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098357"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927793"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>検索フィールドによってフィルター処理された顧客の一覧を取得する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86098357"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-フィルターに一致する[顧客](customer-resources.md#customer)リソースのコレクションを取得します。 必要に応じてページサイズを設定することもできます。 フィルターを適用するには、会社名、ドメイン、間接リセラー、または間接クラウドソリューションプロバイダー (CSP) を使用します。
+フィルターに一致する [顧客](customer-resources.md#customer) リソースのコレクションを取得します。 必要に応じてページサイズを設定することもできます。 フィルターを適用するには、会社名、ドメイン、間接リセラー、または間接クラウドソリューションプロバイダー (CSP) を使用します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -32,11 +32,11 @@ ms.locfileid: "86098357"
 
 ## <a name="c"></a>C\#
 
-フィルターに一致する顧客のコレクションを取得するには、まず[**Simplefieldfilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)オブジェクトをインスタンス化してフィルターを作成します。 [**顧客 Searchfield**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)を含む文字列を渡し、フィルター操作の種類を[**Fieldfilteroperation. StartsWith**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation)として指定する必要があります。 これは、顧客のエンドポイントでサポートされている唯一のフィールドフィルター操作です。 また、フィルター処理に使用する文字列も指定する必要があります。
+フィルターに一致する顧客のコレクションを取得するには、まず [**Simplefieldfilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) オブジェクトをインスタンス化してフィルターを作成します。 [**顧客 Searchfield**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)を含む文字列を渡し、フィルター操作の種類を[**Fieldfilteroperation. StartsWith**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation)として指定する必要があります。 これは、顧客のエンドポイントでサポートされている唯一のフィールドフィルター操作です。 また、フィルター処理に使用する文字列も指定する必要があります。
 
-次に、 [**Buildsimplequery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)メソッドを呼び出し、それにフィルターを渡すことによって、クエリに渡す[**iquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)オブジェクトをインスタンス化します。 BuildSimplyQuery は、 [**Queryfactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)クラスでサポートされているクエリの種類の1つにすぎません。
+次に、 [**Buildsimplequery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)メソッドを呼び出し、それにフィルターを渡すことによって、クエリに渡す[**iquery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery)オブジェクトをインスタンス化します。 BuildSimplyQuery は、 [**Queryfactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) クラスでサポートされているクエリの種類の1つにすぎません。
 
-最後に、フィルターを実行して結果を取得するには、最初に Iaggregatepartner.customers を使用して、パートナーの顧客の操作へのインターフェイスを取得し[**ます。**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) その後、 [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)または[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)メソッドを呼び出します。
+最後に、フィルターを実行して結果を取得するには、最初に Iaggregatepartner.customers を使用して、パートナーの顧客の操作へのインターフェイスを取得し[**ます。**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) その後、 [**Query**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) または [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) メソッドを呼び出します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -57,7 +57,7 @@ var myQuery = QueryFactory.Instance.BuildSimpleQuery(fieldFilter);
 var customers = partnerOperations.Customers.Query(myQuery);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: FilterCustomers.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: FilterCustomers.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -71,10 +71,10 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 次のクエリパラメーターを使用します。
 
-| 名前   | Type   | 必須 | 説明                                                                    |
+| 名前   | 種類   | 必須 | 説明                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| size   | INT    | いいえ       | 一度に表示される結果の数。 このパラメーターは省略可能です。 |
-| filter | filter | はい      | 顧客に適用するフィルター。 これは、エンコードされた文字列である必要があります。              |
+| サイズ   | INT    | いいえ       | 一度に表示される結果の数。 このパラメーターは省略できます。 |
+| filter | filter | Yes      | 顧客に適用するフィルター。 これは、エンコードされた文字列である必要があります。              |
 
 ### <a name="filter-syntax"></a>フィルター構文
 
@@ -88,9 +88,9 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 次の表では、必要なキーと値のペアについて説明します。
 
-| Key      | 値                                                                                                                    |
+| キー      | 値                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
-| フィールド    | フィルター処理するフィールド。 有効な値は、 [**"顧客の searchfield"**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)にあります。 |
+| フィールド    | フィルター処理するフィールド。 有効な値は、 [**"顧客の searchfield"**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)にあります。 |
 | 値    | フィルター処理される値。 値の大文字と小文字の区別は無視されます。                                                                |
 | 演算子 | 適用する演算子。 この顧客シナリオでサポートされている値は、"次で始まる" だけです \_ 。                            |
 
@@ -117,7 +117,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で一致する[顧客](customer-resources.md#customer)リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で一致する [顧客](customer-resources.md#customer) リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

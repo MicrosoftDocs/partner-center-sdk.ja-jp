@@ -4,12 +4,12 @@ description: 顧客のサブスクリプションのコレクションを取得�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5aba8f127338a17db4d4e6708dd97c3d8da05e57
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a36d0bddb06c10f6d07a6ba44d6808fb9933c177
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097823"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927169"
 ---
 # <a name="get-a-customers-subscriptions"></a>顧客のサブスクリプションを取得する
 
@@ -30,7 +30,7 @@ ms.locfileid: "86097823"
 
 ## <a name="c"></a>C\#
 
-顧客のすべてのサブスクリプションの一覧を取得するには、最初に顧客 id と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、 [**subscription プロパティを使用して**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)、サブスクリプションコレクション操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)メソッドを呼び出して、顧客のサブスクリプションコレクションを取得します。
+顧客のすべてのサブスクリプションの一覧を取得するには、まず、顧客 id と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 次に、[**subscription/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)**] プロパティを使用して、サブスクリプションコレクション操作へのインターフェイスを取得します。 最後に、[**Get**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync] メソッドを呼び出して、顧客のサブスクリプションコレクションを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -39,7 +39,7 @@ ms.locfileid: "86097823"
 var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscriptions.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetSubscriptions.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetSubscriptions.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -53,7 +53,7 @@ var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscri
 
 次の表に、すべてのサブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| 名前               | Type   | 必須 | 説明                                           |
+| 名前               | 種類   | 必須 | 説明                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
 | customer-tenant-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
@@ -78,7 +78,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[サブスクリプション](subscription-resources.md)リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で [サブスクリプション](subscription-resources.md) リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

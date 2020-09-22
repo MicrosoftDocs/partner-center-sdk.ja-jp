@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 958bf512c9b9d087db7c480623b5ada92eea6407
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 23eec0c91d90f5e7b1dd1981b3566618fabc8c2c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097066"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927183"
 ---
 # <a name="get-all-of-a-customers-orders"></a>顧客の注文をすべて取得する
 
@@ -34,9 +34,9 @@ ms.locfileid: "86097066"
 
 顧客のすべての注文のコレクションを取得するには、次のようにします。
 
-1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 [**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。
+1. [**Iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) コレクションを使用し、[**ById ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。
 
-2. [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティを呼び出し、その後に[**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync)メソッドを呼び出します。
+2. [**Orders**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)] プロパティを呼び出し、次に [**Get ()**/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -45,7 +45,7 @@ ms.locfileid: "86097066"
 var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples**クラス**: GetOrders.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSamples **クラス**: GetOrders.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -59,7 +59,7 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 
 すべての注文を取得するには、次のクエリ パラメーターを使用します。
 
-| 名前                   | Type     | 必須 | 説明                                               |
+| 名前                   | 種類     | 必須 | 説明                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
 | customer-tenant-id     | string   | はい      | 顧客に対応する GUID 形式の文字列。    |
 
@@ -84,7 +84,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[注文](order-resources.md)リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で [注文](order-resources.md) リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

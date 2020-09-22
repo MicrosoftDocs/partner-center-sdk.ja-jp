@@ -4,12 +4,12 @@ description: Microsoft Azure Partner Shared Services の価格で Azure 料金�
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 608520b8d0219e423eab35a8001e3d54d9ea7085
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c0cb6efbd8e05c540de13b51c6ac0fd53273c9c7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097720"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927053"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Microsoft Azure パートナー共有サービスの価格を取得する
 
@@ -19,7 +19,7 @@ ms.locfileid: "86097720"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-Microsoft Azure Partner Shared Services の価格で[Azure 料金カード](azure-rate-card-resources.md)を取得する方法について説明します。
+Microsoft Azure Partner Shared Services の価格で [Azure 料金カード](azure-rate-card-resources.md) を取得する方法について説明します。
 
 価格は市場と通貨によって異なります。この API は、場所を考慮します。 既定では、API はパートナーセンターとブラウザーの言語でパートナーのプロファイル設定を使用します。これらの設定はカスタマイズできます。 拠点を認識することは、1つの集中管理されたオフィスから複数の市場で売上を管理する場合に特に重要です。
 
@@ -27,7 +27,7 @@ Microsoft Azure Partner Shared Services の価格で[Azure 料金カード](azur
 
 ## <a name="c"></a>C\#
 
-Azure の料金カードを取得するには、 [**IAzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared)メソッドを呼び出して、azure の価格を含む[**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard)リソースを返します。
+Azure の料金カードを取得するには、[**IAzureRateCard**/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) メソッドを呼び出して、azure の価格を含む [**AzureRateCard**/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) リソースを返します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -39,7 +39,7 @@ var azureRateCard = partner.RateCards.Azure.GetShared();
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Azure の料金カードを取得するには、 **IAzureRateCard**関数を呼び出して、azure の価格を含む料金カードの詳細を返します。
+Azure の料金カードを取得するには、 **IAzureRateCard** 関数を呼び出して、azure の価格を含む料金カードの詳細を返します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -51,7 +51,7 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().getShared();
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Azure カードを取得するには、 [**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md)コマンドを実行し、 **sharedservices**パラメーターを指定して、azure の価格を含む料金カードの詳細を返します。
+Azure カードを取得するには、 [**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) コマンドを実行し、 **sharedservices** パラメーターを指定して、azure の価格を含む料金カードの詳細を返します。
 
 ```powershell
 Get-PartnerAzureRateCard -SharedServices
@@ -67,10 +67,10 @@ Get-PartnerAzureRateCard -SharedServices
 
 ### <a name="uri-parameters"></a>URI パラメーター
 
-| 名前     | Type   | 必須 | 説明                                                                                                                                                                               |
+| Name     | 種類   | 必須 | 説明                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | string | いいえ       | リソースレートが提供される通貨の3文字の ISO コード (省略可能) (たとえば、 `EUR` )。 既定値は、パートナー プロファイル内の市場に関連付けられている通貨です。 |
-| region   | string | いいえ       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (たとえば、 `FR` )。 既定値は、パートナー プロファイルに設定された国/地域コードです。        |
+| currency | string | No       | リソースレートが提供される通貨の3文字の ISO コード (省略可能) (たとえば、 `EUR` )。 既定値は、パートナー プロファイル内の市場に関連付けられている通貨です。 |
+| region   | string | No       | プランが購入される市場を示す省略可能な2文字の ISO 国/地域コード (たとえば、 `FR` )。 既定値は、パートナー プロファイルに設定された国/地域コードです。        |
 
 省略可能な X-Locale ヘッダーが要求に含まれている場合、その値によって、応答の詳細に使用される言語が決まります。
 
@@ -97,7 +97,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-要求が成功すると、 [Azure 料金カード](azure-rate-card-resources.md)リソースが返されます。
+要求が成功すると、 [Azure 料金カード](azure-rate-card-resources.md) リソースが返されます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

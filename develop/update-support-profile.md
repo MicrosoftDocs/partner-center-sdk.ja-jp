@@ -4,12 +4,12 @@ description: ユーザーのサポートプロファイルを更新します。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1f22f01474cb6cb007f39a2aa1e978d2f7506ea6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f0e92f7cc08d79a2d8f72dae6129a72d0aaba51c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098467"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925561"
 ---
 # <a name="update-support-profile"></a>サポート プロファイルを更新する
 
@@ -28,7 +28,7 @@ ms.locfileid: "86098467"
 
 ## <a name="c"></a>C\#
 
-お使いのサポート プロファイルを更新するには、最初に[サポート プロファイルを取得](get-support-profile.md)し、必要な変更を加えます。 次に、 [**Ipartneroperations. Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles)コレクションを使用します。 [**Supportprofile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile)プロパティを呼び出し、その後に[**Update ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.update)または[**UpdateAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.updateasync)メソッドを呼び出します。
+お使いのサポート プロファイルを更新するには、最初に[サポート プロファイルを取得](get-support-profile.md)し、必要な変更を加えます。 次に、[**Ipartneroperations**) コレクションを使用します。 [**Supportprofile**/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile)] プロパティを呼び出し、次に [**Update ()**/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.update)] または [**UpdateAsync ()**/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.updateasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,7 +44,7 @@ SupportProfile newSupportProfile = new SupportProfile
 SupportProfile updatedSupportProfile = partnerOperations.Profiles.SupportProfile.Update(newSupportProfile);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル**クラス**: UpdateSupportProfile.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnerセンター sdk. のサンプル **クラス**: UpdateSupportProfile.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -87,7 +87,7 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、応答本文で更新された**Supportprofile**オブジェクトプロパティを返します。
+成功した場合、このメソッドは、応答本文で更新された **Supportprofile** オブジェクトプロパティを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

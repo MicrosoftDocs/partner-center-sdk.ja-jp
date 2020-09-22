@@ -4,12 +4,12 @@ description: パートナーの MPN プロファイルを表すオブジェク�
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b5a65786bae048281966b42b3ec359c8264f3a3d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7cca35096befe46e1db1c04eeec03ac371406ba2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097762"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927523"
 ---
 # <a name="get-microsoft-partner-network-profile"></a>Microsoft Partner Network プロファイルを取得する
 
@@ -28,7 +28,7 @@ ms.locfileid: "86097762"
 
 ## <a name="c"></a>C\#
 
-パートナーネットワークプロファイルを取得するには、 **iaggregatepartner.customers**コレクションを使用して**mpnprofile**プロパティを呼び出します。 最後に、 [**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get)メソッドまたは[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync)メソッドを呼び出します。
+パートナーネットワークプロファイルを取得するには、 **iaggregatepartner.customers** コレクションを使用して **mpnprofile** プロパティを呼び出します。 最後に、[**Get ()**/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,13 +36,13 @@ ms.locfileid: "86097762"
 var mpnProfile = partnerOperations.Profiles.MpnProfile.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**:P artによって、GetMPNProfile.cs サンプル**クラス**:
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**:P artによって、GetMPNProfile.cs サンプル **クラス**:
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-パートナーネットワークプロファイルを取得するには、 **iaggregatepartner.customers**関数を使用し、 **Getmpnprofile**関数を呼び出します。 最後に、 **get ()** 関数を呼び出します。
+パートナーネットワークプロファイルを取得するには、 **iaggregatepartner.customers** 関数を使用し、 **Getmpnprofile** 関数を呼び出します。 最後に、 **get ()** 関数を呼び出します。
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -54,7 +54,7 @@ MpnProfile mpnProfile = partnerOperations.getProfiles().getMpnProfile().get();
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-パートナーネットワークプロファイルを取得するには、 [**Get PartnerMpnProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerMpnProfile.md)コマンドを実行します。
+パートナーネットワークプロファイルを取得するには、 [**Get PartnerMpnProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerMpnProfile.md) コマンドを実行します。
 
 ```powershell
 Get-PartnerMpnProfile
@@ -89,7 +89,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**Mpnprofile**オブジェクトを返します。
+成功した場合、このメソッドは応答本文で **Mpnprofile** オブジェクトを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

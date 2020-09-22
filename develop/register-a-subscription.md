@@ -4,12 +4,12 @@ description: Azure 予約の注文が有効になるように、既存のサブ�
 ms.date: 07/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9430c21e70c4eb67160bc21f4ee2c63a4ed42d1b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3cabfd9d2bba309d773f15b2de2a4b33e4575241
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094947"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926666"
 ---
 # <a name="register-a-subscription"></a>サブスクリプションを登録する
 
@@ -17,7 +17,7 @@ ms.locfileid: "86094947"
 
 - パートナー センター
 
-Azure 予約の注文が有効になるように、既存の[サブスクリプション](subscription-resources.md)を登録します。
+Azure 予約の注文が有効になるように、既存の [サブスクリプション](subscription-resources.md) を登録します。
 
 Azure 予約を購入するには、少なくとも1つの既存の CSP Azure サブスクリプションが必要です。 この方法では、既存の CSP Azure サブスクリプションを登録し、Azure 予約を購入できるようにすることができます。
 
@@ -31,9 +31,9 @@ Azure 予約を購入するには、少なくとも1つの既存の CSP Azure �
 
 ## <a name="c"></a>C\#
 
-顧客のサブスクリプションを登録するには、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別することによって、サブスクリプション操作へのインターフェイスを取得します。 次に、サブスクリプション ID を指定して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出し、登録するサブスクリプションを識別します。
+顧客のサブスクリプションを登録するには、顧客 ID を指定して [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、顧客を識別するために、サブスクリプション操作へのインターフェイスを取得します。 次に、サブスクリプション ID を指定して [**ById ()**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) メソッドを呼び出し、登録するサブスクリプションを識別します。
 
-最後に、 **register ()** メソッドを呼び出してサブスクリプションを登録し、サブスクリプションの登録状態を取得するために使用できる URI を取得します。 詳細については、「[サブスクリプション登録状態の取得](get-subscription-registration-status.md)」を参照してください。
+最後に、 **register ()** メソッドを呼び出してサブスクリプションを登録し、サブスクリプションの登録状態を取得するために使用できる URI を取得します。 詳細については、「 [サブスクリプション登録状態の取得](get-subscription-registration-status.md)」を参照してください。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -56,7 +56,7 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| 名前                    | Type       | 必須 | 説明                                                   |
+| 名前                    | 種類       | 必須 | 説明                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
 | customer-id             | string     | はい      | 顧客を識別する GUID 形式の文字列。         |
 | subscription-id         | string     | はい      | サブスクリプションを識別する GUID 形式の文字列。     |
@@ -85,7 +85,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答には、サブスクリプションの登録状態を取得するために使用できる URI を含む**Location**ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。 状態を取得する方法の例については、「[サブスクリプション登録状態の取得](get-subscription-registration-status.md)」を参照してください。
+成功した場合、応答には、サブスクリプションの登録状態を取得するために使用できる URI を含む **Location** ヘッダーが含まれます。 他の関連する REST Api で使用するために、この URI を保存します。 状態を取得する方法の例については、「 [サブスクリプション登録状態の取得](get-subscription-registration-status.md)」を参照してください。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

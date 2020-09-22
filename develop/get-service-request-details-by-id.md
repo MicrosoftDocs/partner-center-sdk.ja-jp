@@ -4,12 +4,12 @@ description: ID によって既存の顧客サービス要求の詳細を取得�
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 93fd56931913d674591735d3da6f60a3b9b15607
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: cb02b051ef8cddd16a4574c49848caf96a43fb54
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097625"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926947"
 ---
 # <a name="get-service-request-details-by-id"></a>ID でサービス リクエストの詳細を取得する
 
@@ -29,7 +29,7 @@ ms.locfileid: "86097625"
 
 ## <a name="c"></a>C\#
 
-既存のカスタマーサービス要求の詳細を取得するには、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid)メソッドを呼び出し、 [**ServiceRequest.Id**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id)を渡して、特定の[**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest)オブジェクトに対してインターフェイスを識別し、返すようにします。
+既存のカスタマーサービス要求の詳細を取得するには、[**IServiceRequestCollection ById**/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) メソッドを呼び出し、[**ServiceRequest.Id**/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id # Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) を渡して、特定の [**ServiceRequest**/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) オブジェクトへのインターフェイスを識別し、返すようにします。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -56,7 +56,7 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 指定されたサービス要求を取得するには、次の URI パラメーターを使用します。
 
-| 名前                  | Type     | 必須 | 説明                                 |
+| 名前                  | 種類     | 必須 | 説明                                 |
 |-----------------------|----------|----------|---------------------------------------------|
 | **servicerequest-id** | **guid** | Y        | サービス要求を識別する GUID。 |
 
@@ -84,11 +84,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**サービス要求**リソースを返します。
+成功した場合、このメソッドは応答本文で **サービス要求** リソースを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

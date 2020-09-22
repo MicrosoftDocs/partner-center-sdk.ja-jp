@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 110710650c758c9d38234566cd2c89a4b7f93a3e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c0e84888870571cf6bd21306f527863f2aa7ee85
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097889"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927232"
 ---
 # <a name="get-activation-link-by-order-line-item"></a>注文明細でアクティブ化リンクを取得する
 
@@ -34,7 +34,7 @@ ms.locfileid: "86097889"
 
 ## <a name="c"></a>C\#
 
-行項目のアクティベーションリンクを取得するには、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用し、選択した顧客 ID を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティと、指定した[**OrderId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.id)を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)メソッドを呼び出します。 次に、行項目番号の識別子を指定して、 [**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) with **ById ()** メソッドを呼び出します。  最後に、 **ActivationLinks ()** メソッドを呼び出します。
+行項目のアクティベーションリンクを取得するには、 [**iaggregatepartner.customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) コレクションを使用し、選択した顧客 ID を使用して [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。 次に、 [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティと、指定した[**OrderId**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.id)を使用して[**ById ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)メソッドを呼び出します。 次に、行項目番号の識別子を指定して、 [**LineItems**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) with **ById ()** メソッドを呼び出します。  最後に、 **ActivationLinks ()** メソッドを呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -74,7 +74,7 @@ MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[顧客](customer-resources.md#customer)リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で [顧客](customer-resources.md#customer) リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

@@ -4,12 +4,12 @@ description: 顧客アカウント内のユーザーに割り当てられてい�
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b0cec89b5bcb7caa11c39f33bcf5ab38219edd6e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5ef8e88faf3f08dad02850da24b21b0e2d9b22bb
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096429"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927369"
 ---
 # <a name="get-licenses-assigned-to-a-user"></a>ユーザーに割り当てられたライセンスを取得する
 
@@ -17,7 +17,7 @@ ms.locfileid: "86096429"
 
 - パートナー センター
 
-顧客アカウント内のユーザーに割り当てられたライセンスの一覧を取得する方法。 次に示す例では、group1 から割り当てられたライセンスが返されます。これは、Azure Active Directory によって管理されるライセンスを表す既定のライセンスグループです。 指定したライセンスグループから割り当てられたライセンスを取得するには、「[ライセンスグループ別にユーザーに割り当てられたライセンスを取得](get-licenses-assigned-to-a-user-by-license-group.md)する」を参照してください。
+顧客アカウント内のユーザーに割り当てられたライセンスの一覧を取得する方法。 次に示す例では、group1 から割り当てられたライセンスが返されます。これは、Azure Active Directory によって管理されるライセンスを表す既定のライセンスグループです。 指定したライセンスグループから割り当てられたライセンスを取得するには、「 [ライセンスグループ別にユーザーに割り当てられたライセンスを取得](get-licenses-assigned-to-a-user-by-license-group.md)する」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -29,7 +29,7 @@ ms.locfileid: "86096429"
 
 ## <a name="c"></a>C\#
 
-既定の group1 ライセンスグループからユーザーに割り当てられているライセンスを確認するには、まず、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、ユーザー ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出し、ユーザーを識別します。 次に、[[**ライセンス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses)] プロパティから顧客のユーザーライセンス操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync)メソッドを呼び出して、ユーザーに割り当てられているライセンスのコレクションを取得します。
+既定の group1 ライセンスグループからユーザーに割り当てられているライセンスを確認するには、まず、顧客 ID と共に [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 次に、ユーザー ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出し、ユーザーを識別します。 次に、[ [**ライセンス**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) ] プロパティから顧客のユーザーライセンス操作へのインターフェイスを取得します。 最後に、 [**Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) または [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) メソッドを呼び出して、ユーザーに割り当てられているライセンスのコレクションを取得します。
 
 ``` csharp
 // string selectedCustomerUserId;
@@ -39,7 +39,7 @@ ms.locfileid: "86096429"
 var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Licenses.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CustomerUserAssignedLicenses.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: CustomerUserAssignedLicenses.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -53,7 +53,7 @@ var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCust
 
 次のパスパラメーターを使用して、顧客とユーザーを識別します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 | user-id     | string | はい      | ユーザーを識別する GUID 形式の文字列。     |
@@ -80,11 +80,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[ライセンス](license-resources.md#license)リソースのコレクションが含まれます。
+成功した場合、応答本文には [ライセンス](license-resources.md#license) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

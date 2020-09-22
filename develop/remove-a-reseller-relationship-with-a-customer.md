@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: e642b8977538e760f82233fe159af94f458df15c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 786dbeef91e51b2f7830a6d49e47e29121a7c38b
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096131"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926784"
 ---
 # <a name="remove-a-reseller-relationship-with-a-customer"></a>顧客との再販業者関係の削除
 
@@ -33,13 +33,13 @@ ms.locfileid: "86096131"
 
 顧客の再販業者関係を削除するには、まず、その顧客のアクティブな Azure Reserved VM Instances がキャンセルされていることを確認します。 次に、その顧客のすべてのアクティブなサブスクリプションが中断されていることを確認します。 これを行うには、再販業者の関係を削除する顧客の ID を決定します。 次のコード例では、ユーザーは顧客識別子を入力するように求められます。
 
-顧客の Azure Reserved VM Instances を取り消す必要があるかどうかを判断するには、顧客を指定するために顧客識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、権利コレクション操作へのインターフェイスを取得する[**権利**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)プロパティを使用して、権利のコレクションを取得します。 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)メソッドを呼び出して、権利コレクションを取得します。 EntitlementType の[**EntitlementType**](entitlement-resources.md#entitlementtype)値を持つ権利のコレクションをフィルター処理し[**ます。 VirtualMachineReservedInstance**](entitlement-resources.md#entitlementtype)がある場合は、続行する前にサポートを呼び出して取り消します。
+顧客の Azure Reserved VM Instances を取り消す必要があるかどうかを判断するには、顧客の識別子を使用して [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、権利のコレクション操作へのインターフェイスを取得するための [**権利**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions] プロパティを呼び出して、権利のコレクションを取得します。 権利コレクションを取得するには、[**Get**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) メソッドを呼び出します。 EntitlementType の [**EntitlementType**](entitlement-resources.md#entitlementtype) 値を持つ権利のコレクションをフィルター処理し [**ます。 VirtualMachineReservedInstance**](entitlement-resources.md#entitlementtype) がある場合は、続行する前にサポートを呼び出して取り消します。
 
-次に、顧客の識別子を使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出して顧客のサブスクリプションのコレクションを取得し、 [**subscription プロパティを呼び出して、サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)コレクション操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)メソッドを呼び出して、顧客のサブスクリプションコレクションを取得します。 サブスクリプションコレクションを走査し、サブスクリプションにサブスクリプションがないことを確認し[**ます。 Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status)プロパティの値は[**Subscriptionstatus. Active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)です。 サブスクリプションがアクティブな場合は、中断する方法については、「[サブスクリプションを中断](https://review.docs.microsoft.com/partner-center/develop/suspend-a-subscription)する」を参照してください。
+次に、顧客の識別子を使用して [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出して顧客を指定し、[**subscription/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions]** プロパティを呼び出してサブスクリプションコレクション操作へのインターフェイスを取得することによって、顧客のサブスクリプションのコレクションを取得します。 最後に、[**Get**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync] メソッドを呼び出して、顧客のサブスクリプションコレクションを取得します。 サブスクリプションコレクションを走査し、サブスクリプションのいずれにも **[/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status]** プロパティの値が [**Subscriptionstatus. Active**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus) でないことを確認します。 サブスクリプションがアクティブな場合は、中断する方法については、「 [サブスクリプションを中断](https://review.docs.microsoft.com/partner-center/develop/suspend-a-subscription) する」を参照してください。
 
-その顧客のすべてのアクティブな Azure Reserved VM Instances が取り消され、すべてのアクティブなサブスクリプションが中断されていることを確認したら、その顧客の再販業者の関係を削除できます。 最初に、 [customer. RelationshipToPartner](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.relationshiptopartner)プロパティを [顧客[**パートナー関係**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerpartnerrelationship)] に設定して、新しい[customer](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer)オブジェクトを作成します。 次に、顧客識別子を使用して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出して顧客を指定し、 **Patch**メソッドを呼び出して新しい customer オブジェクトを渡します。
+その顧客のすべてのアクティブな Azure Reserved VM Instances が取り消され、すべてのアクティブなサブスクリプションが中断されていることを確認したら、その顧客の再販業者の関係を削除できます。 最初に、新しい [Customer/dotnet/api//dotnet/api/microsoft.store.partnercenter.models.customers.customerpartnerrelationship) オブジェクトを作成します。このオブジェクトには、[dotnet/api/] プロパティが [] に設定されています。このオブジェクトは、**"**" に設定されています。このオブジェクトは、 次に、顧客識別子を使用して顧客を指定するために、[**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、 **Patch** メソッドを呼び出して、新しい customer オブジェクトを渡します。
 
-関係を再確立するには、[再販業者の関係を要求](https://docs.microsoft.com/partner-center/develop/request-reseller-relationship)するプロセスを繰り返します。
+関係を再確立するには、[再販業者の関係/パートナー-センター/開発/要求-再販業者-関係を要求する] のプロセスを繰り返します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -81,7 +81,7 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 }
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: DeletePartnerCustomerRelationship.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample **クラス**: DeletePartnerCustomerRelationship.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -95,9 +95,9 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 
 次の表に、リセラー関係を削除するために必要なクエリパラメーターを示します。
 
-| 名前                   | Type     | 必須 | 説明                                                                        |
+| 名前                   | 種類     | 必須 | 説明                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の **顧客テナント id** です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -105,7 +105,7 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 
 ### <a name="request-body"></a>[要求本文]
 
-要求本文には、**顧客**リソースが必要です。 **Relationshiptopartner**プロパティが [なし] に設定されていることを確認します。
+要求本文には、 **顧客** リソースが必要です。 **Relationshiptopartner**プロパティが [なし] に設定されていることを確認します。
 
 ### <a name="request-example"></a>要求の例
 

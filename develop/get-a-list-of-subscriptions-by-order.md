@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 45e855d53ca93cd109383e2413879b30c9416aff
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b7fb7e101319fc2bc83425ff77f2f8ae9c9585d8
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097304"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927635"
 ---
 # <a name="get-a-list-of-subscriptions-by-order"></a>注文ごとにサブスクリプションの一覧を取得する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86097304"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-指定された順序に対応する[サブスクリプション](subscription-resources.md)リソースのコレクションを取得します。
+指定された順序に対応する [サブスクリプション](subscription-resources.md) リソースのコレクションを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -34,7 +34,7 @@ ms.locfileid: "86097304"
 
 ## <a name="c"></a>C\#
 
-注文ごとのサブスクリプションの一覧を取得するには、**IAggregatePartner.Customers** コレクションを使用し、**ById()** メソッドを呼び出します。 次に、[[**サブスクリプション**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] プロパティを呼び出し、続いて**byorder ()** メソッドを呼び出します。 [**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync)を呼び出して終了します。
+注文ごとのサブスクリプションの一覧を取得するには、**IAggregatePartner.Customers** コレクションを使用し、**ById()** メソッドを呼び出します。 次に、[**サブスクリプション**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions)] プロパティを呼び出し、続いて **byorder ()** メソッドを呼び出します。 [**Get ()**/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) を呼び出して終了します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,7 +44,7 @@ ms.locfileid: "86097304"
 ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ByOrder(orderID).Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: SubscriptionsByOrder.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample **クラス**: SubscriptionsByOrder.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -58,7 +58,7 @@ ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Custo
 
 次の表に、すべてのサブスクリプションを取得するために必要なクエリパラメーターを示します。
 
-| 名前                   | Type     | 必須 | 説明                           |
+| 名前                   | 種類     | 必須 | 説明                           |
 |------------------------|----------|----------|---------------------------------------|
 | **customer-tenant-id** | **guid** | Y        | 顧客に対応する GUID。 |
 | **id-for-order**       | **guid** | Y        | 注文に対応する GUID。    |
@@ -84,7 +84,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[サブスクリプション](subscription-resources.md)リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で [サブスクリプション](subscription-resources.md) リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

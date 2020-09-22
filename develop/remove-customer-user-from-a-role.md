@@ -4,12 +4,12 @@ description: 顧客アカウント内のディレクトリロールからユー�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8bb79a0b1b1c8ef7200e02f29483014326422cb3
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 42c9894b50a253fe533acbe749527f1d5ff67486
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094894"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926453"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>顧客ユーザーをロールから削除する
 
@@ -27,7 +27,7 @@ ms.locfileid: "86094894"
 
 ## <a name="c"></a>C\#
 
-ディレクトリロールからユーザーを削除するには、Iaggregatepartner.customers メソッドの呼び出しを使用してユーザーを変更する顧客を選択し、そこから[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用してロールを指定します。ディレクトリロール ID を指定して、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid)メソッドを使用してロールを指定します。 次に、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid)メソッドにアクセスして削除するユーザーを識別し、 [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete)メソッドを使用してユーザーをロールから削除します。
+ディレクトリロールからユーザーを削除するには、[**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドの呼び出しでユーザーが変更する顧客を選択し、そこから、[**Directoryroles. ById**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) メソッドを使用してディレクトリロール ID を指定してロールを指定します。 次に、[**Usermembers. ById**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) メソッドにアクセスして削除するユーザーを識別し、[**Delete**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) メソッドにアクセスして、ロールからユーザーを削除します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,7 +38,7 @@ ms.locfileid: "86094894"
 partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selectedRoleId).UserMembers.ById(selectedUserMemberId).Delete();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: RemoveCustomerUserMemberFromDirectoryRole.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: RemoveCustomerUserMemberFromDirectoryRole.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -52,11 +52,11 @@ partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selecte
 
 次の URI パラメーターを使用して、正しい顧客、ロール、およびユーザーを識別します。
 
-| 名前                   | Type     | 必須 | 説明                                                                        |
+| 名前                   | 種類     | 必須 | 説明                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の**顧客テナント id**です。 |
-| **ロール id**            | **guid** | Y        | 値は、ロールを識別する GUID 形式の**ロール id**です。                |
-| **ユーザー id**            | **guid** | Y        | 値は、単一のユーザーアカウントを識別する GUID 形式の**ユーザー id**です。   |
+| **customer-tenant-id** | **guid** | Y        | この値は、顧客を識別する GUID 形式の **顧客テナント id** です。 |
+| **ロール id**            | **guid** | Y        | 値は、ロールを識別する GUID 形式の **ロール id** です。                |
+| **ユーザー id**            | **guid** | Y        | 値は、単一のユーザーアカウントを識別する GUID 形式の **ユーザー id** です。   |
 
 ### <a name="request-headers"></a>要求ヘッダー
 

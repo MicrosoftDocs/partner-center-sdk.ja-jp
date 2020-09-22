@@ -4,12 +4,12 @@ description: 評価版変換プランの一覧を取得する方法。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 865b557dcfa275c3ec68dc7350b76c2fa9208d0f
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ae5dbdc69ca477d8dc7773b21252ebea73a8dfed
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097206"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927625"
 ---
 # <a name="get-a-list-of-trial-conversion-offers"></a>試用版の変換プランの一覧を取得する
 
@@ -29,7 +29,7 @@ ms.locfileid: "86097206"
 
 ## <a name="c"></a>C\#
 
-使用可能な試用変換の一覧を取得するには、まず、顧客 ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、試用版サブスクリプション ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、"[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)" プロパティを使用して、変換で使用可能な操作のインターフェイスを取得し、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync)メソッドを呼び出して、使用可能な[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion)の提供のコレクションを取得します。
+使用可能な試用変換の一覧を取得するには、まず、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 次に、試用版サブスクリプション ID を使用して [**ById**/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、[Conversion **/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)**] プロパティを使用して、変換に対して使用可能な操作のインターフェイスを取得し、[**Get**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) メソッドを呼び出して、使用可能な [**変換**/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) プランのコレクションを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,7 +53,7 @@ var conversions =
 
 次のパスパラメーターを使用して、顧客と試用版のサブスクリプションを識別します。
 
-| 名前            | Type   | 必須 | 説明                                                     |
+| 名前            | 種類   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
 | customer-id     | string | はい      | 顧客を識別する GUID 形式の文字列。           |
 | subscription-id | string | はい      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
@@ -80,11 +80,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[変換](conversions-resources.md#conversionresult)リソースのコレクションが含まれます。
+成功した場合、応答本文には [変換](conversions-resources.md#conversionresult) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 7af840adcf8c6e3e16695297c34aa6f6e9c0629c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ac0d1ba8d17fbbfcd0d0c8870a4722fe89010749
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098339"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927772"
 ---
 # <a name="get-a-customers-qualification"></a>顧客の資格情報を取得する
 
@@ -29,7 +29,7 @@ ms.locfileid: "86098339"
 
 ## <a name="c"></a>C\#
 
-顧客の資格を取得するには、顧客識別子を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。 次に、 [**ICustomerQualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification)インターフェイスを取得するために、[**修飾**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification)プロパティを使用します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync)を呼び出して顧客の資格を取得します。
+顧客の資格を取得するには、顧客識別子を使用して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。 次に、 [**ICustomerQualification**](/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification)インターフェイスを取得するために、[**修飾**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification)プロパティを使用します。 最後に、 [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) または [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) を呼び出して顧客の資格を取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -50,7 +50,7 @@ var customerQualification = partnerOperations.Customers.ById(customerId).Qualifi
 
 次の表に、すべての修飾を取得するために必要なクエリパラメーターを示します。
 
-| 名前               | Type   | 必須 | 説明                                           |
+| 名前               | 種類   | 必須 | 説明                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
 | **customer-tenant-id** | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 

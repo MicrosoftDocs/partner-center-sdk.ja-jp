@@ -4,12 +4,12 @@ description: 顧客の既存のユーザーアカウントを削除する方法�
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d26d04e2feb8c0d047f5ddb7bed61eec8634b196
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 77fc1a1c7264779ca549be8d52798e90c91138bb
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094149"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927798"
 ---
 # <a name="delete-a-user-account-for-a-customer"></a>顧客のユーザー アカウントを削除する
 
@@ -25,23 +25,23 @@ ms.locfileid: "86094149"
 
 - 顧客 ID です (`customer-tenant-id`)。 お客様の ID がわからない場合は、パートナー センターの[ダッシュボード](https://partner.microsoft.com/dashboard)で検索できます。 パートナー センター メニューの **[CSP]** を選択し、 **[顧客]** を選択します。 顧客一覧からお客様を選び、 **[アカウント]** を選択します。 お客様のアカウント ページで、 **[顧客のアカウント情報]** セクションの **Microsoft ID** を探します。 Microsoft ID は、顧客 ID (`customer-tenant-id`) と同じです。
 
-- ユーザー ID。 ユーザー ID を持っていない場合は、「[顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)する」を参照してください。
+- ユーザー ID。 ユーザー ID を持っていない場合は、「 [顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)する」を参照してください。
 
 ## <a name="deleting-a-user-account"></a>ユーザー アカウントを削除する
 
-ユーザーアカウントを削除すると、ユーザー状態は30日間**非アクティブ**に設定されます。 30日後に、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。
+ユーザーアカウントを削除すると、ユーザー状態は30日間 **非アクティブ** に設定されます。 30日後に、ユーザーアカウントとそれに関連付けられたデータが消去され、回復できなくなります。
 
-非アクティブなアカウントが30日の期間内にある場合は、[削除されたユーザーアカウントを顧客に対して復元](restore-a-user-for-a-customer.md)できます。 ただし、削除され、非アクティブとマークされているアカウントを復元すると、そのアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、[顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)した場合)。
+非アクティブなアカウントが30日の期間内にある場合は、 [削除されたユーザーアカウントを顧客に対して復元](restore-a-user-for-a-customer.md) できます。 ただし、削除され、非アクティブとマークされているアカウントを復元すると、そのアカウントはユーザーコレクションのメンバーとして返されなくなります (たとえば、 [顧客のすべてのユーザーアカウントの一覧を取得](get-a-list-of-all-user-accounts-for-a-customer.md)した場合)。
 
 ## <a name="c"></a>C\#
 
 既存の顧客のユーザーアカウントを削除するには:
 
-1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用し、顧客を識別します。
+1. 顧客 ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用し、顧客を識別します。
 
-2. ユーザーを識別するには、 [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出します。
+2. ユーザーを識別するには、 [**ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出します。
 
-3. [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete)メソッドを呼び出してユーザーを削除し、ユーザー状態を非アクティブに設定します。
+3. [**Delete**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete)メソッドを呼び出してユーザーを削除し、ユーザー状態を非アクティブに設定します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,7 +51,7 @@ ms.locfileid: "86094149"
 partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdToDelete).Delete();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: DeleteCustomerUser.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: DeleteCustomerUser.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -65,10 +65,10 @@ partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdTo
 
 次のクエリパラメーターを使用して、顧客とユーザーを識別します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                               |
+| 名前                   | 種類     | 必須 | 説明                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
-| customer-tenant-id     | GUID     | Y        | 値は GUID 形式の**顧客テナント id**で、リセラーは特定の顧客の結果をフィルター処理できます。 |
-| user-id                | GUID     | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の**ユーザー id**です。                                          |
+| customer-tenant-id     | GUID     | Y        | 値は GUID 形式の **顧客テナント id** で、リセラーは特定の顧客の結果をフィルター処理できます。 |
+| user-id                | GUID     | Y        | 値は、1つのユーザーアカウントに属する GUID 形式の **ユーザー id** です。                                          |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -93,11 +93,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは、コンテンツステータスコード " **204 なし**" を返します。
+成功した場合、このメソッドは、コンテンツステータスコード " **204 なし** " を返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 2fa1ee7ad360ad846d47fc9ac7bb64d5a96ab6c0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1a16a36b4730472a2a0d3da8ca0dba17ad522918
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098094"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927640"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>顧客と請求サイクルの種類別に注文の一覧を取得する
 
@@ -34,10 +34,10 @@ ms.locfileid: "86098094"
 
 顧客の注文のコレクションを取得するには、次のようにします。
 
-1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用し、選択した顧客 ID を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出します。
+1. [**Iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.customers)] コレクションを使用して、選択した顧客 ID と共に [**ById ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)] メソッドを呼び出します。
 
-2. 指定した[**BillingCycleType**](product-resources.md#billingcycletype)を使用して、 [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティと**ByBillingCycleType ()** メソッドを呼び出します。
-3. [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) または [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) メソッドを呼び出します。
+2. 指定した[**BillingCycleType**](product-resources.md#billingcycletype)を使用して、[**Orders**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)] プロパティと**ByBillingCycleType ()** メソッドを呼び出します。
+3. [**Get ()**/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -59,10 +59,10 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBilli
 
 次の表に、顧客 ID と請求サイクルの種類によって注文のコレクションを取得するために必要なクエリパラメーターを示します。
 
-| 名前                   | Type     | 必須 | 説明                                               |
+| 名前                   | 種類     | 必須 | 説明                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
 | customer-tenant-id     | string   | はい      | 顧客に対応する GUID 形式の文字列。    |
-| 請求-サイクルの種類     | 文字列   | いいえ       | 請求サイクルの種類に対応する文字列。         |
+| 請求-サイクルの種類     | string   | No       | 請求サイクルの種類に対応する文字列。         |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -85,7 +85,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[注文](order-resources.md)リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で [注文](order-resources.md) リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

@@ -4,12 +4,12 @@ description: 試用版のサブスクリプションを有料のサブスクリ�
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ac7b6c20c71e8af0e5cbd796aa4466056d780ce9
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c1421c0dbb294d8d99d9b32ec9c81888aa14254d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096351"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927358"
 ---
 # <a name="convert-a-trial-subscription-to-paid"></a>試用版サブスクリプションを有料版に変換する
 
@@ -33,7 +33,7 @@ ms.locfileid: "86096351"
 
 試用版のサブスクリプションを有料のサブスクリプションに変換するには、最初に使用可能な試用変換のコレクションを取得する必要があります。 次に、購入する変換プランを選択する必要があります。
 
-変換プランでは、既定で試用版のサブスクリプションと同じ数のライセンスを持つ数量が指定されます。 この数量を変更するには、 [**quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity)プロパティに購入するライセンス数を設定します。
+変換プランでは、既定で試用版のサブスクリプションと同じ数のライセンスを持つ数量が指定されます。 この数量を変更するには、 [**quantity**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) プロパティに購入するライセンス数を設定します。
 
 > [!NOTE]
 > 購入したライセンスの数に関係なく、購入したライセンスについては試用版のサブスクリプション ID が再利用されます。 結果として、有効な評価版は消え、購入によって置き換えられます。
@@ -46,7 +46,7 @@ ms.locfileid: "86096351"
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
-2. 使用可能な変換プランのコレクションを取得します。 このメソッドの要求/応答の詳細と詳細については、「[評価版変換プランの一覧を取得する](get-a-list-of-trial-conversion-offers.md)」を参照してください。
+2. 使用可能な変換プランのコレクションを取得します。 このメソッドの要求/応答の詳細と詳細については、「 [評価版変換プランの一覧を取得する](get-a-list-of-trial-conversion-offers.md)」を参照してください。
 
     ``` csharp
     var conversions = subscriptionOperations.Conversions.Get();
@@ -64,7 +64,7 @@ ms.locfileid: "86096351"
     selectedConversion.Quantity = 10;
     ```
 
-5. [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync)メソッドを呼び出して、試用版サブスクリプションを有料に変換します。
+5. [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create)または[**createasync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync)メソッドを呼び出して、試用版サブスクリプションを有料に変換します。
 
     ``` csharp
     var convertResult = subscriptionOperations.Conversions.Create(selectedConversion);
@@ -74,15 +74,15 @@ ms.locfileid: "86096351"
 
 試用版のサブスクリプションを有料のサブスクリプションに変換するには、次のようにします。
 
-1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用し、顧客を識別します。
+1. 顧客 ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用し、顧客を識別します。
 
-2. 試用版サブスクリプション ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 サブスクリプション操作インターフェイスへの参照をローカル変数に保存します。
+2. 試用版サブスクリプション ID を使用して [**ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 サブスクリプション操作インターフェイスへの参照をローカル変数に保存します。
 
-3. 変換に対して使用可能な操作へのインターフェイスを取得し、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync)メソッドを呼び出して、使用可能な[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion)の提供のコレクションを取得するには、[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)プロパティを使用します。 1つを選択する必要があります。 次の例では、使用可能な最初の変換が既定値に設定されています。
+3. 変換に対して使用可能な操作へのインターフェイスを取得し、 [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get)または[**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync)メソッドを呼び出して、使用可能な[**変換**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion)の提供のコレクションを取得するには、[**変換**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)プロパティを使用します。 1つを選択する必要があります。 次の例では、使用可能な最初の変換が既定値に設定されています。
 
-4. ローカル変数に保存したサブスクリプション操作インターフェイスへの参照と[**変換**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions)プロパティを使用して、変換で使用可能な操作へのインターフェイスを取得します。
+4. ローカル変数に保存したサブスクリプション操作インターフェイスへの参照と [**変換**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) プロパティを使用して、変換で使用可能な操作へのインターフェイスを取得します。
 
-5. 選択した変換オファーオブジェクトを[**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create)または[**createasync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync)メソッドに渡して、試用変換を試行します。
+5. 選択した変換オファーオブジェクトを [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) または [**createasync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) メソッドに渡して、試用変換を試行します。
 
 ### <a name="c-example"></a>C の \# 例
 
@@ -125,7 +125,7 @@ else
 
 次のパスパラメーターを使用して、顧客と試用版のサブスクリプションを識別します。
 
-| 名前            | Type   | 必須 | 説明                                                     |
+| 名前            | 種類   | 必須 | 説明                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
 | customer-id     | string | はい      | 顧客を識別する GUID 形式の文字列。           |
 | subscription-id | string | はい      | 評価版サブスクリプションを識別する GUID 形式の文字列。 |
@@ -136,7 +136,7 @@ else
 
 ### <a name="request-body"></a>[要求本文]
 
-設定された[変換](conversions-resources.md#conversion)リソースが要求本文に含まれている必要があります。
+設定された [変換](conversions-resources.md#conversion) リソースが要求本文に含まれている必要があります。
 
 ### <a name="request-example"></a>要求の例
 
@@ -166,11 +166,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[ConversionResult](conversions-resources.md#conversionresult)リソースが含まれます。
+成功した場合、応答本文には [ConversionResult](conversions-resources.md#conversionresult) リソースが含まれます。
 
 #### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 #### <a name="response-example"></a>応答の例
 

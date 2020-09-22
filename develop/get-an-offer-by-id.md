@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: brentserbus
 ms.author: brserbus
-ms.openlocfilehash: 2765859db2da91f544c926b264eeb7e32a22cd6c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 415723e0f792c4d6716998554dbf6e52c51b63d3
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093836"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927144"
 ---
 # <a name="get-an-offer-by-id"></a>ID でプランを取得する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86093836"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-オファー ID と一致する**オファー**リソースを取得します。
+オファー ID と一致する **オファー** リソースを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -32,7 +32,7 @@ ms.locfileid: "86093836"
 
 ## <a name="c"></a>C\#
 
-ID で特定のプランを検索するには、 **iaggregatepartner.customers**コレクションを使用し、 **bycountry ()** の呼び出しで国を確立してから、 [**ByID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid)メソッドを呼び出します。 次に、 [**get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get)メソッドまたは[**get Async ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync)メソッドを呼び出します。
+特定のプランを ID で検索するには、 **iaggregatepartner.customers** コレクションを使用し、 **bycountry ()** の呼び出しで国を確立してから、[**ByID ()**/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) メソッドを呼び出します。 次に、[**get ()**/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get)] または [**get Async ()**/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) メソッドを呼び出します。
 
 ```csharp
 // IAggretagePartner partnerOperations;
@@ -43,13 +43,13 @@ ID で特定のプランを検索するには、 **iaggregatepartner.customers**
 var offer = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: GetOffer.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample **クラス**: GetOffer.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-ID で特定のプランを検索するには、 **iaggregatepartner.customers**関数を使用し、 **bycountry ()** 関数の呼び出しで国を確立してから、 **byID ()** 関数を呼び出します。 次に、 **get ()** 関数を呼び出します。
+ID で特定のプランを検索するには、 **iaggregatepartner.customers** 関数を使用し、 **bycountry ()** 関数の呼び出しで国を確立してから、 **byID ()** 関数を呼び出します。 次に、 **get ()** 関数を呼び出します。
 
 ```java
 // IAggretagePartner partnerOperations;
@@ -83,14 +83,14 @@ Get-PartnerOffer -Country $countryCode -OfferId $offerId
 
 ### <a name="uri-parameter"></a>URI パラメーター
 
-| 名前           | Type       | 必須 | 説明                           |
+| 名前           | 種類       | 必須 | 説明                           |
 |----------------|------------|----------|---------------------------------------|
 | **プラン id**   | **guid**   | Y        | プランに対応する GUID。 |
 | **country-id** | **string** | Y        | 国/地域 ID。                |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-- 文字列として書式設定された**ロケール id**が必要です。
+- 文字列として書式設定された **ロケール id** が必要です。
 詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
 ### <a name="request-body"></a>[要求本文]
@@ -111,7 +111,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**オファー**リソースを返します。
+成功した場合、このメソッドは応答本文で **オファー** リソースを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

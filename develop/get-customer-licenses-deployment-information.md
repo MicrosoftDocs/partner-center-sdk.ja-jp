@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 873279de57960e98d617c4cc6fd01955aa702c70
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 41254bd0ff260862723a928212c5f57570dbfaa4
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093774"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927101"
 ---
 # <a name="get-customer-licenses-deployment-information"></a>顧客ライセンスのデプロイ情報を取得する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86093774"
 特定の顧客に対してライセンスを取得する方法について説明します。
 
 > [!NOTE]
-> このシナリオは、[ライセンスの取得の展開情報](get-licenses-deployment-information.md)によって置き換えられます。
+> このシナリオは、 [ライセンスの取得の展開情報](get-licenses-deployment-information.md)によって置き換えられます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -30,7 +30,7 @@ ms.locfileid: "86093774"
 
 ## <a name="c"></a>C\#
 
-指定された顧客のデプロイに関する集計データを取得するには、まず顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。 次に、 [**analytics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics)プロパティから顧客レベルの分析コレクション操作へのインターフェイスを取得します。 次に、[[**ライセンス**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses)] プロパティから顧客レベルのライセンス分析コレクションへのインターフェイスを取得します。 最後に、 [**deployment. get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)メソッドを呼び出して、ライセンスのデプロイ時に集計データを取得します。 メソッドが成功した場合は、 [**CustomerLicensesDeploymentInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesdeploymentinsights)オブジェクトのコレクションが取得されます。
+指定された顧客のデプロイに関する集計データを取得するには、まず、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出して、顧客を識別します。 次に、[**analytics**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics)] プロパティから顧客レベルの分析コレクション操作へのインターフェイスを取得します。 次に、[**licenses**/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses] プロパティから customer level licenses analytics コレクションへのインターフェイスを取得します。 最後に、**[/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get)** メソッドを呼び出して、ライセンスのデプロイ時に集計データを取得します。 メソッドが成功すると、[**CustomerLicensesDeploymentInsights**/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesdeploymentinsights) オブジェクトのコレクションが取得されます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,9 +51,9 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前        | Type | 必須 | 説明                                                |
+| 名前        | 種類 | 必須 | 説明                                                |
 |-------------|------|----------|------------------------------------------------------------|
-| customer-id | guid | はい      | 顧客を識別する GUID 形式の顧客 id。 |
+| customer-id | guid | Yes      | 顧客を識別する GUID 形式の顧客 id。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -77,7 +77,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には、デプロイされたライセンスに関する情報を提供する[CustomerLicensesDeploymentInsights](analytics-resources.md#customerlicensesdeploymentinsights)リソースのコレクションが含まれます。
+成功した場合、応答本文には、デプロイされたライセンスに関する情報を提供する [CustomerLicensesDeploymentInsights](analytics-resources.md#customerlicensesdeploymentinsights) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

@@ -4,12 +4,12 @@ description: 権利に関連するリソースについて説明します。
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d9dbba36fb8db8d040bd61d53483c56467987691
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 428ac6f8b4d67894092119a6246279045a04dac0
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094000"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927302"
 ---
 # <a name="entitlement-resources"></a>権利リソース
 
@@ -24,23 +24,23 @@ ms.locfileid: "86094000"
 
 このリソースは、顧客がカタログから商品を購入した場合に使用する権利を持つ製品を表します。
 
-| プロパティ | Type | Description |
+| プロパティ | 種類 | 説明 |
 |----------|------|-------------|
 | referenceOrder | [ReferenceOrder](#referenceorder) | 権利の原因となった注文参照。 |
 | productId | string | 製品の ID。 |
 | skuID | string | SKU の ID。 |
 | 数量 | INT | 権利の数量 (満たされ/転送される権利を除く)。 |
 | quantityDetails | IEnumerable<[QuantityDetail](#quantitydetail)> | 権利の数量の詳細 (各数量の項目と状態の数) の一覧。 |
-| entitlementType | string | 権利の種類。 (SDK 1.8 で[EntitlementType](#entitlementtype)から文字列に更新されました)。 |
+| entitlementType | string | 権利の種類。 (SDK 1.8 で [EntitlementType](#entitlementtype) から文字列に更新されました)。 |
 | entitledArtifacts | IEnumerable<[成果物](#artifact)> | 権利に関連付けられている成果物の一覧。 |
-| IncludedEntitlements | IEnumerable<の[権利](#artifact)> | 資格の一覧。カタログから ProductId/SkuId を購入した結果として暗黙的に含まれます。 |
+| IncludedEntitlements | IEnumerable<の [権利](#artifact)> | 資格の一覧。カタログから ProductId/SkuId を購入した結果として暗黙的に含まれます。 |
 | ExpiryDate | UTC 日時形式の文字列  | 権利の有効期限 (該当する場合)。 |
 
 ## <a name="referenceorder"></a>ReferenceOrder
 
 権利の注文参照。
 
-| プロパティ | Type | 説明 |
+| プロパティ | 種類 | 説明 |
 |----------|------|-------------|
 | id | string | 参照される順序の ID。 |
 | lineItemId | string | 参照される注文品目の ID。 |
@@ -50,17 +50,17 @@ ms.locfileid: "86094000"
 
 権利の数量の詳細を表します。
 
-| プロパティ | Type | Description |
+| プロパティ | 種類 | 説明 |
 |----------|------|-------------|
-| 数量 | INT | 項目数。 |
-| 状態 | string | 数量の状態。 |
+| 数量 | INT | 項目の数。 |
+| status | string | 数量の状態。 |
 
 ## <a name="entitlementtype"></a>EntitlementType
 
 > [!IMPORTANT]
 > SDK version 1.9 で非推奨
 
-権利の種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)型。
+権利の種類を示す値を持つ [列挙](/dotnet/api/system.enum) 型。
 
 | 値 | 説明 |
 |-------|-------------|
@@ -71,9 +71,9 @@ ms.locfileid: "86094000"
 
 権利に関連付けられている成果物。
 
-| プロパティ | Type | Description |
+| プロパティ | 種類 | 説明 |
 |----------|------|-------------|
-| artifactType | string | 成果物の種類。 (SDK Version 1.8 では[Artifacttype](#artifacttype)から文字列に更新) |
+| artifactType | string | 成果物の種類。 (SDK Version 1.8 では [Artifacttype](#artifacttype) から文字列に更新) |
 | dynamicAttributes | ディクショナリ&lt;文字列、オブジェクト&gt; | Artifacttype 固有の値を含む動的属性。 たとえば、artifactType = "reservedinstance" の場合、このプロパティには、仮想マシンの予約インスタンスまたは Azure SQL 予約インスタンスを示す "reservationType" = "virtualmachines" または "reservationType" = "sqldatabases" が含まれます。 (SDK v1.0 以降で利用可能) |
 
 ## <a name="artifacttype"></a>ArtifactType
@@ -81,7 +81,7 @@ ms.locfileid: "86094000"
 > [!IMPORTANT]
 > SDK version 1.9 で非推奨
 
-権利の成果物の種類を示す値を持つ[列挙](https://docs.microsoft.com/dotnet/api/system.enum)です。
+権利の成果物の種類を示す値を持つ [列挙](/dotnet/api/system.enum) です。
 
 | 値                          | 説明                                                                             |
 |--------------------------------| ----------------------------------------------------------------------------------------|

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: c874a44e1b43cb05ee20834f9c7a14d221edcab6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5358aab8efdd68ad52c583936304f99ffae12708
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094992"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926852"
 ---
 # <a name="partner-center-webhook-events"></a>パートナーセンターの webhook イベント
 
@@ -24,7 +24,7 @@ ms.locfileid: "86094992"
 
 パートナーセンターの webhook イベントは、登録された URL に HTTP Post の形式で配信されるリソース変更イベントです。 パートナーセンターからイベントを受信するには、パートナーセンターがイベントを投稿できるコールバックをホストします。 イベントはデジタル署名されているため、パートナーセンターから送信されたことを検証できます。
 
-イベントを受信する方法、コールバックを認証する方法、およびパートナーセンターの webhook Api を使用してイベント登録を作成、表示、更新する方法については、「[パートナーセンター](partner-center-webhooks.md)の webhook」を参照してください。
+イベントを受信する方法、コールバックを認証する方法、およびパートナーセンターの webhook Api を使用してイベント登録を作成、表示、更新する方法については、「 [パートナーセンター](partner-center-webhooks.md)の webhook」を参照してください。
 
 ## <a name="supported-events"></a>サポートされるイベント
 
@@ -39,7 +39,7 @@ ms.locfileid: "86094992"
 
 #### <a name="properties"></a>Properties
 
-| プロパティ                  | Type                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "テスト作成済み" です。                                          |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" を使用します。 |
@@ -68,7 +68,7 @@ ms.locfileid: "86094992"
 
 #### <a name="properties"></a>Properties
 
-| プロパティ                  | Type                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "subscription-updated" です。                                  |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" を使用します。 |
@@ -90,11 +90,11 @@ ms.locfileid: "86094992"
 
 ### <a name="threshold-exceeded-event"></a>しきい値を超えたイベント
 
-いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 詳細については、「[顧客の Azure 支出予算を設定する](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers)」を参照してください。
+いずれかの顧客による Microsoft Azure の使用量が、使用量の支出予算 (しきい値) を超えると、このイベントが発生します。 詳細については、「顧客/パートナーの Azure 支出予算を設定する」を参照してください。または、お客様に対して設定します。
 
 #### <a name="properties"></a>Properties
 
-| プロパティ                  | Type                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "usagerecords-thresholdExceeded" です。                                  |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" を使用します。 |
@@ -120,7 +120,7 @@ ms.locfileid: "86094992"
 
 #### <a name="properties"></a>Properties
 
-| プロパティ                  | Type                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "参照作成" です。                                  |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[*{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" を使用します。 |
@@ -146,7 +146,7 @@ ms.locfileid: "86094992"
 
 #### <a name="properties"></a>Properties
 
-| プロパティ                  | Type                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | イベントの名前です。 {Resource}-{action} の形式で。 このイベントでは、値は "参照-更新" です。                                  |
 | ResourceUri               | URI                                | リソースを取得する URI。 構文 "[*{baseURL}*](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" を使用します。 |
@@ -170,7 +170,7 @@ ms.locfileid: "86094992"
 
 このイベントは、新しい請求書の準備が整ったときに発生します。
 
-| プロパティ                  | Type                               | 説明                                                                                                  |
+| プロパティ                  | 種類                               | 説明                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName | string | イベントの名前です。 {Resource}-{action} の形式で。 このイベントの場合、値は "invoice ready" です。 |
 | ResourceUri | URI | リソースを取得する URI。 構文 "[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" を使用します。 |

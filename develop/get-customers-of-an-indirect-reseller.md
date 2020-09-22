@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 513fe5d1372dfcc69c076b72c16cfe4d05147ccf
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: caf8a4ce707624672215e5b2a0c46659e0f9564b
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093733"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927083"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>間接リセラーの顧客を取得する
 
@@ -29,13 +29,13 @@ ms.locfileid: "86093733"
 
 ## <a name="c"></a>C\#
 
-指定された間接リセラーとのリレーションシップを持つ顧客のコレクションを取得するには、まず[**Simplefieldfilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter)オブジェクトをインスタンス化してフィルターを作成します。 文字列に変換された[**顧客の Searchfield. IndirectReseller**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)列挙型のメンバーを渡す必要があります。また、フィルター操作の種類として[**fieldfilteroperation**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation)を示します。 また、間接リセラーのテナント id を指定してフィルター処理する必要もあります。
+指定された間接リセラーとのリレーションシップを持つ顧客のコレクションを取得するには、まず、[**Simplefieldfilter**/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) オブジェクトをインスタンス化してフィルターを作成します。 文字列に変換された [/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield **]** 列挙型のメンバーを渡し、フィルター操作の種類として [**Fieldfilteroperation. StartsWith**/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation] を指定する必要があります。 また、間接リセラーのテナント id を指定してフィルター処理する必要もあります。
 
-次に、 [**Buildsimplequery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery)メソッドを呼び出し、それにフィルターを渡すことによって、クエリに渡す[**iquery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery)オブジェクトをインスタンス化します。 BuildSimplyQuery は、 [**Queryfactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)クラスでサポートされているクエリの種類の1つにすぎません。
+次に、[**Iquery**/dotnet/api/microsoft.store.partnercenter.models.query.iquery) オブジェクトをインスタンス化して、[**buildsimplequery**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) メソッドを呼び出し、それにフィルターを渡してクエリに渡します。 BuildSimplyQuery は、[**Queryfactory**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) クラスでサポートされているクエリの種類の1つにすぎません。
 
-フィルターを実行して結果を取得するには、最初に Iaggregatepartner.customers を使用して、パートナーの顧客の操作へのインターフェイスを取得し[**ます。**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) その後、 [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)または[**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)メソッドを呼び出します。
+フィルターを実行して結果を取得するには、最初に [**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) を使用して、パートナーの顧客の操作へのインターフェイスを取得します。 次に、[**Query**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) または [**QueryAsync**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) メソッドを呼び出します。
 
-ページングされた結果を走査するための列挙子を作成するには、customer コレクションを保持する変数を渡して、次のコードに示すように、 [**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumeratorcontainer.customers)プロパティから customer collection enumerator factory インターフェイスを取得し、 [**create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)を呼び出します。
+ページングされた結果を走査するための列挙子を作成するには、次のコードに示されているように、[**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumeratorcontainer.customers] プロパティから customer collection enumerator factory インターフェイスを取得し、[**create**/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create] を呼び出します。次のコードに示すように、顧客のコレクションを保持する変数を渡します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -70,7 +70,7 @@ while (customersEnumerator.HasValue)
 }
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)**プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetCustomersOfIndirectReseller.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)**プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetCustomersOfIndirectReseller.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -84,10 +84,10 @@ while (customersEnumerator.HasValue)
 
 要求を作成するには、次のクエリパラメーターを使用します。
 
-| 名前   | Type   | 必須 | 説明                                                                                                                                                                                                                                                                                   |
+| 名前   | 種類   | 必須 | 説明                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| size   | INT    | いいえ       | 一度に表示される結果の数。 このパラメーターは省略可能です。                                                                                                                                                                                                                |
-| filter | filter | はい      | 検索をフィルター処理するクエリ。 指定された間接リセラーの顧客を取得するには、間接リセラー識別子を挿入し、次の文字列を含めてエンコードする必要があります: {"Field": "IndirectReseller 業者"、"Value": "{間接リセラー識別子}"、"Operator": " \_ で始まる"}。 |
+| サイズ   | INT    | いいえ       | 一度に表示される結果の数。 このパラメーターは省略できます。                                                                                                                                                                                                                |
+| filter | filter | Yes      | 検索をフィルター処理するクエリ。 指定された間接リセラーの顧客を取得するには、間接リセラー識別子を挿入し、次の文字列を含めてエンコードする必要があります: {"Field": "IndirectReseller 業者"、"Value": "{間接リセラー識別子}"、"Operator": " \_ で始まる"}。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -127,7 +127,7 @@ Host: api.partnercenter.microsoft.com
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターのエラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターのエラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

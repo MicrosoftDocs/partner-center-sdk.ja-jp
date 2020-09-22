@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: feff7ee333914fd578d5cf7024b2417548d58027
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8635fee3fc19887ba9da04da59dee20b57870908
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098150"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927688"
 ---
 # <a name="get-a-list-of-customers"></a>顧客の一覧を取得する
 
@@ -25,7 +25,7 @@ ms.locfileid: "86098150"
 この記事では、パートナーのすべての顧客を表すリソースのコレクションを取得する方法について説明します。
 
 > [!TIP]
-> この操作は、パートナーセンターのダッシュボードでも実行できます。 メインページの [**カスタマー管理**] で、[**顧客の表示**] を選択します。 または、サイドバーで [ **Customers**] を選択します。
+> この操作は、パートナーセンターのダッシュボードでも実行できます。 メインページの [ **カスタマー管理**] で、[ **顧客の表示**] を選択します。 または、サイドバーで [ **Customers**] を選択します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -35,9 +35,9 @@ ms.locfileid: "86098150"
 
 すべての顧客の一覧を取得するには:
 
-1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers)コレクションを使用して、 **ipartner**オブジェクトを作成します。
+1. **Ipartner**オブジェクトを作成するには、[**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.customers) コレクションを使用します。
 
-2. [**Query ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query)メソッドまたは[**QueryAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync)メソッドを使用して、顧客リストを取得します。 (クエリを作成する手順については、「 [**Queryfactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory)クラス」を参照してください)。
+2. [**Query ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) または [**QueryAsync ()**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) メソッドを使用して、顧客リストを取得します。 (クエリを作成する手順については、[**Queryfactory**/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) クラスを参照してください。)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -92,7 +92,7 @@ while (customersEnumerator.hasValue())
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-すべての顧客の一覧を取得するには、パラメーターを使用せずに、 [**Get PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md)コマンドを実行します。
+すべての顧客の一覧を取得するには、パラメーターを使用せずに、 [**Get PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) コマンドを実行します。
 
 ```powershell
 Get-PartnerCustomer
@@ -110,7 +110,7 @@ Get-PartnerCustomer
 
 次のクエリパラメーターを使用して、顧客の一覧を取得します。
 
-| 名前     | Type    | 必須 | 説明                                        |
+| 名前     | 種類    | 必須 | 説明                                        |
 |----------|---------|----------|----------------------------------------------------|
 | **size** | **int** | Y        | 一度に表示される結果の数。 |
 
@@ -134,11 +134,11 @@ MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[顧客](customer-resources.md#customer)リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で [顧客](customer-resources.md#customer) リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

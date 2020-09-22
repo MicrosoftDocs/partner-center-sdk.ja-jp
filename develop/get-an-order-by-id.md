@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 3b98e9a462c7bcbdc20823ba7d6e1a249d6f8c14
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8911adba28836aa378260d8b61e2b6e23eabc096
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093825"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927131"
 ---
 # <a name="get-an-order-by-id"></a>ID で注文を取得する
 
@@ -22,7 +22,7 @@ ms.locfileid: "86093825"
 - Microsoft Cloud ドイツのパートナー センター
 - 米国政府機関向け Microsoft Cloud のパートナー センター
 
-顧客と注文 ID に一致する[注文](order-resources.md)リソースを取得します。
+顧客と注文 ID に一致する [注文](order-resources.md) リソースを取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -38,8 +38,8 @@ ms.locfileid: "86093825"
 
 1. **IAggregatePartner.Customers** コレクションを使用し、**ById()** メソッドを呼び出します。
 
-2. [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)プロパティを呼び出し、それに続けて[**ByID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)メソッドを呼び出します。
-3. [**Get ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get)または[**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync)を呼び出します。
+2. [**Orders**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders)] プロパティを呼び出した後、[**ByID ()**/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) メソッドをもう一度呼び出します。
+3. [**Get ()**/dotnet/api/microsoft.store.partnercenter.orders.iorder.get)] または [**GetAsync ()**/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync) を呼び出します。
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ ms.locfileid: "86093825"
 var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(selectedOrderId).Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample**クラス**: GetOrder.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: partnersdk. FeatureSample **クラス**: GetOrder.cs
 
 ## <a name="java"></a>Java
 
@@ -74,7 +74,7 @@ Order order = partnerOperations.getCustomers().byId(selectedCustomerId).getOrder
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-顧客の注文を ID で取得するには、 [**Get partnercustomer order**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md)コマンドを実行し、 **CustomerId**および**OrderId**パラメーターを指定します。
+顧客の注文を ID で取得するには、 [**Get partnercustomer order**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) コマンドを実行し、 **CustomerId** および **OrderId** パラメーターを指定します。
 
 ```powershell
 # $selectedCustomerId
@@ -95,7 +95,7 @@ Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrder
 
 次の表は、ID で注文を取得するために必要なクエリパラメーターを示しています。
 
-| 名前                   | Type     | 必須 | 説明                                            |
+| 名前                   | 種類     | 必須 | 説明                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
 | customer-tenant-id     | string   | はい      | 顧客に対応する GUID 形式の文字列。 |
 | id-for-order           | string   | はい      | 注文 ID に対応する文字列。                |
@@ -121,7 +121,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で[注文](order-resources.md)リソースを返します。
+成功した場合、このメソッドは応答本文で [注文](order-resources.md) リソースを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

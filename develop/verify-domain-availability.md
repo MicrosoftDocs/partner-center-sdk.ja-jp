@@ -4,12 +4,12 @@ description: ドメインが使用可能かどうかを確認する方法。
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f0ae17a7f929e74a32647c616bb35bc20ed9bcc3
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3f2e3d551da30c7b9c25e1fc3f3280a425aff8f8
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093494"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925578"
 ---
 # <a name="verify-domain-availability"></a>ドメインが使用できるかどうかを確認する
 
@@ -30,7 +30,7 @@ ms.locfileid: "86093494"
 
 ## <a name="c"></a>C\#
 
-ドメインが使用可能かどうかを確認するには、まず[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains)を呼び出して、ドメイン操作へのインターフェイスを取得します。 次に、ドメインで[**bydomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain)メソッドを呼び出して確認します。 このメソッドは、特定のドメインで使用可能な操作に対するインターフェイスを取得します。 最後に、 [**exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists)メソッドを呼び出して、ドメインが既に存在するかどうかを確認します。
+ドメインが使用可能かどうかを確認するには、最初に [**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.ipartner.domains] を呼び出して、ドメイン操作へのインターフェイスを取得します。 次に、ドメインを確認するために、[**Bydomain**/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) メソッドを呼び出します。 このメソッドは、特定のドメインで使用可能な操作に対するインターフェイスを取得します。 最後に、[**exists**/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) メソッドを呼び出して、ドメインが既に存在するかどうかを確認します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -39,7 +39,7 @@ ms.locfileid: "86093494"
 bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: CheckDomainAvailability.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: CheckDomainAvailability.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -53,7 +53,7 @@ bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 
 ドメインの可用性を確認するには、次のクエリパラメーターを使用します。
 
-| 名前       | Type       | 必須 | 説明                                   |
+| 名前       | 種類       | 必須 | 説明                                   |
 |------------|------------|----------|-----------------------------------------------|
 | **領域** | **string** | Y        | チェック対象のドメインを識別する文字列。 |
 

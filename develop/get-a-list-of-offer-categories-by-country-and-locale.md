@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: c94368219bce2242e79d142ae999d45b9145e2de
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ee42eb225469f0f7e55a86c8482f11b6eef2d6e7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098127"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927648"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>市場別のプラン カテゴリの一覧を取得する
 
@@ -32,9 +32,9 @@ ms.locfileid: "86098127"
 
 特定の国/地域とロケールでプランカテゴリの一覧を取得するには、次のようにします。
 
-1. [**Iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)コレクションを使用して、特定のコンテキストで[**With ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with)メソッドを呼び出します。
+1. 特定のコンテキストで [**With ()**/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) メソッドを呼び出すには、[**iaggregatepartner.customers**/dotnet/api/microsoft.store.partnercenter.iaggregatepartner)] コレクションを使用します。
 
-2. 結果として得られるオブジェクトの[**OfferCategories**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories)プロパティを調べます。
+2. 結果のオブジェクトの [**OfferCategories**/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories)] プロパティを調べます。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -60,13 +60,13 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 次の表に、プランのカテゴリを取得するために必要なクエリパラメーターを示します。
 
-| 名前           | Type       | 必須 | 説明            |
+| 名前           | 種類       | 必須 | 説明            |
 |----------------|------------|----------|------------------------|
 | **country-id** | **string** | Y        | 国/地域 ID。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
-文字列として書式設定された**ロケール id**が必要です。
+文字列として書式設定された **ロケール id** が必要です。
 
 詳細については、「[パートナー センター REST ヘッダー](headers.md)」を参照してください。
 
@@ -88,11 +88,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、このメソッドは応答本文で**OfferCategory**リソースのコレクションを返します。
+成功した場合、このメソッドは応答本文で **OfferCategory** リソースのコレクションを返します。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

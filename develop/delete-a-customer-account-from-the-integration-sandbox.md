@@ -4,12 +4,12 @@ description: 「運用環境でのテスト (Tip)」統合サンドボックス�
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f224960e3234222f6460020dd183da90d90d6740
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dc2ffbf79116b3de03b4f06656309c920868cef4
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094199"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927832"
 ---
 # <a name="delete-a-customer-account-from-the-integration-sandbox"></a>統合サンドボックスから顧客アカウントを削除する
 
@@ -37,19 +37,19 @@ ms.locfileid: "86094199"
 
 Tip 統合サンドボックスから顧客を削除するには、次のようにします。
 
-1. ヒントアカウントの資格情報を[**Createpartneroperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance)メソッドに渡して、パートナー操作への[**ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner)インターフェイスを取得します。
+1. ヒントアカウントの資格情報を [**Createpartneroperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) メソッドに渡して、パートナー操作への [**ipartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) インターフェイスを取得します。
 
 2. 次のように、パートナー操作インターフェイスを使用して、権利のコレクションを取得します。
 
-    1. 顧客識別子を使用して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を指定します。
+    1. 顧客識別子を使用して [**ById ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、顧客を指定します。
 
     2. **権利**プロパティを呼び出します。
 
     3. **Get**または**GetAsync**メソッドを呼び出して、[**権利**](entitlement-resources.md)コレクションを取得します。
 
-3. その顧客に対するすべての Azure Reserved Virtual Machine Instances とソフトウェアの注文書が取り消されていることを確認します。 コレクション内の[**権利**](entitlement-resources.md)ごとに、次のようにします。
+3. その顧客に対するすべての Azure Reserved Virtual Machine Instances とソフトウェアの注文書が取り消されていることを確認します。 コレクション内の [**権利**](entitlement-resources.md) ごとに、次のようにします。
 
-    1. 権利を使用[**します。ReferenceOrder.Id**](entitlement-resources.md#referenceorder)は、顧客の注文のコレクションから、対応する[注文](order-resources.md#order)のローカルコピーを取得します。
+    1. 権利を使用 [**します。ReferenceOrder.Id**](entitlement-resources.md#referenceorder) は、顧客の注文のコレクションから、対応する [注文](order-resources.md#order) のローカルコピーを取得します。
 
     2. [ [**Order. Status**](order-resources.md#order) ] プロパティを [取り消し済み] に設定します。
 
@@ -97,9 +97,9 @@ Tip 統合サンドボックスから顧客を削除するには、次のよう�
     tipAccountPartnerOperations.Customers.ById(customerTenantId).Delete();
     ```
 
-5. 顧客の**Delete**メソッドを呼び出して、すべての注文がキャンセルされていることを確認します。
+5. 顧客の **Delete** メソッドを呼び出して、すべての注文がキャンセルされていることを確認します。
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンターの Partnercenter sdk. のサンプル**クラス**: DeleteCustomerFromTipAccount.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンターの Partnercenter sdk. のサンプル **クラス**: DeleteCustomerFromTipAccount.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -113,9 +113,9 @@ Tip 統合サンドボックスから顧客を削除するには、次のよう�
 
 顧客を削除するには、次のクエリパラメーターを使用します。
 
-| 名前                   | Type     | 必須 | 説明                                                                         |
+| 名前                   | 種類     | 必須 | 説明                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
-| customer-tenant-id     | GUID     | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| customer-tenant-id     | GUID     | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 

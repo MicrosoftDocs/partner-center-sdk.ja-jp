@@ -4,12 +4,12 @@ description: 顧客アカウント内には、一連のディレクトリロー�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: eb5cbd80aa0bc35d5926b3b9f45084849f2f9d44
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a40b60dddd2a29310c1c4aaefa689f6a8de71327
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095789"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927599"
 ---
 # <a name="set-user-roles-for-a-customer"></a>顧客のユーザー ロールを設定する
 
@@ -27,7 +27,7 @@ ms.locfileid: "86095789"
 
 ## <a name="c"></a>C\#
 
-顧客ユーザーにディレクトリロールを割り当てるには、関連するユーザーの詳細を使用して新しい[**Usermember**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.roles.usermember)を作成します。 次に、指定した顧客 ID を使用して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。 そこから、ディレクトリロール ID と共に[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid)メソッドを使用してロールを指定します。 次に、 **Usermembers**コレクションにアクセスし、 [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create)メソッドを使用して、そのロールに割り当てられたユーザーメンバーのコレクションに新しいユーザーメンバーを追加します。
+顧客ユーザーにディレクトリロールを割り当てるには、関連するユーザーの詳細を使用して新しい [**Usermember**/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) を作成します。 次に、指定した顧客 ID を使用して、顧客を識別するために、[**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出します。 そこから、[**Directoryroles. ById**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) メソッドをディレクトリロール ID と共に使用してロールを指定します。 次に、 **Usermembers** コレクションにアクセスし、[**Create**/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create] メソッドを使用して、そのロールに割り当てられたユーザーメンバーのコレクションに新しいユーザーメンバーを追加します。
 
 ``` csharp
 // UserMember createdUser;
@@ -47,7 +47,7 @@ UserMember userMemberToAdd = new UserMember()
 var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).DirectoryRoles.ById(selectedRole.Id).UserMembers.Create(userMemberToAdd);
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: AddUserMemberToDirectoryRole.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: AddUserMemberToDirectoryRole.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -61,10 +61,10 @@ var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).Dire
 
 次の URI パラメーターを使用し、正しい顧客とロールを特定します。 ロールを割り当てるユーザーを識別するには、要求本文に識別情報を指定します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
-| **ロール id**            | **guid** | Y        | 値は、ユーザーに割り当てるロールを識別する GUID 形式の**ロール id**です。                                                              |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
+| **ロール id**            | **guid** | Y        | 値は、ユーザーに割り当てるロールを識別する GUID 形式の **ロール id** です。                                                              |
 
 ### <a name="request-headers"></a>要求ヘッダー
 
@@ -74,10 +74,10 @@ var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).Dire
 
 次の表では、要求本文に必要なプロパティについて説明します。
 
-| 名前                  | Type       | 必須 | 説明                            |
+| 名前                  | 種類       | 必須 | 説明                            |
 |-----------------------|------------|----------|----------------------------------------|
 | **Id**                | **string** | Y        | ロールに追加するユーザーの Id。 |
-| **名**       | **string** | Y        | ユーザーの表示名。 |
+| **表示名**       | **string** | Y        | ユーザーの表示名。 |
 | **UserPrincipalName** | **string** | Y        | ユーザー プリンシパル名。        |
 | **属性**        | **object** | Y        | "ObjectType": "UserMember" が含まれています。     |
 

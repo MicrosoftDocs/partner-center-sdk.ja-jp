@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: d6b94a13e613bd7c0c4ce26d415efaade133b617
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6f2b1bcf9926e02232b6e2cc68b71e992b015324
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098209"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927699"
 ---
 # <a name="get-a-list-of-all-user-accounts-for-a-customer"></a>顧客のすべてのユーザー アカウントの一覧を取得する
 
@@ -33,9 +33,9 @@ ID で1つのユーザーアカウントを検索するには、「 [id でユ�
 
 指定された顧客のすべてのユーザーアカウントのコレクションを取得するには、次のようにします。
 
-1. 顧客 ID を指定して[**Iaggregatepartner.customers ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、顧客を識別します。
+1. 顧客 ID を指定して [**Iaggregatepartner.customers ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、顧客を識別します。
 
-2. コレクションを取得するには、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get)メソッドまたは[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync)メソッドを呼び出します。
+2. コレクションを取得するには、 [**Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) メソッドまたは [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) メソッドを呼び出します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -48,7 +48,7 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.G
 例については、以下を参照してください。
 
 - サンプル: [コンソール テスト アプリ](console-test-app.md)
-- プロジェクト:**パートナーセンター SDK のサンプル**
+- プロジェクト: **パートナーセンター SDK のサンプル**
 - クラス: **GetCustomerUserCollection.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -63,9 +63,9 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.G
 
 正しい顧客を識別するには、次の URI パラメーターを使用します。
 
-| 名前                   | Type     | 必須 | 説明                                                                                                                                            |
+| 名前                   | 種類     | 必須 | 説明                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の**顧客テナント id**です。 |
+| **customer-tenant-id** | **guid** | Y        | この値は、リセラーがリセラーに属する特定の顧客の結果をフィルター処理できるようにする GUID 形式の **顧客テナント id** です。 |
 
 ### <a name="request-headers"></a>要求ヘッダー
 

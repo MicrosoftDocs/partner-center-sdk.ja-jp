@@ -4,12 +4,12 @@ description: Azure Reserved VM Instances で使用するように登録されて
 ms.date: 03/19/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7a8683aa93702403ab6e6ae5912802ebfb1da4e7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 501c5d3cc2bd54b39c3767631c70dc3609033a06
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097516"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926932"
 ---
 # <a name="get-subscription-registration-status"></a>サブスクリプションの登録状態を取得する
 
@@ -31,7 +31,7 @@ Azure Reserved VM Instances 購入が有効になっている顧客サブスク�
 
 ## <a name="c"></a>C\#
 
-サブスクリプションの登録状態を取得するには、まず、顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用して顧客を識別します。 次に、サブスクリプションを識別するためにサブスクリプション ID を指定して[**ById ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid)メソッドを呼び出すことにより、サブスクリプション操作へのインターフェイスを取得します。 次に、RegistrationStatus プロパティを使用して、現在のサブスクリプションの登録状態操作へのインターフェイスを取得し、 **Get**または**GetAsync**メソッドを呼び出して**subscriptionregistrationstatus**オブジェクトを取得します。
+サブスクリプションの登録状態を取得するには、まず、顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して顧客を識別します。 次に、サブスクリプションを識別するために、サブスクリプション ID を指定して [**ById ()**/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) メソッドを呼び出して、サブスクリプション操作へのインターフェイスを取得します。 次に、RegistrationStatus プロパティを使用して、現在のサブスクリプションの登録状態操作へのインターフェイスを取得し、 **Get** または **GetAsync** メソッドを呼び出して **subscriptionregistrationstatus** オブジェクトを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,7 +54,7 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 次のパスパラメーターを使用して、顧客とサブスクリプションを識別します。
 
-| 名前                    | Type       | 必須 | 説明                                                   |
+| 名前                    | 種類       | 必須 | 説明                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
 | customer-id             | string     | はい      | 顧客を識別する GUID 形式の文字列。         |
 | subscription-id         | string     | はい      | サブスクリプションを識別する GUID 形式の文字列。     |
@@ -83,7 +83,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[Subscriptionregistrationstatus](subscription-resources.md#subscriptionregistrationstatus)リソースが含まれます。
+成功した場合、応答本文には [Subscriptionregistrationstatus](subscription-resources.md#subscriptionregistrationstatus) リソースが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

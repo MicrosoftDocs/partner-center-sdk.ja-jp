@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 8837ab832fee888df57540f16cbaa4d656481df7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2757c3e40c8f50a251bb1c521ac36b2cde780a0d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098164"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927675"
 ---
 # <a name="get-a-list-of-available-licenses"></a>利用可能なライセンスの一覧を取得する
 
@@ -21,7 +21,7 @@ ms.locfileid: "86098164"
 
 この記事では、指定された顧客のユーザーが使用できるライセンスの一覧を取得する方法について説明します。
 
-次の例では、Azure Active Directory (Azure AD) によって管理されるライセンスを表す既定のライセンスグループである**group1**から利用可能なライセンスが返されます。 指定したライセンスグループの使用可能なライセンスを取得するには、「[ライセンスグループ別の使用可能なライセンスの一覧を取得](get-a-list-of-available-licenses-by-license-group.md)する」を参照してください。
+次の例では、Azure Active Directory (Azure AD) によって管理されるライセンスを表す既定のライセンスグループである **group1**から利用可能なライセンスが返されます。 指定したライセンスグループの使用可能なライセンスを取得するには、「 [ライセンスグループ別の使用可能なライセンスの一覧を取得](get-a-list-of-available-licenses-by-license-group.md)する」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -33,11 +33,11 @@ ms.locfileid: "86098164"
 
 既定のライセンスグループから顧客のユーザーに利用可能なライセンスの一覧を取得するには、次のようにします。
 
-1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを使用し、顧客を識別します。
+1. 顧客 ID と共に [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを使用して、顧客を識別します。
 
-2. [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)プロパティの値を取得して、顧客がサブスクライブしている SKU コレクション操作へのインターフェイスを取得します。
+2. [**SubscribedSkus**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus)] プロパティの値を取得して、顧客がサブスクライブしている SKU コレクション操作へのインターフェイスを取得します。
 
-3. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync)メソッドを呼び出して、ライセンスの一覧を取得します。
+3. [**Get**/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get)] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync] メソッドを呼び出して、ライセンスの一覧を取得します。
 
 ``` csharp
 // string selectedCustomerId;
@@ -49,7 +49,7 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 例については、以下を参照してください。
 
 - サンプル: [コンソール テスト アプリ](console-test-app.md)
-- プロジェクト:**パートナーセンター SDK のサンプル**
+- プロジェクト: **パートナーセンター SDK のサンプル**
 - クラス: **GetCustomerSubscribedSkus.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -64,7 +64,7 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 
 次のパス パラメーターを使用して顧客を指定します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
@@ -90,11 +90,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[SubscribedSku](license-resources.md#subscribedsku)リソースのコレクションが含まれます。
+成功した場合、応答本文には [SubscribedSku](license-resources.md#subscribedsku) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 

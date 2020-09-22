@@ -4,12 +4,12 @@ description: 指定された顧客のデバイスバッチのコレクション�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d1667b1be4a3063f846b15052427ffdedb33754b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 30d4f5f8d53f21f68b70498d800087f5aa05f721
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097445"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927493"
 ---
 # <a name="get-a-list-of-device-batches-for-the-specified-customer"></a>指定された顧客のデバイス バッチの一覧を取得する
 
@@ -30,7 +30,7 @@ ms.locfileid: "86097445"
 
 ## <a name="c"></a>C\#
 
-指定された顧客のデバイスバッチのコレクションを取得するには、まず、顧客 ID を指定して[**iaggregatepartner.customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客に対する操作のインターフェイスを取得します。 次に、 [**devicebatches**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicebatches)プロパティの値を取得して、デバイスのバッチコレクション操作へのインターフェイスを取得します。 最後に、 [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.getasync)メソッドを呼び出して、コレクションを取得します。
+指定された顧客のデバイスバッチのコレクションを取得するには、まず、顧客 ID を指定して [**iaggregatepartner.customers. ById**/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。 次に、[**devicebatches**/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicebatches)] プロパティの値を取得して、デバイスのバッチコレクション操作のインターフェイスを取得します。 最後に、[**Get**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.get)] または [**GetAsync**/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.getasync] メソッドを呼び出して、コレクションを取得します。
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -40,7 +40,7 @@ var devicesBatches =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.Get();
 ```
 
-**サンプル**:[コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル**クラス**: GetDevicesBatches.cs
+**サンプル**: [コンソールテストアプリ](console-test-app.md)。 **プロジェクト**: パートナーセンター SDK サンプル **クラス**: GetDevicesBatches.cs
 
 ## <a name="rest-request"></a>REST 要求
 
@@ -54,7 +54,7 @@ var devicesBatches =
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
@@ -80,7 +80,7 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[Devicebatch](device-deployment-resources.md#devicebatch)リソースのコレクションが含まれます。
+成功した場合、応答本文には [Devicebatch](device-deployment-resources.md#devicebatch) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 

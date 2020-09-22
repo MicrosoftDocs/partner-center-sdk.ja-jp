@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: c5f4554ce511034732c726b3a9d2929345b12121
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 16886b1adca393ed2967f2a4fe74a379bef1c1c7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098226"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927718"
 ---
 # <a name="get-a-list-of-a-customers-policies"></a>顧客のポリシーの一覧を取得する
 
@@ -32,10 +32,10 @@ ms.locfileid: "86098226"
 
 顧客のすべてのポリシーの一覧を取得するには、次のようにします。
 
-1. 顧客 ID を指定して[**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid)メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
+1. 顧客 ID を指定して [**ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) メソッドを呼び出し、指定された顧客の操作に対するインターフェイスを取得します。
 
-2. 構成ポリシーのコレクション操作へのインターフェイスを取得するには、 [**Configurationpolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies)プロパティを取得します。
-3. [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get)または[**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync)メソッドを呼び出して、ポリシーのコレクションを取得します。
+2. 構成ポリシーのコレクション操作へのインターフェイスを取得するには、 [**Configurationpolicies**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) プロパティを取得します。
+3. [**Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get)または[**GetAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync)メソッドを呼び出して、ポリシーのコレクションを取得します。
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ var configPolicies = partnerOperations.Customers.ById(selectedCustomerId).Config
 例については、以下を参照してください。
 
 - サンプル: [コンソール テスト アプリ](console-test-app.md)
-- プロジェクト:**パートナーセンター SDK のサンプル**
+- プロジェクト: **パートナーセンター SDK のサンプル**
 - クラス: **GetAllConfigurationPolicies.cs**
 
 ## <a name="rest-request"></a>REST 要求
@@ -62,7 +62,7 @@ var configPolicies = partnerOperations.Customers.ById(selectedCustomerId).Config
 
 要求の作成時には、次のパスパラメーターを使用します。
 
-| 名前        | Type   | 必須 | 説明                                           |
+| 名前        | 種類   | 必須 | 説明                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | はい      | 顧客を識別する GUID 形式の文字列。 |
 
@@ -89,11 +89,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST 応答
 
-成功した場合、応答本文には[Configurationpolicy](device-deployment-resources.md#configurationpolicy)リソースのコレクションが含まれます。
+成功した場合、応答本文には [Configurationpolicy](device-deployment-resources.md#configurationpolicy) リソースのコレクションが含まれます。
 
 ### <a name="response-success-and-error-codes"></a>応答の成功とエラーのコード
 
-各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「[パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
+各応答には、成功または失敗を示す HTTP ステータス コードと、追加のデバッグ情報が付属しています。 このコード、エラーの種類、追加のパラメーターを読み取るには、ネットワーク トレース ツールを使用します。 完全な一覧については、「 [パートナーセンターの REST エラーコード](error-codes.md)」を参照してください。
 
 ### <a name="response-example"></a>応答の例
 
