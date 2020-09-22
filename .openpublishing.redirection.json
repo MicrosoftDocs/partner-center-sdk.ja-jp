@@ -122,7 +122,7 @@
     },
     {
       "source_path": "develop/referral.md",
-      "redirect_url": "https://docs.microsoft.com/partner/develop/referral-resources",
+      "redirect_url": "/partner/develop/referral-resources",
       "redirect_document_id": false
     },
     {
@@ -162,7 +162,7 @@
     },
     {
       "source_path": "develop/partner-center-managed-api.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/?view=partnercenter-dotnet-latest",
+      "redirect_url": "/en-us/dotnet/api/?view=partnercenter-dotnet-latest",
       "redirect_document_id": false
     },
     {
@@ -182,12 +182,12 @@
     },
     {
       "source_path": "develop/create-a-service-request-.md",
-      "redirect_url": "https://docs.microsoft.com/partner-center/develop/dotnet-release-notes#version-1162",
+      "redirect_url": "/partner-center/develop/dotnet-release-notes#version-1162",
       "redirect_document_id": false
     },
     {
       "source_path": "develop/get-service-request-support-topics--pending-.md",
-      "redirect_url": "https://docs.microsoft.com/partner-center/develop/dotnet-release-notes#version-1162",
+      "redirect_url": "/partner-center/develop/dotnet-release-notes#version-1162",
       "redirect_document_id": false
     }
   ]
