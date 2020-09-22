@@ -4,12 +4,12 @@ description: このセクションでは、クラウドソリューションプ�
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4dd6251841e3e854de66debcf316cec9d0af6b44
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2873ce7a6f2fadcb5428d27dddf13312d938ebec
+ms.sourcegitcommit: 93b16327c09d8b58f3cad766e99af2440adc0ee4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097244"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90846590"
 ---
 # <a name="provide-support"></a>サポートの提供
 
@@ -28,9 +28,8 @@ ms.locfileid: "86097244"
 
 ## <a name="manage-service-requests"></a>サービス リクエストを管理する
 
-- [サービス リクエストのサポート トピックを取得する](get-service-request-support-topics--pending-.md)
 - [顧客のサービス リクエストをすべて取得する](get-all-service-requests-for-a-customer.md)
 - [ID でサービス リクエストの詳細を取得する](get-service-request-details-by-id.md)
 - [サービス リクエストを更新する](update-a-service-request.md)
 
-詳細については、「[シナリオ](scenarios.md)、特に[背景](scenarios.md#background)セクション」を参照してください。
+詳細については、「 [シナリオ](scenarios.md)、特に [背景](scenarios.md#background) セクション」を参照してください。
