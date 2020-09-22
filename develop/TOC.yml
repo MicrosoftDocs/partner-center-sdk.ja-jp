@@ -411,16 +411,12 @@
     - name: サポートの提供
       href: provide-support.md
       items:
-        - name: サービス要求を作成する
-          href: create-a-service-request-.md
         - name: サブスクリプションのサポート連絡先情報を取得する
           href: get-a-subscription-s-support-contact.md
         - name: 顧客のサービス リクエストをすべて取得する
           href: get-all-service-requests-for-a-customer.md
         - name: ID でサービス リクエストの詳細を取得する
           href: get-service-request-details-by-id.md
-        - name: サービス要求のサポート トピックを取得する
-          href: get-service-request-support-topics--pending-.md
         - name: ID を使って顧客の管理サービスを取得する
           href: get-the-managed-services-for-a-customer-by-id.md
         - name: サービス リクエストを更新する
