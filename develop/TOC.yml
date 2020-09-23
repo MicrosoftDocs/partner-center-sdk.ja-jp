@@ -424,16 +424,16 @@
         - name: サブスクリプションのサポート連絡先情報を更新する
           href: update-a-subscription-s-support-contact.md
     - name: 紹介
-      href: 'https://docs.microsoft.com/partner/develop/referrals'
+      href: /partner/develop/referrals
       items:
         - name: 紹介を作成する
-          href: 'https://docs.microsoft.com/partner/develop/create-a-referral'
+          href: /partner/develop/create-a-referral
         - name: 紹介の一覧を取得する
-          href: 'https://docs.microsoft.com/partner/develop/get-a-list-of-referrals'
+          href: /partner/develop/get-a-list-of-referrals
         - name: 紹介を ID ごとに取得する
-          href: 'https://docs.microsoft.com/partner/develop/get-a-referral-by-id'
+          href: /partner/develop/get-a-referral-by-id
         - name: 紹介を更新する
-          href: 'https://docs.microsoft.com/partner/develop/update-a-referral'
+          href: /partner/develop/update-a-referral
     - name: ユーティリティ
       href: utilities.md
       items:
@@ -535,11 +535,11 @@
     - name: パートナー センター Webhook
       href: partner-center-webhooks.md
 - name: パートナー センターのマネージド .NET API リファレンス
-  href: 'https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest'
+  href: /dotnet/api/
   items:
     - name: パートナー センターの .NET API バージョンのリリース ノート
       href: dotnet-release-notes.md
 - name: パートナー センターの Java API リファレンス
-  href: 'https://docs.microsoft.com/java/partnercenter'
+  href: /java/partnercenter
 - name: パートナー センターの PowerShell コマンド
-  href: 'https://docs.microsoft.com/powershell/partnercenter'
+  href: /powershell/partnercenter

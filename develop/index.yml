@@ -11,12 +11,12 @@ metadata:
   author: jasonwhowell
   ms.author: jasonh
   ms.date: 01/08/2020
-  ms.openlocfilehash: e21fded2d7b0219a0cdd1d41a89a910a17a019b6
-  ms.sourcegitcommit: 741cf2288ee4982400f51e7a21b2064d68d97323
+  ms.openlocfilehash: 12c6cba5f489b9ab7c3394629c319a43d2d9163b
+  ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86879317"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "91007671"
 landingContent:
 - title: パートナー センターを使用して開発する
   linkLists:
@@ -47,7 +47,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: マネージド .NET API リファレンス
-      url: https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest
+      url: /dotnet/api/
     - text: .NET SDK バージョンのリリース ノート
       url: dotnet-release-notes.md
 - title: REST API を使用する
@@ -55,7 +55,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: パートナー センター REST API リファレンス
-      url: https://docs.microsoft.com/partner-center/develop/partner-center-rest-api-reference
+      url: partner-center-rest-api-reference.md
 - title: Java SDK (オープンソース) を使用する
   linkLists:
   - linkListType: download
@@ -67,7 +67,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Java API リファレンス
-      url: https://docs.microsoft.com/java/partnercenter/overview
+      url: /java/partnercenter/overview
 - title: PowerShell モジュール (オープン ソース) を使用する
   linkLists:
   - linkListType: download
@@ -79,7 +79,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: PowerShell コマンド
-      url: https://docs.microsoft.com/powershell/partnercenter
+      url: /powershell/partnercenter
 - title: CSP パートナー用の Swagger API を使用する
   linkLists:
   - linkListType: reference
