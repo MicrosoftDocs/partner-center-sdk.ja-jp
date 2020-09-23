@@ -7,12 +7,12 @@ MS-HAID:
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8ba9b639b56333bf4a8c2ebc259a67c89de79cee
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 7882846de0c591b21fe73345f560613f535d1788
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90927332"
+ms.locfileid: "91007700"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Microsoft National クラウドのパートナーセンター向けの開発
 
@@ -58,11 +58,11 @@ ms.locfileid: "90927332"
   - パートナーは、Office 365 管理センターまたは Azure portal を使用して、顧客のユーザーを手動で作成または更新する必要があります。 [Azure Active Directory のドキュメント](/azure/active-directory/)を参照してください。
 
 - Microsoft Cloud ドイツポータルまたは Api のパートナーセンターを使用して、顧客のユーザーのライセンスを管理することはできません。 代わりに、Office 365 管理センターまたは Azure Active (近日対応予定) のライセンス管理を使用してライセンスを管理する必要があります。
-  - (省略可能) Azure AD Graph API を使用できます。 「 [ユーザーにライセンスを追加または削除する](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense)」を参照してください。 Microsoft Cloud ドイツのパートナーセンターでは、ではなく、グラフエンドポイントを使用してください `https://graph.cloudapi.de` `https://graph.windows.net` 。
+  - (省略可能) Azure AD Graph API を使用できます。 「 [ユーザーにライセンスを割り当てる」を](/graph/api/user-assignlicense)参照してください。 Microsoft Cloud ドイツのパートナーセンターでは、ではなく、グラフエンドポイントを使用してください `https://graph.cloudapi.de` `https://graph.windows.net` 。
 
-- 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Office 365 管理センターまたは Azure portal を使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/)」を参照してください。 手順1では、Microsoft Cloud ドイツの Azure portal にサインインする必要があります。
+- 顧客ユーザーまたは完全なパートナーユーザーのパスワードをプログラムによってリセットすることはできません。 Office 365 管理センターまたは Azure portal を使用します。 「 [Azure Active Directory でのユーザーのパスワードのリセット](/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal)」を参照してください。 手順1では、Microsoft Cloud ドイツの Azure portal にサインインする必要があります。
 
-- 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録する必要があります (Microsoft Cloud ドイツ)。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリの詳細を登録](/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)する」を参照してください。
+- 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録する必要があります (Microsoft Cloud ドイツ)。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリの詳細を登録](create-apps-for-partner-center-for-microsoft-national-clouds.md)する」を参照してください。
 
 ## <a name="partner-center-for-microsoft-cloud-for-us-government"></a>米国政府機関向け Microsoft Cloud のパートナー センター
 
@@ -82,4 +82,4 @@ ms.locfileid: "90927332"
 
 - 米国政府向け Microsoft Cloud のパートナーセンターの REST エンドポイントは、パートナーセンターの場合と同じ `https://api.partnercenter.microsoft.com` です。
 
-- 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録して、米国政府向けの Microsoft Cloud を行う必要があります。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリの詳細を登録](/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds)する」を参照してください。
+- 開発者は、パートナーセンターのアプリにパートナーセンターの API/SDK 機能を統合するために、アプリ ID を手動で登録して、米国政府向けの Microsoft Cloud を行う必要があります。 詳細については、「 [Microsoft National Cloud のパートナーセンターのアプリの詳細を登録](create-apps-for-partner-center-for-microsoft-national-clouds.md)する」を参照してください。

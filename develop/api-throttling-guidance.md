@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: b4e9bbc4fbc6624ed1c63a2a25e9ffbf8979db27
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 40c70562f2f6292a7705f79d91e4629d28ac2d7c
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90927442"
+ms.locfileid: "91007679"
 ---
 # <a name="api-throttling-guidance"></a>API 調整のガイダンス 
 
@@ -101,9 +101,9 @@ Date: Tue, 21 Jul 2020 04:10:58 GMT
 
 Operationtype/リソースの一覧については、以下の API ドキュメントを参照してください。  
 
-- [リソースの監査](/partner-center/develop/auditing-resources)  
+- [リソースの監査](auditing-resources.md)  
 
-- [パートナーセンターのアクティビティのレコードをユーザー別に取得する](/partner-center/develop/get-a-record-of-partner-center-activity-by-user)  
+- [パートナーセンターのアクティビティのレコードをユーザー別に取得する](get-a-record-of-partner-center-activity-by-user.md)  
 
 
 
@@ -380,4 +380,3 @@ Connection: Keep-Alive
 ```
  
 
-  

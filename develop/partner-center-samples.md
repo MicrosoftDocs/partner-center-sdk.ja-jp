@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: ec96f6d0655784379446a26d4f360b4bdbece6cd
-ms.sourcegitcommit: 3f00fd6e34fe25427cc8b41bd347f7fb4c6f65be
+ms.openlocfilehash: 2a672826262e73856bffc1eefe85028d4e7cb130
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89597874"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91007640"
 ---
 # <a name="partner-center-samples"></a>パートナー センターのサンプル
 
@@ -62,7 +62,7 @@ ms.locfileid: "89597874"
           <li><p>ブランド化: ロゴと会社名。</p></li>
           <li><p>ウェルカムメッセージ。</p></li>
           <li><p>説明と価格を含むプラン。 このアプリでは、一覧の価格に該当する税金が記載されていることを前提としています。 または、チェックアウト中に税を計算するためのロジックを追加することもできます。</p></li>
-          <li><p>支払い情報: 独自のクレジットカードオプション、PayPal、またはその他の支払いの種類を提供します。 このパートを構成する前に、「 <a href="https://docs.microsoft.com/partner-center/non-payment-fraud-misuse">非支払い、不正行為、誤用</a>」ガイドをお読みください。</p></li>
+          <li><p>支払い情報: 独自のクレジットカードオプション、PayPal、またはその他の支払いの種類を提供します。 このパートを構成する前に、「 <a href="/partner-center/non-payment-fraud-misuse">非支払い、不正行為、誤用</a>」ガイドをお読みください。</p></li>
         </ul>
       </td>
     </tr>

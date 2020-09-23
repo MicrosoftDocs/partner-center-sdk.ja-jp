@@ -4,12 +4,12 @@ description: パートナーのユーザーまたはアプリケーションが�
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7ca3736916f246301ad55f6a551a6849f79b389a
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 8f5795a87db1c4d1a5ca72eb55512aacc57bb949
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90927612"
+ms.locfileid: "91007650"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>パートナー センター アクティビティのレコードを取得する
 
@@ -97,9 +97,9 @@ while (auditRecordEnumerator.HasValue)
 
 | 名前      | 種類   | 必須 | 説明                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate | 日付   | No       | Yyyy-mm-dd 形式の開始日。 何も指定しない場合、結果セットの既定値は、要求日の30日前になります。 フィルターが指定されている場合、このパラメーターは省略可能です。                                          |
-| endDate   | 日付   | No       | Yyyy-mm-dd 形式の終了日。 フィルターが指定されている場合、このパラメーターは省略可能です。 終了日を省略した場合、または null に設定した場合、要求は max ウィンドウを返します。または、今日を終了日として使用します。 |
-| filter    | string | No       | 適用するフィルター。 このパラメーターは、エンコードされた文字列である必要があります。 開始日または終了日が指定されている場合、このパラメーターは省略可能です。                                                                                              |
+| startDate | 日付   | いいえ       | Yyyy-mm-dd 形式の開始日。 何も指定しない場合、結果セットの既定値は、要求日の30日前になります。 フィルターが指定されている場合、このパラメーターは省略可能です。                                          |
+| endDate   | 日付   | いいえ       | Yyyy-mm-dd 形式の終了日。 フィルターが指定されている場合、このパラメーターは省略可能です。 終了日を省略した場合、または null に設定した場合、要求は max ウィンドウを返します。または、今日を終了日として使用します。 |
+| filter    | string | いいえ       | 適用するフィルター。 このパラメーターは、エンコードされた文字列である必要があります。 開始日または終了日が指定されている場合、このパラメーターは省略可能です。                                                                                              |
 
 ### <a name="filter-syntax"></a>フィルターの構文
 フィルターパラメーターは、コンマ区切りの一連のキーと値のペアとして構成する必要があります。 各キーと値は、個別に引用符で囲まれ、コロンで区切られている必要があります。 フィルター全体はエンコードされている必要があります。
@@ -136,7 +136,7 @@ while (auditRecordEnumerator.HasValue)
 <p>例: &quot; 値 &quot; : &quot; bri&quot;</p></li>
 <li><p>customerId-顧客識別子を表す GUID 形式の文字列で置き換えます。</p>
 <p>例: &quot; 値 &quot; : &quot; 0c39d6d5-c70d47 c55-bc02-f62084 4f3fd1&quot;</p></li>
-<li><p>resourceType-監査レコードを取得するリソースの種類 (たとえば、Subscription) で置き換えます。 使用可能なリソースの種類は、 <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>で定義されています。</p>
+<li><p>resourceType-監査レコードを取得するリソースの種類 (たとえば、Subscription) で置き換えます。 使用可能なリソースの種類は、 <a href="/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>ResourceType</strong></a>で定義されています。</p>
 <p>例: &quot; 値 &quot; : &quot; Subscription&quot;</p></li>
 </ul></td>
 </tr>
